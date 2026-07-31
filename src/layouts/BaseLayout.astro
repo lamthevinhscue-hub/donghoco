@@ -1,0 +1,60 @@
+---
+// =============================================================================
+// BASE LAYOUT (Bộ khung chung của mọi trang)
+// =============================================================================
+// Mọi trang trên website đều được bao bọc bởi bộ khung này. Nó chứa:
+//   - Phần <head>: thông tin kỹ thuật, font chữ, tiêu đề trang
+//   - Thanh menu (Header)
+//   - Nội dung riêng của từng trang (nằm ở <slot />)
+//   - Chân trang (Footer)
+// =============================================================================
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, t } from '../i18n/ui';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;        // Tiêu đề trang (hiện trên tab trình duyệt)
+  description?: string;  // Mô tả ngắn (dùng cho SEO & chia sẻ mạng xã hội)
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const {
+  title,
+  description = tr.siteTagline,
+} = Astro.props;
+
+// Tiêu đề đầy đủ hiển thị trên tab trình duyệt
+const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${tr.siteTagline}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Ngôn ngữ nội dung -->
+    <meta name="language" content={lang} />
+
+    <!-- Tải font từ Google Fonts: Playfair Display (tiêu đề) + Inter (nội dung) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

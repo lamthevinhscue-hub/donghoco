@@ -1,0 +1,65 @@
+---
+// =============================================================================
+// ARTICLE LAYOUT (Bộ khung cho bài viết chi tiết)
+// =============================================================================
+// Dùng cho trang chi tiết của: mẫu iconic, thương hiệu, cơ chế, hướng dẫn...
+// Hiển thị tiêu đề lớn, thông tin phụ, ảnh bìa, rồi đến nội dung Markdown.
+// =============================================================================
+
+import BaseLayout from './BaseLayout.astro';
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  excerpt?: string;
+  date?: string;
+  cover_image?: string;
+  /** Đường dẫn về trang danh sách (không tính tiền tố ngôn ngữ) */
+  backHref?: string;
+  /** Thông tin phụ hiển thị ngay dưới tiêu đề */
+  meta?: string;
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const { title, excerpt, date, cover_image, backHref, meta } = Astro.props;
+
+// Định dạng ngày thân thiện với tiếng Việt
+const formattedDate = date
+  ? new Date(date).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' })
+  : null;
+---
+
+<BaseLayout title={title} description={excerpt}>
+  <article class="mx-auto max-w-3xl px-4 py-12">
+    {backHref && (
+      <a href={localizedPath(backHref, lang)} class="mb-8 inline-block text-sm text-ink-soft transition-colors hover:text-brass">
+        {tr.back_to_list}
+      </a>
+    )}
+
+    <header class="mb-8">
+      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl">{title}</h1>
+
+      {(meta || formattedDate) && (
+        <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/70">
+          {[meta, formattedDate].filter(Boolean).join(' • ')}
+        </p>
+      )}
+
+      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft">{excerpt}</p>}
+    </header>
+
+    {cover_image && (
+      <figure class="mb-10 overflow-hidden rounded-lg">
+        <img src={cover_image} alt={title} class="w-full" loading="eager" />
+      </figure>
+    )}
+
+    <!-- Nội dung Markdown được chèn vào đây -->
+    <div class="prose-content text-ink">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

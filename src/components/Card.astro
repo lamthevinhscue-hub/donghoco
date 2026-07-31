@@ -1,0 +1,65 @@
+---
+// =============================================================================
+// CARD (Thẻ bài viết)
+// =============================================================================
+// Dùng để hiển thị một bài viết / thương hiệu / mẫu iconic ở dạng thẻ tóm tắt
+// trong các trang danh sách. Bạn không cần sửa tệp này.
+// =============================================================================
+
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+interface Props {
+  href: string;          // Đường dẫn gốc (chưa có tiền tố ngôn ngữ), ví dụ: "/thuong-hieu/rolex"
+  title: string;
+  excerpt: string;
+  image?: string;
+  meta?: string;         // Thông tin phụ (ví dụ: "Rolex • 1905")
+  badge?: string;        // Nhãn nhỏ ở góc (ví dụ: "Thụy Sĩ")
+  logo?: string;         // Logo nhỏ bên cạnh tiêu đề (cho thương hiệu)
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const { href, title, excerpt, image, meta, badge, logo } = Astro.props;
+const fullHref = localizedPath(href, lang);
+---
+
+<article class="group flex flex-col overflow-hidden rounded-lg border border-cream-dark bg-white transition-shadow hover:shadow-lg">
+  {image && (
+    <a href={fullHref} class="block aspect-[16/10] overflow-hidden bg-cream-dark">
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </a>
+  )}
+
+  <div class="flex flex-1 flex-col p-5">
+    {badge && (
+      <span class="mb-2 inline-block w-fit rounded-full bg-brass/10 px-2.5 py-0.5 text-xs font-medium text-brass">
+        {badge}
+      </span>
+    )}
+
+    <h3 class="mb-2 flex items-center gap-2 font-serif text-lg text-navy">
+      {logo && (
+        <img src={logo} alt={`${title} logo`} loading="lazy" class="h-6 w-6 shrink-0 object-contain" />
+      )}
+      <a href={fullHref} class="transition-colors hover:text-brass">{title}</a>
+    </h3>
+
+    {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70">{meta}</p>}
+
+    <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft">{excerpt}</p>
+
+    <a
+      href={fullHref}
+      class="text-sm font-medium text-brass transition-colors hover:text-navy"
+    >
+      {tr.read_more} →
+    </a>
+  </div>
+</article>

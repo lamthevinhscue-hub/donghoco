@@ -1,0 +1,425 @@
+---
+// =============================================================================
+// INFOGRAPHIC: CHỐNG NƯỚC (Water Resistance)
+// =============================================================================
+// Đây là một infographic động — thiết kế và lập trình riêng (không dùng mẫu).
+// Phần kỹ thuật: SVG vẽ tay + hoạt ảnh theo cuộn trang (GSAP ScrollTrigger).
+//
+// Cấu trúc 5 cảnh:
+//   1. Mở đầu — câu hỏi gây tò mò
+//   2. Vỏ đồng hồ cắt侧面 — các lớp chống nước
+//   3. Vòng kín — nguyên lý test áp suất
+//   4. Thang mức độ — 30m→1000m với hoạt động tương ứng
+//   5. Hiểu lầm nguy hiểm — đính chính sai lầm phổ biến
+//
+// Người dùng (bạn) KHÔNG cần sửa phần kỹ thuật này. Nếu muốn đổi nội dung chữ,
+// hãy sửa trong tệp Markdown /co-che/chong-nuoc.md (phần chữ đi kèm bên dưới).
+// =============================================================================
+
+// Dữ liệu các mức độ chống nước (có thể chỉnh sửa tại đây)
+const levels = [
+  {
+    depth: '30m / 3 ATM',
+    label: 'Chống nước cơ bản',
+    activities: ['Rửa tay', 'Mưa nhẹ'],
+    danger: 'Không tắm, không bơi',
+    color: '#B8E0D2',
+    height: 8,
+  },
+  {
+    depth: '50m / 5 ATM',
+    label: 'Chống nước nông',
+    activities: ['Bơi nông', 'Rửa tay', 'Tắm vòi sen'],
+    danger: 'Không lặn, không nhảy nước',
+    color: '#7FC8A9',
+    height: 14,
+  },
+  {
+    depth: '100m / 10 ATM',
+    label: 'Bơi lội thoải mái',
+    activities: ['Bơi hồ bơi', 'Lặn nông (snorkeling)'],
+    danger: 'Không lặn bình khí',
+    color: '#4FB286',
+    height: 24,
+  },
+  {
+    depth: '200m / 20 ATM',
+    label: 'Thể thao nước',
+    activities: ['Lặn nông', 'Thể thao nước', 'Jet ski'],
+    danger: 'Đủ cho phần lớn nhu cầu',
+    color: '#2D9D6C',
+    height: 42,
+  },
+  {
+    depth: '300m / 30 ATM',
+    label: 'Đồng hồ lặn',
+    activities: ['Lặn bình khí (scuba)', 'Tất cả thể thao nước'],
+    danger: 'Tiêu chuẩn đồng hồ lặn chuyên nghiệp',
+    color: '#1A7A55',
+    height: 60,
+  },
+  {
+    depth: '1000m+',
+    label: 'Lặn sâu chuyên nghiệp',
+    activities: ['Lặn sâu', 'Helmét lặn', 'Diver chuyên nghiệp'],
+    danger: 'Rolex Deepsea, Omega Ploprof',
+    color: '#0D4D33',
+    height: 95,
+  },
+];
+
+// Các hiểu lầm nguy hiểm cần đính chính
+const myths = [
+  {
+    myth: '50m là bơi được rồi',
+    truth: '50m (5 ATM) CHỈ bơi nông nhẹ — không lặn, không nhảy nước. Áp suất khi nhảy/tắm vòi xa hơn mức đo.',
+  },
+  {
+    myth: 'Đồng hồ chống nước là đeo tắm được',
+    truth: 'Xà phòng, dầu tắm làm giảm gioăng cao su → nước lọt vào dần. Tốt nhất tháo ra khi tắm.',
+  },
+  {
+    myth: 'Đã mua là chống nước mãi',
+    truth: 'Gioăng cao su già/heo theo thời gian (3–5 năm). Cần test áp suất định kỳ khi service.',
+  },
+  {
+    myth: 'Chống nước = chống hơi nước',
+    truth: 'Hơi nước (sauna, phòng tắm nóng) lọt qua gioăng dễ hơn nước lỏng. Đừng đeo vào sauna.',
+  },
+];
+---
+
+<section class="infographic my-12" data-infographic="water-resistance">
+  <!-- ====================================================================
+       CẢNH 1: MỞ ĐẦU — câu hỏi gây tò mò
+       ==================================================================== -->
+  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+    <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
+    <h2 class="font-serif text-3xl sm:text-5xl">"50m" — có thật sự bơi được không?</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
+      Cuộn xuống để khám phá cách đồng hồ cơ chống nước thực sự hoạt động —
+      và vì sao con số trên mặt số lại nói dối bạn.
+    </p>
+    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 2: VỎ ĐỒNG HỒ CẮT MẶT BÊN — các lớp chống nước
+       ==================================================================== -->
+  <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
+    <div class="svg-container" data-svg="case">
+      <!-- SVG vỏ đồng hồ cắt侧面 với các lớp chống nước -->
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
+        <!-- Nước bên ngoài (lớp màu xanh) -->
+        <rect x="0" y="0" width="400" height="300" fill="#E8F4F8" opacity="0" data-anim="water-bg"/>
+
+        <!-- Vỏ đồng hồ (case) - cắt mặt bên -->
+        <!-- Lớp vỏ thép -->
+        <path d="M 80 80 L 80 220 L 320 220 L 320 80 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+        <!-- Khoang trong (rỗng) -->
+        <rect x="100" y="100" width="200" height="100" fill="#FAF7F2"/>
+        <!-- Movement (đơn giản) -->
+        <circle cx="200" cy="150" r="30" fill="#B8893C" opacity="0.3" data-anim="movement"/>
+        <text x="200" y="155" text-anchor="middle" font-size="10" fill="#4A5568">Máy</text>
+
+        <!-- Kính (crystal) - trên cùng -->
+        <rect x="100" y="80" width="200" height="20" fill="#90CDF4" opacity="0.7" stroke="#4299E1" stroke-width="1.5" data-anim="crystal"/>
+        <!-- Gioăng kính (gasket) -->
+        <rect x="100" y="78" width="200" height="4" fill="#48BB78" data-anim="gasket-crystal"/>
+
+        <!-- Núm vặn (crown) - bên phải -->
+        <rect x="320" y="140" width="30" height="20" rx="4" fill="#4A5568" stroke="#2D3748" stroke-width="2" data-anim="crown"/>
+        <!-- Gioăng núm vặn -->
+        <circle cx="325" cy="150" r="6" fill="#48BB78" opacity="0" data-anim="gasket-crown"/>
+
+        <!-- Nút bấm chronograph (nếu có) - bên phải trên -->
+        <rect x="320" y="105" width="20" height="12" rx="3" fill="#4A5568" stroke="#2D3748" stroke-width="1.5" data-anim="pusher"/>
+        <circle cx="328" cy="111" r="3" fill="#48BB78" opacity="0" data-anim="gasket-pusher"/>
+
+        <!-- Nắp lưng (caseback) - dưới -->
+        <rect x="100" y="200" width="200" height="20" fill="#4A5568" stroke="#2D3748" stroke-width="2" data-anim="caseback"/>
+        <rect x="100" y="218" width="200" height="4" fill="#48BB78" data-anim="gasket-caseback"/>
+
+        <!-- Chú thích (sẽ hiện khi scroll) -->
+        <g data-anim="label-crystal" opacity="0">
+          <line x1="200" y1="90" x2="200" y2="40" stroke="#B8893C" stroke-width="1.5"/>
+          <circle cx="200" cy="40" r="3" fill="#B8893C"/>
+          <text x="200" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Kính + gioăng</text>
+        </g>
+        <g data-anim="label-crown" opacity="0">
+          <line x1="335" y1="150" x2="370" y2="150" stroke="#B8893C" stroke-width="1.5"/>
+          <circle cx="370" cy="150" r="3" fill="#B8893C"/>
+          <text x="375" y="154" font-size="11" fill="#1F2D3D" font-weight="bold">Núm vặn + gioăng</text>
+        </g>
+        <g data-anim="label-caseback" opacity="0">
+          <line x1="200" y1="210" x2="200" y2="265" stroke="#B8893C" stroke-width="1.5"/>
+          <circle cx="200" cy="265" r="3" fill="#B8893C"/>
+          <text x="200" y="282" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Nắp lưng + gioăng</text>
+        </g>
+      </svg>
+    </div>
+    <div class="space-y-4">
+      <h3 class="font-serif text-2xl text-navy">5 điểm "thủng" nước</h3>
+      <p class="text-ink-soft">
+        Để chống nước, đồng hồ phải <strong>niêm phong 5 điểm</strong> —
+        bất kỳ điểm nào hở đều nước tràn vào hỏng máy.
+      </p>
+      <ul class="space-y-3 text-sm">
+        <li class="flex gap-3" data-fact="1">
+          <span class="text-brass font-bold">①</span>
+          <span><strong>Kính (crystal)</strong> + gioăng — lớp trong suốt nhìn thấy mặt số.</span>
+        </li>
+        <li class="flex gap-3" data-fact="2">
+          <span class="text-brass font-bold">②</span>
+          <span><strong>Núm vặn (crown)</strong> + gioăng — điểm hở lớn nhất, quan trọng nhất.</span>
+        </li>
+        <li class="flex gap-3" data-fact="3">
+          <span class="text-brass font-bold">③</span>
+          <span><strong>Nắp lưng (caseback)</strong> + gioăng — đóng kín phía sau.</span>
+        </li>
+        <li class="flex gap-3" data-fact="4">
+          <span class="text-brass font-bold">④</span>
+          <span><strong>Nút bấm (pushers)</strong> — nếu là chronograph.</span>
+        </li>
+        <li class="flex gap-3" data-fact="5">
+          <span class="text-brass font-bold">⑤</span>
+          <span><strong>Bezel / các ốc vặn</strong> — điểm niêm phong phụ.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 3: VÒNG KÍN — nguyên lý test áp suất
+       ==================================================================== -->
+  <div class="scene mt-24 rounded-2xl border border-cream-dark bg-cream-dark/30 p-8 sm:p-12">
+    <div class="mx-auto max-w-3xl text-center">
+      <h3 class="mb-8 font-serif text-2xl text-navy sm:text-3xl">
+        Nguyên lý: "Vòng kín" + test áp suất
+      </h3>
+      <div class="svg-container" data-svg="pressure">
+        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl">
+          <!-- Đồng hồ ở giữa -->
+          <circle cx="250" cy="100" r="50" fill="#4A5568" stroke="#2D3748" stroke-width="3"/>
+          <circle cx="250" cy="100" r="35" fill="#FAF7F2"/>
+          <circle cx="250" cy="100" r="35" fill="none" stroke="#48BB78" stroke-width="3" data-anim="seal-ring"/>
+
+          <!-- Mũi tên áp suất từ nhiều phía -->
+          <g data-anim="pressure-arrows" opacity="0">
+            <!-- Trên -->
+            <line x1="250" y1="20" x2="250" y2="45" stroke="#3182CE" stroke-width="3"/>
+            <polygon points="250,50 245,42 255,42" fill="#3182CE"/>
+            <text x="250" y="15" text-anchor="middle" font-size="10" fill="#3182CE">10 ATM</text>
+            <!-- Dưới -->
+            <line x1="250" y1="180" x2="250" y2="155" stroke="#3182CE" stroke-width="3"/>
+            <polygon points="250,150 245,158 255,158" fill="#3182CE"/>
+            <text x="250" y="195" text-anchor="middle" font-size="10" fill="#3182CE">10 ATM</text>
+            <!-- Trái -->
+            <line x1="170" y1="100" x2="195" y2="100" stroke="#3182CE" stroke-width="3"/>
+            <polygon points="200,100 192,95 192,105" fill="#3182CE"/>
+            <text x="160" y="104" text-anchor="end" font-size="10" fill="#3182CE">10 ATM</text>
+            <!-- Phải -->
+            <line x1="330" y1="100" x2="305" y2="100" stroke="#3182CE" stroke-width="3"/>
+            <polygon points="300,100 308,95 308,105" fill="#3182CE"/>
+            <text x="340" y="104" font-size="10" fill="#3182CE">10 ATM</text>
+          </g>
+
+          <!-- Bong bóng nước (hiệu ứng) -->
+          <circle cx="250" cy="100" r="35" fill="none" stroke="#3182CE" stroke-width="2" opacity="0" data-anim="water-test"/>
+        </svg>
+      </div>
+      <p class="mx-auto mt-6 max-w-2xl text-ink-soft">
+        Nhà sản xuất đặt đồng hồ vào buồng <strong>ép nước</strong> ở mức áp suất ghi trên vỏ
+        (ví dụ 10 ATM cho "100m"). Nếu <strong>không</strong> có nước lọt vào trong 24 giờ → đạt.
+        Con số "100m" thực ra là <strong>mức test áp suất tĩnh</strong>, <em>không</em> là "bơi được 100m".
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: THANG MỨC ĐỘ — 30m → 1000m
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Thang mức độ chống nước
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Mỗi mức cho phép hoạt động khác nhau. <strong>Đừng chỉ nhìn số mét.</strong>
+    </p>
+
+    <div class="space-y-4">
+      {levels.map((level, i) => (
+        <div
+          class="level-row grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 sm:p-5"
+          data-anim="level"
+          data-index={i}
+        >
+          <!-- Thanh độ sâu (màu nước) -->
+          <div class="col-span-12 sm:col-span-3">
+            <div
+              class="flex h-20 items-end justify-center rounded text-white"
+              style={`background-color: ${level.color}; height: ${level.height * 2}px;`}
+            >
+              <span class="pb-2 text-center text-sm font-bold">{level.depth}</span>
+            </div>
+          </div>
+          <!-- Nhãn -->
+          <div class="col-span-12 sm:col-span-9">
+            <h4 class="font-serif text-lg text-navy">{level.label}</h4>
+            <p class="mt-1 text-sm text-ink-soft">
+              <span class="font-medium text-green-700">✓ {level.activities.join(' · ')}</span>
+            </p>
+            <p class="mt-1 text-xs text-ink-soft/80">
+              <span class="font-medium text-red-600">⚠ {level.danger}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 5: HIỂU LẦM NGUY HIỂM
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      4 hiểu lầm nguy hiểm cần đính chính
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Nhiều người hỏng đồng hồ vì tin những điều này.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {myths.map((myth, i) => (
+        <div
+          class="myth-card rounded-lg border-l-4 border-red-500 bg-red-50/50 p-5"
+          data-anim="myth"
+          data-index={i}
+        >
+          <p class="mb-3 flex items-start gap-2 text-sm">
+            <span class="text-lg text-red-500">✗</span>
+            <span class="font-medium text-red-900 line-through decoration-red-400">{myth.myth}</span>
+          </p>
+          <p class="flex items-start gap-2 text-sm text-ink-soft">
+            <span class="text-lg text-green-600">✓</span>
+            <span>{myth.truth}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Chú thích cuối -->
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
+    <strong class="text-brass">💡 Tóm tắt:</strong>
+    Con số "100m" = test áp suất <em>tĩnh</em> trong buồng lab,
+    <strong>không</strong> = bơi được 100m thực tế.
+    Trừ khi có ghi rõ "DIVER" (theo chuẩn ISO 6425), hãy thận trọng.
+  </div>
+</section>
+
+<style>
+  /* Ảnh SVG responsive */
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* =============================================================================
+     HOẠT ẢNH REVEAL — dùng CSS transition (ổn định, không phụ thuộc thư viện)
+     =============================================================================
+     Trạng thái đầu (ẩn): opacity 0, dịch nhẹ (tạo cảm giác "trượt vào")
+     Trạng thái hiện (.reveal-visible): opacity 1, về vị trí gốc
+     Transition mượt 0.6s. Nếu JS không chạy, fallback sẽ thêm class → vẫn hiện.
+     ============================================================================= */
+  .scene [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  /* Các hàng mức độ trượt từ trái */
+  .scene [data-anim="level"] {
+    transform: translateX(-30px);
+  }
+
+  /* Các thẻ hiểu lầm trượt từ dưới lên */
+  .scene [data-anim="myth"] {
+    transform: translateY(30px);
+  }
+
+  /* Khi đã hiện (class được thêm bởi Intersection Observer / fallback) */
+  .scene [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* Tôn trọng người dùng giảm chuyển động → hiện ngay không animation */
+  @media (prefers-reduced-motion: reduce) {
+    .scene [data-anim] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // =============================================================================
+  // HOẠT ẢNH CUỘN TRANG — dùng Intersection Observer native (KHÔNG cần thư viện)
+  // =============================================================================
+  // Lý do bỏ GSAP: thư viện ngoài có thể không load được trong mọi môi trường.
+  // Intersection Observer là API native của trình duyệt, ổn định và nhẹ.
+  // CSS animation (transition) xử lý chuyển động mượt — chạy ở tầng render,
+  // không bao giờ "không chạy" như JS.
+  // =============================================================================
+
+  function initInfographic() {
+    const root = document.querySelector('[data-infographic="water-resistance"]');
+    if (!root) return;
+
+    const revealTargets = root.querySelectorAll('[data-anim]');
+
+    // Tôn trọng người dùng giảm chuyển động (accessibility) → hiện ngay tất cả
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    // Dùng Intersection Observer: khi phần tử vào viewport → thêm class 'reveal-visible'
+    // CSS sẽ xử lý transition opacity/transform (đã định nghĩa trong <style> ở trên)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            // once: true — ngừng theo dõi sau khi đã hiện
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        // Hiện khi 15% phần tử lọt vào viewport
+        threshold: 0.15,
+        // Hiện hơi sớm trước khi hoàn toàn vào viewport
+        rootMargin: '0px 0px -10% 0px',
+      }
+    );
+
+    // Bắt đầu theo dõi tất cả phần tử cần hiện
+    revealTargets.forEach((el) => observer.observe(el));
+
+    // ---------- FALLBACK AN TOÀN ----------
+    // Dù Intersection Observer có vấn đề, sau 3 giây ép hiện tất cả
+    // → đảm bảo nội dung KHÔNG BAO GIỜ bị kẹt ẩn.
+    setTimeout(() => {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }, 3000);
+  }
+
+  // <script> của Astro là type="module" → tự DEFER (chạy sau khi DOM sẵn sàng).
+  // Gọi ngay, không cần DOMContentLoaded.
+  initInfographic();
+</script>

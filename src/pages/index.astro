@@ -1,0 +1,147 @@
+---
+// =============================================================================
+// TRANG CHỦ
+// =============================================================================
+// Cửa ngõ vào website. Giới thiệu tóm tắt và dẫn tới 3 trụ cột + nội dung nổi bật.
+// =============================================================================
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Card from '../components/Card.astro';
+import { getEntriesByLang, getCollectionRoute, getSlug } from '../lib/content';
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+// Lấy nội dung nổi bật từ các collection (đã lọc theo ngôn ngữ)
+const brands = (await getEntriesByLang('thuongHieu', lang)).slice(0, 3);
+const iconics = (await getEntriesByLang('mauIconic', lang)).slice(0, 3);
+const mechanisms = (await getEntriesByLang('coChe', lang)).slice(0, 3);
+
+// 3 trụ cột
+const pillars = [
+  {
+    title: tr.pillar_brands,
+    desc: tr.pillar_brands_desc,
+    path: '/thuong-hieu',
+    count: (await getEntriesByLang('thuongHieu', lang)).length,
+  },
+  {
+    title: tr.pillar_iconic,
+    desc: tr.pillar_iconic_desc,
+    path: '/mau-iconic',
+    count: (await getEntriesByLang('mauIconic', lang)).length,
+  },
+  {
+    title: tr.pillar_mechanisms,
+    desc: tr.pillar_mechanisms_desc,
+    path: '/co-che',
+    count: (await getEntriesByLang('coChe', lang)).length,
+  },
+];
+---
+
+<BaseLayout>
+  <!-- ===== PHẦN HERO (KHỞI ĐẦU) ===== -->
+  <section class="border-b border-cream-dark bg-gradient-to-b from-cream-dark/40 to-cream">
+    <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:py-28">
+      <div class="mx-auto mb-5 h-1 w-16 rounded bg-brass"></div>
+      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-6xl">
+        {tr.siteName}
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+        {tr.siteTagline}
+      </p>
+      <p class="mx-auto mt-3 max-w-2xl text-sm text-ink-soft/70">
+        {lang === 'vi'
+          ? 'Lịch sử thương hiệu • Câu chuyện các mẫu huyền thoại • Cơ chế hoạt động — giải thích bằng cả chữ và infographic.'
+          : 'Brand history • Stories of iconic watches • How it works — explained with words and infographics.'}
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== PHẦN 3 TRỤ CỘT ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading title={lang === 'vi' ? 'Ba trụ cột nội dung' : 'Three content pillars'} />
+    <div class="grid gap-6 md:grid-cols-3">
+      {pillars.map((p) => (
+        <a
+          href={localizedPath(p.path, lang)}
+          class="group flex flex-col rounded-lg border border-cream-dark bg-white p-6 transition-all hover:border-brass hover:shadow-lg"
+        >
+          <h3 class="mb-2 font-serif text-2xl text-navy">{p.title}</h3>
+          <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft">{p.desc}</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-brass font-medium">{p.count} {lang === 'vi' ? 'bài' : 'articles'}</span>
+            <span class="text-ink-soft transition-transform group-hover:translate-x-1">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== PHẦN MẪU ICONIC NỔI BẬT ===== -->
+  {iconics.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 py-16">
+      <SectionHeading
+        title={tr.featured}
+        subtitle={lang === 'vi' ? 'Những mẫu đồng hồ định hình cả một thể loại.' : 'Watches that defined entire categories.'}
+      />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {iconics.map((entry) => (
+          <Card
+            href={`${getCollectionRoute('mauIconic')}/${getSlug(entry)}`}
+            title={entry.data.title}
+            excerpt={entry.data.excerpt}
+            meta={entry.data.brand}
+            badge={entry.data.year ? String(entry.data.year) : undefined}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ===== PHẦN THƯƠNG HIỆU ===== -->
+  {brands.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 py-16">
+      <SectionHeading
+        title={tr.pillar_brands}
+        subtitle={tr.pillar_brands_desc}
+      />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {brands.map((entry) => (
+          <Card
+            href={`${getCollectionRoute('thuongHieu')}/${getSlug(entry)}`}
+            title={entry.data.title}
+            excerpt={entry.data.excerpt}
+            meta={entry.data.country}
+            badge={entry.data.tier}
+            logo={entry.data.logo}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ===== PHẦN CƠ CHẾ ===== -->
+  {mechanisms.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 py-16">
+      <SectionHeading
+        title={tr.pillar_mechanisms}
+        subtitle={tr.pillar_mechanisms_desc}
+      />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {mechanisms.map((entry) => (
+          <Card
+            href={`${getCollectionRoute('coChe')}/${getSlug(entry)}`}
+            title={entry.data.title}
+            excerpt={entry.data.excerpt}
+            meta={entry.data.category}
+            badge={entry.data.difficulty}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

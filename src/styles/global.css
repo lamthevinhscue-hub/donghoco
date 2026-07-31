@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+   TOÀN BỘ STYLE DÙNG CHUNG CHO WEBSITE
+   =============================================================================
+   Phần lớn giao diện được tạo bằng Tailwind (các lớp tiện ích viết trực tiếp trong
+   tệp .astro). Tệp này chỉ chứa những thiết lập cơ bản khó làm qua Tailwind.
+   ============================================================================= */
+
+@layer base {
+  /* Thiết lập font chữ mặc định cho toàn trang */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    /* Kích thước chữ cơ bản - dễ điều chỉnh */
+    font-size: 17px;
+    line-height: 1.7;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Màu chữ và nền mặc định */
+  body {
+    color: theme('colors.ink');
+    background-color: theme('colors.cream');
+  }
+
+  /* Tiêu đề dùng font serif (có chân) cho cảm giác sang trọng */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: theme('colors.navy');
+  }
+
+  /* Liên kết */
+  a {
+    color: theme('colors.brass');
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: theme('colors.navy');
+  }
+
+  /* Bôi đen chữ (selection) */
+  ::selection {
+    background-color: theme('colors.brass');
+    color: white;
+  }
+}
+
+/* Tối ưu hình ảnh trong bài viết: không bao giờ tràn lề */
+@layer components {
+  .prose-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  /* Bao bọc nội dung bài viết - áp dụng kiểu chữ đẹp cho Markdown */
+  .prose-content {
+    max-width: theme('maxWidth.prose');
+  }
+  .prose-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+  .prose-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+  }
+  .prose-content p {
+    margin-bottom: 1.25rem;
+  }
+  .prose-content ul, .prose-content ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .prose-content li {
+    margin-bottom: 0.5rem;
+  }
+  .prose-content blockquote {
+    border-left: 3px solid theme('colors.brass');
+    padding-left: 1rem;
+    font-style: italic;
+    color: theme('colors.ink-soft');
+    margin: 1.5rem 0;
+  }
+}

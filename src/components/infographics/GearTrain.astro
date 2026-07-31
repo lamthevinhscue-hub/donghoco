@@ -1,0 +1,329 @@
+---
+// =============================================================================
+// INFOGRAPHIC: CHUỖI TRUYỀN ĐỘNG (Gear Train / Power Flow)
+// =============================================================================
+// Hoạt ảnh: CSS transition + Intersection Observer (native).
+//
+// 4 cảnh:
+//   1. Mở đầu — dòng chảy năng lượng
+//   2. 4 trạm trên dòng chảy — SVG dây cót → bánh răng → bộ thoát → bánh lắc
+//   3. Bánh lắc & tần số — vì sao "tích tắc"
+//   4. Tóm tắt — dòng chảy tới kim đồng hồ
+// =============================================================================
+
+// 4 trạm trên dòng chảy năng lượng
+const stations = [
+  {
+    num: '①',
+    name: 'Dây cót',
+    nameEn: 'Mainspring',
+    role: 'Nguồn năng lượng',
+    detail: 'Dải thép cuộn trong thùng cót. Lên dây = tích năng lượng. Nhả = giải phóng.',
+    color: '#B8893C',
+    icon: '🌀',
+  },
+  {
+    num: '②',
+    name: 'Bộ bánh răng',
+    nameEn: 'Gear Train',
+    role: 'Truyền + giảm tốc',
+    detail: 'Chuỗi bánh răng lớn→nhỏ, truyền năng lượng tới bộ thoát và lái các kim.',
+    color: '#4FB286',
+    icon: '⚙️',
+  },
+  {
+    num: '③',
+    name: 'Bộ thoát',
+    nameEn: 'Escapement',
+    role: 'Chia năng lượng thành nhịp',
+    detail: 'Ngăn dây cót nhả hết một lần. Chia năng lượng thành các "nhịp" nhỏ, từng chút một.',
+    color: '#2E86AB',
+    icon: '⏱️',
+  },
+  {
+    num: '④',
+    name: 'Bánh lắc',
+    nameEn: 'Balance Wheel',
+    role: 'Gác nhịp',
+    detail: 'Dao động qua lại như con lắc. Mỗi nhịp, bộ thoát nhả đúng một chút năng lượng.',
+    color: '#9B2C2C',
+    icon: '🎡',
+  },
+];
+---
+
+<section class="infographic my-12" data-infographic="gear-train">
+  <!-- ====================================================================
+       CẢNH 1: MỞ ĐẦU
+       ==================================================================== -->
+  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+    <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
+    <h2 class="font-serif text-3xl sm:text-5xl">Năng lượng chảy thế nào trong đồng hồ cơ?</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
+      Từ cổ tay bạn tới kim đồng hồ — có một dòng chảy qua <strong class="text-brass-light">4 trạm</strong>.
+      Hiểu dòng chảy này là chìa khóa hiểu mọi cơ chế phức tạp hơn.
+    </p>
+    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 2: 4 TRẠM TRÊN DÒNG CHẢY — SVG sơ đồ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      4 trạm trên dòng chảy năng lượng
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Hãy xem mỗi trạm là một điểm dừng — năng lượng đi qua lần lượt.
+    </p>
+
+    <div class="svg-container mb-12">
+      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl">
+        <!-- Đường dẫn dòng chảy (mũi tên nối) -->
+        <g data-anim="flow-path" opacity="0">
+          <line x1="130" y1="100" x2="260" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
+          <polygon points="265,100 255,94 255,106" fill="#B8893C"/>
+          <line x1="340" y1="100" x2="470" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
+          <polygon points="475,100 465,94 465,106" fill="#B8893C"/>
+          <line x1="550" y1="100" x2="680" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
+          <polygon points="685,100 675,94 675,106" fill="#B8893C"/>
+        </g>
+
+        <!-- Trạm 1: Dây cót (thùng cót) -->
+        <g data-anim="station-1" opacity="0">
+          <circle cx="90" cy="100" r="40" fill="#FAF7F2" stroke="#B8893C" stroke-width="3"/>
+          <!-- Xoắn ốc dây cót -->
+          <path d="M 90 70 a 30 30 0 1 1 -0.1 0 m 0 6 a 24 24 0 1 0 0.1 0 m 0 6 a 18 18 0 1 1 -0.1 0"
+                fill="none" stroke="#B8893C" stroke-width="3"/>
+          <circle cx="90" cy="100" r="4" fill="#B8893C"/>
+          <text x="90" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Dây cót</text>
+        </g>
+
+        <!-- Trạm 2: Bánh răng -->
+        <g data-anim="station-2" opacity="0">
+          <circle cx="300" cy="100" r="40" fill="#FAF7F2" stroke="#4FB286" stroke-width="3"/>
+          <!-- Răng bánh răng -->
+          <g stroke="#4FB286" stroke-width="2">
+            <line x1="300" y1="60" x2="300" y2="68"/>
+            <line x1="340" y1="100" x2="332" y2="100"/>
+            <line x1="300" y1="140" x2="300" y2="132"/>
+            <line x1="260" y1="100" x2="268" y2="100"/>
+            <line x1="328" y1="72" x2="322" y2="78"/>
+            <line x1="328" y1="128" x2="322" y2="122"/>
+            <line x1="272" y1="128" x2="278" y2="122"/>
+            <line x1="272" y1="72" x2="278" y2="78"/>
+          </g>
+          <circle cx="300" cy="100" r="18" fill="none" stroke="#4FB286" stroke-width="2"/>
+          <circle cx="300" cy="100" r="4" fill="#4FB286"/>
+          <text x="300" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bánh răng</text>
+        </g>
+
+        <!-- Trạm 3: Bộ thoát -->
+        <g data-anim="station-3" opacity="0">
+          <circle cx="510" cy="100" r="40" fill="#FAF7F2" stroke="#2E86AB" stroke-width="3"/>
+          <!-- Neo + bánh thoát -->
+          <path d="M 495 80 L 500 95 L 490 95 Z" fill="#2E86AB"/>
+          <path d="M 525 120 L 520 105 L 530 105 Z" fill="#2E86AB"/>
+          <circle cx="510" cy="100" r="10" fill="none" stroke="#2E86AB" stroke-width="2"/>
+          <text x="510" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bộ thoát</text>
+        </g>
+
+        <!-- Trạm 4: Bánh lắc -->
+        <g data-anim="station-4" opacity="0">
+          <circle cx="720" cy="100" r="40" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="3"/>
+          <!-- Bánh lắc với 3 chân -->
+          <circle cx="720" cy="100" r="28" fill="none" stroke="#9B2C2C" stroke-width="2"/>
+          <line x1="720" y1="72" x2="720" y2="128" stroke="#9B2C2C" stroke-width="2"/>
+          <line x1="694" y1="85" x2="746" y2="115" stroke="#9B2C2C" stroke-width="2"/>
+          <line x1="694" y1="115" x2="746" y2="85" stroke="#9B2C2C" stroke-width="2"/>
+          <circle cx="720" cy="100" r="4" fill="#9B2C2C"/>
+          <!-- Mũi tên cong dao động -->
+          <path d="M 690 100 Q 720 75 750 100" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <text x="720" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bánh lắc</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Mô tả từng trạm -->
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {stations.map((station, i) => (
+        <div
+          class="rounded-lg border-t-4 bg-white p-5 shadow-sm"
+          style={`border-top-color: ${station.color};`}
+          data-anim="station-card"
+          data-index={i}
+        >
+          <div class="mb-2 flex items-center gap-2">
+            <span class="text-2xl">{station.icon}</span>
+            <span class="text-xl font-bold" style={`color: ${station.color};`}>{station.num}</span>
+          </div>
+          <h4 class="font-serif text-lg text-navy">{station.name}</h4>
+          <p class="text-xs uppercase tracking-wide text-ink-soft/60">{station.nameEn}</p>
+          <p class="mt-2 text-xs font-medium" style={`color: ${station.color};`}>{station.role}</p>
+          <p class="mt-2 text-sm text-ink-soft">{station.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 3: BÁNH LẮC & TẦN SỐ
+       ==================================================================== -->
+  <div class="scene mt-24 rounded-2xl border border-cream-dark bg-cream-dark/30 p-8 sm:p-12">
+    <div class="mx-auto max-w-3xl text-center">
+      <h3 class="mb-4 font-serif text-2xl text-navy sm:text-3xl">
+        Vì sao đồng hồ "tích tắc"?
+      </h3>
+      <p class="mb-8 text-ink-soft">
+        Bánh lắc dao động qua lại — mỗi lần qua lại, bộ thoát nhả đúng <strong>1 nhịp năng lượng</strong>,
+        phát ra tiếng "tích" hoặc "tắc". <strong>Tốc độ dao động</strong> quyết định độ chính xác.
+      </p>
+
+      <div class="svg-container mb-6">
+        <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg">
+          <!-- Bánh lắc ở giữa dao động -->
+          <g data-anim="balance-oscillate" opacity="0">
+            <!-- Quỹ đạo dao động -->
+            <path d="M 130 90 A 70 70 0 0 1 270 90" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+            <!-- Bánh lắc (vẽ 2 vị trí mờ) -->
+            <circle cx="150" cy="90" r="18" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
+            <circle cx="250" cy="90" r="18" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
+            <!-- Bánh lắc vị trí giữa -->
+            <circle cx="200" cy="90" r="18" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2.5"/>
+            <line x1="200" y1="72" x2="200" y2="108" stroke="#9B2C2C" stroke-width="2"/>
+            <line x1="182" y1="78" x2="218" y2="102" stroke="#9B2C2C" stroke-width="2"/>
+            <line x1="182" y1="102" x2="218" y2="78" stroke="#9B2C2C" stroke-width="2"/>
+            <circle cx="200" cy="90" r="3" fill="#9B2C2C"/>
+            <!-- Mũi tên 2 chiều -->
+            <text x="160" y="50" font-size="20" fill="#9B2C2C">←</text>
+            <text x="230" y="50" font-size="20" fill="#9B2C2C">→</text>
+          </g>
+          <text x="200" y="115" text-anchor="middle" font-size="10" fill="#1F2D3D">Dao động qua lại liên tục</text>
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div class="rounded-lg bg-white p-3" data-anim="freq-card">
+          <p class="text-sm font-bold text-navy">18.000 vph</p>
+          <p class="text-xs text-ink-soft">Cổ điển</p>
+        </div>
+        <div class="rounded-lg bg-white p-3" data-anim="freq-card">
+          <p class="text-sm font-bold text-navy">21.600 vph</p>
+          <p class="text-xs text-ink-soft">Tầm trung</p>
+        </div>
+        <div class="rounded-lg bg-brass/10 p-3 ring-1 ring-brass" data-anim="freq-card">
+          <p class="text-sm font-bold text-brass">28.800 vph</p>
+          <p class="text-xs text-ink-soft">Cao cấp (tiêu chuẩn)</p>
+        </div>
+        <div class="rounded-lg bg-white p-3" data-anim="freq-card">
+          <p class="text-sm font-bold text-navy">36.000 vph</p>
+          <p class="text-xs text-ink-soft">Rất cao (Zenith)</p>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-ink-soft/70">
+        vph = số lần dao động mỗi giờ. Càng cao → kim giây càng mượt, đồng hồ càng chính xác.
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: TÓM TẮT DÒNG CHẢY TỚI KIM
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Dòng chảy tới kim đồng hồ
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Nhớ dòng chảy này — nó là nền của mọi cơ chế phức tạp hơn (chronograph, tourbillon...).
+    </p>
+
+    <div class="mx-auto max-w-3xl" data-anim="flow-summary">
+      <div class="flex flex-wrap items-center justify-center gap-2 rounded-lg border border-cream-dark bg-white p-6 text-center text-sm font-medium">
+        <span class="rounded-full bg-brass/15 px-3 py-2 text-brass">Dây cót</span>
+        <span class="text-2xl text-ink-soft/40">→</span>
+        <span class="rounded-full bg-[#4FB286]/15 px-3 py-2 text-[#2D7A55]">Bánh răng</span>
+        <span class="text-2xl text-ink-soft/40">→</span>
+        <span class="rounded-full bg-[#2E86AB]/15 px-3 py-2 text-[#1F6E8C]">Bộ thoát</span>
+        <span class="text-2xl text-ink-soft/40">→</span>
+        <span class="rounded-full bg-[#9B2C2C]/15 px-3 py-2 text-[#9B2C2C]">Bánh lắc</span>
+        <span class="text-2xl text-ink-soft/40">→</span>
+        <span class="rounded-full bg-navy px-3 py-2 text-cream">Kim đồng hồ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chú thích cuối -->
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
+    <strong class="text-brass">💡 Tóm tắt:</strong>
+    <strong>Dây cót</strong> (năng lượng) → <strong>Bánh răng</strong> (truyền + giảm tốc) →
+    <strong>Bộ thoát</strong> (chia nhịp) → <strong>Bánh lắc</strong> (gác nhịp) → <strong>Kim</strong>.
+    Hiểu dòng chảy này = hiểu được mọi cơ chế phức tạp hơn.
+  </div>
+</section>
+
+<style>
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .scene [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .scene [data-anim="station-card"],
+  .scene [data-anim="freq-card"] {
+    transform: translateY(30px);
+  }
+
+  .scene [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene [data-anim] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initInfographic() {
+    const root = document.querySelector('[data-infographic="gear-train"]');
+    if (!root) return;
+
+    const revealTargets = root.querySelectorAll('[data-anim]');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+
+    setTimeout(() => {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }, 3000);
+  }
+
+  initInfographic();
+</script>

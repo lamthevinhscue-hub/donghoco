@@ -1,0 +1,105 @@
+---
+// =============================================================================
+// INFOGRAPHIC TỪ ĐIỂN: INCABLOC (Hệ thống chống sốc)
+// SVG lò xo lyre + trục bánh lắc. Minh họa cách hấp thụ sốc.
+// =============================================================================
+const points = [
+  { num: '①', title: 'Trục bánh lắc cực mỏng', detail: 'Chỉ ~0,1mm — mỏng hơn sợi tóc, dễ gãy khi va đập.' },
+  { num: '②', title: 'Lò xo Incabloc (lyre-shaped)', detail: 'Gắn ở 2 đầu trục, hấp thụ năng lượng sốc.' },
+  { num: '③', title: 'Sau sốc → đẩy về chỗ cũ', detail: 'Lò xo đẩy trục về vị trí ban đầu, không hỏng.' },
+];
+---
+
+<section class="my-8" data-infographic="glossary-incabloc">
+  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
+    <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
+      <text x="160" y="25" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="title" opacity="0">
+        Incabloc bảo vệ trục bánh lắc
+      </text>
+      <!-- Khung Incabloc trên -->
+      <g data-anim="top-jewel" opacity="0">
+        <path d="M 130 55 Q 160 40 190 55 L 190 75 L 130 75 Z" fill="#B8893C" opacity="0.3"/>
+        <path d="M 135 58 Q 160 48 185 58" fill="none" stroke="#B8893C" stroke-width="2"/>
+        <circle cx="160" cy="68" r="6" fill="#FAF7F2" stroke="#B8893C" stroke-width="1.5"/>
+      </g>
+      <!-- Trục bánh lắc (cực mỏng) -->
+      <g data-anim="pivot" opacity="0">
+        <line x1="160" y1="75" x2="160" y2="125" stroke="#9B2C2C" stroke-width="2"/>
+        <text x="180" y="105" font-size="9" fill="#9B2C2C" font-weight="bold">Trục ~0,1mm</text>
+      </g>
+      <!-- Bánh lắc -->
+      <g data-anim="balance" opacity="0">
+        <circle cx="160" cy="130" r="22" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2"/>
+        <line x1="138" y1="130" x2="182" y2="130" stroke="#9B2C2C" stroke-width="1.5"/>
+        <circle cx="160" cy="130" r="3" fill="#9B2C2C"/>
+      </g>
+      <!-- Khung Incabloc dưới -->
+      <g data-anim="bottom-jewel" opacity="0">
+        <path d="M 130 145 L 190 145 L 190 165 Q 160 180 130 165 Z" fill="#B8893C" opacity="0.3"/>
+        <path d="M 135 162 Q 160 172 185 162" fill="none" stroke="#B8893C" stroke-width="2"/>
+        <circle cx="160" cy="152" r="6" fill="#FAF7F2" stroke="#B8893C" stroke-width="1.5"/>
+      </g>
+      <!-- Mũi tên chỉ lực sốc -->
+      <g data-anim="shock-arrow" opacity="0">
+        <line x1="60" y1="100" x2="120" y2="100" stroke="#3182CE" stroke-width="2.5"/>
+        <polygon points="125,100 115,94 115,106" fill="#3182CE"/>
+        <text x="50" y="95" text-anchor="middle" font-size="9" fill="#3182CE" font-weight="bold">Sốc</text>
+        <text x="225" y="100" font-size="9" fill="#2D7A55" font-weight="bold">→ hấp thụ</text>
+      </g>
+      <text x="160" y="195" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="caption" opacity="0">
+        Lò xo lyre dạng chữ thập đặc trưng
+      </text>
+    </svg>
+  </div>
+
+  <!-- 3 điểm chính -->
+  <div class="grid gap-4 sm:grid-cols-3">
+    {points.map((point, i) => (
+      <div class="rounded-lg border-l-4 border-brass bg-white p-4" data-anim="point-card" data-index={i}>
+        <p class="mb-1 text-lg font-bold text-brass">{point.num}</p>
+        <h4 class="font-serif text-sm text-navy">{point.title}</h4>
+        <p class="mt-1 text-xs text-ink-soft">{point.detail}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-4 rounded-lg bg-brass/5 p-3 text-center text-xs text-ink-soft" data-anim="note">
+    <strong class="text-brass">Nhận biết:</strong> Mặt sau lộ máy có cấu trúc <strong>hình chữ thập</strong> với lò xo
+    hình lyre = Incabloc (hoặc Kif/Etachoc tương tự).
+  </div>
+</section>
+
+<style>
+  [data-infographic] [data-anim] {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-infographic] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector('[data-infographic="glossary-incabloc"]');
+    if (!root) return;
+    const targets = root.querySelectorAll('[data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    targets.forEach((el) => obs.observe(el));
+    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
+  }
+  init();
+</script>

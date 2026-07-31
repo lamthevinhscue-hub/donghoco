@@ -1,0 +1,20 @@
+---
+// Trang danh sách: MẪU ICONIC (Trụ cột 2)
+import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
+import { getEntriesByLang } from '../../lib/content';
+import { getLangFromUrl } from '../../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const entries = await getEntriesByLang('mauIconic', lang);
+---
+
+<CollectionListLayout
+  collection="mauIconic"
+  title={lang === 'vi' ? 'Những mẫu iconic' : 'Iconic watches'}
+  description={lang === 'vi'
+    ? 'Câu chuyện của những chiếc đồng hồ định hình cả một thể loại.'
+    : 'Stories of the watches that defined entire categories.'}
+  entries={entries}
+  getMeta={(e) => e.data.brand}
+  getBadge={(e) => (e.data.year ? String(e.data.year) : undefined)}
+/>

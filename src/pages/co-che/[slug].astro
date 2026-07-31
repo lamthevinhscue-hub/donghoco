@@ -1,0 +1,83 @@
+---
+// Trang chi tiết: CƠ CHẾ HOẠT ĐỘNG
+// Hiển thị infographic động (nếu có) + nội dung chữ đọc sâu
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import WaterResistance from '../../components/infographics/WaterResistance.astro';
+import PowerReserve from '../../components/infographics/PowerReserve.astro';
+import AntiMagnetic from '../../components/infographics/AntiMagnetic.astro';
+import GearTrain from '../../components/infographics/GearTrain.astro';
+import AutomaticWinding from '../../components/infographics/AutomaticWinding.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import { t } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const langs: Lang[] = ['vi', 'en'];
+  const paths = [];
+  for (const lang of langs) {
+    const entries = await getEntriesByLang('coChe', lang);
+    for (const entry of entries) {
+      paths.push({
+        params: { slug: getSlug(entry) },
+        props: { slug: getSlug(entry), lang },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+const tr = t(lang);
+const entries = await getEntriesByLang('coChe', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+// Dùng render() để lấy Content component (cách đúng trong Astro 4+)
+const { Content } = await render(entry);
+const { data } = entry;
+const meta = [
+  data.category,
+  lang === 'vi' ? `Độ khó: ${data.difficulty}` : `Difficulty: ${data.difficulty}`,
+].join(' • ');
+
+// Map slug -> component infographic (thêm infographic mới vào đây)
+const infographics: Record<string, any> = {
+  'chong-nuoc': WaterResistance,
+  'tru-cot': PowerReserve,
+  'chong-tu': AntiMagnetic,
+  'chuyen-dong-co': GearTrain,
+  'len-day-tu-dong': AutomaticWinding,
+};
+const Infographic = data.has_infographic ? infographics[slug] : null;
+---
+
+<ArticleLayout
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  cover_image={data.cover_image}
+  backHref="/co-che"
+  meta={meta}
+>
+  {data.has_infographic && Infographic && (
+    <Infographic />
+  )}
+
+  {data.has_infographic === false && (
+    <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">
+      <strong class="text-brass">ℹ︎</strong>
+      {lang === 'vi'
+        ? ' Infographic động cho chủ đề này đang được phát triển (giai đoạn 2). Tạm thời chỉ có phần giải thích bằng chữ.'
+        : ' An interactive infographic for this topic is in development (phase 2). For now, only the text explanation is available.'}
+    </div>
+  )}
+
+  <!-- Phần chữ đọc sâu (Markdown) -->
+  <div class={data.has_infographic ? 'mt-16 border-t border-cream-dark pt-12' : ''}>
+    <Content />
+  </div>
+</ArticleLayout>

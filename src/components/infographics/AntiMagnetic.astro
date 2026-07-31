@@ -1,0 +1,309 @@
+---
+// =============================================================================
+// INFOGRAPHIC: CHỐNG TỪ (Anti-Magnetic)
+// =============================================================================
+// Hoạt ảnh: CSS transition + Intersection Observer (native).
+//
+// 4 cảnh:
+//   1. Mở đầu — vấn đề từ trường giấu mặt
+//   2. Hai cách chống từ — lồng sắt (soft iron cage) vs vật liệu silicon
+//   3. Thang mức độ — từ vài trăm gauss đến 15.000 gauss
+//   4. Nguồn từ trường quanh bạn — và mẹo phòng tránh
+// =============================================================================
+
+// Dữ liệu các mức chống từ
+const levels = [
+  {
+    value: '600 gauss',
+    label: 'Không chống từ',
+    detail: 'Đa số đồng hồ cơ thông thường',
+    note: 'Loa điện thoại, nam châm tủ lạnh có thể làm sai số',
+    barWidth: 8,
+    tone: 'bad',
+  },
+  {
+    value: '1.000 gauss',
+    label: 'Đồng hồ pilot cổ điển',
+    detail: 'IWC Mark XI, Rolex Milgauss (cũ)',
+    note: 'Lồng sắt mềm (soft iron cage)',
+    barWidth: 15,
+    tone: 'ok',
+  },
+  {
+    value: '4.800 gauss',
+    label: 'Rolex Milgauss / Omega PoA',
+    detail: 'Lồng sắt + vật liệu đặc biệt',
+    note: 'Từ trường công nghiệp nhẹ',
+    barWidth: 35,
+    tone: 'good',
+  },
+  {
+    value: '15.000 gauss',
+    label: 'Omega Master Chronometer',
+    detail: 'Silicon + chứng nhận METAS',
+    note: 'Loa, điện thoại, iPad — không ảnh hưởng',
+    barWidth: 100,
+    tone: 'great',
+  },
+];
+
+// Nguồn từ trường quanh ta
+const sources = [
+  { icon: '📱', name: 'Điện thoại di động', strength: 'Trung bình', risk: 'Nguy hiểm nếu để cạnh nhiều giờ' },
+  { icon: '🔊', name: 'Loa (máy tính, loa bluetooth)', strength: 'Cao', risk: 'Có nam châm mạnh bên trong' },
+  { icon: '🧲', name: 'Nam châm tủ lạnh', strength: 'Cao', risk: 'Tránh dán đồng hồ lên' },
+  { icon: '💻', name: 'iPad / tablet + ốp từ', strength: 'Cao', risk: 'Ốp từ có nam châm mạnh' },
+  { icon: '👜', name: 'Túi xách có nam châm', strength: 'Trung bình', risk: 'Đặt đồng hồ vào túi lâu' },
+  { icon: '🏥', name: 'Thiết bị y tế (MRI)', strength: 'Cực cao', risk: 'Tuyệt đối không đeo vào phòng MRI' },
+];
+---
+
+<section class="infographic my-12" data-infographic="anti-magnetic">
+  <!-- ====================================================================
+       CẢNH 1: MỞ ĐẦU
+       ==================================================================== -->
+  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+    <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
+    <h2 class="font-serif text-3xl sm:text-5xl">Kẻ thù giấu mặt của đồng hồ cơ</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
+      Bạn để đồng hồ cạnh điện thoại, loa, iPad — và tự nhiên nó chạy sai nhiều giây/ngày.
+      Đó có thể là do <strong class="text-brass-light">từ trường</strong>. Cuộn xuống để hiểu.
+    </p>
+    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 2: HAI CÁCH CHỐNG TỪ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Hai cách đồng hồ chống từ
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Từ trường làm <strong>dây tóc</strong> (phần mỏng manh nhất) bị nhiễm từ → sai số.
+      Có 2 cách nhà sản xuất giải quyết:
+    </p>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <!-- Cách 1: Lồng sắt -->
+      <div class="rounded-lg border border-cream-dark bg-white p-6" data-anim="method-card">
+        <div class="svg-container mb-4">
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
+            <!-- Lồng sắt (soft iron cage) - lớp bao ngoài -->
+            <rect x="60" y="40" width="180" height="120" rx="8" fill="none" stroke="#4A5568" stroke-width="4" stroke-dasharray="6 3" data-anim="iron-cage" opacity="0"/>
+            <!-- Movement ở giữa -->
+            <rect x="90" y="65" width="120" height="70" rx="4" fill="#B8893C" opacity="0.4"/>
+            <text x="150" y="105" text-anchor="middle" font-size="11" fill="#1A1A1A" font-weight="bold">Máy</text>
+            <!-- Mũi tên từ trường bị chặn -->
+            <g data-anim="field-blocked" opacity="0">
+              <line x1="30" y1="100" x2="55" y2="100" stroke="#3182CE" stroke-width="2.5"/>
+              <polygon points="55,100 48,95 48,105" fill="#3182CE"/>
+              <text x="20" y="90" text-anchor="middle" font-size="9" fill="#3182CE" font-weight="bold">Từ trường</text>
+              <text x="20" y="120" text-anchor="middle" font-size="8" fill="#9B2C2C">✗ bị chặn</text>
+            </g>
+            <text x="150" y="185" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Lồng sắt dẫn từ trường đi vòng quanh máy</text>
+          </svg>
+        </div>
+        <h4 class="mb-2 font-serif text-lg text-navy">① Lồng sắt mềm (Soft Iron Cage)</h4>
+        <p class="text-sm text-ink-soft">
+          Bọc máy bằng một lớp <strong>sắt mềm</strong> — vật liệu dẫn từ rất tốt. Khi từ trường ngoài
+          tới, nó bị <strong>dẫn đi vòng quanh</strong> máy, không vào trong được. Cách cổ điển,
+          dùng cho IWC Mark XI, Rolex Milgauss.
+        </p>
+        <p class="mt-2 text-xs text-ink-soft/70">Hạn chế: làm đồng hồ dày hơn, khó có mặt sau lộ máy.</p>
+      </div>
+
+      <!-- Cách 2: Vật liệu silicon -->
+      <div class="rounded-lg border border-cream-dark bg-white p-6" data-anim="method-card">
+        <div class="svg-container mb-4">
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
+            <!-- Dây tóc (silicon) - cuộn nhỏ -->
+            <g data-anim="silicon-hairspring" opacity="0">
+              <path d="M 150 100
+                       m -30 0
+                       a 30 30 0 1 1 60 0
+                       a 24 24 0 1 1 -48 0
+                       a 18 18 0 1 1 36 0
+                       a 12 12 0 1 1 -24 0"
+                    fill="none" stroke="#2D9D6C" stroke-width="2.5"/>
+              <circle cx="150" cy="100" r="4" fill="#2D9D6C"/>
+              <text x="150" y="145" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="bold">Dây tóc silicon</text>
+            </g>
+            <!-- Từ trường đi qua nhưng không ảnh hưởng -->
+            <g data-anim="field-pass" opacity="0">
+              <line x1="30" y1="60" x2="270" y2="60" stroke="#3182CE" stroke-width="2" stroke-dasharray="4 3"/>
+              <line x1="30" y1="140" x2="270" y2="140" stroke="#3182CE" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="150" y="180" text-anchor="middle" font-size="8" fill="#2D7A55" font-weight="bold">✓ Đi qua nhưng không gây hại</text>
+            </g>
+          </svg>
+        </div>
+        <h4 class="mb-2 font-serif text-lg text-navy">② Vật liệu silicon / phi từ</h4>
+        <p class="text-sm text-ink-soft">
+          Làm <strong>dây tóc bằng silicon</strong> (hoặc hợp chất phi từ như Nivachron, Spron).
+          Vì silicon <strong>không bị nhiễm từ</strong>, từ trường ngoài không làm nó biến dạng.
+          Cách hiện đại, dùng cho Omega Master, Tudor, Tissot, Rolex Syloxi.
+        </p>
+        <p class="mt-2 text-xs text-ink-soft/70">Ưu điểm: mỏng hơn, có thể lộ máy, hiệu quả cao (lên tới 15.000 gauss).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 3: THANG MỨC ĐỘ CHỐNG TỪ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Thang mức độ chống từ
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Đo bằng <strong>gauss</strong> (đơn vị từ trường). Càng cao càng chống được từ trường mạnh hơn.
+    </p>
+
+    <div class="space-y-4">
+      {levels.map((level, i) => (
+        <div
+          class="grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 sm:p-5"
+          data-anim="level"
+          data-index={i}
+        >
+          <div class="col-span-12 sm:col-span-4">
+            <div class="h-10 w-full overflow-hidden rounded bg-cream-dark">
+              <div
+                class={`flex h-full items-center justify-end rounded pr-2 text-xs font-bold text-white ${
+                  level.tone === 'great' ? 'bg-gradient-to-r from-[#2D9D6C] to-[#1A7A55]' :
+                  level.tone === 'good' ? 'bg-gradient-to-r from-[#4FB286] to-[#2D9D6C]' :
+                  level.tone === 'ok' ? 'bg-gradient-to-r from-[#B8893C] to-[#9B6E2C]' :
+                  'bg-gradient-to-r from-[#9B2C2C] to-[#742A2A]'
+                }`}
+                style={`width: ${level.barWidth}%;`}
+              >
+                {level.value}
+              </div>
+            </div>
+          </div>
+          <div class="col-span-12 sm:col-span-8">
+            <h4 class="font-serif text-lg text-navy">{level.label}</h4>
+            <p class="mt-1 text-sm text-ink-soft">
+              <span class="font-medium text-[#2D7A55]">{level.detail}</span>
+            </p>
+            <p class="mt-1 text-xs text-ink-soft/80">{level.note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: NGUỒN TỪ TRƯỜNG QUANH BẠN
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Từ trường ở đâu quanh bạn?
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Nhiều vật dụng hàng ngày có nam châm — nguy cơ cho đồng hồ cơ thông thường.
+    </p>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {sources.map((source, i) => (
+        <div
+          class="rounded-lg border border-cream-dark bg-white p-4"
+          data-anim="source-card"
+          data-index={i}
+        >
+          <div class="flex items-start gap-3">
+            <span class="text-3xl">{source.icon}</span>
+            <div>
+              <h4 class="font-serif text-base text-navy">{source.name}</h4>
+              <p class="mt-1 text-xs">
+                <span class="font-medium text-[#9B2C2C]">{source.strength}</span>
+              </p>
+              <p class="mt-1 text-xs text-ink-soft">{source.risk}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 rounded-lg border-l-4 border-[#9B2C2C] bg-[#9B2C2C]/5 p-5">
+      <p class="text-sm text-ink-soft">
+        <strong class="text-[#9B2C2C]">⚠ Dấu hiệu đồng hồ nhiễm từ:</strong> chạy nhanh đột ngột
+        (vài chục giây đến vài phút/ngày). <strong>Khắc phục:</strong> mang tới thợ để
+        <strong>demagnetize</strong> (khử từ) — nhanh, rẻ (vài trăm nghìn), sau đó sai số trở lại bình thường.
+      </p>
+    </div>
+  </div>
+
+  <!-- Chú thích cuối -->
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
+    <strong class="text-brass">💡 Tóm tắt:</strong>
+    Từ trường làm dây tóc nhiễm từ → đồng hồ chạy sai. Có 2 cách chống: lồng sắt (cũ) hoặc
+    dây tóc silicon (mới). Nếu nghi nhiễm từ, mang đi khử từ — nhanh và rẻ.
+  </div>
+</section>
+
+<style>
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .scene [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .scene [data-anim="level"] {
+    transform: translateX(-30px);
+  }
+
+  .scene [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene [data-anim] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initInfographic() {
+    const root = document.querySelector('[data-infographic="anti-magnetic"]');
+    if (!root) return;
+
+    const revealTargets = root.querySelectorAll('[data-anim]');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+
+    setTimeout(() => {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }, 3000);
+  }
+
+  initInfographic();
+</script>

@@ -1,0 +1,96 @@
+---
+// =============================================================================
+// HEADER (Thanh menu trên cùng)
+// =============================================================================
+// Hiển thị logo + menu điều hướng. Tự ẩn bớt trên điện thoại và có nút mở menu.
+// =============================================================================
+
+import { getLangFromUrl, t, localizedPath, getLanguageSwitcherUrl } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+// Danh sách các mục menu chính
+const navItems = [
+  { key: 'nav_home', path: '/' },
+  { key: 'nav_brands', path: '/thuong-hieu' },
+  { key: 'nav_iconic', path: '/mau-iconic' },
+  { key: 'nav_mechanisms', path: '/co-che' },
+  { key: 'nav_glossary', path: '/tu-dien' },
+  { key: 'nav_guides', path: '/huong-dan' },
+];
+
+// Liên kết chuyển ngôn ngữ
+const langSwitchUrl = getLanguageSwitcherUrl(new URL(Astro.url.pathname, Astro.site), lang === 'vi' ? 'en' : 'vi');
+const langSwitchLabel = lang === 'vi' ? tr.switch_lang : tr.switch_lang;
+---
+
+<header class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    <!-- Logo / Tên website -->
+    <a href={localizedPath('/', lang)} class="flex items-baseline gap-2">
+      <span class="font-serif text-2xl font-bold text-navy">{tr.siteName}</span>
+    </a>
+
+    <!-- Menu (máy tính) -->
+    <nav class="hidden items-center gap-6 md:flex">
+      {navItems.map((item) => (
+        <a
+          href={localizedPath(item.path, lang)}
+          class="text-sm font-medium text-ink-soft transition-colors hover:text-brass"
+        >
+          {tr[item.key]}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Nút chuyển ngôn ngữ + Nút mở menu (điện thoại) -->
+    <div class="flex items-center gap-3">
+      <a
+        href={langSwitchUrl}
+        class="rounded-full border border-brass/40 px-3 py-1 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-white"
+        aria-label={langSwitchLabel}
+      >
+        {langSwitchLabel}
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="md:hidden"
+        aria-label="Mở menu"
+        aria-expanded="false"
+      >
+        <!-- Biểu tượng 3 dấu gạch (hamburger) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu đổ xuống (điện thoại) -->
+  <nav id="mobile-menu" class="hidden border-t border-cream-dark bg-cream md:hidden">
+    <div class="mx-auto flex max-w-6xl flex-col px-4 py-2">
+      {navItems.map((item) => (
+        <a
+          href={localizedPath(item.path, lang)}
+          class="border-b border-cream-dark/60 py-3 text-sm font-medium text-ink-soft last:border-0"
+        >
+          {tr[item.key]}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Đoạn mã nhỏ để bật/tắt menu trên điện thoại
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

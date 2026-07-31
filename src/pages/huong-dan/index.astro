@@ -1,0 +1,19 @@
+---
+// Trang danh sách: HƯỚNG DẪN THỰC HÀNH
+import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
+import { getEntriesByLang } from '../../lib/content';
+import { getLangFromUrl } from '../../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const entries = await getEntriesByLang('huongDan', lang);
+---
+
+<CollectionListLayout
+  collection="huongDan"
+  title={lang === 'vi' ? 'Hướng dẫn thực hành' : 'Practical guides'}
+  description={lang === 'vi'
+    ? 'Lên dây, bảo dưỡng, đo sai số, chọn đồng hồ đầu tiên — nội dung thực tế, ít cạnh tranh.'
+    : 'Winding, servicing, measuring accuracy, buying your first watch.'}
+  entries={entries}
+  getBadge={(e) => e.data.difficulty}
+/>

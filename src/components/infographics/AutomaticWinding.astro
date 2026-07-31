@@ -1,0 +1,286 @@
+---
+// =============================================================================
+// INFOGRAPHIC: LÊN DÂY TỰ ĐỘNG (Automatic Winding)
+// =============================================================================
+// Hoạt ảnh: CSS transition + Intersection Observer (native).
+//
+// 4 cảnh:
+//   1. Mở đầu — vì sao chỉ cần đeo là chạy
+//   2. Rotor — SVG quả nặng xoay theo chuyển động cổ tay
+//   3. Ly hợp một chiều — dịch chuyển động 2 chiều thành cuộn cót 1 chiều
+//   4. So sánh cơ vs automatic + khi nào cần watch winder
+// =============================================================================
+
+// So sánh cơ vs automatic
+const comparisons = [
+  {
+    feature: 'Cách lên cót',
+    manual: 'Vặn tay mỗi ngày',
+    automatic: 'Tự lên khi đeo',
+  },
+  {
+    feature: 'Nếu bỏ trong ngăn kéo',
+    manual: 'Dừng sau ~40h',
+    automatic: 'Dừng sau ~40h (như nhau)',
+  },
+  {
+    feature: 'Khi đeo lại sau khi dừng',
+    manual: 'Vặn tay 20-40 vòng',
+    automatic: 'Vặn tay 20-30 vòng để khởi động',
+  },
+  {
+    feature: 'Cần bảo dưỡng',
+    manual: '4-5 năm/lần',
+    automatic: '4-5 năm/lần (như nhau)',
+  },
+];
+---
+
+<section class="infographic my-12" data-infographic="automatic-winding">
+  <!-- ====================================================================
+       CẢNH 1: MỞ ĐẦU
+       ==================================================================== -->
+  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+    <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
+    <h2 class="font-serif text-3xl sm:text-5xl">Chỉ cần đeo — đồng hồ tự chạy</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
+      Bí mật của đồng hồ automatic: một quả nặng xoay theo chuyển động cổ tay,
+      biến mọi cử động của bạn thành năng lượng. Cuộn xuống để hiểu.
+    </p>
+    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 2: ROTOR — quả nặng xoay
+       ==================================================================== -->
+  <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
+    <div class="svg-container" data-svg="rotor">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
+        <!-- Movement (nền) -->
+        <circle cx="200" cy="150" r="100" fill="#FAF7F2" stroke="#2D3748" stroke-width="2"/>
+        <!-- Chi tiết movement (bánh răng nhỏ) -->
+        <circle cx="170" cy="130" r="15" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.4"/>
+        <circle cx="230" cy="170" r="12" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.4"/>
+        <circle cx="200" cy="150" r="8" fill="#B8893C" opacity="0.4"/>
+
+        <!-- Rotor (quả nặng bán nguyệt) - vị trí 1 -->
+        <g data-anim="rotor-pos1" opacity="0">
+          <path d="M 200 150 L 200 60 A 90 90 0 0 1 290 150 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+          <text x="245" y="100" font-size="9" fill="#FAF7F2" font-weight="bold">Rotor</text>
+        </g>
+
+        <!-- Rotor - vị trí 2 (xoay 180°) -->
+        <g data-anim="rotor-pos2" opacity="0">
+          <path d="M 200 150 L 200 240 A 90 90 0 0 1 110 150 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+          <text x="155" y="210" font-size="9" fill="#FAF7F2" font-weight="bold">Rotor</text>
+        </g>
+
+        <!-- Trục rotor -->
+        <circle cx="200" cy="150" r="6" fill="#2D3748"/>
+
+        <!-- Mũi tên cong chỉ rotor xoay -->
+        <g data-anim="rotation-arrow" opacity="0">
+          <path d="M 290 150 A 90 90 0 0 1 110 150" fill="none" stroke="#B8893C" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <polygon points="110,150 118,145 118,155" fill="#B8893C"/>
+          <text x="200" y="40" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Rotor xoay tự do 360°</text>
+        </g>
+
+        <!-- Chú thích chuyển động cổ tay -->
+        <g data-anim="wrist-motion" opacity="0">
+          <text x="200" y="285" text-anchor="middle" font-size="11" fill="#1F2D3D">
+            Cử động cổ tay → trọng lực làm rotor xoay
+          </text>
+        </g>
+      </svg>
+    </div>
+    <div class="space-y-4">
+      <h3 class="font-serif text-2xl text-navy">Rotor — trái tim của automatic</h3>
+      <p class="text-ink-soft">
+        <strong>Rotor</strong> (còn gọi "oscillating weight") là một quả nặng hình bán nguyệt,
+        gắn trên trục có thể <strong>quay tự do 360°</strong>.
+      </p>
+      <p class="text-ink-soft">
+        Vì rotor <strong>nặng và gắn lệch tâm</strong>, nên khi bạn cử động tay,
+        <strong>trọng lực</strong> làm nó xoay. Chuyển động quay này được truyền qua
+        <strong>ly hợp một chiều</strong> để cuộn dây cót.
+      </p>
+      <div class="rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">
+        <strong class="text-brass">💡</strong> Nói cách khác: rotor <strong>biến chuyển động của bạn
+        thành năng lượng</strong> cho đồng hồ.
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 3: LY HỢP MỘT CHIỀU
+       ==================================================================== -->
+  <div class="scene mt-24 rounded-2xl border border-cream-dark bg-cream-dark/30 p-8 sm:p-12">
+    <div class="mx-auto max-w-3xl text-center">
+      <h3 class="mb-4 font-serif text-2xl text-navy sm:text-3xl">
+        Ly hợp một chiều — cải tạo mọi chuyển động thành năng lượng
+      </h3>
+      <p class="mb-8 text-ink-soft">
+        Rotor quay <strong>cả hai chiều</strong>, nhưng dây cót chỉ cuộn theo <strong>một chiều</strong>.
+        <strong>Ly hợp một chiều</strong> (clutch) "dịch" chuyển động hai chiều thành chiều cuộn đúng.
+      </p>
+
+      <div class="svg-container mb-6">
+        <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl">
+          <!-- Rotor quay 2 chiều -->
+          <g data-anim="clutch-input" opacity="0">
+            <circle cx="80" cy="90" r="35" fill="none" stroke="#4A5568" stroke-width="2.5"/>
+            <path d="M 80 90 L 80 55" stroke="#4A5568" stroke-width="2"/>
+            <text x="80" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Rotor</text>
+            <text x="80" y="50" text-anchor="middle" font-size="14" fill="#2E86AB">↻ ↺</text>
+            <text x="80" y="35" text-anchor="middle" font-size="9" fill="#2E86AB">quay 2 chiều</text>
+          </g>
+
+          <!-- Mũi tên tới ly hợp -->
+          <g data-anim="clutch-arrow1" opacity="0">
+            <line x1="125" y1="90" x2="190" y2="90" stroke="#B8893C" stroke-width="2" stroke-dasharray="4 2"/>
+            <polygon points="195,90 187,85 187,95" fill="#B8893C"/>
+          </g>
+
+          <!-- Ly hợp một chiều -->
+          <g data-anim="clutch" opacity="0">
+            <rect x="200" y="65" width="100" height="50" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2"/>
+            <text x="250" y="95" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold">Ly hợp</text>
+            <text x="250" y="135" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">1 chiều</text>
+          </g>
+
+          <!-- Mũi tên tới thùng cót -->
+          <g data-anim="clutch-arrow2" opacity="0">
+            <line x1="310" y1="90" x2="375" y2="90" stroke="#B8893C" stroke-width="2" stroke-dasharray="4 2"/>
+            <polygon points="380,90 372,85 372,95" fill="#B8893C"/>
+          </g>
+
+          <!-- Thùng cót -->
+          <g data-anim="barrel-output" opacity="0">
+            <circle cx="420" cy="90" r="35" fill="none" stroke="#B8893C" stroke-width="2.5"/>
+            <path d="M 420 60 a 30 30 0 1 1 -0.1 0 m 0 5 a 25 25 0 1 0 0.1 0"
+                  fill="none" stroke="#B8893C" stroke-width="2.5"/>
+            <circle cx="420" cy="90" r="3" fill="#B8893C"/>
+            <text x="420" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Thùng cót</text>
+            <text x="420" y="50" text-anchor="middle" font-size="14" fill="#2D7A55">↻</text>
+            <text x="420" y="35" text-anchor="middle" font-size="9" fill="#2D7A55">cuộn 1 chiều</text>
+          </g>
+        </svg>
+      </div>
+
+      <p class="text-sm text-ink-soft">
+        Dù rotor quay chiều nào, cơ chế ly hợp luôn <strong>"dịch"</strong> chuyển động thành chiều cuộn cót đúng.
+        Có 2 kiểu phổ biến: <strong>kiểu bánh răng</strong> (đơn giản) và <strong>kiểu bi/đòn bẩy</strong> (mượt hơn).
+      </p>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: SO SÁNH CƠ vs AUTOMATIC
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Cơ (manual) vs Automatic — khác biệt thực tế
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Nhiều người nhầm tưởng automatic "không bao giờ dừng" — không phải.
+    </p>
+
+    <div class="overflow-hidden rounded-lg border border-cream-dark" data-anim="comparison-table">
+      <table class="w-full text-sm">
+        <thead class="bg-navy text-cream">
+          <tr>
+            <th class="px-4 py-3 text-left">Đặc điểm</th>
+            <th class="px-4 py-3 text-left">Cơ (manual)</th>
+            <th class="px-4 py-3 text-left">Automatic</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisons.map((row, i) => (
+            <tr class={i % 2 === 0 ? 'bg-white' : 'bg-cream-dark/30'}>
+              <td class="px-4 py-3 font-medium text-navy">{row.feature}</td>
+              <td class="px-4 py-3 text-ink-soft">{row.manual}</td>
+              <td class="px-4 py-3 text-ink-soft">{row.automatic}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-8 rounded-lg border-l-4 border-brass bg-brass/5 p-5">
+      <p class="text-sm text-ink-soft">
+        <strong class="text-brass">💡 Watch winder:</strong> Nếu bạn có <strong>nhiều đồng hồ automatic</strong>
+        và muốn chúng luôn chạy, cần <strong>hộp quay đồng hồ</strong> (watch winder) — mô phỏng chuyển động cổ tay.
+        Nếu chỉ có 1 chiếc, chỉ cần đeo đủ 8 giờ/ngày.
+      </p>
+    </div>
+  </div>
+
+  <!-- Chú thích cuối -->
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
+    <strong class="text-brass">💡 Tóm tắt:</strong>
+    <strong>Rotor</strong> (quay theo chuyển động) → <strong>Ly hợp 1 chiều</strong> (dịch chuyển động) →
+    <strong>Thùng cót</strong> (tích năng lượng). Chỉ cần đeo — và đồng hồ tự "sạc".
+  </div>
+</section>
+
+<style>
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .scene [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .scene [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene [data-anim] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initInfographic() {
+    const root = document.querySelector('[data-infographic="automatic-winding"]');
+    if (!root) return;
+
+    const revealTargets = root.querySelectorAll('[data-anim]');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+
+    setTimeout(() => {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }, 3000);
+  }
+
+  initInfographic();
+</script>

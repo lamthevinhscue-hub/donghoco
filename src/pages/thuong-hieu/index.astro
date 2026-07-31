@@ -1,0 +1,128 @@
+---
+// =============================================================================
+// Trang danh sách: THƯƠNG HIỆU (Trụ cột 1) — nhóm theo hạng + lọc
+// =============================================================================
+// Hiển thị tất cả thương hiệu, ĐƯỢC NHÓM THEO TỪNG HẠNG (từ cao xuống thấp).
+// Có thanh lọc ở trên: bấm để chỉ xem một hạng cụ thể, hoặc "Tất cả".
+// Lọc chạy ở trình duyệt (JavaScript nhẹ), không cần tải lại trang.
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getLangFromUrl, t, TIER_ORDER, getTierLabel, getTierDesc } from '../../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+const isVi = lang === 'vi';
+
+const entries = await getEntriesByLang('thuongHieu', lang);
+
+// Nhóm thương hiệu theo hạng
+const groups = TIER_ORDER.map((tier) => ({
+  tier,
+  label: getTierLabel(tier, lang),
+  desc: getTierDesc(tier, lang),
+  items: entries.filter((e) => e.data.tier === tier),
+})).filter((g) => g.items.length > 0); // bỏ các hạng không có thương hiệu
+---
+
+<BaseLayout
+  title={isVi ? 'Thư viện thương hiệu' : 'Brand library'}
+  description={isVi
+    ? 'Toàn bộ thương hiệu đồng hồ cơ, phân hạng từ Haute Horlogerie đến Entry-Level Luxury.'
+    : 'All mechanical watch brands, tiered from Haute Horlogerie to Entry-Level Luxury.'}
+>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <!-- Tiêu đề trang -->
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy sm:text-5xl">
+      {isVi ? 'Thư viện thương hiệu' : 'Brand library'}
+    </h1>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      {isVi
+        ? 'Tất cả thương hiệu đồng hồ cơ, sắp theo hạng phân cấp — từ đỉnh cao chế tác đến phổ thông.'
+        : 'All mechanical watch brands, organized by tier — from the pinnacle of watchmaking to consumer.'}
+    </p>
+
+    <!-- Thanh lọc theo hạng -->
+    <div class="mt-8 flex flex-wrap gap-2" id="tier-filter">
+      <button
+        data-tier="all"
+        class="filter-btn rounded-full border border-navy bg-navy px-4 py-1.5 text-xs font-medium text-cream transition-colors"
+      >
+        {isVi ? 'Tất cả' : 'All'} ({entries.length})
+      </button>
+      {groups.map((g) => (
+        <button
+          data-tier={g.tier}
+          class="filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass"
+        >
+          {g.label} ({g.items.length})
+        </button>
+      ))}
+    </div>
+
+    <!-- Danh sách nhóm theo hạng -->
+    <div class="mt-12 space-y-16">
+      {groups.map((group) => (
+        <div data-tier-group={group.tier} class="tier-group">
+          <div class="mb-6 border-l-4 border-brass pl-4">
+            <h2 class="font-serif text-2xl text-navy">{group.label}</h2>
+            <p class="mt-1 text-sm text-ink-soft">{group.desc}</p>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((entry) => (
+              <Card
+                href={`/thuong-hieu/${getSlug(entry)}`}
+                title={entry.data.title}
+                excerpt={entry.data.excerpt}
+                meta={entry.data.country}
+                badge={entry.data.founded ? `${entry.data.founded}` : undefined}
+                logo={entry.data.logo}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Thông báo khi không có kết quả (khi lọc) -->
+    <p id="no-results" class="hidden py-12 text-center text-ink-soft">
+      {isVi ? 'Không có thương hiệu nào trong hạng này.' : 'No brands in this tier.'}
+    </p>
+  </section>
+</BaseLayout>
+
+<script>
+  // Lọc theo hạng — chạy ở trình duyệt, không cần tải lại trang
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const groups = document.querySelectorAll<HTMLElement>('.tier-group');
+  const noResults = document.getElementById('no-results');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.tier;
+
+      // Cập nhật trạng thái nút (nút đang chọn = nền navy)
+      buttons.forEach((b) => {
+        b.classList.remove('bg-navy', 'text-cream', 'border-navy');
+        b.classList.add('bg-white', 'text-ink-soft', 'border-cream-dark');
+      });
+      btn.classList.add('bg-navy', 'text-cream', 'border-navy');
+      btn.classList.remove('bg-white', 'text-ink-soft', 'border-cream-dark');
+
+      // Hiển thị nhóm tương ứng
+      let anyVisible = false;
+      groups.forEach((group) => {
+        if (selected === 'all' || group.dataset.tierGroup === selected) {
+          group.classList.remove('hidden');
+          anyVisible = true;
+        } else {
+          group.classList.add('hidden');
+        }
+      });
+      noResults?.classList.toggle('hidden', anyVisible);
+    });
+  });
+</script>

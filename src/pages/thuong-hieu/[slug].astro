@@ -1,0 +1,51 @@
+---
+// Trang chi tiết: THƯƠNG HIỆU
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import type { Lang } from '../../i18n/ui';
+
+// Tạo các đường dẫn: một trang cho mỗi thương hiệu, cho mỗi ngôn ngữ
+export async function getStaticPaths() {
+  const langs: Lang[] = ['vi', 'en'];
+  const paths = [];
+  for (const lang of langs) {
+    const entries = await getEntriesByLang('thuongHieu', lang);
+    for (const entry of entries) {
+      paths.push({
+        params: { slug: getSlug(entry) },
+        props: { slug: getSlug(entry), lang },
+      });
+    }
+  }
+  return paths;
+}
+
+// Lấy entry đầy đủ + Content component (dùng render() - cách đúng trong Astro 4+)
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+const entries = await getEntriesByLang('thuongHieu', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(entry);
+const { data } = entry;
+const meta = [
+  data.country,
+  data.founded ? `${data.founded}` : null,
+  data.tier,
+].filter(Boolean).join(' • ');
+---
+
+<ArticleLayout
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  cover_image={data.cover_image}
+  backHref="/thuong-hieu"
+  meta={meta}
+>
+  <Content />
+</ArticleLayout>

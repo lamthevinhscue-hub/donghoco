@@ -1,0 +1,29 @@
+# Phụ thuộc (tự động tải lại khi cần, không cần lưu vào git)
+node_modules/
+
+# Kết quả build (tự sinh ra khi chạy lệnh build)
+dist/
+
+# Tệp tạm của Astro
+.astro/
+
+# Vercel build output (tự sinh khi build, không commit)
+.vercel/
+
+# ZCode internal (file nội bộ của công cụ, không commit)
+.zcode/
+
+# Nhật ký
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Thư mục hệ thống
+.DS_Store
+Thumbs.db
+
+# Môi trường (chứa thông tin nhạy cảm nếu có)
+.env
+.env.production
+.env.local

@@ -1,0 +1,105 @@
+---
+// =============================================================================
+// INFOGRAPHIC TỪ ĐIỂN: TOUBILLON
+// SVG lồng xoay + bù sai số trọng lực. Nhỏ gọn, dùng cho trang thuật ngữ.
+// =============================================================================
+const stages = [
+  {
+    num: '①',
+    title: 'Bộ thoát + bánh lắc',
+    detail: 'Đặt vào trong một "lồng" (cage) có thể xoay.',
+  },
+  {
+    num: '②',
+    title: 'Lồng xoay 360°',
+    detail: 'Thường 1 vòng / 60 giây — xoay liên tục để bù sai số.',
+  },
+  {
+    num: '③',
+    title: 'Trung hòa trọng lực',
+    detail: 'Vì bộ thoát xoay đủ các hướng, sai số do trọng lực trung bình = 0.',
+  },
+];
+---
+
+<section class="my-8" data-infographic="glossary-tourbillon">
+  <!-- SVG lồng tourbillon -->
+  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
+    <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
+      <!-- Lồng tourbillon (vòng tròn lớn) -->
+      <circle cx="150" cy="130" r="85" fill="none" stroke="#B8893C" stroke-width="2.5" data-anim="cage-outer" opacity="0"/>
+      <!-- 3 chốt nối lồng -->
+      <g data-anim="cage-spokes" opacity="0">
+        <line x1="150" y1="45" x2="150" y2="215" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
+        <line x1="76" y1="87" x2="224" y2="173" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
+        <line x1="76" y1="173" x2="224" y2="87" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
+      </g>
+      <!-- Bánh lắc ở giữa -->
+      <g data-anim="balance" opacity="0">
+        <circle cx="150" cy="130" r="35" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2"/>
+        <line x1="150" y1="95" x2="150" y2="165" stroke="#9B2C2C" stroke-width="2"/>
+        <line x1="115" y1="130" x2="185" y2="130" stroke="#9B2C2C" stroke-width="2"/>
+        <circle cx="150" cy="130" r="4" fill="#9B2C2C"/>
+      </g>
+      <!-- Mũi tên cong chỉ sự xoay của lồng -->
+      <g data-anim="rotation" opacity="0">
+        <path d="M 60 130 A 90 90 0 0 1 240 130" fill="none" stroke="#2E86AB" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <polygon points="240,130 232,124 232,136" fill="#2E86AB"/>
+        <text x="150" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Lồng xoay 1 vòng / 60 giây</text>
+      </g>
+      <!-- Chú thích -->
+      <text x="150" y="245" text-anchor="middle" font-size="10" fill="#1F2D3D" data-anim="caption" opacity="0">
+        Trọng lực tác động đều mọi hướng → sai số trung bình = 0
+      </text>
+      <text x="150" y="262" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="caption" opacity="0">
+        Phát minh bởi Abraham-Louis Breguet, 1801
+      </text>
+    </svg>
+  </div>
+
+  <!-- 3 giai đoạn hoạt động -->
+  <div class="grid gap-4 sm:grid-cols-3">
+    {stages.map((stage, i) => (
+      <div class="rounded-lg border-l-4 border-brass bg-white p-4" data-anim="stage-card" data-index={i}>
+        <p class="mb-1 text-lg font-bold text-brass">{stage.num}</p>
+        <h4 class="font-serif text-base text-navy">{stage.title}</h4>
+        <p class="mt-1 text-xs text-ink-soft">{stage.detail}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  [data-infographic] [data-anim] {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-infographic] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector('[data-infographic="glossary-tourbillon"]');
+    if (!root) return;
+    const targets = root.querySelectorAll('[data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    targets.forEach((el) => obs.observe(el));
+    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
+  }
+  init();
+</script>

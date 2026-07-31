@@ -1,0 +1,129 @@
+---
+// =============================================================================
+// Trang danh sách: TỪ ĐIỂN THUẬT NGỮ — nhóm theo nhóm + lọc
+// =============================================================================
+// Hiển thị tất cả thuật ngữ, ĐƯỢC NHÓM THEO TỪNG NHÓM (thiết kế → bộ máy → ...).
+// Có thanh lọc ở trên: bấm để chỉ xem một nhóm cụ thể, hoặc "Tất cả".
+// Lọc chạy ở trình duyệt (JavaScript nhẹ), không cần tải lại trang.
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import {
+  getLangFromUrl,
+  t,
+  GLOSSARY_CATEGORY_ORDER,
+  getCategoryLabel,
+} from '../../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+const isVi = lang === 'vi';
+
+const entries = await getEntriesByLang('tuDien', lang);
+
+// Nhóm thuật ngữ theo nhóm (theo thứ tự GLOSSARY_CATEGORY_ORDER)
+const groups = GLOSSARY_CATEGORY_ORDER.map((category) => ({
+  category,
+  label: getCategoryLabel(category, lang),
+  items: entries.filter((e) => e.data.category === category),
+})).filter((g) => g.items.length > 0); // bỏ các nhóm không có thuật ngữ
+---
+
+<BaseLayout
+  title={isVi ? 'Từ điển thuật ngữ' : 'Glossary'}
+  description={isVi
+    ? 'Tra cứu thuật ngữ đồng hồ cơ — từ thiết kế, bộ máy đến các phức tạp cao cấp.'
+    : 'Mechanical watch terms — from design and movement to high-end complications.'}
+>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <!-- Tiêu đề trang -->
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy sm:text-5xl">
+      {isVi ? 'Từ điển thuật ngữ' : 'Glossary'}
+    </h1>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      {isVi
+        ? 'Tra cứu nhanh các thuật ngữ đồng hồ cơ — được nhóm theo chủ đề, từ cơ bản đến phức tạp.'
+        : 'Quick reference for mechanical watch terms — grouped by topic, from basic to complex.'}
+    </p>
+
+    <!-- Thanh lọc theo nhóm -->
+    <div class="mt-8 flex flex-wrap gap-2" id="cat-filter">
+      <button
+        data-cat="all"
+        class="filter-btn rounded-full border border-navy bg-navy px-4 py-1.5 text-xs font-medium text-cream transition-colors"
+      >
+        {isVi ? 'Tất cả' : 'All'} ({entries.length})
+      </button>
+      {groups.map((g) => (
+        <button
+          data-cat={g.category}
+          class="filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass"
+        >
+          {g.label} ({g.items.length})
+        </button>
+      ))}
+    </div>
+
+    <!-- Danh sách nhóm theo nhóm -->
+    <div class="mt-12 space-y-16">
+      {groups.map((group) => (
+        <div data-cat-group={group.category} class="cat-group">
+          <div class="mb-6 border-l-4 border-brass pl-4">
+            <h2 class="font-serif text-2xl text-navy">{group.label}</h2>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((entry) => (
+              <Card
+                href={`/tu-dien/${getSlug(entry)}`}
+                title={entry.data.title}
+                excerpt={entry.data.excerpt}
+                meta={entry.data.term_en}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Thông báo khi không có kết quả (khi lọc) -->
+    <p id="no-results" class="hidden py-12 text-center text-ink-soft">
+      {isVi ? 'Không có thuật ngữ nào trong nhóm này.' : 'No terms in this category.'}
+    </p>
+  </section>
+</BaseLayout>
+
+<script>
+  // Lọc theo nhóm — chạy ở trình duyệt, không cần tải lại trang
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const groups = document.querySelectorAll<HTMLElement>('.cat-group');
+  const noResults = document.getElementById('no-results');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.cat;
+
+      // Cập nhật trạng thái nút (nút đang chọn = nền navy)
+      buttons.forEach((b) => {
+        b.classList.remove('bg-navy', 'text-cream', 'border-navy');
+        b.classList.add('bg-white', 'text-ink-soft', 'border-cream-dark');
+      });
+      btn.classList.add('bg-navy', 'text-cream', 'border-navy');
+      btn.classList.remove('bg-white', 'text-ink-soft', 'border-cream-dark');
+
+      // Hiển thị nhóm tương ứng
+      let anyVisible = false;
+      groups.forEach((group) => {
+        if (selected === 'all' || group.dataset.catGroup === selected) {
+          group.classList.remove('hidden');
+          anyVisible = true;
+        } else {
+          group.classList.add('hidden');
+        }
+      });
+      noResults?.classList.toggle('hidden', anyVisible);
+    });
+  });
+</script>

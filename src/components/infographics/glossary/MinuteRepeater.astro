@@ -1,0 +1,98 @@
+---
+// =============================================================================
+// INFOGRAPHIC TỪ ĐIỂN: MINUTE REPEATER (Cơ chế điểm chuông)
+// SVG chuông + búa gõ. Minh họa quy ước gõ giờ-phút.
+// =============================================================================
+const beatRules = [
+  { sound: 'Ting ting ting', count: '3 tiếng', meaning: 'Giờ (vd: 3 giờ)', color: '#2E86AB' },
+  { sound: 'Ding-dong ding-dong', count: '2 tổ', meaning: 'Mỗi tổ = 15 phút (vd: 2 tổ = 30 phút)', color: '#B8893C' },
+  { sound: 'Ting ting ting ting ting ting ting', count: '7 tiếng', meaning: 'Phút lẻ (vd: 7 phút)', color: '#9B2C2C' },
+];
+---
+
+<section class="my-8" data-infographic="glossary-minute-repeater">
+  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
+    <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
+      <!-- 2 chuông (gongs) - ống thép uốn -->
+      <g data-anim="gong-bass" opacity="0">
+        <path d="M 70 130 Q 70 80 120 80 Q 170 80 170 110" fill="none" stroke="#4A5568" stroke-width="6" stroke-linecap="round"/>
+        <text x="90" y="155" font-size="9" fill="#1F2D3D" font-weight="bold">Chuông trầm</text>
+      </g>
+      <g data-anim="gong-treble" opacity="0">
+        <path d="M 230 130 Q 230 80 180 80" fill="none" stroke="#B8893C" stroke-width="5" stroke-linecap="round"/>
+        <text x="195" y="155" font-size="9" fill="#1F2D3D" font-weight="bold">Chuông cao</text>
+      </g>
+      <!-- 2 búa (hammers) -->
+      <g data-anim="hammers" opacity="0">
+        <circle cx="75" cy="135" r="8" fill="#2D3748"/>
+        <line x1="75" y1="135" x2="100" y2="165" stroke="#2D3748" stroke-width="3"/>
+        <circle cx="225" cy="135" r="7" fill="#9B6E2C"/>
+        <line x1="225" y1="135" x2="205" y2="165" stroke="#9B6E2C" stroke-width="2.5"/>
+      </g>
+      <!-- Movement nền -->
+      <rect x="110" y="160" width="80" height="50" rx="6" fill="#FAF7F2" stroke="#2D3748" stroke-width="1.5" data-anim="movement-box" opacity="0"/>
+      <text x="150" y="190" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="movement-box" opacity="0">Máy</text>
+      <!-- Chú thích -->
+      <text x="150" y="230" text-anchor="middle" font-size="10" fill="#1F2D3D" data-anim="caption" opacity="0">
+        Bấm cần gạt → búa gõ chuông báo giờ
+      </text>
+      <text x="150" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="caption" opacity="0">
+        2 chuông + 2 búa
+      </text>
+    </svg>
+  </div>
+
+  <!-- Quy ước gõ: ví dụ 3:37 -->
+  <div class="rounded-lg border-l-4 border-brass bg-white p-5">
+    <p class="mb-3 text-sm font-medium text-navy">Ví dụ: 3 giờ 37 phút</p>
+    <div class="space-y-3">
+      {beatRules.map((rule, i) => (
+        <div class="flex items-center gap-3" data-anim="rule-row" data-index={i}>
+          <span class="w-2 h-8 rounded shrink-0" style={`background-color: ${rule.color};`}></span>
+          <div class="flex-1">
+            <p class="text-sm font-medium" style={`color: ${rule.color};`}>{rule.sound}</p>
+            <p class="text-xs text-ink-soft">{rule.count} → {rule.meaning}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 rounded bg-brass/10 p-2 text-center text-xs text-ink-soft">
+      = <strong class="text-brass">3 tiếng trầm</strong> + <strong class="text-brass">2 tổ</strong> + <strong class="text-brass">7 tiếng cao</strong> = 3:37
+    </p>
+  </div>
+</section>
+
+<style>
+  [data-infographic] [data-anim] {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-infographic] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function init() {
+    const root = document.querySelector('[data-infographic="glossary-minute-repeater"]');
+    if (!root) return;
+    const targets = root.querySelectorAll('[data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    targets.forEach((el) => obs.observe(el));
+    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
+  }
+  init();
+</script>

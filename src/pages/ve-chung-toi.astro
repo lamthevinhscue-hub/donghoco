@@ -1,0 +1,73 @@
+---
+// Trang: VỀ CHÚNG TÔI
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const isVi = lang === 'vi';
+---
+
+<BaseLayout title={isVi ? 'Về chúng tôi' : 'About'}>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy sm:text-5xl">{isVi ? 'Về chúng tôi' : 'About'}</h1>
+
+    <div class="prose-content mt-8">
+      {isVi ? (
+        <>
+          <p>
+            <strong>Đồng Hồ Cơ</strong> là một nền tảng nội dung tiếng Việt chuyên sâu về đồng hồ cơ,
+            được tạo ra với niềm tin: kiến thức về đồng hồ cơ đáng được kể một cách rõ ràng, đẹp đẽ
+            và dễ tiếp cận — bằng chính tiếng Việt.
+          </p>
+
+          <h2>Sứ mệnh</h2>
+          <p>
+            Chúng tôi muốn xây dựng một nguồn tài nguyên chất lượng cao nơi người mới có thể bắt đầu
+            hiểu về đồng hồ cơ, và người đam mê có thể đi sâu hơn vào cơ chế, lịch sử thương hiệu và
+            câu chuyện của những mẫu huyền thoại.
+          </p>
+
+          <h2>Điểm khác biệt</h2>
+          <p>
+            Nội dung chữ chỉ là một nửa. Vũ khí khác biệt của chúng tôi là <strong>hệ thống infographic động</strong>
+            — giải thích cơ chế đồng hồ bằng hình ảnh trực quan, điều mà (tính đến nay) chưa có nguồn
+            tiếng Việt nào làm hệ thống. Infographic sẽ được thêm dần trong các giai đoạn tiếp theo.
+          </p>
+
+          <h2>Đối tượng</h2>
+          <ul>
+            <li><strong>Người mới</strong> — muốn hiểu đồng hồ cơ là gì, bắt đầu từ đâu.</li>
+            <li><strong>Người chơi trung cấp</strong> — muốn hiểu sâu hơn về máy móc, lịch sử.</li>
+            <li><strong>Người yêu tiếng Việt</strong> — muốn đọc nội dung chất lượng bằng tiếng mẹ đẻ.</li>
+          </ul>
+
+          <h2>Liên hệ</h2>
+          <p>
+            Có góp ý, câu hỏi hay ý tưởng chủ đề mới? Ghé trang <a href="/lien-he">Liên hệ</a> để nhắn cho chúng tôi.
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            <strong>Đồng Hồ Cơ</strong> is an in-depth Vietnamese platform about mechanical watches,
+            built on a belief: knowledge about mechanical watches deserves to be told clearly, beautifully,
+            and accessibly — in Vietnamese.
+          </p>
+          <h2>Mission</h2>
+          <p>
+            We want to build a high-quality resource where newcomers can start understanding mechanical
+            watches, and enthusiasts can go deeper into mechanisms, brand history, and the stories of
+            iconic references.
+          </p>
+          <h2>What sets us apart</h2>
+          <p>
+            Text is only half the story. Our signature is a <strong>system of animated infographics</strong>
+            that explain watch mechanics visually — something no Vietnamese source has done systematically
+            yet. Infographics will be added in the coming phases.
+          </p>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>

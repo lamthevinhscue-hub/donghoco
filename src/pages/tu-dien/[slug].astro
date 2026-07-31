@@ -1,0 +1,71 @@
+---
+// Trang chi tiết: TỪ ĐIỂN THUẬT NGỮ
+// Hiển thị infographic minh họa (nếu có) + nội dung chữ giải thích
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Tourbillon from '../../components/infographics/glossary/Tourbillon.astro';
+import MinuteRepeater from '../../components/infographics/glossary/MinuteRepeater.astro';
+import PerpetualCalendar from '../../components/infographics/glossary/PerpetualCalendar.astro';
+import VPH from '../../components/infographics/glossary/VPH.astro';
+import Incabloc from '../../components/infographics/glossary/Incabloc.astro';
+import Rotor from '../../components/infographics/glossary/Rotor.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import type { Lang } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const langs: Lang[] = ['vi', 'en'];
+  const paths = [];
+  for (const lang of langs) {
+    const entries = await getEntriesByLang('tuDien', lang);
+    for (const entry of entries) {
+      paths.push({
+        params: { slug: getSlug(entry) },
+        props: { slug: getSlug(entry), lang },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+const entries = await getEntriesByLang('tuDien', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(entry);
+const { data } = entry;
+const meta = data.term_en ? `EN: ${data.term_en}` : data.category;
+
+// Map slug -> component infographic từ điển
+const infographics: Record<string, any> = {
+  tourbillon: Tourbillon,
+  'minute-repeater': MinuteRepeater,
+  'perpetual-calendar': PerpetualCalendar,
+  vph: VPH,
+  incabloc: Incabloc,
+  rotor: Rotor,
+};
+const Infographic = data.has_infographic ? infographics[slug] : null;
+---
+
+<ArticleLayout
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  backHref="/tu-dien"
+  meta={meta}
+>
+  {Infographic && (
+    <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-3 text-center text-xs font-medium text-brass">
+      ✅ Infographic minh họa
+    </div>
+  )}
+  {Infographic && <Infographic />}
+
+  <!-- Phần chữ giải thích (Markdown) -->
+  {Infographic && <div class="mt-12 border-t border-cream-dark pt-10"></div>}
+  <Content />
+</ArticleLayout>

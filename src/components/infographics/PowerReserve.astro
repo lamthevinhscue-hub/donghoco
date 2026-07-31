@@ -1,0 +1,296 @@
+---
+// =============================================================================
+// INFOGRAPHIC: TRỮ CÓT (Power Reserve)
+// =============================================================================
+// Hoạt ảnh: CSS transition + Intersection Observer (native, không cần thư viện).
+// Pattern giống WaterResistance.astro.
+//
+// 4 cảnh:
+//   1. Mở đầu — câu hỏi gây tò mò
+//   2. Thùng cót — SVG minh họa dây cót cuộn (đầy) → nhả (cạn)
+//   3. Thang mức độ — 38h → 100h+ với ví dụ đồng hồ
+//   4. Ứng dụng thực tế — weekend power reserve & mẹo
+// =============================================================================
+
+// Dữ liệu các mức trữ cót (có thể chỉnh sửa tại đây)
+const levels = [
+  {
+    hours: '38–42 giờ',
+    label: 'Tiêu chuẩn cổ điển',
+    examples: 'Nhiều movement ETA cổ điển',
+    note: 'Mức phổ biến trước 2010',
+    barWidth: 38,
+  },
+  {
+    hours: '48–50 giờ',
+    label: 'Tốt, phổ biến hiện nay',
+    examples: 'Nhiều calibre hiện đại',
+    note: 'Tiêu chuẩn mới',
+    barWidth: 50,
+  },
+  {
+    hours: '70 giờ',
+    label: 'Weekend — đeo thứ 6, chạy đến thứ 2',
+    examples: 'Rolex 32xx, Tudor MT',
+    note: 'Đặt đồng hồ xuống cả cuối tuần vẫn chạy',
+    barWidth: 70,
+  },
+  {
+    hours: '80 giờ',
+    label: 'Tuyệt vời',
+    examples: 'Powermatic 80 (Tissot, Hamilton)',
+    note: 'Trải nghiệm thoải mái',
+    barWidth: 80,
+  },
+  {
+    hours: '100+ giờ',
+    label: 'Cao cấp',
+    examples: 'Glashütte Original, IWC 168h, Panerai',
+    note: 'Vượt nhu cầu phần lớn',
+    barWidth: 100,
+  },
+];
+---
+
+<section class="infographic my-12" data-infographic="power-reserve">
+  <!-- ====================================================================
+       CẢNH 1: MỞ ĐẦU
+       ==================================================================== -->
+  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+    <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
+    <h2 class="font-serif text-3xl sm:text-5xl">Đồng hồ cơ chạy được bao lâu?</h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
+      Khi bạn đặt đồng hồ xuống, nó không dừng ngay — dây cót vẫn giữ năng lượng
+      nhiều giờ, thậm chí nhiều ngày. Cuộn xuống để hiểu "trữ cót" là gì.
+    </p>
+    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 2: THÙNG CÓT — dây cót cuộn (đầy) → nhả (cạn)
+       ==================================================================== -->
+  <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
+    <div class="svg-container" data-svg="barrel">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
+        <!-- Thùng cót (barrel) - vòng tròn lớn -->
+        <circle cx="200" cy="150" r="90" fill="#FAF7F2" stroke="#2D3748" stroke-width="3"/>
+
+        <!-- Dây cót CUỘN MỶN (đầy năng lượng) - xoắn ốc màu vàng đồng -->
+        <g data-anim="mainspring-full" opacity="0">
+          <!-- Xoắn ốc từ ngoài vào trong (mô phỏng dây cót cuộn) -->
+          <path d="M 200 70
+                   A 80 80 0 1 1 120 150
+                   A 70 70 0 1 1 190 90
+                   A 55 55 0 1 1 140 150
+                   A 40 40 0 1 1 190 115
+                   A 25 25 0 1 1 170 150"
+                fill="none" stroke="#B8893C" stroke-width="6" stroke-linecap="round"/>
+          <text x="200" y="155" text-anchor="middle" font-size="11" fill="#1A1A1A" font-weight="bold">Đầy</text>
+        </g>
+
+        <!-- Trục giữa -->
+        <circle cx="200" cy="150" r="8" fill="#2D3748"/>
+
+        <!-- Chú thích -->
+        <g data-anim="label-barrel" opacity="0">
+          <line x1="290" y1="150" x2="350" y2="150" stroke="#B8893C" stroke-width="1.5"/>
+          <circle cx="350" cy="150" r="3" fill="#B8893C"/>
+          <text x="355" y="154" font-size="11" fill="#1F2D3D" font-weight="bold">Thùng cót (barrel)</text>
+        </g>
+
+        <!-- Mũi tên chỉ sự nhả cót -->
+        <g data-anim="release-arrow" opacity="0">
+          <text x="200" y="280" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold">
+            Dây cót nhả dần → năng lượng giảm theo thời gian
+          </text>
+          <text x="200" y="295" text-anchor="middle" font-size="10" fill="#4A5568">
+            (khi hết, đồng hồ dừng)
+          </text>
+        </g>
+      </svg>
+    </div>
+    <div class="space-y-4">
+      <h3 class="font-serif text-2xl text-navy">Dây cót — "pin cơ học"</h3>
+      <p class="text-ink-soft">
+        Dây cót (mainspring) là một dải thép dài cuộn quanh trục trong <strong>thùng cót</strong>
+        (barrel). Khi bạn lên dây, dây cót bị cuộn chặt — <strong>tích trữ năng lượng</strong>.
+        Khi nhả, nó từ từ mở ra, <strong>giải phóng năng lượng</strong> để chạy đồng hồ.
+      </p>
+      <p class="text-ink-soft">
+        Hãy nghĩ nó như một <strong>"pin cơ học"</strong>: bạn "sạc" bằng cách lên dây
+        (vặn núm hoặc đeo với automatic), và nó từ từ "xả" trong nhiều giờ.
+      </p>
+      <div class="rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">
+        <strong class="text-brass">💡 Trữ cót (power reserve)</strong> = thời gian đồng hồ
+        chạy được sau khi dây cót được lên đầy — tính bằng giờ.
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 3: THANG MỨC ĐỘ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      Thang mức độ trữ cót
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Mỗi mức cho trải nghiệm khác nhau. <strong>Càng dài càng tiện.</strong>
+    </p>
+
+    <div class="space-y-4">
+      {levels.map((level, i) => (
+        <div
+          class="grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 sm:p-5"
+          data-anim="level"
+          data-index={i}
+        >
+          <!-- Thanh trữ cót -->
+          <div class="col-span-12 sm:col-span-4">
+            <div class="h-10 w-full overflow-hidden rounded bg-cream-dark">
+              <div
+                class="flex h-full items-center justify-end rounded bg-gradient-to-r from-brass to-brass-light pr-2 text-xs font-bold text-white"
+                style={`width: ${level.barWidth}%;`}
+              >
+                {level.hours}
+              </div>
+            </div>
+          </div>
+          <!-- Nhãn -->
+          <div class="col-span-12 sm:col-span-8">
+            <h4 class="font-serif text-lg text-navy">{level.label}</h4>
+            <p class="mt-1 text-sm text-ink-soft">
+              <span class="font-medium text-[#2D7A55]">Ví dụ: {level.examples}</span>
+            </p>
+            <p class="mt-1 text-xs text-ink-soft/80">
+              <span class="font-medium">{level.note}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: ỨNG DỤNG THỰC TẾ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+      "Weekend Power Reserve" — tính năng đáng giá
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+      Tại sao 70 giờ lại là con số "ma thuật"?
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-lg border border-cream-dark bg-white p-6" data-anim="app-card">
+        <div class="mb-3 text-3xl">📅</div>
+        <h4 class="mb-2 font-serif text-lg text-navy">Thứ 6 tối</h4>
+        <p class="text-sm text-ink-soft">
+          Bạn đeo đồng hồ cả ngày, dây cót đầy. Chiều về nhà, bạn <strong>tháo ra</strong>
+          để đeo chiếc khác cuối tuần.
+        </p>
+      </div>
+      <div class="rounded-lg border border-cream-dark bg-white p-6" data-anim="app-card">
+        <div class="mb-3 text-3xl">😴</div>
+        <h4 class="mb-2 font-serif text-lg text-navy">Cả cuối tuần</h4>
+        <p class="text-sm text-ink-soft">
+          Đồng hồ nằm trong hộp, dây cót nhả dần — nhưng với <strong>70 giờ trữ cót</strong>,
+          nó vẫn tiếp tục chạy.
+        </p>
+      </div>
+      <div class="rounded-lg border border-cream-dark bg-white p-6" data-anim="app-card">
+        <div class="mb-3 text-3xl">✨</div>
+        <h4 class="mb-2 font-serif text-lg text-navy">Thứ 2 sáng</h4>
+        <p class="text-sm text-ink-soft">
+          Bạn đeo lại — đồng hồ <strong>vẫn chạy đúng giờ</strong>, không cần vặn lại.
+          Đó là tiện lợi của "weekend power reserve".
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-lg border-l-4 border-brass bg-brass/5 p-5">
+      <p class="text-sm text-ink-soft">
+        <strong class="text-brass">💡 Mẹo:</strong> Nếu bạn có nhiều đồng hồ automatic và muốn chúng
+        luôn chạy, cần <strong>hộp quay đồng hồ (watch winder)</strong> — mô phỏng chuyển động cổ tay
+        để giữ dây cót đầy. Nếu chỉ có 1 chiếc, chỉ cần đeo đủ 8 giờ/ngày.
+      </p>
+    </div>
+  </div>
+
+  <!-- Chú thích cuối -->
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
+    <strong class="text-brass">💡 Tóm tắt:</strong>
+    Trữ cót = thời gian đồng hồ chạy được khi đầy cót. 38h là cũ, 70h là "weekend",
+    100h+ là cao cấp. Trữ cót càng dài — càng ít phải lo "đồng hồ dừng".
+  </div>
+</section>
+
+<style>
+  /* Ảnh SVG responsive */
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Hoạt ảnh reveal (CSS transition + Intersection Observer trong script) */
+  .scene [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+
+  .scene [data-anim="level"] {
+    transform: translateX(-30px);
+  }
+
+  .scene [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene [data-anim] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initInfographic() {
+    const root = document.querySelector('[data-infographic="power-reserve"]');
+    if (!root) return;
+
+    const revealTargets = root.querySelectorAll('[data-anim]');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+
+    // Fallback an toàn: ép hiện sau 3s
+    setTimeout(() => {
+      revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+    }, 3000);
+  }
+
+  initInfographic();
+</script>

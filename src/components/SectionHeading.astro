@@ -1,0 +1,23 @@
+---
+// =============================================================================
+// SECTION HEADING (Tiêu đề mục)
+// =============================================================================
+// Tiêu đề lớn dùng để mở đầu một mục trên trang (ví dụ "Nội dung nổi bật").
+// Kèm đường gạch ngang màu vàng đồng làm điểm nhấn.
+// =============================================================================
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { title, subtitle, align = 'left' } = Astro.props;
+const alignment = align === 'center' ? 'text-center mx-auto' : 'text-left';
+---
+
+<div class={`max-w-2xl ${alignment} mb-8`}>
+  <div class={`mb-3 h-1 w-12 rounded bg-brass ${align === 'center' ? 'mx-auto' : ''}`}></div>
+  <h2 class="font-serif text-3xl text-navy sm:text-4xl">{title}</h2>
+  {subtitle && <p class="mt-3 text-ink-soft">{subtitle}</p>}
+</div>

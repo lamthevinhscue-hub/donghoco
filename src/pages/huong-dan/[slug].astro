@@ -1,0 +1,52 @@
+---
+// Trang chi tiết: HƯỚNG DẪN THỰC HÀNH
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import type { Lang } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const langs: Lang[] = ['vi', 'en'];
+  const paths = [];
+  for (const lang of langs) {
+    const entries = await getEntriesByLang('huongDan', lang);
+    for (const entry of entries) {
+      paths.push({
+        params: { slug: getSlug(entry) },
+        props: { slug: getSlug(entry), lang },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+const entries = await getEntriesByLang('huongDan', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(entry);
+const { data } = entry;
+
+const diffLabel: Record<string, { vi: string; en: string }> = {
+  'người mới': { vi: 'Dành cho người mới', en: 'For beginners' },
+  'trung cấp': { vi: 'Trung cấp', en: 'Intermediate' },
+  'nâng cao': { vi: 'Nâng cao', en: 'Advanced' },
+};
+const diff = diffLabel[data.difficulty] ?? diffLabel['người mới'];
+const meta = lang === 'vi' ? diff.vi : diff.en;
+---
+
+<ArticleLayout
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  cover_image={data.cover_image}
+  backHref="/huong-dan"
+  meta={meta}
+>
+  <Content />
+</ArticleLayout>

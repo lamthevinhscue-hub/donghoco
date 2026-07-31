@@ -1,0 +1,96 @@
+---
+// Trang: LIÊN HỆ
+// Lưu ý: form này chỉ là giao diện. Để thực sự nhận email, cần kết nối với một dịch vụ
+// như Formspree, Netlify Forms, hoặc một backend riêng (sẽ làm khi đưa website lên mạng).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl, t } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+const isVi = lang === 'vi';
+---
+
+<BaseLayout title={tr.nav_contact}>
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy sm:text-5xl">{tr.nav_contact}</h1>
+    <p class="mt-4 text-ink-soft">
+      {isVi
+        ? 'Có câu hỏi, góp ý hoặc ý tưởng chủ đề? Hãy gửi cho tôi — tôi đọc tất cả.'
+        : 'Got a question, feedback, or a topic idea? Send it over — I read everything.'}
+    </p>
+
+    <form
+      class="mt-10 space-y-5"
+      method="POST"
+      data-form="contact"
+      onsubmit="return false;"
+    >
+      <div>
+        <label for="name" class="mb-1.5 block text-sm font-medium text-navy">
+          {tr.contact_name}
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full rounded-lg border border-cream-dark bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="mb-1.5 block text-sm font-medium text-navy">
+          {tr.contact_email}
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full rounded-lg border border-cream-dark bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="mb-1.5 block text-sm font-medium text-navy">
+          {tr.contact_message}
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          required
+          class="w-full rounded-lg border border-cream-dark bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="rounded-lg bg-navy px-6 py-3 font-medium text-cream transition-colors hover:bg-brass"
+      >
+        {tr.contact_button}
+      </button>
+
+      <!-- Thông báo sau khi gửi (chỉ là demo cho giai đoạn này) -->
+      <p
+        id="form-status"
+        class="hidden text-sm text-brass"
+      >
+        {isVi
+          ? '✓ Cảm ơn bạn! (Đây là bản demo — form sẽ thực sự gửi khi website được kết nối với dịch vụ email.)'
+          : '✓ Thank you! (This is a demo — the form will actually send once the site is connected to an email service.)'}
+      </p>
+    </form>
+  </section>
+</BaseLayout>
+
+<script>
+  // Demo: chỉ hiện thông báo, chưa thực sự gửi đi
+  const form = document.querySelector('[data-form="contact"]');
+  const status = document.getElementById('form-status');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status?.classList.remove('hidden');
+  });
+</script>

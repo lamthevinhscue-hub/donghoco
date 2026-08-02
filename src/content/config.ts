@@ -45,6 +45,28 @@ const thuongHieu = defineCollection({
       parent_company: z.string().optional(),        // Tập đoàn mẹ (VD: "Swatch Group", "Richemont", "LVMH")
       signature_calibres: z.array(z.string()).default([]), // Bộ máy in-house tiêu biểu (VD: ["3235", "4130"])
       logo: z.string().optional(),                  // Đường dẫn logo (VD: "/images/thuong-hieu/logos/rolex.png")
+      // --- Bước 2.1: dữ liệu cho template thế hệ mới (5 khối) ---
+      lineHistory: z.array(z.object({               // Khối 2: Mini-timeline dọc của riêng thương hiệu
+        year: z.number(),
+        title: z.string(),
+        detail: z.string(),
+      })).default([]),
+      collections: z.array(z.object({               // Khối 3: Các dòng đồng hồ (Collections)
+        name: z.string(),
+        year: z.number().optional(),
+        identity: z.string(),                       // Đặc tính nhận diện (vỏ, mặt số, bộ máy)
+        positioning: z.string(),                    // Định vị trong danh mục thương hiệu
+        iconic_ref: z.string().optional(),          // Mẫu tiêu biểu (reference)
+      })).default([]),
+      segmentComparison: z.array(z.object({         // Khối 4: So sánh với đối thủ cùng phân khúc
+        brand: z.string(),                          // Tên đối thủ
+        slug: z.string().optional(),                // Slug đối thủ (nếu có bài)
+        strength: z.string(),                       // Thế mạnh chế tác
+        movement: z.string(),                       // Bộ máy
+        value_retention: z.string(),                // Giá trị giữ giá
+        philosophy: z.string(),                     // Triết lý
+      })).default([]),
+      collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
     }),
 });
 

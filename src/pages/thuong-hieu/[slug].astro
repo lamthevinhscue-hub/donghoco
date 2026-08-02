@@ -1,6 +1,12 @@
 ---
-// Trang chi tiết: THƯƠNG HIỆU
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+// Trang chi tiết: THƯƠNG HIỆU (template thế hệ mới — 5 khối)
+// =============================================================================
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 2.1.
+// - Dùng BrandLayout (5 khối: hồ sơ nhanh, mini-timeline, collections,
+//   segment comparison, mẫu iconic liên quan).
+// - Khối 5: tự động kéo các mẫu iconic có `brand` khớp từ collection mauIconic.
+// =============================================================================
+import BrandLayout from '../../layouts/BrandLayout.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
@@ -21,7 +27,6 @@ export async function getStaticPaths() {
   return paths;
 }
 
-// Lấy entry đầy đủ + Content component (dùng render() - cách đúng trong Astro 4+)
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
 const entries = await getEntriesByLang('thuongHieu', lang);
 const entry = entries.find((e) => getSlug(e) === slug);
@@ -32,20 +37,40 @@ if (!entry) {
 
 const { Content } = await render(entry);
 const { data } = entry;
+
+// Meta hiển thị dưới tiêu đề
 const meta = [
   data.country,
   data.founded ? `${data.founded}` : null,
   data.tier,
 ].filter(Boolean).join(' • ');
+
+// ====== Khối 5: Tự động kéo mẫu iconic có `brand` khớp ======
+const iconicEntries = await getEntriesByLang('mauIconic', lang);
+const iconicModels = iconicEntries
+  .filter((e) => {
+    const brand = (e.data as any).brand;
+    if (!brand) return false;
+    // So khớp không phân biệt hoa thường, bỏ dấu khoảng trắng
+    const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
+    return norm(brand) === norm(data.title);
+  })
+  .map((e) => ({
+    title: (e.data as any).title,
+    slug: getSlug(e),
+    excerpt: (e.data as any).excerpt,
+    category: (e.data as any).category,
+    year: (e.data as any).year,
+    cover_image: (e.data as any).cover_image,
+  }));
 ---
 
-<ArticleLayout
+<BrandLayout
   title={data.title}
   excerpt={data.excerpt}
-  date={data.date}
-  cover_image={data.cover_image}
-  backHref="/thuong-hieu"
   meta={meta}
+  data={data}
+  iconicModels={iconicModels}
 >
   <Content />
-</ArticleLayout>
+</BrandLayout>

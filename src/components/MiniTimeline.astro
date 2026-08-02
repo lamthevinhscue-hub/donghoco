@@ -1,0 +1,100 @@
+---
+// =============================================================================
+// MINI TIMELINE — Dòng chảy lịch sử dọc (thu gọn) cho trang thương hiệu
+// =============================================================================
+// Component tái sử dụng cho Khối 2 của BrandLayout.
+// Nhận danh sách { year, title, detail } và hiển thị thành timeline dọc,
+// với các thẻ hiện dần khi cuộn tới (Intersection Observer).
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 2.1.
+// =============================================================================
+
+interface Milestone {
+  year: number;
+  title: string;
+  detail: string;
+}
+
+interface Props {
+  milestones: Milestone[];
+  /** Màu nhấn cho đường timeline + chấm (mặc định brass) */
+  accentColor?: string;
+}
+
+const { milestones, accentColor = '#B8893C' } = Astro.props;
+---
+
+{milestones.length > 0 && (
+  <div class="mini-timeline relative pl-8" data-mini-timeline>
+    <!-- Đường dọc -->
+    <div
+      class="absolute left-[10px] top-2 bottom-2 w-0.5"
+      style={`background: linear-gradient(to bottom, ${accentColor}, ${accentColor}33);`}
+      aria-hidden="true"
+    ></div>
+
+    {milestones.map((m, i) => (
+      <div class="mini-timeline-item relative mb-6 last:mb-0" data-anim="mt-item">
+        <!-- Chấm trên đường -->
+        <div
+          class="absolute -left-[22px] top-1.5 h-3 w-3 rounded-full border-2 border-white"
+          style={`background: ${accentColor};`}
+          aria-hidden="true"
+        ></div>
+        <!-- Nội dung -->
+        <div class="rounded-lg border-l-2 bg-white p-3 shadow-sm" style={`border-left-color: ${accentColor};`}>
+          <div class="flex items-baseline gap-2">
+            <span class="font-serif text-lg font-bold" style={`color: ${accentColor};`}>{m.year}</span>
+            <h4 class="text-sm font-semibold text-navy">{m.title}</h4>
+          </div>
+          <p class="mt-1 text-xs leading-relaxed text-ink-soft">{m.detail}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
+{milestones.length === 0 && (
+  <p class="text-sm italic text-ink-soft/60">Chưa có dữ liệu dòng chảy lịch sử cho thương hiệu này.</p>
+)}
+
+<style>
+  [data-mini-timeline] [data-anim] {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  [data-mini-timeline] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-mini-timeline] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function initMiniTimelines() {
+    document.querySelectorAll('[data-mini-timeline]').forEach((root) => {
+      const items = root.querySelectorAll('[data-anim]');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach((el) => el.classList.add('reveal-visible'));
+        return;
+      }
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            // Hiệu ứng "stagger" — delay theo thứ tự
+            const idx = Array.from(items).indexOf(e.target);
+            setTimeout(() => e.target.classList.add('reveal-visible'), idx * 100);
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+      items.forEach((el) => obs.observe(el));
+      // Fallback: hiện sau 3.5s nếu observer không kích hoạt
+      setTimeout(() => items.forEach((el) => el.classList.add('reveal-visible')), 3500);
+    });
+  }
+  initMiniTimelines();
+</script>

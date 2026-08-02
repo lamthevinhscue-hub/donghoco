@@ -1,0 +1,71 @@
+---
+// =============================================================================
+// COMPONENT WatchImage — hiển thị ảnh đồng hồ với placeholder đẹp
+// =============================================================================
+// Tự động kiểm tra: nếu file ảnh tồn tại → hiển thị ảnh thật (lazy-load).
+// Nếu chưa có → hiển thị placeholder gradient + tên mẫu + "Ảnh đang cập nhật".
+//
+// Cách dùng:
+//   <WatchImage src="/images/mau-iconic/rolex-submariner.jpg" alt="Rolex Submariner" />
+//
+// Tỷ lệ mặc định 16:10 (ngang). Có thể đổi qua prop `ratio`.
+// =============================================================================
+
+interface Props {
+  src: string;              // Đường dẫn ảnh (VD: "/images/mau-iconic/rolex-submariner.jpg")
+  alt: string;              // Mô tả ảnh (quan trọng cho accessibility)
+  ratio?: '16/10' | '16/9' | '1/1' | '4/3';  // Tỷ lệ khung hình
+  caption?: string;         // Chú thích bên dưới ảnh (tùy chọn)
+  eager?: boolean;          // true = tải ngay (cho ảnh above-the-fold), false = lazy (mặc định)
+}
+
+const { src, alt, ratio = '16/10', caption, eager = false } = Astro.props;
+
+// Tỷ lệ → padding-top (cho khung giữ tỷ lệ)
+const aspectClass = {
+  '16/10': 'aspect-[16/10]',
+  '16/9': 'aspect-[16/9]',
+  '1/1': 'aspect-square',
+  '4/3': 'aspect-[4/3]',
+}[ratio];
+---
+
+<figure class="watch-image my-6">
+  <div class={`relative overflow-hidden rounded-lg border border-cream-dark bg-cream-dark/30 ${aspectClass}`}>
+    <!-- Ảnh thật (nếu có) -->
+    <img
+      src={src}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      class="absolute inset-0 h-full w-full object-cover"
+      onload="this.parentElement.classList.add('loaded')"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <!-- Placeholder khi chưa có ảnh (hiện khi ảnh lỗi/chưa tải) -->
+    <div class="placeholder absolute inset-0 hidden flex-col items-center justify-center bg-gradient-to-br from-navy/90 to-navy-light/80 p-4 text-center">
+      <svg class="mb-2 h-10 w-10 text-brass/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+      <p class="text-sm font-medium text-cream">{alt}</p>
+      <p class="mt-1 text-xs text-cream/50">Ảnh đang cập nhật</p>
+    </div>
+  </div>
+  {caption && (
+    <figcaption class="mt-2 text-center text-xs text-ink-soft/70">{caption}</figcaption>
+  )}
+</figure>
+
+<style>
+  /* Hiệu ứng fade-in khi ảnh tải xong */
+  .watch-image img {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+  }
+  .watch-image .loaded img {
+    opacity: 1;
+  }
+  /* Khi ảnh tải xong → ẩn placeholder */
+  .watch-image .loaded .placeholder {
+    display: none !important;
+  }
+</style>

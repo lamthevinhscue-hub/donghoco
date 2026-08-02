@@ -1,0 +1,120 @@
+---
+// =============================================================================
+// TRANG /giai-phau — GIẢI PHẪU MỘT CHIẾC ĐỒNG HỒ CƠ (exploded view)
+// =============================================================================
+// "Trang chủ thứ hai" kết nối toàn bộ nội dung cơ chế.
+// Người xem chạm vào từng lớp (vỏ, mặt số, kim, bộ máy, cót, bộ thoát...)
+// để hiện chú thích và link đến bài cơ chế tương ứng.
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.4.
+// =============================================================================
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WatchExplodedView from '../components/WatchExplodedView.astro';
+---
+
+<BaseLayout
+  title="Giải phẫu đồng hồ cơ — Xuyên thấu 12 bộ phận | Đồng Hồ Cơ"
+  description="Sơ đồ exploded view tương tác: tách một chiếc đồng hồ cơ thành 12 bộ phận (kính, kim, mặt số, thùng cót, bánh răng, bộ thoát, bánh lắc, rotor...). Click để hiểu vai trò từng chi tiết."
+>
+  <div class="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+    <!-- ====== HERO ====== -->
+    <header class="mb-10 text-center">
+      <p class="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-brass">Bước 1.4 — Trang chủ cơ chế</p>
+      <h1 class="font-serif text-4xl text-navy sm:text-5xl">
+        Giải phẫu một chiếc đồng hồ cơ
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+        Bấm <strong class="text-navy">"Tách lớp"</strong> để phân rã đồng hồ thành
+        <strong class="text-navy">12 bộ phận</strong> từ kính đến đáy vỏ.
+        Click từng bộ phận để hiểu vai trò và đọc bài chi tiết.
+      </p>
+    </header>
+
+    <!-- ====== EXPLODED VIEW (component chính) ====== -->
+    <WatchExplodedView />
+
+    <!-- ====== PHẦN GIẢI THÍCH BỔ SUNG ====== -->
+    <section class="mt-16 space-y-8">
+      <div class="border-t border-cream-dark pt-10">
+        <h2 class="font-serif text-2xl text-navy">Đồng hồ cơ = 12 lớp xếp chồng</h2>
+        <p class="mt-3 max-w-3xl leading-relaxed text-ink-soft">
+          Một chiếc đồng hồ cơ không phải là một khối đặc — nó là
+          <strong>tower xếp lớp</strong> của hơn 100 chi tiết siêu nhỏ, được vít chặt vào nhau trong
+          không gian chỉ 30-40mm đường kính. Khi bạn "tách lớp", bạn sẽ thấy năng lượng
+          <strong>chảy từ dưới lên trên</strong>: từ dây cót (đáy) → bánh răng → bộ thoát → bánh lắc →
+          và cuối cùng biến thành chuyển động quay của kim (trên cùng).
+        </p>
+      </div>
+
+      <!-- 3 cột: Dòng năng lượng / Dòng thời gian / Dòng thông tin -->
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-lg border-l-4 border-brass bg-white p-5">
+          <h3 class="mb-2 font-serif text-lg text-navy">⚡ Dòng năng lượng</h3>
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Rõto → thùng cót → chuỗi bánh răng → bộ thoát. Đây là đường đi của
+            <strong>năng lượng cơ học</strong>, từ khi được "nạp" (lên dây) đến khi bị tiêu hao
+            (ma sát + tiếng tíc-tắc).
+          </p>
+        </div>
+        <div class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
+          <h3 class="mb-2 font-serif text-lg text-navy">⏱ Dòng thời gian</h3>
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Bánh lắc dao động → bộ thoát nhả từng nhịp → bánh răng trung gian đếm → kim giây/phút/giờ quay.
+            Đây là cách <strong>dao động biến thành giờ-phút-giây</strong>.
+          </p>
+        </div>
+        <div class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
+          <h3 class="mb-2 font-serif text-lg text-navy">💡 Dòng thông tin</h3>
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Mặt số + kim là "giao diện người dùng" — biến chuyển động vô hình của bộ máy thành
+            <strong>thông tin đọc được</strong>. Sub-dials mở rộng thêm chức năng (chronograph, lịch).
+          </p>
+        </div>
+      </div>
+
+      <!-- Bảng tổng kết nhanh -->
+      <div class="overflow-hidden rounded-lg border border-cream-dark">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-navy text-cream">
+            <tr>
+              <th class="px-4 py-3 font-medium">Lớp</th>
+              <th class="px-4 py-3 font-medium">Bộ phận</th>
+              <th class="px-4 py-3 font-medium">Vai trò cốt lõi</th>
+              <th class="hidden px-4 py-3 font-medium sm:table-cell">Vật liệu điển hình</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-cream-dark bg-white">
+            <tr><td class="px-4 py-2 text-ink-soft">0</td><td class="px-4 py-2 font-medium text-navy">Kính</td><td class="px-4 py-2 text-ink-soft">Bảo vệ</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Sapphire tổng hợp</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">1</td><td class="px-4 py-2 font-medium text-navy">Kim</td><td class="px-4 py-2 text-ink-soft">Hiển thị giờ</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Thép / vàng / Super-LumiNova</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">2</td><td class="px-4 py-2 font-medium text-navy">Mặt số</td><td class="px-4 py-2 text-ink-soft">Giao diện</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Đồng, thạch anh, men (enamel)</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">3</td><td class="px-4 py-2 font-medium text-navy">Thùng cót + bánh răng</td><td class="px-4 py-2 text-ink-soft">Dự trữ + truyền năng lượng</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Thép tôi</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">4</td><td class="px-4 py-2 font-medium text-navy">Bộ thoát + bánh lắc</td><td class="px-4 py-2 text-ink-soft">Đo thời gian</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Rubi + Glucydur + silicon</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">5</td><td class="px-4 py-2 font-medium text-navy">Rõto</td><td class="px-4 py-2 text-ink-soft">Lên dây tự động</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Vonfram / thép bịt vàng</td></tr>
+            <tr><td class="px-4 py-2 text-ink-soft">6</td><td class="px-4 py-2 font-medium text-navy">Đáy vỏ</td><td class="px-4 py-2 text-ink-soft">Đóng gói</td><td class="hidden px-4 py-2 text-ink-soft sm:table-cell">Thép / titan / sapphire</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CTA cuối -->
+      <div class="rounded-lg bg-gradient-to-br from-navy to-[#152030] p-8 text-center text-cream">
+        <h3 class="font-serif text-2xl">Muốn hiểu sâu hơn từng bộ phận?</h3>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-cream/80">
+          Mỗi cơ chế đều có một bài viết chuyên sâu riêng — với infographic tương tác.
+          Bắt đầu từ "trái tim đập" của đồng hồ.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="/co-che/bo-thoat" class="rounded-full bg-brass px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brass-dark">
+            ♥ Bộ thoát (trái tim)
+          </a>
+          <a href="/co-che/tru-cot" class="rounded-full border border-cream/40 px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-navy">
+            ⚡ Thùng cót
+          </a>
+          <a href="/co-che" class="rounded-full border border-cream/40 px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-navy">
+            Tất cả cơ chế →
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,590 @@
+---
+// =============================================================================
+// WATCH EXPLODED VIEW — Giải phẫu một chiếc đồng hồ cơ
+// =============================================================================
+// SVG exploded view: 12 bộ phận xếp thành các lớp (từ trên xuống dưới):
+//   1. Kính crystal          7. Thùng cót (mainspring barrel)
+//   2. Kim giây (second hand) 8. Bánh răng trung gian (gear train)
+//   3. Kim phút (minute hand) 9. Bộ thoát (escapement)
+//   4. Kim giờ (hour hand)    10. Bánh lắc + dây tóc (balance & hairspring)
+//   5. Mặt số (dial)          11. Rotor (thủiston lên dây tự động)
+//   6. Kim 24h / phụ (sub-dial) 12. Đáy vỏ (caseback)
+//
+// Tương tác:
+//   - Click/hover bộ phận → sáng lên + thẻ chú thích (tên Vi/Anh, vai trò, link)
+//   - Nút "Tách lớp" / "Ghép lại" → animation translate các lớp ra/trở vào
+//   - Mỗi lớp có link tới bài cơ chế chi tiết (nếu có)
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.4.
+// =============================================================================
+
+// Dữ liệu 12 bộ phận — đơn nguồn, dễ sửa
+const parts = [
+  {
+    id: 'crystal',
+    layer: 0,
+    nameVi: 'Kính cường lực',
+    nameEn: 'Crystal',
+    role: 'Lớp trong suốt bảo vệ mặt số. Thường là sapphire (độ cứng 9/10, chống xước gần như tuyệt đối).',
+    link: null,
+    color: '#A8C5E2',
+    icon: '◈',
+  },
+  {
+    id: 'second-hand',
+    layer: 1,
+    nameVi: 'Kim giây',
+    nameEn: 'Second hand',
+    role: 'Kim dài nhất, mỏng nhất — quay 1 vòng mỗi 60 giây. Liên kết trực tiếp với bộ thoát.',
+    link: '/co-che/bo-thoat',
+    color: '#9B2C2C',
+    icon: '→',
+  },
+  {
+    id: 'minute-hand',
+    layer: 1,
+    nameVi: 'Kim phút',
+    nameEn: 'Minute hand',
+    role: 'Quay 1 vòng mỗi 60 phút — truyền động từ bánh răng phút của chuỗi truyền động.',
+    link: '/co-che/chuyen-dong-co',
+    color: '#1F2D3D',
+    icon: '↛',
+  },
+  {
+    id: 'hour-hand',
+    layer: 1,
+    nameVi: 'Kim giờ',
+    nameEn: 'Hour hand',
+    role: 'Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ. Tỷ lệ 12:1 so với kim phút.',
+    link: '/co-che/chuyen-dong-co',
+    color: '#1F2D3D',
+    icon: '⏰',
+  },
+  {
+    id: 'dial',
+    layer: 2,
+    nameVi: 'Mặt số',
+    nameEn: 'Dial',
+    role: '"Gương mặt" của đồng hồ — hiển thị các chữ số, vạch khắc và thương hiệu. Quyết định 80% diện mạo.',
+    link: null,
+    color: '#FAF7F2',
+    icon: '◔',
+  },
+  {
+    id: 'subdial',
+    layer: 2,
+    nameVi: 'Mặt số phụ',
+    nameEn: 'Sub-dial',
+    role: 'Mặt số nhỏ hiển thị chức năng phụ: giây chronograph, bộ đếm phút, hay ngày/tháng (lịch vạn niên).',
+    link: '/tu-dien/perpetual-calendar',
+    color: '#E8E2D6',
+    icon: '○',
+  },
+  {
+    id: 'mainspring-barrel',
+    layer: 3,
+    nameVi: 'Thùng cót',
+    nameEn: 'Mainspring barrel',
+    role: 'Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót, đồng hồ chạy là nhả cót từ từ.',
+    link: '/co-che/tru-cot',
+    color: '#B8893C',
+    icon: '◎',
+  },
+  {
+    id: 'gear-train',
+    layer: 3,
+    nameVi: 'Bánh răng trung gian',
+    nameEn: 'Gear train / Going train',
+    role: 'Chuỗi 4 bánh răng truyền năng lượng từ thùng cót đến bộ thoát, đồng thời chia tỷ lệ cho kim giờ/phút/giây.',
+    link: '/co-che/chuyen-dong-co',
+    color: '#4A5568',
+    icon: '⚙',
+  },
+  {
+    id: 'escapement',
+    layer: 4,
+    nameVi: 'Bộ thoát',
+    nameEn: 'Escapement',
+    role: 'TRÁI TIM ĐẬP! Chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động. Nguồn gốc tiếng "tíc-tắc".',
+    link: '/co-che/bo-thoat',
+    color: '#2E86AB',
+    icon: '♥',
+  },
+  {
+    id: 'balance',
+    layer: 4,
+    nameVi: 'Bánh lắc + dây tóc',
+    nameEn: 'Balance wheel & Hairspring',
+    role: 'Hệ dao động điều hòa — biến năng lượng thành nhịp thời gian đều đặn. Quyết định độ chính xác.',
+    link: '/tu-dien/day-toc-banh-lac',
+    color: '#9B2C2C',
+    icon: '✺',
+  },
+  {
+    id: 'rotor',
+    layer: 5,
+    nameVi: 'Rõto (lên dây tự động)',
+    nameEn: 'Rotor',
+    role: 'Quả nặng xoay tự do theo chuyển động cổ tay → tự động lên dây cót. Đặc trưng của đồng hồ automatic.',
+    link: '/co-che/len-day-tu-dong',
+    color: '#5A6878',
+    icon: '◐',
+  },
+  {
+    id: 'caseback',
+    layer: 6,
+    nameVi: 'Đáy vỏ',
+    nameEn: 'Caseback',
+    role: 'Nắp đáy — có loại kín (bảo vệ, chống nước tốt) hoặc lộ máy (sapphire, ngắm bộ máy đẹp).',
+    link: null,
+    color: '#2D3748',
+    icon: '▣',
+  },
+];
+
+// Vị trí dọc của mỗi lớp khi "tách" (exploded)
+// Lớp 0 (kính) ở trên cùng, lớp 6 (đáy) ở dưới cùng
+const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
+---
+
+<section class="my-6" data-exploded-root>
+  <!-- ====== Thanh điều khiển trên ====== -->
+  <div class="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark bg-cream-dark/20 p-4">
+    <div class="flex items-center gap-2">
+      <span class="text-sm font-medium text-navy">🔧 Trạng thái:</span>
+      <span id="mode-label" class="text-sm font-bold text-brass">Đang ghép (assembled)</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        id="toggle-explode"
+        class="flex items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        <span id="toggle-label">Tách lớp</span>
+      </button>
+      <button
+        type="button"
+        id="reset-view"
+        class="rounded-full border border-cream-dark px-3 py-2 text-xs font-medium text-ink-soft transition-colors hover:bg-cream-dark"
+      >Đặt lại</button>
+    </div>
+  </div>
+
+  <!-- ====== Khung SVG exploded view ====== -->
+  <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+    <!-- Cột trái: SVG -->
+    <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6">
+      <svg viewBox="0 0 500 760" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
+        <!-- Nhãn lớp bên trái -->
+        <g font-size="9" fill="#9CA3AF" font-family="sans-serif">
+          <text x="10" y="100">Lớp 0 — Kính</text>
+          <text x="10" y="240">Lớp 1 — Kim</text>
+          <text x="10" y="360">Lớp 2 — Mặt số</text>
+          <text x="10" y="500">Lớp 3 — Bộ máy trên</text>
+          <text x="10" y="630">Lớp 4 — Bộ thoát</text>
+          <text x="10" y="740">Lớp 5-6 — Rotor + Đáy</text>
+        </g>
+
+        <!-- Đường tâm dọc tham chiếu -->
+        <line x1="250" y1="40" x2="250" y2="740" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
+
+        <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
+        <!-- LỚP 0: KÍNH (crystal) -->
+        <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="80" data-assembled-y="280" transform="translate(0, 280)">
+          <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
+          <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
+          <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">SAPPHIRE CRYSTAL</text>
+        </g>
+
+        <!-- LỚP 1: KIM (hands) -->
+        <g class="layer-group" data-part="hands" data-layer="1" data-target-y="200" data-assembled-y="320" transform="translate(0, 320)">
+          <!-- Kim giờ -->
+          <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+            <rect x="248" y="-55" width="4" height="60" fill="#1F2D3D" rx="2"/>
+          </g>
+          <!-- Kim phút -->
+          <g data-part="minute-hand" data-name-vi="Kim phút" data-name-en="Minute hand" data-role="Quay 1 vòng mỗi 60 phút." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+            <rect x="249" y="-90" width="2.5" height="95" fill="#1F2D3D" rx="1.5"/>
+          </g>
+          <!-- Kim giây -->
+          <g data-part="second-hand" data-name-vi="Kim giây" data-name-en="Second hand" data-role="Quay 1 vòng mỗi 60 giây — liên kết với bộ thoát." data-link="/co-che/bo-thoat" style="cursor: pointer;">
+            <rect x="249.5" y="-105" width="1.5" height="115" fill="#9B2C2C"/>
+            <circle cx="250" cy="-95" r="5" fill="#9B2C2C"/>
+          </g>
+          <circle cx="250" cy="0" r="4" fill="#1F2D3D"/>
+          <!-- Nhãn -->
+          <text x="250" y="30" text-anchor="middle" font-size="9" fill="#9CA3AF">KIM (hands)</text>
+        </g>
+
+        <!-- LỚP 2: MẶT SỐ (dial) -->
+        <g class="layer-group" data-part="dial" data-layer="2" data-target-y="330" data-assembled-y="360" transform="translate(0, 360)">
+          <!-- Mặt số chính -->
+          <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
+            <circle cx="250" cy="0" r="120" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2"/>
+            <!-- Vạch giờ -->
+            {Array.from({ length: 60 }).map((_, i) => {
+              const a = (i * 360) / 60 - 90;
+              const rad = (a * Math.PI) / 180;
+              const isMajor = i % 5 === 0;
+              const r1 = isMajor ? 105 : 112;
+              return <line x1={250 + Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={250 + Math.cos(rad) * 118} y2={Math.sin(rad) * 118} stroke="#1F2D3D" stroke-width={isMajor ? 2.5 : 0.8}/>;
+            })}
+            {/* Số */}
+            {[12, 3, 6, 9].map((n, i) => {
+              const a = (i * 90) - 90;
+              const rad = (a * Math.PI) / 180;
+              return <text x={250 + Math.cos(rad) * 90} y={Math.sin(rad) * 90 + 5} text-anchor="middle" font-size="16" fill="#1F2D3D" font-weight="bold" font-family="serif">{n}</text>;
+            })}
+            {/* Logo giả */}
+            <text x="250" y="-40" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" letter-spacing="2">ĐỒNG HỒ CƠ</text>
+          </g>
+          <!-- Sub-dial (mặt phụ) -->
+          <g data-part="subdial" data-name-vi="Mặt số phụ" data-name-en="Sub-dial" data-role="Hiển thị chức năng phụ: giây chạy, lịch, v.v." data-link="/tu-dien/perpetual-calendar" style="cursor: pointer;">
+            <circle cx="250" cy="50" r="28" fill="#E8E2D6" stroke="#1F2D3D" stroke-width="1"/>
+            {Array.from({ length: 12 }).map((_, i) => {
+              const a = (i * 360) / 12 - 90;
+              const rad = (a * Math.PI) / 180;
+              return <line x1={250 + Math.cos(rad) * 22} y1={50 + Math.sin(rad) * 22} x2={250 + Math.cos(rad) * 26} y2={50 + Math.sin(rad) * 26} stroke="#4A5568" stroke-width="0.6"/>;
+            })}
+            <line x1="250" y1="50" x2="262" y2="42" stroke="#9B2C2C" stroke-width="1.2"/>
+            <circle cx="250" cy="50" r="2" fill="#1F2D3D"/>
+          </g>
+        </g>
+
+        <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
+        <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="470" data-assembled-y="410" transform="translate(0, 410)">
+          <!-- Thùng cót -->
+          <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
+            <circle cx="180" cy="0" r="38" fill="#B8893C" opacity="0.85" stroke="#9B6E2C" stroke-width="1.5"/>
+            <circle cx="180" cy="0" r="30" fill="none" stroke="#9B6E2C" stroke-width="0.8"/>
+            {/* Dây cót xoắn bên trong */}
+            <path d="M 180 0 m -22 0 a 22 22 0 1 1 44 0 a 16 16 0 1 0 -32 0 a 10 10 0 1 1 20 0"
+                  fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.7"/>
+            <circle cx="180" cy="0" r="5" fill="#2D3748"/>
+            <text x="180" y="55" text-anchor="middle" font-size="8" fill="#9B6E2C" font-weight="bold">Thùng cót</text>
+          </g>
+          <!-- Bánh răng trung gian (3 bánh) -->
+          <g data-part="gear-train" data-name-vi="Bánh răng trung gian" data-name-en="Gear train" data-role="Chuỗi 4 bánh răng truyền năng lượng + chia tỷ lệ cho kim." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+            {/* Bánh 1 */}
+            <g transform="translate(250, -15)">
+              <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+                {Array.from({ length: 16 }).map((_, i) => {
+                  const a = (i * 360) / 16;
+                  return <g transform={`rotate(${a})`}><rect x="-1" y="-26" width="2" height="5"/></g>;
+                })}
+              </g>
+              <circle r="22" fill="#5A6878" stroke="#2D3748" stroke-width="1"/>
+              <circle r="3" fill="#2D3748"/>
+            </g>
+            {/* Bánh 2 */}
+            <g transform="translate(310, 5)">
+              <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+                {Array.from({ length: 12 }).map((_, i) => {
+                  const a = (i * 360) / 12;
+                  return <g transform={`rotate(${a})`}><rect x="-1" y="-20" width="2" height="4"/></g>;
+                })}
+              </g>
+              <circle r="16" fill="#5A6878" stroke="#2D3748" stroke-width="1"/>
+              <circle r="2.5" fill="#2D3748"/>
+            </g>
+            <text x="265" y="55" text-anchor="middle" font-size="8" fill="#4A5568" font-weight="bold">Chuỗi truyền động</text>
+          </g>
+        </g>
+
+        <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
+        <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="600" data-assembled-y="460" transform="translate(0, 460)">
+          <!-- Bộ thoát (escape wheel + pallet) -->
+          <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
+            <g transform="translate(190, 0)">
+              {/* Escape wheel */}
+              <g fill="#2E86AB" stroke="#1F4E6B" stroke-width="0.8">
+                {Array.from({ length: 15 }).map((_, i) => {
+                  const a = (i * 360) / 15;
+                  return <g transform={`rotate(${a})`}><path d="M 0 -20 L 2 -16 L 3 -13 L -3 -13 L -2 -16 Z"/></g>;
+                })}
+              </g>
+              <circle r="14" fill="#2E86AB" stroke="#1F4E6B" stroke-width="1"/>
+              <circle r="2.5" fill="#1F2D3D"/>
+              {/* Pallet fork */}
+              <g transform="translate(28, 8)">
+                <path d="M 0 0 L -7 -10 L -9 -12 M 0 0 L 7 -10 L 9 -12 M 0 0 L 0 12"
+                      fill="none" stroke="#B8893C" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+              <text x="190" y="40" text-anchor="middle" font-size="8" fill="#1F4E6B" font-weight="bold">Bộ thoát</text>
+            </g>
+          </g>
+          <!-- Bánh lắc + dây tóc -->
+          <g data-part="balance" data-name-vi="Bánh lắc + dây tóc" data-name-en="Balance & Hairspring" data-role="Hệ dao động điều hòa — biến năng lượng thành nhịp thời gian." data-link="/tu-dien/day-toc-banh-lac" style="cursor: pointer;">
+            <g transform="translate(310, 0)">
+              <circle r="32" fill="none" stroke="#9B2C2C" stroke-width="3"/>
+              <line x1="-32" y1="0" x2="32" y2="0" stroke="#9B2C2C" stroke-width="2"/>
+              <line x1="0" y1="-32" x2="0" y2="32" stroke="#9B2C2C" stroke-width="2"/>
+              <circle r="4" fill="#9B2C2C"/>
+              <circle cx="0" cy="-32" r="2.5" fill="#2D3748"/>
+              <circle cx="0" cy="32" r="2.5" fill="#2D3748"/>
+              {/* Dây tóc */}
+              <g opacity="0.5">
+                <path d="M 310 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
+                      fill="none" stroke="#3182CE" stroke-width="1.2" transform="translate(-310, 0)"/>
+              </g>
+              <text x="310" y="50" text-anchor="middle" font-size="8" fill="#9B2C2C" font-weight="bold">Bánh lắc</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- LỚP 5: ROTOR -->
+        <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="700" data-assembled-y="510" transform="translate(0, 510)">
+          <g data-part="rotor" data-name-vi="Rõto (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
+            {/* Hình bán nguyệt đặc trưng của rotor */}
+            <path d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
+                  fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
+            <path d="M 250 -45 A 65 65 0 0 1 315 20 L 312 24 A 70 70 0 0 0 250 -50 Z"
+                  fill="#7A8898" opacity="0.6"/>
+            <circle cx="250" cy="0" r="8" fill="#2D3748"/>
+            <circle cx="250" cy="0" r="3" fill="#B8893C"/>
+            <text x="250" y="45" text-anchor="middle" font-size="8" fill="#5A6878" font-weight="bold">ROTOR (automatic)</text>
+          </g>
+        </g>
+
+        <!-- LỚP 6: ĐÁY VỎ (caseback) -->
+        <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="760" data-assembled-y="570" transform="translate(0, 570)">
+          <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
+            <ellipse cx="250" cy="0" rx="135" ry="18" fill="#2D3748" stroke="#1F2D3D" stroke-width="1.5"/>
+            <ellipse cx="250" cy="-2" rx="120" ry="14" fill="none" stroke="#4A5568" stroke-width="0.8"/>
+            <text x="250" y="3" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold">CASEBACK</text>
+          </g>
+        </g>
+
+        <!-- ====== CHÚ THÍCH KHI HOVER/CLICK (tooltip động) ====== -->
+        <g id="exploded-tooltip" opacity="0" style="pointer-events: none;">
+          <rect id="tip-bg" x="0" y="0" width="220" height="60" rx="8" fill="#1F2D3D" opacity="0.97"/>
+          <text id="tip-vi" x="110" y="20" text-anchor="middle" font-size="12" fill="#FAF7F2" font-weight="bold"></text>
+          <text id="tip-en" x="110" y="36" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+          <text id="tip-link" x="110" y="52" text-anchor="middle" font-size="8" fill="#3182CE"></text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Cột phải: bảng các bộ phận + thẻ chi tiết -->
+    <div class="space-y-4">
+      <!-- Thẻ chi tiết bộ phận đang chọn -->
+      <div id="detail-card" class="rounded-lg border-l-4 border-brass bg-white p-5">
+        <div class="mb-2 flex items-center gap-3">
+          <span id="detail-icon" class="text-3xl">👆</span>
+          <div>
+            <h3 id="detail-name-vi" class="font-serif text-lg text-navy">Chọn một bộ phận</h3>
+            <p id="detail-name-en" class="text-xs text-ink-soft/70">Click vào bất kỳ bộ phận nào trong sơ đồ bên cạnh</p>
+          </div>
+        </div>
+        <p id="detail-role" class="mt-3 text-sm leading-relaxed text-ink-soft">
+          Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ —
+          từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt,
+          hoặc click trực tiếp vào bộ phận để đọc vai trò và link bài chi tiết.
+        </p>
+        <a id="detail-link" href="#" class="mt-4 hidden inline-flex items-center gap-1 rounded-full bg-navy px-4 py-2 text-xs font-medium text-cream hover:bg-brass">
+          Đọc bài chi tiết →
+        </a>
+      </div>
+
+      <!-- Danh sách nhanh các bộ phận -->
+      <div class="rounded-lg border border-cream-dark bg-cream-dark/10 p-4">
+        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/70">12 bộ phận — click để chọn</h4>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          {parts.map((p) => (
+            <button
+              type="button"
+              class="part-quick flex items-center gap-2 rounded border border-cream-dark bg-white p-2 text-left transition-colors hover:border-brass hover:bg-brass/5"
+              data-part-id={p.id}
+            >
+              <span class="text-base">{p.icon}</span>
+              <span class="text-navy">{p.nameVi}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hướng dẫn -->
+  <p class="mt-4 text-center text-xs text-ink-soft/60">
+    💡 Mẹo: Bấm <strong>"Tách lớp"</strong> để xem đồng hồ phân rã thành các lớp • Click bộ phận để xem chi tiết • Mũi tên ↓ chỉ hướng trọng lực
+  </p>
+</section>
+
+<style>
+  .layer-group {
+    transition: transform 0.9s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+  [data-part] {
+    transition: filter 0.3s ease;
+  }
+  [data-part].active {
+    filter: drop-shadow(0 0 8px #B8893C) brightness(1.15);
+  }
+  .part-quick.active {
+    border-color: #B8893C !important;
+    background: rgba(184, 137, 60, 0.1) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .layer-group { transition: none; }
+    [data-part] { transition: none; }
+  }
+</style>
+
+<script>
+  // =============================================================================
+  // EXPLODED VIEW — điều khiển tách/ghép + chọn bộ phận
+  // =============================================================================
+  const root = document.querySelector('[data-exploded-root]');
+  if (root) {
+    const svg = document.getElementById('exploded-svg');
+    const toggleBtn = document.getElementById('toggle-explode');
+    const toggleLabel = document.getElementById('toggle-label');
+    const modeLabel = document.getElementById('mode-label');
+    const resetBtn = document.getElementById('reset-view');
+    const layers = svg?.querySelectorAll('.layer-group');
+    const tooltip = document.getElementById('exploded-tooltip');
+    const tipBg = document.getElementById('tip-bg');
+    const tipVi = document.getElementById('tip-vi');
+    const tipEn = document.getElementById('tip-en');
+    const tipLink = document.getElementById('tip-link');
+
+    const detailIcon = document.getElementById('detail-icon');
+    const detailNameVi = document.getElementById('detail-name-vi');
+    const detailNameEn = document.getElementById('detail-name-en');
+    const detailRole = document.getElementById('detail-role');
+    const detailLink = document.getElementById('detail-link');
+    const quickButtons = document.querySelectorAll('.part-quick');
+
+    let isExploded = false;
+
+    // Map part id -> thông tin chi tiết (lấy từ data attributes)
+    const partMap = {};
+    svg?.querySelectorAll('[data-part]').forEach((el) => {
+      const id = el.getAttribute('data-part');
+      if (!partMap[id]) {
+        partMap[id] = {
+          id,
+          nameVi: el.getAttribute('data-name-vi') || id,
+          nameEn: el.getAttribute('data-name-en') || '',
+          role: el.getAttribute('data-role') || '',
+          link: el.getAttribute('data-link') || '',
+        };
+      }
+    });
+
+    // Map part id -> icon (từ quick buttons)
+    const iconMap = {};
+    quickButtons.forEach((b) => {
+      const id = b.dataset.partId;
+      const iconEl = b.querySelector('span:first-child');
+      iconMap[id] = iconEl ? iconEl.textContent : '•';
+    });
+
+    // ====== TÁCH / GHÉP ======
+    function applyMode() {
+      if (!layers) return;
+      layers.forEach((layer) => {
+        const targetY = isExploded
+          ? parseFloat(layer.dataset.targetY)
+          : parseFloat(layer.dataset.assembledY);
+        layer.setAttribute('transform', `translate(0, ${targetY})`);
+      });
+      toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
+      modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)';
+      // Đổi chiều mũi tên icon
+      const arrow = toggleBtn?.querySelector('svg path');
+      if (arrow) {
+        arrow.setAttribute('d', isExploded ? 'M19 14l-7 7m0 0l-7-7m7 7V3' : 'M12 19V5m0 0l-7 7m7-7l7 7');
+      }
+    }
+
+    toggleBtn?.addEventListener('click', () => {
+      isExploded = !isExploded;
+      applyMode();
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      isExploded = false;
+      applyMode();
+      selectPart(null);
+    });
+
+    // ====== CHỌN BỘ PHẬN ======
+    function selectPart(id) {
+      // Bỏ active cũ
+      svg?.querySelectorAll('[data-part].active').forEach((el) => el.classList.remove('active'));
+      quickButtons.forEach((b) => b.classList.remove('active'));
+
+      if (!id || !partMap[id]) {
+        // Reset detail card
+        detailIcon.textContent = '👆';
+        detailNameVi.textContent = 'Chọn một bộ phận';
+        detailNameEn.textContent = 'Click vào bất kỳ bộ phận nào trong sơ đồ bên cạnh';
+        detailRole.innerHTML = 'Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ — từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt, hoặc click trực tiếp vào bộ phận để đọc vai trò và link bài chi tiết.';
+        detailLink.classList.add('hidden');
+        return;
+      }
+
+      const p = partMap[id];
+      // Active các phần tử SVG có cùng data-part
+      svg?.querySelectorAll(`[data-part="${id}"]`).forEach((el) => el.classList.add('active'));
+      // Active quick button
+      document.querySelector(`.part-quick[data-part-id="${id}"]`)?.classList.add('active');
+
+      // Cập nhật detail card
+      detailIcon.textContent = iconMap[id] || '•';
+      detailNameVi.textContent = p.nameVi;
+      detailNameEn.textContent = p.nameEn;
+      detailRole.textContent = p.role;
+      if (p.link) {
+        detailLink.href = p.link;
+        detailLink.classList.remove('hidden');
+      } else {
+        detailLink.classList.add('hidden');
+      }
+    }
+
+    // Click trên SVG
+    svg?.querySelectorAll('[data-part]').forEach((el) => {
+      el.addEventListener('click', () => {
+        selectPart(el.getAttribute('data-part'));
+      });
+      el.addEventListener('mouseenter', (e) => {
+        const id = el.getAttribute('data-part');
+        const p = partMap[id];
+        if (!p || !tooltip) return;
+        tipVi.textContent = p.nameVi;
+        tipEn.textContent = p.nameEn;
+        tipLink.textContent = p.link ? '→ Click để đọc bài' : '';
+        tipBg.setAttribute('width', Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30);
+        tooltip.setAttribute('opacity', '1');
+      });
+      el.addEventListener('mouseleave', () => {
+        tooltip?.setAttribute('opacity', '0');
+      });
+    });
+
+    // Tooltip theo chuột
+    svg?.addEventListener('mousemove', (e) => {
+      if (!tooltip) return;
+      const rect = svg.getBoundingClientRect();
+      const vb = svg.viewBox.baseVal;
+      const x = (e.clientX - rect.left) * (vb.width / rect.width);
+      const y = (e.clientY - rect.top) * (vb.height / rect.height);
+      tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 240)}, ${Math.max(y - 70, 0)})`);
+    });
+
+    // Click trên quick buttons
+    quickButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        selectPart(btn.dataset.partId);
+      });
+    });
+
+    // Tôn trọng reduced motion → không tự tách
+    // Mặc định assembled
+    applyMode();
+  }
+</script>

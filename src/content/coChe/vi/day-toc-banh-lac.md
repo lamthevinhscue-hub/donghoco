@@ -52,11 +52,11 @@ Dao động tự nhiên sẽ **tắt dần** do ma sát. Nhưng **bộ thoát** 
 | **28.800 vph (4 Hz)** | Chuẩn hiện đại (Rolex, Omega) | Cân bằng giữa độ chính xác và độ bền |
 | **36.000 vph (5 Hz)** | "Hi-Beat" (Grand Seiko, Zenith) | Kim mượt hơn, chính xác hơn — nhưng hao dầu, mài mòn nhanh |
 
-Nguyên lý: tần số cao → mỗi dao động sai số nhỏ hơn → tích lũy sai số chậm hơn → **chính xác hơn**. Nhưng代价 là ma sát nhiều hơn → hao dầu, mài mòn nhanh hơn → **phục hồi (service) sớm hơn**.
+Nguyên lý: tần số cao → mỗi dao động sai số nhỏ hơn → tích lũy sai số chậm hơn → **chính xác hơn**. Nhưng cái giá phải trả là ma sát nhiều hơn → hao dầu, mài mòn nhanh hơn → **phục hồi (service) sớm hơn**.
 
 ## 3 thế hệ dây tóc — cuộc đua vật liệu
 
-Dây tóc là **vòng xoắn ốc siêu mỏng** (dày vài chục micromet), dài 30–50cm nếu duỗi thẳng nhưng cuộn trong vài mm². Nó là chi tiết **quyết định độ chính xác** nhiều nhất — và là战 trường vật liệu suốt 3 thế kỷ.
+Dây tóc là **vòng xoắn ốc siêu mỏng** (dày vài chục micromet), dài 30–50cm nếu duỗi thẳng nhưng cuộn trong vài mm². Nó là chi tiết **quyết định độ chính xác** nhiều nhất — và là chiến trường vật liệu suốt ba thế kỷ.
 
 ### Thế hệ 1 — hợp kim cổ điển (Invar / Elinvar)
 - Đầu thế kỷ 20, hợp kim nikel-sắt.

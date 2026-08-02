@@ -1,4 +1,11 @@
-# MỤC A — BÁO CÁO KIỂM KÊ HIỆN TRẠNG
+# ĐỢT 1 — KIỂM KÊ HIỆN TRẠNG (Mục A)
+
+> **NGÀY NGHIỆM THU: 02/08/2026**
+> **Loại:** Kiểm kê hiện trạng, làm nền cho việc giao việc tiếp theo
+> **Đối tượng kiểm:** Toàn bộ repo tại commit `4d120dd`
+> **Kết quả tóm tắt:** Phát hiện 10 link 404, 4 vị trí ký tự ngoài tiếng Việt và tiếng Anh, 0 trên 8 tính năng nền tảng, 14 trên 24 trang thương hiệu chưa đủ 5 khối
+
+---
 
 **Ngày thực hiện:** 02/08/2026
 **Người thực hiện:** Claude (Cowork) — đọc trực tiếp mã nguồn repo `D:\Watch web build`

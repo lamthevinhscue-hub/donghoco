@@ -1,0 +1,290 @@
+---
+// =============================================================================
+// ESCAPEMENT — SVG bộ thoát Swiss lever với animation nhịp tíc-tắc
+// =============================================================================
+// Mô phỏng chu kỳ: bánh lắc dao động → pallet fork nhả → escape wheel tiến 1 răng → khóa lại
+// Dùng MechanismAnimation wrapper cho điều khiển play/pause/tốc độ.
+//
+// Chu kỳ 1 nhịp (beat):
+//   1. Bánh lắc dao động qua một bên → đẩy pallet fork
+//   2. Pallet fork nhả escape wheel → escape wheel tiến 1 răng (và phát tiếng "tíc")
+//   3. Bánh lắc dao động qua bên kia → đẩy pallet fork bên kia
+//   4. Pallet fork nhả escape wheel → tiến 1 răng nữa (phát tiếng "tắc")
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.2.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
+  <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg">
+    <!-- ====== BACKGROUND: các nhãn vùng ====== -->
+    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
+    </text>
+
+    <!-- ====== ESCAPE WHEEL (bánh thoát) - bên trái, 15 răng ====== -->
+    <g id="escape-wheel-group" transform="translate(180, 220)">
+      <g id="escape-wheel" data-part="escape-wheel" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
+        <!-- Vẽ 15 răng hình mỏ neo -->
+        <g fill="#4A5568" stroke="#2D3748" stroke-width="1">
+          {Array.from({ length: 15 }).map((_, i) => {
+            const angle = (i * 360) / 15;
+            return (
+              <g transform={`rotate(${angle})`}>
+                <path d="M 0 -55 L 5 -45 L 8 -38 L -8 -38 L -5 -45 Z" />
+              </g>
+            );
+          })}
+        </g>
+        <!-- Vòng tròn thân -->
+        <circle r="38" fill="#4A5568" stroke="#2D3748" stroke-width="1.5"/>
+        <!-- Trục giữa -->
+        <circle r="5" fill="#2D3748"/>
+        <!-- Các chấm trang trí -->
+        {Array.from({ length: 5 }).map((_, i) => {
+          const a = (i * 360) / 5;
+          return <circle cx={Math.cos((a * Math.PI) / 180) * 22} cy={Math.sin((a * Math.PI) / 180) * 22} r="3" fill="#2D3748"/>;
+        })}
+      </g>
+    </g>
+
+    <!-- ====== PALLET FORK (ngựa) - giữa, 2 chân kính ====== -->
+    <g id="pallet-fork-group" transform="translate(310, 220)">
+      <g id="pallet-fork" data-part="pallet-fork" data-name-vi="Ngựa (pallet fork)" data-name-en="Pallet fork">
+        <!-- Thân ngựa (hình chữ Y ngược) -->
+        <path d="M 0 0 L -20 -30 L -25 -38 M 0 0 L 20 -30 L 25 -38 M 0 0 L 0 35"
+              fill="none" stroke="#B8893C" stroke-width="4" stroke-linecap="round"/>
+        <!-- Đá trên (entry pallet) -->
+        <rect x="-28" y="-42" width="8" height="6" rx="1" fill="#3182CE" transform="rotate(-15 -24 -39)"/>
+        <!-- Đá dưới (exit pallet) -->
+        <rect x="20" y="-42" width="8" height="6" rx="1" fill="#3182CE" transform="rotate(15 24 -39)"/>
+        <!-- Trục -->
+        <circle cx="0" cy="35" r="5" fill="#9B6E2C"/>
+        <!-- Mỏ ngựa (horns) -->
+        <path d="M -8 -2 L -14 5 M 8 -2 L 14 5" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- ====== BALANCE WHEEL (bánh lắc) - bên phải ====== -->
+    <g id="balance-group" transform="translate(450, 150)">
+      <g id="balance-wheel" data-part="balance-wheel" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
+        <!-- Vòng ngoài -->
+        <circle r="45" fill="none" stroke="#9B2C2C" stroke-width="5"/>
+        <!-- 3 chân (spokes) -->
+        <line x1="0" y1="-45" x2="0" y2="45" stroke="#9B2C2C" stroke-width="3"/>
+        <line x1="-39" y1="-22.5" x2="39" y2="22.5" stroke="#9B2C2C" stroke-width="3"/>
+        <line x1="-39" y1="22.5" x2="39" y2="-22.5" stroke="#9B2C2C" stroke-width="3"/>
+        <!-- Trục -->
+        <circle r="6" fill="#9B2C2C"/>
+        <!-- Trọng lượng cố định (timing screws) -->
+        <circle cx="0" cy="-45" r="4" fill="#2D3748"/>
+        <circle cx="0" cy="45" r="4" fill="#2D3748"/>
+        <circle cx="-45" cy="0" r="4" fill="#2D3748"/>
+        <circle cx="45" cy="0" r="4" fill="#2D3748"/>
+      </g>
+      <!-- Dây tóc (hairspring) - xoắn ốc mờ -->
+      <g id="hairspring" opacity="0.5" data-part="hairspring" data-name-vi="Dây tóc" data-name-en="Hairspring">
+        <path d="M 0 0
+                 m -8 0 a 8 8 0 1 1 16 0
+                 a 12 12 0 1 1 -24 0
+                 a 16 16 0 1 1 32 0
+                 a 20 20 0 1 1 -40 0"
+              fill="none" stroke="#3182CE" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- ====== MŨI TÊN CHỈ SỰ TRUYỀN LỰC ====== -->
+    <g id="power-arrows" opacity="0.6">
+      <!-- Escape wheel → pallet fork -->
+      <text x="245" y="180" font-size="20" fill="#B8893C">→</text>
+      <!-- Pallet fork → balance wheel -->
+      <text x="370" y="180" font-size="20" fill="#B8893C">→</text>
+    </g>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER (tooltip động) ====== -->
+    <g id="tooltip" opacity="0" style="pointer-events: none;">
+      <rect id="tooltip-bg" x="0" y="0" width="160" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="80" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="80" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+    </g>
+
+    <!-- ====== TRẠNG THÁI (đang "tíc" hay "tắc") ====== -->
+    <text id="beat-indicator" x="300" y="380" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">
+      ●
+    </text>
+  </svg>
+
+  <script is:inline define:vars={{}} slot="script">
+    // =============================================================================
+    // Đăng ký hàm animate cho escapement
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['escapement'] = function(delta, elapsed) {
+      const svg = document.getElementById('escapement-svg');
+      if (!svg) return;
+
+      const escapeWheel = svg.querySelector('#escape-wheel-group');
+      const palletFork = svg.querySelector('#pallet-fork-group');
+      const balanceWheel = svg.querySelector('#balance-group');
+      const beatIndicator = svg.querySelector('#beat-indicator');
+
+      if (!escapeWheel || !palletFork || !balanceWheel) return;
+
+      // Chu kỳ: 1 beat = 6000ms ở speed 1x (chậm để nhìn rõ)
+      // Dao động của bánh lắc: qua lại trong 1 beat
+      const beatPeriod = 6000;
+      const phase = (elapsed % beatPeriod) / beatPeriod; // 0 → 1
+      const beatNum = Math.floor(elapsed / beatPeriod);
+
+      // Bánh lắc dao động: -35° đến +35° (hình sin)
+      const balanceAngle = Math.sin(phase * Math.PI * 2) * 35;
+      balanceWheel.setAttribute('transform', `translate(450, 150) rotate(${balanceAngle})`);
+
+      // Pallet fork: dao động ngược pha một chút, -12° đến +12°
+      const palletAngle = Math.sin(phase * Math.PI * 2 + 0.3) * 12;
+      palletFork.setAttribute('transform', `translate(310, 220) rotate(${palletAngle})`);
+
+      // Escape wheel: chỉ tiến (xoay 1 chiều), mỗi beat xoay 24° (= 360°/15 răng)
+      // Nhảy từng răng: dùng floor để tạo hiệu ứng "nhả - khóa"
+      const escapeAngle = -(beatNum * 24);
+      escapeWheel.setAttribute('transform', `translate(180, 220) rotate(${escapeAngle})`);
+
+      // Chỉ báo tíc-tắc
+      if (beatIndicator) {
+        beatIndicator.textContent = beatNum % 2 === 0 ? '● TÍC' : '● TẮC';
+        beatIndicator.setAttribute('fill', beatNum % 2 === 0 ? '#3182CE' : '#9B2C2C');
+      }
+    };
+
+    // =============================================================================
+    // HOVER TOOLTIP — rê chuột vào bộ phận để hiện tên
+    // =============================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      const svg = document.getElementById('escapement-svg');
+      if (!svg) return;
+      const tooltip = svg.querySelector('#tooltip');
+      const tooltipBg = svg.querySelector('#tooltip-bg');
+      const tooltipVi = svg.querySelector('#tooltip-vi');
+      const tooltipEn = svg.querySelector('#tooltip-en');
+      if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
+
+      const parts = svg.querySelectorAll('[data-part]');
+      parts.forEach((part) => {
+        part.style.cursor = 'pointer';
+        const highlight = () => {
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          const vi = part.getAttribute('data-name-vi') || '';
+          const en = part.getAttribute('data-name-en') || '';
+          tooltipVi.textContent = vi;
+          tooltipEn.textContent = en;
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 20);
+          tooltip.setAttribute('opacity', '1');
+        };
+        const unhighlight = () => {
+          part.style.filter = '';
+          tooltip.setAttribute('opacity', '0');
+        };
+        part.addEventListener('mouseenter', highlight);
+        part.addEventListener('mouseleave', unhighlight);
+        part.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          highlight();
+          setTimeout(unhighlight, 2000);
+        });
+      });
+
+      // Tooltip theo chuột
+      svg.addEventListener('mousemove', (e) => {
+        const rect = svg.getBoundingClientRect();
+        const viewBox = svg.viewBox.baseVal;
+        const scaleX = viewBox.width / rect.width;
+        const scaleY = viewBox.height / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        // Đặt tooltip cạnh chuột
+        tooltip.setAttribute('transform', `translate(${Math.min(x, viewBox.width - 170)}, ${Math.max(y - 45, 0)})`);
+      });
+    });
+  </script>
+</MechanismAnimation>
+
+<!-- Phần giải thích: Hiện tượng → Nguyên lý → Ý nghĩa -->
+<div class="mt-10 space-y-6" data-explanation>
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Khi đồng hồ chạy, bạn nghe tiếng <strong>"tíc... tắc... tíc... tắc"</strong> đều đặn.
+      Nhìn vào bộ máy (qua mặt sau lộ máy), bạn thấy <strong>bánh lắc dao động qua lại</strong> liên tục,
+      và một <strong>bánh răng nhỏ nhảy từng bước</strong> — mỗi nhịp một răng. Đó chính là bộ thoát đang làm việc.
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">② Nguyên lý — vì sao nó đập?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Bộ thoát làm <strong>2 việc cùng lúc</strong> trong mỗi nhịp:
+    </p>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">a)</span>
+        <span><strong>Chia nhỏ năng lượng</strong> — thay vì để dây cót nhả hết một lần (cháy chong chóng), bộ thoát chỉ cho <strong>một chút năng lượng</strong> đi qua mỗi nhịp. Đây là lý do đồng hồ chạy đều nhiều ngày.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">b)</span>
+        <span><strong>Đẩy bánh lắc</strong> — mỗi lần nhả, nó truyền một xung lực nhỏ để giữ bánh lắc dao động (bù lại ma sát). Bánh lắc dao động liên tục <em>vì</em> bộ thoát nuôi năng lượng cho nó.</span>
+      </li>
+    </ul>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      Cặp <strong>ngựa (pallet fork) + bánh thoát (escape wheel)</strong> tạo thành "cửalock" nhịp nhàng:
+      bánh lắc qua → ngựa nhả → bánh thoát tiến 1 răng → ngựa khóa lại → bánh lắc qua bên kia → lặp lại.
+      Tiếng "tíc" và "tắc" là tiếng <strong>đá (pallet) chạm răng</strong>.
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">③ Ý nghĩa — phát minh vĩ đại nhất của ngành</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Không có bộ thoát, đồng hồ cơ <strong>không thể tồn tại</strong>. Đây là phát minh chia ranh giới
+      giữa "cỗ máy đo thời gian" và "đồ chơi quay chong chóng". Bộ thoát Swiss lever (do
+      <strong>Thomas Mudge</strong> perfected thế kỷ 18) vẫn là chuẩn mực đến nay — hơn 250 năm,
+      chưa có gì thay thế hoàn toàn (trừ Co-Axial của George Daniels, và silicon gần đây).
+    </p>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+      Mỗi cải tiến bộ thoát (Co-Axial 1999, silicon 2001) đều là <strong>cơn địa chấn</strong> trong ngành —
+      vì nó chạm vào "trái tim đập" của đồng hồ.
+    </p>
+  </div>
+</div>
+
+<style>
+  [data-explanation] [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-explanation] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  // Reveal cho các thẻ giải thích
+  function initExplanation() {
+    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cards.forEach((c) => c.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    cards.forEach((c) => obs.observe(c));
+    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
+  }
+  initExplanation();
+</script>

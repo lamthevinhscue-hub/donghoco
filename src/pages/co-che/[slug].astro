@@ -7,6 +7,7 @@ import PowerReserve from '../../components/infographics/PowerReserve.astro';
 import AntiMagnetic from '../../components/infographics/AntiMagnetic.astro';
 import GearTrain from '../../components/infographics/GearTrain.astro';
 import AutomaticWinding from '../../components/infographics/AutomaticWinding.astro';
+import Escapement from '../../components/infographics/Escapement.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { t } from '../../i18n/ui';
@@ -51,6 +52,7 @@ const infographics: Record<string, any> = {
   'chong-tu': AntiMagnetic,
   'chuyen-dong-co': GearTrain,
   'len-day-tu-dong': AutomaticWinding,
+  'bo-thoat': Escapement,
 };
 const Infographic = data.has_infographic ? infographics[slug] : null;
 ---

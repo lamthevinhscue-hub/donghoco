@@ -1,1 +1,133 @@
-[]
+[
+  {
+    "title": "Dây tóc & bánh lắc (Hairspring & Balance)",
+    "slug": "day-toc-banh-lac",
+    "excerpt": "Cặp đôi dao động tạo ra nhịp thời gian — trái tim đập của mọi đồng hồ cơ. Dao động điều hòa, tần số VPH.",
+    "aliases": [
+      "Dây tóc & bánh lắc (Hairspring & Balance)",
+      "Dây tóc & bánh lắc",
+      "Hairspring & Balance Wheel"
+    ]
+  },
+  {
+    "title": "Minute Repeater (Cơ chế điểm chuông)",
+    "slug": "minute-repeater",
+    "excerpt": "Phức tạp điểm chuông báo giờ khi bấm — một trong những khó chế tạo nhất, từng là 'đèn pin' thời trước khi có điện.",
+    "aliases": [
+      "Minute Repeater (Cơ chế điểm chuông)",
+      "Minute Repeater"
+    ]
+  },
+  {
+    "title": "Perpetual Calendar (Lịch vạn niên)",
+    "slug": "perpetual-calendar",
+    "excerpt": "Phức tạp tự động tính đúng số ngày mỗi tháng — kể cả năm nhuận — đến tận năm 2100 mới cần chỉnh.",
+    "aliases": [
+      "Perpetual Calendar (Lịch vạn niên)",
+      "Perpetual Calendar",
+      "Perpetual Calendar / QP"
+    ]
+  },
+  {
+    "title": "Incabloc (Hệ thống chống sốc)",
+    "slug": "incabloc",
+    "excerpt": "Cơ cấu bảo vệ bánh lắc khỏi hỏng khi va đập — tiêu chuẩn toàn ngành, hiện diện trong hầu hết đồng hồ cơ.",
+    "aliases": [
+      "Incabloc (Hệ thống chống sốc)",
+      "Incabloc",
+      "Incabloc / Shock protection"
+    ]
+  },
+  {
+    "title": "Côtes de Genève (Vân Genève)",
+    "slug": "cotes-de-geneve",
+    "excerpt": "Họa tiết sọc song song trên bề mặt movement — trang trí đặc trưng của đồng hồ Thụy Sĩ cao cấp.",
+    "aliases": [
+      "Côtes de Genève (Vân Genève)",
+      "Côtes de Genève",
+      "Côtes de Genève / Geneva Stripes"
+    ]
+  },
+  {
+    "title": "Power Reserve (Trữ cót)",
+    "slug": "power-reserve",
+    "excerpt": "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, thường 38–80 giờ.",
+    "aliases": [
+      "Power Reserve (Trữ cót)",
+      "Power Reserve",
+      "Power Reserve / Reserve de marche"
+    ]
+  },
+  {
+    "title": "GMT (Múi giờ thứ hai)",
+    "slug": "gmt",
+    "excerpt": "Phức tạp hiển thị múi giờ thứ hai — hữu ích cho người đi máy bay, cầu nối giữa pilot watch và đồng hồ du lịch.",
+    "aliases": [
+      "GMT (Múi giờ thứ hai)",
+      "GMT",
+      "GMT / Multiple Time Zone"
+    ]
+  },
+  {
+    "title": "VPH (tần số dao động)",
+    "slug": "vph",
+    "excerpt": "Số lần bánh lắc dao động mỗi giờ — quyết định độ mượt và độ chính xác của đồng hồ.",
+    "aliases": [
+      "VPH (tần số dao động)",
+      "VPH",
+      "Vibrations per hour / Beat rate"
+    ]
+  },
+  {
+    "title": "Movement (Bộ máy)",
+    "slug": "movement",
+    "excerpt": "Trái tim của đồng hồ — toàn bộ cơ cấu bên trong khiến đồng hồ chạy.",
+    "aliases": [
+      "Movement (Bộ máy)",
+      "Movement",
+      "Movement / Caliber"
+    ]
+  },
+  {
+    "title": "Chronograph",
+    "slug": "chronograph",
+    "excerpt": "Đồng hồ có chức năng bấm giờ độc lập — một trong những phức tạp hữu ích nhất.",
+    "aliases": [
+      "Chronograph"
+    ]
+  },
+  {
+    "title": "Tourbillon",
+    "slug": "tourbillon",
+    "excerpt": "Cơ chế xoay bộ thoát để bù sai số trọng lực — một trong những phức tạp cao cấp nhất.",
+    "aliases": [
+      "Tourbillon"
+    ]
+  },
+  {
+    "title": "Calibre",
+    "slug": "calibre",
+    "excerpt": "Cách gọi tên của một bộ máy đồng hồ cụ thể.",
+    "aliases": [
+      "Calibre",
+      "Caliber / Movement"
+    ]
+  },
+  {
+    "title": "Bezel",
+    "slug": "bezel",
+    "excerpt": "Vành kim loại quanh mặt số — vừa trang trí, vừa có nhiều chức năng thực tế.",
+    "aliases": [
+      "Bezel"
+    ]
+  },
+  {
+    "title": "Rotor",
+    "slug": "rotor",
+    "excerpt": "Quả nặng xoay trong đồng hồ automatic — bộ phận biến chuyển động cổ tay thành năng lượng lên cót.",
+    "aliases": [
+      "Rotor",
+      "Rotor / Oscillating weight"
+    ]
+  }
+]

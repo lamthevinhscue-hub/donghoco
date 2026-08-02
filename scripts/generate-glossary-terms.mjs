@@ -2,7 +2,7 @@
 // generate-glossary-terms.mjs — Sinh file JSON chứa danh sách thuật ngữ từ điển
 // =============================================================================
 // Chạy trước build: đọc tất cả file trong src/content/tuDien/vi/*.md, trích
-// title + excerpt + slug (tên file), ghi ra src/data/glossary-terms.json.
+// title + excerpt + slug (tên file) + aliases, ghi ra src/data/glossary-terms.json.
 // Remark plugin đọc JSON này (vì plugin chạy sync, không thể getCollection).
 //
 // Chạy: node scripts/generate-glossary-terms.mjs
@@ -22,10 +22,12 @@ async function main() {
   for (const file of files) {
     const path = join(DIR, file);
     const content = await readFile(path, 'utf-8');
-    const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    // Chấp nhận cả LF và CRLF (\r?\n)
+    const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!fmMatch) continue;
     const fm = fmMatch[1];
 
+    // Các regex khớp cả CRLF và LF
     const title = fm.match(/^title:\s*"?(.+?)"?\s*$/m)?.[1];
     const excerpt = fm.match(/^excerpt:\s*"?(.+?)"?\s*$/m)?.[1];
     const termEn = fm.match(/^term_en:\s*"?(.+?)"?\s*$/m)?.[1];
@@ -49,6 +51,12 @@ async function main() {
 
   // Sắp xếp theo độ dài title giảm dần (ưu tiên cụm dài)
   terms.sort((a, b) => b.title.length - a.title.length);
+
+  // Fail-safe: nếu không sinh được thuật ngữ nào → build phải thất bại
+  if (terms.length === 0) {
+    console.error('LỖI: Script không sinh được thuật ngữ nào. Kiểm tra lại src/content/tuDien/vi/');
+    process.exit(1);
+  }
 
   await writeFile(OUT, JSON.stringify(terms, null, 2), 'utf-8');
   console.log(`✓ Đã sinh ${terms.length} thuật ngữ → ${OUT}`);

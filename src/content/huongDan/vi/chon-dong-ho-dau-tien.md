@@ -52,7 +52,7 @@ Kích thước mặt đồng hồ (đường kính) ảnh hưởng lớn đến 
 
 ## 5. Cơ hay automatic?
 
-- **Cơ (manual):** phải vặn cót tay mỗi ngày —儀式 cảm tốt, nhưng bất tiện.
+- **Cơ (manual):** phải vặn cót tay mỗi ngày — cảm giác nghi thức, nhưng bất tiện.
 - **Automatic (lên dây tự động):** chỉ cần đeo là chạy — tiện hơn cho người mới.
 
 Hầu hết người mới nên chọn **automatic**.

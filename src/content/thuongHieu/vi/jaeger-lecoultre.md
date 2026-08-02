@@ -75,7 +75,7 @@ collections:
     year: 1928
     identity: "Đồng hồ BÀN chạy bằng không khí — khí mê-tan giãn nở khi nhiệt độ ±1°C → chạy 2 ngày. Gần như vĩnh viễn (60 năm/lít khí), không cần lên cót, không pin."
     positioning: "Dòng độc nhất — không phải đeo, để bàn làm việc/phòng khách. Biểu tượng chế tác bền vững, thường là quà tặng ngoại giao quốc gia."
-    iconic_ref: "Atmos Classique / Atmos滽 Mégagaz / Atmos Astronomie"
+    iconic_ref: "Atmos Classique / Atmos Mégagaz / Atmos Astronomie"
 segmentComparison:
   - brand: "Cartier"
     slug: "cartier"
@@ -109,7 +109,7 @@ JLC tự làm cả những thứ mà các hãng khác phải mua: dây tóc, lò
 JLC kết hợp **lịch sử lâu đời với kỹ thuật đổi mới**. Hãng tiên phong trong:
 - **Đồng hồ siêu mỏng** — calibre 145 năm 1907, dày chỉ 1.38mm, vẫn là một trong những movement mỏng nhất mọi thời đại.
 - **Atmos** — đồng hồ chạy bằng biến đổi nhiệt độ không khí, gần như vĩnh viễn không cần lên cót.
-- **Métiers Rares** — nghệ thuật thủ công (email, khắc) đỉnh cao.
+- **Métiers Rares** — nghệ thuật thủ công (enamel, khắc) đỉnh cao.
 
 ## Dòng sản phẩm chủ lực
 

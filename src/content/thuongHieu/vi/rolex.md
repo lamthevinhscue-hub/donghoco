@@ -50,7 +50,7 @@ collections:
   - name: "Datejust"
     year: 1945
     identity: "Dress watch đa dụng kinh điển — vỏ Oyster 36/41mm, lịch ngày ở 3h phóng đại Cyclops lens, fluted bezel đặc trưng, caliber 3235."
-    positioning: "Dòng 'gateway' — đa dụng nhất, mặc được mọi场合, mẫu đầu tiên của nhiều người chơi Rolex."
+    positioning: "Dòng 'gateway' — đa dụng nhất, mặc được mọi dịp, mẫu đầu tiên của nhiều người chơi Rolex."
     iconic_ref: "Datejust 41 / Datejust 36 'Palm Motif'"
   - name: "Cosmograph Daytona"
     year: 1963

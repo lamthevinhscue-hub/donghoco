@@ -1,7 +1,7 @@
 ---
 title: "Bộ thoát (Escapement) — Trái tim đập của đồng hồ cơ"
 custom_slug: "bo-thoat"
-excerpt: "Phát minh vĩ đại nhất của ngành đồng hồ — chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động liên tục. Nguồn gốc tiếng 'tíc-tác' quen thuộc."
+excerpt: "Phát minh vĩ đại nhất của ngành đồng hồ — chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động liên tục. Nguồn gốc tiếng 'tíc-tắc' quen thuộc."
 category: "nền tảng"
 difficulty: "cao"
 has_infographic: true
@@ -10,28 +10,22 @@ date: "2026-08-02"
 draft: false
 ---
 
-> **✅ Infographic tương tác đã có!** Cuộn lên để điều khiển hoạt ảnh:
-> nút Play/Pause, thanh trượt tốc độ, nút "Từng bước", rê chuột vào bộ phận để xem tên.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
-
 ## Bạn đang nghe gì?
 
-Khi áp tai vào mặt sau một chiếc đồng hồ cơ đang chạy, bạn nghe tiếng **"tíc... tắc... tíc... tắc..."** đều đặn — mỗi giây một nhịp (với đồng hồ 28.800 vph thì 8 nhịp/giây). Đó không phải tiếng "kim chạy", mà là tiếng của **bộ thoát** đang làm việc.
+Khi áp tai vào mặt sau một chiếc đồng hồ cơ đang chạy, bạn nghe tiếng **"tíc... tắc... tíc... tắc..."** đều đặn. Đó không phải tiếng "kim chạy", mà là tiếng của **bộ thoát** đang làm việc. Đồng hồ hiện đại đập nhanh hơn bạn nghĩ: 28.800 vph (chuẩn Rolex/Omega) tương đương **8 nhịp mỗi giây**, 36.000 vph (Hi-Beat Grand Seiko) là **10 nhịp mỗi giây** — tiếng tíc-tắc hòa vào thành một âm "re" liên tục, tai người gần như không phân biệt từng nhịp nữa.
 
 Bộ thoát là **phát minh quan trọng nhất** trong lịch sử đồng hồ cơ — không có nó, đồng hồ cơ không thể tồn tại.
 
 ## Vấn đề bộ thoát giải quyết
 
-Hãy tưởng tượng dây cót (mainspring) như một cuộn dây被打 tiết kiệm năng lượng. Nếu thả nó tự do, nó sẽ **nhả hết trong vài giây** — như đứa trẻ thả diều chạy chong chóng. Để đồng hồ chạy đều nhiều giờ, cần một cơ chế **chia nhỏ** năng lượng đó ra thành từng nhịp nhỏ.
-
-Bộ thoát chính là "người gác cổng" đó.
+Hãy tưởng tượng dây cót (mainspring) như một cuộn dây tiết kiệm năng lượng. Nếu thả nó tự do, nó sẽ **nhả hết trong vài giây** — như đứa trẻ thả diều chạy chong chóng. Để đồng hồ chạy đều nhiều giờ, cần một cơ chế **chia nhỏ** năng lượng đó ra thành từng nhịp nhỏ. Bộ thoát chính là "người gác cổng" đó.
 
 ## Ba bộ phận cốt lõi
 
 Bộ thoát Swiss lever (loại phổ biến nhất, do Thomas Mudge hoàn thiện thế kỷ 18) gồm 3 bộ phận chuyển động đồng bộ:
 
 1. **Bánh thoát (escape wheel)** — bánh răng đặc biệt, răng hình móc neo. Nó muốn quay liên tục (do dây cót đẩy), nhưng bị "ngựa" giữ lại.
-2. **Ngựa (pallet fork)** — thanh chữ Y ngược, 2 đầu có **đá (pallet/jewel)** bằng rubi/sapphire. Dao động qua lại, luân phiên giữ-rảnh bánh thoát.
+2. **Ngựa (pallet fork)** — thanh chữ Y ngược, 2 đầu có **đá (pallet/jewel)** bằng rubi/sapphire. Dao động qua lại, luân phiên giữ-rãnh bánh thoát.
 3. **Bánh lắc (balance wheel)** — bánh xe dao động, "trái tim" của độ chính xác (xem bài [Bánh lắc & tần số](/tu-dien/vph)).
 
 ## Chu kỳ 1 nhịp (beat)
@@ -44,14 +38,14 @@ Quan sát hoạt ảnh ở trên, bạn sẽ thấy:
 4. Bánh lắc dao động **qua bên kia** → đẩy ngựa theo chiều ngược → đá kia nhả → bánh thoát tiến thêm 1 răng (phát tiếng "tắc").
 5. Lặp lại vô tận.
 
-Mỗi lần nhả, một **xung năng lượng nhỏ** được truyền cho bánh lắc — bù lại ma sát, giữ bánh lắc dao động liên tục. Đây là **vòng phản hồi cơ học** tuyệt đẹp: bánh lắc điều khiển nhịp, bộ thoát nuôi năng lượng cho bánh lắc.
+Mỗi lần nhả, một **xung năng lượng nhỏ** được truyền cho bánh lắc — bù lại ma sát, giữ bánh lắc dao động liên tục. Đây là **vòng phản hồi cơ học** tuyệt đẹp: bánh lắc điều khiển nhịp, bộ thoát nuôi năng lượng cho bánh lắc. Tiếng "tíc" và "tắc" là tiếng **đá (pallet) chạm răng**.
 
 ## Vì sao dùng đá rubi?
 
 Các **đá (jewels)** ở pallet và các trục là **rubi/sapphire tổng hợp** (đỏ, trong suốt). Lý do:
 - **Cứng** (9/10 thang Mohs) → ít mài mòn, tuổi thọ hàng thế kỷ.
 - **Trơn** → giảm ma sát, ít cần dầu bôi trơn.
-- Trước 1902 (khi Auguste Verneille phát minh rubi tổng hợp), đồng hồ dùng đá tự nhiên → cực đắt. Nay rubi tổng hợp làm chi phí rẻ đi, mọi đồng hồ cơ đều có 17-21 đá.
+- Trước 1902 (khi **Auguste Verneuil** phát minh quy trình tổng hợp rubi), đồng hồ dùng đá tự nhiên → cực đắt. Nay rubi tổng hợp làm chi phí rẻ đi, mọi đồng hồ cơ đều có 17-21 đá.
 
 Số "21 jewels" trên mặt sau = 21 viên đá rubi trong máy.
 

@@ -59,7 +59,7 @@ collections:
     iconic_ref: "Aquaracer Professional 300/1000"
   - name: "Formula 1"
     year: 1986
-    identity: "Dòng nhập môn — vỏ石英/automatic giá cả hợp lý, lấy cảm hứng F1, vành bezel nhám thể thao."
+    identity: "Dòng nhập môn — vỏ thạch anh/automatic giá cả hợp lý, lấy cảm hứng F1, vành bezel nhám thể thao."
     positioning: "Dòng gateway — thu hút người trẻ, điểm vào thương hiệu rẻ nhất (~1.500 USD)."
     iconic_ref: "Formula 1 Red Bull Racing"
   - name: "Autavia"
@@ -71,7 +71,7 @@ segmentComparison:
   - brand: "Tudor"
     slug: "tudor"
     strength: "Di sản Rolex — 'Rolex cho người không mua được Rolex'. Chế tác vững, chất lượng/build gần anh em Rolex."
-    movement: "Calibre MT5602 (in-house, COSC, 70h) — bộ máy自家 chất lượng cao với chứng nhận chronometer."
+    movement: "Calibre MT5602 (in-house, COSC, 70h) — bộ máy tự làm chất lượng cao với chứng nhận chronometer."
     value_retention: "Rất tốt — Tudor đang lên mạnh, Pelagos/Black Bay giữ giá tốt nhờ danh tiếng Rolex."
     philosophy: "Built to last — công cụ bền bỉ, không trang trí thừa, giá trị thực."
   - brand: "Zenith"

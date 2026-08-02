@@ -9,7 +9,6 @@ date: "2026-07-31"
 draft: false
 ---
 
-> **Infographic động** cho chủ đề này sẽ được thêm ở **giai đoạn 2**. Trong lúc chờ, đây là phần giải thích đầy đủ bằng chữ.
 
 ## Bốn bộ phận cốt lõi
 

@@ -27,7 +27,7 @@ Hamilton kết hợp **di sản Mỹ với kỹ thuật Thụy Sĩ**:
 ## Dòng sản phẩm chủ lực
 
 - **Khaki Field** — line field watch quân sự, kế thừa di sản WWII. Cực kỳ phổ biến với người chơi nhập môn.
-- **Ventura** — đồng hồ điện池不对称, nổi tiếng với *Men in Black*.
+- **Ventura** — đồng hồ không đối xứng (asymmetrical), nổi tiếng với *Men in Black*.
 - **Jazzmaster** — dress watch thanh lịch.
 - **American Classic** — line thanh lịch Mỹ.
 - **Aviation** — đồng hồ phi công (Khaki Aviation).

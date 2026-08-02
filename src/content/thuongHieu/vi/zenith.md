@@ -19,7 +19,7 @@ Nhưng danh tiếng lớn nhất của Zenith gắn với **một movement huy�
 
 ## El Primero — movement của thế kỷ
 
-Năm 1969, Zenith ra mắt **El Primero** (tiếng Tây Ban Nha: "đầu tiên") — một trong những **chronograph tự động tích hợp đầu tiên thế giới** (cùng争霸 với Seiko và Heuer-Breitling). Điểm đặc biệt:
+Năm 1969, Zenith ra mắt **El Primero** (tiếng Tây Ban Nha: "đầu tiên") — một trong những **chronograph tự động tích hợp đầu tiên thế giới** (cùng tranh đua với Seiko và Heuer-Breitling). Điểm đặc biệt:
 
 - **Tần số 36.000 vph** (5 Hz) — cao gấp rưỡi thông thường, cho kim giây mượt và chính xác hơn.
 - **Tích hợp** — chronograph là một phần của movement, không phải module gắn thêm.

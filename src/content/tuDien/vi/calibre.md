@@ -8,7 +8,7 @@ date: "2026-07-31"
 draft: false
 ---
 
-**Calibre** (phát âm近似 "ca-li-pờ", đôi khi viết "caliber") là từ dùng để chỉ **một kiểu bộ máy (movement) cụ thể** của đồng hồ.
+**Calibre** (phát âm gần như "ca-li-pờ", đôi khi viết "caliber") là từ dùng để chỉ **một kiểu bộ máy (movement) cụ thể** của đồng hồ.
 
 ## Vì sao cần đặt tên?
 

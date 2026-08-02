@@ -108,7 +108,7 @@ Vacheron theo đuổi câu châm ngôn: *"Faire mieux si possible, et toujours b
 - **Patrimony** — dress watch thanh lịch tối giản.
 - **Traditionnelle** — dòng cổ điển với nhiều phức tạp.
 - **Historiques** — tái hiện các mẫu cổ điển huyền thoại (American 1921...).
-- **Métiers d'Art** — nghệ thuật thủ công (email, khắc) đỉnh cao.
+- **Métiers d'Art** — nghệ thuật thủ công (enamel, khắc) đỉnh cao.
 
 ## Calibre in-house tiêu biểu
 

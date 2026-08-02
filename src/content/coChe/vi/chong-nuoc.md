@@ -116,4 +116,4 @@ Quy trình test chống nước (đơn giản hóa):
 ## Đọc thêm
 
 - Cách bảo dưỡng đồng hồ → [Hướng dẫn bảo dưỡng](/huong-dan/bao-duong-dong-ho)
-- Chống từ (liên quan) → (sẽ thêm infographic giai đoạn 2)
+- Chống từ (liên quan) → [Chống từ](/co-che/chong-tu)

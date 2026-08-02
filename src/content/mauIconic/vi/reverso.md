@@ -28,7 +28,7 @@ Năm 1931, Chauvot đăng ký bằng sáng chế cho một cơ chế thông minh
 
 ## Ý nghĩa văn hóa
 
-Reverso không chỉ là đồng hồ — nó là **tờ giấy khen kim loại**. Nhiều chủ sở hữu khắc ngày cưới, tên con, gia huy hoặc thậm chí cả bức chân dung thu nhỏ bằng nghệ thuật **email** (đây là truyền thống cao cấp của Jaeger-LeCoultre). Một Reverso thường trở thành vật gia truyền.
+Reverso không chỉ là đồng hồ — nó là **tờ giấy khen kim loại**. Nhiều chủ sở hữu khắc ngày cưới, tên con, gia huy hoặc thậm chí cả bức chân dung thu nhỏ bằng nghệ thuật **enamel** (đây là truyền thống cao cấp của Jaeger-LeCoultre). Một Reverso thường trở thành vật gia truyền.
 
 ## Các dòng chính
 

@@ -29,7 +29,7 @@ IWC nổi tiếng với **"Haute Horlogerie technique"** — kết hợp kỹ th
 
 ## Calibre in-house tiêu biểu
 
-IWC sản xuất movement tại Schaffhausen với nhiều calibre phức tạp. Nổi bật: **calibre 52000** (automatic 7 ngày trữ cót), **calibre 89000** (chronograph), và calibre **52615** (Big Pilot với 168 giờ trữ cót). Hãng cũng dùng calibre 外购 (như ETA/Sellita) cho các dòng thấp hơn.
+IWC sản xuất movement tại Schaffhausen với nhiều calibre phức tạp. Nổi bật: **calibre 52000** (automatic 7 ngày trữ cót), **calibre 89000** (chronograph), và calibre **52615** (Big Pilot với 168 giờ trữ cót). Hãng cũng dùng calibre mua ngoài (như ETA/Sellita) cho các dòng thấp hơn.
 
 ## Phân khúc giá
 

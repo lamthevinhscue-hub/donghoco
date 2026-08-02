@@ -33,23 +33,23 @@ lineHistory:
     title: "Mở xưởng Le Brassus mở rộng"
     detail: "Xưởng chế tác tại Le Brassus (Vallée de Joux) trở thành trung tâm R&D và lắp ráp mọi caliber phức tạp — cam kết 100% in-house."
   - year: 2023
-    title: "270 năm — kỷ niệm Fifty Fathoms 70 năm"
-    detail: "Kỷ niệm 70 năm Fifty Fathoms với các phiên bản limited Tech Gombessa 120 khẩu độ (đo áp suất chuyên dụng) — tiếp tục định nghĩa đồng hồ lặn chuyên nghiệp."
+    title: "Kỷ niệm 70 năm Fifty Fathoms"
+    detail: "Kỷ niệm 70 năm Fifty Fathoms với các phiên bản limited Tech Gombessa có vành đo thời gian lặn bão hòa 3 giờ (saturation diving bezel) — tiếp tục định nghĩa đồng hồ lặn chuyên nghiệp."
 collections:
   - name: "Fifty Fathoms"
     year: 1953
-    identity: "Đồng hồ lặn chuyên nghiệp — vành bezel ngọc lam (sapphire), chống nước 300m, caliber 1315 với 3 thùng cót (120 giờ trữ). Di sản từ lực lượng đặc nhiệm hải quân Pháp."
+    identity: "Đồng hồ lặn chuyên nghiệp — vành sapphire, chống nước 300m, caliber 1315 với 3 thùng cót (120 giờ trữ). Di sản từ lực lượng đặc nhiệm hải quân Pháp."
     positioning: "Dòng biểu tượng — linh hồn và danh tiếng chính của hãng. Định nghĩa chuẩn mực đồng hồ lặn toàn cầu."
     iconic_ref: "Fifty Fathoms Bathyscaphe / Tech Gombessa"
   - name: "Villeret"
     year: 1980
-    identity: "Dòng dress watch thanh lịch truyền thống — mặt số men trắng (enamel), kim lá ngọc lam (blue steel hands), vỏ mỏng. Quê hương Villeret của hãng."
+    identity: "Dòng dress watch thanh lịch truyền thống — mặt số men trắng (enamel), kim thép nung xanh (blued steel hands), vỏ mỏng. Quê hương Villeret của hãng."
     positioning: "Tuyến truyền thống — thể hiện tay nghề hoàn thiện thủ công đỉnh cao của Blancpain (Métiers d'Art)."
     iconic_ref: "Villeret Ultra-Slim / Quantième Perpétuel"
   - name: "Air Command"
     year: 2019
     identity: "Chronograph hàng không thể thao — vỏ 42.5mm, caliber F388B (flyback chronograph), vành đo tốc độ (tachymeter)."
-    positioning: "Dòng thể thao-thể thao — mở rộng sang chronograph hàng không, cạnh tranh với Breitling Navitimer."
+    positioning: "Dòng thể thao — mở rộng sang chronograph hàng không, cạnh tranh với Breitling Navitimer."
   - name: "Women & Métiers d'Art"
     year: 2005
     identity: "Dòng nữ + nghệ thuật thủ công (khắc Shakudō, enamel, filigree) — kết hợp chế tác phức tạp với trang trí nghệ thuật."
@@ -57,13 +57,13 @@ collections:
 segmentComparison:
   - brand: "Breguet"
     slug: "breguet"
-    strength: "Di sản phát minh — Abraham-Louis Breguet tạo ra tourbillon, kim pomme, dây đai dơi. Hơn 200 năm lịch sử các phát minh định hình ngành."
+    strength: "Di sản phát minh — Abraham-Louis Breguet tạo ra tourbillon, kim pomme, số Breguet, họa tiết guilloché. Hơn 200 năm lịch sử các phát minh định hình ngành."
     movement: "Calibre 581 (automatic tourbillon 80h), 777 — truyền thống chế tác cơ khí cực kỳ tinh xảo."
     value_retention: "Tốt — Breguet thuộc 'Holy Trinity' lịch sử, giữ giá vững do danh tiếng phát minh."
     philosophy: "Đỉnh cao chế tác cổ điển — tôn vinh di sản Breguet bằng kỹ thuật tinh xảo."
   - brand: "Glashütte Original"
     slug: "glashutte-original"
-    strength: "Đại diện xuất sắc Đông Đức — bản đĩa 3/4 (three-quarter plate) đặc trưng, bay đồng hồ lộ máy đẹp nhất thế giới."
+    strength: "Đại diện xuất sắc Đông Đức — bản đĩa 3/4 (three-quarter plate) đặc trưng, những mặt lộ máy đẹp bậc nhất thế giới."
     movement: "Calibre 36 (Swing System, in-house escapement silicon), 90 — chế tác Đức cực kỳ tỉ mỉ, lộ máy là nghệ thuật."
     value_retention: "Tốt — Glashütte Original hiếm và có tính nhận diện mạnh, giá trị giữ ổn định."
     philosophy: "Deutsche Präzision (độ chính xác Đức) — kết hợp thẩm mỹ East German với chế tác hiện đại."
@@ -86,7 +86,7 @@ Slogan của hãng: *"Since 1735, there has never been a quartz Blancpain watch.
 
 - **Chỉ làm cơ học** — không sản xuất quartz (điều hiếm thấy trong ngành).
 - **Truyền thống Villeret** — hoàn thiện thủ công đỉnh cao, đạt dấu ấn cao nhất.
-- **Sáu làng nghề truyền thống** (Métiers d'Art) — khắc, email, filigree, Sculpture...
+- **Sáu làng nghề truyền thống** (Métiers d'Art) — khắc, enamel, filigree, Sculpture...
 - Hãng tự làm **toàn bộ bộ máy phức tạp** (từ/calendar/tourbillon/minute repeater) tại xưởng Le Brassus.
 
 ## Dòng sản phẩm chủ lực
@@ -100,10 +100,10 @@ Slogan của hãng: *"Since 1735, there has never been a quartz Blancpain watch.
 ## Calibre in-house tiêu biểu
 
 - **Calibre 1315** — automatic với 3 thùng cót, 120 giờ trữ cót.
-- **Calibre 13R5** — automatic sản xuất cao cấp.
+- **Calibre 13R0/13R5** — lên dây tay, trữ cót 8 ngày.
 - **Calibre 235** — minute repeater/carrousel phức tạp.
 
-Đặc biệt, Blancpain nổi tiếng với **"Carrousel"** — một biến thể của tourbillon (đường xoay kép), và **"Taguement"** tourbillon tự động 8 ngày trữ cót.
+Đặc biệt, Blancpain nổi tiếng với **"Carrousel"** — một biến thể của tourbillon (đường xoay kép).
 
 ## Phân khúc giá
 

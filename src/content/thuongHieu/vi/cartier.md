@@ -33,4 +33,4 @@ Trước đây Cartier dùng bộ máy mua sẵn, nhưng từ thập niên 2010 
 
 ## Phân khúc giá
 
-Cartier ở phân khúc **luxury** — thường từ 3.000 USD (dòng nhập門) đến hàng trăm nghìn USD (bản giới hạn cao cấp). Cartier đặc biệt giữ giá tốt ở các mẫu cổ điển như Tank Cintrée hay Crash.
+Cartier ở phân khúc **luxury** — thường từ 3.000 USD (dòng nhập môn) đến hàng trăm nghìn USD (bản giới hạn cao cấp). Cartier đặc biệt giữ giá tốt ở các mẫu cổ điển như Tank Cintrée hay Crash.

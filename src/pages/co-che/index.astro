@@ -12,9 +12,9 @@ const entries = await getEntriesByLang('coChe', lang);
   collection="coChe"
   title={lang === 'vi' ? 'Cơ chế hoạt động' : 'How it works'}
   description={lang === 'vi'
-    ? 'Hiểu sâu về cách đồng hồ cơ đập, lên dây và đo thời gian. Infographic động sẽ được thêm dần ở giai đoạn 2.'
-    : 'Go deep into how mechanical watches tick, wind and keep time. Interactive infographics coming in phase 2.'}
+    ? 'Hiểu sâu về cách đồng hồ cơ đập, lên dây và đo thời gian.'
+    : 'Go deep into how mechanical watches tick, wind and keep time.'}
   entries={entries}
   getMeta={(e) => e.data.category}
-  getBadge={(e) => (e.data.has_infographic ? (lang === 'vi' ? 'Có infographic' : 'Infographic') : undefined)}
+  getBadge={(e) => (e.data.interactive ? (lang === 'vi' ? 'Tương tác' : 'Interactive') : undefined)}
 />

@@ -33,7 +33,7 @@ Chỉ **Blancpain** chấp nhận. Hai năm sau (1953), hãng ra mắt **Fifty F
 
 ## Jacques Cousteau và "Le Monde du Silence"
 
-Năm 1956, nhà làm phim **Louis Malle** và nhà海洋 học **Jacques-Cousteau** sản xuất phim tài liệu *"Le Monde du Silence"* (Thế giới im lặng) — giành Cành cọ vàng Cannes. Trong phim, đội thợ lặn của Cousteau **đeo Fifty Fathoms**. Phim phổ biến mạnh mẽ Fifty Fathoms ra toàn thế giới.
+Năm 1956, nhà làm phim **Louis Malle** và nhà hải học **Jacques-Cousteau** sản xuất phim tài liệu *"Le Monde du Silence"* (Thế giới im lặng) — giành Cành cọ vàng Cannes. Trong phim, đội thợ lặn của Cousteau **đeo Fifty Fathoms**. Phim phổ biến mạnh mẽ Fifty Fathoms ra toàn thế giới.
 
 ## Các thế hệ tham chiếu (reference)
 

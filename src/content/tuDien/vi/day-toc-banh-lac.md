@@ -10,9 +10,6 @@ date: "2026-08-02"
 draft: false
 ---
 
-> **✅ Infographic tương tác đã có!** Cuộn lên để điều khiển:
-> nút Play/Pause, thanh trượt tốc độ, nút "Từng bước", chọn tần số để so sánh 18.000 / 28.800 / 36.000 vph.
-
 ## "Trái tim đập" của đồng hồ
 
 Mở mặt sau một chiếc đồng hồ cơ lộ máy, thứ đầu tiên hút mắt bạn là một **bánh xe dao động qua lại** không ngừng — thường màu đỏ (vì làm hợp kim Glucydur), xoay trái rồi xoay phải, hàng chục ngàn lần mỗi giờ. Cuộn quanh nó là một **dây tóc xoắn ốc** mỏng manh.

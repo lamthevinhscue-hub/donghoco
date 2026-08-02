@@ -5,6 +5,7 @@ excerpt: "Cơ chế xoay bộ thoát để bù sai số trọng lực — một 
 term_en: "Tourbillon"
 category: "phức tạp cao cấp"
 has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

@@ -1,0 +1,397 @@
+---
+// =============================================================================
+// CHRONOGRAPH — SVG cơ chế bánh răng cột (column wheel) với hoạt ảnh 3 trạng thái
+// =============================================================================
+// Cơ chế column wheel (bánh răng cột) — loại "cao cấp" của chronograph:
+//   - Column wheel: bánh nhỏ có các "cột" dọc ở trên (thường 9 cột)
+//   - Mỗi lần bấm nút START/STOP → bánh cột xoay đúng 1 bước (40°)
+//   - Các đòn bàn đạp (levers) trượt lên/xuống cột → đóng/mở ly hợp (clutch)
+//
+// 3 trạng thái hoạt ảnh:
+//   1. DỪNG (stopped): ly hợp mở, bánh giây chronograph đứng yên
+//   2. CHẠY (running): ly hợp đóng, bánh giây chronograph quay
+//   3. RESET: búa (hammer) đập heart-cam → kim về 0
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.3.
+// =============================================================================
+
+import MechanismAnimation from '../MechanismAnimation.astro';
+
+// 9 giai đoạn chu kỳ để minh họa đầy đủ 1 vòng
+---
+
+<MechanismAnimation label="Chronograph bánh răng cột (Column Wheel)" data-mech-step-id="chronograph">
+  <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="chrono-svg">
+    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Bấm nút START → ly hợp đóng (chạy) • STOP → ly hợp mở (dừng) • RESET → búa đập về 0
+    </text>
+
+    <!-- ====== NÚT BẤM (pushers) - bên trên ====== -->
+    <g id="start-button" data-part="start-button" data-name-vi="Nút START/STOP" data-name-en="Start/Stop pusher">
+      <rect x="80" y="50" width="50" height="22" rx="4" fill="#B8893C" stroke="#9B6E2C" stroke-width="1.5"/>
+      <text x="105" y="65" text-anchor="middle" font-size="9" fill="#FAF7F2" font-weight="bold">START</text>
+      <!-- Cần đẩy xuống column wheel -->
+      <line x1="105" y1="72" x2="105" y2="110" stroke="#B8893C" stroke-width="3"/>
+      <!-- Ngón đẩy (trigger finger) -->
+      <path d="M 105 110 L 125 122 L 118 130 L 98 118 Z" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+    </g>
+
+    <g id="reset-button" data-part="reset-button" data-name-vi="Nút RESET" data-name-en="Reset pusher">
+      <rect x="470" y="50" width="50" height="22" rx="4" fill="#9B2C2C" stroke="#7B2424" stroke-width="1.5"/>
+      <text x="495" y="65" text-anchor="middle" font-size="9" fill="#FAF7F2" font-weight="bold">RESET</text>
+      <line x1="495" y1="72" x2="495" y2="100" stroke="#9B2C2C" stroke-width="3"/>
+    </g>
+
+    <!-- ====== COLUMN WHEEL (bánh răng cột) - trung tâm trái ====== -->
+    <g id="column-wheel-group" transform="translate(180, 200)">
+      <g id="column-wheel" data-part="column-wheel" data-name-vi="Bánh răng cột" data-name-en="Column wheel">
+        <!-- Đế bánh (răng dưới - để ngón đẩy đẩy) -->
+        <g fill="#4A5568" stroke="#2D3748" stroke-width="1">
+          {Array.from({ length: 9 }).map((_, i) => {
+            const angle = (i * 360) / 9;
+            return (
+              <g transform={`rotate(${angle})`}>
+                <path d="M -4 -32 L 4 -32 L 3 -40 L -3 -40 Z" />
+              </g>
+            );
+          })}
+        </g>
+        <!-- Thân bánh -->
+        <circle r="30" fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
+        <!-- Các CỘT dọc (columns) — đặc trưng của column wheel -->
+        <g fill="#3182CE" stroke="#2C5282" stroke-width="0.8">
+          {Array.from({ length: 9 }).map((_, i) => {
+            const angle = (i * 360) / 9;
+            const rad = (angle * Math.PI) / 180;
+            const cx = Math.sin(rad) * 22;
+            const cy = -Math.cos(rad) * 22;
+            return <rect x={cx - 4} y={cy - 6} width="8" height="12" rx="1.5" transform={`rotate(${angle} ${cx} ${cy})`}/>;
+          })}
+        </g>
+        <!-- Trục giữa -->
+        <circle r="6" fill="#2D3748"/>
+        <circle r="2.5" fill="#B8893C"/>
+      </g>
+    </g>
+
+    <!-- ====== ĐÒN LY HỢP (clutch lever) - giữa, trượt trên cột ====== -->
+    <g id="clutch-lever-group" transform="translate(250, 175)">
+      <g id="clutch-lever" data-part="clutch-lever" data-name-vi="Đòn ly hợp" data-name-en="Clutch lever">
+        <!-- Đòn dài nối từ cột đến ly hợp -->
+        <path d="M -60 25 L 80 0 L 95 8 L 95 18 L 80 22 L -60 35 Z"
+              fill="#B8893C" stroke="#9B6E2C" stroke-width="1.2"/>
+        <!-- Mỏ tì lên cột (rider) -->
+        <circle cx="-60" cy="30" r="5" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+        <!-- Trục pivot -->
+        <circle cx="90" cy="13" r="4" fill="#2D3748"/>
+      </g>
+    </g>
+
+    <!-- ====== LY HỢP (clutch / coupling wheel) + BÁNH GIÂY CHRONOGRAPH ====== -->
+    <g id="chronograph-train-group" transform="translate(0, 0)">
+      <!-- Bánh dẫn động (driving wheel - luôn quay khi máy chạy) -->
+      <g id="driving-wheel" data-part="driving-wheel" data-name-vi="Bánh dẫn động" data-name-en="Driving wheel" transform="translate(380, 188)">
+        <g fill="#5A6878" stroke="#2D3748" stroke-width="1">
+          {Array.from({ length: 12 }).map((_, i) => {
+            const angle = (i * 360) / 12;
+            return <g transform={`rotate(${angle})`}><path d="M -2.5 -24 L 2.5 -24 L 2 -30 L -2 -30 Z"/></g>;
+          })}
+        </g>
+        <circle r="22" fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
+        <circle r="4" fill="#2D3748"/>
+      </g>
+
+      <!-- Ly hợp (clutch - trượt ngang để đóng/mở) -->
+      <g id="clutch-wheel" data-part="clutch-wheel" data-name-vi="Bánh ly hợp" data-name-en="Clutch wheel (slides)" transform="translate(420, 188)">
+        <g fill="#3182CE" stroke="#2C5282" stroke-width="1">
+          {Array.from({ length: 10 }).map((_, i) => {
+            const angle = (i * 360) / 10;
+            return <g transform={`rotate(${angle})`}><rect x="-2" y="-22" width="4" height="6"/></g>;
+          })}
+        </g>
+        <circle r="18" fill="#3182CE" stroke="#2C5282" stroke-width="1.5" opacity="0.85"/>
+        <circle r="3" fill="#2C5282"/>
+      </g>
+
+      <!-- Bánh giây chronograph (chronograph seconds wheel) -->
+      <g id="chrono-seconds-wheel" data-part="chrono-seconds" data-name-vi="Bánh giây chronograph" data-name-en="Chronograph seconds wheel" transform="translate(470, 188)">
+        <g fill="#9B2C2C" stroke="#7B2424" stroke-width="1">
+          {Array.from({ length: 14 }).map((_, i) => {
+            const angle = (i * 360) / 14;
+            return <g transform={`rotate(${angle})`}><path d="M -2 -28 L 2 -28 L 1.5 -34 L -1.5 -34 Z"/></g>;
+          })}
+        </g>
+        <circle r="26" fill="#9B2C2C" stroke="#7B2424" stroke-width="1.5"/>
+        <!-- Heart cam (cam hình tim - cho reset) -->
+        <path d="M 0 -10 C -8 -18, -20 -12, 0 8 C 20 -12, 8 -18, 0 -10 Z"
+              fill="#B8893C" opacity="0.9" id="heart-cam"/>
+        <circle r="4" fill="#7B2424"/>
+        <!-- Kim giây chronograph (đỏ) -->
+        <line x1="0" y1="0" x2="0" y2="-32" stroke="#9B2C2C" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- ====== BÚA RESET (hammer) ====== -->
+    <g id="hammer-group" transform="translate(470, 280)">
+      <g id="hammer" data-part="hammer" data-name-vi="Búa reset" data-name-en="Reset hammer">
+        <path d="M 0 0 L 60 -40 L 68 -32 L 8 8 Z" fill="#4A5568" stroke="#2D3748" stroke-width="1.2"/>
+        <rect x="-3" y="-5" width="10" height="14" rx="2" fill="#2D3748"/>
+        <circle cx="0" cy="0" r="4" fill="#9B6E2C"/>
+      </g>
+    </g>
+
+    <!-- ====== TRẠNG THÁI (status indicator) ====== -->
+    <g id="status-display">
+      <rect x="200" y="360" width="200" height="36" rx="6" fill="#1F2D3D"/>
+      <text id="status-text" x="300" y="383" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">
+        ⏸ DỪNG — Ly hợp mở
+      </text>
+    </g>
+
+    <!-- ====== MŨI TÊN CHỈ SỰ TRUYỀN LỰC (chỉ hiện khi chạy) ====== -->
+    <g id="power-flow" opacity="0">
+      <text x="448" y="180" font-size="16" fill="#3182CE" font-weight="bold">→</text>
+    </g>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
+    <g id="tooltip" opacity="0" style="pointer-events: none;">
+      <rect id="tooltip-bg" x="0" y="0" width="170" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="85" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="85" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+    </g>
+  </svg>
+
+  <script is:inline slot="script">
+    // =============================================================================
+    // Hoạt ảnh Chronograph — chu kỳ 3 trạng thái lặp lại
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['chronograph'] = function(delta, elapsed) {
+      const svg = document.getElementById('chrono-svg');
+      if (!svg) return;
+
+      const columnWheel = svg.querySelector('#column-wheel-group');
+      const clutchLever = svg.querySelector('#clutch-lever-group');
+      const clutchWheel = svg.querySelector('#clutch-wheel');
+      const chronoWheel = svg.querySelector('#chrono-seconds-wheel');
+      const drivingWheel = svg.querySelector('#driving-wheel');
+      const hammer = svg.querySelector('#hammer-group');
+      const statusText = svg.querySelector('#status-text');
+      const powerFlow = svg.querySelector('#power-flow');
+      if (!columnWheel || !clutchWheel || !chronoWheel || !statusText) return;
+
+      // Chu kỳ 12 giây chia 3 pha: DỪNG(3s) → CHẠY(6s) → RESET(3s)
+      const cycle = 12000;
+      const t = elapsed % cycle;
+      const cycleNum = Math.floor(elapsed / cycle);
+
+      // Trạng thái giây của bánh chronograph (tích lũy qua các chu kỳ)
+      if (!svg.dataset.chronoAngle) svg.dataset.chronoAngle = '0';
+      if (!svg.dataset.colAngle) svg.dataset.colAngle = '0';
+
+      let status = '';
+      let clutchOffset = 0;      // vị trí ly hợp: 0 = mở (xa), 8 = đóng (khớp)
+      let chronoSpin = false;
+      let hammerAngle = 0;
+
+      if (t < 2000) {
+        // PHA 1: DỪNG (ly hợp mở)
+        status = '⏸ DỪNG — Ly hợp mở, kim đứng yên';
+        clutchOffset = 0;
+        chronoSpin = false;
+      } else if (t < 2300) {
+        // Bấm START: column wheel xoay 1 bước, ly hợp đóng vào
+        const p = (t - 2000) / 300;
+        const colStep = 40 * p; // 9 cột → 40°/bước
+        const colBase = parseFloat(svg.dataset.colAngle);
+        columnWheel.setAttribute('transform', `translate(180, 200) rotate(${colBase + colStep})`);
+        clutchOffset = 8 * p;
+        clutchLever.setAttribute('transform', `translate(${250 - clutchOffset * 0.5}, ${175 + clutchOffset})`);
+        status = '▶ Đang đóng ly hợp...';
+      } else if (t < 8000) {
+        // PHA 2: CHẠY — bánh chronograph quay, kim giây chạy
+        const colBase = parseFloat(svg.dataset.colAngle) + 40;
+        columnWheel.setAttribute('transform', `translate(180, 200) rotate(${colBase})`);
+        clutchOffset = 8;
+        clutchLever.setAttribute('transform', `translate(${250 - 4}, ${183})`);
+        // Bánh giây quay: 60 giây/1 vòng → nhanh 6x cho dễ nhìn
+        const chronoBase = parseFloat(svg.dataset.chronoAngle);
+        const spinAngle = chronoBase + ((t - 2300) / 1000) * 36; // 36°/giây = 6 vòng/phút
+        chronoWheel.setAttribute('transform', `translate(470, 188) rotate(${spinAngle})`);
+        const driveAngle = ((t - 2300) / 1000) * 60;
+        drivingWheel.setAttribute('transform', `translate(380, 188) rotate(${driveAngle})`);
+        status = '▶ CHẠY — Kim giây đang quay';
+        chronoSpin = true;
+      } else if (t < 8300) {
+        // Bấm STOP: column wheel xoay thêm 1 bước, ly hợp mở ra
+        const p = (t - 8000) / 300;
+        const colBase = parseFloat(svg.dataset.colAngle) + 40;
+        columnWheel.setAttribute('transform', `translate(180, 200) rotate(${colBase + 40 * p})`);
+        clutchOffset = 8 * (1 - p);
+        clutchLever.setAttribute('transform', `translate(${250 - clutchOffset * 0.5}, ${175 + clutchOffset})`);
+        status = '⏸ Đang dừng...';
+      } else if (t < 9000) {
+        // PHA 3a: đã dừng
+        const colBase = parseFloat(svg.dataset.chronoAngle) + 80;
+        columnWheel.setAttribute('transform', `translate(180, 200) rotate(${colBase})`);
+        status = '⏸ DỪNG — Sẵn sàng reset';
+      } else if (t < 9400) {
+        // Bấm RESET: búa đập heart-cam → kim về 0
+        const p = (t - 9000) / 400;
+        hammerAngle = p < 0.5 ? p * 2 * -25 : (1 - (p - 0.5) * 2) * -25;
+        hammer.setAttribute('transform', `translate(470, 280) rotate(${hammerAngle})`);
+        // Kim quay nhanh về 0
+        const chronoBase = parseFloat(svg.dataset.chronoAngle);
+        const resetAngle = chronoBase * (1 - p);
+        chronoWheel.setAttribute('transform', `translate(470, 188) rotate(${resetAngle})`);
+        status = '🔄 RESET — Búa đập kim về 0!';
+      } else {
+        // Xong reset, cập nhật góc tích lũy cho chu kỳ sau
+        const colBase = parseFloat(svg.dataset.chronoAngle) + 80;
+        columnWheel.setAttribute('transform', `translate(180, 200) rotate(${colBase})`);
+        chronoWheel.setAttribute('transform', `translate(470, 188) rotate(0)`);
+        status = '⏸ DỪNG — Kim đã về 0';
+      }
+
+      // Cập nhật góc tích lũy khi sang chu kỳ mới
+      if (t > 11800 && !svg.dataset.cycleUpdated) {
+        svg.dataset.colAngle = String(parseFloat(svg.dataset.colAngle) + 80);
+        svg.dataset.chronoAngle = '0';
+        svg.dataset.cycleUpdated = '1';
+      }
+      if (t < 1000) svg.dataset.cycleUpdated = '';
+
+      statusText.textContent = status;
+      // Ly hợp đóng → hiện mũi tên truyền lực
+      if (powerFlow) powerFlow.setAttribute('opacity', chronoSpin ? '0.9' : '0');
+    };
+
+    // =============================================================================
+    // HOVER TOOLTIP
+    // =============================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      const svg = document.getElementById('chrono-svg');
+      if (!svg) return;
+      const tooltip = svg.querySelector('#tooltip');
+      const tooltipBg = svg.querySelector('#tooltip-bg');
+      const tooltipVi = svg.querySelector('#tooltip-vi');
+      const tooltipEn = svg.querySelector('#tooltip-en');
+      if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
+
+      const parts = svg.querySelectorAll('[data-part]');
+      parts.forEach((part) => {
+        part.style.cursor = 'pointer';
+        const highlight = () => {
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
+          tooltipEn.textContent = part.getAttribute('data-name-en') || '';
+          const vi = part.getAttribute('data-name-vi') || '';
+          const en = part.getAttribute('data-name-en') || '';
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 20);
+          tooltip.setAttribute('opacity', '1');
+        };
+        const unhighlight = () => {
+          part.style.filter = '';
+          tooltip.setAttribute('opacity', '0');
+        };
+        part.addEventListener('mouseenter', highlight);
+        part.addEventListener('mouseleave', unhighlight);
+        part.addEventListener('touchstart', (e) => { e.preventDefault(); highlight(); setTimeout(unhighlight, 2000); });
+      });
+
+      svg.addEventListener('mousemove', (e) => {
+        const rect = svg.getBoundingClientRect();
+        const vb = svg.viewBox.baseVal;
+        const x = (e.clientX - rect.left) * (vb.width / rect.width);
+        const y = (e.clientY - rect.top) * (vb.height / rect.height);
+        tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 180)}, ${Math.max(y - 45, 0)})`);
+      });
+    });
+  </script>
+</MechanismAnimation>
+
+<!-- Phần giải thích: Hiện tượng → Nguyên lý → Ý nghĩa -->
+<div class="mt-10 space-y-6" data-explanation>
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Bấm nút trên (START) → kim giây phụ <strong>bắt đầu chạy</strong>. Bấm lần nữa (STOP) → kim <strong>dừng ngay lập tức</strong>,
+      để bạn đọc số giây đã trôi qua. Bấm nút dưới (RESET) → kim <strong>"đập" về 0</strong> trong tích tắc.
+      Đó là 3 pha của chronograph: <strong>Start → Stop → Reset</strong>.
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">② Nguyên lý — bánh răng cột (column wheel)</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Trái tim của chronograph cao cấp là <strong>bánh răng cột</strong> — một bánh nhỏ với các "cột" đứng trên mặt.
+      Mỗi lần bấm START/STOP, một <strong>ngón đẩy</strong> hất bánh cột xoay đúng <strong>1 bước</strong> (≈40°).
+      Các đòn bàn đạp <strong>trượt lên/xuống cột</strong>:
+    </p>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">a)</span>
+        <span>Khi rơi vào <strong>khe giữa hai cột</strong> → đòn kéo <strong>ly hợp (clutch)</strong> trượt vào khớp → năng lượng truyền từ máy sang bánh giây → kim chạy.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">b)</span>
+        <span>Khi trượt <strong>lên đỉnh cột</strong> → đòn đẩy ly hợp ra → ngắt truyền lực → kim dừng.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">c)</span>
+        <span>Nút RESET kích hoạt <strong>búa (hammer)</strong> đập vào <strong>heart-cam</strong> (cam hình tim) → ép kim quay về 0 chính xác.</span>
+      </li>
+    </ul>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      Tiếng "click" êm ái khi bấm nút chronograph cao cấp chính là tiếng <strong>bánh cột xoay 1 bước</strong>.
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">③ Column wheel vs. Cam — ai hơn ai?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Có <strong>2 cách</strong> chế tạo cơ chế START/STOP/RESET:
+    </p>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">Bánh răng cột (column wheel):</span>
+        <span>Đắt, khó chế tạo (các cột phải دقی chính xác), cảm giác bấm nút <strong>êm, "bước" rõ ràng</strong>. Đây là dấu hiệu của <strong>chronograph cao cấp</strong> (Rolex 4130, Patek Philippe CH 29).</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">Cam (bánh cam):</span>
+        <span>Rẻ, dễ sản xuất hàng loạt, cảm giác bấm "cứng" hơn. Phổ biến ở chronograph tầm trung (Valjoux 7750).</span>
+      </li>
+    </ul>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      <strong>1816</strong>: Louis Moinet chế tạo chronograph đầu tiên (đo sao). <strong>1969</strong>: Cuộc đua chronograph tự động
+      (Zenith El Primero, Seiko, Heuer) — xem [mốc 1969 trong timeline](/lich-su).
+    </p>
+  </div>
+</div>
+
+<style>
+  [data-explanation] [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-explanation] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function initExplanation() {
+    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cards.forEach((c) => c.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    cards.forEach((c) => obs.observe(c));
+    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
+  }
+  initExplanation();
+</script>

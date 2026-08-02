@@ -1,96 +1,300 @@
 ---
 // =============================================================================
-// INFOGRAPHIC TỪ ĐIỂN: TOUBILLON
-// SVG lồng xoay + bù sai số trọng lực. Nhỏ gọn, dùng cho trang thuật ngữ.
+// TOURBILLON — INTERACTIVE (lồng xoay bù sai số trọng lực)
 // =============================================================================
-const stages = [
-  {
-    num: '①',
-    title: 'Bộ thoát + bánh lắc',
-    detail: 'Đặt vào trong một "lồng" (cage) có thể xoay.',
-  },
-  {
-    num: '②',
-    title: 'Lồng xoay 360°',
-    detail: 'Thường 1 vòng / 60 giây — xoay liên tục để bù sai số.',
-  },
-  {
-    num: '③',
-    title: 'Trung hòa trọng lực',
-    detail: 'Vì bộ thoát xoay đủ các hướng, sai số do trọng lực trung bình = 0.',
-  },
-];
+// Mô phỏng:
+//   - Lồng tourbillon xoay 1 vòng / 60 giây (chậm lại 6x cho dễ nhìn)
+//   - Bên trong: bộ thoát + bánh lắc dao động
+//   - Hiển thị 4 vị trí trọng lực (lên/xuống/trái/phải) → sai số bù về 0
+//   - So sánh: Tourbillon 1 trục vs. Tourbillon 3 trục (Gyrotourbillon)
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.3.
+// =============================================================================
+
+import MechanismAnimation from '../MechanismAnimation.astro';
 ---
 
-<section class="my-8" data-infographic="glossary-tourbillon">
-  <!-- SVG lồng tourbillon -->
-  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
-    <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
-      <!-- Lồng tourbillon (vòng tròn lớn) -->
-      <circle cx="150" cy="130" r="85" fill="none" stroke="#B8893C" stroke-width="2.5" data-anim="cage-outer" opacity="0"/>
-      <!-- 3 chốt nối lồng -->
-      <g data-anim="cage-spokes" opacity="0">
-        <line x1="150" y1="45" x2="150" y2="215" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
-        <line x1="76" y1="87" x2="224" y2="173" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
-        <line x1="76" y1="173" x2="224" y2="87" stroke="#B8893C" stroke-width="1.5" opacity="0.6"/>
+<MechanismAnimation label="Tourbillon — Lồng xoay bù sai số trọng lực" data-mech-step-id="tourbillon">
+  <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="tourbillon-svg">
+    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Lồng tourbillon xoay 360° → sai số trọng lực trung bình = 0
+    </text>
+
+    <!-- ====== VÒNG NGOÀI: hướng trọng lực (mũi tên xuống) ====== -->
+    <g id="gravity-arrow">
+      <line x1="300" y1="50" x2="300" y2="80" stroke="#9B2C2C" stroke-width="2"/>
+      <polygon points="300,86 294,76 306,76" fill="#9B2C2C"/>
+      <text x="320" y="68" font-size="10" fill="#9B2C2C" font-weight="bold">Trọng lực ↓</text>
+    </g>
+
+    <!-- ====== LỒNG TOURBILLON (cage) - xoay liên tục ====== -->
+    <g id="cage-group" transform="translate(300, 210) rotate(0)">
+      <!-- Vòng lồng ngoài -->
+      <g id="cage-outer" data-part="cage" data-name-vi="Lồng tourbillon (cage)" data-name-en="Tourbillon cage">
+        <circle r="95" fill="none" stroke="#B8893C" stroke-width="3"/>
+        <circle r="95" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4" transform="scale(1.04)"/>
+        <!-- 3 chốt nối (cage bridges) -->
+        <g stroke="#B8893C" stroke-width="2.5" stroke-linecap="round">
+          <line x1="0" y1="-95" x2="0" y2="95"/>
+          <line x1="-82" y1="-47" x2="82" y2="47"/>
+          <line x1="-82" y1="47" x2="82" y2="-47"/>
+        </g>
+        <!-- Trục trên -->
+        <circle cx="0" cy="-95" r="6" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+        <!-- Trục dưới -->
+        <circle cx="0" cy="95" r="6" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+        <!-- Cột thứ 4 chỉ vị trí (để nhìn rõ lồng đang xoay) -->
+        <circle cx="0" cy="-70" r="5" fill="#3182CE"/>
       </g>
-      <!-- Bánh lắc ở giữa -->
-      <g data-anim="balance" opacity="0">
-        <circle cx="150" cy="130" r="35" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2"/>
-        <line x1="150" y1="95" x2="150" y2="165" stroke="#9B2C2C" stroke-width="2"/>
-        <line x1="115" y1="130" x2="185" y2="130" stroke="#9B2C2C" stroke-width="2"/>
-        <circle cx="150" cy="130" r="4" fill="#9B2C2C"/>
+
+      <!-- ====== BỘ THOÁT + BÁNH LẮC bên trong lồng ====== -->
+      <!-- Bánh thoát (escape wheel) - góc trên trái -->
+      <g id="tb-escape" data-part="tb-escape" data-name-vi="Bánh thoát (trong lồng)" data-name-en="Escape wheel (inside cage)" transform="translate(-40, -25)">
+        <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+          {Array.from({ length: 15 }).map((_, i) => {
+            const a = (i * 360) / 15;
+            return <g transform={`rotate(${a})`}><path d="M 0 -22 L 2 -18 L 3.2 -15 L -3.2 -15 L -2 -18 Z"/></g>;
+          })}
+        </g>
+        <circle r="15" fill="#4A5568" stroke="#2D3748" stroke-width="1"/>
+        <circle r="3" fill="#2D3748"/>
       </g>
-      <!-- Mũi tên cong chỉ sự xoay của lồng -->
-      <g data-anim="rotation" opacity="0">
-        <path d="M 60 130 A 90 90 0 0 1 240 130" fill="none" stroke="#2E86AB" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <polygon points="240,130 232,124 232,136" fill="#2E86AB"/>
-        <text x="150" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Lồng xoay 1 vòng / 60 giây</text>
+
+      <!-- Ngựa (pallet fork) -->
+      <g id="tb-pallet" data-part="tb-pallet" data-name-vi="Ngựa" data-name-en="Pallet fork" transform="translate(-10, 10)">
+        <path d="M 0 0 L -8 -12 L -10 -15 M 0 0 L 8 -12 L 10 -15 M 0 0 L 0 14"
+              fill="none" stroke="#B8893C" stroke-width="2" stroke-linecap="round"/>
+        <rect x="-11" y="-17" width="3" height="2.5" fill="#3182CE" transform="rotate(-15 -10 -16)"/>
+        <rect x="8" y="-17" width="3" height="2.5" fill="#3182CE" transform="rotate(15 10 -16)"/>
+        <circle cx="0" cy="14" r="2.5" fill="#9B6E2C"/>
       </g>
-      <!-- Chú thích -->
-      <text x="150" y="245" text-anchor="middle" font-size="10" fill="#1F2D3D" data-anim="caption" opacity="0">
-        Trọng lực tác động đều mọi hướng → sai số trung bình = 0
-      </text>
-      <text x="150" y="262" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="caption" opacity="0">
-        Phát minh bởi Abraham-Louis Breguet, 1801
-      </text>
-    </svg>
+
+      <!-- Bánh lắc - trung tâm, dao động -->
+      <g id="tb-balance-group" transform="translate(30, 0)">
+        <g id="tb-balance" data-part="tb-balance" data-name-vi="Bánh lắc (trong lồng)" data-name-en="Balance wheel (in cage)">
+          <circle r="35" fill="none" stroke="#9B2C2C" stroke-width="3.5"/>
+          <line x1="0" y1="-35" x2="0" y2="35" stroke="#9B2C2C" stroke-width="2"/>
+          <line x1="-35" y1="0" x2="35" y2="0" stroke="#9B2C2C" stroke-width="2"/>
+          <circle r="5" fill="#9B2C2C"/>
+          <circle cx="0" cy="-35" r="3" fill="#2D3748"/>
+          <circle cx="0" cy="35" r="3" fill="#2D3748"/>
+          <circle cx="-35" cy="0" r="3" fill="#2D3748"/>
+          <circle cx="35" cy="0" r="3" fill="#2D3748"/>
+        </g>
+        <!-- Dây tóc -->
+        <g opacity="0.6">
+          <path d="M 0 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
+                fill="none" stroke="#3182CE" stroke-width="1.2"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- ====== BÁNH RĂNG BẢN NGỮ ĐẠI (chỉ lồng xoay) - bên ngoài ====== -->
+    <g id="seconds-wheel" transform="translate(300, 210)" opacity="0.4">
+      <g fill="none" stroke="#4A5568" stroke-width="0.8">
+        {Array.from({ length: 60 }).map((_, i) => {
+          const a = (i * 360) / 60;
+          const rad = (a * Math.PI) / 180;
+          const isMajor = i % 5 === 0;
+          const r1 = isMajor ? 105 : 110;
+          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 115} y2={Math.sin(rad) * 115} stroke-width={isMajor ? 1.5 : 0.8}/>;
+        })}
+      </g>
+      <text x="0" y="-125" text-anchor="middle" font-size="8" fill="#4A5568">60</text>
+      <text x="125" y="3" text-anchor="middle" font-size="8" fill="#4A5568">15</text>
+      <text x="0" y="132" text-anchor="middle" font-size="8" fill="#4A5568">30</text>
+      <text x="-125" y="3" text-anchor="middle" font-size="8" fill="#4A5568">45</text>
+    </g>
+
+    <!-- ====== HIỂN THỊ GÓC XOAY + SAI SỐ ====== -->
+    <g id="readout">
+      <rect x="420" y="100" width="170" height="100" rx="6" fill="#1F2D3D"/>
+      <text x="505" y="120" text-anchor="middle" font-size="9" fill="#B8893C">LỒNG ĐANG Ở VỊ TRÍ</text>
+      <text id="cage-angle" x="505" y="142" text-anchor="middle" font-size="20" fill="#FAF7F2" font-weight="bold">0°</text>
+      <text id="cage-position" x="505" y="162" text-anchor="middle" font-size="11" fill="#3182CE">Bánh lắc nằm ngang</text>
+      <text x="505" y="183" text-anchor="middle" font-size="9" fill="#B8893C">Sai số bù: <tspan id="error-comp" fill="#2D7A55" font-weight="bold">0</tspan></text>
+    </g>
+
+    <!-- ====== ĐỒNG HỒ SAI SỐ (so sánh có/không tourbillon) ====== -->
+    <g id="error-compare" transform="translate(20, 100)">
+      <rect x="0" y="0" width="160" height="100" rx="6" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="1.5"/>
+      <text x="80" y="20" text-anchor="middle" font-size="9" fill="#1F2D3D" font-weight="bold">SAI SỐ 6 VỊ TRÍ</text>
+      <!-- Không tourbillon -->
+      <text x="10" y="40" font-size="8" fill="#9B2C2C">Không TB:</text>
+      <g id="err-no-tb">
+        <line x1="60" y1="36" x2="148" y2="36" stroke="#9B2C2C" stroke-width="2.5" stroke-dasharray="2 1"/>
+      </g>
+      <text x="152" y="40" font-size="8" fill="#9B2C2C" text-anchor="end" id="err-no-tb-val">±8s</text>
+      <!-- Có tourbillon -->
+      <text x="10" y="58" font-size="8" fill="#2D7A55">Có TB:</text>
+      <g id="err-with-tb">
+        <line x1="60" y1="54" x2="148" y2="54" stroke="#2D7A55" stroke-width="2.5"/>
+      </g>
+      <text x="152" y="58" font-size="8" fill="#2D7A55" text-anchor="end" id="err-with-tb-val">±2s</text>
+      <text x="80" y="80" text-anchor="middle" font-size="8" fill="#4A5568">(Mỗi vị trí đo 30 giây)</text>
+      <text x="80" y="92" text-anchor="middle" font-size="7" fill="#B8893C">Tourbillon giảm 4x sai số</text>
+    </g>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
+    <g id="tooltip" opacity="0" style="pointer-events: none;">
+      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+    </g>
+  </svg>
+
+  <script is:inline slot="script">
+    // =============================================================================
+    // Hoạt ảnh Tourbillon — lồng xoay + bánh lắc dao động
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['tourbillon'] = function(delta, elapsed) {
+      const svg = document.getElementById('tourbillon-svg');
+      if (!svg) return;
+
+      const cage = svg.querySelector('#cage-group');
+      const balance = svg.querySelector('#tb-balance-group');
+      const angleText = svg.querySelector('#cage-angle');
+      const posText = svg.querySelector('#cage-position');
+      if (!cage || !balance || !angleText || !posText) return;
+
+      // Lồng xoay: 1 vòng / 60 giây thực, nhưng ở đây chậm 3x = 180s/vòng cho dễ nhìn
+      const cagePeriod = 18000;
+      const cageAngle = ((elapsed % cagePeriod) / cagePeriod) * 360;
+      cage.setAttribute('transform', `translate(300, 210) rotate(${cageAngle})`);
+
+      // Bánh lắc dao động nhanh hơn (8 Hz, nhưng chậm 6x)
+      const balancePeriod = 750;
+      const bPhase = (elapsed % balancePeriod) / balancePeriod;
+      const bAngle = Math.sin(bPhase * Math.PI * 2) * 35;
+      balance.setAttribute('transform', `translate(30, 0) rotate(${bAngle})`);
+
+      // Cập nhật hiển thị
+      const rounded = Math.round(cageAngle);
+      angleText.textContent = rounded + '°';
+
+      // Vị trí tương đối
+      let pos = '';
+      if (rounded < 30 || rounded >= 330) pos = 'Bánh lắc nằm ngang (0°)';
+      else if (rounded < 90) pos = 'Đang nghiêng xuống phải';
+      else if (rounded < 150) pos = 'Bánh lắc đứng dọc (90°)';
+      else if (rounded < 210) pos = 'Đang nghiêng lên';
+      else if (rounded < 270) pos = 'Bánh lắc nằm ngang (180°)';
+      else pos = 'Đang nghiêng xuống trái';
+      posText.textContent = pos;
+    };
+
+    // Hover tooltip
+    document.addEventListener('DOMContentLoaded', () => {
+      const svg = document.getElementById('tourbillon-svg');
+      if (!svg) return;
+      const tooltip = svg.querySelector('#tooltip');
+      const tooltipBg = svg.querySelector('#tooltip-bg');
+      const tooltipVi = svg.querySelector('#tooltip-vi');
+      const tooltipEn = svg.querySelector('#tooltip-en');
+      if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
+      const parts = svg.querySelectorAll('[data-part]');
+      parts.forEach((part) => {
+        part.style.cursor = 'pointer';
+        const highlight = () => {
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          const vi = part.getAttribute('data-name-vi') || '';
+          const en = part.getAttribute('data-name-en') || '';
+          tooltipVi.textContent = vi;
+          tooltipEn.textContent = en;
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 30);
+          tooltip.setAttribute('opacity', '1');
+        };
+        const unhighlight = () => { part.style.filter = ''; tooltip.setAttribute('opacity', '0'); };
+        part.addEventListener('mouseenter', highlight);
+        part.addEventListener('mouseleave', unhighlight);
+        part.addEventListener('touchstart', (e) => { e.preventDefault(); highlight(); setTimeout(unhighlight, 2000); });
+      });
+      svg.addEventListener('mousemove', (e) => {
+        const rect = svg.getBoundingClientRect();
+        const vb = svg.viewBox.baseVal;
+        const x = (e.clientX - rect.left) * (vb.width / rect.width);
+        const y = (e.clientY - rect.top) * (vb.height / rect.height);
+        tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 210)}, ${Math.max(y - 45, 0)})`);
+      });
+    });
+  </script>
+</MechanismAnimation>
+
+<!-- Phần giải thích -->
+<div class="mt-10 space-y-6" data-explanation>
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Qua mặt sau của một chiếc đồng hồ có tourbillon, bạn thấy một <strong>"vòng tròn ma thuật" đang xoay liên tục</strong> —
+      cứ mỗi 60 giây nó quay hết 1 vòng, bên trong chứa bộ thoát và bánh lắc đang đập. Đó là <strong>tourbillon</strong>
+      (phát âm "tua-bi-ông"), một trong những phức tạp <strong>đẹp và đắt nhất</strong> của đồng hồ cơ.
+    </p>
   </div>
 
-  <!-- 3 giai đoạn hoạt động -->
-  <div class="grid gap-4 sm:grid-cols-3">
-    {stages.map((stage, i) => (
-      <div class="rounded-lg border-l-4 border-brass bg-white p-4" data-anim="stage-card" data-index={i}>
-        <p class="mb-1 text-lg font-bold text-brass">{stage.num}</p>
-        <h4 class="font-serif text-base text-navy">{stage.title}</h4>
-        <p class="mt-1 text-xs text-ink-soft">{stage.detail}</p>
-      </div>
-    ))}
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">② Nguyên lý — vì sao phải xoay?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      <strong>Trọng lực</strong> ảnh hưởng không đều đến bánh lắc — đặc biệt khi đồng hồ nằm ở các vị trí khác nhau
+      (trên mặt bàn, dựng đứng, úp xuống...). Bánh lắc bị <strong>kéo lệch</strong> nhẹ về phía trọng lực → sai số.
+    </p>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      Breguet nghĩ ra một giải pháp tuyệt vời: <strong>đặt toàn bộ bộ thoát vào một lồng xoay</strong>. Khi lồng xoay 360°,
+      mọi hướng đều được "trải qua" → sai số do trọng lực <strong>trung bình = 0</strong>. Như bạn cân một vật nặng trên
+      đĩa cân xoay — sai số sẽ tự bù trừ.
+    </p>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">a)</span>
+        <span><strong>1801</strong>: Abraham-Louis Breguet đăng ký sáng chế. Ban đầu dành cho đồng hồ bỏ túi (luôn nằm ngang trong túi).</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">b)</span>
+        <span>Đồng hồ đeo tay <strong>thay đổi vị trí liên tục</strong> (cổ tay) → tourbillon <em>ít hiệu quả hơn</em> so với đồng hồ bỏ túi.</span>
+      </li>
+    </ul>
   </div>
-</section>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">③ Vì sao vẫn đắt? — Vì cực kỳ khó làm</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Dù hiệu quả thực tế tranh cãi, tourbillon vẫn là <strong>đỉnh cao chế tác</strong> vì:
+    </p>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">•</span>
+        <span>Lồng phải <strong>cực nhẹ</strong> (vài trăm mg) nhưng đủ cứng — thường làm titan hoặc nhôm đặc biệt.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">•</span>
+        <span>Hơn 70 chi tiết siêu nhỏ phải <strong>cân bằng động</strong> hoàn hảo, sai số dưới 0.001g.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">•</span>
+        <span>Chỉ <strong>watchmaker bậc thầy</strong> mới lắp được — mất hàng tuần cho 1 chiếc.</span>
+      </li>
+    </ul>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      Các biến thể cao cấp hơn: <strong>Flying Tourbillon</strong> (không có cầu trên, lồng lơ lửng),
+      <strong>Double/Triple Axis Tourbillon</strong> (xoay 2-3 trục cùng lúc — Greubel Forsey, Jaeger-LeCoultre Gyrotourbillon).
+    </p>
+  </div>
+</div>
 
 <style>
-  [data-infographic] [data-anim] {
+  [data-explanation] [data-anim] {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-  [data-infographic] [data-anim].reveal-visible {
+  [data-explanation] [data-anim].reveal-visible {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translateY(0);
   }
   @media (prefers-reduced-motion: reduce) {
-    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
+    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
   }
 </style>
 
 <script>
-  function init() {
-    const root = document.querySelector('[data-infographic="glossary-tourbillon"]');
-    if (!root) return;
-    const targets = root.querySelectorAll('[data-anim]');
+  function initExplanation() {
+    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach((el) => el.classList.add('reveal-visible'));
+      cards.forEach((c) => c.classList.add('reveal-visible'));
       return;
     }
     const obs = new IntersectionObserver((entries) => {
@@ -98,8 +302,8 @@ const stages = [
         if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    targets.forEach((el) => obs.observe(el));
-    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
+    cards.forEach((c) => obs.observe(c));
+    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
   }
-  init();
+  initExplanation();
 </script>

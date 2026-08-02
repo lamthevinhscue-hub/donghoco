@@ -5,6 +5,7 @@ excerpt: "Phức tạp tự động tính đúng số ngày mỗi tháng — k�
 term_en: "Perpetual Calendar / QP"
 category: "phức tạp cao cấp"
 has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

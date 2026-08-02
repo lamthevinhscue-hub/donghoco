@@ -1,8 +1,18 @@
 ---
 // =============================================================================
-// INFOGRAPHIC TỪ ĐIỂN: PERPETUAL CALENDAR (Lịch vạn niên)
-// SVG bánh cam 4 năm + loại lịch so sánh.
+// PERPETUAL CALENDAR (Lịch vạn niên) — INTERACTIVE
 // =============================================================================
+// Mô phỏng cơ cấu bánh cam 4 năm + hiển thị ngày/tháng/năm chuyển động:
+//   - Mỗi giây mô phỏng = 1 ngày trôi qua
+//   - Khi hết tháng: kim "ngày" nhảy về 1, kim "tháng" tiến lên
+//   - Khi hết năm: kim "năm" tiến, và bánh cam nhuận 4 năm chuyển
+//   - Đặc biệt tháng 2 năm nhuận: 29 ngày (đặc điểm của perpetual calendar)
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.3.
+// =============================================================================
+
+import MechanismAnimation from '../MechanismAnimation.astro';
+
 const calendarTypes = [
   { name: 'Lịch đơn giản', desc: 'Phải chỉnh cuối tháng ngắn (5 lần/năm)', tone: 'bad' },
   { name: 'Annual Calendar', desc: 'Tự đúng cả năm, chỉ sai tháng Hai (1 lần/năm)', tone: 'ok' },
@@ -13,90 +23,308 @@ const toneColors = {
   ok: { bg: '#B8893C', text: '#9B6E2C' },
   great: { bg: '#2D7A55', text: '#2D7A55' },
 };
+
+// Số ngày mỗi tháng (năm thường và năm nhuận)
+const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'];
 ---
 
-<section class="my-8" data-infographic="glossary-perpetual-calendar">
-  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
-    <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
-      <!-- Bánh cam (snail cam) hình ốc - 4 năm -->
-      <text x="160" y="25" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="title" opacity="0">
-        Bánh cam ghi nhớ chu kỳ 4 năm
-      </text>
-      <!-- 4 vòng tròn = 4 năm, kích thước tăng dần -->
-      <g data-anim="year-cam" opacity="0">
-        <circle cx="80" cy="110" r="30" fill="none" stroke="#4FB286" stroke-width="2.5"/>
-        <text x="80" y="115" text-anchor="middle" font-size="10" fill="#1F2D3D">Năm 1</text>
-        <text x="80" y="128" text-anchor="middle" font-size="8" fill="#4A5568">28 ngày</text>
+<MechanismAnimation label="Lịch vạn niên (Perpetual Calendar) — Bánh cam 4 năm" data-mech-step-id="perpetual">
+  <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="perp-svg">
+    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Lịch tự nhảy ngày/tháng/năm — tự biết tháng Hai năm nhuận có 29 ngày
+    </text>
 
-        <circle cx="140" cy="110" r="30" fill="none" stroke="#4FB286" stroke-width="2.5"/>
-        <text x="140" y="115" text-anchor="middle" font-size="10" fill="#1F2D3D">Năm 2</text>
-        <text x="140" y="128" text-anchor="middle" font-size="8" fill="#4A5568">28 ngày</text>
-
-        <circle cx="200" cy="110" r="30" fill="none" stroke="#4FB286" stroke-width="2.5"/>
-        <text x="200" y="115" text-anchor="middle" font-size="10" fill="#1F2D3D">Năm 3</text>
-        <text x="200" y="128" text-anchor="middle" font-size="8" fill="#4A5568">28 ngày</text>
-
-        <circle cx="260" cy="110" r="30" fill="#B8893C" stroke="#9B6E2C" stroke-width="2.5"/>
-        <text x="260" y="113" text-anchor="middle" font-size="10" fill="#FAF7F2" font-weight="bold">Năm 4</text>
-        <text x="260" y="126" text-anchor="middle" font-size="8" fill="#FAF7F2">NHUẬN</text>
-        <text x="260" y="138" text-anchor="middle" font-size="8" fill="#FAF7F2">29 ngày</text>
+    <!-- ====== ĐỒNG HỒ NGÀY/THÁNG/NĂM (subdials) ====== -->
+    <!-- Subdial ngày (trái) -->
+    <g id="date-dial" transform="translate(110, 150)">
+      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="date-wheel" data-name-vi="Bánh ngày" data-name-en="Date wheel"/>
+      <!-- 31 vạch ngày -->
+      <g stroke="#4A5568" stroke-width="1">
+        {Array.from({ length: 31 }).map((_, i) => {
+          const a = (i * 360) / 31 - 90;
+          const rad = (a * Math.PI) / 180;
+          const x1 = Math.cos(rad) * 45, y1 = Math.sin(rad) * 45;
+          const x2 = Math.cos(rad) * 50, y2 = Math.sin(rad) * 50;
+          return <line x1={x1} y1={y1} x2={x2} y2={y2}/>;
+        })}
       </g>
-      <!-- Kim chỉ -->
-      <g data-anim="indicator" opacity="0">
-        <line x1="80" y1="50" x2="80" y2="75" stroke="#9B2C2C" stroke-width="2"/>
-        <polygon points="80,80 75,72 85,72" fill="#9B2C2C"/>
-        <text x="80" y="45" text-anchor="middle" font-size="9" fill="#9B2C2C" font-weight="bold">Kim chỉ năm</text>
+      <!-- Số ngày chính -->
+      {Array.from({ length: 31 }).filter((_, i) => [0, 4, 9, 14, 19, 24, 29].includes(i)).map((_, idx) => {
+        const i = [0, 4, 9, 14, 19, 24, 29][idx];
+        const a = (i * 360) / 31 - 90;
+        const rad = (a * Math.PI) / 180;
+        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="9" fill="#1F2D3D">{i + 1}</text>;
+      })}
+      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">NGÀY</text>
+      <!-- Kim ngày (sẽ quay) -->
+      <g id="date-hand">
+        <line x1="0" y1="0" x2="0" y2="-42" stroke="#9B2C2C" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" fill="#9B2C2C"/>
       </g>
-      <text x="160" y="180" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="caption" opacity="0">
-        Sau năm 4 → quay lại năm 1. Chu kỳ lặp lại.
-      </text>
-    </svg>
-  </div>
+    </g>
 
-  <!-- So sánh các loại lịch -->
-  <div class="space-y-3">
-    {calendarTypes.map((cal, i) => {
-      const color = toneColors[cal.tone];
-      return (
-        <div class="flex items-start gap-3 rounded-lg border-l-4 bg-white p-3" style={`border-left-color: ${color.bg};`} data-anim="cal-row" data-index={i}>
-          <span class="mt-0.5 shrink-0 text-sm font-bold" style={`color: ${color.text};`}>{i + 1}.</span>
-          <div>
-            <p class="text-sm font-medium" style={`color: ${color.text};`}>{cal.name}</p>
-            <p class="text-xs text-ink-soft">{cal.desc}</p>
-          </div>
+    <!-- Subdial tháng (giữa) -->
+    <g id="month-dial" transform="translate(300, 150)">
+      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="month-wheel" data-name-vi="Bánh tháng" data-name-en="Month wheel"/>
+      <g stroke="#4A5568" stroke-width="1">
+        {Array.from({ length: 12 }).map((_, i) => {
+          const a = (i * 360) / 12 - 90;
+          const rad = (a * Math.PI) / 180;
+          const x1 = Math.cos(rad) * 45, y1 = Math.sin(rad) * 45;
+          const x2 = Math.cos(rad) * 50, y2 = Math.sin(rad) * 50;
+          return <line x1={x1} y1={y1} x2={x2} y2={y2}/>;
+        })}
+      </g>
+      {monthsVi.map((m, i) => {
+        const a = (i * 360) / 12 - 90;
+        const rad = (a * Math.PI) / 180;
+        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight={m === 'T2' ? 'bold' : 'normal'}>{m}</text>;
+      })}
+      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">THÁNG</text>
+      <g id="month-hand">
+        <line x1="0" y1="0" x2="0" y2="-42" stroke="#3182CE" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" fill="#3182CE"/>
+      </g>
+    </g>
+
+    <!-- Subdial năm + bánh cam nhuận (phải) -->
+    <g id="year-dial" transform="translate(490, 150)">
+      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="year-wheel" data-name-vi="Bánh năm + cam nhuận" data-name-en="Year wheel + leap cam"/>
+      <!-- 4 vùng năm -->
+      <g>
+        <path d="M 0 0 L 0 -50 A 50 50 0 0 1 50 0 Z" fill="#FAF7F2" opacity="0.5"/>
+        <path d="M 0 0 L 50 0 A 50 50 0 0 1 0 50 Z" fill="#E8E2D6" opacity="0.5"/>
+        <path d="M 0 0 L 0 50 A 50 50 0 0 1 -50 0 Z" fill="#FAF7F2" opacity="0.5"/>
+        <path d="M 0 0 L -50 0 A 50 50 0 0 1 0 -50 Z" fill="#B8893C" opacity="0.25"/>
+      </g>
+      <circle r="50" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+      <!-- Nhãn năm -->
+      <text x="22" y="-25" text-anchor="middle" font-size="11" fill="#1F2D3D">Y1</text>
+      <text x="25" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D">Y2</text>
+      <text x="-22" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D">Y3</text>
+      <text x="-25" y="-25" text-anchor="middle" font-size="11" fill="#B8893C" font-weight="bold">Y4★</text>
+      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">NĂM / NHUẬN</text>
+      <text x="0" y="75" text-anchor="middle" font-size="8" fill="#B8893C">★ = Năm nhuận</text>
+      <g id="year-hand">
+        <line x1="0" y1="0" x2="0" y2="-42" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" fill="#B8893C"/>
+      </g>
+    </g>
+
+    <!-- ====== BÁNH CAM NHUẬN (leap year cam) - bên dưới, chi tiết kỹ thuật ====== -->
+    <g id="leap-cam-group" transform="translate(150, 340)">
+      <text x="0" y="-55" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">
+        Bánh cam nhuận (snail cam)
+      </text>
+      <g id="leap-cam" data-part="leap-cam" data-name-vi="Bánh cam 4 năm" data-name-en="4-year leap snail cam">
+        <!-- Hình xoắn ốc ốc (snail) - 4 bậc -->
+        <path d="M 0 -35
+                 A 35 35 0 0 1 35 0
+                 L 30 0
+                 A 30 30 0 0 0 0 -30
+                 L 0 -25
+                 A 25 25 0 0 1 25 0
+                 L 20 0
+                 A 20 20 0 0 0 0 -20
+                 L 0 -15
+                 A 15 15 0 0 1 15 0
+                 L 10 0
+                 A 10 10 0 0 0 0 -10
+                 Z"
+              fill="#B8893C" stroke="#9B6E2C" stroke-width="1.5" opacity="0.85"/>
+        <!-- Trục -->
+        <circle r="4" fill="#2D3748"/>
+      </g>
+      <!-- Kim cảm biến (feeler) -->
+      <g id="cam-feeler">
+        <line x1="35" y1="0" x2="55" y2="0" stroke="#3182CE" stroke-width="2"/>
+        <circle cx="55" cy="0" r="3" fill="#3182CE"/>
+      </g>
+      <text x="0" y="55" text-anchor="middle" font-size="8" fill="#4A5568">
+        Kim cảm biến chạm bậc khác mỗi năm → tự biết tháng 2 có 28 hay 29 ngày
+      </text>
+    </g>
+
+    <!-- ====== TRẠNG THÁI HIỆN TẠI (ngày/tháng/năm) ====== -->
+    <g id="readout">
+      <rect x="260" y="320" width="240" height="80" rx="6" fill="#1F2D3D"/>
+      <text x="380" y="338" text-anchor="middle" font-size="9" fill="#B8893C">NGÀY ĐANG HIỂN THỊ</text>
+      <text id="readout-date" x="380" y="368" text-anchor="middle" font-size="22" fill="#FAF7F2" font-weight="bold">15</text>
+      <text id="readout-month" x="380" y="388" text-anchor="middle" font-size="12" fill="#B8893C">Tháng 6 / Năm 3</text>
+    </g>
+
+    <!-- ====== CẢNH BÁO tháng 2 nhuận ====== -->
+    <text id="leap-alert" x="300" y="100" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold" opacity="0">
+      ★ Tháng 2 NHUẬN: 29 ngày! ★
+    </text>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
+    <g id="tooltip" opacity="0" style="pointer-events: none;">
+      <rect id="tooltip-bg" x="0" y="0" width="180" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="90" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="90" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+    </g>
+  </svg>
+
+  <script is:inline slot="script">
+    // =============================================================================
+    // Hoạt ảnh Lịch vạn niên — mô phỏng ngày trôi qua (1 ngày = ~400ms)
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['perpetual'] = function(delta, elapsed) {
+      const svg = document.getElementById('perp-svg');
+      if (!svg) return;
+
+      const dateHand = svg.querySelector('#date-hand');
+      const monthHand = svg.querySelector('#month-hand');
+      const yearHand = svg.querySelector('#year-hand');
+      const leapCam = svg.querySelector('#leap-cam');
+      const camFeeler = svg.querySelector('#cam-feeler');
+      const readoutDate = svg.querySelector('#readout-date');
+      const readoutMonth = svg.querySelector('#readout-month');
+      const leapAlert = svg.querySelector('#leap-alert');
+      if (!dateHand || !monthHand || !yearHand || !readoutDate || !readoutMonth) return;
+
+      // Số ngày mỗi tháng (năm thường)
+      const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      // 1 ngày = 400ms (để nhìn thấy tháng thay đổi sau ~12 giây)
+      const dayMs = 400;
+      const totalDays = Math.floor(elapsed / dayMs);
+
+      // Bắt đầu từ 1/1/Y1
+      let day = totalDays % 365; // chỉ mô phỏng 1 năm 4 chu kỳ cho dễ nhìn
+      let year = 0; // 0-3 = năm 1-4
+      let month = 0;
+      let dateInMonth = 1;
+
+      // Tính ngày/tháng/năm (chu kỳ 4 năm = 365*3 + 366 = 1461 ngày)
+      const totalInCycle = totalDays % 1461;
+      let remaining = totalInCycle;
+      for (let y = 0; y < 4; y++) {
+        const isLeap = (y === 3);
+        for (let m = 0; m < 12; m++) {
+          const dim = (m === 1 && isLeap) ? 29 : daysInMonth[m];
+          if (remaining < dim) {
+            year = y;
+            month = m;
+            dateInMonth = remaining + 1;
+            remaining = -1;
+            break;
+          }
+          remaining -= dim;
+        }
+        if (remaining < 0) break;
+      }
+
+      // Góc kim ngày: mỗi ngày xoay 360/31
+      const dateAngle = (dateInMonth - 1) * (360 / 31);
+      dateHand.setAttribute('transform', `rotate(${dateAngle})`);
+
+      // Góc kim tháng
+      const monthAngle = month * (360 / 12);
+      monthHand.setAttribute('transform', `rotate(${monthAngle})`);
+
+      // Góc kim năm (chia 4 vùng)
+      const yearAngle = year * 90;
+      yearHand.setAttribute('transform', `rotate(${yearAngle})`);
+
+      // Bánh cam xoay theo năm
+      if (leapCam) leapCam.setAttribute('transform', `rotate(${yearAngle})`);
+      // Kim cảm biến vị trí theo bậc cam
+      if (camFeeler) {
+        const feelerX = 35 + year * 5; // di chuyển xa hơn khi cam xoay
+        camFeeler.setAttribute('transform', `rotate(0) translate(0, 0)`);
+      }
+
+      // Cập nhật readout
+      readoutDate.textContent = dateInMonth;
+      readoutMonth.textContent = `Tháng ${month + 1} / Năm ${year + 1}${year === 3 ? ' (NHUẬN)' : ''}`;
+
+      // Cảnh báo tháng 2 nhuận
+      if (leapAlert) {
+        const isLeapFeb = (year === 3 && month === 1);
+        leapAlert.setAttribute('opacity', isLeapFeb ? '1' : '0');
+      }
+    };
+
+    // Hover tooltip
+    document.addEventListener('DOMContentLoaded', () => {
+      const svg = document.getElementById('perp-svg');
+      if (!svg) return;
+      const tooltip = svg.querySelector('#tooltip');
+      const tooltipBg = svg.querySelector('#tooltip-bg');
+      const tooltipVi = svg.querySelector('#tooltip-vi');
+      const tooltipEn = svg.querySelector('#tooltip-en');
+      if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
+      const parts = svg.querySelectorAll('[data-part]');
+      parts.forEach((part) => {
+        part.style.cursor = 'pointer';
+        const highlight = () => {
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          const vi = part.getAttribute('data-name-vi') || '';
+          const en = part.getAttribute('data-name-en') || '';
+          tooltipVi.textContent = vi;
+          tooltipEn.textContent = en;
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 20);
+          tooltip.setAttribute('opacity', '1');
+        };
+        const unhighlight = () => { part.style.filter = ''; tooltip.setAttribute('opacity', '0'); };
+        part.addEventListener('mouseenter', highlight);
+        part.addEventListener('mouseleave', unhighlight);
+        part.addEventListener('touchstart', (e) => { e.preventDefault(); highlight(); setTimeout(unhighlight, 2000); });
+      });
+      svg.addEventListener('mousemove', (e) => {
+        const rect = svg.getBoundingClientRect();
+        const vb = svg.viewBox.baseVal;
+        const x = (e.clientX - rect.left) * (vb.width / rect.width);
+        const y = (e.clientY - rect.top) * (vb.height / rect.height);
+        tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 190)}, ${Math.max(y - 45, 0)})`);
+      });
+    });
+  </script>
+</MechanismAnimation>
+
+<!-- So sánh các loại lịch -->
+<div class="mt-8 space-y-3" data-explanation>
+  <h3 class="font-serif text-lg text-navy">Ba cấp độ lịch — vì sao "vạn niên" là đỉnh?</h3>
+  {calendarTypes.map((cal, i) => {
+    const color = toneColors[cal.tone];
+    return (
+      <div class="flex items-start gap-3 rounded-lg border-l-4 bg-white p-3" style={`border-left-color: ${color.bg};`} data-anim="cal-row">
+        <span class="mt-0.5 shrink-0 text-sm font-bold" style={`color: ${color.text};`}>{i + 1}.</span>
+        <div>
+          <p class="text-sm font-medium" style={`color: ${color.text};`}>{cal.name}</p>
+          <p class="text-xs text-ink-soft">{cal.desc}</p>
         </div>
-      );
-    })}
-  </div>
+      </div>
+    );
+  })}
 
   <div class="mt-4 rounded-lg bg-brass/5 p-3 text-center text-xs text-ink-soft" data-anim="note">
     <strong class="text-brass">⚠ Lưu ý năm 2100:</strong> Năm chia hết 100 <em>không</em> là nhuận (trừ khi chia hết 400).
-    Năm 2100 perpetual calendar sẽ sai → cần chỉnh.
+    Năm 2100 perpetual calendar sẽ sai → cần chỉnh. Đó là vì sao Patek Philippe quảng cáo máy của họ "đúng đến 2100".
   </div>
-</section>
+</div>
 
 <style>
-  [data-infographic] [data-anim] {
+  [data-explanation] [data-anim] {
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-  [data-infographic] [data-anim].reveal-visible {
+  [data-explanation] [data-anim].reveal-visible {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translateY(0);
   }
   @media (prefers-reduced-motion: reduce) {
-    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
+    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
   }
 </style>
 
 <script>
-  function init() {
-    const root = document.querySelector('[data-infographic="glossary-perpetual-calendar"]');
-    if (!root) return;
-    const targets = root.querySelectorAll('[data-anim]');
+  function initExplanation() {
+    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach((el) => el.classList.add('reveal-visible'));
+      cards.forEach((c) => c.classList.add('reveal-visible'));
       return;
     }
     const obs = new IntersectionObserver((entries) => {
@@ -104,8 +332,8 @@ const toneColors = {
         if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    targets.forEach((el) => obs.observe(el));
-    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
+    cards.forEach((c) => obs.observe(c));
+    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
   }
-  init();
+  initExplanation();
 </script>

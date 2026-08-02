@@ -4,6 +4,8 @@ custom_slug: "gmt"
 excerpt: "Phức tạp hiển thị múi giờ thứ hai — hữu ích cho người đi máy bay, cầu nối giữa pilot watch và đồng hồ du lịch."
 term_en: "GMT / Multiple Time Zone"
 category: "phức tạp chức năng"
+has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

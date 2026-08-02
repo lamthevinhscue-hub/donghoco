@@ -91,6 +91,7 @@ const tuDien = defineCollection({
     term_en: z.string().optional(),                 // Tên tiếng Anh (nếu có)
     category: z.string().default('chung'),          // Phân nhóm thuật ngữ
     has_infographic: z.boolean().default(false),    // Có infographic minh họa chưa?
+    interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
   }),
 });
 

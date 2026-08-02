@@ -4,6 +4,8 @@ custom_slug: "chronograph"
 excerpt: "Đồng hồ có chức năng bấm giờ độc lập — một trong những phức tạp hữu ích nhất."
 term_en: "Chronograph"
 category: "phức tạp chức năng"
+has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

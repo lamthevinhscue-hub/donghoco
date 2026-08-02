@@ -1,0 +1,356 @@
+---
+// =============================================================================
+// GMT (Múi giờ thứ hai) — INTERACTIVE
+// =============================================================================
+// Mô phỏng cơ chế 24 giờ:
+//   - Kim giờ thường (12 giờ)
+//   - Kim GMT phụ (24 giờ - 1 vòng/ngày)
+//   - Vòng bezel xoay được (để chọn múi giờ thứ 3)
+//   - Hiển thị 3 thời gian cùng lúc: giờ địa phương + giờ nhà + giờ thứ 3
+//
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.3.
+// =============================================================================
+
+import MechanismAnimation from '../MechanismAnimation.astro';
+
+// Danh sách múi giờ chính cho bezel
+const cities = [
+  { name: 'LDN', offset: 0 },
+  { name: 'PAR', offset: 1 },
+  { name: 'CAI', offset: 2 },
+  { name: 'JED', offset: 3 },
+  { name: 'DXB', offset: 4 },
+  { name: 'KHI', offset: 5 },
+  { name: 'DAC', offset: 6 },
+  { name: 'BKK', offset: 7 },
+  { name: 'HKG', offset: 8 },
+  { name: 'TYO', offset: 9 },
+  { name: 'SYD', offset: 10 },
+  { name: 'NOU', offset: 11 },
+  { name: 'AKL', offset: 12 },
+  { name: 'HNL', offset: -10 },
+  { name: 'ANC', offset: -9 },
+  { name: 'LAX', offset: -8 },
+  { name: 'DEN', offset: -7 },
+  { name: 'CHI', offset: -6 },
+  { name: 'NYC', offset: -5 },
+  { name: 'RIO', offset: -3 },
+  { name: 'SGN', offset: 7 },
+];
+---
+
+<MechanismAnimation label="GMT — Hiển thị múi giờ thứ hai (24h hand)" data-mech-step-id="gmt">
+  <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="gmt-svg">
+    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      3 thời gian cùng lúc: Giờ địa phương • Giờ nhà (kim 24h) • Giờ thứ 3 (bezel)
+    </text>
+
+    <!-- ====== ĐỒNG HỒ GMT (mặt chính) ====== -->
+    <g id="gmt-watch" transform="translate(300, 230)">
+      <!-- Vòng bezel 24 giờ (xoay được) -->
+      <g id="bezel-group" data-part="bezel" data-name-vi="Vòng bezel 24 giờ" data-name-en="24h rotating bezel" transform="rotate(0)">
+        <circle r="155" fill="#1F2D3D" stroke="#B8893C" stroke-width="2"/>
+        <!-- Vạch 24 giờ trên bezel -->
+        <g stroke="#B8893C" stroke-width="1">
+          {Array.from({ length: 24 }).map((_, i) => {
+            const a = (i * 360) / 24;
+            const rad = (a * Math.PI) / 180;
+            const r1 = 145, r2 = 155;
+            const isMajor = i % 6 === 0;
+            return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * r2} y2={Math.sin(rad) * r2} stroke-width={isMajor ? 2 : 0.8}/>;
+          })}
+        </g>
+        <!-- Số 24h (đỏ cho ban đêm, xanh cho ban ngày) -->
+        {Array.from({ length: 24 }).map((_, i) => {
+          const a = (i * 360) / 24;
+          const rad = (a * Math.PI) / 180;
+          const isNight = i >= 18 || i < 6;
+          const color = isNight ? '#9B2C2C' : '#3182CE';
+          const num = i === 0 ? '24' : String(i);
+          return <text x={Math.cos(rad) * 135} y={Math.sin(rad) * 135 + 4} text-anchor="middle" font-size="11" fill={color} font-weight={i % 6 === 0 ? 'bold' : 'normal'}>{num}</text>;
+        })}
+      </g>
+
+      <!-- Mặt đồng hồ chính -->
+      <circle r="125" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="3" data-part="dial" data-name-vi="Mặt đồng hồ" data-name-en="Watch dial"/>
+      <!-- Vạch 12 giờ -->
+      <g stroke="#1F2D3D" stroke-width="1.5">
+        {Array.from({ length: 60 }).map((_, i) => {
+          const a = (i * 360) / 60 - 90;
+          const rad = (a * Math.PI) / 180;
+          const isMajor = i % 5 === 0;
+          const r1 = isMajor ? 110 : 115;
+          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 122} y2={Math.sin(rad) * 122} stroke-width={isMajor ? 2.5 : 1}/>;
+        })}
+      </g>
+      <!-- Số 12 giờ -->
+      {[12, 3, 6, 9].map((n, i) => {
+        const a = (i * 90) - 90;
+        const rad = (a * Math.PI) / 180;
+        return <text x={Math.cos(rad) * 95} y={Math.sin(rad) * 95 + 6} text-anchor="middle" font-size="18" fill="#1F2D3D" font-weight="bold" font-family="serif">{n}</text>;
+      })}
+
+      <!-- ====== KIM ====== -->
+      <!-- Kim giờ (12h, ngắn, dày) -->
+      <g id="hour-hand" data-part="hour-hand" data-name-vi="Kim giờ (giờ địa phương)" data-name-en="Hour hand (local time)">
+        <line x1="0" y1="10" x2="0" y2="-60" stroke="#1F2D3D" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <!-- Kim phút (dài, mỏng hơn) -->
+      <g id="minute-hand" data-part="minute-hand" data-name-vi="Kim phút" data-name-en="Minute hand">
+        <line x1="0" y1="15" x2="0" y2="-90" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <!-- Kim giây (mỏng nhất, đỏ) -->
+      <g id="second-hand">
+        <line x1="0" y1="20" x2="0" y2="-105" stroke="#9B2C2C" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="0" cy="-95" r="3" fill="#9B2C2C"/>
+      </g>
+      <!-- KIM GMT (24h, màu xanh/lục, có mũi tên tam giác) -->
+      <g id="gmt-hand" data-part="gmt-hand" data-name-vi="Kim GMT (giờ nhà, 24h)" data-name-en="GMT hand (home time, 24h)">
+        <line x1="0" y1="15" x2="0" y2="-110" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="0,-115 -5,-105 5,-105" fill="#B8893C"/>
+        <circle cx="0" cy="-50" r="6" fill="#B8893C"/>
+        <text x="0" y="-47" text-anchor="middle" font-size="7" fill="#FAF7F2" font-weight="bold">24</text>
+      </g>
+
+      <!-- Tâm -->
+      <circle r="6" fill="#1F2D3D"/>
+      <circle r="2.5" fill="#B8893C"/>
+    </g>
+
+    <!-- ====== MŨI TÊN CHỈ HƯỚNG TRỜI (ngày/đêm) ====== -->
+    <g transform="translate(300, 230)">
+      <!-- Nửa trên (ban ngày) - xanh nhạt -->
+      <path d="M -125 0 A 125 125 0 0 1 125 0" fill="#3182CE" opacity="0.05"/>
+      <!-- Nửa dưới (ban đêm) - đỏ nhạt -->
+      <path d="M -125 0 A 125 125 0 0 0 125 0" fill="#9B2C2C" opacity="0.05"/>
+    </g>
+
+    <!-- ====== HIỂN THỊ 3 THỜI GIAN ====== -->
+    <g id="time-readout" transform="translate(0, 410)">
+      <!-- Giờ địa phương -->
+      <g transform="translate(80, 0)">
+        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ ĐỊA PHƯƠNG</text>
+        <text id="local-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="bold">10:30</text>
+      </g>
+      <!-- Giờ nhà (kim 24h) -->
+      <g transform="translate(300, 0)">
+        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ NHÀ (KIM 24H)</text>
+        <text id="home-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">15:30</text>
+      </g>
+      <!-- Giờ thứ 3 (bezel) -->
+      <g transform="translate(520, 0)">
+        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ THỨ 3 (BEZEL)</text>
+        <text id="third-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#3182CE" font-weight="bold">--:--</text>
+      </g>
+    </g>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
+    <g id="tooltip" opacity="0" style="pointer-events: none;">
+      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+    </g>
+  </svg>
+
+  <!-- Bộ chọn múi giờ nhà + múi giờ thứ 3 -->
+  <div class="mt-4 space-y-3 text-xs">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-ink-soft/70">Múi giờ nhà (kim 24h):</span>
+      <select id="home-tz" class="rounded border border-cream-dark bg-white px-2 py-1 text-navy">
+        {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
+      </select>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-ink-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</span>
+      <select id="third-tz" class="rounded border border-cream-dark bg-white px-2 py-1 text-navy">
+        {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
+      </select>
+    </div>
+  </div>
+
+  <script is:inline slot="script">
+    // =============================================================================
+    // Hoạt ảnh GMT — mô phỏng thời gian trôi (1 phút thực = 1 giờ mô phỏng)
+    // =============================================================================
+    let __homeOffset = 7;   // SGN mặc định
+    let __thirdOffset = 0;  // LDN mặc định
+
+    (window.__mechSteps = window.__mechSteps || {})['gmt'] = function(delta, elapsed) {
+      const svg = document.getElementById('gmt-svg');
+      if (!svg) return;
+
+      const hourHand = svg.querySelector('#hour-hand');
+      const minuteHand = svg.querySelector('#minute-hand');
+      const secondHand = svg.querySelector('#second-hand');
+      const gmtHand = svg.querySelector('#gmt-hand');
+      const bezel = svg.querySelector('#bezel-group');
+      const localTime = svg.querySelector('#local-time');
+      const homeTime = svg.querySelector('#home-time');
+      const thirdTime = svg.querySelector('#third-time');
+      if (!hourHand || !minuteHand || !gmtHand) return;
+
+      // 1 giờ mô phỏng = 3 giây (để nhìn thấy kim phút chạy)
+      const hourMs = 3000;
+      const totalHours = elapsed / hourMs;
+
+      // Giờ địa phương: 10:00 ban đầu
+      const localStart = 10;
+      const localH = localStart + totalHours;
+      const localH12 = ((localH % 24) + 24) % 24;
+      const localMinutes = (localH - Math.floor(localH)) * 60;
+
+      // Kim giờ: 360°/12h
+      const hourAngle = (localH12 % 12) * 30 + localMinutes * 0.5;
+      hourHand.setAttribute('transform', `rotate(${hourAngle})`);
+      // Kim phút: 360°/60min
+      const minuteAngle = localMinutes * 6;
+      minuteHand.setAttribute('transform', `rotate(${minuteAngle})`);
+      // Kim giây: quay nhanh cho đẹp
+      const secondAngle = (elapsed / 50) % 360;
+      secondHand.setAttribute('transform', `rotate(${secondAngle})`);
+
+      // Kim GMT: theo giờ nhà (offset khác)
+      // Kim 24h quay 360°/24h = 15°/giờ. Vị trí 0h = trên cùng (-90° SVG)
+      const homeH = localH + (__homeOffset - 7); // giả định local = UTC+7 (SGN)
+      const homeAngle = homeH * 15; // 0h = 0° (trên cùng, do đã -90 trong SVG transform gốc? thực ra dùng rotate)
+      gmtHand.setAttribute('transform', `rotate(${homeAngle})`);
+
+      // Bezel xoay theo offset thứ 3: 1 múi giờ = 15°
+      // Bezel cần xoay sao cho số giờ đúng ở vị trí kim GMT
+      const thirdOffsetDiff = __thirdOffset - __homeOffset;
+      const bezelAngle = thirdOffsetDiff * 15;
+      bezel.setAttribute('transform', `rotate(${bezelAngle})`);
+
+      // Cập nhật text
+      const fmt = (h) => {
+        const hh = Math.floor(((h % 24) + 24) % 24);
+        const mm = Math.floor((h - Math.floor(h)) * 60);
+        return String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0');
+      };
+      if (localTime) localTime.textContent = fmt(localH);
+      if (homeTime) homeTime.textContent = fmt(homeH);
+      if (thirdTime) thirdTime.textContent = fmt(localH + (__thirdOffset - 7));
+    };
+
+    // Xử lý dropdown chọn múi giờ
+    document.addEventListener('DOMContentLoaded', () => {
+      const homeSelect = document.getElementById('home-tz');
+      const thirdSelect = document.getElementById('third-tz');
+      if (homeSelect) homeSelect.addEventListener('change', (e) => { __homeOffset = parseInt(e.target.value, 10); });
+      if (thirdSelect) thirdSelect.addEventListener('change', (e) => { __thirdOffset = parseInt(e.target.value, 10); });
+
+      // Tooltip hover
+      const svg = document.getElementById('gmt-svg');
+      if (!svg) return;
+      const tooltip = svg.querySelector('#tooltip');
+      const tooltipBg = svg.querySelector('#tooltip-bg');
+      const tooltipVi = svg.querySelector('#tooltip-vi');
+      const tooltipEn = svg.querySelector('#tooltip-en');
+      if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
+      const parts = svg.querySelectorAll('[data-part]');
+      parts.forEach((part) => {
+        part.style.cursor = 'pointer';
+        const highlight = () => {
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          const vi = part.getAttribute('data-name-vi') || '';
+          const en = part.getAttribute('data-name-en') || '';
+          tooltipVi.textContent = vi;
+          tooltipEn.textContent = en;
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 30);
+          tooltip.setAttribute('opacity', '1');
+        };
+        const unhighlight = () => { part.style.filter = ''; tooltip.setAttribute('opacity', '0'); };
+        part.addEventListener('mouseenter', highlight);
+        part.addEventListener('mouseleave', unhighlight);
+        part.addEventListener('touchstart', (e) => { e.preventDefault(); highlight(); setTimeout(unhighlight, 2000); });
+      });
+      svg.addEventListener('mousemove', (e) => {
+        const rect = svg.getBoundingClientRect();
+        const vb = svg.viewBox.baseVal;
+        const x = (e.clientX - rect.left) * (vb.width / rect.width);
+        const y = (e.clientY - rect.top) * (vb.height / rect.height);
+        tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 210)}, ${Math.max(y - 45, 0)})`);
+      });
+    });
+  </script>
+</MechanismAnimation>
+
+<!-- Phần giải thích -->
+<div class="mt-10 space-y-6" data-explanation>
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Một chiếc đồng hồ GMT có thêm <strong>một kim phụ màu nổi bật</strong> (thường xanh, cam, hoặc vàng) —
+      kim này <strong>đi hết 1 vòng trong 24 giờ</strong> (thay vì 12 giờ như kim giờ thường). Vòng bezel ngoài
+      có các số từ 1 đến 24. Nhờ vậy, bạn đọc được <strong>giờ của 2-3 múi giờ cùng lúc</strong>.
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">② Nguyên lý — 3 thời gian trên 1 mặt</h3>
+    <ul class="space-y-2 text-sm text-ink-soft">
+      <li class="flex gap-2"><span class="text-brass font-bold">a)</span>
+        <span><strong>Kim giờ + phút</strong> thông thường → giờ địa phương (nơi bạn đang đứng).</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">b)</span>
+        <span><strong>Kim GMT 24h</strong> chỉ giờ nhà (nơi bạn sinh sống). Cơ chế bên trong có bánh răng tỷ lệ 2:1 — kim giờ thường quay 2 vòng thì kim GMT quay 1 vòng.</span>
+      </li>
+      <li class="flex gap-2"><span class="text-brass font-bold">c)</span>
+        <span><strong>Vòng bezel xoay</strong>: khi xoay bezel, số 24h trên bezel đổi vị trí tương đối với kim GMT → bạn có thể đọc <strong>múi giờ thứ 3</strong> (chẳng hạn múi giờ điểm đến khi đang bay).</span>
+      </li>
+    </ul>
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+      Thử bấm nút ở trên để đổi múi giờ nhà và múi giờ thứ 3 — bạn sẽ thấy bezel tự xoay!
+    </p>
+  </div>
+
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy">③ Lịch sử — sinh ra cho phi công</h3>
+    <p class="text-sm leading-relaxed text-ink-soft">
+      Năm <strong>1954</strong>, hãng hàng không <strong>Pan Am</strong> yêu cầu Rolex chế tạo đồng hồ cho phi công
+      bay xuyên lục địa — cần biết giờ cả điểm đi lẫn điểm đến. Rolex đáp ứng bằng <strong>GMT-Master</strong>
+      (ref. 6542) với vòng bezel hai màu đặc trưng (đỏ/xanh) để phân biệt ban ngày-ban đêm.
+    </p>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+      Biến thể nổi tiếng: <strong>GMT-Master II</strong> (1983, kim giờ độc lập có thể chỉnh riêng),
+      <strong>Tudor Black Bay GMT</strong>, <strong>Grand Seiko GMT</strong>, <strong>Omega Seamaster Aqua Terra GMT</strong>.
+      Dành cho ai hay đi máy bay, làm việc với nhiều quốc gia — hoặc đơn giản là yêu vẻ đẹp "phi công" của nó.
+    </p>
+  </div>
+</div>
+
+<style>
+  [data-explanation] [data-anim] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  [data-explanation] [data-anim].reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  function initExplanation() {
+    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cards.forEach((c) => c.classList.add('reveal-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    cards.forEach((c) => obs.observe(c));
+    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
+  }
+  initExplanation();
+</script>

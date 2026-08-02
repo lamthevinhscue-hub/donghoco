@@ -1,0 +1,13 @@
+# Chuẩn hóa ký tự xuống dòng: LF trên mọi nền tảng
+* text=auto eol=lf
+
+# Ép LF cho các đuôi file cụ thể
+*.md    text eol=lf
+*.astro text eol=lf
+*.ts    text eol=lf
+*.mjs   text eol=lf
+*.json  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.html  text eol=lf
+*.svg   text eol=lf

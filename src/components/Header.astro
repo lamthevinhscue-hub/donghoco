@@ -44,15 +44,17 @@ const langSwitchLabel = lang === 'vi' ? tr.switch_lang : tr.switch_lang;
       ))}
     </nav>
 
-    <!-- Nút chuyển ngôn ngữ + Nút mở menu (điện thoại) -->
+    <!-- Nút mở menu (điện thoại) -->
+    <!-- Lưu ý: Nút chuyển ngôn ngữ (English) đã ẩn tạm thời do chưa có nội dung tiếng Anh.
+         Bật lại khi đã dịch xong (bỏ comment khối <a> bên dưới). -->
     <div class="flex items-center gap-3">
-      <a
+      <!-- <a
         href={langSwitchUrl}
         class="rounded-full border border-brass/40 px-3 py-1 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-white"
         aria-label={langSwitchLabel}
       >
         {langSwitchLabel}
-      </a>
+      </a> -->
       <button
         type="button"
         id="menu-toggle"

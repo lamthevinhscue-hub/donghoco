@@ -57,38 +57,47 @@ const milestones = timelineData as Array<{
 ---
 
 <BaseLayout
-  title="Lịch sử đồng hồ cơ đeo tay — 300 năm"
-  description="Timeline tương tác đầu tiên bằng tiếng Việt về lịch sử đồng hồ cơ đeo tay — từ Peter Henlein (1510) đến kỷ nguyên silicon."
+  title="500 năm chế tác đồng hồ cơ"
+  description="Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. 28 mốc định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử."
 >
   <section class="mx-auto max-w-6xl px-4 py-12">
     <!-- Tiêu đề -->
     <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
-    <h1 class="font-serif text-3xl text-navy sm:text-5xl">
-      300 năm đồng hồ cơ đeo tay
+    <h1 class="timeline-heading font-serif text-3xl text-navy sm:text-5xl">
+      500 năm chế tác đồng hồ cơ
     </h1>
     <p class="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft">
-      Dòng chảy thời gian trên cổ tay con người — từ cỗ máy bỏ túi Nuremberg đến
-      kỷ nguyên silicon. <strong>28 mốc</strong> định hình toàn bộ ngành đồng hồ,
-      được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử.
+      Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon —
+      hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người.
+      <strong>28 mốc</strong> định hình toàn bộ ngành, được kể như một nhà sưu tầm
+      đang dẫn bạn đi dọc hành lang lịch sử.
     </p>
 
     <!-- Thanh điều khiển 3 lớp -->
     <div class="sticky top-16 z-40 mt-8 flex flex-wrap items-center gap-2 rounded-lg border border-cream-dark bg-cream/95 p-3 backdrop-blur">
       <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60">Lọc theo lớp:</span>
+      <button
+        type="button"
+        id="toggle-all"
+        class="layer-btn-all flex items-center gap-1.5 rounded-full border-2 px-3 py-1.5 text-xs font-medium transition-all"
+        aria-pressed="true"
+      >
+        Tất cả
+      </button>
       {layers.map((layer) => (
         <button
           type="button"
           data-layer-toggle={layer.id}
           class="layer-btn flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-xs font-medium transition-all"
-          style={`border-color: ${layer.color}; color: ${layer.color};`}
+          style={`--layer-color: ${layer.color}; --layer-bg: ${layer.bgColor};`}
           aria-pressed="true"
         >
-          <span class="h-2.5 w-2.5 rounded-full" style={`background-color: ${layer.color};`}></span>
+          <span class="layer-dot h-2.5 w-2.5 rounded-full" style={`background-color: ${layer.color};`}></span>
           <span class="hidden sm:inline">{layer.label}</span>
           <span class="sm:hidden">{layer.labelShort}</span>
         </button>
       ))}
-      <span class="ml-auto text-xs text-ink-soft/50" id="milestone-count">{milestones.length} mốc</span>
+      <span class="ml-auto text-xs font-medium text-ink-soft/60" id="milestone-count">{milestones.length} mốc</span>
     </div>
 
     <!-- Hướng dẫn cuộn (desktop) -->
@@ -151,7 +160,7 @@ const milestones = timelineData as Array<{
   <section class="mx-auto max-w-3xl px-4 pb-20">
     <div class="rounded-lg border border-brass/30 bg-brass/5 p-5 text-sm text-ink-soft">
       <strong class="text-brass">💡 Ghi chú của nhà sưu tầm:</strong>
-      300 năm này không phải đường thẳng — mà là chuỗi <em>phát minh → khủng hoảng → phục hưng</em>.
+      500 năm này không phải đường thẳng — mà là chuỗi <em>phát minh → khủng hoảng → phục hưng</em>.
       Khi đọc, hãy để ý cách các mốc <strong>văn hóa</strong> (chiến tranh, khủng hoảng quartz)
       định hình lại toàn bộ <strong>máy móc</strong> và <strong>thương hiệu</strong>.
     </div>
@@ -282,16 +291,40 @@ const milestones = timelineData as Array<{
     transform: translateY(0);
   }
 
-  /* Nút lọc */
+  /* Tiêu đề: dùng chữ số lining (không bị 300 → 3oo) */
+  .timeline-heading {
+    font-variant-numeric: lining-nums;
+  }
+
+  /* Nút lọc lớp — BẬT: nền đầy màu, chữ trắng */
   .layer-btn {
-    background: transparent;
+    background: var(--layer-bg);
+    border-color: var(--layer-color);
+    color: #FAF7F2;
   }
+  /* Nút lọc lớp — TẮT: nền trong, viền mờ, chữ xám */
   .layer-btn[aria-pressed="false"] {
-    opacity: 0.35;
+    background: transparent;
+    border-color: rgba(31, 45, 61, 0.25);
+    color: rgba(31, 45, 61, 0.45);
   }
-  .layer-btn[aria-pressed="false"] .h-2\.5 {
+  .layer-btn[aria-pressed="false"] .layer-dot {
     background: transparent !important;
-    border: 1.5px solid currentColor;
+    border: 1.5px solid rgba(31, 45, 61, 0.35);
+    box-sizing: border-box;
+  }
+
+  /* Nút "Tất cả" — BẬT: nền navy đậm, chữ trắng */
+  .layer-btn-all {
+    background: #1F2D3D;
+    border-color: #1F2D3D;
+    color: #FAF7F2;
+  }
+  /* Nút "Tất cả" — TẮT: nền trong, viền mờ, chữ xám */
+  .layer-btn-all[aria-pressed="false"] {
+    background: transparent;
+    border-color: rgba(31, 45, 61, 0.25);
+    color: rgba(31, 45, 61, 0.45);
   }
 
   /* Ẩn thẻ khi lớp tắt */
@@ -321,7 +354,9 @@ const milestones = timelineData as Array<{
 
     const cards = track.querySelectorAll<HTMLElement>('.milestone-card');
     const toggles = document.querySelectorAll<HTMLButtonElement>('[data-layer-toggle]');
+    const toggleAll = document.getElementById('toggle-all') as HTMLButtonElement | null;
     const countEl = document.getElementById('milestone-count');
+    const total = cards.length;
 
     // ---- 1. Bật/tắt lớp ----
     const activeLayers = new Set(['mechanism', 'brand', 'culture']);
@@ -334,24 +369,37 @@ const milestones = timelineData as Array<{
         card.classList.toggle('layer-hidden', !visible);
         if (visible) visibleCount++;
       });
-      if (countEl) countEl.textContent = `${visibleCount} mốc`;
+      // Bộ đếm dạng "11 / 28 mốc"; khi đủ hết thì "28 mốc"
+      if (countEl) {
+        countEl.textContent = visibleCount === total
+          ? `${total} mốc`
+          : `${visibleCount} / ${total} mốc`;
+      }
+      // Đồng bộ nút "Tất cả": chỉ sáng khi cả 3 lớp đang bật
+      const allOn = activeLayers.size === 3;
+      toggleAll?.setAttribute('aria-pressed', String(allOn));
     }
 
     toggles.forEach((btn) => {
       btn.addEventListener('click', () => {
         const layerId = btn.dataset.layerToggle ?? '';
         if (activeLayers.has(layerId)) {
-          // Không cho tắt hết — luôn giữ ít nhất 1 lớp
-          if (activeLayers.size > 1) {
-            activeLayers.delete(layerId);
-            btn.setAttribute('aria-pressed', 'false');
-          }
+          activeLayers.delete(layerId);
+          btn.setAttribute('aria-pressed', 'false');
         } else {
           activeLayers.add(layerId);
           btn.setAttribute('aria-pressed', 'true');
         }
         updateVisibility();
       });
+    });
+
+    // Nút "Tất cả": bật lại toàn bộ lớp
+    toggleAll?.addEventListener('click', () => {
+      activeLayers.clear();
+      activeLayers.add('mechanism', 'brand', 'culture');
+      toggles.forEach((btn) => btn.setAttribute('aria-pressed', 'true'));
+      updateVisibility();
     });
 
     // ---- 2. Reveal khi cuộn tới ----

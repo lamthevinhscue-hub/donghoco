@@ -15,7 +15,7 @@ draft: false
 
 ## Bối cảnh ra đời
 
-Năm 1972, ngành đồng hồ Thụy Sĩ đang trong khủng hoảng Quartz. Audemars Piguet cần một sản phẩm cứu nguy. Họ thuê **Gerald Genta** — và trong một đêm, ông đã phác thảo ra Royal Oak: đồng hồ thể thao bằng **thép không gỉ**, giá bán **ngang với đồng hồ vàng**.
+Năm 1972, ngành đồng hồ Thụy Sĩ đang trong khủng hoảng Quartz. Audemars Piguet cần một sản phẩm cứu nguy. Họ thuê **Gérald Genta** — và trong một đêm, ông đã phác thảo ra Royal Oak: đồng hồ thể thao bằng **thép không gỉ**, giá bán **ngang với đồng hồ vàng**.
 
 Đây là một canh bạc điên rồ. Khi ra mắt, Royal Oak bị chế giễu — "ai trả tiền vàng cho đồng hồ thép?". Nhưng chỉ vài năm sau, nó trở thành mẫu định nghĩa cả một phân khúc.
 
@@ -29,7 +29,7 @@ Năm 1972, ngành đồng hồ Thụy Sĩ đang trong khủng hoảng Quartz. Au
 
 ## Câu chuyện tên gọi
 
-"Royal Oak" lấy tên từ **các chiến hạm của Hải quân Hoàng gia Anh** — chính chiếc HMS Royal Oak có mỏ neo/ốc vặn 8 cạnh giống vỏ đồng hồ. Còn số tham chiếu "5402" được Gerald Genta chọn vì ông thấy đó là con số may mắn.
+"Royal Oak" lấy tên từ **các chiến hạm của Hải quân Hoàng gia Anh** — chính chiếc HMS Royal Oak có mỏ neo/ốc vặn 8 cạnh giống vỏ đồng hồ. Còn số tham chiếu "5402" được Gérald Genta chọn vì ông thấy đó là con số may mắn.
 
 ## Các thế hệ tham chiếu (reference)
 

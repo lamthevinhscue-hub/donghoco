@@ -13,13 +13,16 @@ draft: false
 lineHistory:
   - year: 1845
     title: "Ferdinand Adolph Lange lập xưởng tại Glashütte"
-    detail: "30 tuổi, Ferdinand Adolph Lange rời Dresden mở xưởng đồng hồ tại Glashütte — ngôi làng nghèo vùng Erzgebirge (đông Đức). Khát vọng biến Glashütte thành 'thung lũng đồng hồ Đức', tương tự Vallée de Joux của Thụy Sĩ."
-  - year: 1866
-    title: "Phát minh 3/4 plate — đặc trưng German watchmaking"
-    detail: "Lange phát minh 'three-quarter plate' (bản đĩa 3/4) — thay vì nhiều bridge nhỏ như Thụy Sĩ, dùng 1 bản đĩa lớn phủ 3/4 movement. Ổn định hơn, khó lắp nhưng bền hơn — trở thành đặc trưng Đức đến nay."
+    detail: "30 tuổi, Ferdinand Adolph Lange rời Dresden mở xưởng đồng hồ tại Glashütte — ngôi làng nghèo vùng núi Erzgebirge thuộc Sachsen, miền đông nước Đức. Khát vọng biến Glashütte thành 'thung lũng đồng hồ Đức', tương tự Vallée de Joux của Thụy Sĩ."
+  - year: 1864
+    title: "Phát minh 3/4 plate — đặc trưng của chế tác Đức"
+    detail: "Lange giới thiệu 'three-quarter plate' (bản đĩa 3/4) — thay vì nhiều cầu máy nhỏ (bridge) như Thụy Sĩ, dùng 1 bản đĩa lớn phủ 3/4 bộ máy. Ổn định hơn, khó lắp nhưng bền hơn — trở thành đặc trưng của chế tác Đức đến nay."
+  - year: 1868
+    title: "Richard Lange gia nhập, hãng đổi tên thành A. Lange & Söhne"
+    detail: "Con trai Richard Lange gia nhập xưởng, hãng chính thức đổi tên thành 'A. Lange & Söhne' (A. Lange và các con) — đánh dấu thế hệ thứ hai tiếp nối."
   - year: 1875
-    title: "Con trai Emil & Richard tiếp quản — 'A. Lange & Söhne'"
-    detail: "Hai con trai Emil và Richard Lange tiếp quản, đổi tên thành 'A. Lange & Söhne' (A. Lange và các con). Hãng đạt đỉnh vàng đầu thế kỷ 20."
+    title: "Ferdinand Adolph Lange qua đời, Emil và Richard tiếp quản"
+    detail: "Người sáng lập qua đời, hai con trai Emil và Richard Lange tiếp quản, đưa hãng lên đỉnh cao đầu thế kỷ 20."
   - year: 1948
     title: "Quốc hữu hóa bởi Liên Xô — hãng 'biến mất' 45 năm"
     detail: "Sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng Liên Xô. Công ty bị quốc hữu hóa thành VEB Glashütter Uhrenbetriebe — 'A. Lange & Söhne' biến mất hoàn toàn khỏi thị trường tư nhân 45 năm."
@@ -28,10 +31,10 @@ lineHistory:
     detail: "Ngày 9/11/1989 Bức tường Berlin sụp. Walter Lange (66 tuổi, cháu nội Ferdinand) quay về Glashütte, tái lập hãng 7/12/1990 — đúng ngày компании ông nội ra đời 145 năm trước. Cùng Günter Blümlein (IWC CEO) khởi nghiệp lại."
   - year: 1994
     title: "Bộ sưu tập đầu tiên — LANGE 1, Saxonia, Arkade, Tourbillon Pour le Mérite"
-    detail: "Chỉ 4 năm sau tái lập, Lange ra mắt 4 mẫu đầu tiên. LANGE 1 với mặt số asymmetry (lệch) lập tức làm chấn động giới đồng hồ — 'chiếc đồng hồ Đức hoàn hảo'."
+    detail: "Chỉ 4 năm sau tái lập, Lange ra mắt 4 mẫu đầu tiên. LANGE 1 với mặt số lệch (asymmetric) lập tức làm chấn động giới đồng hồ — 'chiếc đồng hồ Đức hoàn hảo'."
   - year: 1999
     title: "Datograph ra đời — 'đỉnh chronograph' theo forum"
-    detail: "Datograph với caliber L951.6 (manual flyback chronograph, jumping minutes, 3/4 plate) — được Walter Lange và giới phê bình gọi là 'chronograph đẹp nhất từng sản xuất'."
+    detail: "Datograph với caliber L951.6 (chronograph tay cơ có flyback, bộ đếm phút nhảy, bản đĩa 3/4) — được Walter Lange và giới phê bình gọi là 'chronograph đẹp nhất từng sản xuất'."
   - year: 2000
     title: "Richemont thâu tóm majority stake"
     detail: "Tập đoàn Richemont (Thụy Sĩ) mua phần lớn cổ phần Lange — hãng vẫn hoạt động độc lập tại Glashütte nhưng có backing tài chính của tập đoàn lớn."
@@ -47,54 +50,54 @@ lineHistory:
 collections:
   - name: "LANGE 1"
     year: 1994
-    identity: "Dòng biểu tượng — mặt số ASYMMETRY (lệch): subdial giờ/phút lớn bên trái, subdial giây nhỏ bên phải, big date trên cùng, power reserve dưới. Caliber L121.1 (manual, 72h) hoàn toàn lộ sau lưng."
+    identity: "Dòng biểu tượng — mặt số lệch (asymmetric): mặt phụ giờ/phút lớn bên trái, mặt phụ giây nhỏ bên phải, lịch ngày cỡ lớn trên cùng, chỉ báo trữ cót dưới. Caliber L121.1 (tay cơ, 72 giờ trữ cót) hoàn toàn lộ sau lưng."
     positioning: "Dòng biểu tượng số 1 — định nghĩa 'German watchmaking', mỗi chi tiết đều hoàn hảo, săn đón nhất hãng."
     iconic_ref: "LANGE 1 / LANGE 1 Time Zone / Little Lange 1"
   - name: "Datograph"
     year: 1999
-    identity: "Chronograph 'đỉnh' — caliber L951.6 (manual flyback chronograph, jumping minutes), 3/4 plate German silver, flyback function, sub-dials lớn classic. Được forum mệnh danh 'chronograph đẹp nhất'."
+    identity: "Chronograph 'đỉnh' — caliber L951.6 (chronograph tay cơ có flyback, bộ đếm phút nhảy), bản đĩa 3/4 hợp kim German silver, chức năng flyback, các mặt số phụ cổ điển. Được giới phê bình mệnh danh 'chronograph đẹp nhất'."
     positioning: "Dòng chronograph huyền thoại — cho nhà sưu tầm đam mê chronograph Đức, đắt và hiếm."
     iconic_ref: "Datograph Up/Down / Datograph Perpetual Tourbillon"
   - name: "1815"
     year: 1994
     identity: "Line thanh lịch cổ điển — vỏ tròn mỏng, mặt số railroad track, kim blued steel, đường petty. Đặt theo năm sinh Ferdinand Adolph Lange (1815)."
-    positioning: "Dòng dress watch traditionnel — cho người yêu classical, nhiều mẫu complication (perpetual calendar, tourbillon, rattrapante)."
+    positioning: "Dòng dress watch truyền thống — cho người yêu cổ điển, nhiều mẫu phức tạp (lịch vạn niên, tourbillon, chronograph rattrapante)."
     iconic_ref: "1815 Chronograph / 1815 Rattrapante / 1815 Up/Down"
   - name: "Saxonia"
     year: 1994
     identity: "Dress watch tối giản — vỏ tròn siêu mỏng, mặt số clean nhất Lange, kim dauphine. Đặt theo bang Saxony (nơi Glashütte tọa lạc)."
-    positioning: "Dòng dress-to-cocktail — entry-level Lange (~15.000 USD), gateway vào thế giới Lange."
+    positioning: "Dòng dress-to-cocktail — cấp nhập môn của Lange (~15.000 USD), cánh cửa bước vào thế giới Lange."
     iconic_ref: "Saxonia Thin / Saxonia Outsize Date / Saxonia Annual Calendar"
   - name: "Zeitwerk"
     year: 2009
-    identity: "Đồng hồ SỐ nhảy cơ học — hiển thị giờ/phút bằng 'bảng số' lớn (3, 4 chữ số), nhảy mỗi phút. Hệ thống constant-force remontoir đảm bảo chính xác. Độc nhất thế giới."
-    positioning: "Dòng avant-garde — cho nhà sưu tập yêu đột phá, không có hãng nào làm được tương tự."
+    identity: "Đồng hồ SỐ nhảy cơ học — hiển thị giờ/phút bằng 'bảng số' lớn (3, 4 chữ số), nhảy mỗi phút. Hệ thống giữ lực không đổi (constant-force remontoir) đảm bảo chính xác. Độc nhất thế giới."
+    positioning: "Dòng tiên phong — cho nhà sưu tập yêu đột phá, không có hãng nào làm được tương tự."
     iconic_ref: "Zeitwerk / Zeitwerk Minute Repeater / Zeitwerk Date"
   - name: "Odysseus"
     year: 2019
-    identity: "Sport-luxury đầu tiên của Lange — vỏ thép sport 40.5mm, bracelet tích hợp, caliber L155.1 automatic, chống nước 120m. Mặt số big date + day display."
+    identity: "Sport-luxury đầu tiên của Lange — vỏ thép thể thao 40.5mm, dây đeo tích hợp, caliber L155.1 tự động, chống nước 120m. Mặt số có lịch ngày cỡ lớn và hiển thị thứ."
     positioning: "Dòng sport-luxury mới — mở rộng sang thị trường sport, cạnh tranh Royal Oak/Nautilus/Overseas."
     iconic_ref: "Odysseus / Odysseus Chronograph"
 segmentComparison:
   - brand: "Patek Philippe"
     slug: "patek-philippe"
     strength: "Di sản 1839 — 'holy grail' haute horlogerie Thụy Sĩ. Nautilus (1976), Calatrava dress watch chuẩn mực, Grand Complications phức tạp bậc nhất."
-    movement: "Calibre 26-330 (automatic 45h), 30-255 — chế tác Thụy Sĩ với Poinçon de Genève, automatic rotor truyền thống."
-    value_retention: "Tốt nhất ngành — Nautilus 5711 secondary gấp 3-5 lần retail, Calatrava giữ giá vững."
+    movement: "Calibre 26-330 (tự động, 45 giờ trữ cót), 30-255 — chế tác Thụy Sĩ với Patek Philippe Seal (chuẩn nội bộ riêng từ 2009, áp cho cả đồng hồ hoàn thiện), rotor tự động truyền thống."
+    value_retention: "Giữ giá rất tốt — Nautilus 5711 và Calatrava luôn khan hiếm ở thị trường thứ cấp (tính đến 2024)."
     philosophy: "Hoàn thiện tuyệt đối Thụy Sĩ — gia sản truyền đời, 'không ai thực sự sở hữu Patek'."
   - brand: "Audemars Piguet"
     slug: "audemars-piguet"
-    strength: "Royal Oak (1972) — sport-luxury thép nguyên bản, thiết kế Gerald Genta. 'Maison des Complications' với 150 năm lịch sử."
-    movement: "Calibre 7121 (Royal Oak 60h), 4401 (flyback chronograph) — chế tác Thụy Sĩ, automatic rotor, ít manual."
-    value_retention: "Cực tốt — Royal Oak 'Jumbo' secondary gấp 2-3 lần retail, danh sách chờ dài."
+    strength: "Royal Oak (1972) — sport-luxury thép nguyên bản, thiết kế Gérald Genta. Định vị bậc thầy đồng hồ phức tạp với gần 150 năm lịch sử."
+    movement: "Calibre 7121 (Royal Oak, 55 giờ trữ cót), 4401 (flyback chronograph) — chế tác Thụy Sĩ, rotor tự động, ít tay cơ."
+    value_retention: "Giữ giá rất tốt — Royal Oak 'Jumbo' luôn khan hiếm, danh sách chờ dài (tính đến 2024)."
     philosophy: "Thể thao sang trọng táo bạo Thụy Sĩ — phá vỡ quy ước, hiện đại và dũng cảm."
   - brand: "Vacheron Constantin"
     slug: "vacheron-constantin"
-    strength: "Nhà chế tác lâu đời nhất thế giới (1755, trước Lange 110 năm). Overseas sport-luxury, Patrimony dress, Reference 57260 (57 functions siêu phức tạp)."
-    movement: "Calibre 2160 (tourbillon ultra-thin 5.65mm), 5100 — Hallmark of Geneva, chế tác Thụy Sĩ, automatic rotor."
-    value_retention: "Tốt — Overseas đang tăng giá mạnh, Patrimony ổn định."
+    strength: "Nhà chế tác hoạt động liên tục lâu đời nhất thế giới (1755, trước Lange 90 năm). Overseas sport-luxury, Patrimony dress, Reference 57260 (57 chức năng siêu phức tạp)."
+    movement: "Calibre 2160 (tourbillon siêu mỏng 5.65mm), 5100 — Hallmark of Geneva, chế tác Thụy Sĩ, rotor tự động."
+    value_retention: "Tốt — Overseas đang ngày càng được giới sưu tầm chú ý, Patrimony ổn định (tính đến 2024)."
     philosophy: "Khéo léo tinh tế Thụy Sĩ — 'Do better if possible', ít táo bạo hơn nhưng nhất quán."
-collectorNote: "Chọn A. Lange & Söhne khi bạn trân trọng **chế tác Đức hoàn hảo** — movement tay cơ đẹp bậc nhất thế giới, lộ máy là tác phẩm nghệ thuật, 3/4 plate và German silver đặc trưng không nhầm lẫn với Thụy Sĩ. Lange là **sự lựa chọn 'khác biệt'** — không phải Holy Trinity Thụy Sĩ, mà là 'đỉnh cao Đức' với lịch sử tái sinh kỳ diệu sau Bức màn sắt (1990). **LANGE 1** mặt số asymmetry là biểu tượng, **Datograph** là 'chronograph đẹp nhất' theo giới phê bình. Hợp với người yêu hoàn thiện lạnh lùng, chính xác Đức, và ai muốn một chiếc đồng hồ 'không đụng hàng' với Thụy Sĩ. Nếu ưu tiên **danh tiếng + gia sản truyền đời Thụy Sĩ**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **di sản lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). A. Lange & Söhne hợp với người có gu riêng, không chạy theo 'thương hiệu ai cũng biết', yêu **sự khác biệt Đức** và hoàn thiện tay cơ xuất sắc — đặc biệt hợp với kiến trúc sư, kỹ sư, và ai trân trọng 'câu chuyện hồi sinh' của hãng."
+collectorNote: "Chọn A. Lange & Söhne khi bạn trân trọng **chế tác Đức hoàn hảo** — bộ máy tay cơ đẹp bậc nhất thế giới, mặt sau lộ máy là tác phẩm nghệ thuật, bản đĩa 3/4 và hợp kim German silver đặc trưng không thể nhầm với Thụy Sĩ. Lange là **sự lựa chọn 'khác biệt'** — không thuộc Holy Trinity Thụy Sĩ, mà là 'đỉnh cao Đức' với lịch sử tái sinh kỳ diệu sau Bức màn sắt (1990). **LANGE 1** mặt số lệch là biểu tượng, **Datograph** được giới phê bình gọi là 'chronograph đẹp nhất'. Hợp với người yêu hoàn thiện lạnh lùng, chính xác Đức, và ai muốn một chiếc đồng hồ 'không đụng hàng' với Thụy Sĩ. Nếu ưu tiên **danh tiếng + gia sản truyền đời Thụy Sĩ**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **nhà chế tác hoạt động liên tục lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). A. Lange & Söhne hợp với người có gu riêng, không chạy theo 'thương hiệu ai cũng biết', yêu **sự khác biệt Đức** và hoàn thiện tay cơ xuất sắc — đặc biệt hợp với kiến trúc sư, kỹ sư, và ai trân trọng 'câu chuyện hồi sinh' của hãng."
 ---
 
 ## Tổng quan
@@ -106,21 +109,21 @@ Nhưng sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng của L
 ## Triết lý chế tác
 
 Lange nổi tiếng với **calibre tay cơ hoàn thành thủ công tuyệt đỉnh**. Hãng theo đuổi ba dấu hiệu đặc trưng:
-- **Mặt sau lộ máy** — vì movement của Lange đẹp như tác phẩm nghệ thuật.
-- **Cầu máy (bridges) không mạ vàng** — để lộ màu bạc đặc trưng "German silver" (hợp kim đồng thau), khác với vàng rohde của Thụy Sĩ.
+- **Mặt sau lộ máy** — vì bộ máy của Lange đẹp như tác phẩm nghệ thuật.
+- **Cầu máy (bridge) không mạ vàng** — để lộ màu bạc đặc trưng "German silver" (hợp kim đồng thau), khác với vàng rhodium của Thụy Sĩ.
 - **Bánh lắc bằng vàng** — khắc vân tay người thợ lắp ráp, một chi tiết độc nhất.
 
 ## Dòng sản phẩm chủ lực
 
 - **Lange 1** — biểu tượng với mặt số lệch, ngày lớn.
-- **Datograph** — chronograph với "bộ đếm nhảy" (jumping minutes), được forum mệnh danh "đỉnh chrono".
-- **1815** — line thanh lịch với nhiều biến thể phức tạp.
+- **Datograph** — chronograph với "bộ đếm nhảy" (jumping minutes), được giới phê bình mệnh danh "đỉnh chrono".
+- **1815** — dòng thanh lịch với nhiều biến thể phức tạp.
 - **Saxonia** — dress watch thanh lịch, tối giản.
 - **Zeitwerk** — đồng hồ số nhảy cơ học duy nhất trên thế giới.
 
 ## Calibre in-house tiêu biểu
 
-Lange tự làm toàn bộ movement tại Glashütte. Dòng calibre nổi bật: **L951.6** (Datograph), **L121.1** (Lange 1), và **L043** (Zeitwerk). Hãng không sản xuất automatic — chỉ tay cơ (trừ một số dòng dùng rotor).
+Lange tự làm toàn bộ bộ máy tại Glashütte. Dòng calibre nổi bật: **L951.6** (Datograph), **L121.1** (Lange 1), và **L043** (Zeitwerk). Hãng chủ yếu chế tác tay cơ — chỉ một số dòng dùng rotor tự động.
 
 ## Phân khúc giá
 

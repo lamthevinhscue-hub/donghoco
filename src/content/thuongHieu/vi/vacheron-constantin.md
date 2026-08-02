@@ -1,7 +1,7 @@
 ---
 title: "Vacheron Constantin"
 custom_slug: "vacheron-constantin"
-excerpt: "Nhà chế tác đồng hồ lâu đời nhất thế giới còn hoạt động liên tục (1755) — thành viên Holy Trinity, 'bạn của hoàng gia'."
+excerpt: "Nhà chế tác hoạt động liên tục lâu đời nhất thế giới (1755) — thành viên Holy Trinity, 'bạn của hoàng gia'."
 country: "Thụy Sĩ"
 tier: "ultra luxury"
 founded: 1755
@@ -13,7 +13,7 @@ draft: false
 lineHistory:
   - year: 1755
     title: "Jean-Marc Vacheron ký học trò đầu tiên tại Genève"
-    detail: "24 tuổi, Vacheron ký hợp đồng đào tạo học trò apprenti — tài liệu đầu tiên ghi nhận xưởng Vacheron. Đây được coi là năm thành lập, làm Vacheron Constantin trở thành nhà chế tác lâu đời nhất thế giới vẫn hoạt động liên tục."
+    detail: "24 tuổi, Vacheron ký hợp đồng đào tạo học trò apprenti — tài liệu đầu tiên ghi nhận xưởng Vacheron. Đây được coi là năm thành lập, làm Vacheron Constantin trở thành nhà chế tác hoạt động liên tục lâu đời nhất thế giới."
   - year: 1819
     title: "François Constantin gia nhập — châm ngôn 'Faire mieux si possible'"
     detail: "François Constantin (cháu của người chầu chử) vào hãng, mở rộng thị trường châu Âu. Châm ngôn 'Làm tốt hơn nếu có thể, và luôn làm tốt' ra đời năm này, trở thành kim chỉ nam 200 năm."
@@ -73,28 +73,28 @@ collections:
 segmentComparison:
   - brand: "Patek Philippe"
     slug: "patek-philippe"
-    strength: "Di sản 1839 — 'holy grail' haute horlogerie, Nautilus (1976, Gerald Genta). 175 năm danh tiếng hoàng gia, slogan 'giữ cho thế hệ sau'."
-    movement: "Calibre 26-330 (automatic 45h), 30-255 — chế tác in-house với Poinçon de Genève, complication cao (Grandmaster Chime)."
-    value_retention: "Tốt nhất ngành — Nautilus 5711 secondary gấp 3-5 lần retail, danh sách chờ 8-10 năm."
+    strength: "Di sản 1839 — 'holy grail' haute horlogerie, Nautilus (1976, Gérald Genta). 175 năm danh tiếng hoàng gia, slogan 'giữ cho thế hệ sau'."
+    movement: "Calibre 26-330 (tự động, 45 giờ trữ cót), 30-255 — chế tác in-house với Patek Philippe Seal (chuẩn nội bộ từ 2009), phức tạp cao (Grandmaster Chime)."
+    value_retention: "Giữ giá cực tốt — Nautilus 5711 luôn khan hiếm ở thị trường thứ cấp, danh sách chờ 8-10 năm (tính đến 2024)."
     philosophy: "Hoàn thiện tuyệt đối — gia sản truyền đời, 'không ai thực sự sở hữu Patek'."
   - brand: "Audemars Piguet"
     slug: "audemars-piguet"
-    strength: "Royal Oak (1972) — sport-luxury thép nguyên bản, 4 năm trước Nautilus. Gerald Genta thiết kế, 'thép sang trọng' mở đầu."
+    strength: "Royal Oak (1972) — sport-luxury thép nguyên bản, 4 năm trước Nautilus. Gérald Genta thiết kế, 'thép sang trọng' mở đầu."
     movement: "Calibre 7121 (Royal Oak Jumbo 60h), 4401 (flyback chronograph) — chế tác in-house đỉnh, ít complication cao như Vacheron."
-    value_retention: "Cực tốt — Royal Oak 'Jumbo' secondary gấp 2-3 lần retail, danh sách chờ dài."
+    value_retention: "Giữ giá rất tốt — Royal Oak 'Jumbo' luôn khan hiếm ở thị trường thứ cấp, danh sách chờ dài (tính đến 2024)."
     philosophy: "Thể thao sang trọng táo bạo — phá vỡ quy ước 'thép = rẻ' năm 1972."
   - brand: "A. Lange & Söhne"
     slug: "a-lange-soehne"
     strength: "Đại diện Đức xuất sắc — LANGE 1 (1994) định nghĩa 'German watchmaking'. Mặt số asymmetry, movement 3/4 plate, hoàn thiện Đức lạnh lùng."
     movement: "Calibre L951.6 (manual chronograph), L121.1 (LANGE 1) — chế tác Đức cực tỉ mỉ, tay annealed blue, không escapement Thụy Sĩ."
-    value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giá secondary tăng đều."
+    value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
 collectorNote: "Chọn Vacheron Constantin khi bạn trân trọng **di sản lâu đời nhất thế giới** (1755, 271 năm liên tục) và **sự tinh tế kín đáo** — Vacheron ít nổi tiếng với công chúng hơn Patek/AP nhưng được giới sành đánh giá ngang tầm, thậm chí cao hơn về hoàn thiện. Là thành viên Holy Trinity 'ít marketing nhất' — hợp với người muốn ultra-luxury mà không phô trương. **Overseas** đang là 'sự lựa chọn thay thế' hoàn hảo khi Nautilus/Royal Oak quá khan hiếm — chất lượng tương đương, dễ mua hơn. Nếu ưu tiên **danh tiếng + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **chế tác Đức lạnh lùng**, chọn A. Lange & Söhne (LANGE 1). Vacheron Constantin hợp với người khiêm tốn, tinh tế, yêu 'sự hoàn hảo thầm lặng' — và ai muốn một chiếc Overseas 'không phải xếp hàng chờ' mà vẫn thuộc Holy Trinity."
 ---
 
 ## Tổng quan
 
-Vacheron Constantin thành lập năm **1755** tại Genève bởi Jean-Marc Vacheron — là **nhà chế tác đồng hồ lâu đời nhất thế giới vẫn hoạt động liên tục** (271 năm). Hãng thuộc "Holy Trinity" (Tam đỉnh) cùng Patek Philippe và Audemars Piguet.
+Vacheron Constantin thành lập năm **1755** tại Genève bởi Jean-Marc Vacheron — là **nhà chế tác hoạt động liên tục lâu đời nhất thế giới** (270 năm). Hãng thuộc "Holy Trinity" (Tam đỉnh) cùng Patek Philippe và Audemars Piguet.
 
 Biểu tượng của hãng là **thánh giá Maltese** — lấy từ biểu tượng của khu phố Geneva nơi hãng sản xuất thế kỷ 19.
 

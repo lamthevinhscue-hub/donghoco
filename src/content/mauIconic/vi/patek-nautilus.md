@@ -1,7 +1,7 @@
 ---
 title: "Patek Philippe Nautilus — Thể thao sang trọng nguyên bản"
 custom_slug: "patek-nautilus"
-excerpt: "Mẫu thiết kế bởi Gerald Genta đã định nghĩa cả phân khúc 'thể thao sang trọng' — và trở thành giấc mơ của giới sưu tầm."
+excerpt: "Mẫu thiết kế bởi Gérald Genta đã định nghĩa cả phân khúc 'thể thao sang trọng' — và trở thành giấc mơ của giới sưu tầm."
 brand: "Patek Philippe"
 year: 1976
 references: ["3700/1A", "3800/1A", "5711/1A", "5811/1G"]
@@ -15,18 +15,18 @@ draft: false
 
 ## Bối cảnh ra đời
 
-Năm 1976, Patek Philippe — vốn chỉ nổi tiếng với dress watch thanh lịch — bất ngờ ra mắt một mẫu đồng hồ **thể thao bằng thép**. Đây là đáp trả trào lưu do Audemars Piguet Royal Oak (1972) khơi mào. Nhà thiết kế **Gerald Genta** (cùng người tạo ra Royal Oak) được giao nhiệm vụ, và ông đã phác thảo Nautilus trong vòng chưa đầy 5 phút.
+Năm 1976, Patek Philippe — vốn chỉ nổi tiếng với dress watch thanh lịch — bất ngờ ra mắt một mẫu đồng hồ **thể thao bằng thép**. Đây là đáp trả trào lưu do Audemars Piguet Royal Oak (1972) khơi mào. Nhà thiết kế **Gérald Genta** (cùng người tạo ra Royal Oak) được giao nhiệm vụ, và ông đã phác thảo Nautilus trong vòng chưa đầy 5 phút.
 
 ## Đặc điểm thiết kế nhận diện
 
 - **Vỏ hình bán đạt (porthole)** — lấy cảm hứng từ cửa sổ tàu biển, với viền tai gắn ốc vặn đặc trưng.
 - **Vành (bezel) nằm ngang** — không bo tròn, tạo hình dáng gần như chữ nhật bo góc.
 - **Mặt số nâu-xanh ngọc** với vân ngang đặc trưng — thay đổi màu tùy góc nhìn.
-- **Dây đeo tích hợp** — liền khối với vỏ, dấu ấn của Gerald Genta.
+- **Dây đeo tích hợp** — liền khối với vỏ, dấu ấn của Gérald Genta.
 
 ## Sự khan hiếm huyền thoại
 
-Patek Philippe nổi tiếng với chính sách **"giới hạn sản lượng có chủ đích"** — họ cố tình sản xuất ít hơn nhu cầu để giữ tính độc quyền. Hệ quả: Nautilus (đặc biệt là ref. 5711 bằng thép) có thời điểm giá secondhand lên tới **gấp 5 lần giá bán lẻ**. Khi Patek thông báo ngừng sản xuất 5711 vào năm 2021, cả giới sưu tầm đã nổi cơn sốt.
+Patek Philippe nổi tiếng với chính sách **"giới hạn sản lượng có chủ đích"** — họ cố tình sản xuất ít hơn nhu cầu để giữ tính độc quyền. Hệ quả: Nautilus (đặc biệt là ref. 5711 bằng thép) luôn khan hiếm ở thị trường thứ cấp, giá cao hơn rất nhiều lần giá niêm yết. Khi Patek thông báo ngừng sản xuất 5711 vào năm 2021, cả giới sưu tầm đã nổi cơn sốt.
 
 ## Các thế hệ tham chiếu (reference)
 
@@ -37,7 +37,7 @@ Patek Philippe nổi tiếng với chính sách **"giới hạn sản lượng c
 
 ## Bộ máy
 
-Nautilus hiện dùng calibre in-house **26-330 S C** — automatic, có lịch ngày, trữ cót khoảng 45 giờ, được hoàn thiện theo chuẩn Poinçon de Genève.
+Nautilus hiện dùng calibre in-house **26-330 S C** — automatic, có lịch ngày, trữ cót khoảng 45 giờ, được hoàn thiện theo chuẩn Patek Philippe Seal.
 
 ## Vị trí trong lịch sử
 

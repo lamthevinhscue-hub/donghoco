@@ -81,7 +81,7 @@ segmentComparison:
     slug: "cartier"
     strength: "Di sản thiết kế — nhà trang sức sang đồng hồ, Tank (1917), Santos (1904). Nhận diện đẹp nhất ngành, art-deco icon. Hiện đang 'Cartier renaissance' mạnh."
     movement: "Calibre 1847 MC (in-house entry), 1917 MC — truyền thống dùng movement ngoài nhưng đang nâng cấp chế tác nội bộ."
-    value_retention: "Tăng mạnh — Tank/Crash giữ giá cực tốt ở phân khúc collectible, 'Cartier renaissance' đẩy secondary value lên."
+    value_retention: "Tăng mạnh — Tank/Crash giữ giá cực tốt ở phân khúc sưu tầm, 'Cartier renaissance' đẩy giá trị giữ lên (tính đến 2024)."
     philosophy: "Thiết kế là vua — đẹp trước, chế tác sau. Thu hút người yêu nghệ thuật, thời trang."
   - brand: "IWC"
     slug: "iwc"

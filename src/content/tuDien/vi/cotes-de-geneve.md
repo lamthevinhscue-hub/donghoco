@@ -33,7 +33,7 @@ Bên cạnh Côtes de Genève, còn có:
 
 **Côtes de Genève** liên quan đến **Poinçon de Genève** — chứng nhận khắt khe của bang Genève về hoàn thiện. Một movement muốn đạt chứng nhận này phải áp dụng ít nhất 8 quy tắc trang trí, trong đó có **Côtes de Genève hoặc tương đương**.
 
-Chỉ một số ít thương hiệu đạt được Poinçon de Genève: **Patek Philippe, Vacheron Constantin, Chopard L.U.C, Roger Dubuis**...
+Các thương hiệu đạt Poinçon de Genève: **Vacheron Constantin, Chopard L.U.C, Roger Dubuis**... (Patek Philippe từng đạt nhưng từ 2009 đã chuyển sang chuẩn riêng — Patek Philippe Seal — khắt khe hơn).
 
 ## Nhận biết
 

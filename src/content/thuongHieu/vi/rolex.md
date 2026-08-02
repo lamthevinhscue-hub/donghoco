@@ -55,7 +55,7 @@ collections:
   - name: "Cosmograph Daytona"
     year: 1963
     identity: "Chronograph đua xe — vỏ Oystersteel 40mm, caliber 4130 in-house (72h), 3 sub-dials, bezel tachymeter. Săn đón nhất danh mục."
-    positioning: "Dòng cao cấp được săn đùng nhất — danh sách chờ dài năm, giá resale cao gấp nhiều lần giá bán lẻ."
+    positioning: "Dòng cao cấp được săn đón nhất — danh sách chờ dài năm, giá thị trường thứ cấp luôn cao hơn nhiều lần giá niêm yết."
     iconic_ref: "Daytona 126500LN / 'Paul Newman' vintage"
   - name: "GMT-Master II"
     year: 1954
@@ -89,7 +89,7 @@ segmentComparison:
     slug: "grand-seiko"
     strength: "Đại diện Nhật Bản xuất sắc — hoàn thiện Zaratsu polishing (polished phẳng như gương), Spring Drive lai cơ-điện tử, accuracy ±1 giây/ngày."
     movement: "Calibre 9SA5 (Hi-Beat 36.000 vph, 80h), 9R (Spring Drive) — chế tác Nhật cực kỳ chính xác, độc lập hoàn toàn."
-    value_retention: "Tăng mạnh — Grand Seiko đang được 'phát hiện' bởi giới sưu tầm quốc tế, giá secondary đang tăng nhanh."
+    value_retention: "Tăng mạnh — Grand Seiko đang được 'phát hiện' bởi giới sưu tầm quốc tế, giữ giá ngày càng tốt (tính đến 2024)."
     philosophy: "Tinh khiết Nhật Bản — 'Nature of Time', lấy cảm hứng từ thiên nhiên, không bắt chước Thụy Sĩ."
 collectorNote: "Chọn Rolex khi bạn muốn **biểu tượng được công nhận toàn cầu** — một chiếc Submariner hay Datejust nói 'thành công' không cần lời. Rolex là **sự lựa chọn an toàn nhất**: giữ giá tốt nhất ngành, danh sách chờ dài năm chứng minh nhu cầu. Hợp với người cần một chiếc đồng hồ 'mặc cả đời' truyền lại cho con. Nếu ưu tiên **di sản Moonwatch + Co-Axial kỹ thuật**, chọn Omega (giá tốt hơn). Nếu yêu **thiết kế đẹp nhất + di sản trang sức**, chọn Cartier (Tank huyền thoại). Nếu muốn **accuracy ±1 giây + hoàn thiện Nhật xuất sắc**, chọn Grand Seiko (Spring Drive độc nhất). Rolex hợp với người mới vào giới đồng hồ cao cấp, người cần 'đầu tư an toàn', và ai muốn một chiếc đồng hồ ai cũng nhận ra — không hợp với người muốn 'khác biệt, không đụng hàng'."
 ---

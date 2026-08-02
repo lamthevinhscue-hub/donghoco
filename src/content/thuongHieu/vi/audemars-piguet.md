@@ -27,8 +27,8 @@ lineHistory:
     title: "80 năm — kỷ niệm Royal Oak predecessor"
     detail: "Phát triển caliber 2003 ultra-thin (1.64mm) — bộ máy mỏng nhất thế giới lúc bấy giờ, đặt nền cho các dòng dress watch xuất sắc."
   - year: 1972
-    title: "Royal Oak ra đời — Gerald Genta thiết kế, 'thép sang trọng' mở đầu"
-    detail: "Đột phá lịch sử — chiếc đồng hồ THÉP đầu tiên giá 3.300 CHF (đắt hơn vàng lúc bấy giờ). Vỏ 8 cạnh 'octagonal', bezel 8 ốc vít, bracelet tích hợp. Gerald Genta phác thảo trong 1 đêm."
+    title: "Royal Oak ra đời — Gérald Genta thiết kế, 'thép sang trọng' mở đầu"
+    detail: "Đột phá lịch sử — chiếc đồng hồ THÉP đầu tiên giá 3.300 CHF (đắt hơn vàng lúc bấy giờ). Vỏ 8 cạnh 'octagonal', bezel 8 ốc vít, bracelet tích hợp. Gérald Genta phác thảo trong 1 đêm."
   - year: 1993
     title: "Royal Oak Offshore — phiên bản 'Beast' thể thao lớn"
     detail: "Mở rộng Royal Oak sang kích thước lớn (42mm, chronograph), vật liệu cao su/kéo — để 'trẻ hóa' thương hiệu. Ban đầu gây tranh cãi, nay là biểu tượng riêng."
@@ -47,7 +47,7 @@ lineHistory:
 collections:
   - name: "Royal Oak"
     year: 1972
-    identity: "Sport-luxury thép nguyên bản — vỏ 8 cạnh 'octagonal' (39mm Jumbo/41mm), bezel 8 ốc vít 'hexagonal', bracelet tích hợp tapers, mặt số 'Grande Tapisserie' guilloché. Thiết kế Gerald Genta."
+    identity: "Sport-luxury thép nguyên bản — vỏ 8 cạnh 'octagonal' (39mm Jumbo/41mm), bezel 8 ốc vít 'hexagonal', bracelet tích hợp tapers, mặt số 'Grande Tapisserie' guilloché. Thiết kế Gérald Genta."
     positioning: "Dòng biểu tượng số 1 — định nghĩa sport-luxury, nhận diện tuyệt đối, Jumbo Extra-Thin săn đón nhất."
     iconic_ref: "Royal Oak 'Jumbo' Extra-Thin 16202 / Royal Oak Chronograph 26331"
   - name: "Royal Oak Offshore"
@@ -73,13 +73,13 @@ collections:
 segmentComparison:
   - brand: "Patek Philippe"
     slug: "patek-philippe"
-    strength: "Di sản 1839 — 'holy grail' haute horlogerie, slogan 'giữ cho thế hệ sau'. Nautilus (1976) cũng của Gerald Genta nhưng sau Royal Oak 4 năm."
-    movement: "Calibre 26-330 (automatic 45h), 30-255 — chế tác in-house với Poinçon de Genève, complication cao (Grandmaster Chime)."
-    value_retention: "Tốt nhất ngành — Nautilus 5711 secondary gấp 3-5 lần retail, Calatrava giữ giá vững."
+    strength: "Di sản 1839 — 'holy grail' haute horlogerie, slogan 'giữ cho thế hệ sau'. Nautilus (1976) cũng của Gérald Genta nhưng sau Royal Oak 4 năm."
+    movement: "Calibre 26-330 (tự động, 45 giờ trữ cót), 30-255 — chế tác in-house với Patek Philippe Seal (chuẩn nội bộ từ 2009), phức tạp cao (Grandmaster Chime)."
+    value_retention: "Giữ giá cực tốt — Nautilus 5711 và Calatrava luôn khan hiếm ở thị trường thứ cấp (tính đến 2024)."
     philosophy: "Hoàn thiện tuyệt đối — 'không ai thực sự sở hữu Patek', gia sản truyền đời."
   - brand: "Vacheron Constantin"
     slug: "vacheron-constantin"
-    strength: "Nhà chế tác lâu đời nhất thế giới (1755, trước AP 120 năm). Overseas sport-luxury, Patrimony dress, 57260 siêu phức tạp (57 complications)."
+    strength: "Nhà chế tác hoạt động liên tục lâu đời nhất thế giới (1755, trước AP 120 năm). Overseas sport-luxury, Patrimony dress, 57260 siêu phức tạp (57 chức năng)."
     movement: "Calibre 2160 (tourbillon ultra-thin 5.65mm), 5100 — Hallmark of Geneva, chế tác đỉnh tương đương Patek."
     value_retention: "Tốt — Overseas đang tăng giá mạnh nhờ 'bắt kịp' Royal Oak/Nautilus, Patrimony ổn định."
     philosophy: "Khéo léo tinh tế — 'Do better if possible' (1819), ít táo bạo hơn AP nhưng nhất quán hơn."
@@ -87,9 +87,9 @@ segmentComparison:
     slug: "a-lange-soehne"
     strength: "Đại diện Đức xuất sắc — LANGE 1 (1994) định nghĩa 'German watchmaking'. Mặt số asymmetry, movement 3/4 plate đặc trưng, hoàn thiện lạnh lùng."
     movement: "Calibre L951.6 (manual chronograph), L121.1 (LANGE 1) — chế tác Đức cực tỉ mỉ, không escapement Thụy Sĩ, tay annealed."
-    value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giá secondary tăng đều."
+    value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
-collectorNote: "Chọn Audemars Piguet khi bạn muốn **Royal Oak** — sport-luxury thép nguyên bản 1972 của Gerald Genta, mẫu mở đầu kỷ nguyên 'thép sang trọng'. AP là thương hiệu **'táo bạo nhất Holy Trinity'** — phá vỡ quy ước 'thép = rẻ' năm 1972 với Royal Oak, và tiếp tục thử nghiệm với Offshore (1993) và Concept. Hợp với người yêu **thiết kế đột phá + lịch sử phá cách** — không hợp với ai tìm 'sự an toàn cổ điển' (Patek hợp hơn). Royal Oak nhận diện tuyệt đối và giữ giá cực tốt, nhưng phải chấp nhận 'đông người cũng muốn' (danh sách chờ dài). Nếu ưu tiên **di sản lâu đời nhất + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu yêu **chế tác lâu đời + tinh tế tối đa**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne. AP hợp với người có cá tính mạnh, yêu phá vỡ quy ước, và muốn một chiếc Royal Oak 'biểu tượng thế hệ' — đặc biệt hợp với giới sáng tạo, kiến trúc sư, và ai muốn ' Royal Oak đeo 50 năm vẫn hiện đại'."
+collectorNote: "Chọn Audemars Piguet khi bạn muốn **Royal Oak** — sport-luxury thép nguyên bản 1972 của Gérald Genta, mẫu mở đầu kỷ nguyên 'thép sang trọng'. AP là thương hiệu **'táo bạo nhất Holy Trinity'** — phá vỡ quy ước 'thép = rẻ' năm 1972 với Royal Oak, và tiếp tục thử nghiệm với Offshore (1993) và Concept. Hợp với người yêu **thiết kế đột phá + lịch sử phá cách** — không hợp với ai tìm 'sự an toàn cổ điển' (Patek hợp hơn). Royal Oak nhận diện tuyệt đối và giữ giá cực tốt, nhưng phải chấp nhận 'đông người cũng muốn' (danh sách chờ dài). Nếu ưu tiên **di sản lâu đời nhất + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu yêu **chế tác lâu đời + tinh tế tối đa**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne. AP hợp với người có cá tính mạnh, yêu phá vỡ quy ước, và muốn một chiếc Royal Oak 'biểu tượng thế hệ' — đặc biệt hợp với giới sáng tạo, kiến trúc sư, và ai muốn ' Royal Oak đeo 50 năm vẫn hiện đại'."
 ---
 
 ## Tổng quan
@@ -100,11 +100,11 @@ Audemars Piguet (AP) thành lập năm 1875 tại Vallée de Joux (Thụy Sĩ) b
 
 ## Triết lý chế tác
 
-AP nổi tiếng với **"Maison des Complications"** — nhà của các phức tạp. Hãng tiên phong trong minute repeater (điểm chuông), perpetual calendar (lịch vạn niên) và skeleton (lộ máy). AP cũng là hãng đầu tiên đưa phức tạp vào đồng hồ đeo tay (năm 1882).
+AP tự định vị là **bậc thầy đồng hồ phức tạp**. Hãng tiên phong trong minute repeater (điểm chuông), perpetual calendar (lịch vạn niên) và skeleton (lộ máy). AP cũng là hãng đầu tiên đưa phức tạp vào đồng hồ đeo tay (năm 1882).
 
 ## Dòng sản phẩm chủ lực
 
-- **Royal Oak** (1972) — thiết kế Gerald Genta, thép sang trọng nguyên bản. Xem chi tiết tại [bài Royal Oak](/mau-iconic/royal-oak).
+- **Royal Oak** (1972) — thiết kế Gérald Genta, thép sang trọng nguyên bản. Xem chi tiết tại [bài Royal Oak](/mau-iconic/royal-oak).
 - **Royal Oak Offshore** (1993) — phiên bản lớn, thể thao hơn.
 - **Royal Oak Concept** — dòng thử nghiệm vật liệu và phức tạp cực đoan.
 - **Code 11.59** (2019) — dòng mới, vỏ tròn — ban đầu gây tranh cãi nay dần được công nhận.
@@ -116,4 +116,4 @@ AP tự làm toàn bộ movement, với nhiều calibre phức tạp. Nổi bậ
 
 ## Phân khúc giá
 
-AP ở phân khúc **ultra luxury** — Royal Oak thép giá bán lẻ ~30.000 USD nhưng secondhand gấp 2-3 lần; các mẫu phức tạp từ 100.000 USD đến hàng triệu USD.
+AP ở phân khúc **ultra luxury** — Royal Oak thép giá bán lẻ ~30.000 USD nhưng luôn khan hiếm ở thị trường thứ cấp (giá cao hơn nhiều lần giá niêm yết); các mẫu phức tạp từ 100.000 USD đến hàng triệu USD.

@@ -36,4 +36,4 @@ Dufour đã truyền cảm hứng cho toàn bộ thế hệ indie mới (Voutila
 
 ## Phân khúc giá
 
-Philippe Dufour ở phân khúc **haute horlogerie** đỉnh — Simplicity thường từ 200.000–500.000 USD secondhand (hiếm khi xuất hiện thị trường). Mua mới phải chờ nhiều năm và qua quy trình tuyển chọn của ông.
+Philippe Dufour ở phân khúc **haute horlogerie** đỉnh — Simplicity hiếm khi xuất hiện trên thị trường thứ cấp, giá thường từ 200.000–500.000 USD (tính đến 2024). Mua mới phải chờ nhiều năm và qua quy trình tuyển chọn của ông.

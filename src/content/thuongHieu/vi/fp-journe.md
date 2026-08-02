@@ -36,4 +36,4 @@ Toàn bộ movement tự chế tạo, làm bằng vàng 18K. Mỗi chiếc ký s
 
 ## Phân khúc giá
 
-F.P. Journe ở phân khúc **haute horlogerie** — từ khoảng 20.000 USD (Chronomètre Bleu) đến hàng triệu USD (Sonnerie). Giá secondhand thường gấp 2-3 lần giá bán lẻ vì cầu vượt cung.
+F.P. Journe ở phân khúc **haute horlogerie** — từ khoảng 20.000 USD (Chronomètre Bleu) đến hàng triệu USD (Sonnerie). Giá thị trường thứ cấp luôn cao hơn nhiều lần giá niêm yết vì cầu vượt cung.

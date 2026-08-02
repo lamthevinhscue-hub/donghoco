@@ -1,7 +1,7 @@
 ---
 title: "Blancpain"
 custom_slug: "blancpain"
-excerpt: "Nhà chế tác lâu đời nhất thế giới (1735) — 'vương miện' của Swatch Group, cha đẻ Fifty Fathoms, đồng hồ lặn hiện đại đầu tiên."
+excerpt: "Thương hiệu đồng hồ lâu đời nhất thế giới (1735) — 'vương miện' của Swatch Group, cha đẻ Fifty Fathoms, đồng hồ lặn hiện đại đầu tiên."
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1735
@@ -13,7 +13,7 @@ draft: false
 lineHistory:
   - year: 1735
     title: "Jehan-Jacques Blancpain lập xưởng tại Villeret"
-    detail: "Nhà chế tác đồng hồ lâu đời nhất thế giới vẫn hoạt động ra đời — một xưởng gia đình ở ngôi làng Villeret (thung lũng Joux, Thụy Sĩ)."
+    detail: "Thương hiệu đồng hồ lâu đời nhất thế giới (1735) ra đời — một xưởng gia đình ở ngôi làng Villeret (thung lũng Joux, Thụy Sĩ)."
   - year: 1815
     title: "Frédéric-Louis Blancpain thế hệ thứ 2 hiện đại hóa"
     detail: "Cháu nội tiếp quản, đưa xưởng từ thủ công sang sản xuất có tổ chức — mở ra kỷ nguyên công nghiệp hóa nhẹ."

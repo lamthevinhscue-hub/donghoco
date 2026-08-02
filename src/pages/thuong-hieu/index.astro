@@ -18,6 +18,11 @@ const isVi = lang === 'vi';
 
 const entries = await getEntriesByLang('thuongHieu', lang);
 
+// Nhãn năm đặc biệt cho một số thương hiệu (ghi chú kèm năm lập)
+const foundedLabel: Record<string, string> = {
+  'philippe-dufour': '1978 — lập xưởng riêng',
+};
+
 // Nhóm thương hiệu theo hạng
 const groups = TIER_ORDER.map((tier) => ({
   tier,
@@ -72,16 +77,20 @@ const groups = TIER_ORDER.map((tier) => ({
             <p class="mt-1 text-sm text-ink-soft">{group.desc}</p>
           </div>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {group.items.map((entry) => (
-              <Card
-                href={`/thuong-hieu/${getSlug(entry)}`}
-                title={entry.data.title}
-                excerpt={entry.data.excerpt}
-                meta={entry.data.country}
-                badge={entry.data.founded ? `${entry.data.founded}` : undefined}
-                logo={entry.data.logo}
-              />
-            ))}
+            {group.items.map((entry) => {
+              const slug = getSlug(entry);
+              const badge = foundedLabel[slug] ?? (entry.data.founded ? `${entry.data.founded}` : undefined);
+              return (
+                <Card
+                  href={`/thuong-hieu/${slug}`}
+                  title={entry.data.title}
+                  excerpt={entry.data.excerpt}
+                  meta={entry.data.country}
+                  badge={badge}
+                  logo={entry.data.logo}
+                />
+              );
+            })}
           </div>
         </div>
       ))}

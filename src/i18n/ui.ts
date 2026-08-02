@@ -141,15 +141,15 @@ export type Tier = (typeof TIER_ORDER)[number];
 
 const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en: string } }> = {
   'haute horlogerie': {
-    vi: 'Haute Horlogerie',
+    vi: 'Haute Horlogerie độc lập',
     en: 'Haute Horlogerie',
     desc: {
-      vi: 'Đỉnh cao chế tác thủ công — phức tạp cực cao, sản lượng cực thấp.',
+      vi: 'Các nhà chế tác độc lập sản lượng cực thấp — phần lớn công đoạn làm thủ công, mỗi năm chỉ vài chục chiếc rời xưởng.',
       en: 'The pinnacle of hand-crafted watchmaking.',
     },
   },
   'ultra luxury': {
-    vi: 'Ultra Luxury — Siêu sang',
+    vi: 'Xa xỉ đỉnh cao',
     en: 'Ultra Luxury',
     desc: {
       vi: 'Siêu sang — Holy Trinity và các hãng đỉnh, giá từ ~$25K.',
@@ -157,7 +157,7 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
     },
   },
   'high-end luxury': {
-    vi: 'High-End Luxury — Cao cấp',
+    vi: 'Cao cấp',
     en: 'High-End Luxury',
     desc: {
       vi: 'Sang trọng cao cấp — nổi tiếng toàn cầu, $5K–$25K.',
@@ -165,7 +165,7 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
     },
   },
   'mid-range luxury': {
-    vi: 'Mid-Range Luxury — Tầm trung',
+    vi: 'Tầm trung',
     en: 'Mid-Range Luxury',
     desc: {
       vi: 'Sang trọng tầm trung — chất lượng tốt, phổ biến, $2K–$5K.',
@@ -173,7 +173,7 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
     },
   },
   'entry-level luxury': {
-    vi: 'Entry-Level Luxury — Nhập môn',
+    vi: 'Nhập môn',
     en: 'Entry-Level Luxury',
     desc: {
       vi: 'Nhập môn sang trọng — cổng vào giới đồng hồ cơ, $500–$2K.',

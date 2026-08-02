@@ -1,6 +1,5 @@
 ---
 title: "Ulysse Nardin Freak — Đồng hồ 'điên' không kim, không mặt số"
-custom_slug: "freak"
 excerpt: "Ra mắt 2001, phá vỡ mọi quy ước đồng hồ: không kim, không mặt số, không núm vặn — chính movement là mặt số."
 brand: "Ulysse Nardin"
 year: 2001

@@ -1,6 +1,5 @@
 ---
 title: "Seiko 62MAS — Đồng hồ lặn đầu tiên của Seiko"
-custom_slug: "seiko-62mas"
 excerpt: "Mẫu mở đầu kỷ nguyên lặn của Seiko (1965) — bền, chính xác, giá tốt, là chuẩn mực cho hàng triệu người chơi."
 brand: "Seiko"
 year: 1965

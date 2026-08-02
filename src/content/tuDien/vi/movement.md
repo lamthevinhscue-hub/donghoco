@@ -1,6 +1,5 @@
 ---
 title: "Movement (Bộ máy)"
-custom_slug: "movement"
 excerpt: "Trái tim của đồng hồ — toàn bộ cơ cấu bên trong khiến đồng hồ chạy."
 term_en: "Movement / Caliber"
 category: "bộ máy"

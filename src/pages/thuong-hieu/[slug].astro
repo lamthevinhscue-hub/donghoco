@@ -10,6 +10,7 @@ import BrandLayout from '../../layouts/BrandLayout.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
+import { getTierLabel } from '../../i18n/ui';
 
 // Tạo các đường dẫn: một trang cho mỗi thương hiệu, cho mỗi ngôn ngữ
 export async function getStaticPaths() {
@@ -42,7 +43,7 @@ const { data } = entry;
 const meta = [
   data.country,
   data.founded ? `${data.founded}` : null,
-  data.tier,
+  getTierLabel(data.tier, lang),
 ].filter(Boolean).join(' • ');
 
 // ====== Khối 5: Tự động kéo mẫu iconic có `brand` khớp ======

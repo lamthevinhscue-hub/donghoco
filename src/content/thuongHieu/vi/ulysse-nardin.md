@@ -1,6 +1,5 @@
 ---
 title: "Ulysse Nardin"
-custom_slug: "ulysse-nardin"
 excerpt: "Nhà chế tác ven biển Le Locle — nổi tiếng với đồng hồ hàng hải, chronometer hải quân, và dòng Freak điên rồ không kim, không mặt số."
 country: "Thụy Sĩ"
 tier: "high-end luxury"

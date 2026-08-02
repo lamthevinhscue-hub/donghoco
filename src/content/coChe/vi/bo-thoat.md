@@ -1,6 +1,5 @@
 ---
 title: "Bộ thoát (Escapement) — Trái tim đập của đồng hồ cơ"
-custom_slug: "bo-thoat"
 excerpt: "Phát minh vĩ đại nhất của ngành đồng hồ — chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động liên tục. Nguồn gốc tiếng 'tíc-tắc' quen thuộc."
 category: "nền tảng"
 difficulty: "cao"

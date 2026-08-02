@@ -1,6 +1,5 @@
 ---
 title: "Vacheron Constantin"
-custom_slug: "vacheron-constantin"
 excerpt: "Nhà chế tác hoạt động liên tục lâu đời nhất thế giới (1755) — thành viên Holy Trinity, 'bạn của hoàng gia'."
 country: "Thụy Sĩ"
 tier: "ultra luxury"
@@ -89,12 +88,12 @@ segmentComparison:
     movement: "Calibre L951.6 (manual chronograph), L121.1 (LANGE 1) — chế tác Đức cực tỉ mỉ, tay annealed blue, không escapement Thụy Sĩ."
     value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
-collectorNote: "Chọn Vacheron Constantin khi bạn trân trọng **di sản lâu đời nhất thế giới** (1755, 271 năm liên tục) và **sự tinh tế kín đáo** — Vacheron ít nổi tiếng với công chúng hơn Patek/AP nhưng được giới sành đánh giá ngang tầm, thậm chí cao hơn về hoàn thiện. Là thành viên Holy Trinity 'ít marketing nhất' — hợp với người muốn ultra-luxury mà không phô trương. **Overseas** đang là 'sự lựa chọn thay thế' hoàn hảo khi Nautilus/Royal Oak quá khan hiếm — chất lượng tương đương, dễ mua hơn. Nếu ưu tiên **danh tiếng + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **chế tác Đức lạnh lùng**, chọn A. Lange & Söhne (LANGE 1). Vacheron Constantin hợp với người khiêm tốn, tinh tế, yêu 'sự hoàn hảo thầm lặng' — và ai muốn một chiếc Overseas 'không phải xếp hàng chờ' mà vẫn thuộc Holy Trinity."
+collectorNote: "Chọn Vacheron Constantin khi bạn trân trọng **di sản lâu đời nhất thế giới** (1755) và **sự tinh tế kín đáo** — Vacheron ít nổi tiếng với công chúng hơn Patek/AP nhưng được giới sành đánh giá ngang tầm, thậm chí cao hơn về hoàn thiện. Là thành viên Holy Trinity 'ít marketing nhất' — hợp với người muốn ultra-luxury mà không phô trương. **Overseas** đang là 'sự lựa chọn thay thế' hoàn hảo khi Nautilus/Royal Oak quá khan hiếm — chất lượng tương đương, dễ mua hơn. Nếu ưu tiên **danh tiếng + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **chế tác Đức lạnh lùng**, chọn A. Lange & Söhne (LANGE 1). Vacheron Constantin hợp với người khiêm tốn, tinh tế, yêu 'sự hoàn hảo thầm lặng' — và ai muốn một chiếc Overseas 'không phải xếp hàng chờ' mà vẫn thuộc Holy Trinity."
 ---
 
 ## Tổng quan
 
-Vacheron Constantin thành lập năm **1755** tại Genève bởi Jean-Marc Vacheron — là **nhà chế tác hoạt động liên tục lâu đời nhất thế giới** (270 năm). Hãng thuộc "Holy Trinity" (Tam đỉnh) cùng Patek Philippe và Audemars Piguet.
+Vacheron Constantin thành lập năm **1755** tại Genève bởi Jean-Marc Vacheron — là **nhà chế tác hoạt động liên tục lâu đời nhất thế giới**. Hãng thuộc "Holy Trinity" (Tam đỉnh) cùng Patek Philippe và Audemars Piguet.
 
 Biểu tượng của hãng là **thánh giá Maltese** — lấy từ biểu tượng của khu phố Geneva nơi hãng sản xuất thế kỷ 19.
 
@@ -112,7 +111,7 @@ Vacheron theo đuổi câu châm ngôn: *"Faire mieux si possible, et toujours b
 
 ## Calibre in-house tiêu biểu
 
-Vacheron tự làm movement, với nhiều calibre phức tạp bậc nhất. Nổi bật là **Calibre 2755** — movement phức tạp với tourbillon, minute repeater, perpetual calendar. Năm 2015, hãng ra **Reference 57260** — đồng hồ phức tạp nhất mọi thời đại với **57 chức năng**, do 3 khách đặt riêng.
+Vacheron tự làm bộ máy, với nhiều calibre phức tạp bậc nhất. Nổi bật là **Calibre 2755** — bộ máy phức tạp với tourbillon, minute repeater, perpetual calendar. Năm 2015, hãng ra **Reference 57260** — đồng hồ phức tạp nhất mọi thời đại với **57 chức năng**, do 3 khách đặt riêng.
 
 ## Phân khúc giá
 

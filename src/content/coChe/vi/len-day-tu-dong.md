@@ -1,6 +1,5 @@
 ---
 title: "Cơ chế lên dây tự động"
-custom_slug: "len-day-tu-dong"
 excerpt: "Vì sao chỉ cần đeo đồng hồ là nó tự chạy — bí mật của rotor và ly hợp một chiều."
 category: "nền tảng"
 difficulty: "trung bình"

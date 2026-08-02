@@ -1,6 +1,5 @@
 ---
 title: "Grand Seiko"
-custom_slug: "grand-seiko"
 excerpt: "Đỉnh cao chế tác Nhật Bản — mặt số mô phỏng thiên nhiên, độ chính xác ngang tầm Thụy Sĩ, từng là dòng của Seiko."
 country: "Nhật Bản"
 tier: "high-end luxury"
@@ -34,7 +33,7 @@ Grand Seiko nổi tiếng với:
 
 ## Calibre in-house tiêu biểu
 
-Grand Seiko sản xuất movement tại hai xưởng: **Shinshu** (cơ) và **Shizukuishi** (cơ + quartz). Nổi bật:
+Grand Seiko sản xuất bộ máy tại hai xưởng: **Shinshu** (cơ) và **Shizukuishi** (cơ + quartz). Nổi bật:
 - **Calibre 9S** — cơ automatic đạt chuẩnchronometer Nhật.
 - **Calibre 9F** — quartz nhiệt độ cao, chính xác ±10 giây/năm.
 - **Calibre 9R** — Spring Drive (cơ lai điện tử), trượt kim giây mượt nhất thế giới.

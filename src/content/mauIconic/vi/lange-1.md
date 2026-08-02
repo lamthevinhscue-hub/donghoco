@@ -1,6 +1,5 @@
 ---
 title: "A. Lange & Söhne Lange 1 — Tuyên ngôn tái sinh"
-custom_slug: "lange-1"
 excerpt: "Mẫu mở đầu kỷ nguyên tái sinh của Lange (1994) — mặt số lệch bất đối xứng, trở thành biểu tượng ngay lập tức."
 brand: "A. Lange & Söhne"
 year: 1994

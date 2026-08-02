@@ -63,6 +63,7 @@ export function getSlug(entry: CollectionEntry<ContentCollectionName>): string {
 }
 
 // Lấy MỘT entry đầy đủ (có khả năng render .Content) theo slug và ngôn ngữ.
+// Slug LUÔN lấy từ tên file (getSlug), không dùng custom_slug — quy ước thống nhất.
 // Trả về trực tiếp entry từ getCollection (đã có đầy đủ .Content),
 // không gọi lại getEntry (có vấn đề với id có đường dẫn con).
 export async function getFullEntry(
@@ -71,9 +72,6 @@ export async function getFullEntry(
   lang: Lang,
 ): Promise<CollectionEntry<ContentCollectionName> | undefined> {
   const entries = await getEntriesByLang(collection, lang);
-  const found = entries.find((entry) => {
-    const entrySlug = entry.data.custom_slug ?? getSlug(entry);
-    return entrySlug === slug;
-  });
+  const found = entries.find((entry) => getSlug(entry) === slug);
   return found; // entry này đã có đầy đủ .Content từ getCollection
 }

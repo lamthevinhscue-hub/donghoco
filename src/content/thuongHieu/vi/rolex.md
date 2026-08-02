@@ -1,6 +1,5 @@
 ---
 title: "Rolex"
-custom_slug: "rolex"
 excerpt: "Biểu tượng của sự bền bỉ và tầm ảnh hưởng toàn cầu — thương hiệu định nghĩa thế nào là một chiếc đồng hồ cơ 'đáng tin'."
 country: "Thụy Sĩ"
 tier: "high-end luxury"

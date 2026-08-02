@@ -1,6 +1,5 @@
 ---
 title: "Incabloc (Hệ thống chống sốc)"
-custom_slug: "incabloc"
 excerpt: "Cơ cấu bảo vệ bánh lắc khỏi hỏng khi va đập — tiêu chuẩn toàn ngành, hiện diện trong hầu hết đồng hồ cơ."
 term_en: "Incabloc / Shock protection"
 category: "bộ máy"

@@ -1,7 +1,6 @@
 ---
 title: "Glashütte Original"
-custom_slug: "glashutte-original"
-excerpt: "Đại diện xuất sắc của chế tác Đông Đức — mặt số và movement đẹp độc đáo, với ba phần tư (3/4) plate đặc trưng."
+excerpt: "Đại diện xuất sắc của chế tác Đức vùng Glashütte — mặt số và bộ máy (movement) đẹp độc đáo, với bản đĩa ba phần tư (three-quarter plate) đặc trưng."
 country: "Đức"
 tier: "high-end luxury"
 founded: 1845
@@ -35,7 +34,7 @@ Glashütte Original giữ **đặc trưng chế tác Đức**:
 
 ## Calibre in-house tiêu biểu
 
-Glashütte Original tự làm movement tại xưởng riêng. Nổi bật: **calibre 36** (automatic hiện đại với 100 giờ trữ cót), **calibre 37** (chronograph tự động), **calibre 90** (phức tạp, PanoMaticLunar). Hãng cũng tự làm lò xo, dây tóc.
+Glashütte Original tự làm bộ máy tại xưởng riêng. Nổi bật: **calibre 36** (automatic hiện đại với 100 giờ trữ cót), **calibre 37** (chronograph tự động), **calibre 90** (phức tạp, PanoMaticLunar). Hãng cũng tự làm lò xo, dây tóc.
 
 ## Phân khúc giá
 

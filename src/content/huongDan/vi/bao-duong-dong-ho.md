@@ -1,6 +1,5 @@
 ---
 title: "Bảo dưỡng đồng hồ cơ — Khi nào, ở đâu, chi phí bao nhiêu"
-custom_slug: "bao-duong-dong-ho"
 excerpt: "Service định kỳ cho đồng hồ cơ: quy trình, tần suất, chi phí, và cách chọn thợ uy tín."
 difficulty: "người mới"
 date: "2026-07-31"

@@ -1,6 +1,5 @@
 ---
 title: "Zenith El Primero — Movement của thế kỷ"
-custom_slug: "zenith-el-primero"
 excerpt: "Chronograph tự động tích hợp đầu tiên thế giới (1969) — tần số 36.000 vph, được cả Rolex Daytona dùng trong 12 năm."
 brand: "Zenith"
 year: 1969
@@ -47,4 +46,4 @@ Năm 1988, Rolex cần một movement chronograph tự động cho Daytona (trư
 
 ## Vị trí trong lịch sử
 
-El Primero là một trong những movement **lâu đời nhất thế giới vẫn được sản xuất** — 55 năm và vẫn counting. Nó chứng minh rằng thiết kế kỹ thuật tốt có thể vượt thời gian, và là niềm tự hào của toàn ngành đồng hồ Thụy Sĩ.
+El Primero là một trong những bộ máy chronograph **lâu đời nhất vẫn còn được sản xuất**. Nó chứng minh rằng thiết kế kỹ thuật tốt có thể vượt thời gian, và là niềm tự hào của toàn ngành đồng hồ Thụy Sĩ.

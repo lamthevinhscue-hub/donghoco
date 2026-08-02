@@ -33,7 +33,7 @@ Website Đồng Hồ Cơ không viết như bài bán hàng, không viết như 
 
 ### 2.1. Thuật ngữ chuyên môn
 - **Lần xuất hiện đầu tiên** của mỗi thuật ngữ kỹ thuật phải kèm **giải thích ngắn tiếng Việt** trong ngoặc hoặc câu tiếp theo.
-  - ✅ "Bezel (vành кольệp quanh mặt số) xoay một chiều..."
+  - ✅ "Bezel (vành kim loại quanh mặt số) xoay một chiều..."
   - ❌ "Bezel xoay một chiều..." (không giải thích)
 - Có thể giữ thuật ngữ tiếng Anh khi phổ biến hơn ("tourbillon", "chronograph", "rotor") — không ép dịch cứng.
 - Khi cần, dẫn link tới [Từ điển thuật ngữ](/tu-dien) tương ứng.
@@ -144,15 +144,88 @@ Trước khi duyệt bài, kiểm tra:
 
 - [ ] Giọng văn đúng nhà sưu tầm (không bán hàng, không khô khan)?
 - [ ] Thuật ngữ đầu tiên có giải thích?
-- [ ] Số liệu kỹ thuật chính xác, có nguồn?
+- [ ] Số liệu kỹ thuật chính xác, có nguồn (không bịa, không đoán)?
 - [ ] Link chéo tới bài liên quan đã có?
 - [ ] Cấu trúc bài đúng mẫu (thương hiệu / iconic / cơ chế)?
 - [ ] Chính tả tiếng Việt đúng, tên riêng không dịch?
 - [ ] Đơn vị nhất quán (vph, giờ, m)?
+- [ ] Không ký tự ngoài tiếng Việt/Anh (quét bằng script Python)?
+- [ ] Thuật ngữ tiếng Anh đều trong ngoặc sau từ Việt?
+- [ ] Danh xưng "lâu đời nhất thế giới" chỉ dùng cho Blancpain (1735) / Vacheron (1755 liên tục)?
+- [ ] Không có bội số giá secondary, không số tuổi tính từ mốc lịch sử?
+- [ ] Tên riêng có đủ dấu (Gérald, Söhne, Glashütte, Frédérique...)?
+- [ ] Địa danh/quốc gia đúng thời điểm sự kiện?
+- [ ] Không có `custom_slug` lệch tên file?
+- [ ] Không có tên bước / số giai đoạn / ghi chú nội bộ lộ ra giao diện?
 
 ---
 
-## 6. GHI CHÚ CHO AI
+## 6. QUY TẮC CHỐNG SAI SÓT
+
+Đây là những lỗi đã từng xuất hiện trên trang và gây bối rối cho người đọc hoặc làm giảm độ tin cậy. Mọi bài viết — mới lẫn cũ — phải tuân thủ các quy tắc sau. Rà lại trước mỗi lần đẩy lên production.
+
+### 6.1. Danh xưng độc quyền — "lâu đời nhất thế giới"
+- **Chỉ Blancpain** được gọi là *"thương hiệu đồng hồ lâu đời nhất thế giới (1735)"*.
+- **Chỉ Vacheron Constantin** được gọi là *"nhà chế tác hoạt động liên tục lâu đời nhất thế giới (1755)"*.
+- Không hãng nào khác được dùng cụm "lâu đời nhất thế giới". Khi mô tả hãng khác, dùng "một trong những nhà chế tác lâu đời" hoặc tương đương.
+
+### 6.2. Ký tự
+- Chỉ dùng **tiếng Việt và tiếng Anh** trong giao diện và nội dung công khai.
+- Không để lọt bất kỳ hệ chữ nào khác (Cyrillic, Ả Rập, Trung, Nhật, Hàn, Do Thái, Hy Lạp...).
+- Kiểm lại bằng script quét (Python, không dùng `grep -P` vì không tin cậy với multi-byte) trước mỗi lần push.
+
+### 6.3. Thuật ngữ tiếng Anh
+- Thuật ngữ tiếng Anh **chỉ được đặt trong ngoặc đơn** sau từ tiếng Việt tương ứng, không đứng một mình giữa câu tiếng Việt.
+  - ✅ "bộ máy (movement)", "cầu máy (bridge)", "bản đĩa 3/4 (three-quarter plate)".
+  - ❌ "movement", "bridge", "plate" đứng trơ trọi.
+- Ngoại lệ: tên dòng sản phẩm chính thức ("Royal Oak", "Traditionnelle", "Avant-garde"), tên calibre, slogan đã kèm bản dịch ngay sau.
+
+### 6.4. Giá thị trường thứ cấp
+- **Không dùng bội số cụ thể** (kiểu "gấp 3-5 lần giá bán lẻ") — các con số này lỗi thời rất nhanh.
+- Chỉ mô tả định tính: *"giữ giá rất tốt"*, *"giữ giá tốt"*, *"giữ giá trung bình"*.
+- Có thể kèm mốc thời gian: *"giữ giá rất tốt (tính đến 2024)"*.
+
+### 6.5. Số năm tính từ mốc lịch sử
+- **Không viết số năm tính từ mốc lịch sử** (kiểu "270 năm lịch sử", "165 năm gắn bó") vì sẽ tự sai theo thời gian.
+- Chỉ ghi năm mốc: *"thành lập năm 1755"*, *"từ năm 1969"*.
+- Ngoại lệ an toàn: "hơn 250 năm" cho tuổi của Swiss lever escapement (kỹ thuật, sai số nhiều thế kỷ), "hơn 130 năm sau" cho tuổi của một phát minh cụ thể.
+
+### 6.6. Năm, tên calibre, thông số kỹ thuật
+- **Mọi con số phải truy được về nguồn** (trang hãng, Hodinkee, WatchTime, aBlogtoWatch, diễn đàn uy tín).
+- Nếu không chắc → **bỏ hẳn con số** và ghi vào `CAN-KIEM-CHUNG.md` để rà sau.
+- Không đoán, không "khoảng" khi không rõ.
+
+### 6.7. Tên riêng giữ nguyên dấu
+- Các tên riêng phải giữ đúng dấu — viết thiếu dấu là sai chính tả:
+  - **Gérald Genta** (không "Gerald Genta")
+  - **A. Lange & Söhne** (không "Sohne")
+  - **Glashütte** (không "Glashutte")
+  - **Vallée de Joux** (không "Vallee de Joux")
+  - **Métiers d'Art** (không "Metiers d'Art")
+  - **Frédérique Constant** (không "Frederique Constant")
+  - **Genève** (không "Geneve")
+
+### 6.8. Tên địa danh và quốc gia phải đúng thời điểm
+- Không dùng "Đông Đức" cho mốc **trước 1949** (chưa tồn tại) hay **sau 1990** (đã sáp nhập). Dùng "Sachsen, miền đông nước Đức" cho giai đoạn trước 1949.
+- Không dùng "Liên bang Nga" cho mốc **trước 1991**. Dùng "Đế quốc Nga" (trước 1917) hoặc "Liên Xô" (1922–1991) tùy bối cảnh.
+- Nguyên tắc chung: gọi tên địa lý/quốc gia theo cách gọi **đúng tại thời điểm sự kiện xảy ra**.
+
+### 6.9. Quy ước địa chỉ trang (URL)
+- Địa chỉ trang **sinh từ tên file** (hàm `getSlug` trong `src/lib/content.ts` lấy tên file, không đọc `custom_slug`).
+- **Không đặt `custom_slug` khác tên file** — sẽ gây nhầm lẫn và sinh link chết. Nếu đã có `custom_slug` lệch, **xóa dòng đó** thay vì sửa.
+
+### 6.10. Tên hãng thống nhất tuyệt đối
+- Trường `title` của bài thương hiệu và trường `brand` của bài mẫu iconic **phải khớp từng ký tự**.
+- Lệch một ký tự (VD: `title: "IWC Schaffhausen"` vs `brand: "IWC"`) → khối "Mẫu iconic liên quan" không nhận ra nhau và biến mất khỏi trang thương hiệu.
+- Khi đổi `title` của một hãng, phải đổi `brand` ở mọi bài iconic tương ứng cùng lúc.
+
+### 6.11. Không đưa quy trình vào giao diện
+- Không đưa **tên bước** ("Bước 1.4", "Bước 2.2"), **số giai đoạn** ("giai đoạn 2"), hay **ghi chú quy trình** ("[GHI CHÚ NỘI BỘ]") ra giao diện công khai.
+- Các ghi chú nội bộ chỉ nằm trong tài liệu quản trị (file `.md` ở thư mục `docs/`), không nằm trong `src/content/` hay `src/pages/`.
+
+---
+
+## 7. GHI CHÚ CHO AI
 
 Khi viết bài mới, AI cần:
 1. Đọc tệp này trước.

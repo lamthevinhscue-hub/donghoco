@@ -5,7 +5,7 @@
 // Hiển thị logo + menu điều hướng. Tự ẩn bớt trên điện thoại và có nút mở menu.
 // =============================================================================
 
-import { getLangFromUrl, t, localizedPath, getLanguageSwitcherUrl } from '../i18n/ui';
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -21,10 +21,6 @@ const navItems = [
   { key: 'nav_glossary', path: '/tu-dien' },
   { key: 'nav_guides', path: '/huong-dan' },
 ];
-
-// Liên kết chuyển ngôn ngữ
-const langSwitchUrl = getLanguageSwitcherUrl(new URL(Astro.url.pathname, Astro.site), lang === 'vi' ? 'en' : 'vi');
-const langSwitchLabel = lang === 'vi' ? tr.switch_lang : tr.switch_lang;
 ---
 
 <header class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur">
@@ -47,16 +43,7 @@ const langSwitchLabel = lang === 'vi' ? tr.switch_lang : tr.switch_lang;
     </nav>
 
     <!-- Nút mở menu (điện thoại) -->
-    <!-- Lưu ý: Nút chuyển ngôn ngữ (English) đã ẩn tạm thời do chưa có nội dung tiếng Anh.
-         Bật lại khi đã dịch xong (bỏ comment khối <a> bên dưới). -->
     <div class="flex items-center gap-3">
-      <!-- <a
-        href={langSwitchUrl}
-        class="rounded-full border border-brass/40 px-3 py-1 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-white"
-        aria-label={langSwitchLabel}
-      >
-        {langSwitchLabel}
-      </a> -->
       <button
         type="button"
         id="menu-toggle"

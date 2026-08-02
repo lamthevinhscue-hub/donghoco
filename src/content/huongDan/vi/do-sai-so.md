@@ -1,6 +1,5 @@
 ---
 title: "Đo sai số và theo dõi độ chính xác của đồng hồ cơ"
-custom_slug: "do-sai-so"
 excerpt: "Cách đo độ chính xác đồng hồ cơ tại nhà, dùng app miễn phí, và hiểu thông số ±X giây/ngày."
 difficulty: "trung cấp"
 date: "2026-07-31"

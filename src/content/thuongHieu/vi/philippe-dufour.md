@@ -1,6 +1,5 @@
 ---
 title: "Philippe Dufour"
-custom_slug: "philippe-dufour"
 excerpt: "Bậc thầy hoàn thiện thủ công — một người, một xưởng, những chiếc đồng hồ hoàn hảo nhất thế giới."
 country: "Thụy Sĩ"
 tier: "haute horlogerie"

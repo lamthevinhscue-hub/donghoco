@@ -1,6 +1,5 @@
 ---
 title: "Chống nước hoạt động thế nào"
-custom_slug: "chong-nuoc"
 excerpt: "Vì sao '50m' không có nghĩa là bơi được 50m — nguyên lý chống nước, các mức độ, và hiểu lầm nguy hiểm."
 category: "bổ trợ"
 difficulty: "thấp"

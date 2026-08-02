@@ -1,6 +1,5 @@
 ---
 title: "Vacheron Constantin Overseas — Bước đệm của Holy Trinity"
-custom_slug: "vc-overseas"
 excerpt: "Mẫu thể thao sang trọng của Vacheron Constantin — cạnh tranh trực tiếp Nautilus và Royal Oak, hoàn thiện bộ ba thiết kế."
 brand: "Vacheron Constantin"
 year: 1996

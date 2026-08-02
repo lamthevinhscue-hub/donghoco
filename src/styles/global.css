@@ -92,3 +92,19 @@
     margin: 1.5rem 0;
   }
 }
+
+/* =============================================================================
+   GLOSSARY AUTOLINK — link thuật ngữ tự sinh (remark plugin)
+   ============================================================================= */
+/* Phân biệt với link thường: gạch chân chấm, màu ink, border-bottom brass */
+a.glossary-autolink {
+  color: theme('colors.ink');
+  text-decoration: none;
+  border-bottom: 1px dotted theme('colors.brass');
+  cursor: help;
+  transition: color 0.2s, border-bottom-color 0.2s;
+}
+a.glossary-autolink:hover {
+  color: theme('colors.brass');
+  border-bottom-style: solid;
+}

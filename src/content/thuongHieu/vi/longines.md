@@ -1,6 +1,5 @@
 ---
 title: "Longines"
-custom_slug: "longines"
 excerpt: "Nhà chế tác Thụy Sĩ lâu đời (1832) — giá trị tuyệt vời với line Heritage, trực thuộc Swatch Group."
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
@@ -13,7 +12,7 @@ draft: false
 
 ## Tổng quan
 
-Longines thành lập năm 1832 tại Saint-Imier (Thụy Sĩ) — là một trong những nhà chế tác Thụy Sĩ **lâu đời nhất còn hoạt động**. Logo "cỗ cát cánh" (hourglass with wings) là logo lâu đời nhất thế giới vẫn còn nguyên hình dáng (1867). Hiện Longines thuộc Swatch Group, định vị ở tầm trung-cao của nhóm.
+Longines thành lập năm 1832 tại Saint-Imier (Thụy Sĩ) — là một trong những nhà chế tác Thụy Sĩ **lâu đời nhất còn hoạt động**. Logo "cỗ cát cánh" (hourglass with wings) là một trong những logo đồng hồ lâu đời nhất thế giới vẫn còn nguyên hình dáng. Hiện Longines thuộc Swatch Group, định vị ở tầm trung-cao của nhóm.
 
 ## Triết lý chế tác
 

@@ -1,6 +1,5 @@
 ---
 title: "Audemars Piguet"
-custom_slug: "audemars-piguet"
 excerpt: "Thành viên Holy Trinity, cha đẻ Royal Oak — mẫu mở đầu kỷ nguyên 'thép sang trọng' năm 1972."
 country: "Thụy Sĩ"
 tier: "ultra luxury"
@@ -89,7 +88,7 @@ segmentComparison:
     movement: "Calibre L951.6 (manual chronograph), L121.1 (LANGE 1) — chế tác Đức cực tỉ mỉ, không escapement Thụy Sĩ, tay annealed."
     value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
-collectorNote: "Chọn Audemars Piguet khi bạn muốn **Royal Oak** — sport-luxury thép nguyên bản 1972 của Gérald Genta, mẫu mở đầu kỷ nguyên 'thép sang trọng'. AP là thương hiệu **'táo bạo nhất Holy Trinity'** — phá vỡ quy ước 'thép = rẻ' năm 1972 với Royal Oak, và tiếp tục thử nghiệm với Offshore (1993) và Concept. Hợp với người yêu **thiết kế đột phá + lịch sử phá cách** — không hợp với ai tìm 'sự an toàn cổ điển' (Patek hợp hơn). Royal Oak nhận diện tuyệt đối và giữ giá cực tốt, nhưng phải chấp nhận 'đông người cũng muốn' (danh sách chờ dài). Nếu ưu tiên **di sản lâu đời nhất + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu yêu **chế tác lâu đời + tinh tế tối đa**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne. AP hợp với người có cá tính mạnh, yêu phá vỡ quy ước, và muốn một chiếc Royal Oak 'biểu tượng thế hệ' — đặc biệt hợp với giới sáng tạo, kiến trúc sư, và ai muốn ' Royal Oak đeo 50 năm vẫn hiện đại'."
+collectorNote: "Chọn Audemars Piguet khi bạn muốn **Royal Oak** — sport-luxury thép nguyên bản 1972 của Gérald Genta, mẫu mở đầu kỷ nguyên 'thép sang trọng'. AP là thương hiệu **'táo bạo nhất Holy Trinity'** — phá vỡ quy ước 'thép = rẻ' năm 1972 với Royal Oak, và tiếp tục thử nghiệm với Offshore (1993) và Concept. Hợp với người yêu **thiết kế đột phá + lịch sử phá cách** — không hợp với ai tìm 'sự an toàn cổ điển' (Patek hợp hơn). Royal Oak nhận diện tuyệt đối và giữ giá cực tốt, nhưng phải chấp nhận 'đông người cũng muốn' (danh sách chờ dài). Nếu ưu tiên **di sản lâu đời nhất + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu yêu **chế tác lâu đời + tinh tế tối đa**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne. AP hợp với người có cá tính mạnh, yêu phá vỡ quy ước, và muốn một chiếc Royal Oak 'biểu tượng thế hệ' — đặc biệt hợp với giới sáng tạo, kiến trúc sư, và ai muốn một chiếc Royal Oak mang khí chất đeo 50 năm vẫn hiện đại."
 ---
 
 ## Tổng quan
@@ -112,7 +111,7 @@ AP tự định vị là **bậc thầy đồng hồ phức tạp**. Hãng tiên
 
 ## Calibre in-house tiêu biểu
 
-AP tự làm toàn bộ movement, với nhiều calibre phức tạp. Nổi bật: **calibre 7121** (Royal Oak Jumbo thế hệ mới), **calibre 4401** (chronograph tích hợp), và các phức tạp cực cao như **Audemars Piguet Code 11.59 Universelle** với 40 chức năng.
+AP tự làm toàn bộ bộ máy, với nhiều calibre phức tạp. Nổi bật: **calibre 7121** (Royal Oak Jumbo thế hệ mới), **calibre 4401** (chronograph tích hợp), và các phức tạp cực cao như **Audemars Piguet Code 11.59 Universelle** với 40 chức năng.
 
 ## Phân khúc giá
 

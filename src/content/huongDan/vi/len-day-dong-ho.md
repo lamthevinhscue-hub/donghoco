@@ -1,6 +1,5 @@
 ---
 title: "Lên dây cho đồng hồ cơ — Hướng dẫn từng bước"
-custom_slug: "len-day-dong-ho"
 excerpt: "Vặn cót đúng cách cho đồng hồ cơ và automatic — tránh hỏng hóc, đảm bảo chạy chính xác và bền."
 difficulty: "người mới"
 date: "2026-07-31"

@@ -1,6 +1,5 @@
 ---
 title: "Breguet"
-custom_slug: "breguet"
 excerpt: "Nhà của Abraham-Louis Breguet — nhà phát minh vĩ đại nhất lịch sử đồng hồ, người tạo ra tourbillon và kim pomme."
 country: "Thụy Sĩ"
 tier: "ultra luxury"
@@ -37,7 +36,7 @@ Breguet chịu trách nhiệm cho nhiều phát minh định hình toàn bộ ng
 
 ## Calibre in-house tiêu biểu
 
-Breguet tự làm movement với nhiều phức tạp cao. Nổi bật: calibre **581** (tourbillon tự động siêu mỏng), **777** (Marine), và các calibre **Tradition** trưng bày máy phía trước.
+Breguet tự làm bộ máy với nhiều phức tạp cao. Nổi bật: calibre **581** (tourbillon tự động siêu mỏng), **777** (Marine), và các calibre **Tradition** trưng bày máy phía trước.
 
 ## Phân khúc giá
 

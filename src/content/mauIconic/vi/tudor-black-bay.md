@@ -1,6 +1,5 @@
 ---
 title: "Tudor Black Bay — Cổng vào đồng hồ lặn Thụy Sĩ"
-custom_slug: "tudor-black-bay"
 excerpt: "Biểu tượng của Tudor (2012) — retro charm với kim 'snowflake' đặc trưng, cổng vào lý tưởng cho đồng hồ lặn Thụy Sĩ."
 brand: "Tudor"
 year: 2012

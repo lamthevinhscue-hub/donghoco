@@ -1,6 +1,5 @@
 ---
 title: "Rotor"
-custom_slug: "rotor"
 excerpt: "Quả nặng xoay trong đồng hồ automatic — bộ phận biến chuyển động cổ tay thành năng lượng lên cót."
 term_en: "Rotor / Oscillating weight"
 category: "bộ máy"

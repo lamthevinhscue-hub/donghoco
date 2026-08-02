@@ -1,8 +1,7 @@
 ---
 title: "IWC Mark XI — Đồng hồ phi công quân sự huyền thoại"
-custom_slug: "iwc-mark-xi"
 excerpt: "Đồng hồ quân sự cho RAF (1948) — chuẩn mực của pilot watch, nguồn gốc của mọi đồng hồ phi công IWC sau này."
-brand: "IWC"
+brand: "IWC Schaffhausen"
 year: 1948
 references: ["Mark XI", "Mark XII", "Mark XV", "Mark XVIII"]
 category: "pilot"

@@ -1,127 +1,140 @@
-# IMAGE-MANIFEST — Danh mục ảnh cần chuẩn bị
+# IMAGE-MANIFEST.md — Bảng tổng hợp ảnh toàn site
 
-> **Mục đích:** Tệp này liệt kê **toàn bộ ảnh** cần có cho website, kèm đường dẫn, kích thước, vị trí hiển thị.
-> Khi bạn (anh Vinh) tải ảnh về, đặt đúng tên file vào đúng thư mục → ảnh tự hiển thị.
-> Chưa có ảnh → website hiện placeholder gọn gàng (component `WatchImage`).
->
-> **Quy ước đặt tên:** chữ thường, không dấu, đuôi `.jpg` (ảnh) hoặc `.png` (logo nền trong).
-> **Kích thước khuyến nghị:** ngang tối thiểu 1200px, tỷ lệ 16:10 hoặc 4:3.
-> **Nén ảnh:** dùng https://tinypng.com trước khi upload (< 300KB/ảnh).
+**Cập nhật lần cuối:** 2026-08-02
+**Ảnh thật hiện có trong `/public/images/`:** 0 file (toàn bộ đang placeholder).
 
----
+Bảng liệt kê **mọi vị trí cần ảnh** trên website, kèm trạng thái render thực tế.
+Cột "Đã có chỗ hiển thị" rất quan trọng — nhiều vị trí frontmatter có sẵn nhưng **giao diện chưa render**, nên bỏ ảnh vào cũng không hiện (cần dựng giao diện trước).
 
-## 1. Ảnh thương hiệu (Logo + Hero)
-
-Đặt vào: `public/images/thuong-hieu/<slug>/`
-
-| Thương hiệu | Logo (`logo.png`) | Hero (`hero.jpg`) | Ghi chú |
-|-------------|-------------------|-------------------|---------|
-| A. Lange & Söhne | `a-lange-soehne/logo.png` | `a-lange-soehne/hero.jpg` | Logo PNG nền trong |
-| Audemars Piguet | `audemars-piguet/logo.png` | `audemars-piguet/hero.jpg` | |
-| Blancpain | `blancpain/logo.png` | `blancpain/hero.jpg` | |
-| Breguet | `breguet/logo.png` | `breguet/hero.jpg` | |
-| Cartier | `cartier/logo.png` | `cartier/hero.jpg` | |
-| F.P. Journe | `fp-journe/logo.png` | `fp-journe/hero.jpg` | |
-| Frédérique Constant | `frederique-constant/logo.png` | `frederique-constant/hero.jpg` | |
-| Glashütte Original | `glashuette-original/logo.png` | `glashuette-original/hero.jpg` | |
-| Grand Seiko | `grand-seiko/logo.png` | `grand-seiko/hero.jpg` | |
-| Greubel Forsey | `greubel-forsey/logo.png` | `greubel-forsey/hero.jpg` | |
-| Hamilton | `hamilton/logo.png` | `hamilton/hero.jpg` | |
-| IWC Schaffhausen | `iwc/logo.png` | `iwc/hero.jpg` | |
-| Jaeger-LeCoultre | `jaeger-lecoultre/logo.png` | `jaeger-lecoultre/hero.jpg` | |
-| Longines | `longines/logo.png` | `longines/hero.jpg` | |
-| Omega | `omega/logo.png` | `omega/hero.jpg` | |
-| Patek Philippe | `patek-philippe/logo.png` | `patek-philippe/hero.jpg` | |
-| Philippe Dufour | `philippe-dufour/logo.png` | `philippe-dufour/hero.jpg` | |
-| Rolex | `rolex/logo.png` | `rolex/hero.jpg` | |
-| Seiko | `seiko/logo.png` | `seiko/hero.jpg` | |
-| TAG Heuer | `tag-heuer/logo.png` | `tag-heuer/hero.jpg` | |
-| Tudor | `tudor/logo.png` | `tudor/hero.jpg` | |
-| Ulysse Nardin | `ulysse-nardin/logo.png` | `ulysse-nardin/hero.jpg` | |
-| Vacheron Constantin | `vacheron-constantin/logo.png` | `vacheron-constantin/hero.jpg` | |
-| Zenith | `zenith/logo.png` | `zenith/hero.jpg` | |
-
-**Tổng:** 24 logo + 24 hero = **48 ảnh**
+**Chú thích cột:**
+- **Đường dẫn file** — vị trí ảnh nên nằm trong `/public/images/...`
+- **Đối tượng** — thương hiệu/mẫu/mốc tương ứng
+- **Kích thước đề nghị** — tỷ lệ khung hình (dùng cho `cover` / `object-fit`)
+- **Trang hiển thị** — URL nơi ảnh sẽ xuất hiện
+- **Trạng thái ảnh** — `chưa có` (placeholder) / `đã có`
+- **Đã có chỗ hiển thị** — `CÓ` (giao diện render sẵn, chỉ cần điền đường dẫn vào frontmatter) / `CHƯA` (phải dựng giao diện trước)
 
 ---
 
-## 2. Ảnh mẫu iconic (Hero)
+## A. ẢNH ĐANG PLACEHOLDER + ĐÃ CÓ CHỖ HIỂN THỊ (chỉ cần bỏ ảnh vào)
 
-Đặt vào: `public/images/mau-iconic/<slug>/`
+| Đường dẫn file | Đối tượng | Kích thước | Trang hiển thị | Ảnh | Chỗ hiển thị |
+|---|---|---|---|---|---|
+| `/images/mau-iconic/cartier-tank.jpg` | Cartier Tank | 4/3 | `/mau-iconic/cartier-tank` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/fifty-fathoms.jpg` | Blancpain Fifty Fathoms | 4/3 | `/mau-iconic/fifty-fathoms` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/freak.jpg` | Ulysse Nardin Freak | 4/3 | `/mau-iconic/freak` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/grand-seiko-snowflake.jpg` | Grand Seiko Snowflake | 4/3 | `/mau-iconic/grand-seiko-snowflake` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/iwc-mark-xi.jpg` | IWC Mark XI | 4/3 | `/mau-iconic/iwc-mark-xi` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/lange-1.jpg` | A. Lange & Söhne LANGE 1 | 4/3 | `/mau-iconic/lange-1` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/monaco.jpg` | TAG Heuer Monaco | 4/3 | `/mau-iconic/monaco` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/omega-speedmaster.jpg` | Omega Speedmaster | 4/3 | `/mau-iconic/omega-speedmaster` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/patek-nautilus.jpg` | Patek Philippe Nautilus | 4/3 | `/mau-iconic/patek-nautilus` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/reverso.jpg` | Jaeger-LeCoultre Reverso | 4/3 | `/mau-iconic/reverso` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/rolex-submariner.jpg` | Rolex Submariner | 4/3 | `/mau-iconic/rolex-submariner` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/royal-oak.jpg` | Audemars Piguet Royal Oak | 4/3 | `/mau-iconic/royal-oak` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/seiko-62mas.jpg` | Seiko 62MAS | 4/3 | `/mau-iconic/seiko-62mas` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/tudor-black-bay.jpg` | Tudor Black Bay | 4/3 | `/mau-iconic/tudor-black-bay` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/vc-overseas.jpg` | Vacheron Constantin Overseas | 4/3 | `/mau-iconic/vc-overseas` | chưa có | ✅ CÓ |
+| `/images/mau-iconic/zenith-el-primero.jpg` | Zenith El Primero | 4/3 | `/mau-iconic/zenith-el-primero` | chưa có | ✅ CÓ |
+| `/images/timeline/peter-henlein.jpg` | Mốc ~1510 Peter Henlein | 4/3 | `/lich-su` | chưa có | ✅ CÓ |
+| `/images/timeline/huygens-hairspring.jpg` | Mốc 1657–1675 Huygens | 4/3 | `/lich-su` | chưa có | ✅ CÓ |
+| `/images/timeline/blancpain.jpg` | Mốc 1735 Blancpain | 4/3 | `/lich-su` | chưa có | ✅ CÓ |
+| `/images/timeline/vacheron.jpg` | Mốc 1755 Vacheron | 4/3 | `/lich-su` | chưa có | ✅ CÓ |
+| `/images/timeline/...` (28 mốc) | 28 mốc lịch sử | 4/3 | `/lich-su` | chưa có | ✅ CÓ |
+| `/images/huong-dan/chon-dong-ho-dau-tien.jpg` | HD Chọn đồng hồ đầu tiên | 16/10 | `/huong-dan/chon-dong-ho-dau-tien` | chưa có | ✅ CÓ |
+| `/images/huong-dan/len-day-dong-ho.jpg` | HD Lên dây | 16/10 | `/huong-dan/len-day-dong-ho` | chưa có | ✅ CÓ |
+| `/images/huong-dan/bao-duong-dong-ho.jpg` | HD Bảo dưỡng | 16/10 | `/huong-dan/bao-duong-dong-ho` | chưa có | ✅ CÓ |
+| `/images/huong-dan/do-sai-so.jpg` | HD Đo sai số | 16/10 | `/huong-dan/do-sai-so` | chưa có | ✅ CÓ |
+| `/images/co-che/bo-thoat.jpg` | Bộ thoát | 16/10 | `/co-che/bo-thoat` | chưa có | ✅ CÓ |
+| `/images/co-che/tru-cot.jpg` | Trữ cót | 16/10 | `/co-che/tru-cot` | chưa có | ✅ CÓ |
+| `/images/co-che/chong-nuoc.jpg` | Chống nước | 16/10 | `/co-che/chong-nuoc` | chưa có | ✅ CÓ |
+| `/images/co-che/chong-tu.jpg` | Chống từ | 16/10 | `/co-che/chong-tu` | chưa có | ✅ CÓ |
+| `/images/co-che/chuyen-dong-co.jpg` | Chuỗi truyền động | 16/10 | `/co-che/chuyen-dong-co` | chưa có | ✅ CÓ |
+| `/images/co-che/len-day-tu-dong.jpg` | Lên dây tự động | 16/10 | `/co-che/len-day-tu-dong` | chưa có | ✅ CÓ |
 
-| Mẫu iconic | Hero (`hero.jpg`) | Ảnh chi tiết (tùy chọn) |
-|------------|-------------------|--------------------------|
-| Cartier Tank | `cartier-tank/hero.jpg` | `detail-1.jpg` (mặt số gần) |
-| Fifty Fathoms | `fifty-fathoms/hero.jpg` | `detail-1.jpg` (bezel cong) |
-| Freak | `freak/hero.jpg` | `detail-1.jpg` (movement lộ) |
-| Grand Seiko Snowflake | `grand-seiko-snowflake/hero.jpg` | `detail-1.jpg` (mặt số texture) |
-| IWC Mark XI | `iwc-mark-xi/hero.jpg` | |
-| Lange 1 | `lange-1/hero.jpg` | `detail-1.jpg` (big date) |
-| Monaco | `monaco/hero.jpg` | `detail-1.jpg` (vỏ vuông) |
-| Omega Speedmaster | `omega-speedmaster/hero.jpg` | `detail-1.jpg` (3 mắt phụ) |
-| Patek Nautilus | `patek-nautilus/hero.jpg` | `detail-1.jpg` (mặt số vân) |
-| Reverso | `reverso/hero.jpg` | `detail-1.jpg` (mặt sau khắc) |
-| Rolex Submariner | `rolex-submariner/hero.jpg` | `detail-1.jpg` (bezel + kim Mercedes) |
-| Royal Oak | `royal-oak/hero.jpg` | `detail-1.jpg` (tapisserie mặt số) |
-| Seiko 62MAS | `seiko-62mas/hero.jpg` | |
-| Tudor Black Bay | `tudor-black-bay/hero.jpg` | `detail-1.jpg` (kim snowflake) |
-| VC Overseas | `vc-overseas/hero.jpg` | `detail-1.jpg` (bezel Maltese) |
-| Zenith El Primero | `zenith-el-primero/hero.jpg` | `detail-1.jpg` (3 màu mắt phụ) |
-
-**Tổng:** 16 hero + ~12 detail = **~28 ảnh**
-
----
-
-## 3. Ảnh Timeline lịch sử (Bước 1.1)
-
-Đặt vào: `public/images/timeline/`
-
-| Tên file | Nội dung ảnh cần tìm | Mốc lịch sử |
-|----------|----------------------|-------------|
-| `breguet-naples.jpg` | Breguet No. 2639 / Reine de Naples | 1810 — Đeo tay đầu tiên |
-| `cartier-santos.jpg` | Cartier Santos đời đầu | 1904 — Đeo tay nam đầu tiên |
-| `trench-watch.jpg` | Trench watch Thế chiến I | 1914–1918 |
-| `rolex-oyster-1926.jpg` | Rolex Oyster đời đầu | 1926 — Chống nước đầu tiên |
-| `jlc-reverso.jpg` | Jaeger-LeCoultre Reverso | 1931 — Mặt lật chơi polo |
-| `iwc-pilot-1936.jpg` | IWC Special Pilot's Watch | 1936 — Pilot watch |
-| `rolex-datejust.jpg` | Rolex Datejust | 1945 — Lịch ngày đầu tiên |
-| `fifty-fathoms.jpg` | Blancpain Fifty Fathoms đời đầu | 1953 — Diver hiện đại đầu tiên |
-| `rolex-submariner.jpg` | Rolex Submariner đời đầu | 1953–54 |
-| `rolex-gmt.jpg` | Rolex GMT-Master (bezel Pepsi) | 1954 — GMT cho phi công |
-| `omega-speedmaster.jpg` | Omega Speedmaster Professional | 1957 — Moonwatch |
-| `heuer-carrera.jpg` | Heuer Carrera 1963 | 1963 — Chronograph đua xe |
-| `zenith-el-primero.jpg` | Zenith El Primero A386 | 1969 — Chronograph tự động |
-| `seiko-astron.jpg` | Seiko Quartz Astron 1969 | 1969 — Khủng hoảng Quartz |
-| `ap-royal-oak.jpg` | AP Royal Oak "Jumbo" | 1972 — Thép sang trọng |
-| `patek-nautilus.jpg` | Patek Nautilus 3700/5711 | 1976 — Sport-luxury |
-| `swatch-1983.jpg` | Swatch thế hệ đầu 1983 | 1983 — Cứu ngành Thụy Sĩ |
-| `omega-coaxial.jpg` | Bộ máy Omega Co-Axial | 1999 — Bộ thoát mới |
-| `un-freak.jpg` | Ulysse Nardin Freak | 2001 — Kỷ nguyên silicon |
-| `silicon-hairspring.jpg` | Dây tóc silicon (macro) | 2013+ — Phổ cập silicon |
-
-**Tổng:** 20 ảnh (8 mốc còn lại dùng SVG/biểu tượng)
+*(Danh sách 28 mốc timeline đầy đủ: peter-henlein, huygens-hairspring, blancpain, vacheron, breguet-tourbillon, lever-escapement, mudge, breguet-kim, sotheby, permis, henlein-repetition, lange, waltham, wristlet-ww1, rolex-oyster, rolex-perpetual, rolex-datejust, blancpain-fifty-fathoms, rolex-explorer-sub, rolex-gmt, omega-speedmaster, heuer-carrera, monaco, quartz-crisis, ap-royal-oak, patek-nautilus, swatch, co-axial, silicon-freak, spring-drive — đặt tên tệp theo trường `slug` trong `timeline.json`.)*
 
 ---
 
-## TỔNG KẾT
+## B. ẢNH THƯƠNG HIỆU — ĐÃ CÓ CHỖ HIỂN THỊ (cần điền frontmatter)
 
-| Nhóm | Số ảnh |
-|------|--------|
-| Logo thương hiệu | 24 |
-| Hero thương hiệu | 24 |
-| Hero mẫu iconic | 16 |
-| Detail iconic (tùy chọn) | ~12 |
-| Timeline | 20 |
-| **Tổng** | **~96 ảnh** |
+Giao diện đã render sẵn cả logo (Card + BrandLayout) và hero (BrandLayout). Chỉ cần:
+1. Bỏ file ảnh vào đúng đường dẫn.
+2. Điền `logo:` và `cover_image:` trong frontmatter mỗi brand.
+
+| Đường dẫn file | Đối tượng | Kích thước | Trang hiển thị | Ảnh | Chỗ hiển thị |
+|---|---|---|---|---|---|
+| `/images/thuong-hieu/hero/a-lange-soehne.jpg` | A. Lange & Söhne hero | 16/9 | `/thuong-hieu/a-lange-soehne` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/audemars-piguet.jpg` | Audemars Piguet hero | 16/9 | `/thuong-hieu/audemars-piguet` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/blancpain.jpg` | Blancpain hero | 16/9 | `/thuong-hieu/blancpain` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/breguet.jpg` | Breguet hero | 16/9 | `/thuong-hieu/breguet` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/cartier.jpg` | Cartier hero | 16/9 | `/thuong-hieu/cartier` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/fp-journe.jpg` | F.P. Journe hero | 16/9 | `/thuong-hieu/fp-journe` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/frederique-constant.jpg` | Frédérique Constant hero | 16/9 | `/thuong-hieu/frederique-constant` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/glashuette-original.jpg` | Glashütte Original hero | 16/9 | `/thuong-hieu/glashuette-original` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/grand-seiko.jpg` | Grand Seiko hero | 16/9 | `/thuong-hieu/grand-seiko` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/greubel-forsey.jpg` | Greubel Forsey hero | 16/9 | `/thuong-hieu/greubel-forsey` | chưa có | ✅ CÓ |
+| `/images/thuong-hieu/hero/hamilton.jpg` | Hamilton hero | 16/9 | `/thuong-hieu/hamilton` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/iwc.jpg` | IWC Schaffhausen hero | 16/9 | `/thuong-hieu/iwc` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/jaeger-lecoultre.jpg` | Jaeger-LeCoultre hero | 16/9 | `/thuong-hieu/jaeger-lecoultre` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/longines.jpg` | Longines hero | 16/9 | `/thuong-hieu/longines` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/omega.jpg` | Omega hero | 16/9 | `/thuong-hieu/omega` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/patek-philippe.jpg` | Patek Philippe hero | 16/9 | `/thuong-hieu/patek-philippe` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/philippe-dufour.jpg` | Philippe Dufour hero | 16/9 | `/thuong-hieu/philippe-dufour` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/rolex.jpg` | Rolex hero | 16/9 | `/thuong-hieu/rolex` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/seiko.jpg` | Seiko hero | 16/9 | `/thuong-hieu/seiko` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/tag-heuer.jpg` | TAG Heuer hero | 16/9 | `/thuong-hieu/tag-heuer` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/tudor.jpg` | Tudor hero | 16/9 | `/thuong-hieu/tudor` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/ulysse-nardin.jpg` | Ulysse Nardin hero | 16/9 | `/thuong-hieu/ulysse-nardin` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/vacheron-constantin.jpg` | Vacheron Constantin hero | 16/9 | `/thuong-hieu/vacheron-constantin` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/hero/zenith.jpg` | Zenith hero | 16/9 | `/thuong-hieu/zenith` | chưa có | ✅ CÓ (BrandLayout hero) |
+| `/images/thuong-hieu/logos/a-lange-soehne.png` | A. Lange & Söhne logo | 1/1 | `/thuong-hieu` + `/` + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/audemars-piguet.png` | Audemars Piguet logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/blancpain.png` | Blancpain logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/breguet.png` | Breguet logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/cartier.png` | Cartier logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/fp-journe.png` | F.P. Journe logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/frederique-constant.png` | Frédérique Constant logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/glashuette-original.png` | Glashütte Original logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/grand-seiko.png` | Grand Seiko logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/greubel-forsey.png` | Greubel Forsey logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/hamilton.png` | Hamilton logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/iwc.png` | IWC Schaffhausen logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/jaeger-lecoultre.png` | Jaeger-LeCoultre logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/longines.png` | Longines logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/omega.png` | Omega logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/patek-philippe.png` | Patek Philippe logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/philippe-dufour.png` | Philippe Dufour logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/rolex.png` | Rolex logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/seiko.png` | Seiko logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/tag-heuer.png` | TAG Heuer logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/tudor.png` | Tudor logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/ulysse-nardin.png` | Ulysse Nardin logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/vacheron-constantin.png` | Vacheron Constantin logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
+| `/images/thuong-hieu/logos/zenith.png` | Zenith logo | 1/1 | /thuong-hieu + / + trang chi tiết | chưa có | ✅ CÓ (Card + BrandLayout) |
 
 ---
 
-## Checklist khi thêm ảnh
+## C. TÓM TẮT & ƯU TIÊN
 
-- [ ] Tôi có **quyền sử dụng** ảnh (từ Press hãng / tự chụp / CC / free).
-- [ ] Tôi đã **ghi nguồn** trong bài (nếu giấy phép yêu cầu).
-- [ ] Ảnh đã **nén** (< 300KB) qua tinypng.com.
-- [ ] Tên file: **chữ thường, không dấu, .jpg/.png**.
-- [ ] Đặt đúng **thư mục** theo bảng trên.
+**Tổng vị trí cần ảnh:** ~93 (31 nhóm A có chỗ render + 24 logo + 24 hero + các mốc timeline).
 
-> **Lưu ý bản quyền:** Logo là nhãn hiệu đã đăng ký — dùng để nhận diện khi giới thiệu thương hiệu (fair use). Ảnh sản phẩm từ trang hãng cần kiểm tra điều khoản Press/Media. Ảnh tự chụp = an toàn tuyệt đối.
+**Ưu tiên 1 — Bỏ ảnh là hiện ngay (nhóm A):**
+- 16 ảnh mẫu iconic (cover_image) → điền vào frontmatter `cover_image:` của từng bài.
+- 28 ảnh mốc timeline → bỏ vào `/public/images/timeline/<slug>.jpg` (WatchImage tự nhận).
+- 4 ảnh hướng dẫn + 6 ảnh cơ chế → điền `cover_image` trong frontmatter.
+
+**Ưu tiên 2 — Cần điền frontmatter (logo + hero thương hiệu):**
+- 24 logo → bỏ file vào `/public/images/thuong-hieu/logos/`, điền `logo:` trong frontmatter. Card (trang danh sách + trang chủ) và BrandLayout (trang chi tiết) đều đã render sẵn.
+- 24 ảnh hero → bỏ file vào `/public/images/thuong-hieu/hero/`, điền `cover_image:` trong frontmatter. BrandLayout đã render hero qua WatchImage (tự placeholder khi chưa có ảnh).
+
+---
+
+## D. NGUỒN ẢNH HỢP PHÁP
+
+- **Press/Media page** của hãng (Rolex.com/press, Omega.com, Patek.com/service/media) — cấp quyền cho báo chí.
+- **Tự chụp** đồng hồ thật (an toàn nhất, không lo bản quyền).
+- **CC-licensed** (Flickr Creative Commons, Wikimedia Commons).
+- **Free stock** (Unsplash, Pexels) — chất lượng đồng hồ cơ hạn chế.
+- **Không** auto-tải từ brand website bằng bot — vi phạm bản quyền.
+- **Logo** là trademark — chỉ dùng fair-use cho nhận diện (nhỏ, cạnh tên hãng).

@@ -1,14 +1,13 @@
 ---
 title: "Bezel"
-custom_slug: "bezel"
-excerpt: "Vành кольệp quanh mặt số — vừa trang trí, vừa có nhiều chức năng thực tế."
+excerpt: "Vành kim loại quanh mặt số — vừa trang trí, vừa có nhiều chức năng thực tế."
 term_en: "Bezel"
 category: "thiết kế"
 date: "2026-07-31"
 draft: false
 ---
 
-**Bezel** là **vành кольệp** bao quanh mặt số đồng hồ, nằm giữa mặt số và kính.
+**Bezel** là **vành kim loại** bao quanh mặt số đồng hồ, nằm giữa mặt số và kính.
 
 ## Các loại bezel phổ biến
 

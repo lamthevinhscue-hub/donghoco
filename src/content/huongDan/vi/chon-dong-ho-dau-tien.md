@@ -1,6 +1,5 @@
 ---
 title: "Chọn đồng hồ cơ đầu tiên — Hướng dẫn cho người mới"
-custom_slug: "chon-dong-ho-dau-tien"
 excerpt: "Bạn mới biết đến đồng hồ cơ và muốn mua chiếc đầu tiên? Đây là các câu hỏi cần trả lời trước khi xuống tiền."
 difficulty: "người mới"
 date: "2026-07-31"

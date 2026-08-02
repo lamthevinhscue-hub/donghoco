@@ -1,6 +1,5 @@
 ---
 title: "TAG Heuer Monaco — Chronograph vuông của Steve McQueen"
-custom_slug: "monaco"
 excerpt: "Mẫu chronograph vỏ vuông (1969) — một trong những chronograph tự động đầu tiên, bất hủ nhờ phim Le Mans với Steve McQueen."
 brand: "TAG Heuer"
 year: 1969

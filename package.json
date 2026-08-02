@@ -6,13 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/generate-glossary-terms.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.18",
-    "gsap": "^3.15.0"
+    "astro": "^4.16.18"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.4",

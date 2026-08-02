@@ -1,6 +1,5 @@
 ---
 title: "Trữ cót (Power Reserve) — Đồng hồ cơ chạy được bao lâu"
-custom_slug: "tru-cot"
 excerpt: "Khi đặt đồng hồ xuống, nó chạy được bao lâu? Hiểu dây cót, thùng cót, và vì sao 70 giờ là con số 'ma thuật'."
 category: "bổ trợ"
 difficulty: "thấp"

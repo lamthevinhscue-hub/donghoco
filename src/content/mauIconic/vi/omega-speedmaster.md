@@ -1,6 +1,5 @@
 ---
 title: "Omega Speedmaster — Chiếc đồng hồ của Mặt Trăng"
-custom_slug: "omega-speedmaster"
 excerpt: "Đồng hồ chuyên nghiệp duy nhất từng lên Mặt Trăng — và là biểu tượng của kỷ nguyên chinh phục không gian."
 brand: "Omega"
 year: 1957

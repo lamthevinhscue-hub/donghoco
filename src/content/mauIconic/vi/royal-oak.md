@@ -1,6 +1,5 @@
 ---
 title: "Audemars Piguet Royal Oak — Mẫu mở đầu kỷ nguyên thép sang trọng"
-custom_slug: "royal-oak"
 excerpt: "Đồng hồ thể thao bằng thép đầu tiên giá ngang vàng — đã bị chế giễu năm 1972, nay là biểu tượng."
 brand: "Audemars Piguet"
 year: 1972

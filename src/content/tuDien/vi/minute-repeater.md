@@ -1,6 +1,5 @@
 ---
 title: "Minute Repeater (Cơ chế điểm chuông)"
-custom_slug: "minute-repeater"
 excerpt: "Phức tạp điểm chuông báo giờ khi bấm — một trong những khó chế tạo nhất, từng là 'đèn pin' thời trước khi có điện."
 term_en: "Minute Repeater"
 category: "phức tạp cao cấp"

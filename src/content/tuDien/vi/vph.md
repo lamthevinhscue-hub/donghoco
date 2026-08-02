@@ -1,6 +1,5 @@
 ---
 title: "VPH (tần số dao động)"
-custom_slug: "vph"
 excerpt: "Số lần bánh lắc dao động mỗi giờ — quyết định độ mượt và độ chính xác của đồng hồ."
 term_en: "Vibrations per hour / Beat rate"
 category: "bộ máy"

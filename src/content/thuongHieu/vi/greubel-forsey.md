@@ -1,6 +1,5 @@
 ---
 title: "Greubel Forsey"
-custom_slug: "greubel-forsey"
 excerpt: "Indie mải mê tourbillon — đẩy giới hạn kỹ thuật với các hệ tourbillon đa trục, hoàn thiện phi thường."
 country: "Thụy Sĩ"
 tier: "haute horlogerie"
@@ -33,7 +32,7 @@ Mỗi chiếc Greubel Forsey là một **kỳ quan kỹ thuật**: tourbillon ng
 
 ## Calibre in-house tiêu biểu
 
-Toàn bộ movement tự chế tạo, mỗi calibre có thể mất hàng trăm giờ hoàn thiện. Hãng sản xuất chỉ vài trăm chiếc mỗi năm.
+Toàn bộ bộ máy tự chế tạo, mỗi calibre có thể mất hàng trăm giờ hoàn thiện. Hãng sản xuất chỉ vài trăm chiếc mỗi năm.
 
 ## Phân khúc giá
 

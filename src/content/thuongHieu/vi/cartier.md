@@ -1,6 +1,5 @@
 ---
 title: "Cartier"
-custom_slug: "cartier"
 excerpt: "Thương hiệu trang sức vương giả — người định nghĩa 'đồng hồ thanh lịch' với những mẫu huyền thoại như Tank và Santos."
 country: "Pháp"
 tier: "high-end luxury"

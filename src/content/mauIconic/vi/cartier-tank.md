@@ -1,6 +1,5 @@
 ---
 title: "Cartier Tank — Thanh lịch vượt thời gian"
-custom_slug: "cartier-tank"
 excerpt: "Mẫu chữ nhật lấy cảm hứng từ xe tăng WWI — đồng hồ thanh lịch được nhận diện nhiều nhất mọi thời đại."
 brand: "Cartier"
 year: 1917

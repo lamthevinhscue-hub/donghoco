@@ -1,6 +1,5 @@
 ---
 title: "Hamilton"
-custom_slug: "hamilton"
 excerpt: "Đồng hồ của Hollywood — gắn với di sản Mỹ và quân sự, nổi tiếng Khaki Field, Ventura, xuất hiện hơn 500 phim."
 country: "Mỹ / Thụy Sĩ"
 tier: "entry-level luxury"
@@ -15,12 +14,12 @@ draft: false
 
 Hamilton thành lập năm 1892 tại Lancaster, Pennsylvania (Mỹ). Hãng bắt đầu bằng đồng hồ bỏ túi, rồi trở thành **nhà cung cấp đồng hồ chính thức cho quân đội Mỹ** trong cả hai cuộc Thế chiến. Hamilton cũng nổi tiếng với vai trò trong **hơn 500 bộ phim** — từ *Blue Hawaii* (Elvis Presley) đến *Interstellar*, *Men in Black*, *2001: A Space Odyssey*.
 
-Năm 1974, Hamilton được SSIH (tiền thân của Swatch Group) mua lại, nay sản xuất movement Thụy Sĩ nhưng giữ **di sản và trụ sở Mỹ**.
+Năm 1974, Hamilton được SSIH (tiền thân của Swatch Group) mua lại, nay sản xuất bộ máy Thụy Sĩ nhưng giữ **di sản và trụ sở Mỹ**.
 
 ## Triết lý chế tác
 
 Hamilton kết hợp **di sản Mỹ với kỹ thuật Thụy Sĩ**:
-- **Giá trị tuyệt vời** — movement Thụy Sĩ (ETA) với giá cả phải chăng.
+- **Giá trị tuyệt vời** — bộ máy Thụy Sĩ (ETA) với giá cả phải chăng.
 - **Mạnh về "American spirit"** — field watch, phi công, điện ảnh.
 - **Đa dạng thiết kế** — từ quân sự đến retro đến futuristic.
 
@@ -35,7 +34,7 @@ Hamilton kết hợp **di sản Mỹ với kỹ thuật Thụy Sĩ**:
 
 ## Calibre in-house tiêu biểu
 
-Hamilton chủ yếu dùng calibre ETA (Swatch Group) — H-10 (automatic 80 giờ trữ cót), H-30, H-31. Một số dòng cao hơn có calibre chỉnh sửa riêng. Hãng không tự sản xuất movement nhưng chọn và tinh chỉnh kỹ.
+Hamilton chủ yếu dùng calibre ETA (Swatch Group) — H-10 (automatic 80 giờ trữ cót), H-30, H-31. Một số dòng cao hơn có calibre chỉnh sửa riêng. Hãng không tự sản xuất bộ máy nhưng chọn và tinh chỉnh kỹ.
 
 ## Phân khúc giá
 

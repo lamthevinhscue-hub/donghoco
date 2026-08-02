@@ -1,6 +1,5 @@
 ---
 title: "Patek Philippe"
-custom_slug: "patek-philippe"
 excerpt: "Đỉnh cao của haute horlogerie — 'không ai thực sự sở hữu một Patek Philippe, bạn chỉ giữ nó cho thế hệ sau'."
 country: "Thụy Sĩ"
 tier: "ultra luxury"

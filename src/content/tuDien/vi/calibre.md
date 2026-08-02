@@ -1,6 +1,5 @@
 ---
 title: "Calibre"
-custom_slug: "calibre"
 excerpt: "Cách gọi tên của một bộ máy đồng hồ cụ thể."
 term_en: "Caliber / Movement"
 category: "bộ máy"

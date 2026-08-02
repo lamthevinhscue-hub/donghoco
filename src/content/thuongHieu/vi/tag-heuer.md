@@ -1,6 +1,5 @@
 ---
 title: "TAG Heuer"
-custom_slug: "tag-heuer"
 excerpt: "Đồng hồ thể thao và đua xe — cha đẻ Monaco (chronograph vuông của Steve McQueen) và Carrera, gắn liền với Formula 1."
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
@@ -12,7 +11,7 @@ draft: false
 lineHistory:
   - year: 1860
     title: "Edouard Heuer mở xưởng tại St-Imier"
-    detail: "Người thợ 20 tuổi mở xưởng đồng hồ tại St-Imier — khởi đầu hơn 165 năm gắn liền với đo thời gian thể thao."
+    detail: "Người thợ 20 tuổi mở xưởng đồng hồ tại St-Imier — khởi đầu một di sản gắn liền với đo thời gian thể thao."
   - year: 1887
     title: "Bằng sáng chế bánh răng dao động (oscillating pinion)"
     detail: "Chi tiết then chốt của chronograph — vẫn được cả ngành dùng đến nay, hơn 130 năm sau."

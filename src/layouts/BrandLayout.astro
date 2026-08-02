@@ -15,7 +15,7 @@
 import BaseLayout from './BaseLayout.astro';
 import MiniTimeline from '../components/MiniTimeline.astro';
 import WatchImage from '../components/WatchImage.astro';
-import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, t, localizedPath, getTierLabel } from '../i18n/ui';
 
 interface IconicModel {
   title: string;
@@ -30,6 +30,7 @@ interface Props {
   title: string;
   excerpt?: string;
   meta?: string;
+  cover_image?: string;
   data: any; // Toàn bộ frontmatter thương hiệu
   iconicModels?: IconicModel[]; // Khối 5: mẫu iconic liên quan
 }
@@ -37,18 +38,12 @@ interface Props {
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 const { title, excerpt, meta, data, iconicModels = [] } = Astro.props;
+// Hero ảnh + logo: ưu tiên prop cover_image, fallback data.cover_image / data.logo
+const heroImage = Astro.props.cover_image ?? data.cover_image;
+const logo = data.logo;
 
-// Nhãn dịch phân khúc
-const tierLabels: Record<string, string> = {
-  'haute horlogerie': 'Haute Horlogerie (đỉnh cao chế tác)',
-  'ultra luxury': 'Ultra Luxury (siêu sang)',
-  'high-end luxury': 'High-End Luxury (sang trọng cao cấp)',
-  'mid-range luxury': 'Mid-Range Luxury (sang trọng tầm trung)',
-  'entry-level luxury': 'Entry-Level Luxury (nhập môn sang trọng)',
-  consumer: 'Consumer (phổ thông)',
-  microbrand: 'Microbrand (indie nhỏ)',
-};
-const tierLabel = tierLabels[data.tier] || data.tier;
+// Nhãn dịch phân khúc — dùng chung getTierLabel để đồng bộ với trang danh sách
+const tierLabel = getTierLabel(data.tier, lang);
 ---
 
 <BaseLayout title={title} description={excerpt}>
@@ -60,10 +55,24 @@ const tierLabel = tierLabels[data.tier] || data.tier;
 
     <!-- ====== HEADER ====== -->
     <header class="mb-10">
-      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl">{title}</h1>
-      {meta && (
-        <p class="mt-3 text-sm uppercase tracking-wider text-ink-soft/70">{meta}</p>
+      <!-- Ảnh hero (nếu có cover_image) -->
+      {heroImage && (
+        <figure class="mb-6">
+          <WatchImage src={heroImage} alt={title} ratio="16/9" eager />
+        </figure>
       )}
+
+      <div class="flex items-center gap-4">
+        {logo && (
+          <img src={logo} alt={`${title} logo`} loading="eager" class="h-14 w-14 shrink-0 rounded-lg border border-cream-dark bg-white object-contain p-1.5" />
+        )}
+        <div class="min-w-0">
+          <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl">{title}</h1>
+          {meta && (
+            <p class="mt-2 text-sm uppercase tracking-wider text-ink-soft/70">{meta}</p>
+          )}
+        </div>
+      </div>
       {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft">{excerpt}</p>}
     </header>
 

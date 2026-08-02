@@ -1,6 +1,5 @@
 ---
 title: "Omega"
-custom_slug: "omega"
 excerpt: "Đồng hồ của Mặt Trăng và James Bond — thương hiệu Thụy Sĩ gắn liền với những cột mốc lịch sử."
 country: "Thụy Sĩ"
 tier: "high-end luxury"
@@ -86,7 +85,7 @@ collectorNote: "Chọn Omega khi bạn trân trọng **di sản Mặt Trăng** (
 
 ## Tổng quan
 
-Omega được thành lập năm 1848 tại La Chaux-de-Fonds (Thụy Sĩ) bởi Louis Brandt. Trải qua hơn 175 năm, hãng đã gắn tên mình với những sự kiện lịch sử vĩ đại: từ việc là đồng hồ chính thức của Olympic, đến đồng hồ duy nhất từng chạm tới Mặt Trăng.
+Omega được thành lập năm 1848 tại La Chaux-de-Fonds (Thụy Sĩ) bởi Louis Brandt. Trải qua một lịch sử lâu dài, hãng đã gắn tên mình với những sự kiện lịch sử vĩ đại: từ việc là đồng hồ chính thức của Olympic, đến đồng hồ duy nhất từng chạm tới Mặt Trăng.
 
 ## Triết lý chế tác
 

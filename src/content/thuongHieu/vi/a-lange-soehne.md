@@ -1,6 +1,5 @@
 ---
 title: "A. Lange & Söhne"
-custom_slug: "a-lange-sohne"
 excerpt: "Vua đồng hồ Đức — chế tác thủ công đỉnh cao, máy tay cơ đẹp bậc nhất thế giới, trở mình kỳ diệu sau Bức màn sắt."
 country: "Đức"
 tier: "ultra luxury"
@@ -28,7 +27,7 @@ lineHistory:
     detail: "Sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng Liên Xô. Công ty bị quốc hữu hóa thành VEB Glashütter Uhrenbetriebe — 'A. Lange & Söhne' biến mất hoàn toàn khỏi thị trường tư nhân 45 năm."
   - year: 1990
     title: "Walter Lange tái lập hãng sau Bức màn sắt sụp"
-    detail: "Ngày 9/11/1989 Bức tường Berlin sụp. Walter Lange (66 tuổi, cháu nội Ferdinand) quay về Glashütte, tái lập hãng 7/12/1990 — đúng ngày компании ông nội ra đời 145 năm trước. Cùng Günter Blümlein (IWC CEO) khởi nghiệp lại."
+    detail: "Ngày 9/11/1989 Bức tường Berlin sụp. Walter Lange (66 tuổi, cháu nội Ferdinand) quay về Glashütte, tái lập hãng 7/12/1990 — đúng ngày hãng của ông nội ra đời 145 năm trước. Cùng Günter Blümlein (IWC CEO) khởi nghiệp lại."
   - year: 1994
     title: "Bộ sưu tập đầu tiên — LANGE 1, Saxonia, Arkade, Tourbillon Pour le Mérite"
     detail: "Chỉ 4 năm sau tái lập, Lange ra mắt 4 mẫu đầu tiên. LANGE 1 với mặt số lệch (asymmetric) lập tức làm chấn động giới đồng hồ — 'chiếc đồng hồ Đức hoàn hảo'."
@@ -102,7 +101,7 @@ collectorNote: "Chọn A. Lange & Söhne khi bạn trân trọng **chế tác Đ
 
 ## Tổng quan
 
-A. Lange & Söhne được Ferdinand Adolph Lange thành lập năm 1845 tại Glashütte — một ngôi làng nhỏ ở vùng Erzgebirge, đông Đức. Hãng nhanh chóng trở thành biểu tượng của ngành đồng hồ Đức với triết lý "không thua kém ai".
+A. Lange & Söhne được Ferdinand Adolph Lange thành lập năm 1845 tại Glashütte — một ngôi làng nhỏ ở vùng núi Erzgebirge thuộc Sachsen, miền đông nước Đức. Hãng nhanh chóng trở thành biểu tượng của ngành đồng hồ Đức với triết lý "không thua kém ai".
 
 Nhưng sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng của Liên Xô. Công ty bị quốc hữu hóa, sản xuất đình trệ suốt 45 năm. Phải đến **sau khi bức tường Berlin sụp đổ (1989)**, Walter Lange — cháu nội người sáng lập — mới tái lập hãng năm 1990. Chỉ 4 năm sau (1994), hãng ra mắt bộ sưu tập đầu tiên và lập tức làm chấn động giới đồng hồ thế giới.
 

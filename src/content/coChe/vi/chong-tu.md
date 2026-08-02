@@ -1,6 +1,5 @@
 ---
 title: "Chống từ (Anti-Magnetic) — Kẻ thù giấu mặt của đồng hồ cơ"
-custom_slug: "chong-tu"
 excerpt: "Điện thoại, loa, iPad làm đồng hồ chạy sai? Hiểu từ trường ảnh hưởng đồng hồ cơ thế nào, và hai cách nhà sản xuất chống lại nó."
 category: "bổ trợ"
 difficulty: "trung bình"

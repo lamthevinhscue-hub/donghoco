@@ -1,6 +1,5 @@
 ---
 title: "Seiko"
-custom_slug: "seiko"
 excerpt: "Cơn địa chấn từ Nhật Bản — chứng minh rằng đồng hồ cơ chất lượng không chỉ đến từ Thụy Sĩ."
 country: "Nhật Bản"
 tier: "entry-level luxury"

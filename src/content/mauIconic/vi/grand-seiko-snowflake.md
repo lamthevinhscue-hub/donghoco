@@ -1,6 +1,5 @@
 ---
 title: "Grand Seiko Snowflake — Mặt số mùa đông Nhật Bản"
-custom_slug: "grand-seiko-snowflake"
 excerpt: "Mặt số trắng như tuyết rơi trên núi — đại diện xuất sắc nhất cho nghệ thuật 'thiên nhiên Nhật' của Grand Seiko."
 brand: "Grand Seiko"
 year: 2005

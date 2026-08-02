@@ -1,6 +1,5 @@
 ---
 title: "Rolex Submariner — Huyền thoại lặn sâu"
-custom_slug: "rolex-submariner"
 excerpt: "Mẫu đồng hồ lặn đã định hình cả một thể loại — và trở thành biểu tượng vượt ra khỏi giới hạn dưới nước."
 brand: "Rolex"
 year: 1953

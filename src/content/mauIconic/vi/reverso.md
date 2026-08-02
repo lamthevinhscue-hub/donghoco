@@ -1,6 +1,5 @@
 ---
 title: "Jaeger-LeCoultre Reverso — Đồng hồ có thể lật mặt"
-custom_slug: "reverso"
 excerpt: "Mẫu Art Deco được sinh ra để bảo vệ mặt số khi chơi polo — và trở thành biểu tượng của sự linh hoạt."
 brand: "Jaeger-LeCoultre"
 year: 1931

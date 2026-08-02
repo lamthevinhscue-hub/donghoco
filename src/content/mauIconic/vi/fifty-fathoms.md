@@ -1,6 +1,5 @@
 ---
 title: "Blancpain Fifty Fathoms — Đồng hồ lặn hiện đại đầu tiên"
-custom_slug: "fifty-fathoms"
 excerpt: "Ra đời 1953 — trước cả Rolex Submariner. Định nghĩa chuẩn mực đồng hồ lặn, được lực lượng Navy SEAL Pháp và Jacques Cousteau sử dụng."
 brand: "Blancpain"
 year: 1953

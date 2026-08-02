@@ -1,6 +1,5 @@
 ---
 title: "Power Reserve (Trữ cót)"
-custom_slug: "power-reserve"
 excerpt: "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, thường 38–80 giờ."
 term_en: "Power Reserve / Reserve de marche"
 category: "bộ máy"

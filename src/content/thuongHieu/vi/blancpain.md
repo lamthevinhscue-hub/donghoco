@@ -1,6 +1,5 @@
 ---
 title: "Blancpain"
-custom_slug: "blancpain"
 excerpt: "Thương hiệu đồng hồ lâu đời nhất thế giới (1735) — 'vương miện' của Swatch Group, cha đẻ Fifty Fathoms, đồng hồ lặn hiện đại đầu tiên."
 country: "Thụy Sĩ"
 tier: "high-end luxury"
@@ -62,8 +61,8 @@ segmentComparison:
     value_retention: "Tốt — Breguet thuộc 'Holy Trinity' lịch sử, giữ giá vững do danh tiếng phát minh."
     philosophy: "Đỉnh cao chế tác cổ điển — tôn vinh di sản Breguet bằng kỹ thuật tinh xảo."
   - brand: "Glashütte Original"
-    slug: "glashutte-original"
-    strength: "Đại diện xuất sắc Đông Đức — bản đĩa 3/4 (three-quarter plate) đặc trưng, những mặt lộ máy đẹp bậc nhất thế giới."
+    slug: "glashuette-original"
+    strength: "Đại diện xuất sắc của chế tác Đức vùng Glashütte — bản đĩa 3/4 (three-quarter plate) đặc trưng, những mặt lộ máy đẹp bậc nhất thế giới."
     movement: "Calibre 36 (Swing System, in-house escapement silicon), 90 — chế tác Đức cực kỳ tỉ mỉ, lộ máy là nghệ thuật."
     value_retention: "Tốt — Glashütte Original hiếm và có tính nhận diện mạnh, giá trị giữ ổn định."
     philosophy: "Deutsche Präzision (độ chính xác Đức) — kết hợp thẩm mỹ East German với chế tác hiện đại."

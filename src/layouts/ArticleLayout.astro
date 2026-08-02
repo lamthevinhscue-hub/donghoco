@@ -7,6 +7,7 @@
 // =============================================================================
 
 import BaseLayout from './BaseLayout.astro';
+import WatchImage from '../components/WatchImage.astro';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 
 interface Props {
@@ -52,9 +53,9 @@ const formattedDate = date
     </header>
 
     {cover_image && (
-      <figure class="mb-10 overflow-hidden rounded-lg">
-        <img src={cover_image} alt={title} class="w-full" loading="eager" />
-      </figure>
+      <div class="mb-10">
+        <WatchImage src={cover_image} alt={title} ratio="16/9" eager />
+      </div>
     )}
 
     <!-- Nội dung Markdown được chèn vào đây -->

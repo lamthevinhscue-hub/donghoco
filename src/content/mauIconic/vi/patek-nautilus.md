@@ -1,6 +1,5 @@
 ---
 title: "Patek Philippe Nautilus — Thể thao sang trọng nguyên bản"
-custom_slug: "patek-nautilus"
 excerpt: "Mẫu thiết kế bởi Gérald Genta đã định nghĩa cả phân khúc 'thể thao sang trọng' — và trở thành giấc mơ của giới sưu tầm."
 brand: "Patek Philippe"
 year: 1976

@@ -6,119 +6,109 @@ country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1860
 parent_company: "LVMH"
-signature_calibres: ["Heuer 02", "02T", "Calibre 5"]
+signature_calibres: ["Heuer 02", "1887", "11"]
 date: "2026-08-01"
 draft: false
-# --- Bước 2.1: 5 khối dữ liệu ---
 lineHistory:
   - year: 1860
-    title: "Edouard Heuer lập xưởng tại St-Imier"
-    detail: "Người thợ 20 tuổi mở xưởng đồng hồ tại St-Imier, Thụy Sĩ — khởi đầu thương hiệu Heuer (chưa có 'TAG')."
+    title: "Edouard Heuer mở xưởng tại St-Imier"
+    detail: "Người thợ 20 tuổi mở xưởng đồng hồ tại St-Imier — khởi đầu hơn 165 năm gắn liền với đo thời gian thể thao."
   - year: 1887
-    title: "Phát minh bộ dao động bánh răng cột (oscillating pinion)"
-    detail: "Một trong những phát minh quan trọng nhất lịch sử chronograph — đơn giản hóa cơ chế Start/Stop, dùng đến tận nay trong hầu hết chronograph."
-  - year: 1911
-    title: "Time of Trip — dashboard timer đầu tiên"
-    detail: "Đồng hồ đo thời gian gắn trên xe hơi/máy bay — khai mở mối liên kết suốt đời của hãng với đua xe."
+    title: "Bằng sáng chế bánh răng dao động (oscillating pinion)"
+    detail: "Chi tiết then chốt của chronograph — vẫn được cả ngành dùng đến nay, hơn 130 năm sau."
   - year: 1916
-    title: "Mikrograph — chronograph chính xác 1/100 giây"
-    detail: "Chronograph đầu tiên đo được 1/100 giây — đột phá kỹ thuật, trở thành official timekeeper Olympic 1920-1924."
+    title: "Mikrograph — máy bấm giờ đầu tiên chính xác 1/100 giây"
+    detail: "Đưa Heuer thành chuẩn đo giờ thể thao; mở đường làm hãng đo giờ chính thức Thế vận hội thập niên 1920."
+  - year: 1962
+    title: "Autavia — chronograph đeo tay vành xoay đầu tiên của hãng"
+    detail: "Tên ghép AUTomobile + AVIAtion, đúng ADN tốc độ."
   - year: 1963
-    title: "Carrera ra đời — tên gọi từ đua Carrera Panamericana"
-    detail: "Jack Heuer đặt tên dòng chronograph theo cuộc đua đường trường Mexiсo đầy hiểm nguy — dòng kinh điển thanh lịch-thể thao ra đời."
+    title: "Jack Heuer tạo ra Carrera"
+    detail: "Lấy cảm hứng từ giải đua Carrera Panamericana — chronograph đua xe thuần khiết, mặt số tối giản dễ đọc khi lái."
   - year: 1969
-    title: "Monaco + Chronomatic — chronograph tự động đầu tiên"
-    detail: "Monaco (vỏ vuông) cùng Calibre 11 — một trong 3 chronograph tự động về đích cùng năm 1969 (với Zenith El Primero, Seiko 6139)."
+    title: "Monaco + Calibre 11"
+    detail: "Đồng phát triển với Breitling, Hamilton-Buren, Dubois-Dépraz — một trong những chronograph tự động đầu tiên thế giới; vỏ vuông chống nước đầu tiên."
   - year: 1971
     title: "Steve McQueen đeo Monaco trong phim Le Mans"
-    detail: "Vai diễn huyền thoại khiến Monaco trở thành biểu tượng pop culture — chiếc đồng hồ vuông gắn liền với tên tuổi McQueen vĩnh viễn."
+    detail: "Khoảnh khắc điện ảnh biến Monaco thành bất tử."
   - year: 1985
-    title: "TAG Group mua Heuer → 'TAG Heuer'"
-    detail: "Techniques d'Avant Garde (TAG) thâu tóm hãng, đổi tên thành TAG Heuer. 1999 LVMH mua lại toàn bộ."
+    title: "Techniques d'Avant Garde mua lại Heuer → TAG Heuer"
+    detail: "Bước ngoặt thương hiệu sau Khủng hoảng Quartz."
+  - year: 1986
+    title: "Ra mắt dòng Formula 1"
+    detail: "Đồng hồ nhập môn gắn nhận diện đua xe, thành công thương mại lớn."
+  - year: 1999
+    title: "Gia nhập LVMH"
+    detail: "Nguồn lực của tập đoàn xa xỉ lớn nhất thế giới."
+  - year: 2010
+    title: "Calibre 1887 — chronograph in-house"
+    detail: "Bước đầu tự chủ bộ máy."
   - year: 2015
-    title: "Monaco V4 Tourbillon + Connected Watch"
-    detail: "Đột phá kép: tourbillon dẫn động dây thắt (belt-driven) + smartwatch cao cấp đầu tiên (Connected) — định hình chiến lược 'accessible innovation'."
-  - year: 2016
-    title: "Heuer 02 — caliber chronograph in-house trở lại"
-    detail: "Sau thập niên dùng ETA/Sellita, TAG Heuer ra mắt Heuer 02 tự làm (80 giờ trữ cót) — quay lại chế tác nội bộ với giá hợp lý."
+    title: "TAG Heuer Connected"
+    detail: "Thương hiệu Thụy Sĩ lớn đầu tiên nghiêm túc làm smartwatch."
+  - year: 2017
+    title: "Calibre Heuer 02 (trữ cót 80 giờ) + hồi sinh Autavia"
+    detail: "Nền tảng bộ máy in-house hiện đại của hãng."
 collections:
   - name: "Carrera"
     year: 1963
-    identity: "Chronograph-thể thao thanh lịch — vỏ tròn, mặt số sạch, caliber Heuer 02 (80h). Đa dụng nhất trong danh mục, vừa đua xe vừa diện văn phòng."
-    positioning: "Dòng cốt lõi — bán chạy nhất, đại diện cho tinh thần 'đua xe thanh lịch' của hãng."
-    iconic_ref: "Carrera Heuer 02 / Carrera Skipper"
+    identity: "Chronograph đua xe, mặt số tối giản, vành tachymeter; bản 'Glassbox' kính cong gợi nhớ bản gốc."
+    positioning: "Dòng biểu tượng số 1, linh hồn thương hiệu."
+    iconic_ref: "Carrera Chronograph Glassbox"
   - name: "Monaco"
     year: 1969
-    identity: "Chronograph VUÔNG đặc trưng — vỏ thép 39mm vuông, caliber 11/Heuer 02, mặt số xanh dương nổi bật. Biểu tượng Steve McQueen."
-    positioning: "Dòng biểu tượng — cao cấp và nổi tiếng nhất, định danh thương hiệu, ít đa dạng mẫu nhưng tính nhận diện tuyệt đối."
-    iconic_ref: "Monaco Calibre 11 (McQueen edition)"
+    identity: "Vỏ vuông, núm bên trái ở bản di sản, mặt xanh sọc cam."
+    positioning: "Biểu tượng văn hóa — chiếc chronograph vuông của Steve McQueen."
+    iconic_ref: "Monaco Calibre Heuer 02"
   - name: "Aquaracer"
-    year: 1982
-    identity: "Đồng hồ lặn thể thao — chống nước 300m-500m, vành bezel 12 cạnh nhám đặc trưng, caliber Calibre 5/Heuer 02."
-    positioning: "Dòng tool-watch — cạnh tranh với Tudor Pelagos, Omega Seamaster ở phân khúc lặn tầm trung."
-    iconic_ref: "Aquaracer Professional 300/1000"
+    year: 2004
+    identity: "Đồng hồ lặn 200–300m, vành 12 cạnh (kế thừa dòng '2000' ra đời 1982)."
+    positioning: "Dòng thể thao dưới nước chủ lực."
+    iconic_ref: "Aquaracer Professional 300"
   - name: "Formula 1"
     year: 1986
-    identity: "Dòng nhập môn — vỏ thạch anh/automatic giá cả hợp lý, lấy cảm hứng F1, vành bezel nhám thể thao."
-    positioning: "Dòng gateway — thu hút người trẻ, điểm vào thương hiệu rẻ nhất (~1.500 USD)."
-    iconic_ref: "Formula 1 Red Bull Racing"
+    identity: "Trẻ trung, màu sắc đua xe, giá nhập môn."
+    positioning: "Cửa ngõ vào thương hiệu."
+    iconic_ref: "Formula 1 Chronograph"
   - name: "Autavia"
-    year: 2017
-    identity: "Dòng kế thừa dashboard timer cổ điển — vỏ tròn 42mm, GMT/chronograph, phong cách retro-thể thao."
-    positioning: "Dòng di sản — đánh vào nostalgia, khách hàng yêu Heuer cổ điển."
-    iconic_ref: "Autavia Isograph / Jo Siffert"
+    year: 1962
+    identity: "Chronograph/3 kim phong cách phi công-đua xe cổ điển (hồi sinh 2017)."
+    positioning: "Dòng di sản cho người chơi vintage."
+    iconic_ref: "Autavia 60th Anniversary"
+  - name: "Connected"
+    year: 2015
+    identity: "Smartwatch Wear OS vỏ chuẩn đồng hồ Thụy Sĩ."
+    positioning: "Cánh cửa công nghệ."
+    iconic_ref: "TAG Heuer Connected"
 segmentComparison:
-  - brand: "Tudor"
-    slug: "tudor"
-    strength: "Di sản Rolex — 'Rolex cho người không mua được Rolex'. Chế tác vững, chất lượng/build gần anh em Rolex."
-    movement: "Calibre MT5602 (in-house, COSC, 70h) — bộ máy tự làm chất lượng cao với chứng nhận chronometer."
-    value_retention: "Rất tốt — Tudor đang lên mạnh, Pelagos/Black Bay giữ giá tốt nhờ danh tiếng Rolex."
-    philosophy: "Built to last — công cụ bền bỉ, không trang trí thừa, giá trị thực."
+  - brand: "Breitling"
+    strength: "Chronograph hàng không; nhận diện tool-watch đậm."
+    movement: "B01 in-house, 70 giờ trữ cót."
+    value_retention: "Trung bình khá."
+    philosophy: "Công cụ chuyên nghiệp cho phi công."
   - brand: "Zenith"
-    slug: "zenith"
-    strength: "El Primero — chronograph tự động huyền thoại 1969, 36.000 vph cao nhất thị trường lịch sử. Di sản kỹ thuật sâu."
-    movement: "El Primero 3600 (in-house, 36.000 vph, 60h) — bộ máy diễn ra nhanh mượt, kim giây trượt đều 10 lần/giây."
-    value_retention: "Tốt — El Primero là tượng đài, Chronomaster giữ giá vững nhờ danh tiếng kỹ thuật."
-    philosophy: "Tôn vinh El Primero — di sản 1969 vẫn sản xuất đến nay, ít đổi mới bên ngoài."
-  - brand: "Longines"
-    slug: "longines"
-    strength: "Di sản 1832 — 200 năm lịch sử, hồ sơ di sản đồ sộ, reissue (Heritage) xuất sắc với giá hợp lý."
-    movement: "Calibre L888 (ETA-based độc quyền, 72h) — dùng bộ máy ETA tinh chỉnh, ít in-house."
-    value_retention: "Trung bình — Longines phổ biến nhưng sản lượng lớn, giữ giá yếu hơn Tudor/Zenith."
-    philosophy: "Elegance — thanh lịch cổ điển, tập trung Heritage reissue hơn thể thao."
-collectorNote: "Chọn TAG Heuer khi bạn đam mê **đua xe và thể thao**, yêu **Monaco vỏ vuông** biểu tượng hoặc **Carrera đa dụng**, và muốn một thương hiệu có danh tiếng pop culture (Steve McQueen, F1) ở mức giá tiếp cận được (~2.000-5.000 USD). TAG Heuer là sự lựa chọn 'accessible' — không ngạo nghễ như Rolex, không hàn lâm như Zenith, mà trẻ trung năng động. Nếu ưu tiên **chế tác in-house + chứng nhận chronometer**, chọn Tudor. Nếu yêu **di sản El Primero 36.000 vph huyền thoại**, chọn Zenith. Nếu muốn **thanh lịch cổ điển reissue với giá tốt nhất**, chọn Longines. TAG Heuer hợp với người trẻ, người làm việc trong ngành sáng tạo/đua xe, và người muốn một chiếc chronograph 'cool' không cần chi hàng chục nghìn USD."
+    strength: "Bậc thầy tần số cao — El Primero 5Hz từ 1969 sản xuất liên tục đến nay."
+    movement: "El Primero 3600 (1/10 giây), 60 giờ."
+    value_retention: "Trung bình — bị đánh giá thấp hơn giá trị kỹ thuật thực."
+    philosophy: "Độ chính xác tần số cao thuần túy."
+  - brand: "Omega"
+    strength: "Công nghệ bộ thoát Co-Axial + chuẩn Master Chronometer chống từ >15.000 gauss."
+    movement: "Co-Axial Master Chronometer (METAS)."
+    value_retention: "Khá; Speedmaster giữ giá tốt nhất nhóm."
+    philosophy: "Chinh phục giới hạn (Mặt Trăng, đại dương) bằng công nghệ."
+collectorNote: "Chọn TAG Heuer khi bạn yêu văn hóa đua xe và muốn một chronograph Thụy Sĩ danh tiếng ở mức giá dễ tiếp cận nhất trong nhóm — đặc biệt Carrera và Monaco là hai thiết kế đã vượt khỏi phạm trù đồng hồ để thành biểu tượng văn hóa. Nếu ưu tiên bộ máy chronograph huyền thoại, Zenith El Primero là lựa chọn 'dân kỹ thuật'. Nếu là dân hàng không, Breitling. Nếu sẵn sàng chi thêm cho công nghệ chống từ và di sản không gian, Omega. Điểm cần cân nhắc thẳng thắn: khả năng giữ giá của TAG Heuer ở các mẫu phổ thông không cao — hãy mua vì thích, không phải để đầu tư."
 ---
 
 ## Tổng quan
 
-TAG Heuer thành lập năm **1860** tại St-Imier (Thụy Sĩ) bởi Edouard Heuer. Tên "TAG" được thêm năm 1985 khi **TAG Group** (Techniques d'Avant Garde) mua hãng; năm 1999 LVMH thâu tóm hoàn toàn.
-
-Hãng định vị mình là **"đồng hồ của thể thao và đo lường thời gian"** — từng là official timekeeper của Olympic, Formula 1, và gắn liền với **đua xe** suốt hơn 150 năm.
+TAG Heuer là cái tên gắn chặt nhất với **đo thời gian thể thao và đua xe** trong lịch sử đồng hồ Thụy Sĩ. Chữ "TAG" xuất hiện năm 1985 khi tập đoàn Techniques d'Avant Garde mua lại Heuer; từ 1999 hãng thuộc LVMH. Hai biểu tượng Carrera (1963) và Monaco (1969) đều sinh ra từ đường đua.
 
 ## Triết lý chế tác
 
-- **"Don't crack under pressure"** — slogan chính thức, nhấn mạnh độ bền và chính xác dưới áp lực.
-- **Thể thao + chính xác** — đo thời gian với độ phân giải cao (1/10, 1/100 giây).
-- **Đổi mới accessible** — tiên phong với chronograph giá hợp lý, đồng hồ liên kết đua xe.
-- TAG Heuer tự làm một số calibre cao cấp nhưng cũng dùng calibre ngoài (Seiko, ETA/Sellita) cho các dòng thấp hơn.
-
-## Dòng sản phẩm chủ lực
-
-- **Carrera** (1963) — line kinh điển, đặt theo đua xe Carrera Panamericana. Đa dụng, thanh lịch.
-- **Monaco** (1969) — chronograph **vỏ vuông**, nổi tiếng với phim *Le Mans* (Steve McQueen, 1971). Xem chi tiết tại [bài Monaco](/mau-iconic/monaco).
-- **Aquaracer** — đồng hồ lặn, thể thao nước.
-- **Formula 1** — dòng nhập môn, lấy cảm hứng đua F1.
-- **Autavia** — line kế thừa dashboard timer cổ điển.
-- **Connected** — đồng hồ thông minh (smartwatch) cao cấp.
-
-## Calibre in-house tiêu biểu
-
-- **Calibre Heuer 02** — chronograph tự làm, 80 giờ trữ cót, dùng cho Carrera và Monaco.
-- **Calibre 02T** — tourbillon chronograph, một trong những tourbillon **giá thấp nhất** thị trường (~15.000 USD).
-- **Calibre 5** — automatic cơ bản (dựa Sellita/ETA), dùng cho dòng thấp.
-
-Năm 2016, TAG Heuer gây sốc với **Monaco V2 và Connected Modular** — thử nghiệm smartwatch cao cấp, đánh đổi sang phân khúc mới.
+- **"Avant-garde"** — tiên phong kỹ thuật đo thời gian: từ bằng sáng chế bánh răng dao động (oscillating pinion, 1887) dùng cho chronograph đến nay, tới đồng hồ bấm giờ chính xác 1/100 giây (Mikrograph, 1916).
+- **Gắn bó với thể thao tốc độ** — từng là hãng đo giờ chính thức của Thế vận hội thập niên 1920 (Antwerp 1920, Paris 1924, Amsterdam 1928); ngày nay gắn với Formula 1.
+- **Định vị "cửa ngõ"** vào đồng hồ Thụy Sĩ cao cấp: chất lượng chronograph tốt ở mức giá dễ tiếp cận nhất trong nhóm thương hiệu lớn.
 
 ## Phân khúc giá
 
-TAG Heuer ở phân khúc **mid-range luxury** — từ khoảng 1.500 USD (Formula 1) đến 6.000 USD (Carrera Heuer 02), tourbillon từ ~15.000 USD. Hãng cực kỳ phổ biến với **người trẻ và người đam mê đua xe**, dễ tiếp cận hơn các hãng Thụy Sĩ cao cấp truyền thống.
+TAG Heuer ở phân khúc **mid-range luxury** — từ khoảng 1.500 USD (Formula 1) đến 6.000 USD (Carrera Heuer 02).

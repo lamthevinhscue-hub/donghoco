@@ -5,6 +5,10 @@ excerpt: "Mẫu chronograph vỏ vuông (1969) — một trong những chronogra
 brand: "TAG Heuer"
 year: 1969
 references: ["1133B", "1133G", "CAW211P", "CBL2119"]
+category: "chronograph"
+movement: "Calibre Heuer 02"
+power_reserve: "80 giờ"
+water_resistance: "100m"
 date: "2026-08-01"
 draft: false
 ---

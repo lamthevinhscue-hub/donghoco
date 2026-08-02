@@ -5,6 +5,8 @@ excerpt: "Đỉnh cao chế tác Nhật Bản — mặt số mô phỏng thiên 
 country: "Nhật Bản"
 tier: "high-end luxury"
 founded: 1960
+parent_company: "Seiko Watch Corporation"
+signature_calibres: ["9S", "9F", "9R (Spring Drive)"]
 date: "2026-07-31"
 draft: false
 ---

@@ -5,6 +5,10 @@ excerpt: "Mặt số trắng như tuyết rơi trên núi — đại diện xu�
 brand: "Grand Seiko"
 year: 2005
 references: ["SBGA011", "SBGA211", "SBGA407", "SBGA413"]
+category: "dress"
+movement: "Calibre 9R65 (Spring Drive)"
+power_reserve: "72 giờ"
+water_resistance: "100m"
 date: "2026-07-31"
 draft: false
 ---

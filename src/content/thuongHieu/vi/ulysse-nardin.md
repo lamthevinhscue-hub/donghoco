@@ -5,6 +5,8 @@ excerpt: "Nhà chế tác ven biển Le Locle — nổi tiếng với đồng h�
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1846
+parent_company: "Sowind Group (Kering)"
+signature_calibres: ["UN-118", "UN-171", "UN-680"]
 date: "2026-08-01"
 draft: false
 ---

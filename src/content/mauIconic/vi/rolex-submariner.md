@@ -5,6 +5,10 @@ excerpt: "Mẫu đồng hồ lặn đã định hình cả một thể loại �
 brand: "Rolex"
 year: 1953
 references: ["6204", "5513", "14060M", "114060", "126610LV"]
+category: "lặn"
+movement: "Calibre 3235 / 2231"
+power_reserve: "70 giờ"
+water_resistance: "300m"
 date: "2026-07-31"
 draft: false
 ---

@@ -5,6 +5,8 @@ excerpt: "Đỉnh cao của haute horlogerie — 'không ai thực sự sở h�
 country: "Thụy Sĩ"
 tier: "ultra luxury"
 founded: 1839
+parent_company: "Độc lập (gia đình Stern)"
+signature_calibres: ["26-330", "30-255", "CH 28-520"]
 date: "2026-07-31"
 draft: false
 ---

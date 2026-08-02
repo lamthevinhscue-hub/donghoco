@@ -5,6 +5,10 @@ excerpt: "Mẫu Art Deco được sinh ra để bảo vệ mặt số khi chơi 
 brand: "Jaeger-LeCoultre"
 year: 1931
 references: ["Reverso Classique", "Reverso Grande Date", "Reverso Tribute", "Reverso One"]
+category: "dress"
+movement: "Calibre 854A/2"
+power_reserve: "42 giờ"
+water_resistance: "30m"
 date: "2026-07-31"
 draft: false
 ---

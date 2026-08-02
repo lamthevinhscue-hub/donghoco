@@ -5,6 +5,10 @@ excerpt: "Mẫu thể thao sang trọng của Vacheron Constantin — cạnh tra
 brand: "Vacheron Constantin"
 year: 1996
 references: ["42040", "47040", "4500V", "222"]
+category: "sport-luxury"
+movement: "Calibre 5100"
+power_reserve: "60 giờ"
+water_resistance: "150m"
 date: "2026-07-31"
 draft: false
 ---

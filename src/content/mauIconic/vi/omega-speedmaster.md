@@ -5,6 +5,10 @@ excerpt: "Đồng hồ chuyên nghiệp duy nhất từng lên Mặt Trăng — 
 brand: "Omega"
 year: 1957
 references: ["CK2915", "105.012", "145.012", "3570.50", "310.30.42"]
+category: "chronograph"
+movement: "Calibre 3861"
+power_reserve: "50 giờ"
+water_resistance: "50m"
 date: "2026-07-31"
 draft: false
 ---

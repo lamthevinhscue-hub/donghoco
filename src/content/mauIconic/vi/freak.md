@@ -5,6 +5,10 @@ excerpt: "Ra mắt 2001, phá vỡ mọi quy ước đồng hồ: không kim, kh
 brand: "Ulysse Nardin"
 year: 2001
 references: ["Freak 28800", "Freak DIAMonSIL", "Freak Cruiser", "Freak X", "Freak S"]
+category: "dress"
+movement: "Calibre UN-171"
+power_reserve: "7 ngày (168 giờ)"
+water_resistance: "30m"
 date: "2026-08-01"
 draft: false
 ---

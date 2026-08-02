@@ -5,6 +5,10 @@ excerpt: "Đồng hồ thể thao bằng thép đầu tiên giá ngang vàng —
 brand: "Audemars Piguet"
 year: 1972
 references: ["5402", "14802", "15202", "16202"]
+category: "sport-luxury"
+movement: "Calibre 7121"
+power_reserve: "52 giờ"
+water_resistance: "50m"
 date: "2026-07-31"
 draft: false
 ---

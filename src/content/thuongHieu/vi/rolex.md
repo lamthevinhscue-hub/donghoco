@@ -5,6 +5,8 @@ excerpt: "Biểu tượng của sự bền bỉ và tầm ảnh hưởng toàn c
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1905
+parent_company: "Độc lập (Hans Wilsdorf Foundation)"
+signature_calibres: ["3235", "4130", "2231"]
 date: "2026-07-31"
 draft: false
 ---

@@ -5,6 +5,10 @@ excerpt: "Mẫu thiết kế bởi Gerald Genta đã định nghĩa cả phân k
 brand: "Patek Philippe"
 year: 1976
 references: ["3700/1A", "3800/1A", "5711/1A", "5811/1G"]
+category: "sport-luxury"
+movement: "Calibre 26-330 S C"
+power_reserve: "45 giờ"
+water_resistance: "120m"
 date: "2026-07-31"
 draft: false
 ---

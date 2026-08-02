@@ -5,6 +5,8 @@ excerpt: "Indie mải mê tourbillon — đẩy giới hạn kỹ thuật với 
 country: "Thụy Sĩ"
 tier: "haute horlogerie"
 founded: 2004
+parent_company: "Độc lập (Greubel & Forsey)"
+signature_calibres: ["GF01", "760", "960"]
 date: "2026-07-31"
 draft: false
 ---

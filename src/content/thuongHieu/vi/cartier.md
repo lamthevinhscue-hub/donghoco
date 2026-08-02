@@ -5,6 +5,8 @@ excerpt: "Thương hiệu trang sức vương giả — người định nghĩa 
 country: "Pháp"
 tier: "high-end luxury"
 founded: 1847
+parent_company: "Richemont"
+signature_calibres: ["1904 MC", "9907 MC", "430 MC"]
 date: "2026-07-31"
 draft: false
 ---

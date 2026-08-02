@@ -5,6 +5,10 @@ excerpt: "Đồng hồ quân sự cho RAF (1948) — chuẩn mực của pilot w
 brand: "IWC"
 year: 1948
 references: ["Mark XI", "Mark XII", "Mark XV", "Mark XVIII"]
+category: "pilot"
+movement: "Calibre 32111"
+power_reserve: "72 giờ"
+water_resistance: "60m"
 date: "2026-07-31"
 draft: false
 ---

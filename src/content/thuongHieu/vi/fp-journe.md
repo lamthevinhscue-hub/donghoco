@@ -5,6 +5,8 @@ excerpt: "Indie huyền thoại — dòng 'invenit et fecit' (tự sáng tạo v
 country: "Thụy Sĩ"
 tier: "haute horlogerie"
 founded: 1999
+parent_company: "Độc lập (F.P. Journe)"
+signature_calibres: ["1304", "1499", "1508"]
 date: "2026-07-31"
 draft: false
 ---

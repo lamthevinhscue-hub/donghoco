@@ -5,6 +5,10 @@ excerpt: "Mẫu mở đầu kỷ nguyên lặn của Seiko (1965) — bền, ch�
 brand: "Seiko"
 year: 1965
 references: ["6217-8000", "6105-8000", "6309-7040", "SKX007"]
+category: "lặn"
+movement: "Calibre 6217"
+power_reserve: "41 giờ"
+water_resistance: "150m"
 date: "2026-07-31"
 draft: false
 ---

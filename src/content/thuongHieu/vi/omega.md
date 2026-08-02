@@ -5,6 +5,8 @@ excerpt: "Đồng hồ của Mặt Trăng và James Bond — thương hiệu Th�
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1848
+parent_company: "Swatch Group"
+signature_calibres: ["8800", "8900", "3861", "9900"]
 date: "2026-07-31"
 draft: false
 ---

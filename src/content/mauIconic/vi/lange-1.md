@@ -5,6 +5,10 @@ excerpt: "Mẫu mở đầu kỷ nguyên tái sinh của Lange (1994) — mặt 
 brand: "A. Lange & Söhne"
 year: 1994
 references: ["101.021", "101.032", "191.021", "109.021"]
+category: "dress"
+movement: "Calibre L121.1"
+power_reserve: "72 giờ"
+water_resistance: "30m"
 date: "2026-07-31"
 draft: false
 ---

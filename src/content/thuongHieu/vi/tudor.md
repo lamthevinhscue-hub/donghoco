@@ -5,6 +5,8 @@ excerpt: "Em trai Rolex — cùng chất lượng, giá hợp lý hơn, ngày c�
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1926
+parent_company: "Độc lập (cùng tập đoàn Rolex)"
+signature_calibres: ["MT5602", "MT5813", "MT5652"]
 date: "2026-07-31"
 draft: false
 ---

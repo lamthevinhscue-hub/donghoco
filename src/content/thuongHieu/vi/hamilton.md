@@ -5,6 +5,8 @@ excerpt: "Đồng hồ của Hollywood — gắn với di sản Mỹ và quân s
 country: "Mỹ / Thụy Sĩ"
 tier: "entry-level luxury"
 founded: 1892
+parent_company: "Swatch Group"
+signature_calibres: ["H-10", "H-30", "H-31"]
 date: "2026-07-31"
 draft: false
 ---

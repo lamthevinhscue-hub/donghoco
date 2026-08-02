@@ -5,6 +5,10 @@ excerpt: "Ra đời 1953 — trước cả Rolex Submariner. Định nghĩa chu�
 brand: "Blancpain"
 year: 1953
 references: ["50 Fathoms", "MIL-SPEC", "Bathyscaphe", "500 Fathoms", "Tech Gombessa"]
+category: "lặn"
+movement: "Calibre 1315"
+power_reserve: "120 giờ"
+water_resistance: "300m"
 date: "2026-08-01"
 draft: false
 ---

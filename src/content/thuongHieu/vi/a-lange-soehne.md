@@ -5,6 +5,8 @@ excerpt: "Vua đồng hồ Đức — chế tác thủ công đỉnh cao, máy t
 country: "Đức"
 tier: "ultra luxury"
 founded: 1845
+parent_company: "Độc lập (Richemont nắm cổ phần)"
+signature_calibres: ["L121.1", "L951.6", "L043"]
 date: "2026-07-31"
 draft: false
 ---

@@ -5,6 +5,8 @@ excerpt: "Nhà của Abraham-Louis Breguet — nhà phát minh vĩ đại nhất
 country: "Thụy Sĩ"
 tier: "ultra luxury"
 founded: 1775
+parent_company: "Swatch Group"
+signature_calibres: ["581", "777", "5335"]
 date: "2026-07-31"
 draft: false
 ---

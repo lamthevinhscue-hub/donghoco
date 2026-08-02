@@ -5,6 +5,8 @@ excerpt: "Cha đẻ của El Primero (1969) — movement chronograph tự độn
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1865
+parent_company: "LVMH"
+signature_calibres: ["El Primero 3600", "Elite 670", "El Primero 21"]
 date: "2026-07-31"
 draft: false
 ---

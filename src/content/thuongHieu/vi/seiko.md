@@ -5,6 +5,8 @@ excerpt: "Cơn địa chấn từ Nhật Bản — chứng minh rằng đồng h
 country: "Nhật Bản"
 tier: "entry-level luxury"
 founded: 1881
+parent_company: "Seiko Watch Corporation"
+signature_calibres: ["NH/N4", "6R", "8L"]
 date: "2026-07-31"
 draft: false
 ---

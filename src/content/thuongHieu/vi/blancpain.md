@@ -5,6 +5,8 @@ excerpt: "Nhà chế tác lâu đời nhất thế giới (1735) — 'vương mi
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1735
+parent_company: "Swatch Group"
+signature_calibres: ["1315", "13R5", "235"]
 date: "2026-08-01"
 draft: false
 ---

@@ -5,6 +5,8 @@ excerpt: "Giá trị tốt trong dress watch Thụy Sĩ — 'accessible luxury',
 country: "Thụy Sĩ"
 tier: "entry-level luxury"
 founded: 1988
+parent_company: "Citizen Group"
+signature_calibres: ["FC-700", "FC-755", "FC-735"]
 date: "2026-07-31"
 draft: false
 ---

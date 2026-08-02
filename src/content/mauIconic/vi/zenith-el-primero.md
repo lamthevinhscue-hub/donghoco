@@ -5,6 +5,10 @@ excerpt: "Chronograph tự động tích hợp đầu tiên thế giới (1969) 
 brand: "Zenith"
 year: 1969
 references: ["A386", "A3817", "El Primero 3600", "Chronomaster Sport"]
+category: "chronograph"
+movement: "El Primero 3600"
+power_reserve: "60 giờ"
+water_resistance: "100m"
 date: "2026-07-31"
 draft: false
 ---

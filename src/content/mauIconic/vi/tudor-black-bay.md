@@ -5,6 +5,10 @@ excerpt: "Biểu tượng của Tudor (2012) — retro charm với kim 'snowflak
 brand: "Tudor"
 year: 2012
 references: ["79220", "79230", "79250", "M79830"]
+category: "lặn"
+movement: "Calibre MT5602"
+power_reserve: "70 giờ"
+water_resistance: "200m"
 date: "2026-07-31"
 draft: false
 ---

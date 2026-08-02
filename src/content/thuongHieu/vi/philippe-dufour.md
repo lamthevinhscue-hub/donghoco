@@ -5,6 +5,8 @@ excerpt: "Bậc thầy hoàn thiện thủ công — một người, một xư�
 country: "Thụy Sĩ"
 tier: "haute horlogerie"
 founded: 1978
+parent_company: "Độc lập (Philippe Dufour)"
+signature_calibres: ["Simplicity", "Duality", "Grande Sonnerie"]
 date: "2026-07-31"
 draft: false
 ---

@@ -5,6 +5,8 @@ excerpt: "Thành viên Holy Trinity, cha đẻ Royal Oak — mẫu mở đầu k
 country: "Thụy Sĩ"
 tier: "ultra luxury"
 founded: 1875
+parent_company: "Độc lập (gia đình sáng lập)"
+signature_calibres: ["7121", "4401", "5135"]
 date: "2026-07-31"
 draft: false
 ---

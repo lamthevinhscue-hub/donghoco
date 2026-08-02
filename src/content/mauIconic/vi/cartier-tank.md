@@ -5,6 +5,10 @@ excerpt: "Mẫu chữ nhật lấy cảm hứng từ xe tăng WWI — đồng h�
 brand: "Cartier"
 year: 1917
 references: ["Tank Normale", "Tank Cintrée", "Tank Louis", "Tank Française", "Tank Must"]
+category: "dress"
+movement: "Calibre 430 MC"
+power_reserve: "38 giờ"
+water_resistance: "30m"
 date: "2026-07-31"
 draft: false
 ---

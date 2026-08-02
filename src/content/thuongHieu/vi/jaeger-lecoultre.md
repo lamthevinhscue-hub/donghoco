@@ -5,6 +5,8 @@ excerpt: "'Thợ của thợ' — nhà máy sản xuất movement hàng nghìn c
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1833
+parent_company: "Richemont"
+signature_calibres: ["899", "925", "381", "770"]
 date: "2026-07-31"
 draft: false
 ---

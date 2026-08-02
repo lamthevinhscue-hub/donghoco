@@ -5,6 +5,8 @@ excerpt: "Nhà chế tác Thụy Sĩ lâu đời (1832) — giá trị tuyệt v
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1832
+parent_company: "Swatch Group"
+signature_calibres: ["L888", "L895", "L893"]
 date: "2026-07-31"
 draft: false
 ---

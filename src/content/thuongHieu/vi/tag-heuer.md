@@ -5,6 +5,8 @@ excerpt: "Đồng hồ thể thao và đua xe — cha đẻ Monaco (chronograph 
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1860
+parent_company: "LVMH"
+signature_calibres: ["Heuer 02", "02T", "Calibre 5"]
 date: "2026-08-01"
 draft: false
 ---

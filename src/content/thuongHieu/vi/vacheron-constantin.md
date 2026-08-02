@@ -5,6 +5,8 @@ excerpt: "Nhà chế tác lâu đời nhất thế giới còn hoạt động li
 country: "Thụy Sĩ"
 tier: "ultra luxury"
 founded: 1755
+parent_company: "Richemont"
+signature_calibres: ["5100", "5500", "1120 QP"]
 date: "2026-07-31"
 draft: false
 ---

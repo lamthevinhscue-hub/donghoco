@@ -5,6 +5,8 @@ excerpt: "Đồng hồ phi công huyền thoại — nhà chế tác Thụy Sĩ 
 country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1868
+parent_company: "Richemont"
+signature_calibres: ["52000", "89000", "32110"]
 date: "2026-07-31"
 draft: false
 ---

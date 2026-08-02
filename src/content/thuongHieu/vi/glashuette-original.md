@@ -5,6 +5,8 @@ excerpt: "Đại diện xuất sắc của chế tác Đông Đức — mặt s�
 country: "Đức"
 tier: "high-end luxury"
 founded: 1845
+parent_company: "Swatch Group"
+signature_calibres: ["36", "37", "90", "100"]
 date: "2026-07-31"
 draft: false
 ---

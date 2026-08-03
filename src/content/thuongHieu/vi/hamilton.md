@@ -85,7 +85,7 @@ Ngày nay Hamilton là **thương hiệu Thụy Sĩ mang linh hồn Mỹ**: thu�
 
 ## Dòng sản phẩm chủ lực
 
-- **Khaki Field** — dòng phổ biến nhất với người mới chơi, đồng hồ dã chiến kế thừa di sản quân đội.
+- **Khaki Field** — dòng phổ biến nhất với người mới chơi, đồng hồ dã chiến kế thừa di sản đồng hồ quân đội thời Thế chiến thứ hai.
 - **Khaki Aviation** — tuyến hàng không.
 - **Ventura** (1957) — dòng biểu tượng về thiết kế, vỏ hình khiên phi đối xứng.
 - **Jazzmaster** — tuyến lịch sự đeo công sở.

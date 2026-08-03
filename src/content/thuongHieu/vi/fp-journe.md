@@ -1,6 +1,6 @@
 ---
 title: "F.P. Journe"
-excerpt: "Indie huyền thoại — dòng 'Invenit et Fecit' (tự sáng tạo và tự chế tạo), bộ máy làm hoàn toàn từ vàng 18 carat."
+excerpt: "Nhà chế tác độc lập huyền thoại — dòng 'Invenit et Fecit' (tự sáng tạo và tự chế tạo), bộ máy làm hoàn toàn từ vàng 18 carat."
 country: "Thụy Sĩ"
 tier: "haute horlogerie"
 founded: 1999

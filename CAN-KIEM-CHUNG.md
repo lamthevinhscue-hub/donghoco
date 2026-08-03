@@ -47,4 +47,20 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 6. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 6. Calibre F.P. Journe 1508
+
+- **Vị trí:** `src/content/thuongHieu/vi/fp-journe.md` — frontmatter `signature_calibres`
+- **Tình trạng:** Xác nhận được 1304 (Chronomètre Bleu) và 1499 (Résonance Souveraine). Riêng 1508 không đối chiếu được nguồn chính hãng.
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 7. Calibre Greubel Forsey GF01, 760, 960
+
+- **Vị trí:** `src/content/thuongHieu/vi/greubel-forsey.md` — frontmatter `signature_calibres`
+- **Tình trạng:** Không đối chiếu được với nguồn chính hãng.
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 8. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

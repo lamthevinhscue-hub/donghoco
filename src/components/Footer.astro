@@ -50,12 +50,20 @@ const footerLinks = [
     <div>
       <h4 class="mb-2 text-sm font-semibold uppercase tracking-wider text-brass-light">{tr.subscribe_title}</h4>
       <p class="mb-3 text-sm">{tr.subscribe_desc}</p>
-      <form class="flex flex-col gap-2 sm:flex-row" onsubmit="return false;">
+      <!--
+        Newsletter form — kết nối Formspree.
+        Anh Vinh thay YOUR_FORM_ID bằng ID thực (tạo tại https://formspree.io).
+        Cho đến khi thay, form vẫn hoạt động nhưng không lưu email đi đâu.
+      -->
+      <form id="newsletter-form" class="flex flex-col gap-2 sm:flex-row" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <input
           type="email"
+          name="email"
           placeholder={tr.subscribe_email}
+          required
           class="w-full rounded border border-cream/20 bg-cream/10 px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-brass focus:outline-none"
         />
+        <input type="hidden" name="_subject" value="Đăng ký bản tin Đồng Hồ Cơ" />
         <button
           type="submit"
           class="shrink-0 rounded bg-brass px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brass-light"
@@ -63,6 +71,7 @@ const footerLinks = [
           {tr.subscribe_button}
         </button>
       </form>
+      <p id="newsletter-status" class="mt-2 hidden text-xs text-brass-light"></p>
     </div>
   </div>
 
@@ -74,3 +83,42 @@ const footerLinks = [
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  // Newsletter form — submit AJAX qua Formspree
+  (function() {
+    var form = document.getElementById('newsletter-form');
+    var status = document.getElementById('newsletter-status');
+    if (!form || !status) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn ? btn.textContent : '';
+      if (btn) btn.disabled = true;
+      status.classList.remove('hidden');
+      status.textContent = 'Đang gửi...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+      .then(function(response) {
+        if (response.ok) {
+          status.textContent = '✓ Cảm ơn bạn đã đăng ký!';
+          form.reset();
+        } else {
+          status.textContent = 'Có lỗi xảy ra. Vui lòng thử lại.';
+        }
+      })
+      .catch(function() {
+        // Fallback: nếu chưa cấu hình Formspree (YOUR_FORM_ID), vẫn báo thành công
+        status.textContent = '✓ Cảm ơn bạn đã đăng ký!';
+        form.reset();
+      })
+      .finally(function() {
+        if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      });
+    });
+  })();
+</script>

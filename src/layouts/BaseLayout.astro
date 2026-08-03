@@ -12,12 +12,15 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl, t } from '../i18n/ui';
+import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 
 interface Props {
-  title?: string;        // Tiêu đề trang (hiện trên tab trình duyệt)
-  description?: string;  // Mô tả ngắn (dùng cho SEO & chia sẻ mạng xã hội)
-  cover_image?: string;  // Ảnh bìa (dùng cho Open Graph + Twitter Card)
+  title?: string;
+  description?: string;
+  cover_image?: string;
+  breadcrumb?: { name: string; path: string }[];
+  articleSchema?: object;
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -27,6 +30,8 @@ const {
   title,
   description = tr.siteTagline,
   cover_image,
+  breadcrumb,
+  articleSchema,
 } = Astro.props;
 
 // Tiêu đề đầy đủ hiển thị trên tab trình duyệt
@@ -81,6 +86,35 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
+    <!-- Structured Data: WebSite schema (cho mọi trang) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: tr.siteName,
+      url: siteUrl.href,
+      description: tr.siteTagline,
+      inLanguage: 'vi-VN',
+    })} />
+
+    <!-- Structured Data: BreadcrumbList (nếu có breadcrumb) -->
+    {breadcrumb && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumb.map((item: any, i: number) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: item.name,
+          item: new URL(item.path, siteUrl).href,
+        })),
+      })} />
+    )}
+
+    <!-- Structured Data: Article (nếu là bài viết) -->
+    {articleSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    )}
+
     <!-- Tải font từ Google Fonts: Playfair Display (tiêu đề) + Inter (nội dung) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,5 +129,6 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       <slot />
     </main>
     <Footer />
+    <Analytics />
   </body>
 </html>

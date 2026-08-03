@@ -11,6 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^4.16.18",
     "astro-pagefind": "^2.0.1"
   },

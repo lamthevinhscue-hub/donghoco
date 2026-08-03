@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import pagefind from 'astro-pagefind';
+import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
 import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink';
 
@@ -16,7 +17,7 @@ const glossaryTerms = JSON.parse(
 // Output: static (website tĩnh - phù hợp blog nội dung, tải nhanh, deploy đơn giản)
 export default defineConfig({
   site: 'https://donghoco1.vercel.app',
-  integrations: [tailwind(), pagefind()],
+  integrations: [tailwind(), pagefind(), sitemap()],
   markdown: {
     remarkPlugins: [
       [remarkGlossaryAutolink, { terms: glossaryTerms }],
@@ -24,9 +25,9 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: 'vi',
-    locales: ['vi', 'en'],
+    locales: ['vi'],
     routing: {
-      prefixDefaultLocale: false,        // tiếng Việt KHÔNG có tiền tố /vi/, tiếng Anh sẽ có /en/
+      prefixDefaultLocale: false,
     },
   },
 });

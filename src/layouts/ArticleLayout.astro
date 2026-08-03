@@ -26,13 +26,29 @@ const tr = t(lang);
 
 const { title, excerpt, date, cover_image, backHref, meta } = Astro.props;
 
+// Breadcrumb + Article schema cho SEO
+const breadcrumbData = backHref ? [
+  { name: 'Đồng Hồ Cơ', path: '/' },
+  { name: backHref.replace('/', '').replace(/-/g, ' '), path: backHref },
+  { name: title, path: Astro.url.pathname },
+] : undefined;
+
+const articleData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: excerpt,
+  datePublished: date,
+  inLanguage: 'vi-VN',
+};
+
 // Định dạng ngày thân thiện với tiếng Việt
 const formattedDate = date
   ? new Date(date).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' })
   : null;
 ---
 
-<BaseLayout title={title} description={excerpt} cover_image={cover_image}>
+<BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData}>
   <article class="mx-auto max-w-3xl px-4 py-12">
     {backHref && (
       <a href={localizedPath(backHref, lang)} class="mb-8 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">

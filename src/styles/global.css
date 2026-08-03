@@ -91,6 +91,16 @@
     color: theme('colors.ink-soft');
     margin: 1.5rem 0;
   }
+  /* Dark mode prose */
+  .dark .prose-content {
+    color: theme('colors.dark-text');
+  }
+  .dark .prose-content a {
+    color: theme('colors.dark-brass');
+  }
+  .dark .prose-content strong {
+    color: theme('colors.dark-text');
+  }
 }
 
 /* =============================================================================

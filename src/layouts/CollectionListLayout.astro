@@ -46,7 +46,7 @@ const route = getCollectionRoute(collection);
     <SectionHeading title={title} subtitle={description} />
 
     {entries.length === 0 ? (
-      <p class="py-12 text-center text-ink-soft">
+      <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
         {lang === 'vi'
           ? 'Chưa có bài viết nào trong mục này. Hãy quay lại sau!'
           : 'No articles yet. Please check back later!'}
@@ -58,7 +58,7 @@ const route = getCollectionRoute(collection);
           <div id="filter-bar" class="mb-10 space-y-4">
             {filters.map((group) => (
               <div class="flex flex-wrap items-center gap-2" data-filter-group={group.key}>
-                <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60">{group.label}:</span>
+                <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">{group.label}:</span>
                 <button
                   type="button"
                   class="filter-btn rounded-full border-2 border-navy bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-all"
@@ -71,7 +71,7 @@ const route = getCollectionRoute(collection);
                 {group.options.map((opt) => (
                   <button
                     type="button"
-                    class="filter-btn rounded-full border-2 border-cream-dark bg-white px-3 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-brass"
+                    class="filter-btn rounded-full border-2 border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1.5 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-all hover:border-brass"
                     data-filter-key={group.key}
                     data-filter-value={opt.value}
                     aria-pressed="false"
@@ -82,7 +82,7 @@ const route = getCollectionRoute(collection);
               </div>
             ))}
             <div class="flex items-center justify-between">
-              <span id="filter-count" class="text-xs text-ink-soft/60"></span>
+              <span id="filter-count" class="text-xs text-ink-soft/60 dark:text-dark-text-soft/60"></span>
               <button type="button" id="filter-reset" class="text-xs text-brass hover:underline">Đặt lại</button>
             </div>
           </div>
@@ -111,7 +111,7 @@ const route = getCollectionRoute(collection);
         </div>
 
         {/* Thông báo khi không có kết quả */}
-        <p id="no-results" class="hidden py-12 text-center text-ink-soft">
+        <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
           Không có bài viết nào phù hợp với bộ lọc.
         </p>
       </>

@@ -44,6 +44,17 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 <!doctype html>
 <html lang={lang}>
   <head>
+    <!-- Dark mode: áp dụng trước khi render để tránh flash -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
@@ -78,7 +89,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       rel="stylesheet"
     />
   </head>
-  <body class="flex min-h-screen flex-col">
+  <body class="flex min-h-screen flex-col bg-cream text-ink dark:bg-dark-bg dark:text-dark-text">
     <Header />
     <main class="flex-1">
       <slot />

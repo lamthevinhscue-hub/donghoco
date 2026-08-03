@@ -44,16 +44,16 @@ const pillars = [
 
 <BaseLayout>
   <!-- ===== PHẦN HERO (KHỞI ĐẦU) ===== -->
-  <section class="border-b border-cream-dark bg-gradient-to-b from-cream-dark/40 to-cream">
+  <section class="border-b border-cream-dark dark:border-dark-border bg-gradient-to-b from-cream-dark/40 to-cream">
     <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:py-28">
       <div class="mx-auto mb-5 h-1 w-16 rounded bg-brass"></div>
-      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-6xl">
+      <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-6xl">
         {tr.siteName}
       </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft sm:text-xl">
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft sm:text-xl">
         {tr.siteTagline}
       </p>
-      <p class="mx-auto mt-3 max-w-2xl text-sm text-ink-soft/70">
+      <p class="mx-auto mt-3 max-w-2xl text-sm text-ink-soft/70 dark:text-dark-text-soft/70">
         {lang === 'vi'
           ? 'Lịch sử thương hiệu • Câu chuyện các mẫu huyền thoại • Cơ chế hoạt động — giải thích bằng cả chữ và infographic.'
           : 'Brand history • Stories of iconic watches • How it works — explained with words and infographics.'}
@@ -68,13 +68,13 @@ const pillars = [
       {pillars.map((p) => (
         <a
           href={localizedPath(p.path, lang)}
-          class="group flex flex-col rounded-lg border border-cream-dark bg-white p-6 transition-all hover:border-brass hover:shadow-lg"
+          class="group flex flex-col rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6 transition-all hover:border-brass hover:shadow-lg"
         >
-          <h3 class="mb-2 font-serif text-2xl text-navy">{p.title}</h3>
-          <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft">{p.desc}</p>
+          <h3 class="mb-2 font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">{p.title}</h3>
+          <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{p.desc}</p>
           <div class="flex items-center justify-between text-sm">
             <span class="text-brass font-medium">{p.count} {lang === 'vi' ? 'bài' : 'articles'}</span>
-            <span class="text-ink-soft transition-transform group-hover:translate-x-1">→</span>
+            <span class="text-ink-soft dark:text-dark-text-soft transition-transform group-hover:translate-x-1">→</span>
           </div>
         </a>
       ))}

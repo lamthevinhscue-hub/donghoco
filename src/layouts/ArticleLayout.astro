@@ -35,21 +35,21 @@ const formattedDate = date
 <BaseLayout title={title} description={excerpt} cover_image={cover_image}>
   <article class="mx-auto max-w-3xl px-4 py-12">
     {backHref && (
-      <a href={localizedPath(backHref, lang)} class="mb-8 inline-block text-sm text-ink-soft transition-colors hover:text-brass">
+      <a href={localizedPath(backHref, lang)} class="mb-8 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
         {tr.back_to_list}
       </a>
     )}
 
     <header class="mb-8">
-      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl">{title}</h1>
+      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl dark:text-dark-text">{title}</h1>
 
       {(meta || formattedDate) && (
-        <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/70">
+        <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
           {[meta, formattedDate].filter(Boolean).join(' • ')}
         </p>
       )}
 
-      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft">{excerpt}</p>}
+      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>}
     </header>
 
     {cover_image && (
@@ -59,7 +59,7 @@ const formattedDate = date
     )}
 
     <!-- Nội dung Markdown được chèn vào đây -->
-    <div class="prose-content text-ink">
+    <div class="prose-content text-ink dark:text-dark-text">
       <slot />
     </div>
   </article>

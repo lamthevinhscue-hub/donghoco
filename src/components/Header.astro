@@ -7,6 +7,7 @@
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 import SearchBox from './SearchBox.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -24,11 +25,11 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur dark:border-dark-border dark:bg-dark-bg/95">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
     <!-- Logo / Tên website -->
     <a href={localizedPath('/', lang)} class="flex items-baseline gap-2">
-      <span class="font-serif text-2xl font-bold text-navy">{tr.siteName}</span>
+      <span class="font-serif text-2xl font-bold text-navy dark:text-dark-text">{tr.siteName}</span>
     </a>
 
     <!-- Menu (máy tính) -->
@@ -36,7 +37,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={localizedPath(item.path, lang)}
-          class="text-sm font-medium text-ink-soft transition-colors hover:text-brass"
+          class="text-sm font-medium text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
         >
           {tr[item.key]}
         </a>
@@ -47,6 +48,7 @@ const navItems = [
     <div class="flex items-center gap-3">
       <!-- Ô tìm kiếm (Pagefind) -->
       <SearchBox />
+      <ThemeToggle />
       <button
         type="button"
         id="menu-toggle"
@@ -55,7 +57,7 @@ const navItems = [
         aria-expanded="false"
       >
         <!-- Biểu tượng 3 dấu gạch (hamburger) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy dark:text-dark-text">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -65,12 +67,12 @@ const navItems = [
   </div>
 
   <!-- Menu đổ xuống (điện thoại) -->
-  <nav id="mobile-menu" class="hidden border-t border-cream-dark bg-cream md:hidden">
+  <nav id="mobile-menu" class="hidden border-t border-cream-dark bg-cream md:hidden dark:border-dark-border dark:bg-dark-bg">
     <div class="mx-auto flex max-w-6xl flex-col px-4 py-2">
       {navItems.map((item) => (
         <a
           href={localizedPath(item.path, lang)}
-          class="border-b border-cream-dark/60 py-3 text-sm font-medium text-ink-soft last:border-0"
+          class="border-b border-cream-dark/60 py-3 text-sm font-medium text-ink-soft last:border-0 dark:border-dark-border/60 dark:text-dark-text-soft"
         >
           {tr[item.key]}
         </a>

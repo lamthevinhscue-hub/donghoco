@@ -25,7 +25,7 @@ const { href, title, excerpt, image, meta, badge, logo } = Astro.props;
 const fullHref = localizedPath(href, lang);
 ---
 
-<article class="group flex flex-col overflow-hidden rounded-lg border border-cream-dark bg-white transition-shadow hover:shadow-lg">
+<article class="group flex flex-col overflow-hidden rounded-lg border border-cream-dark bg-white transition-shadow hover:shadow-lg dark:border-dark-border dark:bg-dark-surface">
   {image && (
     <a href={fullHref} class="block aspect-[16/10] overflow-hidden bg-cream-dark">
       <img
@@ -48,16 +48,16 @@ const fullHref = localizedPath(href, lang);
       {logo && (
         <img src={logo} alt={`${title} logo`} loading="lazy" class="h-6 w-6 shrink-0 object-contain" />
       )}
-      <a href={fullHref} class="transition-colors hover:text-brass">{title}</a>
+      <a href={fullHref} class="transition-colors hover:text-brass dark:hover:text-dark-brass">{title}</a>
     </h3>
 
-    {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70">{meta}</p>}
+    {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">{meta}</p>}
 
-    <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft">{excerpt}</p>
+    <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>
 
     <a
       href={fullHref}
-      class="text-sm font-medium text-brass transition-colors hover:text-navy"
+      class="text-sm font-medium text-brass transition-colors hover:text-navy dark:text-dark-brass dark:hover:text-brass-light"
     >
       {tr.read_more} →
     </a>

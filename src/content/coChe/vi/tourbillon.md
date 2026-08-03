@@ -1,7 +1,7 @@
 ---
 title: "Tourbillon — Lồng xoay bù sai số trọng lực"
 excerpt: "Tourbillon đặt toàn bộ bộ thoát vào lồng xoay 360° để sai số do trọng lực trung bình về 0. Phát minh 1801 của Breguet — một trong những phức tạp khó chế tạo nhất đồng hồ cơ."
-category: "cao cấp"
+category: "phức tạp"
 difficulty: "rất cao"
 has_infographic: true
 interactive: true

@@ -1,7 +1,7 @@
 ---
 title: "GMT — Cơ chế hai múi giờ và kim 24 giờ"
 excerpt: "GMT hiển thị múi giờ thứ hai qua kim 24 giờ và vành bezel xoay. Hiểu cơ chế truyền động tỷ lệ 2:1, cách vành bezel cho phép đọc múi giờ thứ ba, và sự khác biệt giữa hai kiểu chỉnh giờ."
-category: "chức năng"
+category: "phức tạp"
 difficulty: "trung bình"
 has_infographic: true
 interactive: true

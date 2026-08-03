@@ -1,7 +1,7 @@
 ---
 title: "Lịch vạn niên — Bánh cam ghi nhớ chu kỳ nhuận"
 excerpt: "Perpetual calendar dùng bánh cam 4 năm (và 400 năm) để cơ học 'ghi nhớ' năm nhuận. Hiểu nguyên lý cam hình ốc, vì sao đúng đến 2100, và khác biệt với lịch niên (annual calendar)."
-category: "cao cấp"
+category: "phức tạp"
 difficulty: "rất cao"
 has_infographic: true
 interactive: true

@@ -83,9 +83,7 @@ const mauIconic = defineCollection({
       'chronograph',  // bấm giờ
       'dress',        // thanh lịch
       'pilot',        // phi công
-      'gmt',          // múi giờ kép
       'sport-luxury', // thể thao sang trọng (Royal Oak, Nautilus)
-      'field',        // quân sự / thực dụng
     ]).optional(),
     movement: z.string().optional(),                // Bộ máy (VD: "Calibre 3235")
     power_reserve: z.string().optional(),           // Trữ cót (VD: "70 giờ")
@@ -98,7 +96,7 @@ const coChe = defineCollection({
   type: 'content',
   schema: z.object({
     ...baseFields,
-    category: z.enum(['nền tảng', 'chức năng', 'cao cấp', 'bổ trợ']),  // Nhóm
+    category: z.enum(['nền tảng', 'phức tạp', 'bổ trợ']),  // Nhóm
     difficulty: z.enum(['thấp', 'trung bình', 'cao', 'rất cao']),       // Độ khó
     has_infographic: z.boolean().default(false),    // Có infographic động chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?

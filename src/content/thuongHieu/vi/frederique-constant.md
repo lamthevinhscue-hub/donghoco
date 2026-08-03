@@ -1,44 +1,92 @@
 ---
 title: "Frédérique Constant"
-excerpt: "Giá trị tốt trong dress watch Thụy Sĩ — 'accessible luxury', trong-house calibre cho heartbeat & perpetual calendar."
+excerpt: "Sang trọng dễ tiếp cận — hãng nhập môn hiếm hoi tự phát triển được bộ máy riêng, nhận diện bằng ô lộ máy Heart Beat."
 country: "Thụy Sĩ"
 tier: "entry-level luxury"
 founded: 1988
-parent_company: "Citizen Group"
+parent_company: "Citizen"
 signature_calibres: ["FC-700", "FC-755", "FC-735"]
 date: "2026-07-31"
 draft: false
+# --- Bước 2.1: 5 khối dữ liệu ---
+lineHistory:
+  - year: 1988
+    title: "Peter Stas và Aletta Stas lập Frédérique Constant tại Genève"
+    detail: "Hai người Hà Lan bước vào một ngành gần như đóng kín với người ngoài."
+  - year: 1994
+    title: "Ra mắt Heart Beat — ô lộ bộ máy ở vị trí 12 giờ"
+    detail: "Chi tiết nhận diện gắn với hãng từ đó đến nay."
+  - year: 2004
+    title: "Calibre FC-910 — bộ máy tự phát triển đầu tiên, dùng cho dòng Heart Beat"
+    detail: "Đưa hãng từ nhóm lắp ráp sang nhóm tự chế tạo, điều rất hiếm ở tầm giá này."
+  - year: 2016
+    title: "Tập đoàn Citizen mua lại Frédérique Constant, cùng với Alpina và De Monaco"
+    detail: "Có hậu thuẫn tài chính lớn nhưng vẫn sản xuất tại Thụy Sĩ."
+collections:
+  - name: "Classics"
+    identity: "Đồng hồ thanh lịch tròn cổ điển, nhiều kích thước, nhiều bản có ô Heart Beat."
+    positioning: "Dòng cốt lõi."
+    iconic_ref: "Classics Heart Beat"
+  - name: "Slimline"
+    identity: "Vỏ mỏng, mặt số tối giản, nhiều bản có pha trăng."
+    positioning: "Tuyến thanh lịch nhất."
+    iconic_ref: "Slimline Moonphase"
+  - name: "Highlife"
+    identity: "Dây liền vỏ, thiết kế đương đại."
+    positioning: "Tuyến thể thao thanh lịch, hiện đại nhất trong danh mục."
+    iconic_ref: "Highlife"
+  - name: "Manufacture"
+    identity: "Các mẫu dùng bộ máy tự phát triển của hãng."
+    positioning: "Tuyến kỹ thuật, điểm tự hào của thương hiệu."
+    iconic_ref: "Manufacture"
+  - name: "Runabout"
+    identity: "Lấy cảm hứng từ thuyền gỗ cổ điển."
+    positioning: "Tuyến chủ đề, sản lượng nhỏ."
+    iconic_ref: "Runabout"
+segmentComparison:
+  - brand: "Hamilton"
+    slug: "hamilton"
+    strength: "Di sản đồng hồ đường sắt và quân đội Mỹ; Ventura là chiếc đồng hồ đeo tay chạy pin đầu tiên thế giới."
+    movement: "Bộ máy Thụy Sĩ trong tập đoàn, chỉnh riêng."
+    value_retention: "Thấp."
+    philosophy: "Di sản Mỹ, tinh thần công cụ."
+  - brand: "Tissot"
+    slug: "tissot"
+    strength: "Thương hiệu Thụy Sĩ phổ biến nhất ở tầm giá vào nghề, danh mục rộng."
+    movement: "Bộ máy Thụy Sĩ trong cùng tập đoàn."
+    value_retention: "Thấp."
+    philosophy: "Cửa ngõ vào đồng hồ Thụy Sĩ."
+  - brand: "Longines"
+    slug: "longines"
+    strength: "Di sản 1832; mạnh về đồng hồ hàng không và đo giờ thể thao lịch sử."
+    movement: "Dòng L888 phát triển trên nền bộ máy ETA cùng tập đoàn, dây tóc silicon, trữ cót 72 giờ."
+    value_retention: "Trung bình."
+    philosophy: "Thanh lịch là thái độ."
+collectorNote: "Chọn Frédérique Constant khi bạn muốn **một chiếc đồng hồ lịch sự cho công sở, có chút chiều sâu kỹ thuật, mà không phải trả giá của một cái tên lâu đời**. Ô Heart Beat là cách rất hay để một người mới nhìn thấy bánh lắc dao động — thứ khiến nhiều người bắt đầu yêu đồng hồ cơ. Dòng Manufacture đáng chú ý hơn cả: rất ít hãng ở tầm giá này tự làm được bộ máy. Nếu bạn thiên về **thiết kế công cụ và di sản dày hơn**, [Hamilton](/thuong-hieu/hamilton). Nếu muốn nhiều lựa chọn kiểu dáng, [Tissot](/thuong-hieu/tissot). Nếu sẵn sàng chi thêm cho một cái tên có gần hai trăm năm lịch sử, [Longines](/thuong-hieu/longines). Nói thẳng hai điều: Frédérique Constant gần như không giữ giá và ít được nhận diện — đây là hãng trẻ, không có kho di sản để kể; và **chỉ dòng Manufacture mới dùng bộ máy tự phát triển**, các dòng còn lại dùng bộ máy mua ngoài, nên hãy kiểm kỹ mã bộ máy của đúng mẫu bạn định mua."
 ---
 
 ## Tổng quan
 
-Frédérique Constant thành lập năm 1988 tại Genève bởi **Peter và Aletta Stas** — một cặp đôi người Hà Lan với triết lý rõ ràng: **"accessible luxury"** (sang trọng dễ tiếp cận). Hãng tập trung vào **dress watch thanh lịch** với mức giá thấp hơn đáng kể so với các thương hiệu Thụy Sĩ truyền thống.
+Frédérique Constant là hãng trẻ nhất trong toàn bộ danh mục của trang này: **lập năm 1988** tại Genève bởi hai vợ chồng người Hà Lan, Peter Stas và Aletta Stas.
 
-Năm 2016, Frédérique Constant được **Citizen Group** (Nhật Bản) mua lại, nhưng vẫn sản xuất tại Thụy Sĩ và giữ triết lý "accessible luxury".
+Triết lý của hãng gói trong một cụm: **sang trọng dễ tiếp cận**. Không cố cạnh tranh về độ phức tạp hay danh tiếng, mà nhắm vào chỗ trống mà các hãng lớn bỏ lại — đồng hồ thanh lịch, chế tác Thụy Sĩ, giá vừa phải.
+
+Thành tựu đáng nể nhất: từ năm 2004 hãng **tự phát triển được bộ máy riêng** — điều gần như không hãng nào ở tầm giá này làm được.
 
 ## Triết lý chế tác
 
-- **"Accessible luxury"** — sang trọng với giá hợp lý, cốt lõi của hãng.
-- **Dress watch** — tập trung vào dress watch thanh lịch, không chạy theo thể thao.
-- **In-house calibre** — hãng tự phát triển calibre từ năm 2004, một điều hiếm thấy ở tầm giá này.
-- **Heart Beat** — đặc trưng với cửa sổ lộ máy trên mặt số ("trái tim đập").
+- **Sang trọng dễ tiếp cận.** Đây là cụm mà hãng tự chọn để định vị mình, và cũng mô tả đúng cách hãng làm sản phẩm.
+- **Cửa sổ Heart Beat.** Ô lộ bộ máy ở vị trí 12 giờ, cho thấy bánh lắc dao động — chi tiết nhận diện rõ nhất của hãng, có từ năm 1994.
+- **Tự chủ bộ máy ở tầm giá thấp.** Việc một hãng nhập môn tự phát triển bộ máy là chuyện rất hiếm; đây là điểm khiến giới chơi tôn trọng Frédérique Constant hơn mức giá của nó.
 
 ## Dòng sản phẩm chủ lực
 
-- **Classic** — line dress watch thanh lịch, nhiều kích thước.
-- **Slimline** — dress watch siêu mỏng, đặc biệt với moonphase.
-- **Highlife** — line thể thao đa dụng mới (2020), với vỏ nguyên khối.
-- **Runabout** — lấy cảm hứng từ thuyền gỗ cổ điển.
-- **Manufacture** — line với in-house calibre, bao gồm perpetual calendar giá tốt.
+- **Classics** — dòng cốt lõi, đồng hồ thanh lịch tròn cổ điển, nhiều bản có ô Heart Beat.
+- **Slimline** — tuyến thanh lịch nhất, vỏ mỏng, nhiều bản có pha trăng.
+- **Highlife** — tuyến thể thao thanh lịch, dây liền vỏ, thiết kế đương đại.
+- **Manufacture** — tuyến kỹ thuật, các mẫu dùng bộ máy tự phát triển của hãng.
+- **Runabout** — tuyến chủ đề sản lượng nhỏ, lấy cảm hứng từ thuyền gỗ cổ điển.
 
 ## Calibre in-house tiêu biểu
 
-Frédérique Constant tự phát triển calibre từ 2004. Nổi bật:
-- **FC-700** (automatic cơ bản in-house).
-- **FC-755** (moonphase).
-- **FC-755** (perpetual calendar — hãng từng làm perpetual calendar giá thấp nhất thị trường ~10.000 USD).
-- Dòng thấp hơn dùng calibre ETA/Sellita.
-
-## Phân khúc giá
-
-Frédérique Constant ở phân khúc **entry-level luxury** — thường từ 800–3.000 USD. Đây là lựa chọn tuyệt vời cho người muốn **dress watch Thụy Sĩ thanh lịch** với giá hợp lý — đặc biệt nếu yêu thích moonphase hoặc perpetual calendar mà ngân sách hạn chế.
+Frédérique Constant tự phát triển bộ máy từ năm 2004, bắt đầu với **calibre FC-910** dùng cho dòng Heart Beat. Các calibre tiêu biểu của hãng nằm trong số **FC-700**, **FC-755** và **FC-735**. Lưu ý: **chỉ dòng Manufacture mới dùng bộ máy tự phát triển**, các dòng còn lại dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu.

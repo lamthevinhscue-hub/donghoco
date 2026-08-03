@@ -40,7 +40,7 @@ collections:
     positioning: "Dòng biểu tượng về thiết kế."
     iconic_ref: "Ventura"
   - name: "Jazzmaster"
-    identity: "Dress watch tròn, mặt số thanh lịch."
+    identity: "Đồng hồ thanh lịch tròn, mặt số thanh lịch."
     positioning: "Tuyến lịch sự đeo công sở."
     iconic_ref: "Jazzmaster"
   - name: "American Classic"

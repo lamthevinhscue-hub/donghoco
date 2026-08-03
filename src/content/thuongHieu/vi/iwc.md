@@ -16,12 +16,42 @@ lineHistory:
   - year: 1880
     title: "Quyền sở hữu chuyển sang gia đình Rauschenbach"
     detail: "Sau khi Jones gặp khó khăn tài chính, hãng về tay người địa phương, bắt đầu giai đoạn ổn định."
+  - year: 1936
+    title: "Special Pilot's Watch — chiếc đồng hồ phi công chuyên dụng đầu tiên của hãng"
+    detail: "Khai sinh dòng Pilot's Watch, tuyến sản phẩm quan trọng nhất của IWC đến nay (xem mốc 1936 trong trang Lịch sử)."
+  - year: 1939
+    title: "Portugieser ra đời từ yêu cầu của các nhà nhập lý Bồ Đào Nha"
+    detail: "Họ muốn một chiếc đồng hồ đeo tay có độ chính xác của đồng hồ bỏ túi. Giải pháp là lắp bộ máy đồng hồ bỏ túi vào vỏ đeo tay — lý do Portugieser có mặt số lớn và bố cục thoáng đặc trưng."
   - year: 1948
     title: "Mark 11 — đồng hồ phi công chống từ rất cao"
     detail: "Trở thành chuẩn mực của đồng hồ phi công và là gốc của mọi mẫu Pilot sau này của hãng (xem bài mẫu iconic trên site)."
+  - year: 1955
+    title: "Ingenieur đầu tiên, dùng calibre 85 và lồng sắt non bọc bộ máy để chắn từ trường"
+    detail: "Đồng hồ dành cho kỹ sư làm việc gần thiết bị điện — đúng tinh thần thực dụng của hãng."
+  - year: 1967
+    title: "Aquatimer — đồng hồ lặn đầu tiên của IWC"
+    detail: "Mở tuyến sản phẩm dưới nước."
+  - year: 1980
+    title: "IWC Porsche Design Titanium Chronograph — chiếc đồng hồ đeo tay đầu tiên trên thế giới có vỏ bằng titan"
+    detail: "Mở đầu truyền thống đi trước về vật liệu của hãng."
+  - year: 1985
+    title: "Kurt Klaus giới thiệu Da Vinci Perpetual Calendar Chronograph"
+    detail: "Toàn bộ lịch vạn niên chỉnh được chỉ qua núm vặn, thay vì phải dùng que chọc từng ô như trước — thay đổi lớn về khả năng sử dụng."
+  - year: 1986
+    title: "Da Vinci Perpetual Calendar bản vỏ gốm zirconium oxide đen"
+    detail: "Chiếc đồng hồ đầu tiên trên thế giới có vỏ bằng gốm. Cùng với titan năm 1980, đặt nền cho vật liệu Ceratanium sau này."
+  - year: 1990
+    title: "Grande Complication — cơ cấu điểm chuông phút do Dominique Renaud và Giulio Papi thiết kế"
+    detail: "IWC bước hẳn vào lãnh địa đồng hồ siêu phức tạp."
+  - year: 1993
+    title: "Il Destriero Scafusia, ra mắt nhân 125 năm thành lập"
+    detail: "Chiếc đồng hồ phức tạp nhất từng được chế tạo tại Schaffhausen."
   - year: 2000
     title: "Gia nhập tập đoàn Richemont"
     detail: "Giai đoạn hiện đại, sau nhiều đời chủ sở hữu gia đình."
+  - year: 2017
+    title: "Ceratanium ra mắt trên một bản Aquatimer giới hạn"
+    detail: "Hợp kim titan nung tới nhiệt độ lò gốm cho bề mặt cứng như gốm — kết hợp đúng hai hướng vật liệu hãng theo đuổi từ 1980 và 1986."
 collections:
   - name: "Pilot's Watches"
     identity: "Mặt số đen, số Ả Rập cỡ lớn, kim dễ đọc; chống từ cao."

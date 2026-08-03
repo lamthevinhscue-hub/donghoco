@@ -86,11 +86,11 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 11. Các mốc IWC: 1936, 1939 (Portugieser), 1955 (Ingenieur), 1967 (Aquatimer), 1969 và 1985 (Da Vinci), 2002 (Big Pilot)
+## 11. Các mốc IWC: 1936, 1939 (Portugieser), 1955 (Ingenieur), 1967 (Aquatimer), 1969 và 1985 (Da Vinci), 2002 (Big Pilot) — MỘT PHẦN ĐÃ GIẢI QUYẾT
 
 - **Vị trí:** `src/content/thuongHieu/vi/iwc.md`
-- **Tình trạng:** không đối chiếu được trong đợt này. Bảng dòng chảy lịch sử chỉ giữ 4 mốc đã kiểm chứng (1868, 1880, 1948, 2000).
-- **Hành động tạm:** không đưa vào bảng lịch sử. Cấp bổ sung ở đợt sau.
+- **Đã giải quyết (đợt bổ sung lịch sử, 04/08/2026):** 1936, 1939, 1955, 1967, 1985 đều xác nhận được và đã đưa vào bảng lịch sử.
+- **Vẫn chưa xác nhận:** mốc **1969** (Da Vinci) và **2002** (Big Pilot hiện đại). Không đưa hai mốc này vào bảng lịch sử.
 
 ---
 
@@ -150,4 +150,18 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 19. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 19. Năm Cartier gia nhập Richemont, năm Crash/Panthère/Ballon Bleu, năm Ceratanium ra mắt — ĐÃ GIẢI QUYẾT
+
+- **Vị trí:** `src/content/thuongHieu/vi/cartier.md`, `src/content/thuongHieu/vi/iwc.md`
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (đợt bổ sung lịch sử, 04/08/2026).
+- **Kết luận kiểm chứng:**
+  - Cartier gia nhập Richemont năm **1988** — Richemont nắm toàn quyền kiểm soát.
+  - Crash ra mắt năm **1967**, do Cartier London giới thiệu.
+  - Panthère ra mắt năm **1983**.
+  - Ballon Bleu ra mắt năm **2007**.
+  - Ceratanium ra mắt năm **2017**, trên một bản Aquatimer giới hạn của IWC.
+- **Hành động đã làm:** đưa các mốc này vào bảng lịch sử; điền `year` cho Panthère/Crash/Ballon Bleu trong `collections` của Cartier.
+
+---
+
+## 20. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

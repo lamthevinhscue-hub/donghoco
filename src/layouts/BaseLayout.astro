@@ -17,6 +17,7 @@ import '../styles/global.css';
 interface Props {
   title?: string;        // Tiêu đề trang (hiện trên tab trình duyệt)
   description?: string;  // Mô tả ngắn (dùng cho SEO & chia sẻ mạng xã hội)
+  cover_image?: string;  // Ảnh bìa (dùng cho Open Graph + Twitter Card)
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -25,10 +26,19 @@ const tr = t(lang);
 const {
   title,
   description = tr.siteTagline,
+  cover_image,
 } = Astro.props;
 
 // Tiêu đề đầy đủ hiển thị trên tab trình duyệt
 const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${tr.siteTagline}`;
+
+// URL đầy đủ (canonical + OG url)
+const siteUrl = Astro.site ?? new URL('https://donghoco1.vercel.app');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+
+// OG image: ưu tiên cover_image của trang, fallback ảnh mặc định
+const ogImage = cover_image ?? '/og-default.jpg';
+const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
 <!doctype html>
@@ -41,6 +51,24 @@ const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${
 
     <!-- Ngôn ngữ nội dung -->
     <meta name="language" content={lang} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph (Facebook, Zalo, LinkedIn...) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={tr.siteName} />
+    <meta property="og:title" content={title ?? tr.siteName} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title ?? tr.siteName} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Tải font từ Google Fonts: Playfair Display (tiêu đề) + Inter (nội dung) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

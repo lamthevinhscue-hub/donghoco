@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import pagefind from 'astro-pagefind';
 import { readFileSync } from 'node:fs';
 import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink';
 
@@ -15,7 +16,7 @@ const glossaryTerms = JSON.parse(
 // Output: static (website tĩnh - phù hợp blog nội dung, tải nhanh, deploy đơn giản)
 export default defineConfig({
   site: 'https://donghoco1.vercel.app',
-  integrations: [tailwind()],
+  integrations: [tailwind(), pagefind()],
   markdown: {
     remarkPlugins: [
       [remarkGlossaryAutolink, { terms: glossaryTerms }],

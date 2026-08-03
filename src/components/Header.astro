@@ -6,6 +6,7 @@
 // =============================================================================
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import SearchBox from './SearchBox.astro';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -44,6 +45,8 @@ const navItems = [
 
     <!-- Nút mở menu (điện thoại) -->
     <div class="flex items-center gap-3">
+      <!-- Ô tìm kiếm (Pagefind) -->
+      <SearchBox />
       <button
         type="button"
         id="menu-toggle"

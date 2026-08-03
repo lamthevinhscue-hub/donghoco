@@ -1,0 +1,208 @@
+---
+// =============================================================================
+// SEARCH BOX — Ô tìm kiếm Pagefind với phím tắt "/" + overlay
+// =============================================================================
+// Pagefind index nội dung build, client-side search, hỗ trợ tìm không dấu
+// (Pagefind tự normalize diacritics khi index tiếng Việt).
+// Phím tắt "/" mở overlay, Esc đóng.
+// =============================================================================
+
+import { getLangFromUrl, t } from '../i18n/ui';
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+---
+
+<!-- Nút tìm kiếm (icon) -->
+<button
+  type="button"
+  id="search-trigger"
+  class="flex items-center gap-2 rounded-full border border-cream-dark px-3 py-1.5 text-xs text-ink-soft transition-colors hover:border-brass hover:text-brass"
+  aria-label={tr.search_placeholder}
+>
+  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <circle cx="11" cy="11" r="7" />
+    <path stroke-linecap="round" d="M21 21l-4.3-4.3" />
+  </svg>
+  <span class="hidden sm:inline">{tr.search_placeholder}</span>
+  <kbd class="hidden rounded border border-cream-dark bg-cream-dark/20 px-1 text-[10px] font-medium sm:inline">/</kbd>
+</button>
+
+<!-- Overlay tìm kiếm -->
+<div id="search-overlay" class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm">
+  <div class="mx-auto mt-20 max-w-2xl px-4">
+    <div class="overflow-hidden rounded-lg border border-cream-dark bg-white shadow-2xl">
+      <!-- Thanh input -->
+      <div class="flex items-center border-b border-cream-dark px-4">
+        <svg class="h-5 w-5 shrink-0 text-ink-soft" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7" />
+          <path stroke-linecap="round" d="M21 21l-4.3-4.3" />
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          class="w-full border-0 px-3 py-4 text-lg text-navy placeholder:text-ink-soft/50 focus:outline-none"
+          placeholder={tr.search_placeholder}
+          autocomplete="off"
+        />
+        <button type="button" id="search-close" class="shrink-0 rounded p-1 text-ink-soft hover:text-navy" aria-label="Đóng">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+      <!-- Kết quả -->
+      <div id="search-results" class="max-h-[60vh] overflow-y-auto p-2"></div>
+      <!-- Gợi ý khi chưa gõ -->
+      <div id="search-hint" class="px-4 py-3 text-center text-xs text-ink-soft/60">
+        Gõ để tìm kiếm • Esc để đóng
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #search-results .search-result {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s;
+  }
+  #search-results .search-result:hover,
+  #search-results .search-result[aria-selected="true"] {
+    background-color: rgba(184, 137, 60, 0.08);
+  }
+  #search-results .search-result-title {
+    font-weight: 600;
+    color: #1F2D3D;
+  }
+  #search-results .search-result-excerpt {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6B5B4A;
+    line-height: 1.5;
+  }
+  #search-results mark {
+    background: rgba(184, 137, 60, 0.25);
+    color: inherit;
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  // Khởi tạo Pagefind khi overlay mở lần đầu
+  let pagefindInstance: any = null;
+  let pagefindLoading: Promise<void> | null = null;
+
+  // Dynamic import bị Vite cố resolve lúc build → dùng Function để ẩn
+  const dynamicImport = new Function('url', 'return import(url)') as (url: string) => Promise<any>;
+
+  async function loadPagefind() {
+    if (pagefindInstance) return;
+    if (pagefindLoading) { await pagefindLoading; return; }
+    pagefindLoading = (async () => {
+      try {
+        pagefindInstance = await dynamicImport('/pagefind/pagefind-ui.js');
+        await pagefindInstance.init();
+      } catch (e) {
+        // Fallback: dùng pagefind core API trực tiếp
+        try {
+          pagefindInstance = await dynamicImport('/pagefind/pagefind.js');
+          await pagefindInstance.options({});
+          await pagefindInstance.init();
+        } catch (e2) {
+          console.warn('Pagefind chưa sẵn sàng');
+        }
+      }
+    })();
+    await pagefindLoading;
+  }
+
+  async function doSearch(query: string) {
+    const resultsContainer = document.getElementById('search-results')!;
+    const hint = document.getElementById('search-hint')!;
+
+    if (!query.trim()) {
+      resultsContainer.innerHTML = '';
+      hint.style.display = '';
+      return;
+    }
+
+    await loadPagefind();
+    if (!pagefindInstance) {
+      resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft">Tìm kiếm chưa sẵn sàng, vui lòng thử lại.</p>';
+      return;
+    }
+
+    hint.style.display = 'none';
+
+    try {
+      const search = await pagefindInstance.search(query);
+      const topResults = search.results.slice(0, 8);
+      const rendered = await Promise.all(topResults.map((r: any) => r.data()));
+
+      if (rendered.length === 0) {
+        resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft">Không tìm thấy kết quả.</p>';
+        return;
+      }
+
+      resultsContainer.innerHTML = rendered.map((r: any) => {
+        const excerpt = r.excerpt || (r.meta?.excerpt || '');
+        return `
+          <a href="${r.url}" class="search-result block">
+            <div class="search-result-title">${r.meta?.title || r.url}</div>
+            <div class="search-result-excerpt">${excerpt}</div>
+          </a>
+        `;
+      }).join('');
+    } catch (e) {
+      resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft">Lỗi tìm kiếm.</p>';
+    }
+  }
+
+  // ====== Overlay open/close ======
+  const trigger = document.getElementById('search-trigger');
+  const overlay = document.getElementById('search-overlay');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
+  const closeBtn = document.getElementById('search-close');
+
+  function openSearch() {
+    overlay?.classList.remove('hidden');
+    setTimeout(() => input?.focus(), 50);
+  }
+
+  function closeSearch() {
+    overlay?.classList.add('hidden');
+    if (input) input.value = '';
+    const rc = document.getElementById('search-results');
+    if (rc) rc.innerHTML = '';
+    const hint = document.getElementById('search-hint');
+    if (hint) hint.style.display = '';
+  }
+
+  trigger?.addEventListener('click', openSearch);
+  closeBtn?.addEventListener('click', closeSearch);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeSearch();
+  });
+
+  // Phím tắt "/" mở, Esc đóng
+  document.addEventListener('keydown', (e) => {
+    // Bỏ qua khi đang gõ trong input/textarea
+    const tag = (e.target as HTMLElement)?.tagName;
+    const isTyping = tag === 'INPUT' || tag === 'TEXTAREA';
+
+    if (e.key === '/' && !isTyping) {
+      e.preventDefault();
+      openSearch();
+    }
+    if (e.key === 'Escape' && !overlay?.classList.contains('hidden')) {
+      closeSearch();
+    }
+  });
+
+  // Debounce search
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+  input?.addEventListener('input', () => {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      if (input.value) doSearch(input.value);
+    }, 200);
+  });
+</script>

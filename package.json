@@ -11,7 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.18"
+    "astro": "^4.16.18",
+    "astro-pagefind": "^2.0.1"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.4",

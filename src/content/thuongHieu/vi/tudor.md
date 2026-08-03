@@ -1,40 +1,107 @@
 ---
 title: "Tudor"
-excerpt: "Em trai Rolex — cùng chất lượng, giá hợp lý hơn, ngày càng định vị riêng với thiết kế tối giản và phi công."
+excerpt: "Đáng tin như Rolex, ai cũng mua được — nay có bộ máy tự phát triển và chỗ đứng độc lập, với di sản quân đội thật đằng sau bộ kim snowflake."
 country: "Thụy Sĩ"
 tier: "mid-range luxury"
 founded: 1926
-parent_company: "Độc lập (cùng tập đoàn Rolex)"
+parent_company: "Quỹ Hans Wilsdorf"
 signature_calibres: ["MT5602", "MT5813", "MT5652"]
 date: "2026-07-31"
 draft: false
+# --- Bước 2.1: 5 khối dữ liệu ---
+lineHistory:
+  - year: 1926
+    title: "Thương hiệu 'The Tudor' được đăng ký"
+    detail: "Ý tưởng của Hans Wilsdorf về một chiếc đồng hồ dễ tiếp cận hơn Rolex."
+  - year: 1936
+    title: "Hans Wilsdorf tiếp quản thương hiệu"
+    detail: "Đưa Tudor về hẳn dưới tay người sáng lập Rolex."
+  - year: 1946
+    title: "Lập công ty Montres Tudor SA"
+    detail: "Tudor chính thức thành một hãng đồng hồ độc lập về pháp lý."
+  - year: 1952
+    title: "Oyster Prince"
+    detail: "Lần đầu Tudor có hai thứ vốn độc quyền của Rolex: bộ máy tự động và vỏ chống nước Oyster."
+  - year: 1969
+    title: "Hai mẫu Submariner ref. 7016 và 7021 với bộ kim 'snowflake'"
+    detail: "Kim vuông góc cạnh thiết kế theo phản hồi của Hải quân Pháp để dễ đọc trong điều kiện thiếu sáng; cũng là lúc mặt số chuyển từ logo hoa hồng sang logo khiên."
+  - year: 2012
+    title: "Black Bay"
+    detail: "Đồng hồ lặn phong cách phục cổ, mượn lại bộ kim snowflake từ các mẫu quân đội — mẫu đưa Tudor trở lại bản đồ thế giới."
+  - year: 2016
+    title: "Lập Kenissi, nhà sản xuất bộ máy; ra mắt calibre MT5602"
+    detail: "Tudor có bộ máy của riêng mình, chấm dứt vai trò 'đàn em dùng máy mua ngoài'."
+collections:
+  - name: "Black Bay"
+    year: 2012
+    identity: "Đồng hồ lặn phong cách phục cổ, kim snowflake, vành nhôm hoặc gốm."
+    positioning: "Dòng biểu tượng, chiếm phần lớn danh mục."
+    iconic_ref: "Black Bay, Black Bay Fifty-Eight"
+  - name: "Pelagos"
+    identity: "Vỏ titan, chống nước sâu, van thoát khí heli ở một số bản."
+    positioning: "Đồng hồ lặn kỹ thuật thuần túy, không hoài cổ."
+    iconic_ref: "Pelagos"
+  - name: "Ranger"
+    identity: "Đồng hồ dã chiến ba kim, mặt số tối giản dễ đọc."
+    positioning: "Tuyến công cụ đơn giản nhất."
+    iconic_ref: "Ranger"
+  - name: "Royal"
+    identity: "Vỏ liền dây, vành khía, đeo được cả công sở lẫn cuối tuần."
+    positioning: "Tuyến đa dụng giá dễ chịu."
+    iconic_ref: "Royal"
+  - name: "Black Bay GMT"
+    identity: "Vành hai màu, kim 24 giờ."
+    positioning: "Đồng hồ du hành trong tầm giá dễ tiếp cận."
+    iconic_ref: "Black Bay GMT"
+  - name: "Black Bay Chrono"
+    identity: "Chronograph, bộ máy MT5813 phát triển trên nền Breitling B01."
+    positioning: "Tuyến bấm giờ."
+    iconic_ref: "Black Bay Chrono"
+segmentComparison:
+  - brand: "Rolex"
+    slug: "rolex"
+    strength: "Độ bền công cụ và khép kín chuỗi sản xuất; nhất quán chất lượng ở sản lượng khổng lồ."
+    movement: "3235 với bộ thoát Chronergy, 70 giờ; chuẩn nội bộ 2 giây mỗi ngày."
+    value_retention: "Đầu bảng tuyệt đối."
+    philosophy: "Perpetual — cải tiến tiệm tiến, tin cậy tuyệt đối."
+  - brand: "Omega"
+    slug: "omega"
+    strength: "Công nghệ bộ thoát Co-Axial, chuẩn Master Chronometer chống từ trên 15.000 gauss."
+    movement: "Master Chronometer đạt cả COSC và tám bài kiểm METAS."
+    value_retention: "Khá; Speedmaster là trụ giữ giá."
+    philosophy: "Chinh phục giới hạn bằng công nghệ."
+  - brand: "Longines"
+    slug: "longines"
+    strength: "Di sản 1832, thế mạnh về đồng hồ hàng không và đo giờ thể thao lịch sử."
+    movement: "Dòng L888 phát triển trên nền bộ máy ETA cùng tập đoàn, dây tóc silicon, trữ cót 72 giờ."
+    value_retention: "Trung bình."
+    philosophy: "Thanh lịch là thái độ."
+collectorNote: "Chọn Tudor khi bạn muốn **chất lượng và tinh thần Rolex mà không phải xếp hàng chờ nhiều năm**. Black Bay là chiếc đồng hồ lặn Thụy Sĩ dễ khuyên nhất cho người mua chiếc đầu tiên: đủ bền để đeo mọi ngày, đủ đẹp để đeo mọi nơi, và có một câu chuyện quân đội thật đứng sau. Nếu bạn coi đồng hồ là tài sản và cần thanh khoản, [Rolex](/thuong-hieu/rolex) vẫn là câu trả lời duy nhất. Nếu ưu tiên công nghệ và di sản không gian, Omega. Nếu thích thẩm mỹ cổ điển thanh lịch hơn là công cụ, Longines. Nói thẳng: Tudor không còn rẻ như thời bị gọi là 'Rolex giá mềm', và ở một số mẫu, khoảng cách giá với Rolex đã hẹp tới mức đáng cân nhắc lại."
 ---
 
 ## Tổng quan
 
-Tudor ra đời năm 1926 — do chính **Hans Wilsdorf** (người sáng lập Rolex) thành lập với mục tiêu: tạo ra một thương hiệu "đáng tin như Rolex, nhưng với giá dễ tiếp cận hơn". Cái tên "Tudor" lấy từ vương triều Tudor của Anh — gợi sự hoàng gia.
+Tudor sinh ra từ một ý tưởng rất rõ ràng của Hans Wilsdorf: **một chiếc đồng hồ đáng tin như Rolex nhưng ai cũng mua được**. Trong nhiều thập kỷ, cách làm là dùng vỏ và dây Rolex, lắp bộ máy mua ngoài.
 
-Trong nhiều thập kỷ, Tudor được xem là "Rolex giá rẻ" — dùng vỏ Rolex, nhưng bộ máy mua ngoài. Nhưng từ năm 2015, Tudor đã **lột xác**: tự phát triển bộ máy in-house, thiết kế riêng, định vị độc lập.
+Điều thú vị là chính giai đoạn "đàn em" ấy lại tạo ra di sản riêng: các đơn hàng quân đội, đặc biệt từ Hải quân Pháp, đã sinh ra bộ kim **snowflake** mà ngày nay là thứ nhận diện Tudor rõ nhất.
+
+Từ giữa thập niên 2010, Tudor **thôi làm đàn em**: có bộ máy tự phát triển, thiết kế riêng, và một chỗ đứng độc lập.
 
 ## Triết lý chế tác
 
-- **"Born to dare"** — sinh ra để dũng cảm. Tudor định vị mình là thương hiệu thể thao, mạo hiểm, trẻ trung hơn Rolex.
-- **Cùng chuẩn chất lượng Rolex** — cùng quy trình kiểm soát chất lượng, cùng vật liệu (thép 904L, cú quân).
-- **Bộ máy tự sản xuất từ 2015** — dòng MT (Manufacture Tudor).
+- **Sinh ra để dấn thân.** Tudor tự định vị trẻ trung và thể thao hơn Rolex, gắn với các môi trường khắc nghiệt thật chứ không phải quảng cáo.
+- **Di sản quân đội thật.** Từ thập niên 1960 đến 1980, nhiều lực lượng hải quân trang bị Tudor Submariner cho thợ lặn, trong đó có Hải quân Pháp và lực lượng đặc nhiệm SEAL của Hải quân Mỹ.
+- **Trữ cót cuối tuần.** Các bộ máy dòng MT có trữ cót khoảng 70 giờ — tháo ra chiều thứ Sáu, sáng thứ Hai đeo lại vẫn đúng giờ.
 
 ## Dòng sản phẩm chủ lực
 
-- **Black Bay** — line kinh điển nhất, đồng hồ lặn retro (đặc trưng với kim "snowflake" hình tuyết).
-- **Pelagos** — đồng hồ lặn "chuyên nghiệp", titan, 500m chống nước.
-- **Ranger** — field watch cổ điển.
-- **Royal** — line dress watch đa dụng.
-- **Black Bay GMT** — GMT với bezel hai màu đặc trưng.
-- **Black Bay Chrono** — chronograph.
+- **Black Bay** (2012) — dòng biểu tượng, đồng hồ lặn phục cổ với kim snowflake.
+- **Pelagos** — đồng hồ lặn kỹ thuật thuần túy, vỏ titan.
+- **Ranger** — đồng hồ dã chiến ba kim, mặt số tối giản.
+- **Royal** — tuyến đa dụng, vỏ liền dây và vành khía.
+- **Black Bay GMT** — đồng hồ du hành trong tầm giá dễ tiếp cận.
+- **Black Bay Chrono** — tuyến bấm giờ, dùng bộ máy MT5813.
 
 ## Calibre in-house tiêu biểu
 
-Từ năm 2015, Tudor phát triển bộ máy riêng tại Genève. Dòng **MT5602** (automatic cơ bản), **MT5652** (GMT), **MT5813** (chronograph, dựa trên Breitling B01). Đặc biệt, **dòng MT có "weekend power reserve"** — 70 giờ trữ cót (đeo thứ 6, bỏ ra vẫn chạy đến thứ 2).
-
-## Phân khúc giá
-
-Tudor ở phân khúc **mid-range luxury** — thường từ 2.000–5.000 USD. Đây là lựa chọn hấp dẫn cho người muốn chất lượng Rolex mà không trả giá Rolex. Tudor cực kỳ phổ biến ở Việt Nam nhờ giá trị tốt.
+Từ năm 2016, Tudor có dòng bộ máy riêng do **Kenissi** sản xuất. Các calibre tiêu biểu: **MT5602** (automatic cơ bản), **MT5652** (GMT) và **MT5813** (chronograph, phát triển trên nền Breitling B01). Dòng MT có trữ cót khoảng 70 giờ và đạt chuẩn COSC.

@@ -1,6 +1,6 @@
 ---
 title: "Cartier"
-excerpt: "Thương hiệu trang sức vương giả — người định nghĩa 'đồng hồ thanh lịch' với những mẫu huyền thoại như Tank và Santos."
+excerpt: "Nhà kim hoàn Paris đến với đồng hồ từ hướng ngược lại mọi hãng Thụy Sĩ — tư duy bằng hình khối trước, cơ cấu sau, định nghĩa đồng hồ thanh lịch suốt thế kỷ 20."
 country: "Pháp"
 tier: "high-end luxury"
 founded: 1847
@@ -8,28 +8,94 @@ parent_company: "Richemont"
 signature_calibres: ["1904 MC", "9907 MC", "430 MC"]
 date: "2026-07-31"
 draft: false
+# --- Bước 2.1: 5 khối dữ liệu ---
+lineHistory:
+  - year: 1847
+    title: "Louis-François Cartier lập nhà kim hoàn tại Paris"
+    detail: "Khởi đầu là trang sức, không phải đồng hồ."
+  - year: 1904
+    title: "Santos — chiếc đồng hồ đeo tay dành cho nam đầu tiên của hãng"
+    detail: "Làm theo yêu cầu của phi công Alberto Santos-Dumont, bạn thân của Louis Cartier. Đưa đồng hồ lên cổ tay đàn ông vào thời đồng hồ đeo tay còn bị xem là đồ nữ."
+  - year: 1917
+    title: "Louis Cartier, cháu nội người sáng lập, tạo ra Tank"
+    detail: "Vỏ chữ nhật lấy cảm hứng từ xe tăng Renault FT-17 trong Thế chiến thứ nhất — trở thành đồng hồ thanh lịch được nhận diện nhiều nhất mọi thời đại."
+collections:
+  - name: "Tank"
+    year: 1917
+    identity: "Vỏ chữ nhật, hai thanh dọc hai bên kéo dài thành vấu dây, số La Mã, đường ray phút."
+    positioning: "Dòng biểu tượng số một."
+    iconic_ref: "Tank Louis Cartier, Tank Must, Tank Française"
+  - name: "Santos"
+    year: 1904
+    identity: "Vỏ vuông bo góc, ốc vít lộ trên vành, dây liền vỏ."
+    positioning: "Dòng có gốc lịch sử xa nhất."
+    iconic_ref: "Santos de Cartier"
+  - name: "Santos-Dumont"
+    identity: "Bản mỏng hơn, thanh lịch hơn, thường lên dây tay."
+    positioning: "Tuyến cổ điển của dòng Santos."
+    iconic_ref: "Santos-Dumont"
+  - name: "Ballon Bleu"
+    identity: "Vỏ tròn với núm vặn gắn đá cabochon nằm trong một vòng cung bảo vệ."
+    positioning: "Tuyến tròn duy nhất trong nhóm biểu tượng."
+    iconic_ref: "Ballon Bleu"
+  - name: "Panthère"
+    identity: "Dây kim loại mắt xích mềm, vỏ vuông nhỏ."
+    positioning: "Tuyến trang sức đeo tay."
+    iconic_ref: "Panthère"
+  - name: "Crash"
+    identity: "Vỏ méo như tan chảy, phi đối xứng."
+    positioning: "Mẫu sưu tầm hiếm và được săn tìm mạnh."
+    iconic_ref: "Crash"
+  - name: "Baignoire"
+    identity: "Vỏ bầu dục kéo dài."
+    positioning: "Tuyến vỏ tạo hình cổ điển."
+    iconic_ref: "Baignoire"
+segmentComparison:
+  - brand: "Jaeger-LeCoultre"
+    slug: "jaeger-lecoultre"
+    strength: "Bề rộng kỹ thuật hiếm có, tự làm gần như mọi loại cơ cấu; Reverso là mẫu vỏ tạo hình kinh điển của phía Thụy Sĩ."
+    movement: "In-house với số lượng bộ máy tự phát triển thuộc hàng nhiều nhất ngành."
+    value_retention: "Trung bình khá."
+    philosophy: "Nhà chế tác của các nhà chế tác."
+  - brand: "Rolex"
+    slug: "rolex"
+    strength: "Độ bền công cụ và khép kín chuỗi sản xuất."
+    movement: "3235 với bộ thoát Chronergy, 70 giờ."
+    value_retention: "Đầu bảng tuyệt đối."
+    philosophy: "Perpetual — cải tiến tiệm tiến, tin cậy tuyệt đối."
+  - brand: "Longines"
+    slug: "longines"
+    strength: "Di sản 1832; mạnh về đồng hồ hàng không và đo giờ thể thao lịch sử."
+    movement: "Dòng L888 phát triển trên nền bộ máy ETA cùng tập đoàn, dây tóc silicon, trữ cót 72 giờ."
+    value_retention: "Trung bình."
+    philosophy: "Thanh lịch là thái độ."
+collectorNote: "Chọn Cartier khi bạn muốn một chiếc đồng hồ **được nhận ra bằng hình dáng chứ không bằng logo**. Tank là thiết kế mà bạn có thể vẽ lại bằng bốn nét, và đó là thứ rất ít đồng hồ trên đời làm được. Đây cũng là lựa chọn hợp lý nhất nếu bạn thấy đồng hồ thể thao vỏ tròn đã quá quen mắt. Nếu bạn muốn **vỏ tạo hình nhưng đi kèm chiều sâu kỹ thuật Thụy Sĩ**, Jaeger-LeCoultre với Reverso là đối trọng trực tiếp. Nếu cần **giữ giá và thanh khoản**, [Rolex](/thuong-hieu/rolex). Nếu thích thẩm mỹ cổ điển với ngân sách thấp hơn, [Longines](/thuong-hieu/longines). Nói thẳng: về thuần cơ khí, Cartier không phải là nơi bạn tìm sự phức tạp hay hoàn thiện bộ máy đỉnh cao — bạn trả tiền cho thiết kế và cho một cái tên đã đứng vững gần hai thế kỷ. Với ai coi bộ máy là trọng tâm, đây có thể là lựa chọn gây thất vọng."
 ---
 
 ## Tổng quan
 
-Cartier, thành lập tại Paris năm 1847, bắt đầu là một tiệm trang sức hoàng gia — từng là "nhà cung cấp cho 12 vị vua và hoàng tử". Nhưng Cartier cũng có một vai trò lịch sử trong đồng hồ: hãng tạo ra một trong những chiếc đồng hồ đeo tay đầu tiên (Santos, 1904) và định nghĩa thẩm mỹ của đồng hồ thanh lịch trong suốt thế kỷ 20.
+Cartier đến với đồng hồ **từ hướng ngược lại so với mọi hãng Thụy Sĩ**: đây là một nhà kim hoàn Paris, lập năm 1847, xây danh tiếng bằng trang sức rồi mới bước sang đồng hồ vào đầu thế kỷ 20.
+
+Chính vì thế Cartier tư duy bằng **hình khối trước, cơ cấu sau**. Tank hình chữ nhật, Santos vuông bo góc, Crash méo mó, Baignoire bầu dục — mỗi mẫu là một hình dáng nhận ra ngay từ xa, không cần thấy logo.
+
+Đóng góp lịch sử lớn nhất của Cartier là **đưa đồng hồ từ túi áo lên cổ tay đàn ông** vào thời mà đồng hồ đeo tay còn bị coi là đồ trang sức của phụ nữ.
 
 ## Triết lý chế tác
 
-Khác với các thương hiệu Thụy Sĩ đề cao cơ học, Cartier đặt **thiết kế lên hàng đầu**. Mỗi mẫu Cartier đều có hình dáng đặc trưng nhận diện ngay lập tức — Tank (chữ nhật), Santos (vuông bo góc), Crash (biến dạng), Ballon Bleu (tròn).
+- **Thiết kế dẫn đường.** Ở Cartier, hình dáng vỏ có trước và bộ máy phải vừa với nó, chứ không ngược lại. Đây là lý do hãng có nhiều bộ máy dáng đặc biệt, không tròn.
+- **Ngôn ngữ nhận diện nhất quán gần một thế kỷ.** Số La Mã, đường ray phút, kim thép xanh dáng lá, núm vặn gắn đá cabochon — bộ mã này gần như không đổi từ thời Louis Cartier.
+- **Hình học là chủ đề xuyên suốt.** Cartier không chạy theo xu hướng vỏ tròn thể thao; hãng kiên trì với các dáng vỏ tạo hình suốt hơn một trăm năm.
 
 ## Dòng sản phẩm chủ lực
 
-- **Tank** — chữ nhật thanh lịch, lấy cảm hứng từ xe tăng WWI (1917).
-- **Santos** — đồng hồ đeo tay đầu tiên được thiết kế cho phi công (1904).
-- **Santos-Dumont** — phiên bản mỏng, thanh lịch hơn.
-- **Pasha** — tròn, thể thao hơn, với vỉ nắp che núm vặn đặc trưng.
-- **Crash** — biến dạng siêu thực, cực hiếm và được sưu tầm mạnh.
+- **Tank** (1917) — dòng biểu tượng số một, vỏ chữ nhật.
+- **Santos** (1904) — dòng có gốc lịch sử xa nhất, vỏ vuông bo góc.
+- **Santos-Dumont** — bản mỏng, thanh lịch hơn, thường lên dây tay.
+- **Ballon Bleu** — tuyến tròn duy nhất trong nhóm biểu tượng.
+- **Panthère** — tuyến trang sức đeo tay, dây kim loại mắt xích mềm.
+- **Crash** — mẫu sưu tầm hiếm, vỏ méo phi đối xứng.
+- **Baignoire** — vỏ bầu dục kéo dài.
 
 ## Calibre in-house tiêu biểu
 
-Trước đây Cartier dùng bộ máy mua sẵn, nhưng từ thập niên 2010 hãng đã phát triển dòng **calibre in-house 1904** (tên vinh danh Santos-Dumont) và calibre siêu mỏng **9912/9915** cho dòng Crash và Cartier Paris.
-
-## Phân khúc giá
-
-Cartier ở phân khúc **luxury** — thường từ 3.000 USD (dòng nhập môn) đến hàng trăm nghìn USD (bản giới hạn cao cấp). Cartier đặc biệt giữ giá tốt ở các mẫu cổ điển như Tank Cintrée hay Crash.
+Cartier tự phát triển bộ máy, nhiều bản dáng không tròn để vừa vỏ tạo hình. Các calibre tiêu biểu nằm trong số **1904 MC**, **9907 MC** và **430 MC**.

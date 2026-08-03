@@ -311,52 +311,52 @@ import MechanismAnimation from '../MechanismAnimation.astro';
 
 <!-- Phần giải thích: Hiện tượng → Nguyên lý → Ý nghĩa -->
 <div class="mt-10 space-y-6" data-explanation>
-  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy">① Hiện tượng — bạn nhìn thấy gì?</h3>
-    <p class="text-sm leading-relaxed text-ink-soft">
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white dark:bg-dark-surface p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Bấm nút trên (START) → kim giây phụ <strong>bắt đầu chạy</strong>. Bấm lần nữa (STOP) → kim <strong>dừng ngay lập tức</strong>,
       để bạn đọc số giây đã trôi qua. Bấm nút dưới (RESET) → kim <strong>"đập" về 0</strong> trong tích tắc.
       Đó là 3 pha của chronograph: <strong>Start → Stop → Reset</strong>.
     </p>
   </div>
 
-  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy">② Nguyên lý — bánh răng cột (column wheel)</h3>
-    <p class="text-sm leading-relaxed text-ink-soft">
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white dark:bg-dark-surface p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">② Nguyên lý — bánh răng cột (column wheel)</h3>
+    <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Trái tim của chronograph cao cấp là <strong>bánh răng cột</strong> — một bánh nhỏ với các "cột" đứng trên mặt.
       Mỗi lần bấm START/STOP, một <strong>ngón đẩy</strong> hất bánh cột xoay đúng <strong>1 bước</strong> (≈40°).
       Các đòn bàn đạp <strong>trượt lên/xuống cột</strong>:
     </p>
-    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
-      <li class="flex gap-2"><span class="text-brass font-bold">a)</span>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">a)</span>
         <span>Khi rơi vào <strong>khe giữa hai cột</strong> → đòn kéo <strong>ly hợp (clutch)</strong> trượt vào khớp → năng lượng truyền từ máy sang bánh giây → kim chạy.</span>
       </li>
-      <li class="flex gap-2"><span class="text-brass font-bold">b)</span>
+      <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">b)</span>
         <span>Khi trượt <strong>lên đỉnh cột</strong> → đòn đẩy ly hợp ra → ngắt truyền lực → kim dừng.</span>
       </li>
-      <li class="flex gap-2"><span class="text-brass font-bold">c)</span>
+      <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">c)</span>
         <span>Nút RESET kích hoạt <strong>búa (hammer)</strong> đập vào <strong>heart-cam</strong> (cam hình tim) → ép kim quay về 0 chính xác.</span>
       </li>
     </ul>
-    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Tiếng "click" êm ái khi bấm nút chronograph cao cấp chính là tiếng <strong>bánh cột xoay 1 bước</strong>.
     </p>
   </div>
 
-  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy">③ Column wheel vs. Cam — ai hơn ai?</h3>
-    <p class="text-sm leading-relaxed text-ink-soft">
+  <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white dark:bg-dark-surface p-5">
+    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">③ Column wheel vs. Cam — ai hơn ai?</h3>
+    <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Có <strong>2 cách</strong> chế tạo cơ chế START/STOP/RESET:
     </p>
-    <ul class="mt-3 space-y-2 text-sm text-ink-soft">
-      <li class="flex gap-2"><span class="text-brass font-bold">Bánh răng cột (column wheel):</span>
+    <ul class="mt-3 space-y-2 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">Bánh răng cột (column wheel):</span>
         <span>Đắt, khó chế tạo (các cột phải gia công chính xác), cảm giác bấm nút <strong>êm, "bước" rõ ràng</strong>. Đây là dấu hiệu của <strong>chronograph cao cấp</strong> (Rolex 4130, Patek Philippe CH 29).</span>
       </li>
-      <li class="flex gap-2"><span class="text-brass font-bold">Cam (bánh cam):</span>
+      <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">Cam (bánh cam):</span>
         <span>Rẻ, dễ sản xuất hàng loạt, cảm giác bấm "cứng" hơn. Phổ biến ở chronograph tầm trung (Valjoux 7750).</span>
       </li>
     </ul>
-    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       <strong>1816</strong>: Louis Moinet chế tạo chronograph đầu tiên (đo sao). <strong>1969</strong>: Cuộc đua chronograph tự động
       (Zenith El Primero, Seiko, Heuer) — xem [mốc 1969 trong timeline](/lich-su).
     </p>

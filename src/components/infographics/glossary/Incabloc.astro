@@ -11,7 +11,7 @@ const points = [
 ---
 
 <section class="my-8" data-infographic="glossary-incabloc">
-  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
+  <div class="my-6 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-6">
     <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
       <text x="160" y="25" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="title" opacity="0">
         Incabloc bảo vệ trục bánh lắc
@@ -55,16 +55,16 @@ const points = [
   <!-- 3 điểm chính -->
   <div class="grid gap-4 sm:grid-cols-3">
     {points.map((point, i) => (
-      <div class="rounded-lg border-l-4 border-brass bg-white p-4" data-anim="point-card" data-index={i}>
-        <p class="mb-1 text-lg font-bold text-brass">{point.num}</p>
-        <h4 class="font-serif text-sm text-navy">{point.title}</h4>
-        <p class="mt-1 text-xs text-ink-soft">{point.detail}</p>
+      <div class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-4" data-anim="point-card" data-index={i}>
+        <p class="mb-1 text-lg font-bold text-brass dark:text-dark-brass dark:text-dark-brass">{point.num}</p>
+        <h4 class="font-serif text-sm text-navy dark:text-dark-text dark:text-dark-text">{point.title}</h4>
+        <p class="mt-1 text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{point.detail}</p>
       </div>
     ))}
   </div>
 
-  <div class="mt-4 rounded-lg bg-brass/5 p-3 text-center text-xs text-ink-soft" data-anim="note">
-    <strong class="text-brass">Nhận biết:</strong> Mặt sau lộ máy có cấu trúc <strong>hình chữ thập</strong> với lò xo
+  <div class="mt-4 rounded-lg bg-brass/5 dark:bg-dark-brass/10 p-3 text-center text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft" data-anim="note">
+    <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">Nhận biết:</strong> Mặt sau lộ máy có cấu trúc <strong>hình chữ thập</strong> với lò xo
     hình lyre = Incabloc (hoặc Kif/Etachoc tương tự).
   </div>
 </section>

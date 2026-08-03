@@ -11,7 +11,7 @@ const beatRules = [
 ---
 
 <section class="my-8" data-infographic="glossary-minute-repeater">
-  <div class="my-6 rounded-lg border border-cream-dark bg-cream-dark/20 p-6">
+  <div class="my-6 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-6">
     <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
       <!-- 2 chuông (gongs) - ống thép uốn -->
       <g data-anim="gong-bass" opacity="0">
@@ -43,21 +43,21 @@ const beatRules = [
   </div>
 
   <!-- Quy ước gõ: ví dụ 3:37 -->
-  <div class="rounded-lg border-l-4 border-brass bg-white p-5">
-    <p class="mb-3 text-sm font-medium text-navy">Ví dụ: 3 giờ 37 phút</p>
+  <div class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-5">
+    <p class="mb-3 text-sm font-medium text-navy dark:text-dark-text dark:text-dark-text">Ví dụ: 3 giờ 37 phút</p>
     <div class="space-y-3">
       {beatRules.map((rule, i) => (
         <div class="flex items-center gap-3" data-anim="rule-row" data-index={i}>
           <span class="w-2 h-8 rounded shrink-0" style={`background-color: ${rule.color};`}></span>
           <div class="flex-1">
             <p class="text-sm font-medium" style={`color: ${rule.color};`}>{rule.sound}</p>
-            <p class="text-xs text-ink-soft">{rule.count} → {rule.meaning}</p>
+            <p class="text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{rule.count} → {rule.meaning}</p>
           </div>
         </div>
       ))}
     </div>
-    <p class="mt-4 rounded bg-brass/10 p-2 text-center text-xs text-ink-soft">
-      = <strong class="text-brass">3 tiếng trầm</strong> + <strong class="text-brass">2 tổ</strong> + <strong class="text-brass">7 tiếng cao</strong> = 3:37
+    <p class="mt-4 rounded bg-brass/10 dark:bg-dark-brass/10 p-2 text-center text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      = <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">3 tiếng trầm</strong> + <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">2 tổ</strong> + <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">7 tiếng cao</strong> = 3:37
     </p>
   </div>
 </section>

@@ -93,7 +93,7 @@ const myths = [
   <!-- ====================================================================
        CẢNH 1: MỞ ĐẦU — câu hỏi gây tò mò
        ==================================================================== -->
-  <div class="scene scene-intro rounded-2xl border border-cream-dark bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
+  <div class="scene scene-intro rounded-2xl border border-cream-dark dark:border-dark-border bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16">
     <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
     <h2 class="font-serif text-3xl sm:text-5xl">"50m" — có thật sự bơi được không?</h2>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
@@ -159,30 +159,30 @@ const myths = [
       </svg>
     </div>
     <div class="space-y-4">
-      <h3 class="font-serif text-2xl text-navy">5 điểm "thủng" nước</h3>
-      <p class="text-ink-soft">
+      <h3 class="font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">5 điểm "thủng" nước</h3>
+      <p class="text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
         Để chống nước, đồng hồ phải <strong>niêm phong 5 điểm</strong> —
         bất kỳ điểm nào hở đều nước tràn vào hỏng máy.
       </p>
       <ul class="space-y-3 text-sm">
         <li class="flex gap-3" data-fact="1">
-          <span class="text-brass font-bold">①</span>
+          <span class="text-brass dark:text-dark-brass font-bold">①</span>
           <span><strong>Kính (crystal)</strong> + gioăng — lớp trong suốt nhìn thấy mặt số.</span>
         </li>
         <li class="flex gap-3" data-fact="2">
-          <span class="text-brass font-bold">②</span>
+          <span class="text-brass dark:text-dark-brass font-bold">②</span>
           <span><strong>Núm vặn (crown)</strong> + gioăng — điểm hở lớn nhất, quan trọng nhất.</span>
         </li>
         <li class="flex gap-3" data-fact="3">
-          <span class="text-brass font-bold">③</span>
+          <span class="text-brass dark:text-dark-brass font-bold">③</span>
           <span><strong>Nắp lưng (caseback)</strong> + gioăng — đóng kín phía sau.</span>
         </li>
         <li class="flex gap-3" data-fact="4">
-          <span class="text-brass font-bold">④</span>
+          <span class="text-brass dark:text-dark-brass font-bold">④</span>
           <span><strong>Nút bấm (pushers)</strong> — nếu là chronograph.</span>
         </li>
         <li class="flex gap-3" data-fact="5">
-          <span class="text-brass font-bold">⑤</span>
+          <span class="text-brass dark:text-dark-brass font-bold">⑤</span>
           <span><strong>Bezel / các ốc vặn</strong> — điểm niêm phong phụ.</span>
         </li>
       </ul>
@@ -192,9 +192,9 @@ const myths = [
   <!-- ====================================================================
        CẢNH 3: VÒNG KÍN — nguyên lý test áp suất
        ==================================================================== -->
-  <div class="scene mt-24 rounded-2xl border border-cream-dark bg-cream-dark/30 p-8 sm:p-12">
+  <div class="scene mt-24 rounded-2xl border border-cream-dark dark:border-dark-border bg-cream-dark/30 dark:bg-dark-border/30 p-8 sm:p-12">
     <div class="mx-auto max-w-3xl text-center">
-      <h3 class="mb-8 font-serif text-2xl text-navy sm:text-3xl">
+      <h3 class="mb-8 font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
         Nguyên lý: "Vòng kín" + test áp suất
       </h3>
       <div class="svg-container" data-svg="pressure">
@@ -228,7 +228,7 @@ const myths = [
           <circle cx="250" cy="100" r="35" fill="none" stroke="#3182CE" stroke-width="2" opacity="0" data-anim="water-test"/>
         </svg>
       </div>
-      <p class="mx-auto mt-6 max-w-2xl text-ink-soft">
+      <p class="mx-auto mt-6 max-w-2xl text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
         Nhà sản xuất đặt đồng hồ vào buồng <strong>ép nước</strong> ở mức áp suất ghi trên vỏ
         (ví dụ 10 ATM cho "100m"). Nếu <strong>không</strong> có nước lọt vào trong 24 giờ → đạt.
         Con số "100m" thực ra là <strong>mức test áp suất tĩnh</strong>, <em>không</em> là "bơi được 100m".
@@ -240,17 +240,17 @@ const myths = [
        CẢNH 4: THANG MỨC ĐỘ — 30m → 1000m
        ==================================================================== -->
   <div class="scene mt-24">
-    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       Thang mức độ chống nước
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Mỗi mức cho phép hoạt động khác nhau. <strong>Đừng chỉ nhìn số mét.</strong>
     </p>
 
     <div class="space-y-4">
       {levels.map((level, i) => (
         <div
-          class="level-row grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 sm:p-5"
+          class="level-row grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
           data-anim="level"
           data-index={i}
         >
@@ -265,8 +265,8 @@ const myths = [
           </div>
           <!-- Nhãn -->
           <div class="col-span-12 sm:col-span-9">
-            <h4 class="font-serif text-lg text-navy">{level.label}</h4>
-            <p class="mt-1 text-sm text-ink-soft">
+            <h4 class="font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{level.label}</h4>
+            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
               <span class="font-medium text-green-700">✓ {level.activities.join(' · ')}</span>
             </p>
             <p class="mt-1 text-xs text-ink-soft/80">
@@ -282,10 +282,10 @@ const myths = [
        CẢNH 5: HIỂU LẦM NGUY HIỂM
        ==================================================================== -->
   <div class="scene mt-24">
-    <h3 class="mb-3 text-center font-serif text-2xl text-navy sm:text-3xl">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       4 hiểu lầm nguy hiểm cần đính chính
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft">
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Nhiều người hỏng đồng hồ vì tin những điều này.
     </p>
 
@@ -300,7 +300,7 @@ const myths = [
             <span class="text-lg text-red-500">✗</span>
             <span class="font-medium text-red-900 line-through decoration-red-400">{myth.myth}</span>
           </p>
-          <p class="flex items-start gap-2 text-sm text-ink-soft">
+          <p class="flex items-start gap-2 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
             <span class="text-lg text-green-600">✓</span>
             <span>{myth.truth}</span>
           </p>
@@ -310,8 +310,8 @@ const myths = [
   </div>
 
   <!-- Chú thích cuối -->
-  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 p-5 text-center text-sm text-ink-soft">
-    <strong class="text-brass">💡 Tóm tắt:</strong>
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+    <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
     Con số "100m" = test áp suất <em>tĩnh</em> trong buồng lab,
     <strong>không</strong> = bơi được 100m thực tế.
     Trừ khi có ghi rõ "DIVER" (theo chuẩn ISO 6425), hãy thận trọng.

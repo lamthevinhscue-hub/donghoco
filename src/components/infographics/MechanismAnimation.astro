@@ -28,14 +28,14 @@ const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
 
 <div class="mechanism-animation my-8" data-mechanism>
   <!-- Tiêu đề + điều khiển -->
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark bg-cream-dark/20 p-4">
-    <span class="text-sm font-medium text-navy">{label}</span>
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-4">
+    <span class="text-sm font-medium text-navy dark:text-dark-text dark:text-dark-text">{label}</span>
 
     <div class="flex flex-wrap items-center gap-2">
       <!-- Nút Play/Pause -->
       <button
         type="button"
-        class="play-btn flex h-9 w-9 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass"
+        class="play-btn flex h-9 w-9 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass dark:hover:bg-dark-brass"
         aria-label="Phát / Tạm dừng"
       >
         <svg class="play-icon h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -45,7 +45,7 @@ const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
       <!-- Nút từng bước -->
       <button
         type="button"
-        class="step-btn flex items-center gap-1 rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream"
+        class="step-btn flex items-center gap-1 rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy dark:text-dark-text transition-colors hover:bg-navy hover:text-cream"
         aria-label="Từng bước một"
       >
         <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
@@ -54,7 +54,7 @@ const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
 
       <!-- Thanh trượt tốc độ -->
       <div class="flex items-center gap-2">
-        <span class="text-xs text-ink-soft/60">Tốc độ</span>
+        <span class="text-xs text-ink-soft/60 dark:text-dark-text-soft/60">Tốc độ</span>
         <input
           type="range"
           min="0.1"
@@ -64,13 +64,13 @@ const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
           class="speed-slider h-1.5 w-24 cursor-pointer appearance-none rounded-full bg-cream-dark"
           aria-label="Tốc độ hoạt ảnh"
         />
-        <span class="speed-label w-8 text-xs text-ink-soft/60">0.2x</span>
+        <span class="speed-label w-8 text-xs text-ink-soft/60 dark:text-dark-text-soft/60">0.2x</span>
       </div>
     </div>
   </div>
 
   <!-- Khu vực SVG (slot) -->
-  <div class="svg-stage rounded-lg border border-cream-dark bg-white p-4 sm:p-6">
+  <div class="svg-stage rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-6">
     <slot />
   </div>
 
@@ -78,7 +78,7 @@ const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
   <slot name="script" />
 
   <!-- Gợi ý tương tác -->
-  <p class="mt-3 text-center text-xs text-ink-soft/60">
+  <p class="mt-3 text-center text-xs text-ink-soft/60 dark:text-dark-text-soft/60">
     Rê chuột vào từng bộ phận để xem tên • Bấm nút để điều khiển hoạt ảnh
   </p>
 </div>

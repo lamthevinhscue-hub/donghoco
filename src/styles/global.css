@@ -101,6 +101,17 @@
   .dark .prose-content strong {
     color: theme('colors.dark-text');
   }
+
+  /* Dark mode SVG infographic — override fill cố định trong SVG inline */
+  .dark svg text[fill="#1F2D3D"] {
+    fill: theme('colors.dark-text') !important;
+  }
+  .dark svg text[fill="#4A5568"] {
+    fill: theme('colors.dark-text-soft') !important;
+  }
+  .dark svg text[fill="#9CA3AF"] {
+    fill: theme('colors.dark-text-soft/60') !important;
+  }
 }
 
 /* =============================================================================

@@ -3,7 +3,8 @@
 // COLLECTION LIST LAYOUT (Bộ khung trang danh sách)
 // =============================================================================
 // Dùng chung cho các trang liệt kê: /thuong-hieu, /mau-iconic, /co-che...
-// Chỉ cần truyền vào tiêu đề, mô tả, danh sách bài, và cấu hình thẻ.
+// Hỗ trợ bộ lọc client-side tùy chọn (qua prop filters).
+// URL giữ trạng thái lọc (hash) để chia sẻ được.
 // =============================================================================
 
 import BaseLayout from './BaseLayout.astro';
@@ -13,19 +14,30 @@ import { getCollectionRoute, getSlug, type ContentCollectionName } from '../lib/
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 import type { CollectionEntry } from 'astro:content';
 
+interface FilterGroup {
+  /** Tên nhóm lọc (VD: "theloai", "decade", "category") */
+  key: string;
+  /** Nhãn hiển thị (VD: "Thể loại") */
+  label: string;
+  /** Các giá trị lọc: value + nhãn hiển thị */
+  options: { value: string; label: string }[];
+  /** Hàm trích giá trị từ entry để lọc (VD: entry.data.category) */
+  getValue: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
+}
+
 interface Props {
   collection: ContentCollectionName;
   title: string;
   description: string;
   entries: CollectionEntry<ContentCollectionName>[];
-  /** Hàm trích xuất thông tin phụ (meta) cho mỗi thẻ — có thể bỏ qua */
   getMeta?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
-  /** Hàc trích xuất nhãn (badge) cho mỗi thẻ */
   getBadge?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
+  /** Bộ lọc tùy chọn (mỗi nhóm là 1 hàng nút) */
+  filters?: FilterGroup[];
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
-const { collection, title, description, entries, getMeta, getBadge } = Astro.props;
+const { collection, title, description, entries, getMeta, getBadge, filters = [] } = Astro.props;
 const route = getCollectionRoute(collection);
 ---
 
@@ -40,17 +52,187 @@ const route = getCollectionRoute(collection);
           : 'No articles yet. Please check back later!'}
       </p>
     ) : (
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {entries.map((entry) => (
-          <Card
-            href={`${route}/${getSlug(entry)}`}
-            title={entry.data.title}
-            excerpt={entry.data.excerpt}
-            meta={getMeta?.(entry)}
-            badge={getBadge?.(entry)}
-          />
-        ))}
-      </div>
+      <>
+        {/* ====== Bộ lọc ====== */}
+        {filters.length > 0 && (
+          <div id="filter-bar" class="mb-10 space-y-4">
+            {filters.map((group) => (
+              <div class="flex flex-wrap items-center gap-2" data-filter-group={group.key}>
+                <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60">{group.label}:</span>
+                <button
+                  type="button"
+                  class="filter-btn rounded-full border-2 border-navy bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-all"
+                  data-filter-key={group.key}
+                  data-filter-value="all"
+                  aria-pressed="true"
+                >
+                  Tất cả
+                </button>
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class="filter-btn rounded-full border-2 border-cream-dark bg-white px-3 py-1.5 text-xs font-medium text-ink-soft transition-all hover:border-brass"
+                    data-filter-key={group.key}
+                    data-filter-value={opt.value}
+                    aria-pressed="false"
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <div class="flex items-center justify-between">
+              <span id="filter-count" class="text-xs text-ink-soft/60"></span>
+              <button type="button" id="filter-reset" class="text-xs text-brass hover:underline">Đặt lại</button>
+            </div>
+          </div>
+          <div id="filter-config" data-filter-keys={JSON.stringify(filters.map((f) => f.key))} hidden></div>
+        )}
+
+        {/* ====== Danh sách thẻ ====== */}
+        <div id="card-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {entries.map((entry) => {
+            const filterAttrs = {};
+            for (const g of filters) {
+              filterAttrs[`data-f-${g.key}`] = g.getValue(entry) ?? '';
+            }
+            return (
+              <div class="card-wrapper" {...filterAttrs}>
+                <Card
+                  href={`${route}/${getSlug(entry)}`}
+                  title={entry.data.title}
+                  excerpt={entry.data.excerpt}
+                  meta={getMeta?.(entry)}
+                  badge={getBadge?.(entry)}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Thông báo khi không có kết quả */}
+        <p id="no-results" class="hidden py-12 text-center text-ink-soft">
+          Không có bài viết nào phù hợp với bộ lọc.
+        </p>
+      </>
     )}
   </section>
 </BaseLayout>
+
+{filters.length > 0 && (
+  <script is:inline>
+    // ====== Lọc client-side + URL hash state ======
+    (function() {
+      // Đọc filter keys từ data attribute
+      var configEl = document.getElementById('filter-config');
+      var filterKeys = configEl ? JSON.parse(configEl.getAttribute('data-filter-keys') || '[]') : [];
+
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('#card-grid .card-wrapper');
+      const countEl = document.getElementById('filter-count');
+      const resetBtn = document.getElementById('filter-reset');
+      const noResults = document.getElementById('no-results');
+      const total = cards.length;
+
+      // Trạng thái lọc hiện tại: { key: value }
+      const activeFilters = {};
+
+      // Khôi phục trạng thái từ URL hash (VD: #theloai=lặn&decade=1960s)
+      function restoreFromHash() {
+        const hash = window.location.hash.slice(1);
+        if (!hash) return;
+        const params = new URLSearchParams(hash);
+        for (const key of filterKeys) {
+          const val = params.get(key);
+          if (val) {
+            activeFilters[key] = val;
+            updateButtonStates(key);
+          }
+        }
+      }
+
+      function saveToHash() {
+        const params = new URLSearchParams();
+        for (const key of filterKeys) {
+          if (activeFilters[key] && activeFilters[key] !== 'all') {
+            params.set(key, activeFilters[key]);
+          }
+        }
+        const hash = params.toString();
+        if (hash) {
+          history.replaceState(null, '', '#' + hash);
+        } else {
+          history.replaceState(null, '', window.location.pathname);
+        }
+      }
+
+      function updateButtonStates(key) {
+        const activeVal = activeFilters[key] || 'all';
+        document.querySelectorAll('.filter-btn[data-filter-key="' + key + '"]').forEach(function(btn) {
+          const btnVal = btn.getAttribute('data-filter-value');
+          const isActive = btnVal === activeVal;
+          btn.setAttribute('aria-pressed', String(isActive));
+          if (isActive) {
+            btn.classList.add('bg-navy', 'text-cream', 'border-navy');
+            btn.classList.remove('bg-white', 'text-ink-soft', 'border-cream-dark');
+          } else {
+            btn.classList.remove('bg-navy', 'text-cream', 'border-navy');
+            btn.classList.add('bg-white', 'text-ink-soft', 'border-cream-dark');
+          }
+        });
+      }
+
+      function applyFilters() {
+        let visible = 0;
+        cards.forEach(function(card) {
+          let show = true;
+          for (const key of filterKeys) {
+            const filterVal = activeFilters[key];
+            if (filterVal && filterVal !== 'all') {
+              const cardVal = card.getAttribute('data-f-' + key);
+              if (cardVal !== filterVal) {
+                show = false;
+                break;
+              }
+            }
+          }
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        if (countEl) {
+          countEl.textContent = visible === total
+            ? total + ' bài'
+            : visible + ' / ' + total + ' bài';
+        }
+        if (noResults) {
+          noResults.classList.toggle('hidden', visible > 0);
+        }
+      }
+
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const key = btn.getAttribute('data-filter-key');
+          const val = btn.getAttribute('data-filter-value');
+          activeFilters[key] = val;
+          updateButtonStates(key);
+          applyFilters();
+          saveToHash();
+        });
+      });
+
+      resetBtn?.addEventListener('click', function() {
+        for (const key of filterKeys) {
+          activeFilters[key] = 'all';
+          updateButtonStates(key);
+        }
+        applyFilters();
+        saveToHash();
+      });
+
+      // Khởi tạo
+      restoreFromHash();
+      applyFilters();
+    })();
+  </script>
+)}

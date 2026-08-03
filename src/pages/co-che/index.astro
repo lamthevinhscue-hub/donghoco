@@ -1,11 +1,28 @@
 ---
-// Trang danh sách: CƠ CHẾ HOẠT ĐỘNG (Trụ cột 3 - infographic)
+// Trang danh sách: CƠ CHẾ (Trụ cột 3) — lọc theo nhóm + độ khó
 import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
 import { getEntriesByLang } from '../../lib/content';
 import { getLangFromUrl } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const entries = await getEntriesByLang('coChe', lang);
+
+// Nhóm lọc 1: Nhóm cơ chế (category)
+const categoryLabels: Record<string, string> = {
+  'nền tảng': 'Nền tảng',
+  'phức tạp': 'Phức tạp',
+  'bổ trợ': 'Bổ trợ',
+};
+const categories = [...new Set(entries.map((e) => e.data.category).filter(Boolean))] as string[];
+
+// Nhóm lọc 2: Độ khó
+const difficultyLabels: Record<string, string> = {
+  'thấp': 'Thấp',
+  'trung bình': 'Trung bình',
+  'cao': 'Cao',
+  'rất cao': 'Rất cao',
+};
+const difficulties = [...new Set(entries.map((e) => e.data.difficulty).filter(Boolean))] as string[];
 ---
 
 <CollectionListLayout
@@ -17,4 +34,18 @@ const entries = await getEntriesByLang('coChe', lang);
   entries={entries}
   getMeta={(e) => e.data.category}
   getBadge={(e) => (e.data.interactive ? (lang === 'vi' ? 'Tương tác' : 'Interactive') : undefined)}
+  filters={[
+    {
+      key: 'category',
+      label: 'Nhóm',
+      options: categories.map((c) => ({ value: c, label: categoryLabels[c] ?? c })),
+      getValue: (e) => e.data.category,
+    },
+    {
+      key: 'difficulty',
+      label: 'Độ khó',
+      options: difficulties.map((d) => ({ value: d, label: difficultyLabels[d] ?? d })),
+      getValue: (e) => e.data.difficulty,
+    },
+  ]}
 />

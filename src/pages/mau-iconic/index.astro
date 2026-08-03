@@ -1,11 +1,29 @@
 ---
-// Trang danh sách: MẪU ICONIC (Trụ cột 2)
+// Trang danh sách: MẪU ICONIC (Trụ cột 2) — lọc theo thể loại + thập niên
 import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
 import { getEntriesByLang } from '../../lib/content';
 import { getLangFromUrl } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const entries = await getEntriesByLang('mauIconic', lang);
+
+// Nhóm lọc 1: Thể loại (lấy từ category của các bài)
+const categories = [...new Set(entries.map((e) => e.data.category).filter(Boolean))] as string[];
+const categoryLabels: Record<string, string> = {
+  'lặn': 'Lặn',
+  'chronograph': 'Chronograph',
+  'dress': 'Dress',
+  'pilot': 'Phi công',
+  'sport-luxury': 'Sport-luxury',
+};
+
+// Nhóm lọc 2: Thập niên (tính từ year)
+function getDecade(year?: number): string | undefined {
+  if (!year) return undefined;
+  return Math.floor(year / 10) * 10 + 's';
+}
+const decades = [...new Set(entries.map((e) => getDecade(e.data.year)).filter(Boolean))] as string[];
+decades.sort();
 ---
 
 <CollectionListLayout
@@ -17,4 +35,18 @@ const entries = await getEntriesByLang('mauIconic', lang);
   entries={entries}
   getMeta={(e) => e.data.brand}
   getBadge={(e) => (e.data.year ? String(e.data.year) : undefined)}
+  filters={[
+    {
+      key: 'theloai',
+      label: 'Thể loại',
+      options: categories.map((c) => ({ value: c, label: categoryLabels[c] ?? c })),
+      getValue: (e) => e.data.category,
+    },
+    {
+      key: 'decade',
+      label: 'Thập niên',
+      options: decades.map((d) => ({ value: d, label: d })),
+      getValue: (e) => getDecade(e.data.year),
+    },
+  ]}
 />

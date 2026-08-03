@@ -80,17 +80,22 @@ const groups = TIER_ORDER.map((tier) => ({
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((entry) => {
               const slug = getSlug(entry);
-              const badge = foundedLabel[slug] ?? (entry.data.founded ? `${entry.data.founded}` : undefined);
+              // Năm thành lập = yếu tố thị giác chính (featureYear).
+              // Nhãn đặc biệt (VD "1978 — lập xưởng riêng") vẫn hiện làm badge;
+              // nếu chỉ có năm thuần thì không có badge riêng để tránh trùng.
+              const specialLabel = foundedLabel[slug];
+              const featureYear = entry.data.founded ? String(entry.data.founded) : undefined;
               return (
                 <Card
                   href={`/thuong-hieu/${slug}`}
                   title={entry.data.title}
                   excerpt={entry.data.excerpt}
                   meta={entry.data.country}
-                  badge={badge}
+                  badge={specialLabel}
                   logo={entry.data.logo}
                   tierLabel={group.label}
                   tierAccent={group.accent}
+                  featureYear={featureYear}
                 />
               );
             })}

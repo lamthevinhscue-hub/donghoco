@@ -34,7 +34,7 @@ decades.sort();
     : 'Stories of the watches that defined entire categories.'}
   entries={entries}
   getMeta={(e) => e.data.brand}
-  getBadge={(e) => (e.data.year ? String(e.data.year) : undefined)}
+  getFeatureYear={(e) => (e.data.year ? String(e.data.year) : undefined)}
   filters={[
     {
       key: 'theloai',

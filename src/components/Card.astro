@@ -18,12 +18,13 @@ interface Props {
   logo?: string;         // Logo nhỏ bên cạnh tiêu đề (cho thương hiệu)
   tierLabel?: string;    // Nhãn phân hạng (ví dụ: "Cao cấp") — chỉ dùng cho thẻ thương hiệu
   tierAccent?: string;   // Mã màu nhấn (khóa Tailwind, ví dụ: 'tier-haute') — kèm biến thể -light cho dark mode
+  featureYear?: string;  // Năm thành lập / ra mắt — hiển thị như yếu tố thị giác chính (serif, lớn, brass) ở góc trên-phải
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent } = Astro.props;
+const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent, featureYear } = Astro.props;
 const fullHref = localizedPath(href, lang);
 
 // Lớp màu cho nhãn phân hạng: nền nhạt + chữ đậm theo màu tier.
@@ -45,7 +46,14 @@ const tierLabelClasses = tierAccent
     </a>
   )}
 
-  <div class="flex flex-1 flex-col p-5">
+  <div class="relative flex flex-1 flex-col p-5">
+    <!-- Năm thành lập / ra mắt — yếu tố thị giác chính, góc trên-phải -->
+    {featureYear && (
+      <span class="feature-year pointer-events-none absolute right-4 top-3 font-serif text-2xl leading-none text-brass dark:text-dark-brass">
+        {featureYear}
+      </span>
+    )}
+
     <div class="mb-2 flex flex-wrap items-center gap-2">
       {tierLabel && tierAccent && (
         <span class={`inline-block w-fit rounded-full px-2.5 py-0.5 text-xs font-medium ${tierLabelClasses}`}>
@@ -78,3 +86,17 @@ const tierLabelClasses = tierAccent
     </a>
   </div>
 </article>
+
+<style is:global>
+  /*
+    Năm trên thẻ: dùng chữ số lining (chữ số nằm thẳng, không phải kiểu cũ với
+    descender/ascender) để các số như 1735, 1969 hiển thị rõ và dễ đọc.
+    Tránh lỗi từng xảy ra trên /lich-su: font serif mặc định dùng oldstyle figures
+    khiến "300" trông như "3oo".
+  */
+  .card .feature-year,
+  .feature-year {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum";
+  }
+</style>

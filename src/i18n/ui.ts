@@ -207,6 +207,30 @@ export function getTierDesc(tier: string, lang: Lang): string {
 }
 
 // =============================================================================
+// MÀU NHẤN PHÂN HẠNG (tier accent colors)
+// =============================================================================
+// Ánh xạ mỗi tier → mã màu Tailwind. Dùng cho viền trái tiêu đề nhóm, nhãn trên
+// thẻ thương hiệu, và nút lọc khi đang bật trên /thuong-hieu.
+// Trả về khóa màu (VD: 'tier-haute') — component tự thêm hậu tố -light cho dark mode.
+// =============================================================================
+
+const tierAccent: Record<string, string> = {
+  'haute horlogerie': 'tier-haute',
+  'ultra luxury': 'tier-ultra',
+  'high-end luxury': 'tier-highend',
+  'mid-range luxury': 'tier-midrange',
+  'entry-level luxury': 'tier-entry',
+  // Hai hạng thấp (consumer/microbrand) không nằm trong nhóm 5 màu chính;
+  // về mặc định dùng brass để vẫn có điểm nhấn.
+  consumer: 'brass',
+  microbrand: 'brass',
+};
+
+export function getTierAccent(tier: string): string {
+  return tierAccent[tier] ?? 'brass';
+}
+
+// =============================================================================
 // NHÃN NHÓM TỪ ĐIỂN (glossary categories)
 // =============================================================================
 // Dùng cho trang /tu-dien: nhóm và lọc theo nhóm thuật ngữ.

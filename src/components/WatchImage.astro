@@ -3,7 +3,9 @@
 // COMPONENT WatchImage — hiển thị ảnh đồng hồ với placeholder đẹp
 // =============================================================================
 // Tự động kiểm tra: nếu file ảnh tồn tại → hiển thị ảnh thật (lazy-load).
-// Nếu chưa có → hiển thị placeholder gradient + tên mẫu + "Ảnh đang cập nhật".
+// Nếu chưa có → hiển thị placeholder đồ họa (không phải báo lỗi):
+//   nền navy + hoa văn guilloché (đường tròn đồng tâm) + mặt số mô phỏng
+//   + chữ cái đầu của alt ở giữa. Co giãn theo mọi tỷ lệ khung.
 //
 // Cách dùng:
 //   <WatchImage src="/images/mau-iconic/rolex-submariner.jpg" alt="Rolex Submariner" />
@@ -28,6 +30,9 @@ const aspectClass = {
   '1/1': 'aspect-square',
   '4/3': 'aspect-[4/3]',
 }[ratio];
+
+// Chữ cái đầu của alt (hỗ trợ tiếng Việt có dấu) để hiển thị giữa mặt số
+const firstChar = (alt.trim().match(/[A-Za-z\u00C0-\u024F]/)?.[0] ?? '?').toUpperCase();
 ---
 
 <figure class="watch-image my-6">
@@ -41,19 +46,106 @@ const aspectClass = {
       onload="this.parentElement.classList.add('loaded')"
       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
     />
-    <!-- Placeholder khi chưa có ảnh (hiện khi ảnh lỗi/chưa tải) -->
-    <div class="placeholder absolute inset-0 hidden flex-col items-center justify-center bg-gradient-to-br from-navy/90 to-navy-light/80 p-4 text-center dark:from-dark-surface dark:to-dark-border/50">
-      <svg class="mb-2 h-10 w-10 text-brass/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+    <!-- Placeholder đồ họa khi chưa có ảnh: nền navy + guilloché + mặt số mô phỏng -->
+    <div class="placeholder absolute inset-0 hidden items-center justify-center p-4 text-center">
+      <!--
+        SVG dùng viewBox 0 0 200 200 với preserveAspectRatio="xMidYMid meet",
+        tự co giãn và giữ tỷ lệ vuông ở giữa khung dù khung là 16:10, 4:3 hay 1:1.
+        Hoa văn guilloché qua <pattern> lặp các đường tròn đồng tâm, opacity 5%.
+      -->
+      <svg
+        class="h-full w-full"
+        viewBox="0 0 200 200"
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label={alt}
+      >
+        <defs>
+          <!-- Hoa văn guilloché: các đường tròn đồng tâm, lặp toàn nền -->
+          <pattern id="guilloche" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+            <circle cx="12" cy="12" r="1.5" fill="none" stroke="currentColor" stroke-width="0.4" class="guilloche-stroke" />
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="0.3" class="guilloche-stroke" />
+            <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="0.25" class="guilloche-stroke" />
+          </pattern>
+        </defs>
+
+        <!-- Lớp nền navy (dark mode dùng dark-surface qua class) -->
+        <rect width="200" height="200" class="placeholder-bg" />
+
+        <!-- Lớp guilloché phủ toàn nền, độ mờ 5% -->
+        <rect width="200" height="200" fill="url(#guilloche)" opacity="0.05" class="guilloche-stroke" />
+
+        <!-- Mặt số mô phỏng ở giữa -->
+        <g transform="translate(100 100)">
+          <!-- Vòng tròn viền mảnh (vành mặt số) -->
+          <circle r="42" fill="none" stroke="currentColor" stroke-width="1" class="dial-ring" />
+          <circle r="40" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5" class="dial-ring" />
+
+          <!-- 12 vạch chỉ giờ ngắn -->
+          {Array.from({ length: 12 }).map((_, i) => {
+            const angle = (i * 30 - 90) * (Math.PI / 180);
+            const x1 = Math.cos(angle) * 34;
+            const y1 = Math.sin(angle) * 34;
+            const x2 = Math.cos(angle) * 38;
+            const y2 = Math.sin(angle) * 38;
+            return (
+              <line
+                x1={x1.toFixed(2)} y1={y1.toFixed(2)}
+                x2={x2.toFixed(2)} y2={y2.toFixed(2)}
+                stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                class="dial-mark"
+              />
+            );
+          })}
+
+          <!-- Chữ cái đầu của alt, font serif, màu brass, cỡ lớn -->
+          <text
+            x="0" y="0"
+            text-anchor="middle" dominant-baseline="central"
+            class="dial-initial"
+          >{firstChar}</text>
+        </g>
       </svg>
-      <p class="text-sm font-medium text-cream">{alt}</p>
-      <p class="mt-1 text-xs text-cream/50">Ảnh đang cập nhật</p>
     </div>
   </div>
   {caption && (
     <figcaption class="mt-2 text-center text-xs text-ink-soft/70 dark:text-dark-text-soft/70">{caption}</figcaption>
   )}
 </figure>
+
+<style is:global>
+  /*
+    Màu cho placeholder WatchImage — tách ra để dễ đổi và đảm bảo tương phản.
+    Nền navy đậm + hoa văn/đường nét màu brass (trộn cả guilloché và vành mặt số).
+    Chế độ tối: nền dark-surface, đường nét sáng hơn (dark-brass).
+  */
+  .watch-image .placeholder-bg {
+    fill: #1F2D3D; /* navy */
+  }
+  .watch-image .guilloche-stroke,
+  .watch-image .dial-ring,
+  .watch-image .dial-mark {
+    color: #B8893C; /* brass */
+  }
+  .watch-image .dial-initial {
+    fill: #B8893C;             /* brass */
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 34px;
+    font-weight: 600;
+  }
+
+  /* Chế độ tối: nền sáng hơn một chút, đường nét sáng hơn cho tương phản */
+  :root.dark .watch-image .placeholder-bg {
+    fill: #252830; /* dark-surface */
+  }
+  :root.dark .watch-image .guilloche-stroke,
+  :root.dark .watch-image .dial-ring,
+  :root.dark .watch-image .dial-mark,
+  :root.dark .watch-image .dial-initial {
+    color: #D4A85A; /* dark-brass */
+    fill: #D4A85A;
+  }
+</style>
 
 <style>
   /* Hiệu ứng fade-in khi ảnh tải xong */

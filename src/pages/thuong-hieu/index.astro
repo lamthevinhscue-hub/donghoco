@@ -10,7 +10,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
-import { getLangFromUrl, t, TIER_ORDER, getTierLabel, getTierDesc } from '../../i18n/ui';
+import { getLangFromUrl, t, TIER_ORDER, getTierLabel, getTierDesc, getTierAccent } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -23,11 +23,12 @@ const foundedLabel: Record<string, string> = {
   'philippe-dufour': '1978 — lập xưởng riêng',
 };
 
-// Nhóm thương hiệu theo hạng
+// Nhóm thương hiệu theo hạng — mỗi nhóm kèm mã màu nhấn (tier accent)
 const groups = TIER_ORDER.map((tier) => ({
   tier,
   label: getTierLabel(tier, lang),
   desc: getTierDesc(tier, lang),
+  accent: getTierAccent(tier),
   items: entries.filter((e) => e.data.tier === tier),
 })).filter((g) => g.items.length > 0); // bỏ các hạng không có thương hiệu
 ---
@@ -71,10 +72,10 @@ const groups = TIER_ORDER.map((tier) => ({
     <!-- Danh sách nhóm theo hạng -->
     <div class="mt-12 space-y-16">
       {groups.map((group) => (
-        <div data-tier-group={group.tier} class="tier-group">
-          <div class="mb-6 border-l-4 border-brass pl-4">
-            <h2 class="font-serif text-2xl text-navy">{group.label}</h2>
-            <p class="mt-1 text-sm text-ink-soft">{group.desc}</p>
+        <div data-tier-group={group.tier} class="tier-group" data-accent={group.accent}>
+          <div class={`mb-6 border-l-4 border-${group.accent} pl-4 dark:border-${group.accent}-light`}>
+            <h2 class="font-serif text-2xl text-navy dark:text-dark-text">{group.label}</h2>
+            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">{group.desc}</p>
           </div>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((entry) => {
@@ -88,6 +89,8 @@ const groups = TIER_ORDER.map((tier) => ({
                   meta={entry.data.country}
                   badge={badge}
                   logo={entry.data.logo}
+                  tierLabel={group.label}
+                  tierAccent={group.accent}
                 />
               );
             })}
@@ -105,21 +108,55 @@ const groups = TIER_ORDER.map((tier) => ({
 
 <script>
   // Lọc theo hạng — chạy ở trình duyệt, không cần tải lại trang
+  // Nút đang bật dùng màu nhấn riêng của hạng (thay vì navy chung cho mọi hạng).
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
   const groups = document.querySelectorAll<HTMLElement>('.tier-group');
   const noResults = document.getElementById('no-results');
+
+  // Lập bản đồ tier -> mã màu nhấn (lấy từ data-accent của nhóm tương ứng).
+  // Dùng cho nút lọc khi đang bật.
+  const tierAccentMap: Record<string, { bg: string; text: string; border: string }> = {};
+  groups.forEach((g) => {
+    const tier = g.dataset.tierGroup;
+    const accent = g.dataset.accent ?? 'brass';
+    if (tier && accent) {
+      tierAccentMap[tier] = {
+        bg: `bg-${accent}`,
+        text: 'text-cream',
+        border: `border-${accent}`,
+      };
+    }
+  });
+
+  // Danh sách mọi class màu có thể có trên nút (để xóa sạch khi đổi trạng thái).
+  const allAccentClasses = Object.values(tierAccentMap).flatMap((c) => [c.bg, c.border]);
+  const offClasses = ['bg-white', 'text-ink-soft', 'border-cream-dark'];
+  const allOnClasses = ['bg-navy', 'text-cream', 'border-navy', ...allAccentClasses];
+
+  function setButtonOff(b: HTMLButtonElement) {
+    allOnClasses.forEach((c) => b.classList.remove(c));
+    offClasses.forEach((c) => b.classList.add(c));
+  }
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const selected = btn.dataset.tier;
 
-      // Cập nhật trạng thái nút (nút đang chọn = nền navy)
-      buttons.forEach((b) => {
-        b.classList.remove('bg-navy', 'text-cream', 'border-navy');
-        b.classList.add('bg-white', 'text-ink-soft', 'border-cream-dark');
-      });
-      btn.classList.add('bg-navy', 'text-cream', 'border-navy');
-      btn.classList.remove('bg-white', 'text-ink-soft', 'border-cream-dark');
+      // Đặt mọi nút về trạng thái tắt
+      buttons.forEach((b) => setButtonOff(b));
+
+      // Bật nút được chọn: "Tất cả" dùng navy; nút hạng dùng màu nhấn riêng.
+      if (selected === 'all') {
+        btn.classList.add('bg-navy', 'text-cream', 'border-navy');
+      } else {
+        const accent = tierAccentMap[selected];
+        if (accent) {
+          btn.classList.add(accent.bg, accent.text, accent.border);
+        } else {
+          btn.classList.add('bg-navy', 'text-cream', 'border-navy');
+        }
+      }
+      offClasses.forEach((c) => btn.classList.remove(c));
 
       // Hiển thị nhóm tương ứng
       let anyVisible = false;

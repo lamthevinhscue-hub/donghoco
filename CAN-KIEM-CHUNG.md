@@ -78,4 +78,44 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 10. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 10. Calibre IWC 52000, 89000, 32110, 52615
+
+- **Vị trí:** `src/content/thuongHieu/vi/iwc.md` — frontmatter `signature_calibres`
+- **Tình trạng:** chỉ xác nhận được hãng tự sản xuất bộ máy tại Schaffhausen và theo đuổi trữ cót nhiều ngày. Các mã cụ thể (52000, 89000, 32110) không đối chiếu được với nguồn chính hãng. Riêng **52615** đã bị bỏ khỏi phần chữ (không xác nhận).
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 11. Các mốc IWC: 1936, 1939 (Portugieser), 1955 (Ingenieur), 1967 (Aquatimer), 1969 và 1985 (Da Vinci), 2002 (Big Pilot)
+
+- **Vị trí:** `src/content/thuongHieu/vi/iwc.md`
+- **Tình trạng:** không đối chiếu được trong đợt này. Bảng dòng chảy lịch sử chỉ giữ 4 mốc đã kiểm chứng (1868, 1880, 1948, 2000).
+- **Hành động tạm:** không đưa vào bảng lịch sử. Cấp bổ sung ở đợt sau.
+
+---
+
+## 12. Calibre Grand Seiko 9F (10 giây/năm) và 9RA2 (10 giây/tháng)
+
+- **Vị trí:** `src/content/thuongHieu/vi/grand-seiko.md` (9F) và bảng đối chiếu của trang Rolex/Omega
+- **Tình trạng:** chỉ xác nhận được calibre 9R65: trữ cót 72 giờ, sai số khoảng 1 giây mỗi ngày. Các thông số 9F (10 giây mỗi năm) và 9RA2 (10 giây mỗi tháng) không đối chiếu lại được.
+- **Hành động tạm:** giữ nguyên hiện trạng ở các trang đã có, không thêm mới.
+
+---
+
+## 13. Chuẩn nội bộ Grand Seiko: cộng 5 trừ 3 giây mỗi ngày
+
+- **Vị trí:** `src/content/thuongHieu/vi/grand-seiko.md`
+- **Tình trạng:** trang cũ từng ghi, đợt 5 đã viết lại thành "chuẩn nội bộ riêng của Grand Seiko" không kèm con số. Con số +5/-3 giây/ngày không đối chiếu lại được.
+- **Hành động tạm:** giữ nguyên cách viết mới (không kèm con số).
+
+---
+
+## 14. Calibre Cartier 1904 MC, 9907 MC, 430 MC
+
+- **Vị trí:** `src/content/thuongHieu/vi/cartier.md` — frontmatter `signature_calibres`
+- **Tình trạng:** đang có sẵn từ phiên bản cũ. Không đối chiếu được với nguồn chính hãng. Riêng **9912/9915** đã bị bỏ khỏi phần chữ (không có trong frontmatter, mâu thuẫn nội bộ).
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 15. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

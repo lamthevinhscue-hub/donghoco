@@ -104,4 +104,4 @@ Từ giữa thập niên 2010, Tudor **thôi làm đàn em**: có bộ máy tự
 
 ## Calibre in-house tiêu biểu
 
-Từ năm 2016, Tudor có dòng bộ máy riêng do **Kenissi** sản xuất. Các calibre tiêu biểu: **MT5602** (automatic cơ bản), **MT5652** (GMT) và **MT5813** (chronograph, phát triển trên nền Breitling B01). Dòng MT có trữ cót khoảng 70 giờ và đạt chuẩn COSC.
+Từ năm 2016, Tudor có dòng bộ máy riêng do **Kenissi** sản xuất. Các calibre tiêu biểu: **MT5602** (tự động cơ bản), **MT5652** (GMT) và **MT5813** (chronograph, phát triển trên nền Breitling B01). Dòng MT có trữ cót khoảng 70 giờ và đạt chuẩn COSC.

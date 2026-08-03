@@ -5,13 +5,12 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 1. Năm đăng ký logo Longines
+## 1. Năm đăng ký logo Longines — ĐÃ GIẢI QUYẾT
 
-- **Vị trí:** `src/content/thuongHieu/vi/longines.md` (đã bỏ con số, ghi chung chung)
-- **Mâu thuẫn nguồn:**
-  - 1867 — năm xây nhà máy đầu tiên tại khu "Les Longines" (theo một số nguồn).
-  - 1889 — năm đăng ký bảo hộ trademark "Longines" với logo cánh chim + đồng hồ cát (theo Wikipedia + trang Longines).
-- **Hành động tạm:** đã bỏ con số 1867, ghi "một trong những logo đồng hồ lâu đời nhất thế giới vẫn còn nguyên hình dáng".
+- **Vị trí:** `src/content/thuongHieu/vi/longines.md`
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (đợt 4, 03/08/2026).
+- **Kết luận kiểm chứng:** 1867 là năm xây nhà máy, 1889 là năm đăng ký tên và logo — cả hai đều đúng, chỉ là hai sự kiện khác nhau.
+- **Hành động đã làm:** khôi phục con số 1889 cho logo (giữ 1867 cho nhà máy). Trên trang ghi rõ logo đăng ký năm 1889.
 
 ---
 
@@ -63,4 +62,20 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 8. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 8. Calibre Seiko NH/N4, 6R, 8L
+
+- **Vị trí:** `src/content/thuongHieu/vi/seiko.md` — frontmatter `signature_calibres`
+- **Tình trạng:** đang có sẵn từ phiên bản cũ. Không đối chiếu được với nguồn chính hãng.
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 9. Mốc Tudor 2015 — bộ máy in-house đầu tiên
+
+- **Vị trí:** `src/content/thuongHieu/vi/tudor.md`
+- **Tình trạng:** không xác nhận được mốc 2015. Mốc kiểm chứng được là **2016** (lập Kenissi và ra mắt MT5602).
+- **Hành động tạm:** dùng mốc 2016. Ghi mục 2015 vào đây để anh Vinh rà.
+
+---
+
+## 10. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

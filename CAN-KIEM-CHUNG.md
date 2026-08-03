@@ -118,4 +118,36 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 15. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 15. Năm 1974 SSIH mua lại Hamilton
+
+- **Vị trí:** `src/content/thuongHieu/vi/hamilton.md`
+- **Tình trạng:** trang cũ từng ghi. Chỉ xác nhận được Hamilton nay thuộc Swatch Group và đặt trụ sở tại Biel.
+- **Hành động tạm:** đợt 6 đã bỏ mốc 1974 khỏi bảng lịch sử. Không đưa thành mốc mới.
+
+---
+
+## 16. Calibre Hamilton H-10 trữ cót 80 giờ, H-30, H-31
+
+- **Vị trí:** `src/content/thuongHieu/vi/hamilton.md` — frontmatter `signature_calibres`
+- **Tình trạng:** không đối chiếu được con số cụ thể (đặc biệt là 80 giờ trữ cót của H-10).
+- **Hành động tạm:** giữ nguyên frontmatter. Trong bài chỉ ghi "trữ cót dài", không ghi con số 80 giờ.
+
+---
+
+## 17. Calibre Frédérique Constant FC-700, FC-755, FC-735
+
+- **Vị trí:** `src/content/thuongHieu/vi/frederique-constant.md` — frontmatter `signature_calibres`
+- **Tình trạng:** chỉ xác nhận được FC-910 là bộ máy tự phát triển đầu tiên, ra mắt năm 2004. Các mã FC-700/FC-755/FC-735 không đối chiếu được với nguồn chính hãng.
+- **Hành động tạm:** giữ nguyên frontmatter, không thêm không bớt.
+
+---
+
+## 18. Con số "hơn 500 bộ phim" của Hamilton
+
+- **Vị trí:** `src/content/thuongHieu/vi/hamilton.md`
+- **Tình trạng:** trang cũ từng ghi "hơn 500 bộ phim", không đối chiếu được.
+- **Hành động tạm:** đợt 6 đã diễn đạt mềm hơn thành "hàng trăm bộ phim".
+
+---
+
+## 19. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

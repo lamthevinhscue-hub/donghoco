@@ -1,6 +1,6 @@
 ---
 title: "Chronograph — Cơ chế bấm giờ và bánh răng cột"
-excerpt: "Chronograph biến đồng hồ thành dụng cụ đo thời gian độc lập. Trái tim của các mẫu cao cấp là bánh răng cột — cơ chế three-phase Start/Stop/Reset tinh tế bậc nhất đồng hồ cơ."
+excerpt: "Chronograph biến đồng hồ thành dụng cụ đo thời gian độc lập. Trái tim của các mẫu cao cấp là bánh răng cột — cơ chế ba pha chạy, dừng, đặt lại tinh tế bậc nhất đồng hồ cơ."
 category: "chức năng"
 difficulty: "cao"
 has_infographic: true

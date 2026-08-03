@@ -36,7 +36,7 @@ Chu kỳ phụ thuộc vào 2 yếu tố:
 - **Độ cứng của dây tóc** (vật liệu + chiều dài + bậc xoắn) — cứng hơn → dao động nhanh hơn.
 - **Quán tính của bánh lắc** (khối lượng + đường kính) — nặng hơn → dao động chậm hơn.
 
-Khi 2 yếu tố này ổn định, chu kỳ ổn định → đồng hồ chính xác. Mọi cải tiến dây tóc (silicon, overcoil, Nivarox) đều nhắm tới việc **giữ chu kỳ ổn định** trước nhiệt độ, từ trường, va đập.
+Khi 2 yếu tố này ổn định, chu kỳ ổn định → đồng hồ chính xác. Mọi cải tiến dây tóc (silicon, đường cuộn nâng Breguet overcoil, Nivarox) đều nhắm tới việc **giữ chu kỳ ổn định** trước nhiệt độ, từ trường, va đập.
 
 ### Bộ thoát — ai nuôi dao động?
 
@@ -72,7 +72,7 @@ Dây tóc là **vòng xoắn ốc siêu mỏng** (dày vài chục micromet), d�
 - Patek Philippe, Rolex, Omega đều đã chuyển dây tóc cao cấp sang silicon (Patek gọi là Silinvar, Omega là Si14).
 
 ### Dây tóc Breguet overcoil
-Một cải tiến riêng của **Breguet (1795)**: đầu cuộn dây tóc **nâng cao** (overcoil) thay vì phẳng → dây tóc "thở" đồng tâm hơn khi giãn nở → ổn định hơn ở các vị trí khác nhau. Nhiều caliber cao cấp vẫn dùng overcoil đến nay.
+Một cải tiến riêng của **Breguet (1795)**: đầu cuộn dây tóc **nâng cao** (overcoil — kiểu đường cuộn nâng) thay vì phẳng → dây tóc "thở" đồng tâm hơn khi giãn nở → ổn định hơn ở các vị trí khác nhau. Nhiều caliber cao cấp vẫn dùng overcoil đến nay.
 
 ## Ý nghĩa lịch sử — 350 năm dao động điều hòa
 

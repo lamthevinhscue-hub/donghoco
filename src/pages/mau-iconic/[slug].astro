@@ -4,6 +4,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -35,6 +36,73 @@ const meta = [
   data.year ? `${data.year}` : null,
   data.references && data.references.length > 0 ? `${data.references.length} ref` : null,
 ].filter(Boolean).join(' • ');
+
+// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
+// 1. Mẫu cùng category (ưu tiên cùng thập niên)
+// 2. Trang thương hiệu của mẫu này
+// 3. Một mẫu cùng thể loại khác (nếu còn)
+const decade = data.year ? Math.floor(data.year / 10) * 10 : null;
+const sameCategory = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).category === data.category)
+  .sort((a, b) => {
+    // Ưu tiên cùng thập niên (khoảng cách năm nhỏ hơn)
+    const ya = (a.data as any).year ?? 9999;
+    const yb = (b.data as any).year ?? 9999;
+    if (data.year) {
+      return Math.abs(ya - data.year) - Math.abs(yb - data.year);
+    }
+    return ya - yb;
+  });
+
+const related: RelatedItem[] = [];
+
+// (1) Mẫu cùng category, ưu tiên cùng thập niên
+if (sameCategory[0]) {
+  const e = sameCategory[0];
+  const ed = e.data as any;
+  related.push({
+    href: `/mau-iconic/${getSlug(e)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: ed.brand,
+    featureYear: ed.year ? String(ed.year) : undefined,
+  });
+}
+
+// (2) Trang thương hiệu của mẫu này (nếu có brand khớp)
+if (data.brand) {
+  const brandEntries = await getEntriesByLang('thuongHieu', lang);
+  // So khớp không phân biệt hoa thường, bỏ dấu khoảng trắng (giống logic Khối 5)
+  const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
+  const brandEntry = brandEntries.find((e) => {
+    const b = (e.data as any).title;
+    return b && norm(b) === norm(data.brand);
+  });
+  if (brandEntry) {
+    related.push({
+      href: `/thuong-hieu/${getSlug(brandEntry)}`,
+      title: (brandEntry.data as any).title,
+      excerpt: (brandEntry.data as any).excerpt,
+      meta: (brandEntry.data as any).country,
+    });
+  }
+}
+
+// (3) Một mẫu cùng thể loại khác (mẫu thứ 2 cùng category, tránh trùng số 1)
+const thirdCandidate = sameCategory.find((e) => {
+  const ed = e.data as any;
+  return !related.some((r) => r.title === ed.title);
+});
+if (thirdCandidate) {
+  const ed = thirdCandidate.data as any;
+  related.push({
+    href: `/mau-iconic/${getSlug(thirdCandidate)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: ed.brand,
+    featureYear: ed.year ? String(ed.year) : undefined,
+  });
+}
 ---
 
 <ArticleLayout
@@ -44,6 +112,7 @@ const meta = [
   cover_image={data.cover_image}
   backHref="/mau-iconic"
   meta={meta}
+  relatedArticles={related}
 >
   <Content />
 </ArticleLayout>

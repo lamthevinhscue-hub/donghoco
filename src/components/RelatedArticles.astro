@@ -1,0 +1,44 @@
+---
+// =============================================================================
+// RELATED ARTICLES — khối "Đọc tiếp" ở cuối bài viết
+// =============================================================================
+// Hiển thị tối đa 3 gợi ý bài viết liên quan, dùng component Card.
+// Đặt sau phần thân bài, trước nút "Quay lại danh sách".
+// Chỉ dùng cho 4 collection: mẫu iconic, cơ chế, từ điển, hướng dẫn.
+// KHÔNG dùng cho trang thương hiệu (đã có Khối 4 và 5).
+// =============================================================================
+
+import Card from './Card.astro';
+
+export interface RelatedItem {
+  href: string;       // Đường dẫn gốc (chưa có tiền tố ngôn ngữ)
+  title: string;
+  excerpt: string;
+  meta?: string;      // Thông tin phụ (thương hiệu, độ khó, v.v.)
+  featureYear?: string;
+}
+
+interface Props {
+  items: RelatedItem[];
+}
+
+const { items } = Astro.props;
+const visible = items.slice(0, 3); // tối đa 3 gợi ý
+---
+
+{visible.length > 0 && (
+  <section class="related-articles mt-16 border-t border-cream-dark pt-10 dark:border-dark-border">
+    <h2 class="mb-6 font-serif text-2xl text-navy dark:text-dark-text">Đọc tiếp</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {visible.map((item) => (
+        <Card
+          href={item.href}
+          title={item.title}
+          excerpt={item.excerpt}
+          meta={item.meta}
+          featureYear={item.featureYear}
+        />
+      ))}
+    </div>
+  </section>
+)}

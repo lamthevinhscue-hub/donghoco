@@ -8,6 +8,7 @@
 
 import BaseLayout from './BaseLayout.astro';
 import WatchImage from '../components/WatchImage.astro';
+import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 
 interface Props {
@@ -19,12 +20,14 @@ interface Props {
   backHref?: string;
   /** Thông tin phụ hiển thị ngay dưới tiêu đề */
   meta?: string;
+  /** Các bài gợi ý cho khối "Đọc tiếp" (tối đa 3, tự tính ở trang slug) */
+  relatedArticles?: RelatedItem[];
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, cover_image, backHref, meta } = Astro.props;
+const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [] } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 const breadcrumbData = backHref ? [
@@ -50,12 +53,6 @@ const formattedDate = date
 
 <BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData}>
   <article class="mx-auto max-w-3xl px-4 py-12">
-    {backHref && (
-      <a href={localizedPath(backHref, lang)} class="mb-8 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
-        {tr.back_to_list}
-      </a>
-    )}
-
     <header class="mb-8">
       <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl dark:text-dark-text">{title}</h1>
 
@@ -78,5 +75,17 @@ const formattedDate = date
     <div class="prose-content text-ink dark:text-dark-text">
       <slot />
     </div>
+
+    <!-- Khối "Đọc tiếp" — gợi ý bài liên quan (chỉ 4 collection, không cho thương hiệu) -->
+    {relatedArticles.length > 0 && (
+      <RelatedArticles items={relatedArticles} />
+    )}
+
+    <!-- Nút "Quay lại danh sách" — chuyển từ đầu bài xuống cuối, đặt dưới khối Đọc tiếp -->
+    {backHref && (
+      <a href={localizedPath(backHref, lang)} class="mt-12 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
+        {tr.back_to_list}
+      </a>
+    )}
   </article>
 </BaseLayout>

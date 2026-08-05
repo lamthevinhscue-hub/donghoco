@@ -4,6 +4,7 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -38,6 +39,39 @@ const diffLabel: Record<string, { vi: string; en: string }> = {
 };
 const diff = diffLabel[data.difficulty] ?? diffLabel['người mới'];
 const meta = lang === 'vi' ? diff.vi : diff.en;
+
+// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
+// Quy tắc: hướng dẫn kế tiếp theo difficulty (từ thấp lên cao), rồi các bài cùng difficulty.
+const diffOrder = ['người mới', 'trung cấp', 'nâng cao'];
+const curIdx = diffOrder.indexOf(data.difficulty);
+
+const related: RelatedItem[] = [];
+
+// Bài kế tiếp đúng 1 bậc difficulty
+const nextDiff = entries
+  .filter((e) => getSlug(e) !== slug)
+  .filter((e) => diffOrder.indexOf((e.data as any).difficulty) === curIdx + 1)
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+// Bài cùng difficulty (bổ sung nếu chưa đủ 3)
+const sameDiff = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).difficulty === data.difficulty)
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+// Ghép: kế tiếp difficulty trước, rồi cùng difficulty
+for (const e of [...nextDiff, ...sameDiff]) {
+  if (related.length >= 3) break;
+  const ed = e.data as any;
+  // Tránh trùng lặp
+  if (related.some((r) => r.title === ed.title)) continue;
+  const d = diffLabel[ed.difficulty] ?? diffLabel['người mới'];
+  related.push({
+    href: `/huong-dan/${getSlug(e)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: lang === 'vi' ? d.vi : d.en,
+  });
+}
 ---
 
 <ArticleLayout
@@ -47,6 +81,7 @@ const meta = lang === 'vi' ? diff.vi : diff.en;
   cover_image={data.cover_image}
   backHref="/huong-dan"
   meta={meta}
+  relatedArticles={related}
 >
   <Content />
 </ArticleLayout>

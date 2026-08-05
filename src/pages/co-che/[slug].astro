@@ -17,6 +17,7 @@ import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { t } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -65,6 +66,63 @@ const infographics: Record<string, any> = {
   'perpetual-calendar': PerpetualCalendar,
 };
 const Infographic = data.has_infographic ? infographics[slug] : null;
+
+// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
+// Thứ tự difficulty từ thấp lên cao
+const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
+// 1. Bài cùng category
+// 2. Bài kế tiếp theo difficulty (từ thấp lên cao)
+// 3. Thuật ngữ tương ứng trong /tu-dien nếu có cùng slug
+const sameCategory = entries.filter(
+  (e) => getSlug(e) !== slug && (e.data as any).category === data.category
+);
+const nextDifficulty = entries
+  .filter((e) => getSlug(e) !== slug)
+  .filter((e) => {
+    const curIdx = diffOrder.indexOf(data.difficulty);
+    const eIdx = diffOrder.indexOf((e.data as any).difficulty);
+    return eIdx === curIdx + 1; // bài kế tiếp đúng 1 bậc
+  })
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+const related: RelatedItem[] = [];
+
+// (1) Bài cùng category
+if (sameCategory[0]) {
+  const e = sameCategory[0];
+  const ed = e.data as any;
+  related.push({
+    href: `/co-che/${getSlug(e)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: `${ed.category} • ${ed.difficulty}`,
+  });
+}
+
+// (2) Bài kế tiếp difficulty
+if (nextDifficulty[0]) {
+  const e = nextDifficulty[0];
+  const ed = e.data as any;
+  related.push({
+    href: `/co-che/${getSlug(e)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: `${ed.category} • ${ed.difficulty}`,
+  });
+}
+
+// (3) Thuật ngữ tương ứng (cùng slug)
+const tuDienEntries = await getEntriesByLang('tuDien', lang);
+const matchingTerm = tuDienEntries.find((e) => getSlug(e) === slug);
+if (matchingTerm) {
+  const md = matchingTerm.data as any;
+  related.push({
+    href: `/tu-dien/${getSlug(matchingTerm)}`,
+    title: md.title,
+    excerpt: md.excerpt,
+    meta: md.term_en ? `EN: ${md.term_en}` : md.category,
+  });
+}
 ---
 
 <ArticleLayout
@@ -74,6 +132,7 @@ const Infographic = data.has_infographic ? infographics[slug] : null;
   cover_image={data.cover_image}
   backHref="/co-che"
   meta={meta}
+  relatedArticles={related}
 >
   {data.has_infographic && Infographic && (
     <Infographic />

@@ -14,6 +14,7 @@ import GMT from '../../components/infographics/glossary/GMT.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -55,6 +56,41 @@ const infographics: Record<string, any> = {
   'day-toc-banh-lac': Hairspring,
 };
 const Infographic = data.has_infographic ? infographics[slug] : null;
+
+// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
+// 1. Bài cơ chế cùng chủ đề (đối chiếu slug)
+// 2. Thuật ngữ cùng category
+// 3. Thuật ngữ cùng category tiếp theo (nếu còn)
+const coCheEntries = await getEntriesByLang('coChe', lang);
+const matchingMechanism = coCheEntries.find((e) => getSlug(e) === slug);
+const sameCategory = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).category === data.category)
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+const related: RelatedItem[] = [];
+
+// (1) Bài cơ chế cùng slug
+if (matchingMechanism) {
+  const md = matchingMechanism.data as any;
+  related.push({
+    href: `/co-che/${getSlug(matchingMechanism)}`,
+    title: md.title,
+    excerpt: md.excerpt,
+    meta: `${md.category} • ${md.difficulty}`,
+  });
+}
+
+// (2) + (3) Thuật ngữ cùng category
+for (const e of sameCategory) {
+  if (related.length >= 3) break;
+  const ed = e.data as any;
+  related.push({
+    href: `/tu-dien/${getSlug(e)}`,
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: ed.term_en ? `EN: ${ed.term_en}` : ed.category,
+  });
+}
 ---
 
 <ArticleLayout
@@ -63,6 +99,7 @@ const Infographic = data.has_infographic ? infographics[slug] : null;
   date={data.date}
   backHref="/tu-dien"
   meta={meta}
+  relatedArticles={related}
 >
   {Infographic && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-3 text-center text-xs font-medium text-brass">

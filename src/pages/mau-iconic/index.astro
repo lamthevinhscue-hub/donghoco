@@ -1,7 +1,7 @@
 ---
 // Trang danh sách: MẪU ICONIC (Trụ cột 2) — lọc theo thể loại + thập niên
 import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
-import { getEntriesByLang } from '../../lib/content';
+import { getEntriesByLang, getSlug } from '../../lib/content';
 import { getLangFromUrl } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -35,6 +35,7 @@ decades.sort();
   entries={entries}
   getMeta={(e) => e.data.brand}
   getFeatureYear={(e) => (e.data.year ? String(e.data.year) : undefined)}
+  getCompareSlug={(e) => getSlug(e)}
   filters={[
     {
       key: 'theloai',

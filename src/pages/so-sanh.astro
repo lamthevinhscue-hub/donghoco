@@ -71,9 +71,9 @@ const models = entries.map((e) => ({
       <p class="mt-2 text-xs text-ink-soft/60 dark:text-dark-text-soft/60">Tối đa 3 mẫu. Bấm tên mẫu trong bảng để bỏ.</p>
     </div>
 
-    <!-- ====== BẢNG SO SÁNH ====== -->
-    <div id="compare-empty" class="mt-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 py-16 text-center">
-      <p class="text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.</p>
+    <!-- ====== TRẠNG THÁI RỖNG / 1 MẪU ====== -->
+    <div id="compare-empty" class="mt-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 py-12 text-center">
+      <div id="compare-empty-content"></div>
     </div>
 
     <div id="compare-table-wrap" class="mt-8 hidden overflow-x-auto">
@@ -133,13 +133,24 @@ const models = entries.map((e) => ({
 
   function render() {
     // Toggle empty vs table
+    const emptyContent = document.getElementById('compare-empty-content');
     if (selected.length < 2) {
       emptyEl.classList.remove('hidden');
       tableWrap.classList.add('hidden');
       if (selected.length === 1) {
-        emptyEl.querySelector('p').textContent = 'Đã chọn 1 mẫu. Thêm ít nhất 1 mẫu nữa để so sánh.';
+        // Đã chọn 1 mẫu — hiện mẫu đó ở cột đầu và mời chọn thêm
+        const m = modelsData.find((md) => md.slug === selected[0]);
+        if (m) {
+          emptyContent.innerHTML =
+            '<p class="mb-2 text-xs font-medium uppercase tracking-wider text-brass">Đã chọn</p>' +
+            '<p class="font-serif text-2xl text-navy">' + m.title + '</p>' +
+            '<p class="mt-1 text-sm text-ink-soft">' + (m.brand || '') + (m.year ? ' • ' + m.year : '') + '</p>' +
+            '<p class="mt-4 text-sm text-ink-soft">Thêm ít nhất 1 mẫu nữa để bắt đầu so sánh. ↑</p>';
+        } else {
+          emptyContent.innerHTML = '<p class="text-ink-soft">Đã chọn 1 mẫu. Thêm ít nhất 1 mẫu nữa để so sánh.</p>';
+        }
       } else {
-        emptyEl.querySelector('p').textContent = 'Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.';
+        emptyContent.innerHTML = '<p class="text-ink-soft">Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.</p>';
       }
     } else {
       emptyEl.classList.add('hidden');

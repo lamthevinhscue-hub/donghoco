@@ -3,6 +3,7 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
+import { localizedPath } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
@@ -113,6 +114,7 @@ if (thirdCandidate) {
   backHref="/mau-iconic"
   meta={meta}
   relatedArticles={related}
+  compareHref={localizedPath(`/so-sanh?m=${slug}`, lang)}
 >
   <Content />
 </ArticleLayout>

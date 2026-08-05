@@ -22,12 +22,14 @@ interface Props {
   meta?: string;
   /** Các bài gợi ý cho khối "Đọc tiếp" (tối đa 3, tự tính ở trang slug) */
   relatedArticles?: RelatedItem[];
+  /** Link dẫn sang công cụ so sánh với mẫu hiện tại đã chọn (chỉ /mau-iconic) */
+  compareHref?: string;
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [] } = Astro.props;
+const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [], compareHref } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 const breadcrumbData = backHref ? [
@@ -79,6 +81,13 @@ const formattedDate = date
     <!-- Khối "Đọc tiếp" — gợi ý bài liên quan (chỉ 4 collection, không cho thương hiệu) -->
     {relatedArticles.length > 0 && (
       <RelatedArticles items={relatedArticles} />
+    )}
+
+    <!-- Link "Đặt cạnh mẫu khác" — dẫn sang /so-sanh với mẫu hiện tại đã chọn -->
+    {compareHref && (
+      <a href={compareHref} class="mt-10 inline-flex items-center gap-2 rounded-lg border border-brass/40 bg-brass/5 px-4 py-2.5 text-sm font-medium text-brass transition-colors hover:bg-brass/10 dark:border-dark-brass/40 dark:bg-dark-brass/5 dark:text-dark-brass dark:hover:bg-dark-brass/10">
+        ⚖ Đặt cạnh mẫu khác →
+      </a>
     )}
 
     <!-- Nút "Quay lại danh sách" — chuyển từ đầu bài xuống cuối, đặt dưới khối Đọc tiếp -->

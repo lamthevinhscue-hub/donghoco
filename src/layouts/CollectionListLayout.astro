@@ -34,12 +34,14 @@ interface Props {
   getBadge?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   /** Trích năm thành lập/ra mắt để hiển thị như yếu tố thị giác chính trên thẻ (serif, lớn, brass) */
   getFeatureYear?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
+  /** Trích slug mẫu iconic để hiện nút 'So sánh' trên thẻ (chỉ dùng cho /mau-iconic) */
+  getCompareSlug?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   /** Bộ lọc tùy chọn (mỗi nhóm là 1 hàng nút) */
   filters?: FilterGroup[];
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
-const { collection, title, description, entries, getMeta, getBadge, getFeatureYear, filters = [] } = Astro.props;
+const { collection, title, description, entries, getMeta, getBadge, getFeatureYear, getCompareSlug, filters = [] } = Astro.props;
 const route = getCollectionRoute(collection);
 ---
 
@@ -107,6 +109,7 @@ const route = getCollectionRoute(collection);
                   meta={getMeta?.(entry)}
                   badge={getBadge?.(entry)}
                   featureYear={getFeatureYear?.(entry)}
+                  compareSlug={getCompareSlug?.(entry)}
                 />
               </div>
             );

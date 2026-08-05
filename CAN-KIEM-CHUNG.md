@@ -164,4 +164,12 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 ---
 
-## 20. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+## 20. Calibre Orient F6724 — chức năng và thông số
+
+- **Vị trí:** `src/content/thuongHieu/vi/orient.md` — frontmatter `signature_calibres`
+- **Tình trạng:** các nguồn mâu thuẫn nhau về việc F6724 có chức năng lên dây tay và dừng kim giây hay không (nhiều khả năng bộ máy đã được nâng cấp giữa chừng). Trữ cót và tần số cũng không thống nhất — nguồn ghi khoảng 40 giờ.
+- **Hành động tạm:** giữ nguyên frontmatter. Trên trang chỉ ghi đây là bộ máy tự sản xuất dùng cho tuyến Bambino; **không nêu chức năng, không nêu con số trữ cót/tần số**. Riêng F6922 đã kiểm chứng (21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ) và được dùng đầy đủ.
+
+---
+
+## 21. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện

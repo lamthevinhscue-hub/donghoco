@@ -1,51 +1,111 @@
 ---
-// Trang danh sách: CƠ CHẾ (Trụ cột 3) — lọc theo nhóm + độ khó
-import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
-import { getEntriesByLang } from '../../lib/content';
+// =============================================================================
+// Trang danh sách: CƠ CHẾ (Trụ cột 3) — lộ trình đọc theo 3 chặng
+// =============================================================================
+// Xếp thành ba chặng theo category: nền tảng → phức tạp → bổ trợ.
+// Trong mỗi chặng xếp theo difficulty tăng dần.
+// Mỗi chặng có tiêu đề + mô tả ngắn. Thẻ đánh số thứ tự đọc đề nghị liên tục.
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { getEntriesByLang, getSlug, getCollectionRoute } from '../../lib/content';
 import { getLangFromUrl } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const entries = await getEntriesByLang('coChe', lang);
 
-// Nhóm lọc 1: Nhóm cơ chế (category)
-const categoryLabels: Record<string, string> = {
-  'nền tảng': 'Nền tảng',
-  'phức tạp': 'Phức tạp',
-  'bổ trợ': 'Bổ trợ',
-};
-const categories = [...new Set(entries.map((e) => e.data.category).filter(Boolean))] as string[];
-
-// Nhóm lọc 2: Độ khó
-const difficultyLabels: Record<string, string> = {
+// Thứ tự difficulty tăng dần
+const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
+const difficultyLabel = {
   'thấp': 'Thấp',
   'trung bình': 'Trung bình',
   'cao': 'Cao',
   'rất cao': 'Rất cao',
 };
-const difficulties = [...new Set(entries.map((e) => e.data.difficulty).filter(Boolean))] as string[];
+
+// ====== Định nghĩa 3 chặng lộ trình ======
+const stages = [
+  {
+    key: 'nền tảng',
+    label: 'Chặng 1 — Nền tảng',
+    desc: 'Những bộ phận mà mọi đồng hồ cơ đều phải có. Đọc trước để hiểu các chặng sau.',
+  },
+  {
+    key: 'phức tạp',
+    label: 'Chặng 2 — Phức tạp',
+    desc: 'Cơ chế đi xa hơn chức năng cơ bản: bấm giờ, nhiều múi giờ, lịch vạn niên, tourbillon.',
+  },
+  {
+    key: 'bổ trợ',
+    label: 'Chặng 3 — Bổ trợ',
+    desc: 'Tính năng bảo vệ và tiện ích: chống nước, chống từ, trữ cót dài.',
+  },
+];
+
+// Sắp xếp entries theo chặng, rồi theo difficulty trong mỗi chặng
+const stageEntries = stages.map((stage) => ({
+  ...stage,
+  items: entries
+    .filter((e) => e.data.category === stage.key)
+    .sort((a, b) => {
+      const da = diffOrder.indexOf(a.data.difficulty);
+      const db = diffOrder.indexOf(b.data.difficulty);
+      return (da === -1 ? 99 : da) - (db === -1 ? 99 : db);
+    }),
+}));
+
+// Đánh số thứ tự đọc liên tục qua các chặng
+let globalIndex = 0;
 ---
 
-<CollectionListLayout
-  collection="coChe"
-  title={lang === 'vi' ? 'Cơ chế hoạt động' : 'How it works'}
-  description={lang === 'vi'
-    ? 'Hiểu sâu về cách đồng hồ cơ đập, lên dây và đo thời gian.'
-    : 'Go deep into how mechanical watches tick, wind and keep time.'}
-  entries={entries}
-  getMeta={(e) => e.data.category}
-  getBadge={(e) => (e.data.interactive ? (lang === 'vi' ? 'Tương tác' : 'Interactive') : undefined)}
-  filters={[
-    {
-      key: 'category',
-      label: 'Nhóm',
-      options: categories.map((c) => ({ value: c, label: categoryLabels[c] ?? c })),
-      getValue: (e) => e.data.category,
-    },
-    {
-      key: 'difficulty',
-      label: 'Độ khó',
-      options: difficulties.map((d) => ({ value: d, label: difficultyLabels[d] ?? d })),
-      getValue: (e) => e.data.difficulty,
-    },
-  ]}
-/>
+<BaseLayout
+  title="Cơ chế hoạt động"
+  description="Hiểu sâu về cách đồng hồ cơ đập, lên dây và đo thời gian — theo lộ trình 3 chặng."
+>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading
+      title="Cơ chế hoạt động"
+      subtitle="Lộ trình đọc 3 chặng: từ những bộ phận cơ bản nhất đến các phức tạp cao cấp. Mỗi bài kèm infographic động."
+    />
+
+    {stageEntries.map((stage) => (
+      stage.items.length > 0 && (
+        <div class="mt-14">
+          <div class="mb-6 border-l-4 border-brass pl-4">
+            <h2 class="font-serif text-2xl text-navy dark:text-dark-text">{stage.label}</h2>
+            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">{stage.desc}</p>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {stage.items.map((entry) => {
+              const slug = getSlug(entry);
+              globalIndex++;
+              return (
+                <a
+                  href={`${getCollectionRoute('coChe')}/${slug}`}
+                  class="group relative flex h-full flex-col rounded-lg border border-cream-dark bg-white p-5 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
+                >
+                  <!-- Số thứ tự đọc đề nghị (góc trên-phải) -->
+                  <span class="pointer-events-none absolute right-4 top-4 font-serif text-2xl leading-none text-brass/40 dark:text-dark-brass/40" style="font-variant-numeric: lining-nums;">
+                    {String(globalIndex).padStart(2, '0')}
+                  </span>
+                  <h3 class="mb-2 pr-10 font-serif text-lg text-navy transition-colors group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">
+                    {entry.data.title}
+                  </h3>
+                  <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+                    {difficultyLabel[entry.data.difficulty] ?? entry.data.difficulty}
+                    {entry.data.interactive ? ' • Tương tác' : ''}
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{entry.data.excerpt}</p>
+                  <span class="text-sm font-medium text-brass transition-colors group-hover:text-navy dark:text-dark-brass dark:group-hover:text-brass-light">
+                    Đọc tiếp →
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )
+    ))}
+  </section>
+</BaseLayout>

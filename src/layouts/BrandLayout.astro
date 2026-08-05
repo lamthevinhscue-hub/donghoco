@@ -34,11 +34,12 @@ interface Props {
   cover_image?: string;
   data: any; // Toàn bộ frontmatter thương hiệu
   iconicModels?: IconicModel[]; // Khối 5: mẫu iconic liên quan
+  sameTierBrands?: { title: string; slug: string; excerpt: string; country?: string; founded?: number; logo?: string }[]; // Khối 5 thay thế khi trống
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
-const { title, excerpt, meta, data, iconicModels = [] } = Astro.props;
+const { title, excerpt, meta, data, iconicModels = [], sameTierBrands = [] } = Astro.props;
 // Hero ảnh + logo: ưu tiên prop cover_image, fallback data.cover_image / data.logo
 const heroImage = Astro.props.cover_image ?? data.cover_image;
 const logo = data.logo;
@@ -263,7 +264,37 @@ const breadcrumbData = [
       </section>
     )}
 
-    {iconicModels.length === 0 && (
+    {iconicModels.length === 0 && sameTierBrands.length > 0 && (
+      <section class="mb-12" data-block="same-tier-brands">
+        <h2 class="mb-2 font-serif text-2xl text-navy dark:text-dark-text">
+          Các hãng cùng phân hạng
+        </h2>
+        <p class="mb-6 text-sm text-ink-soft dark:text-dark-text-soft">
+          {title} chưa có mẫu iconic trên website. Trong khi chờ, khám phá các hãng cùng {tierLabel.toLowerCase()}.
+        </p>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {sameTierBrands.map((brand) => (
+            <a
+              href={`/thuong-hieu/${brand.slug}`}
+              class="group flex h-full flex-col rounded-lg border border-cream-dark bg-white p-5 transition-all hover:border-brass hover:shadow-md dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
+            >
+              <h3 class="mb-2 flex items-center gap-2 font-serif text-base text-navy transition-colors group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">
+                {brand.logo && (
+                  <img src={brand.logo} alt={`${brand.title} logo`} loading="lazy" class="h-5 w-5 shrink-0 object-contain" />
+                )}
+                {brand.title}
+              </h3>
+              <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+                {brand.country}{brand.founded ? ` • ${brand.founded}` : ''}
+              </p>
+              <p class="flex-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">{brand.excerpt}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {iconicModels.length === 0 && sameTierBrands.length === 0 && (
       <section class="mb-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 p-6 text-center text-sm text-ink-soft/60 dark:text-dark-text-soft/60">
         📝 Chưa có mẫu iconic nào của {title} trên website. Sẽ được bổ sung sau.
       </section>

@@ -64,6 +64,20 @@ const iconicModels = iconicEntries
     year: (e.data as any).year,
     cover_image: (e.data as any).cover_image,
   }));
+
+// ====== Khối 5 thay thế (khi chưa có mẫu iconic): các hãng cùng phân hạng ======
+// Lấy tối đa 3 hãng cùng tier, loại hãng hiện tại.
+const sameTierBrands = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).tier === data.tier)
+  .slice(0, 3)
+  .map((e) => ({
+    title: (e.data as any).title,
+    slug: getSlug(e),
+    excerpt: (e.data as any).excerpt,
+    country: (e.data as any).country,
+    founded: (e.data as any).founded,
+    logo: (e.data as any).logo,
+  }));
 ---
 
 <BrandLayout
@@ -72,6 +86,7 @@ const iconicModels = iconicEntries
   meta={meta}
   data={data}
   iconicModels={iconicModels}
+  sameTierBrands={sameTierBrands}
 >
   <Content />
 </BrandLayout>

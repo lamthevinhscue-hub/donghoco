@@ -68,28 +68,28 @@ const infographics: Record<string, any> = {
 const Infographic = data.has_infographic ? infographics[slug] : null;
 
 // ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
-// Thứ tự difficulty từ thấp lên cao
+// Ưu tiên theo lộ trình đọc (xếp như trang /co-che: nền tảng → phức tạp → bổ trợ,
+// trong mỗi chặng theo difficulty tăng dần). Bài kế tiếp trong lộ trình là gợi ý #1.
 const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
-// 1. Bài cùng category
-// 2. Bài kế tiếp theo difficulty (từ thấp lên cao)
-// 3. Thuật ngữ tương ứng trong /tu-dien nếu có cùng slug
-const sameCategory = entries.filter(
-  (e) => getSlug(e) !== slug && (e.data as any).category === data.category
+const stageOrder = ['nền tảng', 'phức tạp', 'bổ trợ'];
+const roadmap = stageOrder.flatMap((cat) =>
+  entries
+    .filter((e) => (e.data as any).category === cat)
+    .sort((a, b) => {
+      const da = diffOrder.indexOf((a.data as any).difficulty);
+      const db = diffOrder.indexOf((b.data as any).difficulty);
+      return (da === -1 ? 99 : da) - (db === -1 ? 99 : db);
+    })
 );
-const nextDifficulty = entries
-  .filter((e) => getSlug(e) !== slug)
-  .filter((e) => {
-    const curIdx = diffOrder.indexOf(data.difficulty);
-    const eIdx = diffOrder.indexOf((e.data as any).difficulty);
-    return eIdx === curIdx + 1; // bài kế tiếp đúng 1 bậc
-  })
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+const curRoadmapIdx = roadmap.findIndex((e) => getSlug(e) === slug);
+// Bài kế tiếp ngay sau bài hiện tại trong lộ trình
+const nextInRoadmap = curRoadmapIdx >= 0 ? roadmap.slice(curRoadmapIdx + 1) : [];
 
 const related: RelatedItem[] = [];
 
-// (1) Bài cùng category
-if (sameCategory[0]) {
-  const e = sameCategory[0];
+// (1) Bài kế tiếp trong lộ trình (ưu tiên cao nhất)
+if (nextInRoadmap[0]) {
+  const e = nextInRoadmap[0];
   const ed = e.data as any;
   related.push({
     href: `/co-che/${getSlug(e)}`,
@@ -99,9 +99,9 @@ if (sameCategory[0]) {
   });
 }
 
-// (2) Bài kế tiếp difficulty
-if (nextDifficulty[0]) {
-  const e = nextDifficulty[0];
+// (2) Bài kế tiếp nữa trong lộ trình (nếu có)
+if (nextInRoadmap[1]) {
+  const e = nextInRoadmap[1];
   const ed = e.data as any;
   related.push({
     href: `/co-che/${getSlug(e)}`,

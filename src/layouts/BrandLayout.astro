@@ -15,6 +15,7 @@
 import BaseLayout from './BaseLayout.astro';
 import MiniTimeline from '../components/MiniTimeline.astro';
 import WatchImage from '../components/WatchImage.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { getLangFromUrl, t, localizedPath, getTierLabel } from '../i18n/ui';
 
 interface IconicModel {
@@ -44,10 +45,19 @@ const logo = data.logo;
 
 // Nhãn dịch phân khúc — dùng chung getTierLabel để đồng bộ với trang danh sách
 const tierLabel = getTierLabel(data.tier, lang);
+
+// Breadcrumb: Trang chủ / Thương hiệu / [tên hãng] — cùng nguồn cho JSON-LD + hiển thị
+const breadcrumbData = [
+  { name: tr.siteName, path: '/' },
+  { name: tr.nav_brands, path: '/thuong-hieu' },
+  { name: title, path: Astro.url.pathname },
+];
 ---
 
-<BaseLayout title={title} description={excerpt} cover_image={heroImage}>
+<BaseLayout title={title} description={excerpt} cover_image={heroImage} breadcrumb={breadcrumbData}>
   <article class="mx-auto max-w-4xl px-4 py-8 sm:py-12">
+    <Breadcrumb items={breadcrumbData} />
+
     <!-- Quay lại -->
     <a href={localizedPath('/thuong-hieu', lang)} class="mb-6 inline-block text-sm text-ink-soft dark:text-dark-text-soft transition-colors hover:text-brass dark:hover:text-dark-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
       {tr.back_to_list}

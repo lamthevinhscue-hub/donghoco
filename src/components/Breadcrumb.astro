@@ -1,0 +1,46 @@
+---
+// =============================================================================
+// BREADCRUMB — dòng điều hướng "Trang chủ / Cơ chế / Tourbillon"
+// =============================================================================
+// Hiển thị breadcrumb trực quan từ đúng dữ liệu đã có trong BaseLayout
+// (prop `breadcrumb`, cũng dùng cho JSON-LD structured data) — không tạo nguồn thứ hai.
+// Đặt đầu bài viết / trang chi tiết thương hiệu. Hỗ trợ dark mode.
+// Trên điện thoại: tên bài dài cắt bằng dấu ba chấm, không xuống dòng.
+// =============================================================================
+
+import { getLangFromUrl, localizedPath } from '../i18n/ui';
+
+interface Props {
+  /** Cùng mảng breadcrumb đã truyền cho BaseLayout (JSON-LD) */
+  items: { name: string; path: string }[];
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const { items } = Astro.props;
+// Bỏ phần tử cuối (trang hiện tại) khỏi link — chỉ hiện tên, không link chính nó
+const links = items.slice(0, -1);
+const current = items[items.length - 1];
+---
+
+{items.length > 1 && (
+  <nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex flex-wrap items-center gap-1 text-xs text-ink-soft/70 dark:text-dark-text-soft/70">
+      {links.map((item, i) => (
+        <li class="flex items-center gap-1">
+          <a
+            href={localizedPath(item.path, lang)}
+            class="transition-colors hover:text-brass dark:hover:text-dark-brass"
+          >
+            {item.name}
+          </a>
+          <span class="text-ink-soft/40 dark:text-dark-text-soft/40">/</span>
+        </li>
+      ))}
+      {current && (
+        <li class="max-w-[60vw] truncate sm:max-w-xs" aria-current="page" title={current.name}>
+          {current.name}
+        </li>
+      )}
+    </ol>
+  </nav>
+)}

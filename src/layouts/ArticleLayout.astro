@@ -8,6 +8,7 @@
 
 import BaseLayout from './BaseLayout.astro';
 import WatchImage from '../components/WatchImage.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 
@@ -32,9 +33,17 @@ const tr = t(lang);
 const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [], compareHref } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
+// Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che")
+const sectionLabels: Record<string, string> = {
+  '/thuong-hieu': tr.nav_brands,
+  '/mau-iconic': tr.nav_iconic,
+  '/co-che': tr.nav_mechanisms,
+  '/tu-dien': tr.nav_glossary,
+  '/huong-dan': tr.nav_guides,
+};
 const breadcrumbData = backHref ? [
-  { name: 'Đồng Hồ Cơ', path: '/' },
-  { name: backHref.replace('/', '').replace(/-/g, ' '), path: backHref },
+  { name: tr.siteName, path: '/' },
+  { name: sectionLabels[backHref] ?? backHref, path: backHref },
   { name: title, path: Astro.url.pathname },
 ] : undefined;
 
@@ -55,6 +64,8 @@ const formattedDate = date
 
 <BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData}>
   <article class="mx-auto max-w-3xl px-4 py-12">
+    {breadcrumbData && <Breadcrumb items={breadcrumbData} />}
+
     <header class="mb-8">
       <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl dark:text-dark-text">{title}</h1>
 

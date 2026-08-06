@@ -21,12 +21,13 @@
 
 interface Props {
   label?: string;  // Nhãn mô tả (VD: "Bộ thoát Swiss lever")
+  'data-mech-step-id'?: string;  // ID đăng ký hàm step (VD: "tourbillon") — phải chuyển lên div gốc
 }
 
-const { label = 'Hoạt ảnh cơ chế' } = Astro.props;
+const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = Astro.props;
 ---
 
-<div class="mechanism-animation my-8" data-mechanism>
+<div class="mechanism-animation my-8" data-mechanism data-mech-step-id={mechStepId}>
   <!-- Tiêu đề + điều khiển -->
   <div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-4">
     <span class="text-sm font-medium text-navy dark:text-dark-text dark:text-dark-text">{label}</span>

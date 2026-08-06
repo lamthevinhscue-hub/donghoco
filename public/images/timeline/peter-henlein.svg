@@ -1,70 +1,84 @@
 <svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
   <title>Đồng hồ quả trứng Nuremberg — chiếc máy thời gian bỏ túi đầu tiên</title>
   <defs>
-    <pattern id="gui-peter-henlein" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.06"/>
-      <circle cx="12" cy="12" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.06"/>
-      <circle cx="12" cy="12" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.06"/>
+    <pattern id="gui-peter-henlein" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
     </pattern>
   </defs>
 
-  <!-- Nền -->
   <rect width="800" height="600" fill="#1F2D3D"/>
   <rect width="800" height="600" fill="url(#gui-peter-henlein)"/>
 
-  <!-- Dây đeo cổ vắt qua phía trên (mảnh) -->
-  <path d="M 300 95 Q 400 60 500 95" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
-  <path d="M 305 103 Q 400 70 495 103" fill="none" stroke="#B8893C" stroke-width="0.75" stroke-linecap="round" opacity="0.6"/>
+  <!-- ====== DÂY ĐEO CỔ — nối vào quai vỏ trên ====== -->
+  <!-- Quai vỏ (nửa vòng nhỏ ở đỉnh quả trứng) -->
+  <path d="M 370 175 Q 400 145 430 175" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+  <!-- Dây đeo nối vào quai -->
+  <path d="M 310 130 Q 340 100 370 165" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <path d="M 490 130 Q 460 100 430 165" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Dây tiếp lên trên -->
+  <path d="M 310 130 Q 400 80 490 130" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
 
-  <!-- Vòng đai vỏ trên (có lỗ thoát tiếng) — cung trên của quả trứng -->
-  <ellipse cx="400" cy="180" rx="120" ry="55" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
-  <!-- 7 lỗ thoát tiếng trên vòng đai -->
-  <circle cx="340" cy="170" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
-  <circle cx="370" cy="152" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
-  <circle cx="400" cy="145" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
-  <circle cx="430" cy="152" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
-  <circle cx="460" cy="170" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- ====== NẮP TRÊN — bản lề nhìn thấy, mở chếch 40° ====== -->
+  <!-- Bản lề (trái) -->
+  <circle cx="310" cy="185" r="6" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Nắp mở chếch — cung elip nghiêng phía sau (mở ra 40°) -->
+  <path d="M 310 185 Q 400 105 490 145" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.6" stroke-linecap="round"/>
+  <path d="M 310 185 Q 380 120 460 130" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
 
-  <!-- Nắp trên bản lề đang mở hé (vòng cung nghiêng phía sau) -->
-  <path d="M 290 175 Q 400 110 510 175" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.4" stroke-linecap="round"/>
-
-  <!-- Thân quả trứng chính — vỏ đồng hình trứng đứng -->
-  <path d="M 400 130 C 480 130 510 220 510 330 C 510 430 470 500 400 500 C 330 500 290 430 290 330 C 290 220 320 130 400 130 Z"
+  <!-- ====== VỎ QUẢ TRỨNG — hình trứng đứng, mặt số lồng bên trong đúng phối cảnh ====== -->
+  <path d="M 400 180 C 475 180 505 270 505 360 C 505 450 465 510 400 510 C 335 510 295 450 295 360 C 295 270 325 180 400 180 Z"
         fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Gạch song song tạo khối (bên phải — vùng tối) -->
-  <line x1="475" y1="240" x2="490" y2="240" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="478" y1="270" x2="493" y2="270" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="480" y1="300" x2="495" y2="300" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="480" y1="330" x2="495" y2="330" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="478" y1="360" x2="493" y2="360" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="473" y1="390" x2="488" y2="390" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="465" y1="420" x2="480" y2="420" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
-  <line x1="455" y1="450" x2="470" y2="450" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <!-- Vòng đai vỏ có lỗ thoát tiếng (vòng cung ngang giữa vỏ) -->
+  <ellipse cx="400" cy="345" rx="105" ry="20" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="350" cy="345" r="3.5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="375" cy="338" r="3.5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="400" cy="335" r="3.5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="425" cy="338" r="3.5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="450" cy="345" r="3.5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
 
-  <!-- Mặt số — vòng tròn bên trong -->
-  <circle cx="400" cy="320" r="115" fill="none" stroke="#B8893C" stroke-width="1.75"/>
-  <circle cx="400" cy="320" r="108" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <!-- ====== GẠCH TẠO KHỐI — nửa phải vỏ (vùng tối đậm) ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="470" y1="270" x2="490" y2="270" opacity="0.65"/>
+    <line x1="472" y1="278" x2="492" y2="278" opacity="0.65"/>
+    <line x1="474" y1="286" x2="494" y2="286" opacity="0.65"/>
+    <line x1="476" y1="294" x2="496" y2="294" opacity="0.65"/>
+    <line x1="476" y1="302" x2="496" y2="302" opacity="0.65"/>
+    <line x1="476" y1="310" x2="496" y2="310" opacity="0.65"/>
+    <line x1="474" y1="318" x2="494" y2="318" opacity="0.65"/>
+    <line x1="470" y1="326" x2="490" y2="326" opacity="0.65"/>
+  </g>
+  <!-- Vùng chuyển tiếp thưa (nửa phải dưới) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.35">
+    <line x1="465" y1="420" x2="485" y2="420"/>
+    <line x1="465" y1="430" x2="485" y2="430"/>
+    <line x1="460" y1="440" x2="480" y2="440"/>
+    <line x1="455" y1="450" x2="475" y2="450"/>
+  </g>
 
-  <!-- Cọc số La Mã vẽ bằng path (12 vị trí, chọn vài số đại diện: XII, III, VI, IX) -->
-  <!-- XII (trên) — I I -->
-  <path d="M 392 230 L 392 250 M 408 230 L 408 250" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
-  <!-- III (phải) — I I I -->
-  <path d="M 488 314 L 488 326 M 498 314 L 498 326 M 478 314 L 478 326" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
-  <!-- VI (dưới) — V I -->
-  <path d="M 392 400 L 400 412 L 408 400" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 406 398 L 406 414" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
-  <!-- IX (trái) — I I I -->
-  <path d="M 302 314 L 302 326 M 312 314 L 312 326 M 322 314 L 322 326" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- ====== MẶT SỐ — lồng bên trong vỏ, đồng tâm ====== -->
+  <circle cx="400" cy="420" r="78" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="400" cy="420" r="72" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.5"/>
 
-  <!-- Vạch phút nhỏ quanh mặt số -->
-  <line x1="400" y1="208" x2="400" y2="216" stroke="#B8893C" stroke-width="0.75"/>
-  <line x1="510" y1="320" x2="502" y2="320" stroke="#B8893C" stroke-width="0.75"/>
-  <line x1="400" y1="430" x2="400" y2="422" stroke="#B8893C" stroke-width="0.75"/>
-  <line x1="290" y1="320" x2="298" y2="320" stroke="#B8893C" stroke-width="0.75"/>
+  <!-- Cọc số La Mã bằng path -->
+  <!-- XII (trên) -->
+  <path d="M 393 355 L 393 372 M 407 355 L 407 372" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- III (phải) -->
+  <path d="M 466 416 L 466 426 M 456 416 L 456 426 M 476 416 L 476 426" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- VI (dưới) -->
+  <path d="M 393 482 L 400 492 L 407 482" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- IX (trái) -->
+  <path d="M 324 416 L 324 426 M 334 416 L 334 426 M 344 416 L 344 426" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
 
-  <!-- MỘT kim giờ duy nhất (chưa có kim phút thời đó) — chỉ khoảng 10 giờ -->
-  <line x1="400" y1="320" x2="350" y2="270" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-  <!-- Trục kim -->
-  <circle cx="400" cy="320" r="5" fill="#FAF7F2"/>
+  <!-- Vạch phút -->
+  <line x1="400" y1="346" x2="400" y2="352" stroke="#B8893C" stroke-width="1"/>
+  <line x1="474" y1="420" x2="468" y2="420" stroke="#B8893C" stroke-width="1"/>
+  <line x1="400" y1="494" x2="400" y2="488" stroke="#B8893C" stroke-width="1"/>
+  <line x1="326" y1="420" x2="332" y2="420" stroke="#B8893C" stroke-width="1"/>
+
+  <!-- MỘT kim giờ duy nhất — chỉ khoảng 10 giờ -->
+  <line x1="400" y1="420" x2="360" y2="380" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="400" cy="420" r="5" fill="#FAF7F2"/>
 </svg>

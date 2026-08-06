@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Dây tóc và bánh lắc — phát minh của Huygens tạo nền tảng cho mọi đồng hồ cơ</title>
+  <defs>
+    <pattern id="gui-huygens-hairspring" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.06"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.06"/>
+      <circle cx="12" cy="12" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Nền -->
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-huygens-hairspring)"/>
+
+  <!-- 3 cung nét mảnh gợi chuyển động dao động qua lại (mờ dần hai bên) -->
+  <path d="M 150 300 Q 250 230 350 300" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.2" stroke-linecap="round"/>
+  <path d="M 450 300 Q 550 370 650 300" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.2" stroke-linecap="round"/>
+  <path d="M 130 300 Q 250 200 370 300" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.1" stroke-linecap="round"/>
+  <path d="M 430 300 Q 550 400 670 300" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.1" stroke-linecap="round"/>
+
+  <!-- Vành bánh lắc tròn (lớn, nhìn chếch từ trên) -->
+  <ellipse cx="400" cy="320" rx="200" ry="180" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <ellipse cx="400" cy="320" rx="190" ry="170" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.6"/>
+
+  <!-- Nan chữ thập trên bánh lắc (4 nan) -->
+  <line x1="400" y1="155" x2="400" y2="485" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="215" y1="320" x2="585" y2="320" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- 2 nan chéo -->
+  <line x1="270" y1="205" x2="530" y2="435" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="530" y1="205" x2="270" y2="435" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- Vòng ngoài cùng của bánh lắc — vít chặn ở mép -->
+  <circle cx="400" cy="155" r="5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="400" cy="485" r="5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="215" cy="320" r="5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="585" cy="320" r="5" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Dây tóc xoắn ốc Archimedes — 13 vòng đồng tâm, khoảng cách đều -->
+  <!-- Vẽ bằng các ellipse đồng tâm nhỏ dần, tạo hiệu ứng xoắn ốc nhìn từ trên -->
+  <ellipse cx="400" cy="320" rx="150" ry="135" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="138" ry="124" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="126" ry="113" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="114" ry="102" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="102" ry="91" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="90" ry="80" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="78" ry="69" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="66" ry="58" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="54" ry="47" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="42" ry="36" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="30" ry="25" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <ellipse cx="400" cy="320" rx="18" ry="14" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+
+  <!-- Trục giữa -->
+  <circle cx="400" cy="320" r="8" fill="none" stroke="#FAF7F2" stroke-width="3"/>
+  <circle cx="400" cy="320" r="3" fill="#FAF7F2"/>
+</svg>

@@ -1,0 +1,79 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Vỏ bát giác Royal Oak — thiết kế thép cao cấp thay đổi ngành đồng hồ</title>
+  <defs>
+    <pattern id="gui-ap-royal-oak" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.06"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.06"/>
+      <circle cx="12" cy="12" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.06"/>
+    </pattern>
+    <!-- Hoa văn Petite Tapisserie: lưới ô vuông nhỏ -->
+    <pattern id="tapisserie-ap" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="14" height="14" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Nền -->
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-ap-royal-oak)"/>
+
+  <!-- ====== MẮT DÂY (trái + phải) thu nhỏ dần khi ra xa vỏ ====== -->
+  <!-- Trái -->
+  <rect x="60" y="285" width="160" height="30" rx="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <rect x="60" y="290" width="160" height="20" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.4"/>
+  <!-- Phải -->
+  <rect x="580" y="285" width="160" height="30" rx="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <rect x="580" y="290" width="160" height="20" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.4"/>
+  <!-- Các mắt dây nhỏ dần (gợi integration bracelet) -->
+  <rect x="100" y="288" width="20" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <rect x="130" y="288" width="18" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <rect x="158" y="288" width="16" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <rect x="680" y="288" width="20" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <rect x="652" y="288" width="18" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+  <rect x="626" y="288" width="16" height="24" fill="none" stroke="#B8893C" stroke-width="0.75" opacity="0.5"/>
+
+  <!-- ====== VỎ BÁT GIÁC ====== -->
+  <!-- Bát giác đều (8 đỉnh) nét chính 3px -->
+  <path d="M 468.9 133.7 L 566.3 231.1 L 566.3 368.9 L 468.9 466.3 L 331.1 466.3 L 233.7 368.9 L 233.7 231.1 L 331.1 133.7 Z"
+        fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Vành trong (bé hơn) -->
+  <path d="M 460 145 L 555 240 L 555 360 L 460 455 L 340 455 L 245 360 L 245 240 L 340 145 Z"
+        fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== 8 ỐC LỘ ở giữa mỗi cạnh ====== -->
+  <!-- Ốc trên (giữa cạnh trên) -->
+  <circle cx="400" cy="133.7" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="394" y1="133.7" x2="406" y2="133.7" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc trên-phải -->
+  <circle cx="517.6" cy="182.4" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="513.3" y1="178.1" x2="521.9" y2="186.7" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc phải -->
+  <circle cx="566.3" cy="300" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="560" y1="300" x2="572" y2="300" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc dưới-phải -->
+  <circle cx="517.6" cy="417.6" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="513.3" y1="421.9" x2="521.9" y2="413.3" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc dưới -->
+  <circle cx="400" cy="466.3" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="394" y1="466.3" x2="406" y2="466.3" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc dưới-trái -->
+  <circle cx="282.4" cy="417.6" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="278.1" y1="421.9" x2="286.7" y2="413.3" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc trái -->
+  <circle cx="233.7" cy="300" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="228" y1="300" x2="240" y2="300" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Ốc trên-trái -->
+  <circle cx="282.4" cy="182.4" r="7" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="278.1" y1="178.1" x2="286.7" y2="186.7" stroke="#FAF7F2" stroke-width="1.75"/>
+
+  <!-- ====== MẶT SỐ — hoa văn Petite Tapisserie (ô vuông nhỏ) ====== -->
+  <circle cx="400" cy="300" r="140" fill="url(#tapisserie-ap)"/>
+  <circle cx="400" cy="300" r="140" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- 3 kim (đơn giản, không chi tiết quá) -->
+  <!-- Kim giờ -->
+  <line x1="400" y1="300" x2="400" y2="230" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+  <!-- Kim phút -->
+  <line x1="400" y1="300" x2="460" y2="270" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Trục -->
+  <circle cx="400" cy="300" r="5" fill="#FAF7F2"/>
+</svg>

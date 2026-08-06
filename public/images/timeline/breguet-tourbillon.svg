@@ -1,0 +1,61 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Lồng tourbillon — cơ chế xoay bù sai số trọng lực do Breguet sáng chế</title>
+  <defs>
+    <pattern id="gui-breguet-tourbillon" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.06"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.06"/>
+      <circle cx="12" cy="12" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Nền -->
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-breguet-tourbillon)"/>
+
+  <!-- Cầu máy phía trên (có đầu vát hai bên) — thanh ngang đỡ lồng -->
+  <path d="M 220 130 L 580 130 L 560 160 L 240 160 Z" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Vít hai đầu cầu -->
+  <circle cx="250" cy="145" r="6" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="246" y1="145" x2="254" y2="145" stroke="#B8893C" stroke-width="0.75"/>
+  <circle cx="550" cy="145" r="6" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="546" y1="145" x2="554" y2="145" stroke="#B8893C" stroke-width="0.75"/>
+  <!-- Trục trụ đỡ từ cầu xuống lồng -->
+  <line x1="400" y1="160" x2="400" y2="200" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Lồng tourbillon — vòng tròn ngoài -->
+  <circle cx="400" cy="360" r="160" fill="none" stroke="#B8893C" stroke-width="3"/>
+
+  <!-- 3 nan cong đặc trưng của lồng tourbillon (chord 120°) -->
+  <!-- Nan 1: từ trên xuống dưới phải -->
+  <path d="M 400 200 Q 480 280 560 360" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Nan 2: từ dưới phải lên dưới trái -->
+  <path d="M 560 360 Q 480 440 400 520" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Nan 3: từ dưới trái lên trên -->
+  <path d="M 400 520 Q 320 440 240 360" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Nan 4: kín vòng (từ trái lên trên) -->
+  <path d="M 240 360 Q 320 280 400 200" fill="none" stroke="#B8893C" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- Bánh lắc bên trong lồng (nhỏ hơn) -->
+  <circle cx="400" cy="360" r="95" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="400" cy="360" r="85" fill="none" stroke="#FAF7F2" stroke-width="0.75" opacity="0.5"/>
+  <!-- 3 nan chéo trên bánh lắc -->
+  <line x1="400" y1="265" x2="400" y2="455" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="318" y1="312" x2="482" y2="408" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="482" y1="312" x2="318" y2="408" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- Bánh thoát (nhỏ) và ngựa (đáy lồng) -->
+  <circle cx="400" cy="460" r="22" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Răng bánh thoát -->
+  <line x1="400" y1="438" x2="400" y2="430" stroke="#B8893C" stroke-width="0.75"/>
+  <line x1="422" y1="460" x2="430" y2="460" stroke="#B8893C" stroke-width="0.75"/>
+  <line x1="378" y1="460" x2="370" y2="460" stroke="#B8893C" stroke-width="0.75"/>
+
+  <!-- Mũi tên cong quanh lồng — chỉ chiều xoay -->
+  <path d="M 620 300 Q 640 360 620 420" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Đầu mũi tên (tam giác vẽ bằng path) -->
+  <path d="M 615 415 L 625 430 L 610 430 Z" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round"/>
+
+  <!-- Trục giữa -->
+  <circle cx="400" cy="360" r="7" fill="none" stroke="#FAF7F2" stroke-width="3"/>
+  <circle cx="400" cy="360" r="2.5" fill="#FAF7F2"/>
+</svg>

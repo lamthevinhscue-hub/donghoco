@@ -1,0 +1,92 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Rolex Submariner và Explorer 1953 — hai hướng đi tách ra cùng lúc</title>
+  <defs>
+    <pattern id="gui-rolex-submariner" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-rolex-submariner)"/>
+
+  <!-- ====== CHIẾC SAU (Explorer — chếch, mờ hơn, phía sau) ====== -->
+  <g opacity="0.5" transform="translate(460 200) rotate(15)">
+    <!-- Vỏ -->
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <circle cx="0" cy="0" r="108" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.5"/>
+    <!-- Mặt số ba kim tối giản + cọc 3-6-9 -->
+    <!-- Cọc 3 -->
+    <path d="M 85 -8 L 85 8 M 95 -8 L 95 8 M 75 -8 L 75 8" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+    <!-- Cọc 6 -->
+    <path d="M -8 75 L 8 75 M -8 85 L 8 85 M -8 95 L 8 95" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+    <!-- Cọc 9 -->
+    <path d="M -95 -8 L -95 8 M -85 -8 L -85 8 M -75 -8 L -75 8" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+    <!-- Cọc 12 (tam giác) -->
+    <path d="M 0 -90 L 8 -75 L -8 -75 Z" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round"/>
+    <!-- Kim (ba kim tối giản) -->
+    <line x1="0" y1="0" x2="0" y2="-65" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="50" y2="-30" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#FAF7F2"/>
+  </g>
+
+  <!-- ====== CHIẾC TRƯỚC (Submariner — chính diện, đậm hơn) ====== -->
+  <!-- Vỏ -->
+  <circle cx="320" cy="340" r="160" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <!-- Vành lặn (có vạch chia) -->
+  <circle cx="320" cy="340" r="148" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Vạch vành (mỗi 5 lớn) -->
+  <g stroke="#B8893C" stroke-linecap="round">
+    <line x1="320" y1="200" x2="320" y2="190" stroke-width="1.75"/>
+    <line x1="375" y1="206" x2="377" y2="196" stroke-width="1"/>
+    <line x1="427" y1="223" x2="431" y2="214" stroke-width="1"/>
+    <line x1="473" y1="252" x2="479" y2="245" stroke-width="1.75"/>
+    <line x1="510" y1="290" x2="518" y2="286" stroke-width="1"/>
+    <line x1="535" y1="335" x2="544" y2="334" stroke-width="1"/>
+    <line x1="545" y1="383" x2="554" y2="386" stroke-width="1.75"/>
+    <line x1="539" y1="430" x2="547" y2="435" stroke-width="1"/>
+    <line x1="519" y1="473" x2="525" y2="480" stroke-width="1"/>
+    <line x1="487" y1="509" x2="491" y2="518" stroke-width="1.75"/>
+    <line x1="320" y1="490" x2="320" y2="500" stroke-width="1.75"/>
+    <line x1="265" y1="484" x2="263" y2="494" stroke-width="1"/>
+    <line x1="153" y1="430" x2="145" y2="435" stroke-width="1.75"/>
+    <line x1="133" y1="383" x2="124" y2="386" stroke-width="1"/>
+    <line x1="130" y1="335" x2="121" y2="334" stroke-width="1"/>
+    <line x1="143" y1="290" x2="135" y2="286" stroke-width="1.75"/>
+    <line x1="167" y1="252" x2="160" y2="245" stroke-width="1"/>
+  </g>
+  <!-- Chấm tam giác mốc 0 -->
+  <path d="M 320 192 L 328 210 L 312 210 Z" fill="#FAF7F2"/>
+
+  <!-- Mặt số (cọc tròn dạ quang — khác Explorer dùng cọc 3-6-9) -->
+  <circle cx="320" cy="340" r="6" fill="#FAF7F2"/>
+  <circle cx="320" cy="223" r="5" fill="#FAF7F2"/>
+  <circle cx="437" cy="340" r="5" fill="#FAF7F2"/>
+  <circle cx="320" cy="457" r="5" fill="#FAF7F2"/>
+  <circle cx="203" cy="340" r="5" fill="#FAF7F2"/>
+  <circle cx="403" cy="257" r="4" fill="#FAF7F2"/>
+  <circle cx="403" cy="423" r="4" fill="#FAF7F2"/>
+  <circle cx="237" cy="423" r="4" fill="#FAF7F2"/>
+  <circle cx="237" cy="257" r="4" fill="#FAF7F2"/>
+
+  <!-- Kim mercedes (Submariner) -->
+  <line x1="320" y1="340" x2="320" y2="260" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+  <line x1="320" y1="340" x2="390" y2="300" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <circle cx="320" cy="340" r="6" fill="#FAF7F2"/>
+
+  <!-- ====== ĐƯỜNG PHÂN BIỆT HAI KIỂU DÂY ====== -->
+  <!-- Dây Oyster (Submariner — mắt to) -->
+  <rect x="230" y="470" width="60" height="20" rx="3" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.4"/>
+  <rect x="350" y="470" width="60" height="20" rx="3" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.4"/>
+  <!-- Dây Jubilee (Explorer — mắt nhỏ hơn) -->
+  <rect x="520" y="240" width="40" height="15" rx="2" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.3"/>
+  <rect x="560" y="250" width="35" height="12" rx="2" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.3"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="260" y1="450" x2="380" y2="450" opacity="0.4"/>
+    <line x1="255" y1="460" x2="385" y2="460" opacity="0.4"/>
+    <line x1="260" y1="470" x2="380" y2="470" opacity="0.4"/>
+  </g>
+</svg>

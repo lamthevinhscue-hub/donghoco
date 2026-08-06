@@ -1,0 +1,108 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Blancpain Fifty Fathoms 1953 — đồng hồ lặn hiện đại đầu tiên dưới nước</title>
+  <defs>
+    <pattern id="gui-fifty-fathoms" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-fifty-fathoms)"/>
+
+  <!-- ====== MÔI TRƯỜNG DƯỚI NƯỚC ====== -->
+  <!-- Bọt khí nhỏ dần khi lên cao (lớn ở dưới, nhỏ dần lên trên) -->
+  <circle cx="150" cy="480" r="8" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.4"/>
+  <circle cx="200" cy="450" r="6" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.35"/>
+  <circle cx="120" cy="430" r="5" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.3"/>
+  <circle cx="170" cy="400" r="4" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.25"/>
+  <circle cx="220" cy="420" r="3" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.2"/>
+  <circle cx="100" cy="380" r="3" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.2"/>
+  <circle cx="180" cy="360" r="2" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.15"/>
+
+  <circle cx="620" cy="470" r="7" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.4"/>
+  <circle cx="670" cy="440" r="5" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.3"/>
+  <circle cx="590" cy="420" r="4" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.25"/>
+  <circle cx="640" cy="390" r="3" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.2"/>
+  <circle cx="690" cy="400" r="2" fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.15"/>
+
+  <!-- Sóng ngang mờ -->
+  <g stroke="#B8893C" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.2">
+    <path d="M 60 510 Q 120 500 180 510 T 300 510"/>
+    <path d="M 500 520 Q 560 510 620 520 T 740 520"/>
+    <path d="M 100 540 Q 160 530 220 540 T 360 540"/>
+    <path d="M 460 545 Q 520 535 580 545 T 700 545"/>
+  </g>
+
+  <!-- ====== VỔ ĐỒNG HỒ LẶN ====== -->
+  <circle cx="400" cy="300" r="170" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <circle cx="400" cy="300" r="160" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== VÀNH XOAY MỘT CHIỀU (đặc trưng an toàn) ====== -->
+  <!-- Vành ngoài -->
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Vạch chia vành (60 vạch — mỗi 5 là lớn) -->
+  <g stroke="#B8893C" stroke-linecap="round">
+    <line x1="400" y1="158" x2="400" y2="148" stroke-width="1.75"/>
+    <line x1="447" y1="162" x2="449" y2="153" stroke-width="1"/>
+    <line x1="492" y1="172" x2="495" y2="164" stroke-width="1"/>
+    <line x1="535" y1="190" x2="540" y2="183" stroke-width="1.75"/>
+    <line x1="572" y1="215" x2="579" y2="210" stroke-width="1"/>
+    <line x1="603" y1="247" x2="611" y2="244" stroke-width="1"/>
+    <line x1="625" y1="284" x2="634" y2="283" stroke-width="1.75"/>
+    <line x1="637" y1="324" x2="646" y2="326" stroke-width="1"/>
+    <line x1="638" y1="365" x2="647" y2="369" stroke-width="1"/>
+    <line x1="628" y1="405" x2="636" y2="411" stroke-width="1.75"/>
+    <line x1="608" y1="441" x2="615" y2="449" stroke-width="1"/>
+    <line x1="580" y1="472" x2="585" y2="480" stroke-width="1"/>
+    <line x1="546" y1="495" x2="550" y2="504" stroke-width="1.75"/>
+    <line x1="508" y1="510" x2="511" y2="520" stroke-width="1"/>
+    <line x1="468" y1="517" x2="470" y2="527" stroke-width="1"/>
+    <line x1="400" y1="520" x2="400" y2="530" stroke-width="1.75"/>
+    <line x1="353" y1="517" x2="350" y2="527" stroke-width="1"/>
+    <line x1="308" y1="510" x2="304" y2="520" stroke-width="1"/>
+    <line x1="254" y1="495" x2="249" y2="504" stroke-width="1.75"/>
+    <line x1="220" y1="472" x2="214" y2="480" stroke-width="1"/>
+    <line x1="192" y1="441" x2="184" y2="449" stroke-width="1"/>
+    <line x1="172" y1="405" x2="163" y2="411" stroke-width="1.75"/>
+    <line x1="162" y1="365" x2="153" y2="369" stroke-width="1"/>
+    <line x1="163" y1="324" x2="154" y2="326" stroke-width="1"/>
+    <line x1="175" y1="284" x2="166" y2="283" stroke-width="1.75"/>
+    <line x1="197" y1="247" x2="189" y2="244" stroke-width="1"/>
+    <line x1="228" y1="215" x2="221" y2="210" stroke-width="1"/>
+    <line x1="265" y1="190" x2="260" y2="183" stroke-width="1.75"/>
+    <line x1="308" y1="172" x2="305" y2="164" stroke-width="1"/>
+    <line x1="353" y1="162" x2="351" y2="153" stroke-width="1"/>
+  </g>
+
+  <!-- Chấm tam giác ở mốc 0 (12 giờ — đặc trưng vành lặn) -->
+  <path d="M 400 155 L 410 175 L 390 175 Z" fill="#FAF7F2"/>
+
+  <!-- Mũi tên 1 chiều (chỉ xoay được một chiều — an toàn) -->
+  <path d="M 560 140 Q 600 130 620 150" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 615 143 L 625 150 L 615 158" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- ====== MẶT SỐ (cọc số dạ quang bản to) ====== -->
+  <circle cx="400" cy="180" r="6" fill="#FAF7F2"/>
+  <circle cx="514" cy="228" r="6" fill="#FAF7F2"/>
+  <circle cx="560" cy="300" r="6" fill="#FAF7F2"/>
+  <circle cx="514" cy="372" r="6" fill="#FAF7F2"/>
+  <circle cx="400" cy="420" r="6" fill="#FAF7F2"/>
+  <circle cx="286" cy="372" r="6" fill="#FAF7F2"/>
+  <circle cx="240" cy="300" r="6" fill="#FAF7F2"/>
+  <circle cx="286" cy="228" r="6" fill="#FAF7F2"/>
+
+  <!-- Kim dạ quang bản to -->
+  <rect x="397" y="220" width="6" height="80" rx="2" fill="#FAF7F2"/>
+  <rect x="397" y="300" width="6" height="90" rx="2" fill="#FAF7F2" transform="rotate(40 400 300)"/>
+  <circle cx="400" cy="300" r="7" fill="#FAF7F2"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="340" y1="450" x2="460" y2="450" opacity="0.4"/>
+    <line x1="335" y1="460" x2="465" y2="460" opacity="0.4"/>
+    <line x1="340" y1="470" x2="460" y2="470" opacity="0.4"/>
+    <line x1="345" y1="480" x2="455" y2="480" opacity="0.4"/>
+  </g>
+</svg>

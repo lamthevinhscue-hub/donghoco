@@ -1,0 +1,79 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Ô cửa sổ ngày tự nhảy với kính lúp — Rolex Datejust 1945</title>
+  <defs>
+    <pattern id="gui-rolex-datejust" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-rolex-datejust)"/>
+
+  <!-- ====== MẶT SỐ (phần nền, chỉ thấy một góc — góc trên-phải) ====== -->
+  <!-- Vành khía (một phần cung tròn, góc trên-phải) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="620" y1="160" x2="625" y2="150"/>
+    <line x1="600" y1="155" x2="602" y2="144"/>
+    <line x1="580" y1="155" x2="580" y2="144"/>
+    <line x1="560" y1="158" x2="557" y2="148"/>
+    <line x1="540" y1="165" x2="535" y2="155"/>
+    <line x1="640" y1="170" x2="647" y2="162"/>
+    <line x1="655" y1="185" x2="664" y2="180"/>
+    <line x1="665" y1="205" x2="675" y2="203"/>
+  </g>
+
+  <!-- ====== Ô CỬA SỔ NGÀY (hình chữ nhật lớn ở giữa) ====== -->
+  <rect x="250" y="200" width="300" height="180" rx="8" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <!-- Viền trong ô -->
+  <rect x="258" y="208" width="284" height="164" rx="5" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== ĐĨA NGÀY ĐANG XOAY DỠ (nửa số trước + nửa số sau) ====== -->
+  <!-- Số "14" (số trước — nửa dưới bị cắt) -->
+  <!-- Số 1 -->
+  <path d="M 310 250 L 315 245 L 315 280" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Số 4 (path — chỉ thấy nửa trên, nửa dưới bị cắt bởi mép ô) -->
+  <path d="M 340 245 L 360 265 L 340 265 L 365 295" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" clip-path="inset(0 0 0 0)"/>
+  <!-- Cắt: số 4 bị che nửa dưới bởi mép dưới ô -->
+  <rect x="250" y="300" width="300" height="80" fill="#1F2D3D" opacity="0.95"/>
+
+  <!-- Số "15" (số sau — nửa trên đang vào từ dưới) -->
+  <!-- Số 1 -->
+  <path d="M 430 320 L 435 315 L 435 350" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <!-- Số 5 (path — chỉ thấy nửa trên) -->
+  <path d="M 465 315 L 485 315 L 465 335 L 488 335" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+  <!-- Đường nối giữa hai số (gợi đĩa đang xoay) -->
+  <path d="M 370 330 Q 400 340 425 325" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.3" stroke-dasharray="3 3"/>
+
+  <!-- ====== KÍNH LÚP HÌNH VÒM (nổi trên ô cửa sổ — đặc trưng Datejust) ====== -->
+  <!-- Khối kính lúp — hình vòm nổi rõ -->
+  <path d="M 270 200 Q 270 130 400 130 Q 530 130 530 200"
+        fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Nét phản chiếu trên kính lúp -->
+  <path d="M 300 160 Q 320 145 360 140" fill="none" stroke="#FAF7F2" stroke-width="1.75" opacity="0.6" stroke-linecap="round"/>
+  <!-- Mép kính lúp (viền mảnh) -->
+  <path d="M 280 200 Q 280 150 400 140 Q 520 150 520 200"
+        fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.4"/>
+
+  <!-- ====== MŨI TÊN CHỈ CHIỀU XOAY CỦA ĐĨA NGÀY ====== -->
+  <path d="M 600 350 Q 640 360 660 340" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 655 335 L 665 340 L 658 350" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối đậm (góc dưới-phải, bóng kính lúp) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="540" y1="420" x2="590" y2="420" opacity="0.5"/>
+    <line x1="540" y1="428" x2="590" y2="428" opacity="0.5"/>
+    <line x1="540" y1="436" x2="585" y2="436" opacity="0.5"/>
+    <line x1="545" y1="444" x2="580" y2="444" opacity="0.5"/>
+    <line x1="550" y1="452" x2="575" y2="452" opacity="0.5"/>
+  </g>
+  <!-- Vùng chuyển tiếp (góc trên-trái, quanh viền khía) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="180" y1="170" x2="220" y2="170"/>
+    <line x1="185" y1="180" x2="225" y2="180"/>
+    <line x1="190" y1="190" x2="230" y2="190"/>
+  </g>
+</svg>

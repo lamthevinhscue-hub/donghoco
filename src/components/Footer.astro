@@ -12,6 +12,7 @@ const tr = t(lang);
 const year = new Date().getFullYear();
 
 const footerLinks = [
+  { key: 'nav_home', path: '/' },
   { key: 'nav_brands', path: '/thuong-hieu' },
   { key: 'nav_iconic', path: '/mau-iconic' },
   { key: 'nav_mechanisms', path: '/co-che' },
@@ -28,7 +29,9 @@ const footerLinks = [
   <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
     <!-- Cột 1: Giới thiệu -->
     <div>
-      <h3 class="mb-3 font-serif text-xl text-cream">{tr.siteName}</h3>
+      <h3 class="mb-3 font-serif text-xl text-cream">
+        <a href={localizedPath('/', lang)} class="transition-colors hover:text-brass-light">{tr.siteName}</a>
+      </h3>
       <p class="text-sm leading-relaxed">{tr.siteTagline}</p>
     </div>
 

@@ -144,7 +144,8 @@ const parts = [
 
 // Vị trí dọc của mỗi lớp khi "tách" (exploded)
 // Lớp 0 (kính) ở trên cùng, lớp 6 (đáy) ở dưới cùng
-const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
+// Tăng khoảng cách để các lớp không chồng nhau khi tách
+const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 ---
 
 <section class="my-6" data-exploded-root>
@@ -174,31 +175,31 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
   <!-- ====== Khung SVG exploded view ====== -->
   <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
     <!-- Cột trái: SVG -->
-    <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6">
-      <svg viewBox="0 0 500 760" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
-        <!-- Nhãn lớp bên trái -->
-        <g font-size="9" fill="#9CA3AF" font-family="sans-serif">
-          <text x="10" y="100">Lớp 0 — Kính</text>
-          <text x="10" y="240">Lớp 1 — Kim</text>
-          <text x="10" y="360">Lớp 2 — Mặt số</text>
-          <text x="10" y="500">Lớp 3 — Bộ máy trên</text>
-          <text x="10" y="630">Lớp 4 — Bộ thoát</text>
-          <text x="10" y="740">Lớp 5-6 — Rotor + Đáy</text>
+    <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
+      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
+        <!-- Nhãn lớp bên trái — đẩy ra xa, font nhỏ hơn -->
+        <g font-size="8" fill="#A8A095" font-family="sans-serif" opacity="0.7">
+          <text x="5" y="100">Lớp 0 · Kính</text>
+          <text x="5" y="220">Lớp 1 · Kim</text>
+          <text x="5" y="340">Lớp 2 · Mặt số</text>
+          <text x="5" y="490">Lớp 3 · Bộ máy</text>
+          <text x="5" y="630">Lớp 4 · Bộ thoát</text>
+          <text x="5" y="770">Lớp 5-6 · Rotor + Đáy</text>
         </g>
 
         <!-- Đường tâm dọc tham chiếu -->
-        <line x1="250" y1="40" x2="250" y2="740" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
+        <line x1="250" y1="40" x2="250" y2="840" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
 
         <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
         <!-- LỚP 0: KÍNH (crystal) -->
-        <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="80" data-assembled-y="280" transform="translate(0, 280)">
+        <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
           <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">SAPPHIRE CRYSTAL</text>
         </g>
 
         <!-- LỚP 1: KIM (hands) -->
-        <g class="layer-group" data-part="hands" data-layer="1" data-target-y="200" data-assembled-y="320" transform="translate(0, 320)">
+        <g class="layer-group" data-part="hands" data-layer="1" data-target-y="220" data-assembled-y="320" transform="translate(0, 320)">
           <!-- Kim giờ -->
           <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
             <rect x="248" y="-55" width="4" height="60" fill="#1F2D3D" rx="2"/>
@@ -218,7 +219,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
         </g>
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
-        <g class="layer-group" data-part="dial" data-layer="2" data-target-y="330" data-assembled-y="360" transform="translate(0, 360)">
+        <g class="layer-group" data-part="dial" data-layer="2" data-target-y="340" data-assembled-y="360" transform="translate(0, 360)">
           <!-- Mặt số chính -->
           <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
             <circle cx="250" cy="0" r="120" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2"/>
@@ -253,7 +254,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
         </g>
 
         <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
-        <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="470" data-assembled-y="410" transform="translate(0, 410)">
+        <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="490" data-assembled-y="410" transform="translate(0, 410)">
           <!-- Thùng cót -->
           <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
             <circle cx="180" cy="0" r="38" fill="#B8893C" opacity="0.85" stroke="#9B6E2C" stroke-width="1.5"/>
@@ -293,7 +294,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
         </g>
 
         <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
-        <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="600" data-assembled-y="460" transform="translate(0, 460)">
+        <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="630" data-assembled-y="460" transform="translate(0, 460)">
           <!-- Bộ thoát (escape wheel + pallet) -->
           <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
             <g transform="translate(190, 0)">
@@ -334,7 +335,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
         </g>
 
         <!-- LỚP 5: ROTOR -->
-        <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="700" data-assembled-y="510" transform="translate(0, 510)">
+        <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="740" data-assembled-y="510" transform="translate(0, 510)">
           <g data-part="rotor" data-name-vi="Rotor (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
             {/* Hình bán nguyệt đặc trưng của rotor */}
             <path d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
@@ -348,7 +349,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
         </g>
 
         <!-- LỚP 6: ĐÁY VỎ (caseback) -->
-        <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="760" data-assembled-y="570" transform="translate(0, 570)">
+        <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="820" data-assembled-y="570" transform="translate(0, 570)">
           <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
             <ellipse cx="250" cy="0" rx="135" ry="18" fill="#2D3748" stroke="#1F2D3D" stroke-width="1.5"/>
             <ellipse cx="250" cy="-2" rx="120" ry="14" fill="none" stroke="#4A5568" stroke-width="0.8"/>
@@ -414,7 +415,7 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
 
 <style>
   .layer-group {
-    transition: transform 0.9s cubic-bezier(0.34, 1.2, 0.64, 1);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   }
   [data-part] {
     transition: filter 0.3s ease;
@@ -482,14 +483,17 @@ const layerOffsets = [0, 80, 160, 280, 400, 520, 600];
       iconMap[id] = iconEl ? iconEl.textContent : '•';
     });
 
-    // ====== TÁCH / GHÉP ======
+    // ====== TÁCH / GHÉP (với stagger tuần tự) ======
     function applyMode() {
       if (!layers) return;
-      layers.forEach((layer) => {
+      layers.forEach((layer, i) => {
         const targetY = isExploded
           ? parseFloat(layer.dataset.targetY)
           : parseFloat(layer.dataset.assembledY);
-        layer.setAttribute('transform', `translate(0, ${targetY})`);
+        // Stagger: mỗi lớp trễ 60ms so với lớp trước (từ ngoài vào trong)
+        setTimeout(() => {
+          layer.setAttribute('transform', `translate(0, ${targetY})`);
+        }, i * 60);
       });
       toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
       modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)';

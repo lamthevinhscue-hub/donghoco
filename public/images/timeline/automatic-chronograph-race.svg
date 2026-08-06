@@ -1,0 +1,106 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Cuộc đua chronograph tự động 1969 — ba dự án cùng về đích</title>
+  <defs>
+    <pattern id="gui-automatic-chronograph-race" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-automatic-chronograph-race)"/>
+
+  <!-- ====== BA VẠCH ĐÍCH THẲNG ĐỨNG (bên phải) ====== -->
+  <line x1="680" y1="120" x2="680" y2="500" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+  <!-- Hai vạch phụ (canh vạch) -->
+  <line x1="675" y1="160" x2="685" y2="160" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="675" y1="300" x2="685" y2="300" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="675" y1="440" x2="685" y2="440" stroke="#FAF7F2" stroke-width="1.75"/>
+
+  <!-- ====== BA CỤM BỘ MÁY BẰNG NHAU, SONG SONG (cân bằng tuyệt đối) ====== -->
+  <!-- Mỗi cụm: vòng tròn R=85, đặt lệch ngang, cùng kích thước -->
+
+  <!-- CỤM 1 (trên) — nhận diện: bánh xe cột (column wheel) -->
+  <g transform="translate(200 175)">
+    <circle r="85" fill="none" stroke="#B8893C" stroke-width="3"/>
+    <circle r="75" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+    <!-- Bánh xe cột — ngôi sao 6 cánh -->
+    <g stroke="#B8893C" stroke-width="1.75" fill="none" stroke-linecap="round">
+      <line x1="0" y1="-35" x2="0" y2="35"/>
+      <line x1="-30" y1="-17" x2="30" y2="17"/>
+      <line x1="-30" y1="17" x2="30" y2="-17"/>
+    </g>
+    <circle r="12" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <!-- Cột (6 cột nhỏ) -->
+    <circle cx="0" cy="-22" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <circle cx="19" cy="-11" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <circle cx="19" cy="11" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <circle cx="0" cy="22" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <circle cx="-19" cy="11" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <circle cx="-19" cy="-11" r="3" fill="none" stroke="#B8893C" stroke-width="1"/>
+    <!-- Nút bấm (nhỏ, góc) -->
+    <circle cx="65" cy="-40" r="6" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <!-- Gạch tạo khối -->
+    <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.4">
+      <line x1="-55" y1="45" x2="-30" y2="45"/>
+      <line x1="-55" y1="53" x2="-30" y2="53"/>
+      <line x1="-50" y1="61" x2="-30" y2="61"/>
+    </g>
+  </g>
+
+  <!-- CỤM 2 (giữa) — nhận diện: rotor bán nguyệt -->
+  <g transform="translate(200 300)">
+    <circle r="85" fill="none" stroke="#B8893C" stroke-width="3"/>
+    <circle r="75" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+    <!-- Rotor bán nguyệt -->
+    <path d="M -55 0 A 55 55 0 0 1 55 0" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+    <!-- Trục rotor -->
+    <circle r="10" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <circle r="4" fill="#B8893C"/>
+    <!-- Bánh răng nhỏ bên cạnh -->
+    <circle cx="35" cy="30" r="16" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <line x1="35" y1="14" x2="35" y2="11" stroke="#B8893C" stroke-width="1.75"/>
+    <line x1="51" y1="30" x2="54" y2="30" stroke="#B8893C" stroke-width="1.75"/>
+    <circle cx="35" cy="30" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <!-- Gạch tạo khối -->
+    <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.4">
+      <line x1="-55" y1="45" x2="-30" y2="45"/>
+      <line x1="-55" y1="53" x2="-30" y2="53"/>
+    </g>
+  </g>
+
+  <!-- CỤM 3 (dưới) — nhận diện: cụm mô-đun (chronograph module chồng) -->
+  <g transform="translate(200 425)">
+    <circle r="85" fill="none" stroke="#B8893C" stroke-width="3"/>
+    <circle r="75" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+    <!-- Cụm mô-đun — hai lớp bánh răng chồng -->
+    <circle r="40" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <circle cx="-15" cy="-10" r="25" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <circle cx="20" cy="15" r="20" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <!-- Trục giữa -->
+    <circle r="5" fill="#B8893C"/>
+    <!-- Gạch tạo khối -->
+    <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.4">
+      <line x1="-55" y1="45" x2="-30" y2="45"/>
+      <line x1="-55" y1="53" x2="-30" y2="53"/>
+    </g>
+  </g>
+
+  <!-- ====== ĐƯỜNG CHẠY (mũi tên từ cụm sang vạch đích) ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3" stroke-dasharray="6 4">
+    <line x1="290" y1="175" x2="670" y2="175"/>
+    <line x1="290" y1="300" x2="670" y2="300"/>
+    <line x1="290" y1="425" x2="670" y2="425"/>
+  </g>
+
+  <!-- ====== GẠCH TẠO KHỐI (vùng chuyển tiếp bên phải, sau vạch đích) ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="710" y1="200" x2="740" y2="200"/>
+    <line x1="710" y1="210" x2="740" y2="210"/>
+    <line x1="710" y1="220" x2="740" y2="220"/>
+    <line x1="710" y1="380" x2="740" y2="380"/>
+    <line x1="710" y1="390" x2="740" y2="390"/>
+    <line x1="710" y1="400" x2="740" y2="400"/>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Seiko Quartz Astron 1969 — tinh thể thạch anh thay đổi ngành đồng hồ</title>
+  <defs>
+    <pattern id="gui-seiko-astron" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-seiko-astron)"/>
+
+  <!-- ====== MẶT SỐ (bên phải — tối giản) ====== -->
+  <circle cx="530" cy="300" r="130" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="530" cy="300" r="118" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4"/>
+  <!-- 4 cọc đơn giản -->
+  <line x1="530" y1="195" x2="530" y2="205" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="635" y1="300" x2="625" y2="300" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="530" y1="405" x2="530" y2="395" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="425" y1="300" x2="435" y2="300" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Kim giờ (đứng yên) -->
+  <line x1="530" y1="300" x2="530" y2="230" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- ====== KIM GIÂY Ở BA VỊ TRỜ RỜI RẠC (bước nhảy từng giây — đặc trưng quartz) ====== -->
+  <!-- Vị trí 1 (12 giờ) -->
+  <line x1="530" y1="300" x2="530" y2="210" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" opacity="0.3"/>
+  <!-- Vị trí 2 (1 giờ) -->
+  <line x1="530" y1="300" x2="565" y2="215" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" opacity="0.5"/>
+  <!-- Vị trí 3 (2 giờ) -->
+  <line x1="530" y1="300" x2="600" y2="230" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Trục -->
+  <circle cx="530" cy="300" r="4" fill="#FAF7F2"/>
+
+  <!-- ====== TINH THỂ THẠCH ANH HÌNH ÂM THOA HAI NHÁNH (chủ thể chính — bên trái) ====== -->
+  <!-- Âm thoa: hai nhánh hình chữ L đối xứng -->
+  <path d="M 200 250 L 180 250 L 180 220 L 160 220 L 160 280 L 180 280 L 180 250 M 200 250 L 280 250 L 280 220 L 300 220 L 300 280 L 280 280 L 280 250"
+        fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Chi tiết tinh thể (mặt cắt bên trong) -->
+  <line x1="180" y1="230" x2="180" y2="270" stroke="#FAF7F2" stroke-width="1" opacity="0.5"/>
+  <line x1="280" y1="230" x2="280" y2="270" stroke="#FAF7F2" stroke-width="1" opacity="0.5"/>
+  <!-- Điểm rung (chấm ở giữa) -->
+  <circle cx="240" cy="250" r="5" fill="#FAF7F2"/>
+
+  <!-- ====== ĐƯỜNG SÓNG DAO ĐỘNG PHÁT RA TỪ TINH THỂ ====== -->
+  <!-- Sóng lan ra 4 phía -->
+  <g stroke="#B8893C" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.35">
+    <path d="M 240 200 Q 250 190 240 180 Q 230 170 240 160"/>
+    <path d="M 240 300 Q 250 310 240 320 Q 230 330 240 340"/>
+    <path d="M 140 250 Q 130 240 120 250 Q 110 260 100 250"/>
+    <path d="M 340 250 Q 350 240 360 250 Q 370 260 380 250"/>
+  </g>
+  <!-- Sóng tròn (vòng tròn dao động lan ra) -->
+  <circle cx="240" cy="250" r="60" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.15"/>
+  <circle cx="240" cy="250" r="80" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.1"/>
+
+  <!-- ====== GẠCH TẠO KHỐI (tối thiểu — tinh thể thạch anh là vùng chính) ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="140" y1="380" x2="190" y2="380"/>
+    <line x1="145" y1="390" x2="195" y2="390"/>
+  </g>
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="600" y1="400" x2="650" y2="400"/>
+    <line x1="605" y1="410" x2="655" y2="410"/>
+  </g>
+</svg>

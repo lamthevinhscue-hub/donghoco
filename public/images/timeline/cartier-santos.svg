@@ -1,0 +1,100 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Cartier Santos 1904 — đồng hồ đeo tay cho phi công</title>
+  <defs>
+    <pattern id="gui-cartier-santos" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-cartier-santos)"/>
+
+  <!-- ====== CÁNH MÁY BAY HAI TẦNG (mờ ở nền — bối cảnh) ====== -->
+  <g stroke="#B8893C" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.12">
+    <!-- Thân máy bay (ngang, phía trên) -->
+    <line x1="120" y1="120" x2="680" y2="100"/>
+    <!-- Cánh trên -->
+    <path d="M 200 115 Q 300 85 400 90 Q 500 85 600 110"/>
+    <!-- Cánh dưới -->
+    <path d="M 220 125 Q 320 145 420 140 Q 520 145 600 120"/>
+    <!-- Cánh đuôi -->
+    <path d="M 640 95 L 670 80 L 670 110"/>
+  </g>
+
+  <!-- ====== DÂY DA (trái + phải) ====== -->
+  <!-- Dây da trái -->
+  <rect x="220" y="255" width="80" height="50" rx="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Vân da (gạch dọc) -->
+  <g stroke="#B8893C" stroke-width="1" opacity="0.3">
+    <line x1="235" y1="260" x2="235" y2="300"/>
+    <line x1="250" y1="260" x2="250" y2="300"/>
+    <line x1="265" y1="260" x2="265" y2="300"/>
+    <line x1="280" y1="260" x2="280" y2="300"/>
+  </g>
+  <!-- Khóa dây -->
+  <rect x="215" y="270" width="10" height="20" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Dây da phải -->
+  <rect x="500" y="255" width="80" height="50" rx="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <g stroke="#B8893C" stroke-width="1" opacity="0.3">
+    <line x1="515" y1="260" x2="515" y2="300"/>
+    <line x1="530" y1="260" x2="530" y2="300"/>
+    <line x1="545" y1="260" x2="545" y2="300"/>
+    <line x1="560" y1="260" x2="560" y2="300"/>
+  </g>
+  <rect x="575" y="270" width="10" height="20" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== VỎ VUÔNG BO GÓC ====== -->
+  <rect x="300" y="220" width="200" height="200" rx="12" ry="12" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Viền trong -->
+  <rect x="310" y="230" width="180" height="180" rx="8" ry="8" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== 8 ỐC LỘ TRÊN VÀNH (đặc trưng Santos) ====== -->
+  <!-- 4 góc -->
+  <circle cx="318" cy="238" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="314" y1="238" x2="322" y2="238" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="482" cy="238" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="478" y1="238" x2="486" y2="238" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="318" cy="402" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="314" y1="402" x2="322" y2="402" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="482" cy="402" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="478" y1="402" x2="486" y2="402" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- 4 giữa cạnh -->
+  <circle cx="400" cy="238" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="396" y1="238" x2="404" y2="238" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="400" cy="402" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="396" y1="402" x2="404" y2="402" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="318" cy="320" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="314" y1="320" x2="322" y2="320" stroke="#FAF7F2" stroke-width="1.75"/>
+  <circle cx="482" cy="320" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <line x1="478" y1="320" x2="486" y2="320" stroke="#FAF7F2" stroke-width="1.75"/>
+
+  <!-- ====== MẶT SỐ (tối giản theo yêu cầu) ====== -->
+  <circle cx="400" cy="320" r="65" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Vạch phút -->
+  <line x1="400" y1="258" x2="400" y2="265" stroke="#B8893C" stroke-width="1"/>
+  <line x1="462" y1="320" x2="455" y2="320" stroke="#B8893C" stroke-width="1"/>
+  <line x1="400" y1="382" x2="400" y2="375" stroke="#B8893C" stroke-width="1"/>
+  <line x1="338" y1="320" x2="345" y2="320" stroke="#B8893C" stroke-width="1"/>
+
+  <!-- Kim kiếm (phi công) -->
+  <line x1="400" y1="320" x2="400" y2="275" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="400" y1="320" x2="440" y2="295" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <circle cx="400" cy="320" r="4" fill="#FAF7F2"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối đậm (góc dưới-phải vỏ) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="440" y1="370" x2="480" y2="370" opacity="0.5"/>
+    <line x1="440" y1="377" x2="480" y2="377" opacity="0.5"/>
+    <line x1="440" y1="384" x2="480" y2="384" opacity="0.5"/>
+    <line x1="440" y1="391" x2="475" y2="391" opacity="0.5"/>
+  </g>
+  <!-- Vùng chuyển tiếp (góc trên-trái) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="325" y1="250" x2="360" y2="250"/>
+    <line x1="325" y1="258" x2="360" y2="258"/>
+  </g>
+</svg>

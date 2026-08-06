@@ -1,0 +1,87 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Chiếc đồng hồ đeo tay đầu tiên — Breguet làm cho Hoàng hậu Naples 1810</title>
+  <defs>
+    <pattern id="gui-breguet-naples" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+    <!-- Guilloché gạch chéo trên mặt số -->
+    <pattern id="dial-naples" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#B8893C" stroke-width="0.4" opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-breguet-naples)"/>
+
+  <!-- ====== DÂY QUẤN CỔ TAY BỆN (tóc + sợi vàng) ====== -->
+  <!-- Dây trái — nhiều sợi bện -->
+  <g stroke="#B8893C" stroke-width="1.75" fill="none" stroke-linecap="round">
+    <path d="M 180 200 Q 240 220 290 260"/>
+    <path d="M 170 230 Q 230 245 285 265"/>
+    <path d="M 185 260 Q 240 270 290 275"/>
+  </g>
+  <!-- Sợi sáng (vàng) xen kẽ -->
+  <g stroke="#FAF7F2" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4">
+    <path d="M 175 215 Q 235 232 288 262"/>
+    <path d="M 180 245 Q 235 258 290 270"/>
+  </g>
+
+  <!-- Dây phải -->
+  <g stroke="#B8893C" stroke-width="1.75" fill="none" stroke-linecap="round">
+    <path d="M 510 260 Q 560 220 620 200"/>
+    <path d="M 515 265 Q 570 245 630 230"/>
+    <path d="M 510 275 Q 560 270 615 260"/>
+  </g>
+  <g stroke="#FAF7F2" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4">
+    <path d="M 512 262 Q 565 232 625 215"/>
+    <path d="M 510 270 Q 565 258 620 250"/>
+  </g>
+
+  <!-- ====== VỎ Ô-VAN DẸT KÉO DÀI — đặc trưng bắt buộc ====== -->
+  <!-- Vỏ ngoài (ô-van nằm ngang, kéo dài rõ ràng) -->
+  <ellipse cx="400" cy="330" rx="155" ry="80" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <!-- Vỏ trong (viền kép) -->
+  <ellipse cx="400" cy="330" rx="145" ry="72" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== MẶT SỐ — guilloché gạch chéo ====== -->
+  <ellipse cx="400" cy="330" rx="120" ry="55" fill="url(#dial-naples)"/>
+  <ellipse cx="400" cy="330" rx="120" ry="55" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== CỌC SỐ Ả RẬP MẢNH (vẽ bằng path) ====== -->
+  <!-- 12 (trên) — I I -->
+  <path d="M 390 285 L 390 298 M 410 285 L 410 298" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- 3 (phải) — I I I -->
+  <path d="M 510 326 L 510 336 M 500 326 L 500 336 M 520 326 L 520 336" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- 6 (dưới) — I I I -->
+  <path d="M 395 368 L 395 378 M 405 368 L 405 378 M 415 368 L 415 378" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- 9 (trái) — I I I -->
+  <path d="M 280 326 L 280 336 M 290 326 L 290 336 M 300 326 L 300 336" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- ====== KIM ĐẦU RỖNG HÌNH QUẢ TÁO (Breguet style) ====== -->
+  <!-- Kim giờ — đầu rỗng hình quả táo (vòng tròn nhỏ ở đầu) -->
+  <path d="M 400 330 L 360 305" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <circle cx="360" cy="305" r="6" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Kim phút — cũng đầu rỗng -->
+  <path d="M 400 330 L 440 300" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <circle cx="440" cy="300" r="5" fill="none" stroke="#FAF7F2" stroke-width="1.75"/>
+  <!-- Trục -->
+  <circle cx="400" cy="330" r="4" fill="#FAF7F2"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối đậm (nửa dưới vỏ, bóng) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="320" y1="380" x2="480" y2="380" opacity="0.5"/>
+    <line x1="310" y1="390" x2="490" y2="390" opacity="0.5"/>
+    <line x1="305" y1="400" x2="495" y2="400" opacity="0.5"/>
+    <line x1="310" y1="410" x2="490" y2="410" opacity="0.5"/>
+    <line x1="320" y1="420" x2="480" y2="420" opacity="0.5"/>
+    <line x1="335" y1="430" x2="465" y2="430" opacity="0.5"/>
+  </g>
+  <!-- Vùng chuyển tiếp (nửa trên vỏ, nhẹ hơn) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="340" y1="250" x2="460" y2="250"/>
+    <line x1="330" y1="258" x2="470" y2="258"/>
+  </g>
+</svg>

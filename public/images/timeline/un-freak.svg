@@ -1,0 +1,97 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Ulysse Nardin Freak 2001 — bộ máy băng chuyền xoay trên mặt số, không kim</title>
+  <defs>
+    <pattern id="gui-un-freak" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-un-freak)"/>
+
+  <!-- ====== VÀNH NGOÀI TRƠN (KHÔNG NÚM VẶN — đặc trưng Freak) ====== -->
+  <circle cx="400" cy="300" r="220" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <circle cx="400" cy="300" r="210" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.4"/>
+  <!-- Vành trơn — chỉ có vài vạch giờ tinh tế -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.4">
+    <line x1="400" y1="100" x2="400" y2="108"/>
+    <line x1="600" y1="300" x2="592" y2="300"/>
+    <line x1="400" y1="500" x2="400" y2="492"/>
+    <line x1="200" y1="300" x2="208" y2="300"/>
+  </g>
+
+  <!-- ====== BỘ MÁY BĂNG CHUYỀN XOAY NẰM TRÊN MẶT SỐ (KHÔNG CÓ KIM) ====== -->
+  <!-- Cầu máy dài nằm ngang — đóng vai trò KIM CHỈ PHÚT (xoay quanh tâm) -->
+  <!-- Cầu máy = thanh ngang dài, nằm chếch (đang xoay) -->
+  <g transform="rotate(30 400 300)">
+    <!-- Thân cầu máy (dài, nằm ngang) -->
+    <rect x="220" y="290" width="360" height="20" rx="4" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Chi tiết trên cầu máy (gạch trang trí) -->
+    <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.4">
+      <line x1="240" y1="295" x2="240" y2="305"/>
+      <line x1="260" y1="295" x2="260" y2="305"/>
+      <line x1="280" y1="295" x2="280" y2="305"/>
+      <line x1="500" y1="295" x2="500" y2="305"/>
+      <line x1="520" y1="295" x2="520" y2="305"/>
+      <line x1="540" y1="295" x2="540" y2="305"/>
+    </g>
+    <!-- Bánh răng lớn ở đầu cầu máy (bên phải — lộ hoàn toàn) -->
+    <circle cx="560" cy="300" r="35" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <g stroke="#B8893C" stroke-width="1.75" stroke-linecap="round">
+      <line x1="560" y1="265" x2="560" y2="260"/>
+      <line x1="585" y1="275" x2="588" y2="272"/>
+      <line x1="595" y1="300" x2="600" y2="300"/>
+      <line x1="585" y1="325" x2="588" y2="328"/>
+      <line x1="560" y1="335" x2="560" y2="340"/>
+      <line x1="535" y1="325" x2="532" y2="328"/>
+      <line x1="525" y1="300" x2="520" y2="300"/>
+      <line x1="535" y1="275" x2="532" y2="272"/>
+    </g>
+    <circle cx="560" cy="300" r="6" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+    <!-- Bánh răng nhỏ ở đầu trái -->
+    <circle cx="250" cy="300" r="25" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+    <g stroke="#B8893C" stroke-width="1.75" stroke-linecap="round">
+      <line x1="250" y1="275" x2="250" y2="271"/>
+      <line x1="268" y1="282" x2="271" y2="279"/>
+      <line x1="250" y1="325" x2="250" y2="329"/>
+      <line x1="232" y1="318" x2="229" y2="321"/>
+    </g>
+    <circle cx="250" cy="300" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  </g>
+
+  <!-- ====== LINH KIỆN SILICON (nét MẢNH HƠN HẲN — đặc trưng) ====== -->
+  <!-- Dây tóc silicon — xoắn ốc nhỏ, nét rất mảnh (0.5px) -->
+  <g stroke="#FAF7F2" stroke-width="0.75" fill="none" opacity="0.6">
+    <circle cx="400" cy="300" r="20"/>
+    <circle cx="400" cy="300" r="16"/>
+    <circle cx="400" cy="300" r="12"/>
+    <circle cx="400" cy="300" r="8"/>
+  </g>
+  <circle cx="400" cy="300" r="4" fill="#FAF7F2"/>
+
+  <!-- ====== BÁNH RĂNG LỘ HOÀN TOÀN (xung quanh tâm) ====== -->
+  <circle cx="400" cy="200" r="22" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="400" y1="178" x2="400" y2="174"/>
+    <line x1="416" y1="184" x2="418" y2="181"/>
+    <line x1="422" y1="200" x2="426" y2="200"/>
+    <line x1="400" y1="222" x2="400" y2="226"/>
+    <line x1="384" y1="216" x2="382" y2="219"/>
+    <line x1="378" y1="200" x2="374" y2="200"/>
+  </g>
+  <circle cx="400" cy="200" r="3" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== MŨI TÊN CONG CHỈ CHIỀU XOAY CỦA CẦU MÁY ====== -->
+  <path d="M 400 460 Q 500 450 550 400" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 545 395 L 555 400 L 548 410" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="340" y1="470" x2="400" y2="470" opacity="0.4"/>
+    <line x1="335" y1="480" x2="395" y2="480" opacity="0.4"/>
+    <line x1="340" y1="490" x2="390" y2="490" opacity="0.4"/>
+  </g>
+</svg>

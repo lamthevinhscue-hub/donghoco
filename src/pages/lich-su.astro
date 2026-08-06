@@ -18,6 +18,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WatchImage from '../components/WatchImage.astro';
 import timelineData from '../data/timeline.json';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 const isVi = true; // trang này chỉ tiếng Việt (en đã ẩn tạm thời)
 
@@ -114,7 +116,9 @@ const milestones = timelineData as Array<{
     <div class="timeline-items">
       {milestones.map((m, i) => {
         const layer = layers.find((l) => l.id === m.type) ?? layers[0];
-        const imageSrc = `/images/timeline/${m.slug}.jpg`;
+        const imageSrc = existsSync(join(process.cwd(), 'public', 'images', 'timeline', `${m.slug}.jpg`))
+          ? `/images/timeline/${m.slug}.jpg`
+          : `/images/timeline/${m.slug}.svg`;
         return (
           <article
             class="milestone-card"

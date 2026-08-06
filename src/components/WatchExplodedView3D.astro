@@ -55,7 +55,7 @@ const parts = [
       <!-- Fallback 2D -->
       <div id="three-fallback" class="hidden text-center py-12">
         <p class="mb-3 text-sm text-ink-soft dark:text-dark-text-soft">Không tải được mô hình 3D.</p>
-        <a href="/giai-phau-2d" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream hover:bg-brass">Xem bản 2D →</a>
+        <button type="button" id="show-2d-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream hover:bg-brass">Xem bản 2D →</button>
       </div>
       <!-- Hint -->
       <p id="three-hint" class="mt-2 hidden text-center text-xs text-ink-soft/60 dark:text-dark-text-soft/60">
@@ -124,6 +124,16 @@ const parts = [
       console.error('Three.js load failed:', e);
       if (loading) loading.classList.add('hidden');
       if (fallback) fallback.classList.remove('hidden');
+      // Nút "Xem bản 2D" → chuyển inline sang component 2D
+      var show2dBtn = document.getElementById('show-2d-btn');
+      if (show2dBtn) {
+        show2dBtn.addEventListener('click', function() {
+          var w3d = document.getElementById('view-3d-wrapper');
+          var w2d = document.getElementById('view-2d-wrapper');
+          if (w3d) w3d.classList.add('hidden');
+          if (w2d) w2d.classList.remove('hidden');
+        });
+      }
       return;
     }
 

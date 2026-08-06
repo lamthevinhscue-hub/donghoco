@@ -11,6 +11,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
+import WatchExplodedView from '../components/WatchExplodedView.astro';
 ---
 
 <BaseLayout
@@ -30,8 +31,14 @@ import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
       </p>
     </header>
 
-    <!-- ====== EXPLODED VIEW (component chính) ====== -->
-    <WatchExplodedView3D />
+    <!-- ====== EXPLODED VIEW 3D (mặc định) ====== -->
+    <div id="view-3d-wrapper">
+      <WatchExplodedView3D />
+    </div>
+    <!-- ====== EXPLODED VIEW 2D (fallback inline) ====== -->
+    <div id="view-2d-wrapper" class="hidden">
+      <WatchExplodedView />
+    </div>
 
     <!-- ====== PHẦN GIẢI THÍCH BỔ SUNG ====== -->
     <section class="mt-16 space-y-8">

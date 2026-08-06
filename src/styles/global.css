@@ -99,7 +99,7 @@
     color: theme('colors.dark-brass');
   }
   .dark .prose-content strong {
-    color: theme('colors.dark-text');
+    color: theme('colors.cream');
   }
 
   /* Dark mode SVG infographic — override fill cố định trong SVG inline */

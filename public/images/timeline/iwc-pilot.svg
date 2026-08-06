@@ -1,0 +1,145 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Đồng hồ phi công IWC 1936 — mặt số lớn với tam giác định hướng</title>
+  <defs>
+    <pattern id="gui-iwc-pilot" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-iwc-pilot)"/>
+
+  <!-- ====== VỔ ĐỒNG HỒ (tròn, cỡ lớn) ====== -->
+  <circle cx="400" cy="290" r="210" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <circle cx="400" cy="290" r="195" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+
+  <!-- ====== VÒNG PHÚT CHIA VẠCH RÕ ====== -->
+  <g stroke="#B8893C" stroke-linecap="round">
+    <line x1="400.0" y1="115.0" x2="400.0" y2="95.0" stroke-width="1.75"/>
+    <line x1="419.3" y1="106.0" x2="420.4" y2="96.1" stroke-width="1"/>
+    <line x1="438.5" y1="109.0" x2="440.5" y2="99.3" stroke-width="1"/>
+    <line x1="457.2" y1="114.1" x2="460.3" y2="104.5" stroke-width="1"/>
+    <line x1="475.2" y1="121.0" x2="479.3" y2="111.9" stroke-width="1"/>
+    <line x1="487.5" y1="138.4" x2="497.5" y2="121.1" stroke-width="1.75"/>
+    <line x1="508.7" y1="140.3" x2="514.6" y2="132.2" stroke-width="1"/>
+    <line x1="523.8" y1="152.5" x2="530.5" y2="145.1" stroke-width="1"/>
+    <line x1="537.5" y1="166.2" x2="544.9" y2="159.5" stroke-width="1"/>
+    <line x1="549.7" y1="181.3" x2="557.8" y2="175.4" stroke-width="1"/>
+    <line x1="551.6" y1="202.5" x2="568.9" y2="192.5" stroke-width="1.75"/>
+    <line x1="569.0" y1="214.8" x2="578.1" y2="210.7" stroke-width="1"/>
+    <line x1="575.9" y1="232.8" x2="585.5" y2="229.7" stroke-width="1"/>
+    <line x1="581.0" y1="251.5" x2="590.7" y2="249.5" stroke-width="1"/>
+    <line x1="584.0" y1="270.7" x2="593.9" y2="269.6" stroke-width="1"/>
+    <line x1="575.0" y1="290.0" x2="595.0" y2="290.0" stroke-width="1.75"/>
+    <line x1="584.0" y1="309.3" x2="593.9" y2="310.4" stroke-width="1"/>
+    <line x1="581.0" y1="328.5" x2="590.7" y2="330.5" stroke-width="1"/>
+    <line x1="575.9" y1="347.2" x2="585.5" y2="350.3" stroke-width="1"/>
+    <line x1="569.0" y1="365.2" x2="578.1" y2="369.3" stroke-width="1"/>
+    <line x1="551.6" y1="377.5" x2="568.9" y2="387.5" stroke-width="1.75"/>
+    <line x1="549.7" y1="398.7" x2="557.8" y2="404.6" stroke-width="1"/>
+    <line x1="537.5" y1="413.8" x2="544.9" y2="420.5" stroke-width="1"/>
+    <line x1="523.8" y1="427.5" x2="530.5" y2="434.9" stroke-width="1"/>
+    <line x1="508.7" y1="439.7" x2="514.6" y2="447.8" stroke-width="1"/>
+    <line x1="487.5" y1="441.6" x2="497.5" y2="458.9" stroke-width="1.75"/>
+    <line x1="475.2" y1="459.0" x2="479.3" y2="468.1" stroke-width="1"/>
+    <line x1="457.2" y1="465.9" x2="460.3" y2="475.5" stroke-width="1"/>
+    <line x1="438.5" y1="471.0" x2="440.5" y2="480.7" stroke-width="1"/>
+    <line x1="419.3" y1="474.0" x2="420.4" y2="483.9" stroke-width="1"/>
+    <line x1="400.0" y1="465.0" x2="400.0" y2="485.0" stroke-width="1.75"/>
+    <line x1="380.7" y1="474.0" x2="379.6" y2="483.9" stroke-width="1"/>
+    <line x1="361.5" y1="471.0" x2="359.5" y2="480.7" stroke-width="1"/>
+    <line x1="342.8" y1="465.9" x2="339.7" y2="475.5" stroke-width="1"/>
+    <line x1="324.8" y1="459.0" x2="320.7" y2="468.1" stroke-width="1"/>
+    <line x1="312.5" y1="441.6" x2="302.5" y2="458.9" stroke-width="1.75"/>
+    <line x1="291.3" y1="439.7" x2="285.4" y2="447.8" stroke-width="1"/>
+    <line x1="276.2" y1="427.5" x2="269.5" y2="434.9" stroke-width="1"/>
+    <line x1="262.5" y1="413.8" x2="255.1" y2="420.5" stroke-width="1"/>
+    <line x1="250.3" y1="398.7" x2="242.2" y2="404.6" stroke-width="1"/>
+    <line x1="248.4" y1="377.5" x2="231.1" y2="387.5" stroke-width="1.75"/>
+    <line x1="231.0" y1="365.2" x2="221.9" y2="369.3" stroke-width="1"/>
+    <line x1="224.1" y1="347.2" x2="214.5" y2="350.3" stroke-width="1"/>
+    <line x1="219.0" y1="328.5" x2="209.3" y2="330.5" stroke-width="1"/>
+    <line x1="216.0" y1="309.3" x2="206.1" y2="310.4" stroke-width="1"/>
+    <line x1="225.0" y1="290.0" x2="205.0" y2="290.0" stroke-width="1.75"/>
+    <line x1="216.0" y1="270.7" x2="206.1" y2="269.6" stroke-width="1"/>
+    <line x1="219.0" y1="251.5" x2="209.3" y2="249.5" stroke-width="1"/>
+    <line x1="224.1" y1="232.8" x2="214.5" y2="229.7" stroke-width="1"/>
+    <line x1="231.0" y1="214.8" x2="221.9" y2="210.7" stroke-width="1"/>
+    <line x1="248.4" y1="202.5" x2="231.1" y2="192.5" stroke-width="1.75"/>
+    <line x1="250.3" y1="181.3" x2="242.2" y2="175.4" stroke-width="1"/>
+    <line x1="262.5" y1="166.2" x2="255.1" y2="159.5" stroke-width="1"/>
+    <line x1="276.2" y1="152.5" x2="269.5" y2="145.1" stroke-width="1"/>
+    <line x1="291.3" y1="140.3" x2="285.4" y2="132.2" stroke-width="1"/>
+    <line x1="312.5" y1="138.4" x2="302.5" y2="121.1" stroke-width="1.75"/>
+    <line x1="324.8" y1="121.0" x2="320.7" y2="111.9" stroke-width="1"/>
+    <line x1="342.8" y1="114.1" x2="339.7" y2="104.5" stroke-width="1"/>
+    <line x1="361.5" y1="109.0" x2="359.5" y2="99.3" stroke-width="1"/>
+    <line x1="380.7" y1="106.0" x2="379.6" y2="96.1" stroke-width="1"/>
+  </g>
+
+  <!-- ====== TAM GIÁC ĐỊNH HƯỚNG Ở 12 GIỜ (có 2 chấm hai bên) ====== -->
+  <!-- Tam giác lớn chỉ 12 giờ (đặc trưng pilot) -->
+  <path d="M 400 130 L 420 165 L 380 165 Z" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 2 chấm hai bên tam giác -->
+  <circle cx="365" cy="165" r="5" fill="#FAF7F2"/>
+  <circle cx="435" cy="165" r="5" fill="#FAF7F2"/>
+
+  <!-- ====== CỌC SỐ Ả RẬP CỠ LỚN (vẽ bằng path) ====== -->
+  <!-- 3 (phải) -->
+  <g stroke="#FAF7F2" stroke-width="1.75" fill="none" stroke-linecap="round">
+    <path d="M 555 280 L 555 300"/>
+    <path d="M 545 280 L 545 300"/>
+    <path d="M 565 280 L 565 300"/>
+  </g>
+  <!-- 6 (dưới) -->
+  <g stroke="#FAF7F2" stroke-width="1.75" fill="none" stroke-linecap="round">
+    <path d="M 390 440 L 400 455 L 410 440"/>
+    <path d="M 410 438 L 410 455"/>
+  </g>
+  <!-- 9 (trái) -->
+  <g stroke="#FAF7F2" stroke-width="1.75" fill="none" stroke-linecap="round">
+    <path d="M 235 280 L 235 300"/>
+    <path d="M 245 280 L 245 300"/>
+    <path d="M 225 280 L 225 300"/>
+  </g>
+
+  <!-- ====== KIM KIẾM (dài, nhọn — pilot style) ====== -->
+  <!-- Kim giờ -->
+  <path d="M 400 290 L 400 200 L 408 205 L 400 200 L 392 205 Z" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round"/>
+  <!-- Kim phút -->
+  <path d="M 400 290 L 450 180 L 458 185 L 450 180 L 444 188 Z" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round"/>
+  <!-- Trục -->
+  <circle cx="400" cy="290" r="6" fill="#FAF7F2"/>
+
+  <!-- ====== NÚM VẶN HÌNH CỦ HÀNH (to — vặn được khi đeo găng) ====== -->
+  <!-- Núm ở góc dưới-phải -->
+  <ellipse cx="610" cy="430" rx="22" ry="30" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <!-- Khía núm (gạch dọc) -->
+  <g stroke="#B8893C" stroke-width="1.75" stroke-linecap="round">
+    <line x1="600" y1="410" x2="600" y2="395"/>
+    <line x1="610" y1="405" x2="610" y2="390"/>
+    <line x1="620" y1="410" x2="620" y2="395"/>
+    <line x1="600" y1="450" x2="600" y2="465"/>
+    <line x1="610" y1="455" x2="610" y2="470"/>
+    <line x1="620" y1="450" x2="620" y2="465"/>
+  </g>
+  <!-- Nối núm vào vỏ -->
+  <line x1="595" y1="415" x2="575" y2="400" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối (góc dưới-phải mặt số) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="480" y1="370" x2="530" y2="370" opacity="0.4"/>
+    <line x1="485" y1="380" x2="535" y2="380" opacity="0.4"/>
+    <line x1="490" y1="390" x2="540" y2="390" opacity="0.4"/>
+    <line x1="495" y1="400" x2="540" y2="400" opacity="0.4"/>
+  </g>
+  <!-- Vùng chuyển tiếp (góc trên-trái) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="270" y1="180" x2="310" y2="180"/>
+    <line x1="275" y1="190" x2="315" y2="190"/>
+    <line x1="280" y1="200" x2="320" y2="200"/>
+  </g>
+</svg>

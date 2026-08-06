@@ -1,0 +1,88 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Cơ chế lên cót tự động Rolex Perpetual 1931 — rotor xoay tròn 360 độ</title>
+  <defs>
+    <pattern id="gui-rolex-perpetual" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-rolex-perpetual)"/>
+
+  <!-- ====== CẦU MÁY (có gạch trang trí Genève — nét mảnh song song) ====== -->
+  <circle cx="400" cy="300" r="190" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <!-- Gạch Genève trên cầu máy (8 đường mảnh tỏa ra) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.35">
+    <line x1="400" y1="130" x2="400" y2="160"/>
+    <line x1="485" y1="155" x2="465" y2="180"/>
+    <line x1="550" y1="220" x2="520" y2="235"/>
+    <line x1="570" y1="300" x2="540" y2="300"/>
+    <line x1="550" y1="380" x2="520" y2="365"/>
+    <line x1="485" y1="445" x2="465" y2="420"/>
+    <line x1="400" y1="470" x2="400" y2="440"/>
+    <line x1="315" y1="445" x2="335" y2="420"/>
+    <line x1="250" y1="380" x2="280" y2="365"/>
+    <line x1="230" y1="300" x2="260" y2="300"/>
+    <line x1="250" y1="220" x2="280" y2="235"/>
+    <line x1="315" y1="155" x2="335" y2="180"/>
+  </g>
+
+  <!-- ====== CUNG MŨI TÊN TRÒN 360° KHÉP KÍN (đặc trưng bắt buộc) ====== -->
+  <!-- Vòng tròn mũi tên đầy đủ 360° — lớn hơn rotor -->
+  <circle cx="400" cy="300" r="140" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-dasharray="6 3"/>
+  <!-- Đầu mũi tên (tam giác trên vòng tròn, chỉ chiều kim đồng hồ) -->
+  <path d="M 540 295 L 548 300 L 540 305 Z" fill="#FAF7F2"/>
+
+  <!-- ====== ROTOR BÁN NGUYỆT (gắn trục giữa — đặc trưng bắt buộc) ====== -->
+  <!-- Bán nguyệt (nửa trên của rotor) -->
+  <path d="M 400 300 A 110 110 0 0 1 510 300 L 510 305 A 110 110 0 0 0 400 305 Z"
+        fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Bán nguyệt thực sự: nửa vòng tròn -->
+  <path d="M 290 300 A 110 110 0 0 1 510 300" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+  <!-- Vành nặng ở đầu rotor (cụm đệm — nặng hơn ở rìa) -->
+  <path d="M 470 230 Q 500 240 505 270 L 495 275 Q 488 250 465 240 Z" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Trục giữa rotor -->
+  <circle cx="400" cy="300" r="12" fill="none" stroke="#B8893C" stroke-width="3"/>
+  <circle cx="400" cy="300" r="5" fill="#B8893C"/>
+
+  <!-- ====== BÁNH RĂNG ĐẢO CHIỀU (hai bánh nhỏ hai bên trục) ====== -->
+  <circle cx="350" cy="300" r="18" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <g stroke="#B8893C" stroke-width="1.75" stroke-linecap="round">
+    <line x1="350" y1="282" x2="350" y2="278"/>
+    <line x1="363" y1="288" x2="366" y2="285"/>
+    <line x1="368" y1="300" x2="372" y2="300"/>
+    <line x1="350" y1="318" x2="350" y2="322"/>
+    <line x1="337" y1="312" x2="334" y2="315"/>
+    <line x1="332" y1="300" x2="328" y2="300"/>
+  </g>
+  <circle cx="350" cy="300" r="4" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Bánh răng đảo chiều thứ 2 -->
+  <circle cx="450" cy="300" r="14" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <g stroke="#B8893C" stroke-width="1.75" stroke-linecap="round">
+    <line x1="450" y1="286" x2="450" y2="283"/>
+    <line x1="460" y1="290" x2="462" y2="288"/>
+    <line x1="464" y1="300" x2="467" y2="300"/>
+    <line x1="450" y1="314" x2="450" y2="317"/>
+  </g>
+  <circle cx="450" cy="300" r="3" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối đậm (góc dưới-phải cầu máy) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="500" y1="380" x2="550" y2="380" opacity="0.5"/>
+    <line x1="500" y1="388" x2="550" y2="388" opacity="0.5"/>
+    <line x1="500" y1="396" x2="545" y2="396" opacity="0.5"/>
+    <line x1="505" y1="404" x2="540" y2="404" opacity="0.5"/>
+    <line x1="510" y1="412" x2="535" y2="412" opacity="0.5"/>
+  </g>
+  <!-- Vùng chuyển tiếp (góc trên-trái cầu máy) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="250" y1="170" x2="290" y2="170"/>
+    <line x1="255" y1="180" x2="295" y2="180"/>
+    <line x1="260" y1="190" x2="300" y2="190"/>
+  </g>
+</svg>

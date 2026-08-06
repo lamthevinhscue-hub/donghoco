@@ -1,0 +1,72 @@
+<svg viewBox="0 0 800 600" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Jaeger-LeCoultre Reverso 1931 — vỏ chữ nhật lật được trên khung trượt</title>
+  <defs>
+    <pattern id="gui-jlc-reverso" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="none" stroke="#B8893C" stroke-width="0.4" opacity="0.11"/>
+      <circle cx="20" cy="20" r="4" fill="none" stroke="#B8893C" stroke-width="0.3" opacity="0.11"/>
+      <circle cx="20" cy="20" r="7" fill="none" stroke="#B8893C" stroke-width="0.25" opacity="0.11"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#1F2D3D"/>
+  <rect width="800" height="600" fill="url(#gui-jlc-reverso)"/>
+
+  <!-- ====== KHUNG TRƯỢT (cố định, nằm ngang) ====== -->
+  <!-- Khung ngoài (đơn giản — hai thanh đỡ + đáy) -->
+  <path d="M 180 240 L 620 240 L 620 260 L 180 260 Z" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 180 360 L 620 360 L 620 380 L 180 380 Z" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Trục xoay (hai bên khung, ở giữa) -->
+  <circle cx="180" cy="310" r="8" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="172" y1="310" x2="188" y2="310" stroke="#B8893C" stroke-width="1.75"/>
+  <circle cx="620" cy="310" r="8" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="612" y1="310" x2="628" y2="310" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- ====== VỎ CHỮ NHẬT ĐANG LẬT DỞ ====== -->
+  <!-- Nửa dưới (còn nằm phẳng trên khung) — mặt sau -->
+  <path d="M 200 310 L 600 310 L 590 360 L 210 360 Z" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 3 đường gờ ngang (đầu và cuối vỏ) — phần phẳng -->
+  <line x1="210" y1="318" x2="590" y2="318" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="210" y1="352" x2="590" y2="352" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Nửa trên (đã lật dở — nghiêng ra phía trước) — mặt số -->
+  <!-- Vỏ nghiêng: biến dạng từ chữ nhật sang hình thang do phối cảnh xoay -->
+  <path d="M 210 310 L 590 310 L 560 200 L 240 200 Z" fill="none" stroke="#B8893C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- 3 đường gờ ngang phần nghiêng -->
+  <line x1="232" y1="210" x2="568" y2="210" stroke="#B8893C" stroke-width="1.75"/>
+  <line x1="221" y1="295" x2="579" y2="295" stroke="#B8893C" stroke-width="1.75"/>
+
+  <!-- Mặt số (trên phần nghiêng — elip do phối cảnh) -->
+  <ellipse cx="400" cy="260" rx="120" ry="42" fill="none" stroke="#B8893C" stroke-width="1.75"/>
+  <!-- Cọc số đơn giản (chấm) -->
+  <circle cx="400" cy="222" r="3" fill="#FAF7F2" opacity="0.6"/>
+  <circle cx="400" cy="298" r="3" fill="#FAF7F2" opacity="0.6"/>
+  <circle cx="480" cy="260" r="3" fill="#FAF7F2" opacity="0.6"/>
+  <circle cx="320" cy="260" r="3" fill="#FAF7F2" opacity="0.6"/>
+  <!-- Kim (nhìn xiên do nghiêng) -->
+  <line x1="400" y1="260" x2="400" y2="230" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <line x1="400" y1="260" x2="425" y2="245" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- Mặt sau (phần phẳng — để trơn theo yêu cầu) -->
+
+  <!-- ====== CUNG MŨI TÊN CHỈ CHUYỂN ĐỘNG LẬT ====== -->
+  <!-- Cung cong lớn bên cạnh, chỉ động tác lật -->
+  <path d="M 660 310 Q 700 270 680 220 Q 660 200 630 200" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round"/>
+  <!-- Đầu mũi tên (lên-trái, chỉ chiều lật) -->
+  <path d="M 635 205 L 625 198 L 628 210" fill="none" stroke="#FAF7F2" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- ====== GẠCH TẠO KHỐI ====== -->
+  <!-- Vùng tối (phần phẳng, dưới) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round">
+    <line x1="250" y1="325" x2="350" y2="325" opacity="0.5"/>
+    <line x1="250" y1="333" x2="350" y2="333" opacity="0.5"/>
+    <line x1="250" y1="341" x2="345" y2="341" opacity="0.5"/>
+    <line x1="255" y1="349" x2="340" y2="349" opacity="0.5"/>
+  </g>
+  <!-- Vùng chuyển tiếp (phần nghiêng, góc trên-trái) -->
+  <g stroke="#B8893C" stroke-width="1" stroke-linecap="round" opacity="0.3">
+    <line x1="245" y1="220" x2="290" y2="220"/>
+    <line x1="243" y1="230" x2="288" y2="230"/>
+    <line x1="242" y1="240" x2="286" y2="240"/>
+  </g>
+</svg>

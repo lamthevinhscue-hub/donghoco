@@ -51,6 +51,16 @@ const exploreGroup = {
 
     <!-- Menu (máy tính) -->
     <nav class="hidden items-center gap-6 md:flex">
+      <!-- Nút Trang chủ (biểu tượng nhà) -->
+      <a
+        href={localizedPath('/', lang)}
+        class="text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+        aria-label={tr.nav_home}
+      >
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10" />
+        </svg>
+      </a>
       {topItems.map((item) => (
         <a
           href={localizedPath(item.path, lang)}
@@ -133,6 +143,15 @@ const exploreGroup = {
   <nav id="mobile-menu" class="hidden border-t border-cream-dark bg-cream md:hidden dark:border-dark-border dark:bg-dark-bg">
     <div class="mx-auto max-h-[70vh] max-w-6xl overflow-y-auto px-4 py-2">
       {/* Mục cấp 1 */}
+      <a
+        href={localizedPath('/', lang)}
+        class="flex items-center gap-2 border-b border-cream-dark/60 py-3 text-sm font-medium text-ink-soft dark:border-dark-border/60 dark:text-dark-text-soft"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10" />
+        </svg>
+        {tr.nav_home}
+      </a>
       {topItems.map((item) => (
         <a
           href={localizedPath(item.path, lang)}

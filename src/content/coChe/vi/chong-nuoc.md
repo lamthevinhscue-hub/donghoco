@@ -4,6 +4,7 @@ excerpt: "Vì sao '50m' không có nghĩa là bơi được 50m — nguyên lý 
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

@@ -4,6 +4,7 @@ excerpt: "Vì sao chỉ cần đeo đồng hồ là nó tự chạy — bí mậ
 category: "nền tảng"
 difficulty: "trung bình"
 has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

@@ -2,14 +2,18 @@
 // =============================================================================
 // INFOGRAPHIC: CHỐNG TỪ (Anti-Magnetic)
 // =============================================================================
-// Hoạt ảnh: CSS transition + Intersection Observer (native).
+// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (so sánh 2 dây tóc thép vs silicon
+// dưới từ trường tăng dần — thép bị hút dính + sai số tăng, silicon không đổi).
+// Các cảnh khác giữ CSS reveal + Intersection Observer.
 //
 // 4 cảnh:
 //   1. Mở đầu — vấn đề từ trường giấu mặt
-//   2. Hai cách chống từ — lồng sắt (soft iron cage) vs vật liệu silicon
+//   2. So sánh 2 dây tóc dưới từ trường — HOẠT ẢNH TƯƠNG TÁC
 //   3. Thang mức độ — từ vài trăm gauss đến 15.000 gauss
 //   4. Nguồn từ trường quanh bạn — và mẹo phòng tránh
 // =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
 
 // Dữ liệu các mức chống từ
 const levels = [
@@ -73,15 +77,138 @@ const sources = [
   </div>
 
   <!-- ====================================================================
-       CẢNH 2: HAI CÁCH CHỐNG TỪ
+       CẢNH 2: SO SÁNH 2 DÂY TÓC DƯỚI TỪ TRƯỜNG — HOẠT ẢNH TƯƠNG TÁC
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       Hai cách đồng hồ chống từ
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+    <p class="mx-auto mb-8 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
       Từ trường làm <strong>dây tóc</strong> (phần mỏng manh nhất) bị nhiễm từ → sai số.
-      Có 2 cách nhà sản xuất giải quyết:
+      Kéo thanh trượt bên dưới để thấy sự khác nhau giữa dây tóc thép và silicon.
+    </p>
+
+    <MechanismAnimation label="Kéo thanh trượt từ trường — dây tóc thép bị nhiễm, silicon không đổi" data-mech-step-id="anti-magnetic">
+      <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="anti-magnetic-svg">
+        <text x="300" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+          Cùng một từ trường — hai phản ứng khác nhau
+        </text>
+
+        <!-- ====== BÊN TRÁI: DÂY TÓC THÉP ====== -->
+        <g transform="translate(150, 140)">
+          <text x="0" y="-70" text-anchor="middle" font-size="11" fill="#9B2C2C" font-weight="bold">Dây tóc thép</text>
+          <!-- Dây tóc thép (xoắn ốc — bị hút dính khi từ trường cao) -->
+          <g id="am-steel-spring">
+            <path id="am-steel-path" d="" fill="none" stroke="#9B2C2C" stroke-width="2.5"/>
+          </g>
+          <circle r="3" fill="#9B2C2C"/>
+          <!-- Sai số -->
+          <text id="am-steel-error" x="0" y="80" text-anchor="middle" font-size="12" fill="#9B2C2C" font-weight="bold">±0 giây/ngày</text>
+          <text x="0" y="95" text-anchor="middle" font-size="9" fill="#9B2C2C" opacity="0.7">chạy sai khi nhiễm từ</text>
+        </g>
+
+        <!-- ====== ĐƯỜNG PHÂN CÁCH GIỮA ====== -->
+        <line x1="300" y1="50" x2="300" y2="230" stroke="#FAF7F2" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.3"/>
+
+        <!-- ====== BÊN PHẢI: DÂY TÓC SILICON ====== -->
+        <g transform="translate(450, 140)">
+          <text x="0" y="-70" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold">Dây tóc silicon</text>
+          <!-- Dây tóc silicon (không đổi dù từ trường cao) -->
+          <g id="am-silicon-spring">
+            <path id="am-silicon-path" d="" fill="none" stroke="#2D7A55" stroke-width="2.5"/>
+          </g>
+          <circle r="3" fill="#2D7A55"/>
+          <!-- Sai số -->
+          <text id="am-silicon-error" x="0" y="80" text-anchor="middle" font-size="12" fill="#2D7A55" font-weight="bold">±0 giây/ngày</text>
+          <text x="0" y="95" text-anchor="middle" font-size="9" fill="#2D7A55" opacity="0.7">không bị ảnh hưởng</text>
+        </g>
+
+        <!-- ====== DÒNG TỪ TRƯỜNG (hiện khi > 0) ====== -->
+        <g id="am-field-lines" opacity="0">
+          <line x1="40" y1="80" x2="560" y2="80" stroke="#3182CE" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="40" y1="200" x2="560" y2="200" stroke="#3182CE" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="40" y1="140" x2="560" y2="140" stroke="#3182CE" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="570" y="144" font-size="9" fill="#3182CE" font-weight="bold">B</text>
+        </g>
+
+        <!-- ====== THANH TRƯỢT TỪ TRƯỜNG ====== -->
+        <text x="300" y="270" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Cường độ từ trường</text>
+        <rect x="100" y="280" width="400" height="20" rx="4" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+        <rect id="am-field-fill" x="102" y="282" width="0" height="16" rx="2" fill="#3182CE"/>
+        <foreignObject x="95" y="275" width="410" height="30">
+          <input type="range" id="am-field-slider" min="0" max="15000" value="0" step="500" style="width:100%;accent-color:#3182CE;touch-action:none;" aria-label="Cường độ từ trường (gauss)" />
+        </foreignObject>
+        <text id="am-field-label" x="300" y="325" text-anchor="middle" font-size="12" fill="#3182CE" font-weight="bold" class="dark:fill-dark-text-soft">0 gauss</text>
+      </svg>
+
+      <script is:inline define:vars={{}} slot="script">
+        (function() {
+          const svg = document.getElementById('anti-magnetic-svg');
+          if (!svg) return;
+          const slider = svg.querySelector('#am-field-slider');
+          const fieldFill = svg.querySelector('#am-field-fill');
+          const fieldLabel = svg.querySelector('#am-field-label');
+          const fieldLines = svg.querySelector('#am-field-lines');
+          const steelPath = svg.querySelector('#am-steel-path');
+          const siliconPath = svg.querySelector('#am-silicon-path');
+          const steelError = svg.querySelector('#am-steel-error');
+          const siliconError = svg.querySelector('#am-silicon-error');
+          if (!slider) return;
+
+          // Sinh đường xoắn ốc dây tóc (bán kính có thể thay đổi)
+          function spiralPath(rMax, coils, collapse) {
+            // collapse: 0 = xoắn bình thường, 1 = các vòng hút dính vào nhau
+            let d = '';
+            const points = coils * 24;
+            for (let i = 0; i <= points; i++) {
+              const t = i / points;
+              const angle = t * coils * Math.PI * 2;
+              let r = rMax * (1 - t * 0.8); // xoắn vào trong
+              // Khi nhiễm từ: các vòng hút dính → bán kính giảm theo collapse
+              r = r * (1 - collapse * 0.5);
+              const x = r * Math.cos(angle);
+              const y = r * Math.sin(angle);
+              d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+            }
+            return d;
+          }
+
+          function render() {
+            const gauss = parseInt(slider.value);
+            // Thanh trượt
+            fieldFill.setAttribute('width', String((gauss / 15000) * 396));
+            fieldLabel.textContent = gauss.toLocaleString('vi-VN') + ' gauss';
+
+            // Dòng từ trường hiện khi > 0
+            fieldLines.setAttribute('opacity', gauss > 0 ? String(Math.min(0.6, gauss / 10000)) : '0');
+
+            // Dây tóc thép: nhiễm từ khi > ~100 gauss
+            // Mức độ "dính": tăng từ 0 tới 1 khi gauss tới 5000+
+            const steelCollapse = Math.min(1, Math.max(0, (gauss - 100) / 5000));
+            steelPath.setAttribute('d', spiralPath(45, 4, steelCollapse));
+
+            // Dây tóc silicon: không đổi
+            siliconPath.setAttribute('d', spiralPath(45, 4, 0));
+
+            // Sai số: thép chạy nhanh khi nhiễm từ
+            // ~0 dưới 100 gauss, tăng tới ~300 giây/ngày ở 5000+ gauss
+            const steelErr = gauss < 100 ? 0 : Math.min(300, Math.round((gauss - 100) / 15));
+            steelError.textContent = (steelErr === 0 ? '±0' : '+' + steelErr) + ' giây/ngày';
+            siliconError.textContent = '±0 giây/ngày';
+          }
+
+          slider.addEventListener('input', render);
+
+          // Đăng ký hàm step rỗng (MechanismAnimation cần để hiện controls)
+          (window.__mechSteps = window.__mechSteps || {})['anti-magnetic'] = function() {};
+
+          render();
+        })();
+      </script>
+    </MechanismAnimation>
+
+    <p class="mx-auto mb-12 mt-8 max-w-2xl text-center text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      Kéo thanh trượt: khi từ trường mạnh, dây tóc thép (trái) bị <strong>hút dính các vòng vào nhau</strong> → chu kỳ dao động ngắn lại → đồng hồ chạy nhanh. Dây tóc silicon (phải) không hề thay đổi.
     </p>
 
     <div class="grid gap-8 md:grid-cols-2">

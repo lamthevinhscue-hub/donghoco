@@ -4,6 +4,7 @@ excerpt: "Điện thoại, loa, iPad làm đồng hồ chạy sai? Hiểu từ t
 category: "bổ trợ"
 difficulty: "trung bình"
 has_infographic: true
+interactive: true
 date: "2026-08-01"
 draft: false
 ---

@@ -139,15 +139,30 @@ const tr = t(lang);
         return;
       }
 
-      resultsContainer.innerHTML = rendered.map((r: any) => {
-        const excerpt = r.excerpt || (r.meta?.excerpt || '');
-        return `
-          <a href="${r.url}" class="search-result block">
-            <div class="search-result-title">${r.meta?.title || r.url}</div>
-            <div class="search-result-excerpt">${excerpt}</div>
-          </a>
-        `;
-      }).join('');
+      // Tạo phần tử DOM thay vì ghép chuỗi HTML — phòng thủ theo chiều sâu.
+      // Chỉ cho phép thẻ <mark> trong excerpt (Pagefind dùng để tô đậm từ khóa).
+      const frag = document.createDocumentFragment();
+      rendered.forEach((r: any) => {
+        const a = document.createElement('a');
+        a.href = r.url;
+        a.className = 'search-result block';
+
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'search-result-title';
+        titleDiv.textContent = r.meta?.title || r.url;
+
+        const excerptDiv = document.createElement('div');
+        excerptDiv.className = 'search-result-excerpt';
+        const rawExcerpt = r.excerpt || (r.meta?.excerpt || '');
+        // Chỉ giữ thẻ <mark>…</mark>, loại bỏ mọi thẻ khác
+        const safeExcerpt = rawExcerpt.replace(/<\/?(?!mark\b)[^>]*>/gi, '');
+        excerptDiv.innerHTML = safeExcerpt;
+
+        a.appendChild(titleDiv);
+        a.appendChild(excerptDiv);
+        frag.appendChild(a);
+      });
+      resultsContainer.replaceChildren(frag);
     } catch (e) {
       resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Lỗi tìm kiếm.</p>';
     }

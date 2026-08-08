@@ -141,33 +141,72 @@ const models = entries.map((e) => ({
         // Đã chọn 1 mẫu — hiện mẫu đó ở cột đầu và mời chọn thêm
         const m = modelsData.find((md) => md.slug === selected[0]);
         if (m) {
-          emptyContent.innerHTML =
-            '<p class="mb-2 text-xs font-medium uppercase tracking-wider text-brass">Đã chọn</p>' +
-            '<p class="font-serif text-2xl text-navy">' + m.title + '</p>' +
-            '<p class="mt-1 text-sm text-ink-soft">' + (m.brand || '') + (m.year ? ' • ' + m.year : '') + '</p>' +
-            '<p class="mt-4 text-sm text-ink-soft">Thêm ít nhất 1 mẫu nữa để bắt đầu so sánh. ↑</p>';
+          const label = document.createElement('p');
+          label.className = 'mb-2 text-xs font-medium uppercase tracking-wider text-brass';
+          label.textContent = 'Đã chọn';
+
+          const title = document.createElement('p');
+          title.className = 'font-serif text-2xl text-navy dark:text-dark-text';
+          title.textContent = m.title;
+
+          const meta = document.createElement('p');
+          meta.className = 'mt-1 text-sm text-ink-soft dark:text-dark-text-soft';
+          meta.textContent = (m.brand || '') + (m.year ? ' • ' + m.year : '');
+
+          const hintP = document.createElement('p');
+          hintP.className = 'mt-4 text-sm text-ink-soft dark:text-dark-text-soft';
+          hintP.textContent = 'Thêm ít nhất 1 mẫu nữa để bắt đầu so sánh. ↑';
+
+          emptyContent.replaceChildren(label, title, meta, hintP);
         } else {
-          emptyContent.innerHTML = '<p class="text-ink-soft">Đã chọn 1 mẫu. Thêm ít nhất 1 mẫu nữa để so sánh.</p>';
+          const p = document.createElement('p');
+          p.className = 'text-ink-soft dark:text-dark-text-soft';
+          p.textContent = 'Đã chọn 1 mẫu. Thêm ít nhất 1 mẫu nữa để so sánh.';
+          emptyContent.replaceChildren(p);
         }
       } else {
-        emptyContent.innerHTML = '<p class="text-ink-soft">Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.</p>';
+        const p = document.createElement('p');
+        p.className = 'text-ink-soft dark:text-dark-text-soft';
+        p.textContent = 'Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.';
+        emptyContent.replaceChildren(p);
       }
     } else {
       emptyEl.classList.add('hidden');
       tableWrap.classList.remove('hidden');
     }
 
-    // Header
-    headerRow.innerHTML = '<th class="border-b-2 border-cream-dark dark:border-dark-border p-3 text-left text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Tiêu chí</th>';
+    // Header — tạo DOM thay vì ghép innerHTML
+    const labelTh = document.createElement('th');
+    labelTh.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60';
+    labelTh.textContent = 'Tiêu chí';
+    const headerFrag = document.createDocumentFragment();
+    headerFrag.appendChild(labelTh);
+
     selected.forEach((slug) => {
       const m = modelsData.find((md) => md.slug === slug);
       if (!m) return;
-      headerRow.innerHTML += '<th class="border-b-2 border-cream-dark dark:border-dark-border p-3 text-left">' +
-        '<div class="flex items-start justify-between gap-2">' +
-        '<span class="font-serif text-base text-navy dark:text-dark-text dark:text-dark-text">' + m.title + '</span>' +
-        '<button class="shrink-0 text-xs text-ink-soft dark:text-dark-text-soft hover:text-brass dark:hover:text-dark-brass dark:hover:text-dark-brass" data-remove="' + slug + '" aria-label="Bỏ">✕</button>' +
-        '</div></th>';
+      const th = document.createElement('th');
+      th.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left';
+
+      const div = document.createElement('div');
+      div.className = 'flex items-start justify-between gap-2';
+
+      const span = document.createElement('span');
+      span.className = 'font-serif text-base text-navy dark:text-dark-text';
+      span.textContent = m.title;
+
+      const btn = document.createElement('button');
+      btn.className = 'shrink-0 text-xs text-ink-soft dark:text-dark-text-soft hover:text-brass dark:hover:text-dark-brass';
+      btn.setAttribute('data-remove', slug);
+      btn.setAttribute('aria-label', 'Bỏ');
+      btn.textContent = '✕';
+
+      div.appendChild(span);
+      div.appendChild(btn);
+      th.appendChild(div);
+      headerFrag.appendChild(th);
     });
+    headerRow.replaceChildren(headerFrag);
 
     // Body rows
     const rows = [
@@ -180,20 +219,34 @@ const models = entries.map((e) => ({
       { label: 'Câu chuyện định danh', key: 'excerpt', val: (m) => m.excerpt || '—' },
     ];
 
-    bodyEl.innerHTML = '';
+    bodyEl.replaceChildren();
     rows.forEach((row, ri) => {
       const tr = document.createElement('tr');
       tr.className = ri % 2 === 0 ? 'bg-white' : 'bg-cream-dark/5';
-      let html = '<td class="border-b border-cream-dark dark:border-dark-border p-3 font-medium text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">' + row.label + '</td>';
+
+      const labelTd = document.createElement('td');
+      labelTd.className = 'border-b border-cream-dark dark:border-dark-border p-3 font-medium text-ink-soft dark:text-dark-text-soft';
+      labelTd.textContent = row.label;
+      tr.appendChild(labelTd);
+
       selected.forEach((slug) => {
         const m = modelsData.find((md) => md.slug === slug);
-        if (!m) { html += '<td class="border-b border-cream-dark dark:border-dark-border p-3">—</td>'; return; }
+        const td = document.createElement('td');
+        td.className = 'border-b border-cream-dark dark:border-dark-border p-3';
+        if (!m) { td.textContent = '—'; tr.appendChild(td); return; }
         const val = row.val(m);
         const isExcerpt = row.key === 'excerpt';
-        html += '<td class="border-b border-cream-dark dark:border-dark-border p-3 ' + (isExcerpt ? 'italic text-ink-soft' : 'text-navy') + '">' +
-          (isExcerpt ? val : '<strong>' + val + '</strong>') + '</td>';
+        if (isExcerpt) {
+          td.className += ' italic text-ink-soft dark:text-dark-text-soft';
+          td.textContent = val;
+        } else {
+          td.className += ' text-navy dark:text-dark-text';
+          const strong = document.createElement('strong');
+          strong.textContent = val;
+          td.appendChild(strong);
+        }
+        tr.appendChild(td);
       });
-      tr.innerHTML = html;
       bodyEl.appendChild(tr);
     });
 

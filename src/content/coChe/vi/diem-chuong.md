@@ -3,7 +3,8 @@ title: "Điểm chuông — Phức tạp danh giá ngang tourbillon"
 excerpt: "Gõ giờ bằng âm thanh: búa nhỏ đập vào thanh cộng hưởng cuộn quanh bộ máy. Phân biệt điểm chuông theo yêu cầu và điểm chuông tự động — và vì sao khó chế tạo."
 category: "phức tạp"
 difficulty: "rất cao"
-has_infographic: false
+has_infographic: true
+interactive: true
 date: "2026-08-08"
 draft: false
 ---

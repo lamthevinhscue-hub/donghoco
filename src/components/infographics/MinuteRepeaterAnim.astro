@@ -1,0 +1,298 @@
+---
+// =============================================================================
+// MINUTEREPEATERANIM — Điểm chuông: diễn tả âm thanh bằng hình
+// =============================================================================
+// Người đọc nhập giờ, bấm "Gõ", cơ cấu gõ đúng trình tự ba phần:
+// giờ (trầm), quý (xen kẽ trầm-bổng), phút (bổng). Mỗi lần búa đập, sóng âm
+// lan ra vòng tròn mờ dần — kích thước/mật độ khác nhau cho trầm vs bổng.
+// Thanh cộng hưởng rung nhẹ. Bảng đếm bên cạnh hiện trạng thái.
+//
+// KHÔNG phát âm thanh thật — diễn tả bằng hình.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Điểm chuông — nhập giờ rồi bấm Gõ, xem trình tự ba phần" data-mech-step-id="minute-repeater-anim">
+  <div class="grid gap-6 md:grid-cols-[1fr_200px]">
+    <!-- ====== BÊN TRÁI: SVG bộ máy ====== -->
+    <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" class="w-full" id="repeater-svg">
+      <text x="250" y="20" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+        Hai thanh cộng hưởng + hai búa — gõ theo trình tự
+      </text>
+
+      <!-- ====== BỘ MÁY (vòng tròn nền) ====== -->
+      <circle cx="250" cy="170" r="100" fill="#FAF7F2" stroke="#2D3748" stroke-width="2" class="dark:fill-dark-surface"/>
+      <!-- Bánh răng trang trí -->
+      <circle cx="220" cy="150" r="18" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
+      <circle cx="280" cy="190" r="14" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
+      <circle cx="250" cy="170" r="6" fill="#B8893C" opacity="0.3"/>
+
+      <!-- ====== THANH CỘNG HƯỞNG TRẦM (vòng tròn lớn, vàng đồng) ====== -->
+      <g id="rep-gong-low" data-part="gong-low" data-name-vi="Thanh cộng hưởng trầm (Low-pitch gong)" data-name-en="Hour gong (low pitch)">
+        <circle cx="250" cy="170" r="125" fill="none" stroke="#B8893C" stroke-width="3" opacity="0.6" class="dark:stroke-dark-brass"/>
+        <circle cx="250" cy="170" r="120" fill="none" stroke="#9B6E2C" stroke-width="1" opacity="0.4"/>
+      </g>
+
+      <!-- ====== THANH CỘNG HƯỞNG BỔNG (vòng tròn nhỏ hơn, xanh) ====== -->
+      <g id="rep-gong-high" data-part="gong-high" data-name-vi="Thanh cộng hưởng bổng (High-pitch gong)" data-name-en="Minute gong (high pitch)">
+        <circle cx="250" cy="170" r="108" fill="none" stroke="#2E86AB" stroke-width="2.5" opacity="0.5"/>
+        <circle cx="250" cy="170" r="104" fill="none" stroke="#1F6E8C" stroke-width="1" opacity="0.3"/>
+      </g>
+
+      <!-- ====== BÚA TRẦM (trên, đập ra ngoài) ====== -->
+      <g id="rep-hammer-low" data-part="hammer-low" data-name-vi="Búa giờ (trầm)" data-name-en="Hour hammer">
+        <line x1="250" y1="30" x2="250" y2="45" stroke="#B8893C" stroke-width="4" stroke-linecap="round" class="dark:stroke-dark-brass"/>
+        <rect x="245" y="22" width="10" height="8" rx="2" fill="#B8893C" class="dark:fill-dark-brass"/>
+      </g>
+
+      <!-- ====== BÚA BỔNG (dưới-phải, đập chéo) ====== -->
+      <g id="rep-hammer-high" data-part="hammer-high" data-name-vi="Búa phút (bổng)" data-name-en="Minute hammer">
+        <line x1="370" y1="240" x2="358" y2="230" stroke="#2E86AB" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="366" y="237" width="9" height="7" rx="2" fill="#2E86AB" transform="rotate(-30 370 240)"/>
+      </g>
+
+      <!-- ====== SÓNG ÂM (sinh động, xóa sau mỗi tiếng) ====== -->
+      <g id="rep-waves"></g>
+
+      <!-- ====== TRẠNG THÁI GÕ HIỆN TẠI (trên SVG) ====== -->
+      <text id="rep-current-tone" x="250" y="320" text-anchor="middle" font-size="11" fill="#1F2D3D" opacity="0" class="dark:fill-dark-text"></text>
+    </svg>
+
+    <!-- ====== BÊN PHẢI: BẢNG ĐẾM ====== -->
+    <div class="space-y-3">
+      <div class="rounded-lg border border-cream-dark bg-white p-3 dark:border-dark-border dark:bg-dark-surface">
+        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Giờ hiện tại</p>
+        <p id="rep-time-display" class="font-serif text-2xl text-navy dark:text-dark-text">3:34</p>
+      </div>
+
+      <!-- Nhập giờ -->
+      <div>
+        <label for="rep-hour-input" class="block text-xs font-medium text-ink-soft dark:text-dark-text-soft">Giờ (0-12)</label>
+        <input type="number" id="rep-hour-input" min="0" max="12" value="3" class="mt-1 w-full rounded border border-cream-dark bg-white px-2 py-1.5 text-sm dark:border-dark-border dark:bg-dark-surface dark:text-dark-text" style="touch-action:none;" />
+      </div>
+      <div>
+        <label for="rep-min-input" class="block text-xs font-medium text-ink-soft dark:text-dark-text-soft">Phút (0-59)</label>
+        <input type="number" id="rep-min-input" min="0" max="59" value="34" class="mt-1 w-full rounded border border-cream-dark bg-white px-2 py-1.5 text-sm dark:border-dark-border dark:bg-dark-surface dark:text-dark-text" style="touch-action:none;" />
+      </div>
+
+      <!-- Nút gõ -->
+      <button type="button" id="rep-strike-btn" class="w-full rounded-full bg-navy px-4 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border">
+        🔔 Gõ chuông
+      </button>
+
+      <!-- Bảng đếm -->
+      <div class="space-y-2 rounded-lg border border-cream-dark bg-cream/30 p-3 text-xs dark:border-dark-border dark:bg-dark-border/30">
+        <div class="flex items-center justify-between">
+          <span class="text-ink-soft dark:text-dark-text-soft"> tiếng giờ (trầm)</span>
+          <span id="rep-count-hour" class="font-bold text-navy dark:text-dark-text">—</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-ink-soft dark:text-dark-text-soft"> tiếng quý (xen kẽ)</span>
+          <span id="rep-count-quarter" class="font-bold text-navy dark:text-dark-text">—</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-ink-soft dark:text-dark-text-soft"> tiếng phút (bổng)</span>
+          <span id="rep-count-min" class="font-bold text-navy dark:text-dark-text">—</span>
+        </div>
+        <hr class="border-cream-dark dark:border-dark-border" />
+        <div class="flex items-center justify-between">
+          <span class="font-medium text-ink-soft dark:text-dark-text-soft">Đang gõ</span>
+          <span id="rep-current-part" class="font-bold text-brass dark:text-dark-brass">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ghi chú dưới hoạt ảnh -->
+  <p class="mt-4 rounded-lg border-l-4 border-brass bg-brass/5 p-3 text-xs text-ink-soft dark:bg-dark-brass/10 dark:text-dark-text-soft">
+    <strong class="text-brass dark:text-dark-brass">Lưu ý:</strong> Tiếng trầm (vòng sóng lớn, thưa) và tiếng bổng (vòng sóng nhỏ, dày) phân biệt bằng kích thước sóng âm, không chỉ màu. Trong đời thật, hai chiếc cùng mẫu vẫn kêu khác nhau — âm thanh phụ thuộc vào chất vỏ, cách gắn thanh cộng hưởng, và tay nghề chỉnh của từng thợ.
+  </p>
+
+  <script is:inline define:vars={{}} slot="script">
+    (function() {
+      const svg = document.getElementById('repeater-svg');
+      if (!svg) return;
+      const hourInput = document.getElementById('rep-hour-input');
+      const minInput = document.getElementById('rep-min-input');
+      const strikeBtn = document.getElementById('rep-strike-btn');
+      const timeDisplay = document.getElementById('rep-time-display');
+      const countHour = document.getElementById('rep-count-hour');
+      const countQuarter = document.getElementById('rep-count-quarter');
+      const countMin = document.getElementById('rep-count-min');
+      const currentPart = document.getElementById('rep-current-part');
+      const currentTone = svg.querySelector('#rep-current-tone');
+      const hammerLow = svg.querySelector('#rep-hammer-low');
+      const hammerHigh = svg.querySelector('#rep-hammer-high');
+      const gongLow = svg.querySelector('#rep-gong-low');
+      const gongHigh = svg.querySelector('#rep-gong-high');
+      const wavesGroup = svg.querySelector('#rep-waves');
+      const svgNS = 'http://www.w3.org/2000/svg';
+      if (!strikeBtn) return;
+
+      let isStriking = false;
+      let timeouts = [];
+
+      // Tính trình tự gõ
+      function calcStrikes(hours, minutes) {
+        const h = hours % 12 === 0 ? 12 : hours % 12;
+        const quarters = Math.floor(minutes / 15);
+        const remainMin = minutes % 15;
+        return { hourStrikes: h, quarterStrikes: quarters, minStrikes: remainMin };
+      }
+
+      // Hiện sóng âm
+      function emitWave(tone) {
+        // tone: 'low' (trầm, sóng lớn thưa) hoặc 'high' (bổng, sóng nhỏ dày)
+        const cx = 250, cy = 170;
+        const isLow = tone === 'low';
+        const baseR = isLow ? 130 : 115;
+        const maxR = isLow ? 200 : 165;
+        const stroke = isLow ? '#B8893C' : '#2E86AB';
+        const strokeWidth = isLow ? 2.5 : 1.5;
+        const waveCount = isLow ? 3 : 5; // bổng nhiều vòng hơn (mật độ cao)
+        const duration = 800;
+
+        for (let i = 0; i < waveCount; i++) {
+          const wave = document.createElementNS(svgNS, 'circle');
+          wave.setAttribute('cx', String(cx));
+          wave.setAttribute('cy', String(cy));
+          wave.setAttribute('r', String(baseR));
+          wave.setAttribute('fill', 'none');
+          wave.setAttribute('stroke', stroke);
+          wave.setAttribute('stroke-width', String(strokeWidth));
+          wave.setAttribute('opacity', String(0.6 - i * 0.1));
+          wavesGroup.appendChild(wave);
+
+          // Animate phóng to + mờ dần
+          const startR = baseR;
+          const endR = maxR + i * 8;
+          const start = performance.now();
+          function animate(ts) {
+            const t = Math.min(1, (ts - start) / duration);
+            const r = startR + (endR - startR) * t;
+            const op = (0.6 - i * 0.1) * (1 - t);
+            wave.setAttribute('r', String(r));
+            wave.setAttribute('opacity', String(Math.max(0, op)));
+            if (t < 1) requestAnimationFrame(animate);
+            else wave.remove();
+          }
+          requestAnimationFrame(animate);
+        }
+
+        // Rung thanh cộng hưởng + nhấp búa
+        const gong = isLow ? gongLow : gongHigh;
+        const hammer = isLow ? hammerLow : hammerHigh;
+        const origTransform = hammer.getAttribute('transform') || '';
+        // Búa đập (dịch vào trong rồi bật ra)
+        const dx = isLow ? 0 : -6;
+        const dy = isLow ? 8 : 6;
+        hammer.setAttribute('transform', `translate(${dx}, ${dy})`);
+        // Thanh rung
+        gong.style.transition = 'transform 0.1s';
+        gong.style.transform = `translate(${isLow ? 1 : -1}px, ${isLow ? -1 : 1}px)`;
+        setTimeout(function() {
+          hammer.setAttribute('transform', origTransform);
+          gong.style.transform = '';
+        }, 150);
+      }
+
+      // Gõ một tiếng
+      function strike(tone, label, delay) {
+        const t = setTimeout(function() {
+          emitWave(tone);
+          currentTone.textContent = label;
+          currentTone.setAttribute('opacity', '1');
+          currentTone.setAttribute('fill', tone === 'low' ? '#B8893C' : '#2E86AB');
+        }, delay);
+        timeouts.push(t);
+      }
+
+      // Chuỗi gõ hoàn chỉnh
+      function play(hours, minutes) {
+        if (isStriking) return;
+        isStriking = true;
+        strikeBtn.disabled = true;
+        strikeBtn.textContent = 'Đang gõ...';
+        timeouts = [];
+
+        const s = calcStrikes(hours, minutes);
+        // Hiện số đếm dự kiến
+        countHour.textContent = s.hourStrikes + ' tiếng';
+        countQuarter.textContent = s.quarterStrikes + ' cặp';
+        countMin.textContent = s.minStrikes + ' tiếng';
+        currentPart.textContent = 'Bắt đầu...';
+
+        let delay = 300; // khoảng nghỉ giữa tiếng
+        let struck = 0;
+
+        // Phần 1: giờ (trầm)
+        for (let i = 0; i < s.hourStrikes; i++) {
+          strike('low', 'Dòng trầm (' + (i + 1) + '/' + s.hourStrikes + ')', delay);
+          delay += 700;
+        }
+
+        // Phần 2: quý (xen kẽ trầm-bổng — mỗi quý là một cặp)
+        // Chỉ gõ nếu quarterStrikes > 0
+        (function() {
+          const qStart = delay;
+          for (let i = 0; i < s.quarterStrikes; i++) {
+            const partLabel = 'Quý ' + (i + 1) + '/' + s.quarterStrikes;
+            const cp = setTimeout(function() { currentPart.textContent = partLabel; }, qStart + i * 700);
+            timeouts.push(cp);
+            strike('low', partLabel + ' — trầm', qStart + i * 700);
+            strike('high', partLabel + ' — bổng', qStart + i * 700 + 350);
+          }
+          delay = qStart + s.quarterStrikes * 700;
+        })();
+
+        // Phần 3: phút lẻ (bổng)
+        (function() {
+          const mStart = delay;
+          for (let i = 0; i < s.minStrikes; i++) {
+            const partLabel = 'Phút ' + (i + 1) + '/' + s.minStrikes;
+            const cp = setTimeout(function() { currentPart.textContent = partLabel; }, mStart + i * 500);
+            timeouts.push(cp);
+            strike('high', 'Dòng bổng (' + (i + 1) + '/' + s.minStrikes + ')', mStart + i * 500);
+          }
+          delay = mStart + s.minStrikes * 500;
+        })();
+
+        // Kết thúc
+        const endT = setTimeout(function() {
+          isStriking = false;
+          strikeBtn.disabled = false;
+          strikeBtn.textContent = '🔔 Gõ chuông';
+          currentPart.textContent = 'Xong';
+          currentTone.setAttribute('opacity', '0');
+        }, delay + 500);
+        timeouts.push(endT);
+      }
+
+      // Cập nhật hiển thị giờ
+      function updateTime() {
+        const h = parseInt(hourInput.value) || 0;
+        const m = parseInt(minInput.value) || 0;
+        timeDisplay.textContent = h + ':' + String(m).padStart(2, '0');
+        const s = calcStrikes(h, m);
+        countHour.textContent = s.hourStrikes + ' tiếng';
+        countQuarter.textContent = s.quarterStrikes + ' cặp';
+        countMin.textContent = s.minStrikes + ' tiếng';
+      }
+
+      hourInput.addEventListener('input', updateTime);
+      minInput.addEventListener('input', updateTime);
+
+      strikeBtn.addEventListener('click', function() {
+        const h = parseInt(hourInput.value) || 0;
+        const m = parseInt(minInput.value) || 0;
+        play(h, m);
+      });
+
+      // Đăng ký hàm step rỗng
+      (window.__mechSteps = window.__mechSteps || {})['minute-repeater-anim'] = function() {};
+
+      updateTime();
+    })();
+  </script>
+</MechanismAnimation>

@@ -19,6 +19,7 @@ import MoonPhase from '../../components/infographics/glossary/MoonPhase.astro';
 import DateDisplay from '../../components/infographics/DateDisplay.astro';
 import Lume from '../../components/infographics/Lume.astro';
 import Crystal from '../../components/infographics/Crystal.astro';
+import MinuteRepeaterAnim from '../../components/infographics/MinuteRepeaterAnim.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { t } from '../../i18n/ui';
@@ -76,6 +77,7 @@ const infographics: Record<string, any> = {
   'hien-thi-ngay': DateDisplay,
   'da-quang': Lume,
   'kinh-dong-ho': Crystal,
+  'diem-chuong': MinuteRepeaterAnim,
 };
 const Infographic = data.has_infographic ? infographics[slug] : null;
 

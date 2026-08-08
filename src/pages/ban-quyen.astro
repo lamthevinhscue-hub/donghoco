@@ -1,0 +1,47 @@
+---
+// Trang: ĐIỀU KHOẢN BẢN QUYỀN (/ban-quyen)
+// Nội dung lấy từ collection `trang` (src/content/trang/vi/ban-quyen.md).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { getCollection, render } from 'astro:content';
+import { getLangFromUrl, t } from '../i18n/ui';
+import type { Lang } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+// Lấy entry ban-quyen từ collection `trang` theo ngôn ngữ
+const all = await getCollection('trang', ({ data }) => import.meta.env.PROD ? data.draft !== true : true);
+const entry = all.find((e) => e.id.startsWith(`${lang}/`) && e.id.endsWith('ban-quyen.md'));
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+const { Content } = await render(entry);
+const { data } = entry;
+
+const breadcrumbData = [
+  { name: tr.siteName, path: '/' },
+  { name: data.title, path: Astro.url.pathname },
+];
+---
+
+<BaseLayout title={data.title} description={data.excerpt} breadcrumb={breadcrumbData}>
+  <article class="mx-auto max-w-3xl px-4 py-12">
+    <Breadcrumb items={breadcrumbData} />
+
+    <header class="mb-8">
+      <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+      <h1 class="font-serif text-4xl leading-tight text-navy sm:text-5xl dark:text-dark-text">{data.title}</h1>
+      <p class="mt-3 text-base italic leading-relaxed text-ink-soft dark:text-dark-text-soft">{data.excerpt}</p>
+    </header>
+
+    <div class="prose-content text-ink dark:text-dark-text">
+      <Content />
+    </div>
+
+    <a href="/" class="mt-12 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
+      ← {tr.nav_home}
+    </a>
+  </article>
+</BaseLayout>

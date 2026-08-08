@@ -1,0 +1,72 @@
+# =============================================================================
+# robots.txt — Đồng Hồ Cơ (donghoco1.vercel.app)
+# =============================================================================
+# Mục đích: cho phép các bộ máy tìm kiếm (Google, Bing...) lập chỉ mục để độc
+# giả tìm thấy trang; đồng thời chặn các trình thu thập dữ liệu dùng để huấn
+# luyện mô hình ngôn ngữ / máy học AI, bảo vệ nội dung biên soạn gốc.
+#
+# Sau này khi cần cho phép/thêm bot AI nào, chỉ cần xoá khối tương ứng dưới đây.
+# =============================================================================
+
+# ---- Mặc định: cho phép mọi bot thu thập toàn bộ trang ----
+User-agent: *
+Allow: /
+
+# ---- Chặn các trình thu thập dữ liệu huấn luyện AI (mỗi bot một khối) ----
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+# ---- Sơ đồ trang (sinh bởi @astrojs/sitemap) ----
+Sitemap: https://donghoco1.vercel.app/sitemap-index.xml

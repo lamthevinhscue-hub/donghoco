@@ -62,7 +62,7 @@ const formattedDate = date
   : null;
 ---
 
-<BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData}>
+<BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={date}>
   <article class="mx-auto max-w-3xl px-4 py-12">
     {breadcrumbData && <Breadcrumb items={breadcrumbData} />}
 

@@ -11,7 +11,7 @@
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl, t } from '../i18n/ui';
+import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER } from '../i18n/ui';
 import Analytics from '@vercel/analytics/astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
@@ -22,6 +22,8 @@ interface Props {
   cover_image?: string;
   breadcrumb?: { name: string; path: string }[];
   articleSchema?: object;
+  /** Ngày xuất bản (từ frontmatter `date`) — bổ sung vào WebSite schema */
+  datePublished?: string;
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -33,6 +35,7 @@ const {
   cover_image,
   breadcrumb,
   articleSchema,
+  datePublished,
 } = Astro.props;
 
 // Tiêu đề đầy đủ hiển thị trên tab trình duyệt
@@ -95,6 +98,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       url: siteUrl.href,
       description: tr.siteTagline,
       inLanguage: 'vi-VN',
+      author: SITE_AUTHOR,
+      publisher: SITE_PUBLISHER,
+      copyrightHolder: SITE_PUBLISHER,
+      copyrightYear: 2024,
+      ...(datePublished ? { datePublished } : {}),
     })} />
 
     <!-- Structured Data: BreadcrumbList (nếu có breadcrumb) -->

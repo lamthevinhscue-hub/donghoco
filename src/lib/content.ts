@@ -16,7 +16,8 @@ export type ContentCollectionName =
   | 'mauIconic'
   | 'coChe'
   | 'tuDien'
-  | 'huongDan';
+  | 'huongDan'
+  | 'trang';
 
 // Đường dẫn gốc (không tính tiền tố ngôn ngữ) cho từng collection
 const COLLECTION_ROUTES: Record<ContentCollectionName, string> = {
@@ -25,6 +26,7 @@ const COLLECTION_ROUTES: Record<ContentCollectionName, string> = {
   coChe: '/co-che',
   tuDien: '/tu-dien',
   huongDan: '/huong-dan',
+  trang: '', // trang tĩnh: mỗi bài có route riêng (VD: /ban-quyen), không có tiền tố chung
 };
 
 export function getCollectionRoute(name: ContentCollectionName): string {

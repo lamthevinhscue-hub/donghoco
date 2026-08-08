@@ -16,6 +16,29 @@ export const languages = {
 
 export const defaultLang = 'vi';
 
+// =============================================================================
+// THÔNG TIN TÁC GIẢ & NHÀ XUẤT BẢN (structured data)
+// =============================================================================
+// Nguồn duy nhất cho thông tin tác giả/nhà xuất bản — dùng trong JSON-LD ở
+// BaseLayout. Khi cần đổi tên tác giả hay logo, chỉ sửa ở đây.
+// =============================================================================
+
+export const SITE_AUTHOR = {
+  '@type': 'Person',
+  name: 'Anh Vinh',
+  url: 'https://donghoco1.vercel.app',
+} as const;
+
+export const SITE_PUBLISHER = {
+  '@type': 'Organization',
+  name: 'Đồng Hồ Cơ',
+  url: 'https://donghoco1.vercel.app',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://donghoco1.vercel.app/og-default.jpg',
+  },
+} as const;
+
 export type Lang = keyof typeof languages;
 
 // Lấy ngôn ngữ từ địa chỉ web (URL)

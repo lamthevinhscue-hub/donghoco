@@ -18,6 +18,7 @@ Nơi lưu các biên bản nghiệm thu do Claude lập, sau mỗi đợt bàn g
 | 04/08/2026 | [2026-08-04_nghiem-thu-giao-dien-va-de-xuat-tuong-tac.md](2026-08-04_nghiem-thu-giao-dien-va-de-xuat-tuong-tac.md) | Commit `d763266`, 83 trang | **Đạt cả 4 việc đợt trước** (3 prompt giao diện + bổ sung lịch sử IWC/Cartier). Chẩn đoán mới: bài viết là ngõ cụt, /so-sanh thiếu lối vào, menu 8 mục phẳng. Kèm 4 prompt D-E-F-G | GLM đã làm xong cả 4 |
 | 06/08/2026 | [2026-08-06_nghiem-thu-svg-timeline-dot-1.md](2026-08-06_nghiem-thu-svg-timeline-dot-1.md) | 5 minh họa SVG đợt 1, commit `7192d24` | Kỹ thuật đạt 100%, thẩm mỹ 2 trên 5 đạt. Hai lỗi hệ thống: gạch tạo khối quá mảnh, hoa văn nền không hiện | Đã sửa xong, duyệt |
 | 06/08/2026 | [2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md](2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md) | Toàn site tại commit `d7ad690` | **Giai đoạn xây dựng đã xong.** 26/26 hãng đủ 5 khối, 28/28 minh họa, 0 link hỏng, 0 ký tự lạ. Còn lại: kiểm thử trên máy thật, ảnh chụp, dứt điểm CAN-KIEM-CHUNG | Lộ trình mới |
+| 08/08/2026 | [2026-08-08_ra-soat-toan-dien.md](2026-08-08_ra-soat-toan-dien.md) | Toàn site tại commit `a3a62a3`, **127 trang** | Xong cả 7 gói mở rộng: 26 iconic, 18 cơ chế, 32 từ điển, 12 hướng dẫn. **Nội dung mới sạch.** 4 lỗi cần sửa, 3 nằm ở nội dung cũ: 1 ký tự Hán, 1 link 404, 16 file còn giá USD, từ tiếng Anh đơn lẻ | Chờ GLM sửa 4 nhóm |
 
 ---
 

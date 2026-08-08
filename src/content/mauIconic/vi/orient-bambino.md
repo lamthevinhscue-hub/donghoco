@@ -19,7 +19,7 @@ Bambino có mặt **hơn một thập kỷ**, và trong suốt thời gian đó 
 
 ## Đặc điểm thiết kế nhận diện
 
-- **[Kính khoáng](/tu-dien/kinh-dong-ho) vòm** — chi tiết quan trọng nhất. Độ cong làm mặt số méo nhẹ ở rìa khi nhìn chếch, tạo cảm giác đồng hồ cổ. Đây là thứ khiến Bambino trông đắt hơn giá của nó.
+- **[Kính khoáng](/co-che/kinh-dong-ho) vòm** — chi tiết quan trọng nhất. Độ cong làm mặt số méo nhẹ ở rìa khi nhìn chếch, tạo cảm giác đồng hồ cổ. Đây là thứ khiến Bambino trông đắt hơn giá của nó.
 - **Vỏ 40,5mm, dày 11,8mm, vấu tới vấu 46mm, bề rộng dây 21mm.** Bản **38mm** ra mắt năm **2022** cho cổ tay nhỏ.
 - Chống nước **30m** — mức của đồng hồ lịch sự, không phải để bơi. Xem hướng dẫn chi tiết trong bài [mức chống nước](/huong-dan/muc-chong-nuoc).
 - Mặt số sạch, cọc số mảnh, không trang trí thừa.

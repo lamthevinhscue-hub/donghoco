@@ -7,6 +7,10 @@
 //
 // Quy tắc:
 // - Chỉ bọc lần ĐẦU TIÊN trong mỗi bài (không rối mắt).
+// - TỐI ĐA 8 LINK mỗi bài (MAX_LINKS_PER_DOC): với 32 thuật ngữ, một bài dài
+//   có thể bị bọc hàng chục link thành rối mắt. Ưu tiên thuật ngữ xuất hiện
+//   sớm nhất trong bài — vì visit() đi theo thứ tự tài liệu và trong mỗi text
+//   node lấy match sớm nhất.
 // - Không bọc nếu thuật ngữ xuất hiện trong chính bài từ điển của nó (tránh link tự trỏ).
 // - Slug sinh từ TÊN FILE (không dùng custom_slug).
 // - Không bọc bên trong link/heading/code có sẵn.
@@ -27,6 +31,8 @@ export interface GlossaryTerm {
 
 export interface GlossaryOptions {
   terms: GlossaryTerm[];
+  /** Trần số link tự động mỗi bài (mặc định 8). */
+  maxLinksPerDoc?: number;
 }
 
 interface ProcessedTerm {
@@ -36,15 +42,28 @@ interface ProcessedTerm {
   regexes: { regex: RegExp; display: string }[];
 }
 
+/** Trần số link tự động mỗi bài. */
+const MAX_LINKS_PER_DOC = 8;
+
 function escapeRegex(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Ngữ cảnh chia sẻ trong một bài: tập slug đã dùng + bộ đếm link đã bọc.
+ * Bộ đếm tách rời khỏi `used` vì `used` có chứa slug tự trỏ (không sinh link).
+ */
+interface DocContext {
+  used: Set<string>;
+  linkCount: number;
+  maxLinks: number;
 }
 
 // Bọc thuật ngữ trong 1 chuỗi text, trả về mảng phrasing content
 function wrapInString(
   text: string,
   terms: ProcessedTerm[],
-  used: Set<string>,
+  ctx: DocContext,
 ): PhrasingContent[] {
   if (!text) return [];
 
@@ -52,7 +71,7 @@ function wrapInString(
   let best: { index: number; display: string; slug: string; excerpt: string } | null = null;
 
   for (const term of terms) {
-    if (used.has(term.slug)) continue;
+    if (ctx.used.has(term.slug)) continue;
     for (const { regex, display } of term.regexes) {
       const m = regex.exec(text);
       if (m && (best === null || m.index < best.index)) {
@@ -61,7 +80,8 @@ function wrapInString(
     }
   }
 
-  if (!best) {
+  // Không có match, hoặc đã tới trần link → trả text nguyên
+  if (!best || ctx.linkCount >= ctx.maxLinks) {
     return text ? [{ type: 'text', value: text }] : [];
   }
 
@@ -70,7 +90,8 @@ function wrapInString(
   const before = text.substring(0, index);
   const after = text.substring(index + display.length);
 
-  used.add(slug);
+  ctx.used.add(slug);
+  ctx.linkCount += 1;
 
   const result: PhrasingContent[] = [];
   if (before) result.push({ type: 'text', value: before });
@@ -81,12 +102,14 @@ function wrapInString(
     data: { hProperties: { className: 'glossary-autolink' } },
     children: [{ type: 'text', value: matchedText }],
   });
-  if (after) result.push(...wrapInString(after, terms, used));
+  if (after) result.push(...wrapInString(after, terms, ctx));
 
   return result;
 }
 
 const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
+  const maxLinks = options.maxLinksPerDoc ?? MAX_LINKS_PER_DOC;
+
   const processed: ProcessedTerm[] = options.terms
     .filter((t) => t.title && t.title.length >= 3)
     .map((t) => {
@@ -117,8 +140,12 @@ const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
     const pathMatch = (file.path || '').match(/tuDien[\/\\][^\/\\]+[\/\\]([^\/\\]+)\.md$/);
     const currentSlug = pathMatch ? pathMatch[1] : null;
 
-    const used = new Set<string>();
-    if (currentSlug) used.add(currentSlug); // tránh link tự trỏ về chính bài từ điển
+    const ctx: DocContext = {
+      used: new Set<string>(),
+      linkCount: 0,
+      maxLinks,
+    };
+    if (currentSlug) ctx.used.add(currentSlug); // tránh link tự trỏ về chính bài từ điển
 
     visit(tree, (node, index, parent) => {
       if (!parent || typeof index !== 'number') return;
@@ -135,11 +162,14 @@ const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
         return SKIP;
       }
 
+      // Đã tới trần link → không cần xử lý text node nữa (skip toàn bộ subtree)
+      if (ctx.linkCount >= ctx.maxLinks) return SKIP;
+
       const textNode = node as Text;
       const value = textNode.value;
       if (!value || value.trim().length < 3) return;
 
-      const wrapped = wrapInString(value, processed, used);
+      const wrapped = wrapInString(value, processed, ctx);
       if (wrapped.length === 1 && wrapped[0].type === 'text' && (wrapped[0] as Text).value === value) {
         return; // không thay đổi
       }

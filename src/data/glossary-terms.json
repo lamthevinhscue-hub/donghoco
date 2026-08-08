@@ -79,6 +79,23 @@
     ]
   },
   {
+    "title": "Chronometer và COSC",
+    "slug": "chronometer",
+    "excerpt": "Chứng nhận độ chính xác do tổ chức độc lập cấp, kiểm bộ máy rời chứ không phải đồng hồ hoàn thiện. Khác hẳn nghĩa thông thường của chữ này.",
+    "aliases": [
+      "Chronometer và COSC",
+      "Chronometer"
+    ]
+  },
+  {
+    "title": "Master Chronometer",
+    "slug": "metas",
+    "excerpt": "Chuẩn của viện đo lường Thụy Sĩ, kiểm đồng hồ đã lắp vỏ qua tám bài, gồm chống từ 15.000 gauss.",
+    "aliases": [
+      "Master Chronometer"
+    ]
+  },
+  {
     "title": "Movement (Bộ máy)",
     "slug": "movement",
     "excerpt": "Trái tim của đồng hồ — toàn bộ cơ cấu bên trong khiến đồng hồ chạy.",
@@ -86,6 +103,24 @@
       "Movement (Bộ máy)",
       "Movement",
       "Movement / Caliber"
+    ]
+  },
+  {
+    "title": "Poinçon de Genève",
+    "slug": "poincon-de-geneve",
+    "excerpt": "Dấu chứng nhận của bang Genève, đòi hỏi cả nơi sản xuất lẫn tiêu chuẩn hoàn thiện.",
+    "aliases": [
+      "Poinçon de Genève",
+      "Geneva Seal"
+    ]
+  },
+  {
+    "title": "Thang tachymeter",
+    "slug": "tachymeter",
+    "excerpt": "Thang trên vành dùng cùng chronograph để đo tốc độ. Thang không chia đều, thưa dần về cuối.",
+    "aliases": [
+      "Thang tachymeter",
+      "Tachymeter"
     ]
   },
   {
@@ -97,11 +132,64 @@
     ]
   },
   {
+    "title": "Bánh thoát",
+    "slug": "banh-thoat",
+    "excerpt": "Bánh răng cuối chuỗi truyền động, bị ngựa chặn và nhả từng nấc — nguồn của tiếng tíc tắc.",
+    "aliases": [
+      "Bánh thoát",
+      "Escape wheel"
+    ]
+  },
+  {
     "title": "Tourbillon",
     "slug": "tourbillon",
     "excerpt": "Cơ chế xoay bộ thoát để bù sai số trọng lực — một trong những phức tạp cao cấp nhất.",
     "aliases": [
       "Tourbillon"
+    ]
+  },
+  {
+    "title": "Chân kính",
+    "slug": "chan-kinh",
+    "excerpt": "Viên đá tổng hợp làm ổ đỡ trục, giảm ma sát và mài mòn. Số chân kính không tỷ lệ thuận với chất lượng.",
+    "aliases": [
+      "Chân kính",
+      "Jewel"
+    ]
+  },
+  {
+    "title": "Guilloché",
+    "slug": "guilloche",
+    "excerpt": "Hoa văn khắc bằng máy tiện hoa. Ban đầu để chống chói, sau thành thẩm mỹ. Gắn với Breguet.",
+    "aliases": [
+      "Guilloché"
+    ]
+  },
+  {
+    "title": "Thùng cót",
+    "slug": "thung-cot",
+    "excerpt": "Hộp tròn chứa dây cót. Nhiều thùng cót thì trữ cót dài hơn — lý do các mẫu chạy 7 ngày thường có hai thùng.",
+    "aliases": [
+      "Thùng cót",
+      "Barrel"
+    ]
+  },
+  {
+    "title": "Khóa dây",
+    "slug": "khoa-day",
+    "excerpt": "Các kiểu khóa và ưu nhược. Khóa gập an toàn hơn khóa kim, khóa bướm đeo thoải mái hơn.",
+    "aliases": [
+      "Khóa dây",
+      "Clasp"
+    ]
+  },
+  {
+    "title": "Vát cạnh",
+    "slug": "vat-canh",
+    "excerpt": "Vát và đánh bóng cạnh cầu máy. Góc vát trong là chỗ máy không làm được, phải làm tay — dấu hiệu hoàn thiện thủ công thật.",
+    "aliases": [
+      "Vát cạnh",
+      "Anglage"
     ]
   },
   {
@@ -111,6 +199,68 @@
     "aliases": [
       "Calibre",
       "Caliber / Movement"
+    ]
+  },
+  {
+    "title": "Cầu máy",
+    "slug": "cau-may",
+    "excerpt": "Thanh kim loại giữ đầu trên các trục. Là nơi thợ thể hiện tay nghề hoàn thiện rõ nhất.",
+    "aliases": [
+      "Cầu máy",
+      "Bridge"
+    ]
+  },
+  {
+    "title": "Dây cót",
+    "slug": "day-cot",
+    "excerpt": "Dải thép cuộn là nguồn năng lượng duy nhất của đồng hồ cơ — tích năng lượng khi lên dây, nhả dần ra để chạy đồng hồ.",
+    "aliases": [
+      "Dây cót",
+      "Mainspring"
+    ]
+  },
+  {
+    "title": "Núm vặn",
+    "slug": "num-van",
+    "excerpt": "Dùng lên dây và chỉnh giờ. Loại vặn ren giúp chống nước tốt hơn nhưng phải nhớ vặn lại sau khi chỉnh.",
+    "aliases": [
+      "Núm vặn",
+      "Crown"
+    ]
+  },
+  {
+    "title": "Perlage",
+    "slug": "perlage",
+    "excerpt": "Hoa văn vòng tròn chồng lấn trên mặt máy, vừa trang trí vừa giữ bụi.",
+    "aliases": [
+      "Perlage"
+    ]
+  },
+  {
+    "title": "Vấu dây",
+    "slug": "vau-day",
+    "excerpt": "Phần nhô ra để gắn dây. Khoảng cách giữa hai vấu quyết định bề rộng dây, và độ cong vấu quyết định đồng hồ có ôm cổ tay hay không.",
+    "aliases": [
+      "Vấu dây",
+      "Lug"
+    ]
+  },
+  {
+    "title": "Đáy vỏ",
+    "slug": "day-vo",
+    "excerpt": "Mặt sau vỏ. Loại đặc bảo vệ tốt hơn, loại kính sapphire cho nhìn bộ máy.",
+    "aliases": [
+      "Đáy vỏ",
+      "Caseback"
+    ]
+  },
+  {
+    "title": "Lộ máy",
+    "slug": "lo-may",
+    "excerpt": "Cắt bỏ vật liệu thừa để nhìn xuyên bộ máy. Khó ở chỗ giảm vật liệu mà vẫn giữ độ cứng.",
+    "aliases": [
+      "Lộ máy",
+      "Skeleton"
     ]
   },
   {
@@ -128,6 +278,15 @@
     "aliases": [
       "Rotor",
       "Rotor / Oscillating weight"
+    ]
+  },
+  {
+    "title": "Ngựa",
+    "slug": "ngua",
+    "excerpt": "Chi tiết hình mỏ neo, chặn và nhả bánh thoát, đồng thời truyền xung lực cho bánh lắc.",
+    "aliases": [
+      "Ngựa",
+      "Pallet fork"
     ]
   }
 ]

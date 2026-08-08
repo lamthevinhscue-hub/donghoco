@@ -122,8 +122,8 @@ export const translations = {
     search_placeholder: 'Tìm bài viết, thương hiệu, thuật ngữ...',
     subscribe_title: 'Nhận bài viết mới',
     subscribe_desc: 'Để lại email, tôi sẽ thông báo khi có bài mới.',
-    subscribe_email: 'Email của bạn',
-    subscribe_button: 'Đăng ký',
+    // subscribe_email + subscribe_button: tạm không dùng (form bản tin đã vô hiệu hóa).
+    // Giữ lại để khi bật tính năng bản tin thì chỉ cần khôi phục form trong Footer.astro.
     contact_name: 'Họ tên',
     contact_email: 'Email',
     contact_message: 'Nội dung',
@@ -163,8 +163,8 @@ export const translations = {
     search_placeholder: 'Search articles, brands, terms...',
     subscribe_title: 'Get new articles',
     subscribe_desc: 'Leave your email and I will notify you when new content is published.',
-    subscribe_email: 'Your email',
-    subscribe_button: 'Subscribe',
+    // subscribe_email + subscribe_button: tạm không dùng (form bản tin đã vô hiệu hóa).
+    // Giữ lại để khi bật tính năng bản tin thì chỉ cần khôi phục form trong Footer.astro.
     contact_name: 'Name',
     contact_email: 'Email',
     contact_message: 'Message',

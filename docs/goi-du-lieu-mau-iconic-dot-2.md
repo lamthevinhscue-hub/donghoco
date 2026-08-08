@@ -19,7 +19,31 @@ Kết quả: **F6724 tự động, trữ cót khoảng 40 giờ, có dừng kim 
 
 **Nghĩa là Gói 1 cần chỉnh một chỗ:** trong danh sách các hãng được phép hiển thị calibre, **thêm `orient`**. Danh sách đầy đủ nay là 19 slug thay vì 18. Sáu hãng còn lại trong nhóm gỡ hiển thị giữ nguyên: Breguet, Zenith, Glashütte Original, F.P. Journe, Greubel Forsey, Frédérique Constant.
 
-[GHI CHÚ NỘI BỘ] Nếu anh Vinh đã chạy Gói 1 rồi thì đây là một sửa nhỏ riêng, không phải làm lại cả gói.
+Gói 1 đã chạy xong, nên đây là **một prompt sửa riêng, rất nhẹ**. Dán trước khi làm ba bài mẫu iconic.
+
+### PROMPT SỬA GÓI 1 — dán riêng, làm trước
+
+> Tôi vừa kiểm chứng được thêm một calibre trong danh sách chờ ở `CAN-KIEM-CHUNG.md`, cần cập nhật hai chỗ.
+>
+> **1. Bổ sung `orient` vào danh sách hiển thị calibre**
+>
+> Trong `src/i18n/ui.ts`, thêm `'orient'` vào `CALIBRE_DISPLAY_SLUGS`. Danh sách sau khi sửa có **19 slug**.
+>
+> **2. Cập nhật trang Orient**
+>
+> `src/content/thuongHieu/vi/orient.md` hiện có `signature_calibres: ["F6922", "F6724"]` nhưng khối này đang bị ẩn. Sau khi thêm slug thì khối sẽ hiện — kiểm lại phần chữ của trang cho khớp.
+>
+> Với **calibre F6724**, nay được phép ghi các thông số sau vì đã kiểm chứng: **tự động, trữ cót khoảng 40 giờ, có dừng kim giây và lên dây tay bằng núm**.
+>
+> **Lưu ý quan trọng về cách diễn đạt:** hai chức năng dừng kim giây và lên dây tay có trên **các phiên bản đang bán**. Một số nguồn cũ ghi là không có, nhiều khả năng nói về đời máy trước. Vì vậy **phải ghi rõ là các bản hiện hành**, không khẳng định cho mọi đời máy.
+>
+> Calibre **F6922** giữ nguyên thông số đã có: 21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ.
+>
+> **3. Cập nhật `CAN-KIEM-CHUNG.md`**
+>
+> Đánh dấu **mục 20 (calibre Orient F6724) là đã giải quyết**, ghi rõ kết luận và ghi chú về sự khác nhau giữa các đời máy. **Không xóa dòng**, giữ dấu vết như các mục đã xử lý trước.
+>
+> **Ràng buộc chung:** giữ nguyên đoạn khóa 7 điểm trong `docs/bo-prompt-glm-v2.md`. Chạy `npm run build`, mở `/thuong-hieu/orient` kiểm khối bộ máy đã hiện, push và báo mã commit.
 
 ---
 

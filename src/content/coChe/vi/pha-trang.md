@@ -3,10 +3,13 @@ title: "Pha trăng — Mặt trăng trên cổ tay"
 excerpt: "Đĩa có hai mặt trăng, bánh răng 59 răng đẩy một nấc mỗi ngày. Chu kỳ trăng thực là 29,53 ngày nên cơ cấu thường sai một ngày sau khoảng 2 năm 7 tháng."
 category: "phức tạp"
 difficulty: "trung bình"
-has_infographic: false
+has_infographic: true
 date: "2026-08-08"
 draft: false
 ---
+
+> **✅ Infographic động đã có!** Cuộn xuống để xem đĩa pha trăng xoay qua một chu kỳ.
+> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Hiện tượng — bạn nhìn thấy gì?
 

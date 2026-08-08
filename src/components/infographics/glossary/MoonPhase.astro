@@ -1,0 +1,119 @@
+---
+// =============================================================================
+// MOONPHASE — Đĩa pha trăng xoay với hai mặt trăng, cửa sổ vòm che bớt
+// =============================================================================
+// Người đọc tua qua một chu kỳ trăng (29,5 ngày) bằng thanh trượt hoặc tự chạy.
+// Đĩa có hai mặt trăng ở hai phía; cửa sổ vòm trên mặt số khoe đúng pha hiện tại.
+// Dùng MechanAnimation wrapper.
+// =============================================================================
+
+import MechanismAnimation from '../MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Pha trăng (Moon Phase)" data-mech-step-id="moon-phase">
+  <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="moonphase-svg">
+    <text x="250" y="26" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Đĩa hai mặt trăng xoay — cửa sổ vòm khoe pha hiện tại
+    </text>
+
+    <!-- ====== MẶT SỐ (nền tối) ====== -->
+    <circle cx="250" cy="190" r="130" fill="#1F2D3D"/>
+
+    <!-- ====== CỬA SỔ VÒM (path cắt) — vòm trên ====== -->
+    <!-- Cửa sổ hình bán nguyệt ở trên, giữa mặt số -->
+    <defs>
+      <clipPath id="moon-window">
+        <!-- Vòm: hình bán nguyệt rộng 70, cao 35, tâm ở (250, 130) -->
+        <path d="M 215 130 A 35 35 0 0 1 285 130 L 285 130 L 215 130 Z"/>
+      </clipPath>
+    </defs>
+
+    <!-- ====== ĐĨA TRĂNG (xoay) — hai mặt trăng đối diện ====== -->
+    <g id="moon-disk" style="transform-origin: 250px 190px;" data-part="moon-disk" data-name-vi="Đĩa pha trăng (59 răng, 2 mặt trăng)" data-name-en="Moon phase disk">
+      <!-- Đĩa nền (xanh đêm) -->
+      <circle cx="250" cy="190" r="110" fill="#0f1620" stroke="#B8893C" stroke-width="1" opacity="0.6"/>
+      <!-- Vạch sao trang trí -->
+      <circle cx="270" cy="200" r="1" fill="#FAF7F2" opacity="0.6"/>
+      <circle cx="235" cy="215" r="0.8" fill="#FAF7F2" opacity="0.5"/>
+      <circle cx="260" cy="180" r="0.6" fill="#FAF7F2" opacity="0.4"/>
+
+      <!-- Mặt trăng 1 (trên cùng, ở cửa sổ khi góc 0) -->
+      <g transform="translate(250, 150)">
+        <circle r="22" fill="#FAF7F2"/>
+        <!-- Hố trăng trang trí -->
+        <circle cx="-5" cy="-4" r="3" fill="#E2DDD0"/>
+        <circle cx="6" cy="2" r="2.5" fill="#E2DDD0"/>
+        <circle cx="-2" cy="7" r="2" fill="#E2DDD0"/>
+      </g>
+
+      <!-- Mặt trăng 2 (đối diện, dưới) -->
+      <g transform="translate(250, 230)">
+        <circle r="22" fill="#FAF7F2"/>
+        <circle cx="4" cy="-5" r="3" fill="#E2DDD0"/>
+        <circle cx="-6" cy="3" r="2.5" fill="#E2DDD0"/>
+        <circle cx="2" cy="6" r="2" fill="#E2DDD0"/>
+      </g>
+    </g>
+
+    <!-- ====== LỚP CHE (mask cửa sổ) — che phần đĩa ngoài cửa sổ vòm ====== -->
+    <!-- Mặt số nền tối đè lên, chỉ để hở cửa sổ vòm -->
+    <path d="M 120 190 A 130 130 0 0 1 380 190 L 380 190 L 120 190 Z" fill="#1F2D3D" opacity="0"/>
+    <!-- Che phần trên mặt số ngoại trừ cửa sổ vòm -->
+    <path d="M 120 60 A 130 130 0 0 0 380 60 L 380 130 L 285 130 A 35 35 0 0 1 215 130 L 120 130 Z" fill="#1F2D3D"/>
+
+    <!-- ====== BÓNG TỰ NHIÊN — mặt số đè lên đĩa, chỉ hở vòm ====== -->
+    <!-- Vẽ lại vòng mặt số + che quanh vòm -->
+    <circle cx="250" cy="190" r="130" fill="none" stroke="#B8893C" stroke-width="2"/>
+
+    <!-- ====== PHA TRĂNG HIỆN TẠI (text) ====== -->
+    <text id="moonphase-label" x="250" y="250" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="600">Trăng tròn</text>
+    <text id="moonphase-day" x="250" y="270" text-anchor="middle" font-size="11" fill="#B8893C">Ngày 14,8 / 29,5</text>
+  </svg>
+
+  <script is:inline define:vars={{}} slot="script">
+    // =============================================================================
+    // Đăng ký hàm animate cho moon-phase
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['moon-phase'] = function(delta, elapsed) {
+      const svg = document.getElementById('moonphase-svg');
+      if (!svg) return;
+      const disk = svg.querySelector('#moon-disk');
+      const label = svg.querySelector('#moonphase-label');
+      const dayEl = svg.querySelector('#moonphase-day');
+      if (!disk) return;
+
+      // Một chu kỳ trăng = 29,5 ngày. Mô phỏng: 1 chu kỳ = 30000ms (30 giây).
+      const cycleMs = 30000;
+      const phase = (elapsed % cycleMs) / cycleMs; // 0 → 1 ứng với ngày 0 → 29,5
+      const day = phase * 29.5;
+
+      // Đĩa xoay: 1 chu kỳ trăng = nửa vòng đĩa (vì đĩa 2 mặt trăng).
+      // Ngày 0 (trăng mới) → mặt trăng 1 ở cửa sổ bị che hoàn toàn (đĩa xoay để mặt tối lên).
+      // Đơn giản: góc đĩa = day / 59 * 360 (đĩa 59 răng, mỗi ngày 1 răng).
+      const angle = (day / 59) * 360;
+      disk.style.transform = `rotate(${angle}deg)`;
+
+      // Nhãn pha
+      const phaseLabels = [
+        { max: 1.5, vi: 'Trăng mới', },
+        { max: 7, vi: 'Trăng lưỡi liềm (waxing)' },
+        { max: 8.5, vi: 'Trăng bán phần đầu (first quarter)' },
+        { max: 14, vi: 'Trăng khuyết (waxing gibbous)' },
+        { max: 15.5, vi: 'Trăng tròn' },
+        { max: 21, vi: 'Trăng khuyết (waning gibbous)' },
+        { max: 22.5, vi: 'Trăng bán phần cuối (last quarter)' },
+        { max: 28, vi: 'Trăng lưỡi liềm (waning)' },
+        { max: 30, vi: 'Trăng mới' },
+      ];
+      let lbl = 'Trăng mới';
+      for (const p of phaseLabels) { if (day <= p.max) { lbl = p.vi; break; } }
+      if (label) label.textContent = lbl;
+      if (dayEl) dayEl.textContent = `Ngày ${day.toFixed(1)} / 29,5`;
+    };
+  </script>
+</MechanismAnimation>
+
+<style>
+  /* Đĩa xoay cần transform-origin đúng tâm */
+  #moon-disk { transform-box: fill-box; }
+</style>

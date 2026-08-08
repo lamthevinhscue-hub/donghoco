@@ -30,4 +30,13 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  // Pagefind sinh file JS sau build — Vite không được phân giải lúc build.
+  // External hóa để import() chạy lúc runtime (trình duyệt), không lúc build.
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ['/pagefind/pagefind-ui.js', '/pagefind/pagefind.js'],
+      },
+    },
+  },
 });

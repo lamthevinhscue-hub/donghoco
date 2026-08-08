@@ -90,20 +90,17 @@ const tr = t(lang);
   let pagefindInstance: any = null;
   let pagefindLoading: Promise<void> | null = null;
 
-  // Dynamic import bị Vite cố resolve lúc build → dùng Function để ẩn
-  const dynamicImport = new Function('url', 'return import(url)') as (url: string) => Promise<any>;
-
   async function loadPagefind() {
     if (pagefindInstance) return;
     if (pagefindLoading) { await pagefindLoading; return; }
     pagefindLoading = (async () => {
       try {
-        pagefindInstance = await dynamicImport('/pagefind/pagefind-ui.js');
+        pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
         await pagefindInstance.init();
       } catch (e) {
         // Fallback: dùng pagefind core API trực tiếp
         try {
-          pagefindInstance = await dynamicImport('/pagefind/pagefind.js');
+          pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
           await pagefindInstance.options({});
           await pagefindInstance.init();
         } catch (e2) {

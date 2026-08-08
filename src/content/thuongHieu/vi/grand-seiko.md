@@ -1,6 +1,6 @@
 ---
 title: "Grand Seiko"
-excerpt: "Tham vọng làm chiếc đồng hồ lý tưởng không thua Thụy Sĩ — đánh bóng Zaratsu, mặt số kể chuyện thiên nhiên, theo đuổi song song cơ khí, quartz cao cấp và Spring Drive."
+excerpt: "Tham vọng làm chiếc đồng hồ lý tưởng không thua Thụy Sĩ — đánh bóng Zaratsu, mặt số kể chuyện thiên nhiên, theo đuổi song cơ khí, quartz cao cấp và Spring Drive."
 country: "Nhật Bản"
 tier: "high-end luxury"
 founded: 1960

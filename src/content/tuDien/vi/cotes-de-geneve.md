@@ -1,6 +1,6 @@
 ---
 title: "Côtes de Genève (Vân Genève)"
-excerpt: "Họa tiết sọc song song trên bề mặt movement — trang trí đặc trưng của đồng hồ Thụy Sĩ cao cấp."
+excerpt: "Họa tiết sọc song trên bề mặt movement — trang trí đặc trưng của đồng hồ Thụy Sĩ cao cấp."
 term_en: "Côtes de Genève / Geneva Stripes"
 category: "hoàn thiện"
 date: "2026-07-31"

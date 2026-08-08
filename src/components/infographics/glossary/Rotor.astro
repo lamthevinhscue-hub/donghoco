@@ -64,8 +64,8 @@ const toneColors = { common: '#2E86AB', rare: '#9B2C2C', high: '#2D7A55', mid: '
     {layouts.map((layout, i) => (
       <div class="rounded-lg border-l-4 bg-white dark:bg-dark-surface p-4" style={`border-left-color: ${toneColors[layout.tone]};`} data-anim="layout-card" data-index={i}>
         <h4 class="font-serif text-base" style={`color: ${toneColors[layout.tone]};`}>{layout.name}</h4>
-        <p class="text-xs font-medium text-navy dark:text-dark-text dark:text-dark-text">{layout.nameVi}</p>
-        <p class="mt-2 text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{layout.detail}</p>
+        <p class="text-xs font-medium text-navy dark:text-dark-text">{layout.nameVi}</p>
+        <p class="mt-2 text-xs text-ink-soft dark:text-dark-text-soft">{layout.detail}</p>
         <p class="mt-2 text-xs">
           <span class="font-medium" style={`color: ${toneColors[layout.tone]};`}>→ {layout.pros}</span>
         </p>
@@ -75,7 +75,7 @@ const toneColors = { common: '#2E86AB', rare: '#9B2C2C', high: '#2D7A55', mid: '
 
   <!-- Vật liệu -->
   <div class="mt-6">
-    <p class="mb-3 text-center text-sm font-medium text-navy dark:text-dark-text dark:text-dark-text">Vật liệu rotor (cần nặng để quay hiệu quả):</p>
+    <p class="mb-3 text-center text-sm font-medium text-navy dark:text-dark-text">Vật liệu rotor (cần nặng để quay hiệu quả):</p>
     <div class="flex flex-wrap justify-center gap-3">
       {materials.map((mat, i) => (
         <div class="rounded-full border px-4 py-2 text-xs" style={`border-color: ${toneColors[mat.tone]}; color: ${toneColors[mat.tone]};`} data-anim="mat-chip" data-index={i}>

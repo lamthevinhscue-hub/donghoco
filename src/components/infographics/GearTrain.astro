@@ -77,7 +77,7 @@ const stations = [
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       4 trạm trên dòng chảy năng lượng
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
       Hãy xem mỗi trạm là một điểm dừng — năng lượng đi qua lần lượt.
     </p>
 
@@ -233,10 +233,10 @@ const stations = [
             <span class="text-2xl">{station.icon}</span>
             <span class="text-xl font-bold" style={`color: ${station.color};`}>{station.num}</span>
           </div>
-          <h4 class="font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{station.name}</h4>
+          <h4 class="font-serif text-lg text-navy dark:text-dark-text">{station.name}</h4>
           <p class="text-xs uppercase tracking-wide text-ink-soft/60 dark:text-dark-text-soft/60">{station.nameEn}</p>
           <p class="mt-2 text-xs font-medium" style={`color: ${station.color};`}>{station.role}</p>
-          <p class="mt-2 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{station.detail}</p>
+          <p class="mt-2 text-sm text-ink-soft dark:text-dark-text-soft">{station.detail}</p>
         </div>
       ))}
     </div>
@@ -250,7 +250,7 @@ const stations = [
       <h3 class="mb-4 font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
         Vì sao đồng hồ "tích tắc"?
       </h3>
-      <p class="mb-8 text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="mb-8 text-ink-soft dark:text-dark-text-soft">
         Bánh lắc dao động qua lại — mỗi lần qua lại, bộ thoát nhả đúng <strong>1 nhịp năng lượng</strong>,
         phát ra tiếng "tích" hoặc "tắc". <strong>Tốc độ dao động</strong> quyết định độ chính xác.
       </p>
@@ -280,20 +280,20 @@ const stations = [
 
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <div class="rounded-lg bg-white dark:bg-dark-surface p-3" data-anim="freq-card">
-          <p class="text-sm font-bold text-navy dark:text-dark-text dark:text-dark-text">18.000 vph</p>
-          <p class="text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Cổ điển</p>
+          <p class="text-sm font-bold text-navy dark:text-dark-text">18.000 vph</p>
+          <p class="text-xs text-ink-soft dark:text-dark-text-soft">Cổ điển</p>
         </div>
         <div class="rounded-lg bg-white dark:bg-dark-surface p-3" data-anim="freq-card">
-          <p class="text-sm font-bold text-navy dark:text-dark-text dark:text-dark-text">21.600 vph</p>
-          <p class="text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Tầm trung</p>
+          <p class="text-sm font-bold text-navy dark:text-dark-text">21.600 vph</p>
+          <p class="text-xs text-ink-soft dark:text-dark-text-soft">Tầm trung</p>
         </div>
         <div class="rounded-lg bg-brass/10 dark:bg-dark-brass/10 p-3 ring-1 ring-brass" data-anim="freq-card">
-          <p class="text-sm font-bold text-brass dark:text-dark-brass dark:text-dark-brass">28.800 vph</p>
-          <p class="text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Cao cấp (tiêu chuẩn)</p>
+          <p class="text-sm font-bold text-brass dark:text-dark-brass">28.800 vph</p>
+          <p class="text-xs text-ink-soft dark:text-dark-text-soft">Cao cấp (tiêu chuẩn)</p>
         </div>
         <div class="rounded-lg bg-white dark:bg-dark-surface p-3" data-anim="freq-card">
-          <p class="text-sm font-bold text-navy dark:text-dark-text dark:text-dark-text">36.000 vph</p>
-          <p class="text-xs text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Rất cao (Zenith)</p>
+          <p class="text-sm font-bold text-navy dark:text-dark-text">36.000 vph</p>
+          <p class="text-xs text-ink-soft dark:text-dark-text-soft">Rất cao (Zenith)</p>
         </div>
       </div>
       <p class="mt-4 text-xs text-ink-soft/70 dark:text-dark-text-soft/70">
@@ -309,13 +309,13 @@ const stations = [
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       Dòng chảy tới kim đồng hồ
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
       Nhớ dòng chảy này — nó là nền của mọi cơ chế phức tạp hơn (chronograph, tourbillon...).
     </p>
 
     <div class="mx-auto max-w-3xl" data-anim="flow-summary">
       <div class="flex flex-wrap items-center justify-center gap-2 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6 text-center text-sm font-medium">
-        <span class="rounded-full bg-brass/15 px-3 py-2 text-brass dark:text-dark-brass dark:text-dark-brass">Dây cót</span>
+        <span class="rounded-full bg-brass/15 px-3 py-2 text-brass dark:text-dark-brass">Dây cót</span>
         <span class="text-2xl text-ink-soft/40">→</span>
         <span class="rounded-full bg-[#4FB286]/15 px-3 py-2 text-[#2D7A55]">Bánh răng</span>
         <span class="text-2xl text-ink-soft/40">→</span>
@@ -329,8 +329,8 @@ const stations = [
   </div>
 
   <!-- Chú thích cuối -->
-  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
-    <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft">
+    <strong class="text-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
     <strong>Dây cót</strong> (năng lượng) → <strong>Bánh răng</strong> (truyền + giảm tốc) →
     <strong>Bộ thoát</strong> (chia nhịp) → <strong>Bánh lắc</strong> (gác nhịp) → <strong>Kim</strong>.
     Hiểu dòng chảy này = hiểu được mọi cơ chế phức tạp hơn.

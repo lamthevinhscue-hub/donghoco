@@ -45,9 +45,9 @@ const { milestones, accentColor = '#B8893C' } = Astro.props;
         <div class="rounded-lg border-l-2 bg-white dark:bg-dark-surface p-3 shadow-sm" style={`border-left-color: ${accentColor};`}>
           <div class="flex items-baseline gap-2">
             <span class="font-serif text-lg font-bold" style={`color: ${accentColor};`}>{m.year}</span>
-            <h4 class="text-sm font-semibold text-navy dark:text-dark-text dark:text-dark-text">{m.title}</h4>
+            <h4 class="text-sm font-semibold text-navy dark:text-dark-text">{m.title}</h4>
           </div>
-          <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{m.detail}</p>
+          <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.detail}</p>
         </div>
       </div>
     ))}

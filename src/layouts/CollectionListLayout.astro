@@ -50,7 +50,7 @@ const route = getCollectionRoute(collection);
     <SectionHeading title={title} subtitle={description} />
 
     {entries.length === 0 ? (
-      <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft">
         {lang === 'vi'
           ? 'Chưa có bài viết nào trong mục này. Hãy quay lại sau!'
           : 'No articles yet. Please check back later!'}
@@ -117,7 +117,7 @@ const route = getCollectionRoute(collection);
         </div>
 
         {/* Thông báo khi không có kết quả */}
-        <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+        <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft">
           Không có bài viết nào phù hợp với bộ lọc.
         </p>
       </>

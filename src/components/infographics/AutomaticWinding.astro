@@ -191,21 +191,21 @@ const comparisons = [
       </MechanismAnimation>
     </div>
     <div class="space-y-4">
-      <h3 class="font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">Rotor — trái tim của automatic</h3>
-      <p class="text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <h3 class="font-serif text-2xl text-navy dark:text-dark-text">Rotor — trái tim của automatic</h3>
+      <p class="text-ink-soft dark:text-dark-text-soft">
         <strong>Rotor</strong> (còn gọi "oscillating weight") là một quả nặng hình bán nguyệt,
         gắn trên trục có thể <strong>quay tự do 360°</strong>.
       </p>
-      <p class="text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="text-ink-soft dark:text-dark-text-soft">
         Vì rotor <strong>nặng và gắn lệch tâm</strong>, nên khi bạn cử động tay,
         <strong>trọng lực</strong> làm nó xoay. Chuyển động quay này được truyền qua
         <strong>ly hợp một chiều</strong> để cuộn dây cót.
       </p>
-      <p class="text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="text-sm text-ink-soft dark:text-dark-text-soft">
         Trong hoạt ảnh: rotor dao động qua lại. Khi quay chiều <strong>truyền lực</strong>, bánh răng sáng lên và thanh trữ cót dâng. Khi quay chiều <strong>kia</strong>, bánh răng mờ đi — ly hợp trượt tự do, không truyền lực. Bấm nút để mô phỏng một cú đung đưa cổ tay.
       </p>
-      <div class="rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-4 text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
-        <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡</strong> Nói cách khác: rotor <strong>biến chuyển động của bạn
+      <div class="rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-4 text-sm text-ink-soft dark:text-dark-text-soft">
+        <strong class="text-brass dark:text-dark-brass">💡</strong> Nói cách khác: rotor <strong>biến chuyển động của bạn
         thành năng lượng</strong> cho đồng hồ.
       </div>
     </div>
@@ -219,7 +219,7 @@ const comparisons = [
       <h3 class="mb-4 font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
         Ly hợp một chiều — cải tạo mọi chuyển động thành năng lượng
       </h3>
-      <p class="mb-8 text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="mb-8 text-ink-soft dark:text-dark-text-soft">
         Rotor quay <strong>cả hai chiều</strong>, nhưng dây cót chỉ cuộn theo <strong>một chiều</strong>.
         <strong>Ly hợp một chiều</strong> (clutch) "dịch" chuyển động hai chiều thành chiều cuộn đúng.
       </p>
@@ -267,7 +267,7 @@ const comparisons = [
         </svg>
       </div>
 
-      <p class="text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+      <p class="text-sm text-ink-soft dark:text-dark-text-soft">
         Dù rotor quay chiều nào, cơ chế ly hợp luôn <strong>"dịch"</strong> chuyển động thành chiều cuộn cót đúng.
         Có 2 kiểu phổ biến: <strong>kiểu bánh răng</strong> (đơn giản) và <strong>kiểu bi/đòn bẩy</strong> (mượt hơn).
       </p>
@@ -281,11 +281,11 @@ const comparisons = [
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
       Cơ (manual) vs Automatic — khác biệt thực tế
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
       Nhiều người nhầm tưởng automatic "không bao giờ dừng" — không phải.
     </p>
 
-    <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border dark:border-dark-border" data-anim="comparison-table">
+    <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border" data-anim="comparison-table">
       <table class="w-full text-sm">
         <thead class="bg-navy text-cream">
           <tr>
@@ -297,9 +297,9 @@ const comparisons = [
         <tbody>
           {comparisons.map((row, i) => (
             <tr class={i % 2 === 0 ? 'bg-white' : 'bg-cream-dark/30 dark:bg-dark-border/30'}>
-              <td class="px-4 py-3 font-medium text-navy dark:text-dark-text dark:text-dark-text">{row.feature}</td>
-              <td class="px-4 py-3 text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{row.manual}</td>
-              <td class="px-4 py-3 text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{row.automatic}</td>
+              <td class="px-4 py-3 font-medium text-navy dark:text-dark-text">{row.feature}</td>
+              <td class="px-4 py-3 text-ink-soft dark:text-dark-text-soft">{row.manual}</td>
+              <td class="px-4 py-3 text-ink-soft dark:text-dark-text-soft">{row.automatic}</td>
             </tr>
           ))}
         </tbody>
@@ -307,8 +307,8 @@ const comparisons = [
     </div>
 
     <div class="mt-8 rounded-lg border-l-4 border-brass bg-brass/5 dark:bg-dark-brass/10 p-5">
-      <p class="text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
-        <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡 Watch winder:</strong> Nếu bạn có <strong>nhiều đồng hồ automatic</strong>
+      <p class="text-sm text-ink-soft dark:text-dark-text-soft">
+        <strong class="text-brass dark:text-dark-brass">💡 Watch winder:</strong> Nếu bạn có <strong>nhiều đồng hồ automatic</strong>
         và muốn chúng luôn chạy, cần <strong>hộp quay đồng hồ</strong> (watch winder) — mô phỏng chuyển động cổ tay.
         Nếu chỉ có 1 chiếc, chỉ cần đeo đủ 8 giờ/ngày.
       </p>
@@ -316,8 +316,8 @@ const comparisons = [
   </div>
 
   <!-- Chú thích cuối -->
-  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
-    <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
+  <div class="mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft">
+    <strong class="text-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
     <strong>Rotor</strong> (quay theo chuyển động) → <strong>Ly hợp 1 chiều</strong> (dịch chuyển động) →
     <strong>Thùng cót</strong> (tích năng lượng). Chỉ cần đeo — và đồng hồ tự "sạc".
   </div>

@@ -11,7 +11,7 @@ draft: false
 
 ## Hiện tượng — bạn nghe thấy gì?
 
-Bạn bấm một nút, và chiếc đồng hồ trên cổ tay **kêu** — những tiếng "ting ting ting" rõ ràng, giàu hay nghèo tùy hồn thép, báo giờ, quý, phút. Trong phòng im, âm thanh ấy vang xa bất ngờ từ một vật thể nhỏ 40mm. Đó là phức tạp **điểm chuông** (minute repeater / striking) — một trong những phức tạp **danh giá nhất** của đồng hồ cơ, ngang hàng [tourbillon](/tu-dien/tourbillon).
+Bạn bấm một nút, và chiếc đồng hồ trên cổ tay **kêu** — những tiếng "ting" rõ ràng, giàu hay nghèo tùy hồn thép, báo giờ, quý, phút. Trong phòng im, âm thanh ấy vang xa bất ngờ từ một vật thể nhỏ 40mm. Đó là phức tạp **điểm chuông** (minute repeater / striking) — một trong những phức tạp **danh giá nhất** của đồng hồ cơ, ngang hàng [tourbillon](/tu-dien/tourbillon).
 
 ## Nguyên lý — đồng hồ kêu thế nào?
 

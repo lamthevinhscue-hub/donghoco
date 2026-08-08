@@ -61,7 +61,7 @@ const breadcrumbData = [
     <Breadcrumb items={breadcrumbData} />
 
     <!-- Quay lại -->
-    <a href={localizedPath('/thuong-hieu', lang)} class="mb-6 inline-block text-sm text-ink-soft dark:text-dark-text-soft transition-colors hover:text-brass dark:hover:text-dark-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
+    <a href={localizedPath('/thuong-hieu', lang)} class="mb-6 inline-block text-sm text-ink-soft dark:text-dark-text-soft transition-colors hover:text-brass dark:hover:text-dark-brass">
       {tr.back_to_list}
     </a>
 
@@ -76,44 +76,44 @@ const breadcrumbData = [
 
       <div class="flex items-center gap-4">
         {logo && (
-          <img src={logo} alt={`${title} logo`} loading="eager" class="h-14 w-14 shrink-0 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface object-contain p-1.5 dark:border-dark-border dark:bg-dark-surface" />
+          <img src={logo} alt={`${title} logo`} loading="eager" class="h-14 w-14 shrink-0 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface object-contain p-1.5" />
         )}
         <div class="min-w-0">
-          <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-5xl dark:text-dark-text">{title}</h1>
+          <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-5xl">{title}</h1>
           {meta && (
-            <p class="mt-2 text-sm uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70 dark:text-dark-text-soft/70">{meta}</p>
+            <p class="mt-2 text-sm uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">{meta}</p>
           )}
         </div>
       </div>
-      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{excerpt}</p>}
+      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>}
     </header>
 
     <!-- ====== KHỐI 1: HỒ SƠ NHANH (Quick Profile) ====== -->
     <section class="mb-12" data-block="quick-profile">
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Quốc gia -->
-        <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 dark:border-dark-border dark:bg-dark-surface">
-          <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60 dark:text-dark-text-soft/60">Quốc gia</p>
-          <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{data.country}</p>
+        <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
+          <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Quốc gia</p>
+          <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.country}</p>
         </div>
         <!-- Năm thành lập -->
         {data.founded && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
             <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Thành lập</p>
-            <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{data.founded} <span class="text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">({new Date().getFullYear() - data.founded} năm)</span></p>
+            <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.founded} <span class="text-sm text-ink-soft dark:text-dark-text-soft">({new Date().getFullYear() - data.founded} năm)</span></p>
           </div>
         )}
         <!-- Tập đoàn mẹ -->
         {data.parent_company && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
             <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Tập đoàn mẹ</p>
-            <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{data.parent_company}</p>
+            <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.parent_company}</p>
           </div>
         )}
         <!-- Phân khúc -->
         <div class="rounded-lg border-l-4 border-brass bg-brass/5 p-4">
           <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Phân khúc</p>
-          <p class="mt-1 font-serif text-base font-medium text-navy dark:text-dark-text dark:text-dark-text">{tierLabel}</p>
+          <p class="mt-1 font-serif text-base font-medium text-navy dark:text-dark-text">{tierLabel}</p>
         </div>
         <!-- Calibre tiêu biểu — chỉ hiện khi slug thuộc allowlist (đã kiểm chứng) -->
         {data.signature_calibres && data.signature_calibres.length > 0 && CALIBRE_DISPLAY_SLUGS.has(slug) && (
@@ -121,7 +121,7 @@ const breadcrumbData = [
             <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Bộ máy in-house tiêu biểu</p>
             <div class="mt-2 flex flex-wrap gap-2">
               {data.signature_calibres.map((c: string) => (
-                <span class="rounded-full bg-navy/10 px-3 py-1 text-xs font-medium text-navy dark:text-dark-text dark:text-dark-text">Calibre {c}</span>
+                <span class="rounded-full bg-navy/10 px-3 py-1 text-xs font-medium text-navy dark:text-dark-text">Calibre {c}</span>
               ))}
             </div>
           </div>
@@ -137,10 +137,10 @@ const breadcrumbData = [
     <!-- ====== KHỐI 2: DÒNG CHẢY LỊCH SỬ (Mini Timeline) ====== -->
     {data.lineHistory && data.lineHistory.length > 0 && (
       <section class="mb-12" data-block="line-history">
-        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">
+        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text">
           <span class="text-brass">⑵</span> Dòng chảy lịch sử
         </h2>
-        <p class="mb-6 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+        <p class="mb-6 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
           Từ ngày thành lập đến hôm nay — các cột mốc định hình nên <strong>{title}</strong> của chúng ta ngày nay.
         </p>
         <MiniTimeline milestones={data.lineHistory} />
@@ -150,20 +150,20 @@ const breadcrumbData = [
     <!-- ====== KHỐI 3: CÁC DÒNG ĐỒNG HỒ (Collections) ====== -->
     {data.collections && data.collections.length > 0 && (
       <section class="mb-12" data-block="collections">
-        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">
+        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text">
           <span class="text-brass">⑶</span> Các dòng đồng hồ
         </h2>
         <div class="grid gap-4 sm:grid-cols-2">
           {data.collections.map((col: any) => (
             <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-5 transition-shadow hover:shadow-md">
               <div class="mb-2 flex items-baseline justify-between gap-2">
-                <h3 class="font-serif text-lg text-navy dark:text-dark-text dark:text-dark-text">{col.name}</h3>
+                <h3 class="font-serif text-lg text-navy dark:text-dark-text">{col.name}</h3>
                 {col.year && <span class="shrink-0 text-xs font-medium text-brass">{col.year}</span>}
               </div>
-              <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{col.identity}</p>
+              <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{col.identity}</p>
               <p class="mt-2 text-xs italic text-ink-soft/70 dark:text-dark-text-soft/70">📍 {col.positioning}</p>
               {col.iconic_ref && (
-                <p class="mt-2 text-xs font-medium text-navy dark:text-dark-text dark:text-dark-text">★ Mẫu tiêu biểu: {col.iconic_ref}</p>
+                <p class="mt-2 text-xs font-medium text-navy dark:text-dark-text">★ Mẫu tiêu biểu: {col.iconic_ref}</p>
               )}
             </div>
           ))}
@@ -174,15 +174,15 @@ const breadcrumbData = [
     <!-- ====== KHỐI 4: ĐỐI CHIẾU CÙNG PHÂN KHÚC (Segment Comparison) ====== -->
     {data.segmentComparison && data.segmentComparison.length > 0 && (
       <section class="mb-12" data-block="segment-comparison">
-        <h2 class="mb-2 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">
+        <h2 class="mb-2 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text">
           <span class="text-brass">⑷</span> Đối chiếu cùng phân khúc
         </h2>
-        <p class="mb-6 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+        <p class="mb-6 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
           So sánh khách quan với các thương hiệu cùng hạng — để bạn chọn đúng cho nhu cầu của mình.
         </p>
 
         <!-- Bảng so sánh -->
-        <div class="overflow-x-auto rounded-lg border border-cream-dark dark:border-dark-border dark:border-dark-border">
+        <div class="overflow-x-auto rounded-lg border border-cream-dark dark:border-dark-border">
           <table class="w-full min-w-[640px] text-left text-sm">
             <thead class="bg-navy text-cream">
               <tr>
@@ -196,21 +196,21 @@ const breadcrumbData = [
                 ))}
               </tr>
             </thead>
-            <tbody class="divide-y divide-cream-dark bg-white dark:bg-dark-surface dark:bg-dark-surface">
+            <tbody class="divide-y divide-cream-dark bg-white dark:bg-dark-surface">
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Thế mạnh chế tác</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Thế mạnh chế tác</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.strength}</td>)}
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Bộ máy</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Bộ máy</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.movement}</td>)}
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Giá trị giữ giá</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Giá trị giữ giá</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.value_retention}</td>)}
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">Triết lý</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Triết lý</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.philosophy}</td>)}
               </tr>
             </tbody>
@@ -220,10 +220,10 @@ const breadcrumbData = [
         <!-- Nhận định nhà sưu tầm -->
         {data.collectorNote && (
           <div class="mt-6 rounded-lg border-l-4 border-brass bg-brass/5 p-5">
-            <h4 class="mb-2 flex items-center gap-2 text-sm font-bold text-navy dark:text-dark-text dark:text-dark-text">
+            <h4 class="mb-2 flex items-center gap-2 text-sm font-bold text-navy dark:text-dark-text">
               🎩 Góc nhìn nhà sưu tầm — chọn khi nào?
             </h4>
-            <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{data.collectorNote}</p>
+            <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{data.collectorNote}</p>
           </div>
         )}
       </section>
@@ -232,7 +232,7 @@ const breadcrumbData = [
     <!-- ====== KHỐI 5: MẪU ICONIC LIÊN QUAN ====== -->
     {iconicModels.length > 0 && (
       <section class="mb-12" data-block="iconic-models">
-        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">
+        <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text">
           <span class="text-brass">⑸</span> Mẫu iconic của {title}
         </h2>
         <div class="grid gap-5 sm:grid-cols-2">
@@ -249,15 +249,15 @@ const breadcrumbData = [
               </div>
               <!-- Nội dung -->
               <div class="min-w-0 flex-1">
-                <h3 class="font-serif text-base leading-tight text-navy dark:text-dark-text group-hover:text-brass dark:hover:text-dark-brass dark:hover:text-dark-brass">
+                <h3 class="font-serif text-base leading-tight text-navy dark:text-dark-text group-hover:text-brass dark:hover:text-dark-brass">
                   {model.title}
                 </h3>
                 {model.category && (
-                  <span class="mt-1 inline-block rounded-full bg-navy/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-navy dark:text-dark-text dark:text-dark-text">
+                  <span class="mt-1 inline-block rounded-full bg-navy/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-navy dark:text-dark-text">
                     {model.category}
                   </span>
                 )}
-                <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">{model.excerpt}</p>
+                <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">{model.excerpt}</p>
               </div>
             </a>
           ))}

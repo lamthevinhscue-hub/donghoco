@@ -9,9 +9,7 @@ draft: false
 
 **Lộ máy** (skeleton) là **cắt bỏ phần lớn vật liệu thừa** của cầu máy và mặt đế để bộ máy nhìn xuyên được — bạn thấy bánh răng, thùng cót, bánh lắc qua các lỗ khoét. Đi xa hơn nữa là *squelette* (hoàn toàn lộ máy) hoặc mặt số cũng cắt bỏ chỉ còn vài con số lơ lửng.
 
-## Cái khó của skeleton
-
-Skeleton nghe như chỉ là "khoét lỗ", nhưng khó ở chỗ: **bớt vật liệu mà vẫn giữ độ cứng**. Cầu máy phải đủ cứng để giữ trục bánh răng đúng vị trí — nếu khoét quá nhiều, cầu cong vênh, trục lệch, đồng hồ sai số. Vì vậy skeleton đòi hỏi thiết kế lại cấu trúc từ đầu, không phải khoét hậu kỳ.
+## Cái khó của skeleton nghe như chỉ là "khoét lỗ", nhưng khó ở chỗ: **bớt vật liệu mà vẫn giữ độ cứng**. Cầu máy phải đủ cứng để giữ trục bánh răng đúng vị trí — nếu khoét quá nhiều, cầu cong vênh, trục lệch, đồng hồ sai số. Vì vậy skeleton đòi hỏi thiết kế lại cấu trúc từ đầu, không phải khoét hậu kỳ.
 
 Hơn nữa, mọi cạnh khoét đều phải **hoàn thiện** — vì nay mọi cạnh đều lộ ra, không còn cạnh ẩn nào. Vát cạnh (anglage), vân Genève, đánh bóng phải làm ở cả hai mặt cầu máy. Đó là vì skeleton thật luôn đắt: công sức hoàn thiện nhân đôi.
 

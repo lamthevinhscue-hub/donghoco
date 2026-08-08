@@ -90,6 +90,21 @@ const tr = t(lang);
   let pagefindInstance: any = null;
   let pagefindLoading: Promise<void> | null = null;
 
+  // Ghi nhận sự kiện lỗi tải Pagefind lên Vercel Analytics
+  function trackPagefindError(stage: string, error: unknown) {
+    const msg = error instanceof Error ? error.message : String(error);
+    console.warn('Pagefind lỗi (' + stage + '):', msg);
+    // Vercel Analytics — nếu không có thì bỏ qua im lặng
+    try {
+      if (typeof (window as any).va === 'function') {
+        (window as any).va('event', {
+          name: 'pagefind_error',
+          data: { stage, message: msg.substring(0, 200) },
+        });
+      }
+    } catch { /* Analytics không có — không sao */ }
+  }
+
   async function loadPagefind() {
     if (pagefindInstance) return;
     if (pagefindLoading) { await pagefindLoading; return; }
@@ -104,7 +119,7 @@ const tr = t(lang);
           await pagefindInstance.options({});
           await pagefindInstance.init();
         } catch (e2) {
-          console.warn('Pagefind chưa sẵn sàng');
+          trackPagefindError('init', e2);
         }
       }
     })();

@@ -112,6 +112,35 @@
   .dark svg text[fill="#9CA3AF"] {
     fill: theme('colors.dark-text-soft/60') !important;
   }
+
+  /* ========================================================================
+     LỚP DÙNG CHUNG — rút gọn các chuỗi class Tailwind dài lặp nhiều lần
+     ======================================================================== */
+
+  /* Khối intro infographic — nền gradient navy, chữ cream, dùng ở cảnh 1 */
+  .infographic-intro {
+    @apply rounded-2xl border border-cream-dark dark:border-dark-border bg-gradient-to-b from-navy to-navy-light p-8 text-center text-cream sm:p-16;
+  }
+
+  /* Thẻ nội dung có viền — nền trắng, viền cream, dark mode tự động */
+  .card-bordered {
+    @apply rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface;
+  }
+
+  /* Khối chú thích cuối infographic — viền brass, nền mờ */
+  .infographic-note {
+    @apply mt-16 rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-center text-sm text-ink-soft dark:text-dark-text-soft;
+  }
+
+  /* Nút tròn navy — dùng cho nút điều khiển hoạt ảnh */
+  .btn-navy-pill {
+    @apply rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border;
+  }
+
+  /* Ô đọc kết quả — nền mờ, viền, dùng trong hoạt ảnh tương tác */
+  .readout-box {
+    @apply rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30;
+  }
 }
 
 /* =============================================================================

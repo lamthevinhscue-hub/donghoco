@@ -35,10 +35,19 @@ export function getCollectionRoute(name: ContentCollectionName): string {
 
 // Lấy tất cả bài viết của một collection, lọc theo ngôn ngữ
 // id có dạng: "vi/rolex.md" hoặc "en/rolex.md"
+//
+// Cache: cùng collection + lang gọi nhiều lần trong một lần build chỉ tải một.
+// Khóa theo `${collection}:${lang}`. Rõ ràng trong cùng một quá trình build.
+const _entriesCache = new Map<string, CollectionEntry<ContentCollectionName>[]>();
+
 export async function getEntriesByLang(
   collection: ContentCollectionName,
   lang: Lang,
 ): Promise<CollectionEntry<ContentCollectionName>[]> {
+  const cacheKey = `${collection}:${lang}`;
+  const cached = _entriesCache.get(cacheKey);
+  if (cached) return cached;
+
   const all = await getCollection(collection, ({ data }) => {
     // Bỏ qua bản nháp khi build production
     return import.meta.env.PROD ? data.draft !== true : true;
@@ -48,7 +57,7 @@ export async function getEntriesByLang(
   const filtered = all.filter((entry) => entry.id.startsWith(`${lang}/`));
 
   // Sắp xếp: bài mới nhất lên đầu (nếu có ngày), ngược lại theo tên
-  return filtered.sort((a, b) => {
+  const sorted = filtered.sort((a, b) => {
     const dateA = a.data.date;
     const dateB = b.data.date;
     if (dateA && dateB) {
@@ -56,6 +65,9 @@ export async function getEntriesByLang(
     }
     return a.data.title.localeCompare(b.data.title);
   });
+
+  _entriesCache.set(cacheKey, sorted);
+  return sorted;
 }
 
 // Trích xuất slug (địa chỉ web) từ một entry

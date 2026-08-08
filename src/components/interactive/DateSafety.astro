@@ -1,0 +1,218 @@
+---
+// =============================================================================
+// DateSafety — Thành phần tương tác: khung giờ nguy hiểm khi chỉnh lịch
+// =============================================================================
+// Người đọc kéo kim giờ quanh mặt số. Khi kim vào vùng 20h-4h (vùng cơ cấu
+// lịch bắt đầu ăn khớp), vùng tô đỏ và cảnh báo hiện ra. Dùng cho
+// /huong-dan/chinh-lich-an-toan.
+// =============================================================================
+
+interface Props {
+  'data-mech-step-id'?: string;
+}
+const { 'data-mech-step-id': _mechStepId } = Astro.props;
+---
+
+<section
+  class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
+  data-tool="date-safety"
+>
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — khung giờ nguy hiểm</span>
+    <div class="flex items-center gap-2">
+      <button type="button" class="date-safe-pos rounded-full bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-colors hover:bg-brass">
+        Đưa kim về 6 giờ (an toàn)
+      </button>
+    </div>
+  </div>
+
+  <div class="date-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
+    <svg
+      class="date-svg"
+      viewBox="0 0 300 300"
+      width="270"
+      height="270"
+      style="touch-action: none;"
+      role="img"
+      aria-label="Mặt số: kéo kim giờ để xem vùng nguy hiểm"
+    >
+      <!-- Vùng nguy hiểm 20h-4h (tô đỏ mờ) -->
+      <!-- 20h ở vị trí số 8, 4h ở vị trí số 4. Vùng từ số 8 qua 12 xuống số 4 (nửa trên-phải). -->
+      <path
+        class="danger-zone"
+        d="M 150 150 L 150 20 A 130 130 0 0 1 280 150 Z"
+        fill="#9B2C2C"
+        opacity="0.12"
+      />
+      <text x="215" y="60" text-anchor="middle" fill="#9B2C2C" font-family="Inter, sans-serif" font-size="10" font-weight="600" opacity="0.7">Vùng nguy hiểm</text>
+      <text x="215" y="73" text-anchor="middle" fill="#9B2C2C" font-family="Inter, sans-serif" font-size="9" opacity="0.6">20:00 — 04:00</text>
+
+      <!-- Mặt số -->
+      <circle cx="150" cy="150" r="130" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" />
+      <g class="date-hour-marks"></g>
+      <!-- Vạch ngày ở số 3 -->
+      <rect x="142" y="30" width="16" height="22" rx="2" fill="#1F2D3D" />
+      <text x="150" y="46" text-anchor="middle" fill="#FAF7F2" font-family="Inter, sans-serif" font-size="11" font-weight="700">15</text>
+      <!-- Kim giờ (kéo được) -->
+      <g class="date-hour-hand" style="cursor: grab; transform-origin: 150px 150px;">
+        <line x1="150" y1="160" x2="150" y2="60" stroke="#1F2D3D" stroke-width="6" stroke-linecap="round" />
+      </g>
+      <circle cx="150" cy="150" r="6" fill="#1F2D3D" />
+    </svg>
+
+    <div class="date-readout w-full max-w-xs space-y-3 sm:w-56">
+      <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
+        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Kim giờ đang ở</p>
+        <p class="date-current font-serif text-2xl text-navy dark:text-dark-text">6:00</p>
+      </div>
+      <!-- Cảnh báo -->
+      <div class="date-warning hidden rounded-lg border-l-4 border-[#9B2C2C] bg-[#9B2C2C]/10 p-3">
+        <p class="flex items-center gap-2 text-sm font-semibold text-[#9B2C2C]">
+          ⚠ NGUY HIỂM
+        </p>
+        <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          Đang trong vùng 20:00–04:00. Cơ cấu lịch đã bắt đầu ăn khớp — <strong>đừng chỉnh ngày</strong> lúc này, có thể làm hỏng bánh răng.
+        </p>
+      </div>
+      <div class="date-safe-msg rounded-lg border-l-4 border-green-700 bg-green-700/10 p-3">
+        <p class="flex items-center gap-2 text-sm font-semibold text-green-700 dark:text-green-600">
+          ✓ AN TOÀN
+        </p>
+        <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          Ngoài vùng nguy hiểm — có thể chỉnh ngày an toàn.
+        </p>
+      </div>
+      <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+        🖐 <strong>Kéo kim giờ</strong> quanh mặt số bằng chuột hoặc ngón tay. Vùng đỏ là khu vực cấm chỉnh lịch.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .date-svg .date-hour-hand:active { cursor: grabbing; }
+  .date-svg { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+</style>
+
+<script>
+  (function () {
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const hm = document.querySelector('.date-svg .date-hour-marks');
+    if (hm && hm.children.length === 0) {
+      for (let i = 0; i < 12; i++) {
+        const angle = (i * 30 - 90) * Math.PI / 180;
+        // Bỏ qua số 3 (chỗ ô ngày)
+        if (i === 3) {
+          const dot = document.createElementNS(svgNS, 'circle');
+          dot.setAttribute('cx', String(150 + 95 * Math.cos(angle)));
+          dot.setAttribute('cy', String(150 + 95 * Math.sin(angle)));
+          dot.setAttribute('r', '2');
+          dot.setAttribute('fill', '#1F2D3D');
+          dot.setAttribute('opacity', '0.3');
+          hm.appendChild(dot);
+          continue;
+        }
+        const x = 150 + 95 * Math.cos(angle);
+        const y = 150 + 95 * Math.sin(angle);
+        const t = document.createElementNS(svgNS, 'text');
+        t.setAttribute('x', String(x));
+        t.setAttribute('y', String(y + 5));
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('fill', '#1F2D3D');
+        t.setAttribute('font-family', 'Inter, sans-serif');
+        t.setAttribute('font-size', '16');
+        t.setAttribute('font-weight', '600');
+        t.textContent = i === 0 ? '12' : String(i);
+        hm.appendChild(t);
+      }
+    }
+  })();
+
+  (function () {
+    const svg = document.querySelector('[data-tool="date-safety"] .date-svg') as SVGSVGElement | null;
+    if (!svg) return;
+    const hand = svg.querySelector('.date-hour-hand') as SVGGElement | null;
+    const currentEl = document.querySelector('.date-current') as HTMLElement | null;
+    const warningEl = document.querySelector('.date-warning') as HTMLElement | null;
+    const safeEl = document.querySelector('.date-safe-msg') as HTMLElement | null;
+    const safeBtn = document.querySelector('.date-safe-pos') as HTMLButtonElement | null;
+    if (!hand) return;
+
+    // Trạng thái: giờ hiện tại dạng 24h (0-24, cho phép lẻ để kéo mượt)
+    // Khởi đầu 6:00 (an toàn)
+    let hourAngle = 180; // 6:00 = 180° (kim chỉ xuống)
+
+    // Góc kim → giờ 24h. 0° = 12 (đỉnh). 12h mặt số = vòng 360° = 12 giờ thật (nửa ngày).
+    // Ta dùng thang 12h nhưng theo dõi cả sáng/chiều qua vòng quay: 1 vòng = 12h.
+    // Vùng nguy hiểm 20-04 tức là vị trí số 8 (20h/8h tối) qua 12 xuống số 4 (4h).
+    // Vì mặt số 12h lặp: số 8 ứng cả 8h sáng và 20h; số 4 ứng cả 4h sáng và 16h.
+    // Vùng đỏ ta vẽ từ số 8 (trên-phải) qua 12 xuống 4 — đó là vùng "trên-phải" của mặt số.
+
+    function angleToHour12(angle: number): number {
+      // angle: 0 = đỉnh (12), chiều kim đồng hồ. → số 12h (0-12)
+      let h = (angle / 30) % 12;
+      return h;
+    }
+
+    function render() {
+      hand.style.transform = `rotate(${hourAngle}deg)`;
+      const h12 = angleToHour12(hourAngle);
+      const displayHour = h12 === 0 ? 12 : Math.floor(h12);
+      // Quy ước hiển thị: ta theo dõi 12h, nhưng vùng nguy hiểm xét theo vị trí góc
+      if (currentEl) currentEl.textContent = `${displayHour}:00`;
+
+      // Vùng nguy hiểm: số 8 (20h) đến số 4 (04h), tức góc từ 240° đến 120° (qua đỉnh 0°)
+      // Tức góc 240° → 360°/0° → 120°. Normalize: hourAngle 240-360 và 0-120.
+      const a = ((hourAngle % 360) + 360) % 360;
+      const inDanger = a >= 240 || a <= 120;
+      if (inDanger) {
+        warningEl?.classList.remove('hidden');
+        safeEl?.classList.add('hidden');
+      } else {
+        warningEl?.classList.add('hidden');
+        safeEl?.classList.remove('hidden');
+      }
+    }
+
+    // Kéo kim bằng chuột/ngón tay
+    let dragging = false;
+    let lastAngle = 0;
+    function getPoint(e: PointerEvent) {
+      const rect = svg.getBoundingClientRect();
+      return { x: ((e.clientX - rect.left) / rect.width) * 300, y: ((e.clientY - rect.top) / rect.height) * 300 };
+    }
+    function angleFromCenter(p: { x: number; y: number }) {
+      const dx = p.x - 150, dy = p.y - 150;
+      let d = Math.atan2(dx, -dy) * 180 / Math.PI;
+      if (d < 0) d += 360;
+      return d;
+    }
+    function onDown(e: PointerEvent) {
+      const t = e.target as Element;
+      if (!hand.contains(t) && t !== hand) return;
+      dragging = true;
+      (e.target as Element).setPointerCapture?.(e.pointerId);
+      lastAngle = angleFromCenter(getPoint(e));
+      e.preventDefault();
+    }
+    function onMove(e: PointerEvent) {
+      if (!dragging) return;
+      const cur = angleFromCenter(getPoint(e));
+      let delta = cur - lastAngle;
+      if (delta > 180) delta -= 360;
+      if (delta < -180) delta += 360;
+      hourAngle = (hourAngle + delta + 720) % 360;
+      lastAngle = cur;
+      render();
+    }
+    function onUp(e: PointerEvent) { dragging = false; (e.target as Element).releasePointerCapture?.(e.pointerId); }
+    hand.addEventListener('pointerdown', onDown);
+    svg.addEventListener('pointermove', onMove);
+    svg.addEventListener('pointerup', onUp);
+    svg.addEventListener('pointercancel', onUp);
+
+    safeBtn?.addEventListener('click', () => { hourAngle = 180; render(); }); // 6:00
+
+    render();
+  })();
+</script>

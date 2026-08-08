@@ -1,10 +1,22 @@
 ---
 // Trang chi tiết: HƯỚNG DẪN THỰC HÀNH
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import BezelDiver from '../../components/interactive/BezelDiver.astro';
+import GmtReader from '../../components/interactive/GmtReader.astro';
+import TachymeterTool from '../../components/interactive/TachymeterTool.astro';
+import DateSafety from '../../components/interactive/DateSafety.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
+
+// Map slug → thành phần tương tác (chỉ các bài có thao tác cầm tay)
+const interactive: Record<string, any> = {
+  'dung-vanh-lan': BezelDiver,
+  'doc-va-chinh-gmt': GmtReader,
+  'dung-tachymeter': TachymeterTool,
+  'chinh-lich-an-toan': DateSafety,
+};
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -83,5 +95,7 @@ for (const e of [...nextDiff, ...sameDiff]) {
   meta={meta}
   relatedArticles={related}
 >
+  {interactive[slug] && (() => { const Ic = interactive[slug]; return <Ic />; })()}
+
   <Content />
 </ArticleLayout>

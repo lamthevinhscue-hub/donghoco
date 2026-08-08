@@ -1,0 +1,245 @@
+---
+// =============================================================================
+// BezelDiver — Thành phần tương tác: vành lặn xoay được, kim phút chạy
+// =============================================================================
+// Người đọc điều khiển: kéo/vặn vành (chuột hoặc ngón tay), quan sát kim phút
+// chạy, đọc số phút đã trôi giữa mốc 0 và kim phút. Dùng cho bài
+// /huong-dan/dung-vanh-lan.
+//
+// Tương tác: pointer events (chuột + cảm ứng), nút "Đặt mốc", nút tua thời gian.
+// =============================================================================
+
+interface Props {
+  'data-mech-step-id'?: string;
+}
+const { 'data-mech-step-id': _mechStepId } = Astro.props;
+---
+
+<section
+  class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
+  data-tool="bezel-diver"
+>
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — vành lặn</span>
+    <div class="flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        class="bezel-set rounded-full bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-colors hover:bg-brass"
+      >
+        Đặt mốc 0 vào kim phút
+      </button>
+      <button
+        type="button"
+        class="bezel-play rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text"
+        aria-label="Chạy / dừng kim phút"
+      >
+        ▶ Chạy kim
+      </button>
+    </div>
+  </div>
+
+  <!-- Sân khấu SVG -->
+  <div class="bezel-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
+    <!-- SVG: vành lặn + mặt số -->
+    <svg
+      class="bezel-svg"
+      viewBox="0 0 300 300"
+      width="280"
+      height="280"
+      style="touch-action: none;"
+      role="img"
+      aria-label="Mô phỏng vành lặn: kéo để xoay vành"
+    >
+      <!-- Vành lặn (xoay được) -->
+      <g class="bezel-ring" style="cursor: grab; transform-origin: 150px 150px;">
+        <!-- Vành ngoài tối -->
+        <circle cx="150" cy="150" r="138" fill="#1F2D3D" stroke="#0f1620" stroke-width="2" />
+        <!-- Vạch phút 0-60 trên vành -->
+        <g class="bezel-marks"></g>
+        <!-- Số 0 lớn -->
+        <text x="150" y="32" text-anchor="middle" fill="#FAF7F2" font-family="Inter, sans-serif" font-size="16" font-weight="700">0</text>
+      </g>
+      <!-- Mặt số -->
+      <circle cx="150" cy="150" r="112" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" />
+      <!-- Kim giờ (tĩnh cho ví dụ, chỉ vị trí 10:10) -->
+      <line x1="150" y1="150" x2="120" y2="100" stroke="#1F2D3D" stroke-width="5" stroke-linecap="round" />
+      <!-- Kim phút (xoay được) -->
+      <g class="minute-hand" style="transform-origin: 150px 150px;">
+        <line x1="150" y1="150" x2="150" y2="55" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round" />
+      </g>
+      <!-- Tâm -->
+      <circle cx="150" cy="150" r="5" fill="#1F2D3D" />
+      <!-- Chỉ mục mốc 0 cố định ở đỉnh -->
+      <polygon points="150,4 142,18 158,18" fill="#B8893C" />
+    </svg>
+
+    <!-- Bảng đọc kết quả -->
+    <div class="bezel-readout w-full max-w-xs space-y-3 sm:w-56">
+      <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
+        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Số phút đã trôi</p>
+        <p class="bezel-elapsed font-serif text-3xl text-navy dark:text-dark-text">0</p>
+        <p class="text-xs text-ink-soft dark:text-dark-text-soft">phút (theo vành)</p>
+      </div>
+      <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
+        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Vành đã xoay</p>
+        <p class="bezel-rotation font-serif text-lg text-navy dark:text-dark-text">0°</p>
+      </div>
+      <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+        🖱 <strong>Kéo vành tối</strong> để xoay. Vành chỉ xoay được theo chiều kim đồng hồ (giống vành lặn thật).
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bezel-svg .bezel-ring:active { cursor: grabbing; }
+  /* Trên điện thoại: tắt chọn chữ khi kéo */
+  .bezel-svg { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+</style>
+
+<script>
+  // Vạch phút 0-60 trên vành — sinh tĩnh (tránh 60 dòng lặp trong SVG)
+  (function () {
+    const marksGroup = document.querySelector('.bezel-svg .bezel-marks');
+    if (!marksGroup || marksGroup.children.length > 0) return;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    for (let i = 0; i < 60; i++) {
+      const angle = (i * 6 - 90) * Math.PI / 180;
+      const isMajor = i % 5 === 0;
+      const rOuter = 138;
+      const rInner = isMajor ? 122 : 128;
+      const x1 = 150 + rOuter * Math.cos(angle);
+      const y1 = 150 + rOuter * Math.sin(angle);
+      const x2 = 150 + rInner * Math.cos(angle);
+      const y2 = 150 + rInner * Math.sin(angle);
+      const line = document.createElementNS(svgNS, 'line');
+      line.setAttribute('x1', String(x1));
+      line.setAttribute('y1', String(y1));
+      line.setAttribute('x2', String(x2));
+      line.setAttribute('y2', String(y2));
+      line.setAttribute('stroke', '#FAF7F2');
+      line.setAttribute('stroke-width', isMajor ? '2' : '1');
+      line.setAttribute('opacity', isMajor ? '1' : '0.5');
+      marksGroup.appendChild(line);
+    }
+  })();
+
+  (function () {
+    const svg = document.querySelector('[data-tool="bezel-diver"] .bezel-svg') as SVGSVGElement | null;
+    if (!svg) return;
+    const ring = svg.querySelector('.bezel-ring') as SVGGElement | null;
+    const minuteHand = svg.querySelector('.minute-hand') as SVGGElement | null;
+    const elapsedEl = document.querySelector('.bezel-elapsed') as HTMLElement | null;
+    const rotationEl = document.querySelector('.bezel-rotation') as HTMLElement | null;
+    const setBtn = document.querySelector('.bezel-set') as HTMLButtonElement | null;
+    const playBtn = document.querySelector('.bezel-play') as HTMLButtonElement | null;
+    if (!ring || !minuteHand) return;
+
+    let bezelAngle = 0; // độ xoay của vành (chỉ cho phép >= 0, chiều kim đồng hồ)
+    let minuteAngle = 0; // góc kim phút so với đỉnh (0 = 12 giờ), chiều kim đồng hồ
+    let isPlaying = false;
+    let rafId: number | null = null;
+    let lastTs = 0;
+
+    function getPoint(evt: PointerEvent | MouseEvent | Touch): { x: number; y: number } {
+      const rect = svg.getBoundingClientRect();
+      const cx = evt.clientX - rect.left;
+      const cy = evt.clientY - rect.top;
+      // Chuyển sang hệ toạ độ viewBox 300x300
+      return { x: (cx / rect.width) * 300, y: (cy / rect.height) * 300 };
+    }
+
+    function angleFromCenter(p: { x: number; y: number }): number {
+      // Trả về góc (độ) từ đỉnh (12 giờ) theo chiều kim đồng hồ
+      const dx = p.x - 150;
+      const dy = p.y - 150;
+      let deg = Math.atan2(dx, -dy) * 180 / Math.PI; // 0 = lên, 90 = phải
+      if (deg < 0) deg += 360;
+      return deg;
+    }
+
+    function render() {
+      ring.style.transform = `rotate(${bezelAngle}deg)`;
+      minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
+      // Số phút đã trôi = chênh lệch góc vành so với kim phút, quy sang phút (1 phút = 6°)
+      // Vì ta đặt mốc 0 vành vào kim phút ban đầu, phút trôi = (minuteAngle - bezelAngle) quy ước an toàn
+      // Nhưng trực giác hơn: phút trôi = số phút kim phút đã đi kể từ khi đặt mốc.
+      // Ở đây: elapsed = (minuteAngle - bezelAngle) / 6, lấy dương
+      let diff = minuteAngle - bezelAngle;
+      if (diff < 0) diff += 360;
+      const mins = Math.round(diff / 6);
+      if (elapsedEl) elapsedEl.textContent = String(mins);
+      if (rotationEl) rotationEl.textContent = `${Math.round(bezelAngle)}°`;
+    }
+
+    // --- Kéo vành (pointer events: chuột + cảm ứng) ---
+    let dragging = false;
+    let lastPointerAngle = 0;
+
+    function onPointerDown(e: PointerEvent) {
+      // Chỉ bắt đầu kéo khi chạm vào vành (ring) chứ không phải mặt số trong
+      const target = e.target as Element;
+      if (!ring.contains(target) && target !== ring) return;
+      // Cho phép kéo từ cả vành tối
+      dragging = true;
+      (e.target as Element).setPointerCapture?.(e.pointerId);
+      lastPointerAngle = angleFromCenter(getPoint(e));
+      e.preventDefault();
+    }
+    function onPointerMove(e: PointerEvent) {
+      if (!dragging) return;
+      const cur = angleFromCenter(getPoint(e));
+      let delta = cur - lastPointerAngle;
+      if (delta > 180) delta -= 360;
+      if (delta < -180) delta += 360;
+      // Vành lặn chỉ xoay một chiều (chiều kim đồng hồ = delta dương).
+      // Nếu kéo ngược (delta âm), ta kẹt — không giảm bezelAngle, mô phỏng cơ cấu ratchet.
+      if (delta > 0) {
+        bezelAngle += delta;
+        bezelAngle = bezelAngle % 360;
+        render();
+      }
+      lastPointerAngle = cur;
+    }
+    function onPointerUp(e: PointerEvent) {
+      dragging = false;
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    }
+    ring.addEventListener('pointerdown', onPointerDown);
+    svg.addEventListener('pointermove', onPointerMove);
+    svg.addEventListener('pointerup', onPointerUp);
+    svg.addEventListener('pointercancel', onPointerUp);
+
+    // --- Nút đặt mốc 0 vào kim phút ---
+    setBtn?.addEventListener('click', () => {
+      bezelAngle = minuteAngle;
+      render();
+    });
+
+    // --- Nút chạy kim phút ---
+    function loop(ts: number) {
+      if (!isPlaying) return;
+      if (!lastTs) lastTs = ts;
+      const dt = ts - lastTs;
+      lastTs = ts;
+      // 1 phút thật = kim phút xoay 6°. Tua nhanh: 1 giây thật = 1 phút mô phỏng.
+      minuteAngle += (dt / 1000) * 6;
+      minuteAngle = minuteAngle % 360;
+      render();
+      if (isPlaying) rafId = requestAnimationFrame(loop);
+    }
+    playBtn?.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playBtn.textContent = '⏸ Dừng kim';
+        lastTs = 0;
+        rafId = requestAnimationFrame(loop);
+      } else {
+        playBtn.textContent = '▶ Chạy kim';
+        if (rafId) cancelAnimationFrame(rafId);
+      }
+    });
+
+    render();
+  })();
+</script>

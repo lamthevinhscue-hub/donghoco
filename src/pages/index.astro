@@ -79,9 +79,12 @@ const stats = [
 ---
 
 <BaseLayout>
-  <!-- ===== PHẦN HERO (KHỞI ĐẦU) — kèm hoa văn guilloché mờ làm nền ===== -->
+  <!-- ===== PHẦN HERO (KHỞI ĐẦU) — ảnh nền + hoa văn guilloché ===== -->
   <section class="relative overflow-hidden border-b border-cream-dark bg-gradient-to-b from-cream-dark/40 to-cream dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
-    <!-- Hoa văn guilloché nền — tái dùng đúng pattern của WatchImage.astro -->
+    <!-- Ảnh nền hero — độ mờ 10% sáng, 5% tối (nền tối làm hoa văn nổi hơn) -->
+    <img src="/images/og/hero-bg.jpg" alt="" loading="eager" class="hero-bg-img pointer-events-none absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
+
+    <!-- Hoa văn guilloché nền — giữ nguyên, nằm trên ảnh nền -->
     <svg class="pointer-events-none absolute inset-0 h-full w-full text-brass dark:text-dark-brass" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <pattern id="hero-guilloche" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -240,7 +243,9 @@ const stats = [
 
   <!-- ===== KHỐI SỐ LIỆU — dải nền navy, số lớn đếm tự động từ collection ===== -->
   <section class="relative overflow-hidden bg-navy py-16 dark:bg-dark-bg">
-    <div class="mx-auto max-w-6xl px-4">
+    <!-- Hoa văn guilloche-tile lặp trên nền navy, độ mờ thấp -->
+    <div class="stats-guilloche-bg pointer-events-none absolute inset-0"></div>
+    <div class="relative mx-auto max-w-6xl px-4">
       <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {stats.map((s) => (
           <div class="text-center">
@@ -279,5 +284,23 @@ const stats = [
   }
   :global(.dark) .timeline-track::-webkit-scrollbar-thumb {
     background: #D4A85A;
+  }
+
+  /* Ảnh nền hero: độ mờ 10% sáng, 5% tối (nền tối làm hoa văn nổi hơn) */
+  .hero-bg-img {
+    opacity: 0.10;
+  }
+  :global(.dark) .hero-bg-img {
+    opacity: 0.05;
+  }
+
+  /* Hoa văn guilloche-tile lặp trên khối số liệu navy */
+  .stats-guilloche-bg {
+    background-image: url('/images/og/guilloche-tile.png');
+    background-repeat: repeat;
+    opacity: 0.06;
+  }
+  :global(.dark) .stats-guilloche-bg {
+    opacity: 0.04;
   }
 </style>

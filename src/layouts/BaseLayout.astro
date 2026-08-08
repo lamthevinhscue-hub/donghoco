@@ -11,7 +11,7 @@
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER } from '../i18n/ui';
+import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage } from '../i18n/ui';
 import Analytics from '@vercel/analytics/astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
@@ -45,8 +45,8 @@ const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${
 const siteUrl = Astro.site ?? new URL('https://donghoco1.vercel.app');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
-// OG image: ưu tiên cover_image của trang, fallback ảnh mặc định
-const ogImage = cover_image ?? '/og-default.jpg';
+// OG image: ưu tiên cover_image > ảnh theo khu vực > ảnh mặc định
+const ogImage = getOgImage(Astro.url.pathname, cover_image);
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 ---
 

@@ -39,6 +39,36 @@ export const SITE_PUBLISHER = {
   },
 } as const;
 
+// =============================================================================
+// ẢNH CHIA SẺ (OG image) THEO KHU VỰC
+// =============================================================================
+// Mỗi khu vực nội dung có một ảnh chia sẻ riêng. BaseLayout chọn ảnh dựa trên
+// đường dẫn trang. Nếu bài có cover_image riêng thì dùng ảnh đó (ghi đè).
+//
+// Thêm khu vực mới: thêm entry vào mảng dưới. Thứ tự: mục đầu khớp trước.
+// =============================================================================
+
+export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
+  { match: '/thuong-hieu', image: '/images/og/og-thuong-hieu.jpg' },
+  { match: '/mau-iconic', image: '/images/og/og-mau-iconic.jpg' },
+  { match: '/co-che', image: '/images/og/og-co-che.jpg' },
+  { match: '/tu-dien', image: '/images/og/og-co-che.jpg' },
+  { match: '/huong-dan', image: '/images/og/og-co-che.jpg' },
+  { match: '/lich-su', image: '/images/og/og-lich-su.jpg' },
+  { match: '/giai-phau', image: '/images/og/og-lich-su.jpg' },
+];
+
+export const OG_DEFAULT_IMAGE = '/og-default.jpg';
+
+/** Chọn ảnh OG theo đường dẫn trang. Ưu tiên cover_image (nếu có) > ảnh khu vực > mặc định. */
+export function getOgImage(pathname: string, coverImage?: string): string {
+  if (coverImage) return coverImage;
+  for (const entry of OG_IMAGE_MAP) {
+    if (pathname.startsWith(entry.match)) return entry.image;
+  }
+  return OG_DEFAULT_IMAGE;
+}
+
 export type Lang = keyof typeof languages;
 
 // Lấy ngôn ngữ từ địa chỉ web (URL)

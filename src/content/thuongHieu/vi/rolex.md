@@ -119,7 +119,7 @@ segmentComparison:
     philosophy: "Chinh phục giới hạn bằng công nghệ."
   - brand: "Grand Seiko"
     strength: "Hoàn thiện thủ công (đánh bóng Zaratsu, mặt số nghệ thuật) vượt xa tầm giá; công nghệ Spring Drive độc quyền."
-    movement: "9SA5 hi-beat 36.000 vph 80 giờ; Spring Drive 9RA2 ±10 giây/THÁNG."
+    movement: "9SA5 hi-beat 36.000 vph 80 giờ; Spring Drive 9RA5 ±10 giây/THÁNG."
     value_retention: "Trung bình khá — mua vì chế tác, chưa vì đầu tư."
     philosophy: "Bản chất của thời gian, thẩm mỹ thiên nhiên Nhật Bản."
   - brand: "IWC"

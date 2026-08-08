@@ -237,6 +237,42 @@ export function getTierAccent(tier: string): string {
 }
 
 // =============================================================================
+// DANH SÁCH THƯƠNG HIỆU ĐƯỢC HIỂN THỊ CALIBRE (calibre display allowlist)
+// =============================================================================
+// Chỉ các hãng có trong danh sách này mới hiện khối "Bộ máy in-house tiêu biểu"
+// trên trang thương hiệu (trong BrandLayout). Lý do: mã calibre trong frontmatter
+// của một số hãng chưa đối chiếu được với nguồn chính hãng — để tránh lan truyền
+// số liệu chưa kiểm chứng, ta giấu khối đó đi cho đến khi kiểm chứng xong.
+//
+// Dữ liệu frontmatter `signature_calibres` vẫn GIỮ NGUYÊN trong các file .md
+// (không xóa) để sau này kiểm chứng được thì chỉ cần thêm slug vào đây.
+//
+// Khi kiểm chứng thêm được hãng nào: thêm slug của hãng đó vào mảng dưới.
+// Chi tiết từng mục xem CAN-KIEM-CHUNG.md.
+// =============================================================================
+
+export const CALIBRE_DISPLAY_SLUGS: ReadonlySet<string> = new Set([
+  'iwc',
+  'grand-seiko',
+  'seiko',
+  'hamilton',
+  'cartier',
+  'rolex',
+  'omega',
+  'tag-heuer',
+  'ulysse-nardin',
+  'patek-philippe',
+  'vacheron-constantin',
+  'a-lange-soehne',
+  'audemars-piguet',
+  'blancpain',
+  'jaeger-lecoultre',
+  'tudor',
+  'longines',
+  'tissot',
+]);
+
+// =============================================================================
 // NHÃN NHÓM TỪ ĐIỂN (glossary categories)
 // =============================================================================
 // Dùng cho trang /tu-dien: nhóm và lọc theo nhóm thuật ngữ.

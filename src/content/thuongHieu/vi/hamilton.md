@@ -93,4 +93,4 @@ Ngày nay Hamilton là **thương hiệu Thụy Sĩ mang linh hồn Mỹ**: thu�
 
 ## Calibre in-house tiêu biểu
 
-Hamilton dùng bộ máy Thụy Sĩ trong tập đoàn Swatch Group, chọn lọc và tinh chỉnh riêng. Các họ calibre tiêu biểu của hãng nằm trong số **H-10**, **H-30** và **H-31**, với dòng H-10 có trữ cót dài. Hãng không tự sản xuất bộ máy, nhưng chọn và tinh chỉnh kỹ từng mã cho đúng mẫu.
+Hamilton dùng bộ máy Thụy Sĩ trong tập đoàn Swatch Group, chọn lọc và tinh chỉnh riêng. Hãng không tự sản xuất bộ máy, nhưng chọn và tinh chỉnh kỹ từng mã cho đúng mẫu. Calibre tiêu biểu **H-10** phát triển trên nền **ETA 2824-2**: 25 chân kính, **21.600 nhịp mỗi giờ tức 3 Hz**, **trữ cót 80 giờ** — trữ cót dài đạt được nhờ **hạ tần số xuống 3 Hz và thiết kế lại thùng cót**.

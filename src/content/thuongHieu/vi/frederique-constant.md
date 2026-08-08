@@ -89,4 +89,4 @@ Thành tựu đáng nể nhất: từ năm 2004 hãng **tự phát triển đư�
 
 ## Calibre in-house tiêu biểu
 
-Frédérique Constant tự phát triển bộ máy từ năm 2004, bắt đầu với **calibre FC-910** dùng cho dòng Heart Beat. Các calibre tiêu biểu của hãng nằm trong số **FC-700**, **FC-755** và **FC-735**. Lưu ý: **chỉ dòng Manufacture mới dùng bộ máy tự phát triển**, các dòng còn lại dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu.
+Frédérique Constant tự phát triển bộ máy từ năm 2004, bắt đầu với **calibre FC-910** dùng cho dòng Heart Beat. Lưu ý: **chỉ dòng Manufacture mới dùng bộ máy tự phát triển**, các dòng còn lại dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu.

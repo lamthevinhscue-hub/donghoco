@@ -92,4 +92,8 @@ Lưu ý: **Grand Seiko nay đứng riêng** như một thương hiệu độc l�
 
 ## Calibre in-house tiêu biểu
 
-Seiko tự sản xuất bộ máy ở mọi phân khúc. Các dòng **NH/N4**, **6R** và **8L** nằm trong số những calibre tiêu biểu của hãng.
+Seiko tự sản xuất bộ máy ở mọi phân khúc. Một số calibre tiêu biểu:
+
+- **6R35** — sai số trừ 15 tới cộng 25 giây mỗi ngày (ở nhiệt độ 5 tới 35 độ C), **trữ cót 70 giờ**.
+- **8L35** — sai số trừ 10 tới cộng 15 giây mỗi ngày, trữ cót khoảng 50 giờ, tần số 28.800 nhịp mỗi giờ; dùng cho tuyến lặn Prospex cao cấp.
+- **NH35** — 21.600 nhịp mỗi giờ, **trữ cót 41 giờ**, sai số công bố trừ 20 tới cộng 40 giây mỗi ngày; bộ máy nằm trong phần lớn Seiko 5 Sports.

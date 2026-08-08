@@ -41,7 +41,7 @@ collections:
     positioning: "Kế nhiệm trực tiếp của Mako đời một và đời hai, nên còn được gọi là Mako 3."
     iconic_ref: "Kamasu"
   - name: "Bambino"
-    identity: "Đồng hồ lịch sự, mặt số vòm, kính vòm, dùng calibre F6724."
+    identity: "Đồng hồ lịch sự, mặt số vòm, kính vòm."
     positioning: "Tuyến thanh lịch giá thấp, rất phổ biến với người mới."
     iconic_ref: "Bambino"
   - name: "Orient Star"
@@ -89,9 +89,9 @@ Với người Việt mới chơi, Orient thường là **chiếc đồng hồ c
 
 - **Mako và Ray** — tuyến bán chạy nhất, đồng hồ lặn vỏ thép dùng calibre F6922.
 - **Kamasu** — kế nhiệm Mako đời một và đời hai (còn gọi là Mako 3), mặt kính sapphire.
-- **Bambino** — tuyến thanh lịch giá thấp, mặt số vòm và kính vòm, dùng calibre F6724.
+- **Bambino** — tuyến thanh lịch giá thấp, mặt số vòm và kính vòm.
 - **Orient Star** — tuyến cao cấp, hoàn thiện cao hơn hẳn, nhiều bản lộ máy và có ô trữ cót.
 
 ## Calibre in-house tiêu biểu
 
-Orient tự sản xuất bộ máy tại Nhật Bản. Hai calibre tiêu biểu: **F6922** (dao động 21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ, dùng cho tuyến lặn Mako và Ray) và **F6724** (dùng cho tuyến lịch sự Bambino).
+Orient tự sản xuất bộ máy tại Nhật Bản. Calibre tiêu biểu **F6922**: dao động 21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ, dùng cho tuyến lặn Mako và Ray. Dòng lịch sự Bambino dùng một bộ máy tự phát triển khác của hãng.

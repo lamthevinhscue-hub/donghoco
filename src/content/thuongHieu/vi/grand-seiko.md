@@ -99,5 +99,5 @@ Ban đầu là dòng cao cấp nhất của Seiko, Grand Seiko nay đứng riên
 Grand Seiko sản xuất bộ máy tại hai xưởng: **Shizukuishi** (tỉnh Iwate) làm bộ máy **cơ khí** dòng 9S; **Shinshu** (tỉnh Nagano) làm **Spring Drive dòng 9R và quartz dòng 9F**. Ba hướng công nghệ song song:
 
 - **Calibre 9S** — cơ khí đạt chuẩn nội bộ riêng của Grand Seiko.
-- **Calibre 9F** — quartz cao cấp, chính xác khoảng 10 giây mỗi năm.
-- **Calibre 9R** — Spring Drive, cơ cấu lai: năng lượng hoàn toàn từ dây cót, điều tiết bằng điện tử, trượt kim giây mượt.
+- **Calibre 9F** — quartz cao cấp, ra đời năm **1993**, sai số chỉ **cộng trừ 10 giây mỗi năm**. Có cơ cấu khử rơ để kim giây không rung, đổi ngày tức thời, hệ xung kép cho phép kim vươn sát rìa mặt số; tinh thể thạch anh được ủ và tuyển chọn từng viên.
+- **Calibre 9R** — Spring Drive, cơ cấu lai: năng lượng hoàn toàn từ dây cót, điều tiết bằng điện tử, trượt kim giây mượt. Calibre **9RA5** đạt sai số **cộng trừ 10 giây mỗi tháng** (tương đương khoảng 0,5 giây mỗi ngày), trữ cót **120 giờ (5 ngày)**; calibre **9R65** sai số cộng trừ 15 giây mỗi tháng, trữ cót 72 giờ.

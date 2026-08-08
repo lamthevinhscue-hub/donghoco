@@ -146,4 +146,9 @@ Chính vì thế Cartier tư duy bằng **hình khối trước, cơ cấu sau**
 
 ## Calibre in-house tiêu biểu
 
-Cartier tự phát triển bộ máy, nhiều bản dáng không tròn để vừa vỏ tạo hình. Các calibre tiêu biểu nằm trong số **1904 MC**, **9907 MC** và **430 MC**.
+Cartier dùng cả **bộ máy tự phát triển** lẫn **bộ máy từ các hãng trong cùng tập đoàn Richemont** — giống cách Longines dùng nền ETA, hay Tissot dùng nền Powermatic. Hai bộ máy tiêu biểu:
+
+- **1904-PS MC** — bộ máy tự sản xuất của Cartier: tự động, đường kính 25,6mm, dày 4mm, **27 chân kính, 186 chi tiết, hai thùng cót, 28.800 nhịp mỗi giờ, trữ cót 48 giờ**.
+- **430 MC** — bản mang tên Cartier của **Piaget 430P**, siêu mỏng, lên dây tay, do Piaget (cùng tập đoàn Richemont) phát triển năm 1996. Đây là chuyện bình thường trong ngành, nhưng đáng lưu ý: nếu bạn coi "calibre Cartier" là bộ máy tự sản xuất của Cartier thì 430 MC không nằm trong nhóm đó.
+
+Nhiều bản calibre có dáng không tròn để vừa vỏ tạo hình của hãng.

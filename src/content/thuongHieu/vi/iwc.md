@@ -5,7 +5,7 @@ country: "Thụy Sĩ"
 tier: "high-end luxury"
 founded: 1868
 parent_company: "Richemont"
-signature_calibres: ["52000", "89000", "32110"]
+signature_calibres: ["52000", "89361", "32110"]
 date: "2026-07-31"
 draft: false
 # --- Bước 2.1: 5 khối dữ liệu ---
@@ -119,4 +119,10 @@ Chính vị trí lệch khỏi trung tâm ấy để lại dấu ấn: IWC phát
 
 ## Calibre in-house tiêu biểu
 
-IWC tự sản xuất bộ máy tại Schaffhausen, theo đuổi trữ cót nhiều ngày. Các họ bộ máy tiêu biểu của hãng nằm trong số **52000**, **89000** và **32110**. Một số dòng thấp hơn dùng bộ máy mua ngoài — nên kiểm mã bộ máy của từng mẫu cụ thể.
+IWC tự sản xuất bộ máy tại Schaffhausen, theo đuổi trữ cót nhiều ngày. Ba họ tiêu biểu:
+
+- **Họ 52000** — ra mắt năm 2015, tự động, **hai thùng cót cho trữ cót 168 giờ (7 ngày)**, tần số 4 Hz tức 28.800 nhịp mỗi giờ, lên dây hai chiều theo hệ Pellaton. Vấu lên dây và bánh xe tự động làm bằng **gốm đen**, ổ trục rotor bằng **gốm trắng** — gần như không mài mòn.
+- **Họ 32000** — trữ cót **72 giờ**, bánh thoát và ngựa làm bằng **silicon**.
+- **Calibre 89361** — chronograph, trữ cót **68 giờ**, có chức năng flyback, gộp bộ đếm giờ và phút ở vị trí 12 giờ.
+
+Gốm và silicon tiếp nối đúng mạch vật liệu mà hãng theo đuổi từ lâu — titan (1980), gốm (1986), rồi Ceratanium (2017). Một số dòng thấp hơn của hãng dùng bộ máy mua ngoài — nên kiểm mã bộ máy của từng mẫu cụ thể.

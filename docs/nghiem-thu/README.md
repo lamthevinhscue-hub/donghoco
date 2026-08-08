@@ -13,7 +13,11 @@ Nơi lưu các biên bản nghiệm thu do Claude lập, sau mỗi đợt bàn g
 | Ngày nghiệm thu | File | Phạm vi | Kết quả | Trạng thái |
 |---|---|---|---|---|
 | 02/08/2026 | [2026-08-02_kiem-ke-hien-trang_muc-A.md](2026-08-02_kiem-ke-hien-trang_muc-A.md) | Mục A — kiểm kê toàn repo tại commit `4d120dd` | Phát hiện 10 link 404, 4 vị trí ký tự ngoài tiếng Việt và tiếng Anh, 0 trên 8 tính năng nền tảng, 14 trên 24 trang thương hiệu chưa đủ 5 khối | Đã dùng làm căn cứ soạn `docs/bo-prompt-glm-v2.md` |
-| 03/08/2026 | [2026-08-03_nghiem-thu_muc-A0-B5-G-C-D4-H.md](2026-08-03_nghiem-thu_muc-A0-B5-G-C-D4-H.md) | Mục A0, B5, G, C, D4, H tại commit `39efcc6` | Đạt A0 (6 trên 7), B5, G, H. Chưa làm F0 và E0. **D4 không hoạt động.** Phát sinh 3 ký tự Trung Quốc mới | **CHƯA DUYỆT** — chờ GLM sửa 5 nhóm việc |
+| 03/08/2026 | [2026-08-03_nghiem-thu_muc-A0-B5-G-C-D4-H.md](2026-08-03_nghiem-thu_muc-A0-B5-G-C-D4-H.md) | Mục A0, B5, G, C, D4, H tại commit `39efcc6` | Đạt A0 (6 trên 7), B5, G, H. Chưa làm F0 và E0. **D4 không hoạt động.** Phát sinh 3 ký tự Trung Quốc mới | Đã khắc phục ở các commit sau |
+| 03/08/2026 | [2026-08-03_danh-gia-hien-trang-va-de-xuat-giao-dien.md](2026-08-03_danh-gia-hien-trang-va-de-xuat-giao-dien.md) | Toàn site tại commit `4682019`, 83 trang | Kỹ thuật và nội dung gần như xong: 0 link hỏng, 0 ký tự lạ, đủ 8 tính năng nền tảng. **Vấn đề còn lại là 0 ảnh thật.** Kèm 6 đề xuất giao diện và 3 prompt cho GLM | GLM đã làm xong cả 3 prompt |
+| 04/08/2026 | [2026-08-04_nghiem-thu-giao-dien-va-de-xuat-tuong-tac.md](2026-08-04_nghiem-thu-giao-dien-va-de-xuat-tuong-tac.md) | Commit `d763266`, 83 trang | **Đạt cả 4 việc đợt trước** (3 prompt giao diện + bổ sung lịch sử IWC/Cartier). Chẩn đoán mới: bài viết là ngõ cụt, /so-sanh thiếu lối vào, menu 8 mục phẳng. Kèm 4 prompt D-E-F-G | GLM đã làm xong cả 4 |
+| 06/08/2026 | [2026-08-06_nghiem-thu-svg-timeline-dot-1.md](2026-08-06_nghiem-thu-svg-timeline-dot-1.md) | 5 minh họa SVG đợt 1, commit `7192d24` | Kỹ thuật đạt 100%, thẩm mỹ 2 trên 5 đạt. Hai lỗi hệ thống: gạch tạo khối quá mảnh, hoa văn nền không hiện | Đã sửa xong, duyệt |
+| 06/08/2026 | [2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md](2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md) | Toàn site tại commit `d7ad690` | **Giai đoạn xây dựng đã xong.** 26/26 hãng đủ 5 khối, 28/28 minh họa, 0 link hỏng, 0 ký tự lạ. Còn lại: kiểm thử trên máy thật, ảnh chụp, dứt điểm CAN-KIEM-CHUNG | Lộ trình mới |
 
 ---
 

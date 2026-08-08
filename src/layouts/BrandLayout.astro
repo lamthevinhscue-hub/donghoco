@@ -16,7 +16,7 @@ import BaseLayout from './BaseLayout.astro';
 import MiniTimeline from '../components/MiniTimeline.astro';
 import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
-import { getLangFromUrl, t, localizedPath, getTierLabel } from '../i18n/ui';
+import { getLangFromUrl, t, localizedPath, getTierLabel, CALIBRE_DISPLAY_SLUGS } from '../i18n/ui';
 
 interface IconicModel {
   title: string;
@@ -32,6 +32,7 @@ interface Props {
   excerpt?: string;
   meta?: string;
   cover_image?: string;
+  slug?: string; // slug thương hiệu — dùng để kiểm tra allowlist hiển thị calibre
   data: any; // Toàn bộ frontmatter thương hiệu
   iconicModels?: IconicModel[]; // Khối 5: mẫu iconic liên quan
   sameTierBrands?: { title: string; slug: string; excerpt: string; country?: string; founded?: number; logo?: string }[]; // Khối 5 thay thế khi trống
@@ -39,7 +40,7 @@ interface Props {
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
-const { title, excerpt, meta, data, iconicModels = [], sameTierBrands = [] } = Astro.props;
+const { title, excerpt, meta, data, slug = '', iconicModels = [], sameTierBrands = [] } = Astro.props;
 // Hero ảnh + logo: ưu tiên prop cover_image, fallback data.cover_image / data.logo
 const heroImage = Astro.props.cover_image ?? data.cover_image;
 const logo = data.logo;
@@ -114,8 +115,8 @@ const breadcrumbData = [
           <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Phân khúc</p>
           <p class="mt-1 font-serif text-base font-medium text-navy dark:text-dark-text dark:text-dark-text">{tierLabel}</p>
         </div>
-        <!-- Calibre tiêu biểu -->
-        {data.signature_calibres && data.signature_calibres.length > 0 && (
+        <!-- Calibre tiêu biểu — chỉ hiện khi slug thuộc allowlist (đã kiểm chứng) -->
+        {data.signature_calibres && data.signature_calibres.length > 0 && CALIBRE_DISPLAY_SLUGS.has(slug) && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:col-span-2">
             <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Bộ máy in-house tiêu biểu</p>
             <div class="mt-2 flex flex-wrap gap-2">

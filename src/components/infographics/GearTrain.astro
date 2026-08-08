@@ -2,14 +2,18 @@
 // =============================================================================
 // INFOGRAPHIC: CHUỖI TRUYỀN ĐỘNG (Gear Train / Power Flow)
 // =============================================================================
-// Hoạt ảnh: CSS transition + Intersection Observer (native).
+// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (5 bánh răng quay với tỷ lệ tốc độ
+// đúng, ngược chiều kề nhau, tooltip khi chạm/rê). Các cảnh khác giữ nguyên
+// CSS reveal + Intersection Observer.
 //
 // 4 cảnh:
 //   1. Mở đầu — dòng chảy năng lượng
-//   2. 4 trạm trên dòng chảy — SVG dây cót → bánh răng → bộ thoát → bánh lắc
+//   2. Chuỗi 5 bánh răng truyền động — HOẠT ẢNH TƯƠNG TÁC
 //   3. Bánh lắc & tần số — vì sao "tích tắc"
 //   4. Tóm tắt — dòng chảy tới kim đồng hồ
 // =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
 
 // 4 trạm trên dòng chảy năng lượng
 const stations = [
@@ -78,70 +82,142 @@ const stations = [
     </p>
 
     <div class="svg-container mb-12">
-      <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl">
-        <!-- Đường dẫn dòng chảy (mũi tên nối) -->
-        <g data-anim="flow-path" opacity="0">
-          <line x1="130" y1="100" x2="260" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
-          <polygon points="265,100 255,94 255,106" fill="#B8893C"/>
-          <line x1="340" y1="100" x2="470" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
-          <polygon points="475,100 465,94 465,106" fill="#B8893C"/>
-          <line x1="550" y1="100" x2="680" y2="100" stroke="#B8893C" stroke-width="2" stroke-dasharray="5 3"/>
-          <polygon points="685,100 675,94 675,106" fill="#B8893C"/>
-        </g>
+      <!-- ====== HOẠT ẢNH TƯƠNG TÁC: 5 bánh răng quay với tỷ lệ tốc độ đúng ====== -->
+      <MechanismAnimation label="Chuỗi truyền động (5 bánh răng quay với tốc độ khác nhau)" data-mech-step-id="gear-train">
+        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl" id="gear-train-svg">
+          <text x="400" y="26" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+            Thùng cót (chậm) → bánh răng → bánh thoát (nhanh) — ngược chiều kề nhau
+          </text>
 
-        <!-- Trạm 1: Dây cót (thùng cót) -->
-        <g data-anim="station-1" opacity="0">
-          <circle cx="90" cy="100" r="40" fill="#FAF7F2" stroke="#B8893C" stroke-width="3"/>
-          <!-- Xoắn ốc dây cót -->
-          <path d="M 90 70 a 30 30 0 1 1 -0.1 0 m 0 6 a 24 24 0 1 0 0.1 0 m 0 6 a 18 18 0 1 1 -0.1 0"
-                fill="none" stroke="#B8893C" stroke-width="3"/>
-          <circle cx="90" cy="100" r="4" fill="#B8893C"/>
-          <text x="90" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Dây cót</text>
-        </g>
-
-        <!-- Trạm 2: Bánh răng -->
-        <g data-anim="station-2" opacity="0">
-          <circle cx="300" cy="100" r="40" fill="#FAF7F2" stroke="#4FB286" stroke-width="3"/>
-          <!-- Răng bánh răng -->
-          <g stroke="#4FB286" stroke-width="2">
-            <line x1="300" y1="60" x2="300" y2="68"/>
-            <line x1="340" y1="100" x2="332" y2="100"/>
-            <line x1="300" y1="140" x2="300" y2="132"/>
-            <line x1="260" y1="100" x2="268" y2="100"/>
-            <line x1="328" y1="72" x2="322" y2="78"/>
-            <line x1="328" y1="128" x2="322" y2="122"/>
-            <line x1="272" y1="128" x2="278" y2="122"/>
-            <line x1="272" y1="72" x2="278" y2="78"/>
+          <!-- ====== 1. THÙNG CÓT (lớn nhất, chậm nhất, chiều CW) ====== -->
+          <g id="gt-barrel" transform="translate(110, 170)" data-part="barrel" data-name-vi="Thùng cót (Barrel)" data-name-en="Mainspring Barrel">
+            <circle r="62" fill="#FAF7F2" stroke="#B8893C" stroke-width="3" class="dark:fill-dark-surface"/>
+            <!-- Răng ngoài thùng cót -->
+            {Array.from({ length: 24 }).map((_, i) => {
+              const a = (i * 360) / 24;
+              return (
+                <g transform={`rotate(${a})`}>
+                  <rect x="-2" y="-68" width="4" height="8" fill="#B8893C"/>
+                </g>
+              );
+            })}
+            <!-- Dây cót xoắn bên trong -->
+            <path d="M 110 170 m -45 0 a 45 45 0 1 1 90 0 a 38 38 0 1 1 -76 0 a 28 28 0 1 1 56 0"
+                  fill="none" stroke="#B8893C" stroke-width="3" opacity="0.7" transform="translate(-110,-170)"/>
+            <circle r="8" fill="#B8893C"/>
+            <text y="90" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thùng cót</text>
           </g>
-          <circle cx="300" cy="100" r="18" fill="none" stroke="#4FB286" stroke-width="2"/>
-          <circle cx="300" cy="100" r="4" fill="#4FB286"/>
-          <text x="300" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bánh răng</text>
-        </g>
 
-        <!-- Trạm 3: Bộ thoát -->
-        <g data-anim="station-3" opacity="0">
-          <circle cx="510" cy="100" r="40" fill="#FAF7F2" stroke="#2E86AB" stroke-width="3"/>
-          <!-- Neo + bánh thoát -->
-          <path d="M 495 80 L 500 95 L 490 95 Z" fill="#2E86AB"/>
-          <path d="M 525 120 L 520 105 L 530 105 Z" fill="#2E86AB"/>
-          <circle cx="510" cy="100" r="10" fill="none" stroke="#2E86AB" stroke-width="2"/>
-          <text x="510" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bộ thoát</text>
-        </g>
+          <!-- ====== 2. BÁNH RĂNG TRUNG GIAN (vừa, nhanh hơn, CCW) ====== -->
+          <g id="gt-center" transform="translate(290, 170)" data-part="center-wheel" data-name-vi="Bánh răng trung gian (Center wheel)" data-name-en="Center wheel">
+            <circle r="48" fill="#FAF7F2" stroke="#4FB286" stroke-width="3" class="dark:fill-dark-surface"/>
+            {Array.from({ length: 16 }).map((_, i) => {
+              const a = (i * 360) / 16;
+              return (
+                <g transform={`rotate(${a})`}>
+                  <path d="M 0 -48 L 4 -56 L -4 -56 Z" fill="#4FB286"/>
+                </g>
+              );
+            })}
+            <circle r="14" fill="none" stroke="#4FB286" stroke-width="2"/>
+            <circle r="5" fill="#4FB286"/>
+            <text y="76" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Bánh răng trung gian</text>
+          </g>
 
-        <!-- Trạm 4: Bánh lắc -->
-        <g data-anim="station-4" opacity="0">
-          <circle cx="720" cy="100" r="40" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="3"/>
-          <!-- Bánh lắc với 3 chân -->
-          <circle cx="720" cy="100" r="28" fill="none" stroke="#9B2C2C" stroke-width="2"/>
-          <line x1="720" y1="72" x2="720" y2="128" stroke="#9B2C2C" stroke-width="2"/>
-          <line x1="694" y1="85" x2="746" y2="115" stroke="#9B2C2C" stroke-width="2"/>
-          <line x1="694" y1="115" x2="746" y2="85" stroke="#9B2C2C" stroke-width="2"/>
-          <circle cx="720" cy="100" r="4" fill="#9B2C2C"/>
-          <!-- Mũi tên cong dao động -->
-          <path d="M 690 100 Q 720 75 750 100" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="3 2"/>
-          <text x="720" y="165" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold">Bánh lắc</text>
-        </g>
-      </svg>
+          <!-- ====== 3. BÁNH RĂNG THỨ BA (nhỏ hơn, nhanh hơn nữa, CW) ====== -->
+          <g id="gt-third" transform="translate(440, 170)" data-part="third-wheel" data-name-vi="Bánh răng thứ ba (Third wheel)" data-name-en="Third wheel">
+            <circle r="38" fill="#FAF7F2" stroke="#4FB286" stroke-width="3" class="dark:fill-dark-surface"/>
+            {Array.from({ length: 14 }).map((_, i) => {
+              const a = (i * 360) / 14;
+              return (
+                <g transform={`rotate(${a})`}>
+                  <path d="M 0 -38 L 3 -45 L -3 -45 Z" fill="#4FB286"/>
+                </g>
+              );
+            })}
+            <circle r="12" fill="none" stroke="#4FB286" stroke-width="2"/>
+            <circle r="4" fill="#4FB286"/>
+            <text y="64" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Bánh răng ba</text>
+          </g>
+
+          <!-- ====== 4. BÁNH THOÁT (nhỏ nhất, nhanh nhất, CCW) ====== -->
+          <g id="gt-escape" transform="translate(560, 170)" data-part="escape-wheel-gt" data-name-vi="Bánh thoát (Escape wheel)" data-name-en="Escape wheel">
+            <circle r="30" fill="#FAF7F2" stroke="#2E86AB" stroke-width="3" class="dark:fill-dark-surface"/>
+            {Array.from({ length: 15 }).map((_, i) => {
+              const a = (i * 360) / 15;
+              return (
+                <g transform={`rotate(${a})`}>
+                  <path d="M 0 -30 L 3 -37 L -3 -37 Z" fill="#2E86AB"/>
+                </g>
+              );
+            })}
+            <circle r="8" fill="none" stroke="#2E86AB" stroke-width="2"/>
+            <circle r="4" fill="#2E86AB"/>
+            <text y="54" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Bánh thoát</text>
+          </g>
+
+          <!-- ====== 5. BÁNH LẮC (dao động, không quay tròn) ====== -->
+          <g id="gt-balance" transform="translate(690, 170)" data-part="balance-gt" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
+            <circle r="34" fill="none" stroke="#9B2C2C" stroke-width="4"/>
+            <line x1="0" y1="-34" x2="0" y2="34" stroke="#9B2C2C" stroke-width="2.5"/>
+            <line x1="-29" y1="-17" x2="29" y2="17" stroke="#9B2C2C" stroke-width="2.5"/>
+            <line x1="-29" y1="17" x2="29" y2="-17" stroke="#9B2C2C" stroke-width="2.5"/>
+            <circle r="5" fill="#9B2C2C"/>
+            <circle cx="0" cy="-34" r="3" fill="#2D3748"/>
+            <circle cx="0" cy="34" r="3" fill="#2D3748"/>
+            <text y="58" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Bánh lắc</text>
+          </g>
+
+          <!-- Mũi tên dòng chảy (giữa các bánh) -->
+          <g opacity="0.5">
+            <text x="195" y="155" font-size="14" fill="#B8893C">→</text>
+            <text x="360" y="155" font-size="14" fill="#B8893C">→</text>
+            <text x="495" y="155" font-size="14" fill="#B8893C">→</text>
+            <text x="620" y="155" font-size="14" fill="#B8893C">→</text>
+          </g>
+
+          <!-- Tooltip khi chạm/rê -->
+          <g id="gt-tooltip" opacity="0" style="pointer-events: none;">
+            <rect id="gt-tooltip-bg" x="0" y="0" width="160" height="34" rx="4" fill="#1F2D3D" opacity="0.95"/>
+            <text id="gt-tooltip-vi" x="80" y="14" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
+            <text id="gt-tooltip-en" x="80" y="28" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+          </g>
+        </svg>
+
+        <script is:inline define:vars={{}} slot="script">
+          // Đăng ký hàm animate cho gear-train
+          (window.__mechSteps = window.__mechSteps || {})['gear-train'] = function(delta, elapsed) {
+            const svg = document.getElementById('gear-train-svg');
+            if (!svg) return;
+            const barrel = svg.querySelector('#gt-barrel');
+            const center = svg.querySelector('#gt-center');
+            const third = svg.querySelector('#gt-third');
+            const escape = svg.querySelector('#gt-escape');
+            const balance = svg.querySelector('#gt-balance');
+            if (!barrel || !center || !escape) return;
+
+            // Tỷ lệ tốc độ: thùng cót chậm nhất (1x), mỗi bánh kế nhanh hơn
+            // (thực tế tỷ lệ theo số răng). Đơn vị: độ/giây mô phỏng.
+            // barrel: 1x (CW), center: ~3x (CCW), third: ~8x (CW), escape: ~24x (CCW)
+            const baseSpeed = 18; // độ/giây cho barrel
+            const barrelAngle = elapsed * baseSpeed * 0.001;
+            const centerAngle = -elapsed * baseSpeed * 0.001 * 3;     // ngược chiều
+            const thirdAngle = elapsed * baseSpeed * 0.001 * 8;
+            const escapeAngle = -elapsed * baseSpeed * 0.001 * 24;    // ngược chiều, nhanh nhất
+
+            barrel.setAttribute('transform', `translate(110, 170) rotate(${barrelAngle})`);
+            center.setAttribute('transform', `translate(290, 170) rotate(${centerAngle})`);
+            third.setAttribute('transform', `translate(440, 170) rotate(${thirdAngle})`);
+            escape.setAttribute('transform', `translate(560, 170) rotate(${escapeAngle})`);
+
+            // Bánh lắc: dao động qua lại (không quay tròn)
+            // chu kỳ dao động ~ 0.5 giây mô phỏng = 1 nhịp
+            const phase = (elapsed % 1000) / 1000;
+            const swingAngle = Math.sin(phase * Math.PI * 2) * 28;
+            balance.setAttribute('transform', `translate(690, 170) rotate(${swingAngle})`);
+          };
+        </script>
+      </MechanismAnimation>
     </div>
 
     <!-- Mô tả từng trạm -->
@@ -325,5 +401,48 @@ const stations = [
     }, 3000);
   }
 
+  // ====== Tooltip cho 5 bánh răng khi rê/chạm ======
+  function setupGearTooltips() {
+    const svg = document.getElementById('gear-train-svg');
+    if (!svg) return;
+    const parts = svg.querySelectorAll('[data-part]');
+    const tooltip = svg.querySelector('#gt-tooltip');
+    const tooltipVi = svg.querySelector('#gt-tooltip-vi');
+    const tooltipEn = svg.querySelector('#gt-tooltip-en');
+    const tooltipBg = svg.querySelector('#gt-tooltip-bg');
+    if (!tooltip || !tooltipVi) return;
+
+    parts.forEach((part) => {
+      const highlight = () => {
+        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
+        tooltipEn.textContent = part.getAttribute('data-name-en') || '';
+        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);
+        tooltip.setAttribute('opacity', '1');
+      };
+      const unhighlight = () => {
+        part.style.filter = '';
+        tooltip.setAttribute('opacity', '0');
+      };
+      part.addEventListener('mouseenter', highlight);
+      part.addEventListener('mouseleave', unhighlight);
+      part.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        highlight();
+        setTimeout(unhighlight, 2000);
+      });
+    });
+
+    // Tooltip theo chuột
+    svg.addEventListener('mousemove', (e) => {
+      const rect = svg.getBoundingClientRect();
+      const vb = svg.viewBox.baseVal;
+      const x = (e.clientX - rect.left) * (vb.width / rect.width);
+      const y = (e.clientY - rect.top) * (vb.height / rect.height);
+      tooltip.setAttribute('transform', `translate(${Math.min(x, vb.width - 170)}, ${Math.max(y - 40, 0)})`);
+    });
+  }
+
   initInfographic();
+  setupGearTooltips();
 </script>

@@ -4,6 +4,7 @@ excerpt: "Trục bánh lắc rất mảnh nên dễ gãy khi va đập. Hệ ch�
 category: "bổ trợ"
 difficulty: "trung bình"
 has_infographic: true
+interactive: true
 date: "2026-08-08"
 draft: false
 ---

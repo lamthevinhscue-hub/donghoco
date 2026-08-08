@@ -4,6 +4,7 @@ excerpt: "Đĩa có hai mặt trăng, bánh răng 59 răng đẩy một nấc m�
 category: "phức tạp"
 difficulty: "trung bình"
 has_infographic: true
+interactive: true
 date: "2026-08-08"
 draft: false
 ---

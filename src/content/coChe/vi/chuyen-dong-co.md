@@ -4,6 +4,7 @@ excerpt: "Đoạn đường mà năng lượng đi từ dây cót đến kim đ�
 category: "nền tảng"
 difficulty: "trung bình"
 has_infographic: true
+interactive: true
 date: "2026-07-31"
 draft: false
 ---

@@ -4,6 +4,7 @@ excerpt: "Bộ thoát Thụy Sĩ truyền lực bằng ma sát trượt nên c�
 category: "phức tạp"
 difficulty: "cao"
 has_infographic: true
+interactive: true
 date: "2026-08-08"
 draft: false
 ---

@@ -2,15 +2,18 @@
 // =============================================================================
 // INFOGRAPHIC: TRỮ CÓT (Power Reserve)
 // =============================================================================
-// Hoạt ảnh: CSS transition + Intersection Observer (native, không cần thư viện).
-// Pattern giống WaterResistance.astro.
+// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (dây cót nhả dần, thanh trữ cót
+// tụt xuống, biên độ bánh lắc giảm khi dưới 1/4 — kiến thức thực dụng).
+// Các cảnh khác giữ nguyên CSS reveal + Intersection Observer.
 //
 // 4 cảnh:
 //   1. Mở đầu — câu hỏi gây tò mò
-//   2. Thùng cót — SVG minh họa dây cót cuộn (đầy) → nhả (cạn)
+//   2. Thùng cót + thanh trữ cót + bánh lắc — HOẠT ẢNH TƯƠNG TÁC
 //   3. Thang mức độ — 38h → 100h+ với ví dụ đồng hồ
 //   4. Ứng dụng thực tế — weekend power reserve & mẹo
 // =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
 
 // Dữ liệu các mức trữ cót (có thể chỉnh sửa tại đây)
 const levels = [
@@ -67,47 +70,126 @@ const levels = [
   </div>
 
   <!-- ====================================================================
-       CẢNH 2: THÙNG CÓT — dây cót cuộn (đầy) → nhả (cạn)
+       CẢNH 2: THÙNG CÓT + THANH TRỮ CÓT + BÁNH LẮC — HOẠT ẢNH TƯƠNG TÁC
        ==================================================================== -->
   <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
     <div class="svg-container" data-svg="barrel">
-      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md">
-        <!-- Thùng cót (barrel) - vòng tròn lớn -->
-        <circle cx="200" cy="150" r="90" fill="#FAF7F2" stroke="#2D3748" stroke-width="3"/>
+      <MechanismAnimation label="Dây cót nhả dần — trữ cót tụt, biên độ bánh lắc giảm khi gần hết" data-mech-step-id="power-reserve">
+        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="power-reserve-svg">
+          <!-- ====== THANH TRỮ CÓT (trên cùng) ====== -->
+          <text x="200" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thanh trữ cót</text>
+          <rect x="60" y="28" width="280" height="18" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+          <!-- Thanh lấp (động) -->
+          <rect id="pr-bar-fill" x="62" y="30" width="276" height="14" rx="2" fill="#B8893C"/>
+          <text id="pr-bar-label" x="200" y="62" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">100%</text>
 
-        <!-- Dây cót CUỘN MỶN (đầy năng lượng) - xoắn ốc màu vàng đồng -->
-        <g data-anim="mainspring-full" opacity="0">
-          <!-- Xoắn ốc từ ngoài vào trong (mô phỏng dây cót cuộn) -->
-          <path d="M 200 70
-                   A 80 80 0 1 1 120 150
-                   A 70 70 0 1 1 190 90
-                   A 55 55 0 1 1 140 150
-                   A 40 40 0 1 1 190 115
-                   A 25 25 0 1 1 170 150"
-                fill="none" stroke="#B8893C" stroke-width="6" stroke-linecap="round"/>
-          <text x="200" y="155" text-anchor="middle" font-size="11" fill="#1A1A1A" font-weight="bold">Đầy</text>
-        </g>
+          <!-- ====== THÙNG CÓT (giữa) ====== -->
+          <g transform="translate(200, 170)">
+            <!-- Vỏ thùng cót -->
+            <circle r="78" fill="#FAF7F2" stroke="#2D3748" stroke-width="3" class="dark:fill-dark-surface"/>
+            <!-- Răng ngoài -->
+            {Array.from({ length: 20 }).map((_, i) => {
+              const a = (i * 360) / 20;
+              return <g transform={`rotate(${a})`}><rect x="-2" y="-84" width="4" height="8" fill="#B8893C"/></g>;
+            })}
+            <!-- Dây cót xoắn (động — giãn ra khi nhả) -->
+            <g id="pr-mainspring" data-part="mainspring" data-name-vi="Dây cót (Mainspring)" data-name-en="Mainspring"></g>
+            <!-- Trục -->
+            <circle r="8" fill="#2D3748"/>
+          </g>
+          <text x="200" y="270" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thùng cót + dây cót</text>
 
-        <!-- Trục giữa -->
-        <circle cx="200" cy="150" r="8" fill="#2D3748"/>
+          <!-- ====== BÁNH LẮC (dưới — biên độ giảm khi cót thấp) ====== -->
+          <g transform="translate(200, 320)">
+            <!-- Quỹ đạo dao động (mờ) -->
+            <path id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke="#9B2C2C" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+            <!-- Bánh lắc (dao động) -->
+            <g id="pr-balance" data-part="balance-pr" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
+              <circle r="22" fill="none" stroke="#9B2C2C" stroke-width="3"/>
+              <line x1="0" y1="-22" x2="0" y2="22" stroke="#9B2C2C" stroke-width="2"/>
+              <line x1="-19" y1="-11" x2="19" y2="11" stroke="#9B2C2C" stroke-width="2"/>
+              <circle r="4" fill="#9B2C2C"/>
+            </g>
+          </g>
+          <text id="pr-amplitude-note" x="200" y="354" text-anchor="middle" font-size="10" fill="#1F2D3D" opacity="0" class="dark:fill-dark-text"></text>
+        </svg>
 
-        <!-- Chú thích -->
-        <g data-anim="label-barrel" opacity="0">
-          <line x1="290" y1="150" x2="350" y2="150" stroke="#B8893C" stroke-width="1.5"/>
-          <circle cx="350" cy="150" r="3" fill="#B8893C"/>
-          <text x="355" y="154" font-size="11" fill="#1F2D3D" font-weight="bold">Thùng cót (barrel)</text>
-        </g>
+        <script is:inline define:vars={{}} slot="script">
+          // Sinh dây cót xoắn ốc tĩnh lần đầu (rồi cập nhật động)
+          (function initMainspring() {
+            const g = document.querySelector('#power-reserve-svg #pr-mainspring');
+            if (!g || g.children.length > 0) return;
+            const svgNS = 'http://www.w3.org/2000/svg';
+            // 5 vòng xoắn — bán kính giảm dần vào trong
+            for (let i = 0; i < 5; i++) {
+              const r = 70 - i * 12;
+              const c = document.createElementNS(svgNS, 'circle');
+              c.setAttribute('r', String(r));
+              c.setAttribute('fill', 'none');
+              c.setAttribute('stroke', '#B8893C');
+              c.setAttribute('stroke-width', '4');
+              c.setAttribute('opacity', '0.7');
+              c.setAttribute('stroke-dasharray', String(r * 2.5) + ' ' + String(r * 3.8));
+              c.setAttribute('class', 'pr-coil');
+              c.dataset.baseRadius = String(r);
+              g.appendChild(c);
+            }
+          })();
 
-        <!-- Mũi tên chỉ sự nhả cót -->
-        <g data-anim="release-arrow" opacity="0">
-          <text x="200" y="280" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold">
-            Dây cót nhả dần → năng lượng giảm theo thời gian
-          </text>
-          <text x="200" y="295" text-anchor="middle" font-size="10" fill="#4A5568">
-            (khi hết, đồng hồ dừng)
-          </text>
-        </g>
-      </svg>
+          // Đăng ký hàm animate cho power-reserve
+          (window.__mechSteps = window.__mechSteps || {})['power-reserve'] = function(delta, elapsed) {
+            const svg = document.getElementById('power-reserve-svg');
+            if (!svg) return;
+            const barFill = svg.querySelector('#pr-bar-fill');
+            const barLabel = svg.querySelector('#pr-bar-label');
+            const coils = svg.querySelectorAll('.pr-coil');
+            const balance = svg.querySelector('#pr-balance');
+            const arc = svg.querySelector('#pr-arc');
+            const ampNote = svg.querySelector('#pr-amplitude-note');
+            if (!barFill || !balance) return;
+
+            // Chu kỳ: 1 chu kỳ nhả cót đầy→cạn = 20 giây mô phỏng
+            const cycle = 20000;
+            const phase = (elapsed % cycle) / cycle; // 0 → 1 (đầy → cạn)
+            const reserve = 1 - phase; // 1 → 0
+
+            // Thanh trữ cót tụt
+            const barW = Math.max(0, 276 * reserve);
+            barFill.setAttribute('width', String(barW));
+            const pct = Math.round(reserve * 100);
+            barLabel.textContent = pct + '%';
+
+            // Dây cót: các vòng xoắn giãn ra (bán kính tăng) khi nhả
+            coils.forEach((coil) => {
+              const base = parseFloat(coil.dataset.baseRadius);
+              // Khi reserve cao (đầy) → vòng sát nhau; khi thấp → giãn ra
+              const expand = (1 - reserve) * 10;
+              coil.setAttribute('r', String(base + expand));
+            });
+
+            // Biên độ bánh lắc: đầy = 28°, giảm dần; dưới 25% giảm mạnh
+            let amplitude;
+            if (reserve > 0.25) {
+              amplitude = 14 + reserve * 14; // 14° → 28°
+            } else {
+              amplitude = Math.max(4, reserve * 56); // giảm mạnh, tối thiểu 4°
+            }
+            // Dao động với biên độ hiện tại
+            const swingPeriod = 1000; // 1 nhịp/giây
+            const swingAngle = Math.sin((elapsed / swingPeriod) * Math.PI * 2) * amplitude;
+            balance.setAttribute('transform', `rotate(${swingAngle})`);
+
+            // Cảnh báo khi biên độ thấp (dưới 1/4 trữ cót)
+            if (reserve <= 0.25) {
+              ampNote.setAttribute('opacity', '1');
+              ampNote.setAttribute('fill', '#9B2C2C');
+              ampNote.textContent = '⚠ Biên độ giảm — đồng hồ chạy sai khi gần hết cót';
+            } else {
+              ampNote.setAttribute('opacity', '0');
+            }
+          };
+        </script>
+      </MechanismAnimation>
     </div>
     <div class="space-y-4">
       <h3 class="font-serif text-2xl text-navy dark:text-dark-text dark:text-dark-text">Dây cót — "pin cơ học"</h3>
@@ -124,6 +206,9 @@ const levels = [
         <strong class="text-brass dark:text-dark-brass dark:text-dark-brass">💡 Trữ cót (power reserve)</strong> = thời gian đồng hồ
         chạy được sau khi dây cót được lên đầy — tính bằng giờ.
       </div>
+      <p class="text-sm text-ink-soft dark:text-dark-text-soft dark:text-dark-text-soft">
+        Trong hoạt ảnh bên: dây cót giãn ra khi nhả, thanh trữ cót tụt xuống, và <strong>khi dưới khoảng một phần tư, biên độ dao động của bánh lắc giảm rõ</strong> — đó là lý do đồng hồ chạy sai khi gần hết cót.
+      </p>
     </div>
   </div>
 

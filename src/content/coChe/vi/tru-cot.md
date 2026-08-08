@@ -4,6 +4,7 @@ excerpt: "Khi đặt đồng hồ xuống, nó chạy được bao lâu? Hiểu 
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: true
+interactive: true
 date: "2026-08-01"
 draft: false
 ---

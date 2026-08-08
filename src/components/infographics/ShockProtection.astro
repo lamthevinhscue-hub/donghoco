@@ -1,0 +1,156 @@
+---
+// =============================================================================
+// SHOCKPROTECTION — SVG hệ chống sốc: chân kính lùi lại rồi bật về nhờ lò xo
+// =============================================================================
+// Mô phỏng: va đập → trục bánh lắc lùi → lò xo hình sao hấp thụ → bật về.
+// Dùng MechanismAnimation wrapper.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Hệ chống sốc (Incabloc)" data-mech-step-id="shock-protection">
+  <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="shock-svg">
+    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Va đập → trục lùi → lò xo hình sao hấp thụ lực → bật về vị trí
+    </text>
+
+    <!-- ====== CẦU MÁY (trên) ====== -->
+    <g transform="translate(300, 90)">
+      <rect x="-90" y="-25" width="180" height="40" rx="4" fill="#B8893C" opacity="0.25" stroke="#B8893C" stroke-width="1.5"/>
+      <text x="0" y="-35" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="600">Cầu máy (bridge)</text>
+    </g>
+
+    <!-- ====== KHỐI CHỐNG SỐC (cố định) ====== -->
+    <g transform="translate(300, 180)">
+      <!-- Vỏ khối -->
+      <circle r="55" fill="none" stroke="#4A5568" stroke-width="2"/>
+      <text x="0" y="-65" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="600">Khối Incabloc</text>
+
+      <!-- Lò xo hình sao (lyre spring) — cố định -->
+      <g id="shock-spring" data-part="shock-spring" data-name-vi="Lò xo hình sao" data-name-en="Lyre spring">
+        <path d="M -42 0 Q -35 -28 -20 -10 Q -10 -30 0 -12 Q 10 -30 20 -10 Q 35 -28 42 0 Q 35 28 20 10 Q 10 30 0 12 Q -10 30 -20 10 Q -35 28 -42 0 Z"
+              fill="none" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Chân kính (jewel) + trục — nhóm di chuyển theo sốc -->
+      <g id="shock-jewel-group">
+        <!-- Chân kính (viên đá) -->
+        <g id="shock-jewel" data-part="shock-jewel" data-name-vi="Chân kính (ổ trục)" data-name-en="Jewel bearing">
+          <circle r="20" fill="#9B2C2C" opacity="0.35" stroke="#9B2C2C" stroke-width="1.5"/>
+          <circle r="8" fill="#1F2D3D"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- ====== BÁNH LẮC (dưới trục) ====== -->
+    <g id="shock-balance-group" transform="translate(300, 300)">
+      <g id="shock-balance" data-part="shock-balance" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
+        <circle r="50" fill="none" stroke="#1F2D3D" stroke-width="4"/>
+        <!-- Dây tóc -->
+        <circle r="40" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.5"/>
+        <!-- Trục nối lên -->
+        <line x1="0" y1="0" x2="0" y2="-70" stroke="#1F2D3D" stroke-width="3"/>
+        <!-- Chân kính đỉnh trục (ở giữa) -->
+        <circle r="3" fill="#1F2D3D"/>
+        <!-- 4 chân kính trang trí -->
+        {[0, 90, 180, 270].map((a) => (
+          <circle cx={Math.cos((a * Math.PI) / 180) * 50} cy={Math.sin((a * Math.PI) / 180) * 50} r="3" fill="#1F2D3D"/>
+        ))}
+      </g>
+    </g>
+
+    <!-- ====== Mũi tên sốc (động) ====== -->
+    <g id="shock-arrow" opacity="0">
+      <line x1="300" y1="40" x2="300" y2="70" stroke="#9B2C2C" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="294,68 306,68 300,80" fill="#9B2C2C"/>
+      <text x="320" y="60" font-size="11" fill="#9B2C2C" font-weight="600">sốc</text>
+    </g>
+
+    <!-- Tooltip -->
+    <g id="shock-tooltip" opacity="0" pointer-events="none">
+      <rect id="shock-tooltip-bg" x="0" y="0" width="120" height="34" rx="4" fill="#1F2D3D" opacity="0.9"/>
+      <text id="shock-tooltip-vi" x="60" y="14" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="600">—</text>
+      <text id="shock-tooltip-en" x="60" y="28" text-anchor="middle" font-size="9" fill="#B8893C">—</text>
+    </g>
+  </svg>
+
+  <script is:inline define:vars={{}} slot="script">
+    // =============================================================================
+    // Đăng ký hàm animate cho shock-protection
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['shock-protection'] = function(delta, elapsed) {
+      const svg = document.getElementById('shock-svg');
+      if (!svg) return;
+      const jewelGroup = svg.querySelector('#shock-jewel-group');
+      const balanceGroup = svg.querySelector('#shock-balance-group');
+      const arrow = svg.querySelector('#shock-arrow');
+      const tooltip = svg.querySelector('#shock-tooltip');
+      if (!jewelGroup || !balanceGroup) return;
+
+      // Chu kỳ sốc: mỗi 5000ms một cú va đập + hồi phục
+      const period = 5000;
+      const phase = (elapsed % period) / period; // 0 → 1
+
+      // Giai đoạn: 0-0.15 = chờ, 0.15-0.25 = sốc (lùi), 0.25-0.5 = hồi phục, 0.5-1 = ổn định
+      let offset = 0; // dịch chuyển dọc của trục + bánh lắc
+      let arrowOpacity = 0;
+      if (phase < 0.15) {
+        // chờ
+        offset = 0;
+        arrowOpacity = 0;
+      } else if (phase < 0.25) {
+        // sốc: lùi xuống (trục + bánh lắc dịch xuống)
+        const p = (phase - 0.15) / 0.10;
+        offset = 14 * Math.sin(p * Math.PI); // lên rồi xuống nhẹ
+        arrowOpacity = 1;
+      } else if (phase < 0.5) {
+        // hồi phục: nảy về
+        const p = (phase - 0.25) / 0.25;
+        offset = 14 * Math.exp(-p * 4) * Math.cos(p * Math.PI * 4); // dao động tắt dần
+        arrowOpacity = Math.max(0, 1 - p * 2);
+      } else {
+        offset = 0;
+        arrowOpacity = 0;
+      }
+
+      // Chân kính + trục dịch xuống (theo sốc)
+      jewelGroup.setAttribute('transform', `translate(0, ${offset})`);
+      // Bánh lắc cũng dịch xuống (nối với trục)
+      balanceGroup.setAttribute('transform', `translate(300, ${300 + offset})`);
+      // Mũi tên sốc
+      arrow.setAttribute('opacity', String(arrowOpacity));
+    };
+  </script>
+</MechanismAnimation>
+
+<script>
+  // Tooltip hover — gắn sau khi SVG render
+  document.addEventListener('astro:page-load', setupShockTooltips);
+  setupShockTooltips();
+  function setupShockTooltips() {
+    const svg = document.getElementById('shock-svg');
+    if (!svg) return;
+    const parts = svg.querySelectorAll('[data-part]');
+    const tooltip = svg.querySelector('#shock-tooltip');
+    const tooltipVi = svg.querySelector('#shock-tooltip-vi');
+    const tooltipEn = svg.querySelector('#shock-tooltip-en');
+    const tooltipBg = svg.querySelector('#shock-tooltip-bg');
+    if (!tooltip || !tooltipVi) return;
+    parts.forEach((part) => {
+      const highlight = () => {
+        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
+        tooltipEn.textContent = part.getAttribute('data-name-en') || '';
+        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);
+        tooltip.setAttribute('opacity', '1');
+      };
+      const unhighlight = () => {
+        part.style.filter = '';
+        tooltip.setAttribute('opacity', '0');
+      };
+      part.addEventListener('mouseenter', highlight);
+      part.addEventListener('mouseleave', unhighlight);
+    });
+  }
+</script>

@@ -1,0 +1,167 @@
+---
+// =============================================================================
+// COAXIAL — SVG bộ thoát đồng trục: truyền lực đẩy thẳng góc, giảm ma sát
+// =============================================================================
+// So sánh: bộ thoát Thụy Sĩ (ma sát trượt, cần dầu) vs đồng trục (đẩy, ít dầu).
+// Dùng MechanismAnimation wrapper.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Bộ thoát đồng trục (Co-Axial)" data-mech-step-id="co-axial">
+  <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="coaxial-svg">
+    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+      Bộ thoát đồng trục: truyền lực đẩy gần thẳng góc → ít ma sát → ít cần dầu
+    </text>
+
+    <!-- ====== BÊN TRÁI: BỘ THOÁT THỤY SĨ (ma sát trượt) ====== -->
+    <g transform="translate(170, 230)">
+      <text x="0" y="-130" text-anchor="middle" font-size="11" fill="#9B2C2C" font-weight="700">Bộ thoát Thụy Sĩ</text>
+      <text x="0" y="-115" text-anchor="middle" font-size="9" fill="#9B2C2C" opacity="0.7">ma sát trượt → cần dầu</text>
+
+      <!-- Bánh thoát (8 răng) -->
+      <g id="sw-escape" data-part="sw-escape" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
+        <circle r="38" fill="none" stroke="#4A5568" stroke-width="1.5"/>
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
+          <g transform={`rotate(${a})`}>
+            <path d="M 0 -38 L 6 -28 L -6 -28 Z" fill="#4A5568"/>
+          </g>
+        ))}
+        <circle r="4" fill="#2D3748"/>
+      </g>
+
+      <!-- Ngựa (pallet fork) — đá ruby chạm vào răng -->
+      <g id="sw-pallet" data-part="sw-pallet" data-name-vi="Ngựa (ma sát trượt)" data-name-en="Pallet fork (sliding friction)">
+        <line x1="0" y1="0" x2="0" y2="40" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
+        <!-- Hai viên đá ruby (điểm ma sát) -->
+        <circle cx="-14" cy="-8" r="5" fill="#9B2C2C"/>
+        <circle cx="14" cy="-8" r="5" fill="#9B2C2C"/>
+      </g>
+
+      <!-- Dấu chấm dầu (vàng) -->
+      <g id="sw-oil" opacity="0.8">
+        <ellipse cx="-14" cy="-8" rx="7" ry="4" fill="#ECC94B" opacity="0.5"/>
+        <ellipse cx="14" cy="-8" rx="7" ry="4" fill="#ECC94B" opacity="0.5"/>
+      </g>
+      <text x="0" y="80" text-anchor="middle" font-size="9" fill="#9B2C2C">dầu bôi tr梭 ma sát (cần thay định kỳ)</text>
+    </g>
+
+    <!-- ====== DẤU ">" GIỮA HAI BÊN ====== -->
+    <text x="300" y="235" text-anchor="middle" font-size="28" fill="#B8893C" font-weight="bold">›</text>
+
+    <!-- ====== BÊN PHẢI: BỘ THOÁT ĐỒNG TRỤC (đẩy) ====== -->
+    <g transform="translate(430, 230)">
+      <text x="0" y="-130" text-anchor="middle" font-size="11" fill="#2F855A" font-weight="700">Bộ thoát đồng trục</text>
+      <text x="0" y="-115" text-anchor="middle" font-size="9" fill="#2F855A" opacity="0.7">lực đẩy gần thẳng góc → ít ma sát → ít dầu</text>
+
+      <!-- Bánh thoát đồng trục (2 lớp răng) -->
+      <g id="cx-escape" data-part="cx-escape" data-name-vi="Bánh thoát đồng trục (2 lớp)" data-name-en="Co-axial escape wheel (2 layers)">
+        <!-- Lớp trên -->
+        <circle r="38" fill="none" stroke="#4A5568" stroke-width="1.5"/>
+        {[0, 60, 120, 180, 240, 300].map((a) => (
+          <g transform={`rotate(${a})`}>
+            <path d="M 0 -38 L 4 -30 L -4 -30 Z" fill="#4A5568"/>
+          </g>
+        ))}
+        <!-- Lớp dưới (nhỏ hơn) -->
+        <circle r="26" fill="none" stroke="#4A5568" stroke-width="1" opacity="0.5"/>
+        {[30, 90, 150, 210, 270, 330].map((a) => (
+          <g transform={`rotate(${a})`}>
+            <path d="M 0 -26 L 3 -20 L -3 -20 Z" fill="#4A5568" opacity="0.7"/>
+          </g>
+        ))}
+        <circle r="4" fill="#2D3748"/>
+      </g>
+
+      <!-- Ngựa đồng trục — chạm đẩy -->
+      <g id="cx-pallet" data-part="cx-pallet" data-name-vi="Ngựa (lực đẩy)" data-name-en="Pallet fork (impulse force)">
+        <line x1="0" y1="0" x2="0" y2="40" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
+        <!-- Ba viên đá (đặc trưng đồng trục) -->
+        <circle cx="-16" cy="-10" r="4" fill="#9B2C2C"/>
+        <circle cx="0" cy="-14" r="4" fill="#9B2C2C"/>
+        <circle cx="16" cy="-10" r="4" fill="#9B2C2C"/>
+      </g>
+
+      <text x="0" y="80" text-anchor="middle" font-size="9" fill="#2F855A">ít dầu — giữ chính xác lâu giữa 2 lần bảo dưỡng</text>
+    </g>
+
+    <!-- ====== BÁNH LẮC (trên cùng, hai bên) ====== -->
+    <g transform="translate(170, 100)">
+      <text x="0" y="-25" text-anchor="middle" font-size="9" fill="#1F2D3D" opacity="0.6">bánh lắc</text>
+      <circle r="18" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+    </g>
+    <g transform="translate(430, 100)">
+      <text x="0" y="-25" text-anchor="middle" font-size="9" fill="#1F2D3D" opacity="0.6">bánh lắc</text>
+      <circle r="18" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+    </g>
+
+    <!-- Tooltip -->
+    <g id="coaxial-tooltip" opacity="0" pointer-events="none">
+      <rect id="coaxial-tooltip-bg" x="0" y="0" width="120" height="34" rx="4" fill="#1F2D3D" opacity="0.9"/>
+      <text id="coaxial-tooltip-vi" x="60" y="14" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="600">—</text>
+      <text id="coaxial-tooltip-en" x="60" y="28" text-anchor="middle" font-size="9" fill="#B8893C">—</text>
+    </g>
+  </svg>
+
+  <script is:inline define:vars={{}} slot="script">
+    // =============================================================================
+    // Đăng ký hàm animate cho co-axial
+    // =============================================================================
+    (window.__mechSteps = window.__mechSteps || {})['co-axial'] = function(delta, elapsed) {
+      const svg = document.getElementById('coaxial-svg');
+      if (!svg) return;
+      const swEscape = svg.querySelector('#sw-escape');
+      const swPallet = svg.querySelector('#sw-pallet');
+      const cxEscape = svg.querySelector('#cx-escape');
+      const cxPallet = svg.querySelector('#cx-pallet');
+      if (!swEscape || !cxEscape) return;
+
+      // Chu kỳ: 1 nhịp = 4000ms. Bánh thoát tiến 1 răng mỗi nhịp, ngựa dao động.
+      const period = 4000;
+      const phase = (elapsed % period) / period; // 0 → 1
+      const beatNum = Math.floor(elapsed / period);
+
+      // Nguya dao động: qua trái phải (rotate ±12°)
+      const palletAngle = Math.sin(phase * Math.PI * 2) * 12;
+      swPallet.setAttribute('transform', `rotate(${palletAngle})`);
+      cxPallet.setAttribute('transform', `rotate(${palletAngle})`);
+
+      // Bánh thoát tiến 1 răng mỗi nhịp (45° Thụy Sĩ, 60° đồng trục)
+      const swRot = beatNum * 45;
+      const cxRot = beatNum * 60;
+      swEscape.setAttribute('transform', `rotate(${swRot})`);
+      cxEscape.setAttribute('transform', `rotate(${cxRot})`);
+    };
+  </script>
+</MechanismAnimation>
+
+<script>
+  document.addEventListener('astro:page-load', setupCoaxialTooltips);
+  setupCoaxialTooltips();
+  function setupCoaxialTooltips() {
+    const svg = document.getElementById('coaxial-svg');
+    if (!svg) return;
+    const parts = svg.querySelectorAll('[data-part]');
+    const tooltip = svg.querySelector('#coaxial-tooltip');
+    const tooltipVi = svg.querySelector('#coaxial-tooltip-vi');
+    const tooltipEn = svg.querySelector('#coaxial-tooltip-en');
+    const tooltipBg = svg.querySelector('#coaxial-tooltip-bg');
+    if (!tooltip || !tooltipVi) return;
+    parts.forEach((part) => {
+      const highlight = () => {
+        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
+        tooltipEn.textContent = part.getAttribute('data-name-en') || '';
+        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);
+        tooltip.setAttribute('opacity', '1');
+      };
+      const unhighlight = () => {
+        part.style.filter = '';
+        tooltip.setAttribute('opacity', '0');
+      };
+      part.addEventListener('mouseenter', highlight);
+      part.addEventListener('mouseleave', unhighlight);
+    });
+  }
+</script>

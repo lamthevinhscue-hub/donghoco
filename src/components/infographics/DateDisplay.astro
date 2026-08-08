@@ -1,0 +1,216 @@
+---
+// =============================================================================
+// DATEDISPLAY — Đĩa ngày 31 vị trí + khung giờ nguy hiểm
+// =============================================================================
+// Người đọc kéo thanh trượt thời gian (0-24h), thấy đĩa ngày nhảy sang số
+// kế tiếp lúc nửa đêm. Khi kim vào vùng 20h-4h, vùng đó tô đỏ + cảnh báo.
+// Nút chuyển giữa nhảy tức thời và bò dần.
+// Dùng MechanismAnimation wrapper.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+---
+
+<MechanismAnimation label="Hiển thị ngày — kéo thanh thời gian, xem khung giờ nguy hiểm" data-mech-step-id="date-display">
+  <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="date-display-svg">
+    <text x="250" y="22" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+      Đĩa ngày 31 vị trí — bánh răng đẩy một nấc mỗi 24 giờ
+    </text>
+
+    <!-- ====== MẶT SỐ (vòng 24h bên ngoài + vùng nguy hiểm) ====== -->
+    <!-- Vùng nguy hiểm 20h-4h tô đỏ mờ -->
+    <!-- 24h chia đều trên vòng: mỗi giờ = 15°. 0h/24h ở đỉnh (12 giờ mặt số). -->
+    <!-- 20h ở vị trí góc (20*15-90)=210° từ ngang phải... ta dùng hệ 0=đỉnh CW -->
+    <!-- 20h = 300° từ đỉnh CW = vị trí số 10 trên mặt 12h; 4h = 60° = vị trí số 2 -->
+    <!-- Vùng nguy hiểm = cung từ 300° qua 0° tới 60° -->
+    <path id="dd-danger-arc" d="" fill="#9B2C2C" opacity="0.15"/>
+    <text x="370" y="120" font-size="9" fill="#9B2C2C" font-weight="bold" opacity="0.6">Vùng nguy hiểm</text>
+    <text x="370" y="132" font-size="8" fill="#9B2C2C" opacity="0.5">20:00 — 04:00</text>
+
+    <!-- Vòng 24h -->
+    <circle cx="250" cy="200" r="130" fill="none" stroke="#1F2D3D" stroke-width="2" class="dark:stroke-dark-text"/>
+    <g id="dd-hour-marks"></g>
+
+    <!-- ====== Ô CỬA SỔ NGÀY (vị trí 3 giờ) ====== -->
+    <rect x="345" y="188" width="50" height="24" rx="3" fill="#1F2D3D" class="dark:fill-dark-border"/>
+    <text id="dd-date-label" x="370" y="205" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="bold">15</text>
+
+    <!-- ====== ĐĨA NGÀY 31 VỊ TRÍ (xoay được, nằm dưới mặt số) ====== -->
+    <g id="dd-date-disk" data-part="date-disk" data-name-vi="Đĩa ngày (31 vị trí)" data-name-en="Date disk" style="transform-origin: 250px 200px;">
+      <!-- Vòng đĩa -->
+      <circle cx="250" cy="200" r="100" fill="none" stroke="#B8893C" stroke-width="1.75" opacity="0.5"/>
+      <!-- 31 số — sinh bằng JS -->
+    </g>
+
+    <!-- ====== KIM GIỜ (chỉ vị trí thời gian hiện tại trên vòng 24h) ====== -->
+    <g id="dd-hour-hand">
+      <line x1="250" y1="200" x2="250" y2="90" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round" class="dark:stroke-dark-text"/>
+      <circle cx="250" cy="200" r="6" fill="#1F2D3D" class="dark:fill-dark-text"/>
+    </g>
+
+    <!-- ====== THANH TRƯỢT THỜI GIAN (dưới) ====== -->
+    <text x="250" y="350" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thời gian trong ngày</text>
+    <rect x="80" y="360" width="340" height="16" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+    <rect id="dd-time-fill" x="82" y="362" width="0" height="12" rx="2" fill="#B8893C"/>
+    <foreignObject x="75" y="355" width="350" height="26">
+      <input type="range" id="dd-time-slider" min="0" max="1440" value="720" step="10" style="width:100%;accent-color:#B8893C;touch-action:none;" aria-label="Thời gian (phút trong ngày)" />
+    </foreignObject>
+    <text id="dd-time-label" x="250" y="390" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">12:00</text>
+  </svg>
+
+  <!-- Nút chuyển kiểu nhảy + cảnh báo -->
+  <div class="mt-3 flex flex-wrap items-center justify-center gap-3">
+    <button type="button" id="dd-mode-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border">
+      Kiểu: Nhảy tức thời
+    </button>
+    <span id="dd-warning" class="hidden rounded-full bg-[#9B2C2C] px-4 py-2 text-sm font-medium text-cream">
+      ⚠ Đang trong vùng nguy hiểm — đừng chỉnh lịch!
+    </span>
+    <a href="/huong-dan/chinh-lich-an-toan" class="text-xs text-brass underline">Hướng dẫn chỉnh lịch an toàn →</a>
+  </div>
+
+  <script is:inline define:vars={{}} slot="script">
+    (function() {
+      const svg = document.getElementById('date-display-svg');
+      if (!svg) return;
+      const slider = svg.querySelector('#dd-time-slider');
+      const timeFill = svg.querySelector('#dd-time-fill');
+      const timeLabel = svg.querySelector('#dd-time-label');
+      const hourHand = svg.querySelector('#dd-hour-hand');
+      const dateLabel = svg.querySelector('#dd-date-label');
+      const dateDisk = svg.querySelector('#dd-date-disk');
+      const dangerArc = svg.querySelector('#dd-danger-arc');
+      const modeBtn = document.getElementById('dd-mode-btn');
+      const warning = document.getElementById('dd-warning');
+      if (!slider) return;
+
+      let mode = 'instant'; // 'instant' | 'roll'
+      let currentDate = 15;
+
+      // Sinh vạch giờ 24h + số trên đĩa ngày
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const hourMarks = svg.querySelector('#dd-hour-marks');
+      for (let i = 0; i < 24; i++) {
+        const angle = (i * 15 - 90) * Math.PI / 180;
+        const x1 = 250 + 130 * Math.cos(angle);
+        const y1 = 200 + 130 * Math.sin(angle);
+        const x2 = 250 + 120 * Math.cos(angle);
+        const y2 = 200 + 120 * Math.sin(angle);
+        const line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', String(x1)); line.setAttribute('y1', String(y1));
+        line.setAttribute('x2', String(x2)); line.setAttribute('y2', String(y2));
+        line.setAttribute('stroke', '#1F2D3D');
+        line.setAttribute('stroke-width', i % 6 === 0 ? '2' : '1');
+        line.setAttribute('class', 'dark:stroke-dark-text');
+        hourMarks.appendChild(line);
+        if (i % 6 === 0) {
+          const t = document.createElementNS(svgNS, 'text');
+          const tx = 250 + 108 * Math.cos(angle);
+          const ty = 200 + 108 * Math.sin(angle) + 4;
+          t.setAttribute('x', String(tx)); t.setAttribute('y', String(ty));
+          t.setAttribute('text-anchor', 'middle');
+          t.setAttribute('font-size', '10');
+          t.setAttribute('fill', '#1F2D3D');
+          t.setAttribute('class', 'dark:fill-dark-text');
+          t.textContent = String(i);
+          hourMarks.appendChild(t);
+        }
+      }
+      // Số trên đĩa ngày (31 số, đặt trên vành đĩa r=90)
+      for (let i = 1; i <= 31; i++) {
+        const angle = ((i - 1) * (360 / 31) - 90) * Math.PI / 180;
+        const tx = 250 + 90 * Math.cos(angle);
+        const ty = 200 + 90 * Math.sin(angle) + 3;
+        const t = document.createElementNS(svgNS, 'text');
+        t.setAttribute('x', String(tx)); t.setAttribute('y', String(ty));
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('font-size', '9');
+        t.setAttribute('fill', '#B8893C');
+        t.setAttribute('opacity', '0.5');
+        t.textContent = String(i);
+        dateDisk.appendChild(t);
+      }
+
+      // Vùng nguy hiểm: cung từ 300° (20h) qua 0° (24h) tới 60° (4h)
+      // Vẽ cung lớn r=130
+      const dangerPath = describeArc(250, 200, 130, -60, 60);
+      dangerArc.setAttribute('d', dangerPath);
+
+      function describeArc(cx, cy, r, startAngle, endAngle) {
+        // angle tính từ đỉnh (0=đỉnh), CW dương. Chuyển sang toạ độ SVG.
+        function polar(cx, cy, r, angleDeg) {
+          const a = (angleDeg - 90) * Math.PI / 180;
+          return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+        }
+        const start = polar(cx, cy, r, endAngle);
+        const end = polar(cx, cy, r, startAngle);
+        const largeArc = endAngle - startAngle <= 180 ? '0' : '1';
+        return `M ${start.x} ${start.y} A ${r} ${r} 0 ${largeArc} 0 ${end.x} ${end.y} L ${cx} ${cy} Z`;
+      }
+
+      function render() {
+        const minutes = parseInt(slider.value); // 0-1440
+        const hours = minutes / 60; // 0-24
+        const h = Math.floor(hours);
+        const m = Math.floor((hours - h) * 60);
+
+        // Thanh thời gian
+        timeFill.setAttribute('width', String((minutes / 1440) * 336));
+        timeLabel.textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+
+        // Kim giờ: mỗi giờ = 15° từ đỉnh
+        const handAngle = hours * 15;
+        hourHand.setAttribute('transform', `rotate(${handAngle} 250 200)`);
+
+        // Vùng nguy hiểm: 20h-4h → hours trong [20,24) hoặc [0,4)
+        const inDanger = hours >= 20 || hours < 4;
+        if (inDanger) {
+          dangerArc.setAttribute('opacity', '0.25');
+          warning.classList.remove('hidden');
+        } else {
+          dangerArc.setAttribute('opacity', '0.1');
+          warning.classList.add('hidden');
+        }
+
+        // Đĩa ngày: nhảy sang số kế tiếp khi qua nửa đêm
+        // Ngày hiện tại dựa trên giờ: trước 0h = ngày hiện, sau 0h = ngày +1
+        // Với thanh trượt 0-24h, ta mô phỏng: 0h = nửa đêm = ngày nhảy
+        let displayDate = currentDate;
+        let diskRotation = 0;
+        if (mode === 'instant') {
+          // Nhảy tức thời: đúng 0h, đĩa nhảy búng
+          if (hours < 0.05) {
+            displayDate = currentDate + 1;
+          }
+          diskRotation = (displayDate - 1) * (360 / 31);
+        } else {
+          // Bò dần: từ 22h tới 2h, đĩa xoay dần
+          if (hours >= 22 || hours < 2) {
+            let progress;
+            if (hours >= 22) progress = (hours - 22) / 4;
+            else progress = (hours + 2) / 4;
+            diskRotation = (currentDate - 1) * (360 / 31) + progress * (360 / 31);
+            if (hours >= 0) displayDate = currentDate + 1;
+          } else {
+            diskRotation = (displayDate - 1) * (360 / 31);
+          }
+        }
+        dateDisk.style.transform = `rotate(${diskRotation}deg)`;
+        dateLabel.textContent = String(displayDate > 31 ? 1 : displayDate);
+      }
+
+      slider.addEventListener('input', render);
+
+      modeBtn.addEventListener('click', function() {
+        mode = mode === 'instant' ? 'roll' : 'instant';
+        modeBtn.textContent = 'Kiểu: ' + (mode === 'instant' ? 'Nhảy tức thời' : 'Bò dần');
+        render();
+      });
+
+      // Đăng ký hàm step rỗng (MechanismAnimation cần để hiện controls)
+      (window.__mechSteps = window.__mechSteps || {})['date-display'] = function() {};
+
+      render();
+    })();
+  </script>
+</MechanismAnimation>

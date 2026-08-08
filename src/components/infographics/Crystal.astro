@@ -1,0 +1,178 @@
+---
+// =============================================================================
+// CRYSTAL — Ba loại kính đồng hồ: thử xước, va đập, đánh bóng
+// =============================================================================
+// Ba tấm kính acrylic/khoáng/sapphire cạnh nhau. Ba nút thử nghiệm:
+// - Thử xước: vật cứng kéo qua → acrylic xước sâu, khoáng vừa, sapphire không
+// - Thử va đập: acrylic móp không vỡ, sapphire nứt
+// - Đánh bóng: chỉ acrylic phục hồi được
+// Dùng MechanismAnimation wrapper.
+// =============================================================================
+
+import MechanismAnimation from './MechanismAnimation.astro';
+
+const crystals = [
+  { id: 'acrylic', name: 'Acrylic', vi: 'Nhựa dẻo', color: '#90CDF4', scratch: 'deep', impact: 'dent', polish: true },
+  { id: 'mineral', name: 'Khoáng', vi: 'Thủy tinh', color: '#B8893C', scratch: 'medium', impact: 'chip', polish: false },
+  { id: 'sapphire', name: 'Sapphire', vi: 'Kính sapphire', color: '#4FB286', scratch: 'none', impact: 'crack', polish: false },
+];
+---
+
+<MechanismAnimation label="Ba loại kính — thử xước, va đập, đánh bóng" data-mech-step-id="crystal">
+  <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="crystal-svg">
+    <text x="300" y="22" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+      Ba loại kính đồng hồ — không loại nào tốt nhất ở mọi mặt
+    </text>
+
+    <!-- ====== BA TẤM KÍNH ====== -->
+    {crystals.map((c, i) => (
+      <g transform={`translate(${100 + i * 200}, 130)`} data-crystal={c.id}>
+        <!-- Nhãn -->
+        <text x="0" y="-50" text-anchor="middle" font-size="13" fill={c.color} font-weight="bold">{c.name}</text>
+        <text x="0" y="-36" text-anchor="middle" font-size="9" fill="#1F2D3D" opacity="0.6" class="dark:fill-dark-text-soft">{c.vi}</text>
+
+        <!-- Tấm kính (hình chữ nhật bo góc) -->
+        <rect class="crystal-pane" x="-60" y="-30" width="120" height="100" rx="8" fill={c.color} opacity="0.3" stroke={c.color} stroke-width="2.5"/>
+
+        <!-- Vết xước (ẩn ban đầu, hiện khi thử) -->
+        <g class="crystal-scratch" opacity="0">
+          {c.scratch === 'deep' && (
+            <>
+              <path d="M -40 0 L 40 -5" stroke="#9B2C2C" stroke-width="3" opacity="0.7"/>
+              <path d="M -38 5 L 42 0" stroke="#9B2C2C" stroke-width="2" opacity="0.5"/>
+            </>
+          )}
+          {c.scratch === 'medium' && (
+            <path d="M -35 -2 L 35 -6" stroke="#9B6E2C" stroke-width="1.5" opacity="0.6"/>
+          )}
+          {c.scratch === 'none' && (
+            <text x="0" y="5" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold">✓ Không xước</text>
+          )}
+        </g>
+
+        <!-- Vết móp/nứt (va đập) -->
+        <g class="crystal-impact" opacity="0">
+          {c.impact === 'dent' && (
+            <>
+              <ellipse cx="0" cy="20" rx="18" ry="8" fill="#9B6E2C" opacity="0.4"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#9B6E2C" font-weight="bold">Móp — không vỡ</text>
+            </>
+          )}
+          {c.impact === 'chip' && (
+            <>
+              <path d="M 0 -30 L 8 -20 L -8 -20 Z" fill="#9B6E2C" opacity="0.5"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#9B6E2C" font-weight="bold">Mẻ</text>
+            </>
+          )}
+          {c.impact === 'crack' && (
+            <>
+              <path d="M -40 -20 L 20 10 L -10 30 L 40 20" stroke="#9B2C2C" stroke-width="2" fill="none"/>
+              <path d="M 20 10 L 35 -15" stroke="#9B2C2C" stroke-width="1.5" fill="none"/>
+              <path d="M -10 30 L -30 5" stroke="#9B2C2C" stroke-width="1" fill="none"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#9B2C2C" font-weight="bold">Nứt vỡ</text>
+            </>
+          )}
+        </g>
+
+        <!-- Hiệu ứng đánh bóng (chỉ acrylic) -->
+        <g class="crystal-polished" opacity="0">
+          {c.polish ? (
+            <>
+              <circle cx="0" cy="0" r="35" fill="none" stroke="#4FB286" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="0" y="5" text-anchor="middle" font-size="10" fill="#2D7A55" font-weight="bold">✓ Phục hồi</text>
+            </>
+          ) : (
+            <text x="0" y="5" text-anchor="middle" font-size="10" fill="#9B2C2C" opacity="0.6">Không phục hồi</text>
+          )}
+        </g>
+      </g>
+    ))}
+
+    <!-- Vật cứng kéo qua (khi thử xước) -->
+    <g id="crystal-scratch-tool" opacity="0">
+      <rect x="-5" y="-15" width="10" height="30" rx="2" fill="#4A5568"/>
+      <text x="0" y="-22" text-anchor="middle" font-size="9" fill="#4A5568" font-weight="bold">Vật cứng</text>
+    </g>
+
+    <!-- Trạng thái -->
+    <text id="crystal-status" x="300" y="310" text-anchor="middle" font-size="11" fill="#1F2D3D" class="dark:fill-dark-text-soft">Chọn một phép thử bên dưới</text>
+  </svg>
+
+  <!-- Ba nút thử nghiệm -->
+  <div class="mt-3 flex flex-wrap items-center justify-center gap-3">
+    <button type="button" id="crystal-scratch-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border">
+      🔧 Thử xước
+    </button>
+    <button type="button" id="crystal-impact-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border">
+      🔨 Thử va đập
+    </button>
+    <button type="button" id="crystal-polish-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border">
+      ✨ Đánh bóng
+    </button>
+    <button type="button" id="crystal-reset-btn" class="rounded-full border border-cream-dark px-3 py-2 text-sm text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft">
+      ↺ Đặt lại
+    </button>
+  </div>
+  <p class="mt-3 text-center text-xs text-ink-soft dark:text-dark-text-soft">
+    Acrylic: dễ xước nhưng <strong>không vỡ + đánh bóng lại được</strong> — vì sao vintage và quân đội dùng nó. Sapphire: không xước nhưng <strong>giòn, nứt khi va đập mạnh</strong>.
+  </p>
+
+  <script is:inline define:vars={{}} slot="script">
+    (function() {
+      const svg = document.getElementById('crystal-svg');
+      if (!svg) return;
+      const status = svg.querySelector('#crystal-status');
+      const scratchBtn = document.getElementById('crystal-scratch-btn');
+      const impactBtn = document.getElementById('crystal-impact-btn');
+      const polishBtn = document.getElementById('crystal-polish-btn');
+      const resetBtn = document.getElementById('crystal-reset-btn');
+      if (!scratchBtn) return;
+
+      const groups = svg.querySelectorAll('[data-crystal]');
+
+      function clearAll() {
+        groups.forEach((g) => {
+          const s = g.querySelector('.crystal-scratch');
+          const i = g.querySelector('.crystal-impact');
+          const p = g.querySelector('.crystal-polished');
+          if (s) s.setAttribute('opacity', '0');
+          if (i) i.setAttribute('opacity', '0');
+          if (p) p.setAttribute('opacity', '0');
+        });
+      }
+
+      function showEffect(className, statusText) {
+        clearAll();
+        groups.forEach((g) => {
+          const el = g.querySelector(className);
+          if (el) el.setAttribute('opacity', '1');
+        });
+        status.textContent = statusText;
+      }
+
+      scratchBtn.addEventListener('click', function() {
+        showEffect('.crystal-scratch', 'Acrylic xước sâu · Khoáng xước vừa · Sapphire không xước');
+      });
+      impactBtn.addEventListener('click', function() {
+        showEffect('.crystal-impact', 'Acrylic móp không vỡ · Khoáng mẻ · Sapphire nứt vỡ');
+      });
+      polishBtn.addEventListener('click', function() {
+        clearAll();
+        // Chỉ acrylic phục hồi
+        const acrylic = svg.querySelector('[data-crystal="acrylic"] .crystal-polished');
+        const mineral = svg.querySelector('[data-crystal="mineral"] .crystal-polished');
+        const sapphire = svg.querySelector('[data-crystal="sapphire"] .crystal-polished');
+        if (acrylic) acrylic.setAttribute('opacity', '1');
+        if (mineral) mineral.setAttribute('opacity', '1');
+        if (sapphire) sapphire.setAttribute('opacity', '1');
+        status.textContent = 'Chỉ acrylic phục hồi được — khoáng và sapphire phải thay';
+      });
+      resetBtn.addEventListener('click', function() {
+        clearAll();
+        status.textContent = 'Chọn một phép thử bên dưới';
+      });
+
+      (window.__mechSteps = window.__mechSteps || {})['crystal'] = function() {};
+    })();
+  </script>
+</MechanismAnimation>

@@ -3,7 +3,8 @@ title: "Dạ quang — Vì sao đồng hồ sáng trong bóng tối"
 excerpt: "Nguyên lý lân quang: hấp thụ ánh sáng rồi phát lại. Ba thế hệ vật liệu: radium (đã bỏ), tritium (yếu hơn), Super-LumiNova (không phóng xạ, cần nạp sáng)."
 category: "bổ trợ"
 difficulty: "thấp"
-has_infographic: false
+has_infographic: true
+interactive: true
 date: "2026-08-08"
 draft: false
 ---

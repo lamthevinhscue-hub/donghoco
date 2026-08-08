@@ -16,6 +16,9 @@ import PerpetualCalendar from '../../components/infographics/glossary/PerpetualC
 import ShockProtection from '../../components/infographics/ShockProtection.astro';
 import CoAxial from '../../components/infographics/CoAxial.astro';
 import MoonPhase from '../../components/infographics/glossary/MoonPhase.astro';
+import DateDisplay from '../../components/infographics/DateDisplay.astro';
+import Lume from '../../components/infographics/Lume.astro';
+import Crystal from '../../components/infographics/Crystal.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { t } from '../../i18n/ui';
@@ -70,6 +73,9 @@ const infographics: Record<string, any> = {
   'chong-soc': ShockProtection,
   'bo-thoat-dong-truc': CoAxial,
   'pha-trang': MoonPhase,
+  'hien-thi-ngay': DateDisplay,
+  'da-quang': Lume,
+  'kinh-dong-ho': Crystal,
 };
 const Infographic = data.has_infographic ? infographics[slug] : null;
 

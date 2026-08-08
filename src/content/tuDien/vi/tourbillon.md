@@ -19,6 +19,6 @@ draft: false
 
 ## Đi sâu hơn
 
-Tourbillon là một trong những phức tạp **đắt nhất** — thường cộng thêm từ 30.000 USD đến hàng triệu USD.
+Tourbillon là một trong những phức tạp **đắt nhất** — chỉ xuất hiện ở tầng cao nhất của đồng hồ cơ.
 
 Muốn hiểu nguyên lý xoay bù trọng lực, các biến thể (Flying Tourbillon, Double/Triple Axis) và lý do khó chế tạo → đọc bài **[Tourbillon — Lồng xoay bù sai số trọng lực](/co-che/tourbillon)**.

@@ -65,7 +65,7 @@ collections:
   - name: "Saxonia"
     year: 1994
     identity: "Dress watch tối giản — vỏ tròn siêu mỏng, mặt số clean nhất Lange, kim dauphine. Đặt theo bang Saxony (nơi Glashütte tọa lạc)."
-    positioning: "Dòng dress-to-cocktail — cấp nhập môn của Lange (~15.000 USD), cánh cửa bước vào thế giới Lange."
+    positioning: "Dòng dress-to-cocktail — cấp nhập môn của Lange, cánh cửa bước vào thế giới Lange."
     iconic_ref: "Saxonia Thin / Saxonia Outsize Date / Saxonia Annual Calendar"
   - name: "Zeitwerk"
     year: 2009
@@ -126,4 +126,4 @@ Lange tự làm toàn bộ bộ máy tại Glashütte. Dòng calibre nổi bật
 
 ## Phân khúc giá
 
-Lange ở phân khúc **ultra luxury** — thường từ 20.000 USD đến hơn 500.000 USD. Đây là một trong vài hãng được coi là "đối thủ xứng tầm" của Holy Trinity Thụy Sĩ.
+Lange ở phân khúc **ultra luxury** — trải từ mức nhập môn của phân khúc siêu sang tới các mẫu phức tạp cao cấp. Đây là một trong vài hãng được coi là "đối thủ xứng tầm" của Holy Trinity Thụy Sĩ.

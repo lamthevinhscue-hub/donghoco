@@ -29,7 +29,7 @@ Black Bay kế thừa và hiện đại hóa thẩm mỹ Tudor Submariner cổ �
 
 ## Sự bùng nổ sau khi có in-house movement
 
-Năm 2015, Tudor trang bị Black Bay với **calibre in-house MT5602** — automatic 70 giờ trữ cót. Từ đó, Black Bay trở thành một trong những đồng hồ lặn Thụy Sĩ **được săn đón nhất** ở tầm giá 3.000–4.000 USD — đối thủ trực tiếp của các đồng hồ Thụy Sĩ giá gấp đôi.
+Năm 2015, Tudor trang bị Black Bay với **calibre in-house MT5602** — automatic 70 giờ trữ cót. Từ đó, Black Bay trở thành một trong những đồng hồ lặn Thụy Sĩ **được săn đón nhất** ở tầm giá dễ tiếp cận — đối thủ trực tiếp của các đồng hồ Thụy Sĩ đắt hơn đáng kể.
 
 ## Các biến thể chính
 

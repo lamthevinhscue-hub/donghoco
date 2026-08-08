@@ -96,4 +96,4 @@ Ulysse Nardin sống hai cuộc đời: **thế kỷ 19–20 là vua chronometer
 
 ## Phân khúc giá
 
-Ulysse Nardin ở phân khúc **high-end luxury** — từ khoảng 7.000 USD (Marine) đến hơn 100.000 USD (Freak phức tạp).
+Ulysse Nardin ở phân khúc **high-end luxury** — từ dòng Marine tới các mẫu Freak phức tạp cao cấp.

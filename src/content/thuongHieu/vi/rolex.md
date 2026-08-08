@@ -142,4 +142,4 @@ Rolex là thương hiệu đồng hồ nổi tiếng nhất hành tinh — nhưn
 
 ## Phân khúc giá
 
-Rolex nằm ở phân khúc **high-end luxury** — từ vài nghìn đến vài chục nghìn USD tùy dòng và vật liệu.
+Rolex nằm ở phân khúc **high-end luxury** — trải rộng từ các dòng phổ thông nhất của hãng tới các mẫu kim loại quý, tùy dòng và vật liệu.

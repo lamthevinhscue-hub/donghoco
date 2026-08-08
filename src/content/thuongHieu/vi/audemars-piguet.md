@@ -115,4 +115,4 @@ AP tự làm toàn bộ bộ máy, với nhiều calibre phức tạp. Nổi b�
 
 ## Phân khúc giá
 
-AP ở phân khúc **ultra luxury** — Royal Oak thép giá bán lẻ ~30.000 USD nhưng luôn khan hiếm ở thị trường thứ cấp (giá cao hơn nhiều lần giá niêm yết); các mẫu phức tạp từ 100.000 USD đến hàng triệu USD.
+AP ở phân khúc **ultra luxury** — Royal Oak thép ở mức bán lẻ của phân khúc siêu sang nhưng luôn khan hiếm ở thị trường thứ cấp (cầu vượt xa cung); các mẫu phức tạp nằm ở tầng cao nhất của hãng.

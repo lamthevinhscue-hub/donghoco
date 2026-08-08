@@ -44,7 +44,7 @@ Freak đã giới thiệu **3 đột phá** ảnh hưởng toàn ngành:
 - **Freak** (2001) — nguyên bản, "đồng hồ điên" gây sốc.
 - **Freak DIAMonSIL** (2007) — thêm diamond-coated silic, tăng độ bền.
 - **Freak Cruiser** (2013) — thiết kế "hàng hải" với cánh buồm.
-- **Freak X** (2019) — phiên bản "dân chủ hóa" — giá thấp hơn (~30.000 USD thay vì 100.000+).
+- **Freak X** (2019) — phiên bản "dân chủ hóa", dễ tiếp cận hơn hẳn các bản Freak khác.
 - **Freak S** (2022) — thêm 2 bánh lắc nghiêng, siêu phức tạp.
 
 ## Bộ máy

@@ -110,4 +110,4 @@ TAG Heuer là cái tên gắn chặt nhất với **đo thời gian thể thao v
 
 ## Phân khúc giá
 
-TAG Heuer ở phân khúc **mid-range luxury** — từ khoảng 1.500 USD (Formula 1) đến 6.000 USD (Carrera Heuer 02).
+TAG Heuer ở phân khúc **mid-range luxury** — từ dòng thể thao dễ tiếp cận nhất (Formula 1) tới các mẫu chronograph cao cấp (Carrera Heuer 02).

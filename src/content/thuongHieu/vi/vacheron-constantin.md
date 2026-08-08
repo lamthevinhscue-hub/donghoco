@@ -115,4 +115,4 @@ Vacheron tự làm bộ máy, với nhiều calibre phức tạp bậc nhất. N
 
 ## Phân khúc giá
 
-Vacheron ở phân khúc **ultra luxury** — thường từ 15.000 USD đến hàng triệu USD. So với Patek/AP, Vacheron thường được đánh giá là "kín tiếng hơn" — ít marketing hơn nhưng uy tín chế tác ngang tầm.
+Vacheron ở phân khúc **ultra luxury** — từ mức nhập môn của phân khúc siêu sang tới các mẫu phức tạp cao cấp. So với Patek/AP, Vacheron thường được đánh giá là "kín tiếng hơn" — ít marketing hơn nhưng uy tín chế tác ngang tầm.

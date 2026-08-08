@@ -42,7 +42,7 @@ Minute repeater khó vì:
 - **Nhiều bộ phận** — thêm 100+ linh kiện so với movement thường.
 - **Thử nghiệm từng chiếc** — thợ phải nghe và tinh chỉnh từng chiếc.
 
-Đó là lý do minute repeater thường cộng thêm **50.000–500.000 USD** vào giá đồng hồ.
+Đó là lý do minute repeater thường đẩy đồng hồ lên **tầng giá cao nhất** của ngành.
 
 ## Lịch sử
 

@@ -58,7 +58,7 @@ collections:
   - name: "Master"
     year: 1992
     identity: "Dòng thanh lịch cổ điển — vỏ tròn, mặt số trắng clean, kim dauphine, chứng nhận 1000 Hours Control. Bao gồm Master Control, Master Ultra Thin, Master Geographic, Master Calendar."
-    positioning: "Dòng cốt lõi đa dụng — entry-level JLC (~6.000 USD), dress watch cổ điển hoàn hảo, được test 1.000 giờ."
+    positioning: "Dòng cốt lõi đa dụng — cấp nhập môn của JLC, dress watch cổ điển hoàn hảo, được test 1.000 giờ."
     iconic_ref: "Master Control Date / Master Ultra Thin Moon / Master Geographic"
   - name: "Polaris"
     year: 1968
@@ -94,7 +94,7 @@ segmentComparison:
     movement: "Calibre 8800/3861 (METAS certified, chống từ 15.000 gauss) — chế tác in-house với chứng nhận cao."
     value_retention: "Tốt — Speedmaster Seamaster giữ giá vững, danh tiếng toàn cầu."
     philosophy: "Đổi mới có trách nhiệm — Co-Axial giảm ma sát, METAS tiêu chuẩn cao."
-collectorNote: "Chọn Jaeger-LeCoultre khi bạn trân trọng **chế tác 'thợ của thợ'** — hơn 1.200 caliber lịch sử, từng sản xuất movement cho Patek, AP, Vacheron, Cartier. JLC là **'bộ óc kỹ thuật'** của ngành — tự làm dây tóc, lò xo, công cụ riêng, không phụ thuộc ai. **Reverso** vỏ lật 180° là biểu tượng art-deco không thể nhầm, **Atmos** chạy bằng không khí gần như vĩnh viễn là kỳ quan kỹ thuật. Hợp với người yêu **chế tác sâu + tính độc đáo** — JLC ít 'show-off' hơn Rolex nhưng được giới sành đánh giá cao hơn về chất lượng. Giá tiếp cận hơn Holy Trinity (~6.000 USD entry) nhưng chất lượng chế tác ngang tầm. Nếu ưu tiên **thiết kế đẹp + di sản trang sức**, chọn Cartier (Tank). Nếu thích **di sản pilot watch**, chọn IWC (Mark XI). Nếu muốn **danh tiếng toàn cầu + Moonwatch**, chọn Omega (Speedmaster). JLC hợp với người yêu kỹ thuật, ghét 'thương hiệu chỉ để khoe', và ai muốn một chiếc đồng hồ 'chỉ người sành mới hiểu' — đặc biệt hợp với kiến trúc sư, kỹ sư, bác sĩ, và ai yêu sự hoàn hảo thầm lặng."
+collectorNote: "Chọn Jaeger-LeCoultre khi bạn trân trọng **chế tác 'thợ của thợ'** — hơn 1.200 caliber lịch sử, từng sản xuất movement cho Patek, AP, Vacheron, Cartier. JLC là **'bộ óc kỹ thuật'** của ngành — tự làm dây tóc, lò xo, công cụ riêng, không phụ thuộc ai. **Reverso** vỏ lật 180° là biểu tượng art-deco không thể nhầm, **Atmos** chạy bằng không khí gần như vĩnh viễn là kỳ quan kỹ thuật. Hợp với người yêu **chế tác sâu + tính độc đáo** — JLC ít 'show-off' hơn Rolex nhưng được giới sành đánh giá cao hơn về chất lượng. Giá tiếp cận hơn Holy Trinity nhưng chất lượng chế tác ngang tầm. Nếu ưu tiên **thiết kế đẹp + di sản trang sức**, chọn Cartier (Tank). Nếu thích **di sản pilot watch**, chọn IWC (Mark XI). Nếu muốn **danh tiếng toàn cầu + Moonwatch**, chọn Omega (Speedmaster). JLC hợp với người yêu kỹ thuật, ghét 'thương hiệu chỉ để khoe', và ai muốn một chiếc đồng hồ 'chỉ người sành mới hiểu' — đặc biệt hợp với kiến trúc sư, kỹ sư, bác sĩ, và ai yêu sự hoàn hảo thầm lặng."
 ---
 
 ## Tổng quan
@@ -124,4 +124,4 @@ JLC tự làm bộ máy với hơn 1.200 calibre lịch sử. Nổi bật: **cal
 
 ## Phân khúc giá
 
-JLC ở phân khúc **high-end luxury** — thường từ 6.000 USD (Master Control) đến hơn 100.000 USD (phức tạp). Dù ít nổi tiếng với công chúng hơn Rolex, JLC được giới sành đánh giá cực cao về chất lượng chế tác và tính đa dạng.
+JLC ở phân khúc **high-end luxury** — trải từ dòng Master Control tới các mẫu phức tạp. Dù ít nổi tiếng với công chúng hơn Rolex, JLC được giới sành đánh giá cực cao về chất lượng chế tác và tính đa dạng.

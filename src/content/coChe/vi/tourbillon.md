@@ -51,7 +51,7 @@ Tuy vậy, tourbillon vẫn là **dấu hiệu đỉnh cao chế tác** vì:
 
 - **Double/Triple Axis Tourbillon** — lồng xoay 2-3 trục cùng lúc (Greubel Forsey, Jaeger-LeCoultre Gyrotourbillon). Càng nhiều trục càng "bù" được nhiều hướng, nhưng càng phức tạp và đắt.
 - **Flying Tourbillon** — không cầu trên, lơ lửng một bên trục. Đẹp nhất, khó nhất.
-- **Tourbillon "dân chủ hóa"** — một số thương hiệu Trung Quốc gần đây đưa tourbillon xuống dưới 2.000 USD, nhưng chất lượng chế tác khác biệt rõ so với tourbillon Thụy Sĩ.
+- **Tourbillon "dân chủ hóa"** — một số thương hiệu Trung Quốc gần đây đưa tourbillon xuống mức giá thấp hơn nhiều, nhưng chất lượng chế tác khác biệt rõ so với tourbillon Thụy Sĩ.
 
 ## Đọc thêm
 

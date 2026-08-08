@@ -73,7 +73,7 @@ Patek Philippe và một số hãng cao cấp có perpetual calendar **482 năm*
 |------|---------|------------|---------------|
 | **Lịch đơn giản** | Không | 5 lần/năm (cuối tháng 30 ngày) | Tiêu chuẩn |
 | **Annual calendar** | Cả năm, sai tháng Hai | 1 lần/năm (tháng 3) | Trung bình cao |
-| **Perpetual calendar** | Mọi tháng + năm nhuận | 1 lần/100 năm (năm 2100) | Rất đắt (10.000–500.000+ USD) |
+| **Perpetual calendar** | Mọi tháng + năm nhuận | 1 lần/100 năm (năm 2100) | Rất đắt — chỉ có ở tầng cao của đồng hồ cơ |
 
 ## Đọc thêm
 

@@ -104,4 +104,4 @@ Dòng **Co-Axial** (đồng trục) — phát minh của huyền thoại George 
 
 ## Phân khúc giá
 
-Omega ở phân khúc **luxury** — thường từ 5.000 USD trở lên, cạnh tranh trực tiếp với Rolex ở phân khúc "entry luxury" với ưu thế về độ chính xác và chống từ được chứng nhận.
+Omega ở phân khúc **luxury** — cạnh tranh trực tiếp với Rolex ở phân khúc sang trọng với ưu thế về độ chính xác và chống từ được chứng nhận.

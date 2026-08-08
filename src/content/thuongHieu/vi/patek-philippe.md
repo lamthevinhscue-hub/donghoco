@@ -52,7 +52,7 @@ collections:
   - name: "Aquanaut"
     year: 1996
     identity: "Phiên bản hiện đại của Nautilus — vỏ hình tương tự, dây cao su Composite, mặt số 'tropical' embossed, chống nước 120m. Trẻ trung hơn."
-    positioning: "Dòng 'gateway' — giá rẻ hơn Nautilus (~20.000 USD), dễ mua hơn, thu hút khách trẻ hơn."
+    positioning: "Dòng 'gateway' — dễ tiếp cận hơn Nautilus, thu hút khách trẻ hơn."
     iconic_ref: "Aquanaut 5167 / 5960 Chronograph / Travel Time 5164"
   - name: "Calatrava"
     year: 1932
@@ -62,7 +62,7 @@ collections:
   - name: "Grand Complications"
     year: 1839
     identity: "Dòng phức tạp cao cấp — perpetual calendar, minute repeater, tourbillon, sky chart. Mỗi chiếc là tác phẩm chế tác thủ công, ống đóng kính sapphire."
-    positioning: "Dòng đỉnh — cho nhà sưu tầm đỉnh, mỗi mẫu limited production, giá từ 100.000 USD đến hàng triệu USD."
+    positioning: "Dòng đỉnh — cho nhà sưu tầm đỉnh, mỗi mẫu limited production, tầng giá cao nhất của hãng."
     iconic_ref: "Perpetual Calendar 5236P / Grandmaster Chime 6300"
   - name: "Twenty-4"
     year: 1999
@@ -112,4 +112,4 @@ Patek tự làm **tất cả** bộ máy, từ những calibre đơn giản đ�
 
 ## Phân khúc giá
 
-Patek Philippe nằm ở phân khúc **haute horlogerie** — thường từ 20.000 USD đến hàng triệu USD. Các mẫu như Nautilus luôn khan hiếm ở thị trường thứ cấp (giá cao hơn nhiều lần giá niêm yết) vì cầu vượt cung.
+Patek Philippe nằm ở phân khúc **haute horlogerie** — từ mức nhập môn của hãng tới các mẫu phức tạp cao cấp. Các mẫu như Nautilus luôn khan hiếm ở thị trường thứ cấp vì cầu vượt cung xa.

@@ -106,4 +106,4 @@ Slogan của hãng: *"Since 1735, there has never been a quartz Blancpain watch.
 
 ## Phân khúc giá
 
-Blancpain ở phân khúc **high-end luxury** — từ khoảng 8.000 USD (Villeret) đến hơn 200.000 USD (phức tạp cao cấp). Hãng ít nổi tiếng với công chúng hơn Rolex/Omega, nhưng được giới sành đánh giá cực cao về di sản và chất lượng chế tác.
+Blancpain ở phân khúc **high-end luxury** — trải từ dòng thanh lịch Villeret tới các mẫu phức tạp cao cấp. Hãng ít nổi tiếng với công chúng hơn Rolex/Omega, nhưng được giới sành đánh giá cực cao về di sản và chất lượng chế tác.

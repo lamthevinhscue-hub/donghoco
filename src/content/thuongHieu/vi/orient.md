@@ -94,4 +94,7 @@ Với người Việt mới chơi, Orient thường là **chiếc đồng hồ c
 
 ## Calibre in-house tiêu biểu
 
-Orient tự sản xuất bộ máy tại Nhật Bản. Calibre tiêu biểu **F6922**: dao động 21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ, dùng cho tuyến lặn Mako và Ray. Dòng lịch sự Bambino dùng một bộ máy tự phát triển khác của hãng.
+Orient tự sản xuất bộ máy tại Nhật Bản. Hai calibre tiêu biểu:
+
+- **F6922** — dao động 21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ, dùng cho tuyến lặn Mako và Ray.
+- **F6724** — tự động, trữ cót khoảng 40 giờ, dùng cho tuyến lịch sự Bambino. Các phiên bản đang bán hiện hành có **dừng kim giây** và **lên dây tay bằng núm** — một số nguồn cũ ghi là không có, nhiều khả năng nói về đời máy trước.

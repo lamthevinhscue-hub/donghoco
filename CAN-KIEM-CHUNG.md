@@ -184,7 +184,7 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 - **Vị trí:** `src/content/thuongHieu/vi/orient.md` — frontmatter `signature_calibres`
 - **Tình trạng:** các nguồn mâu thuẫn nhau về việc F6724 có chức năng lên dây tay và dừng kim giây hay không (nhiều khả năng bộ máy đã được nâng cấp giữa chừng). Trữ cót và tần số cũng không thống nhất — nguồn ghi khoảng 40 giờ.
 - **Hành động tạm:** giữ nguyên frontmatter. Trên trang chỉ ghi đây là bộ máy tự sản xuất dùng cho tuyến Bambino; **không nêu chức năng, không nêu con số trữ cót/tần số**. Riêng F6922 đã kiểm chứng (21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ) và được dùng đầy đủ.
-- **Trạng thái:** ĐÃ XỬ LÝ BẰNG CÁCH GỠ KHỎI HIỂN THỊ (08/08/2026). Slug `orient` không nằm trong danh sách `CALIBRE_DISPLAY_SLUGS`. Đồng thời bỏ mã `F6724` khỏi cả phần collections (Bambino) lẫn phần calibre của bài, giữ duy nhất F6922 (đã kiểm chứng) với đầy đủ thông số. Frontmatter vẫn giữ nguyên để sau này kiểm chứng được thì hiện lại.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (08/08/2026). Calibre F6724 nay đã kiểm chứng đầy đủ: **tự động, trữ cót khoảng 40 giờ, có dừng kim giây và lên dây tay bằng núm**. Slug `orient` đã được thêm vào danh sách `CALIBRE_DISPLAY_SLUGS`, khối "Bộ máy in-house tiêu biểu" nay hiện trở lại trên trang. **Ghi chú về sự khác nhau giữa các đời máy:** hai chức năng dừng kim giây và lên dây tay chỉ có trên **các phiên bản đang bán hiện hành** — một số nguồn cũ ghi là không có, nhiều khả năng nói về đời máy trước. Trang ghi rõ "các phiên bản đang bán hiện hành", không khẳng định cho mọi đời. Riêng F6922 giữ nguyên thông số đã có (21.600 nhịp mỗi giờ, trữ cót khoảng 40 giờ).
 
 ---
 

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/generate-glossary-terms.mjs && astro build",
+    "check": "node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs",
+    "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-links.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

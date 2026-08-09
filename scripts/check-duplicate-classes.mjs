@@ -31,3 +31,4 @@ for (const file of walk('src')) {
   });
 }
 console.log(found === 0 ? 'OK: Không còn class trùng nào.' : 'Tổng: ' + found + ' chỗ trùng.');
+if (found > 0) process.exit(1);

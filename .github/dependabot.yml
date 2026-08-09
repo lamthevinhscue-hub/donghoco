@@ -1,0 +1,11 @@
+# Dependabot — tự động mở pull request khi có gói phụ thuộc dính lỗ hổng.
+# Kiểm hằng tuần, giới hạn 5 PR mở cùng lúc để không bị ngập.
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5

@@ -35,6 +35,30 @@
     color: theme('colors.navy');
   }
 
+  /*
+    Dark mode — tiêu đề phải hiện rõ trên nền than chì.
+    Không có quy tắc này thì navy (#1F2D3D) trên nền tối (#1A1D23) chỉ
+    đạt tỷ lệ tương phản 1,21:1 — gần như vô hình. dark-text (#E8DCC4)
+    cho 12,43:1, vượt chuẩn AAA.
+
+    QUAN TRỌNG: không xóa quy tắc này. Nếu xóa, mọi tiêu đề trên site
+    trở nên vô hình ở chế độ tối — lỗi nghiêm trọng accessibility.
+    Lớp tiện ích dark:text-dark-text trên từng thẻ là thừa sau khi có
+    quy tắc này, nhưng không gây hại nếu còn.
+  */
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: theme('colors.dark-text');
+  }
+
+  /*
+    Dark mode — tiêu đề cấp 1 (tiêu đề trang) dùng màu ánh kim đồng
+    để tạo phân cấp rõ: tiêu đề trang nổi bật, tiêu đề mục dùng chữ ngà,
+    nội dung dùng chữ ngà nhạt hơn. dark-brass (#D4A85A) cho 7,68:1 — AAA.
+  */
+  .dark h1 {
+    color: theme('colors.dark-brass');
+  }
+
   /* Liên kết */
   a {
     color: theme('colors.brass');

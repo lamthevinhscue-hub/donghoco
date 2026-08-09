@@ -13,7 +13,7 @@ const isVi = lang === 'vi';
 <BaseLayout title={tr.nav_contact}>
   <section class="mx-auto max-w-2xl px-4 py-16">
     <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
-    <h1 class="font-serif text-4xl text-navy sm:text-5xl">{tr.nav_contact}</h1>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">{tr.nav_contact}</h1>
     <p class="mt-4 text-ink-soft">
       {isVi
         ? 'Có câu hỏi, góp ý hoặc ý tưởng chủ đề? Hãy gửi cho tôi — tôi đọc tất cả.'
@@ -27,7 +27,7 @@ const isVi = lang === 'vi';
       onsubmit="return false;"
     >
       <div>
-        <label for="name" class="mb-1.5 block text-sm font-medium text-navy">
+        <label for="name" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
           {tr.contact_name}
         </label>
         <input
@@ -40,7 +40,7 @@ const isVi = lang === 'vi';
       </div>
 
       <div>
-        <label for="email" class="mb-1.5 block text-sm font-medium text-navy">
+        <label for="email" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
           {tr.contact_email}
         </label>
         <input
@@ -53,7 +53,7 @@ const isVi = lang === 'vi';
       </div>
 
       <div>
-        <label for="message" class="mb-1.5 block text-sm font-medium text-navy">
+        <label for="message" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
           {tr.contact_message}
         </label>
         <textarea

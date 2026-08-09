@@ -1,18 +1,15 @@
 ---
 // =============================================================================
-// TRANG /lich-su — TIMELINE "300 NĂM ĐỒNG HỒ CƠ ĐEO TAY"
+// TRANG /lich-su — TIMELINE "500 NĂM ĐỒNG HỒ CƠ ĐEO TAY"
 // =============================================================================
-// Tính năng "chữ ký số 1" của website — timeline tương tác đầu tiên bằng tiếng Việt
-// về lịch sử đồng hồ cơ đeo tay.
-//
 // Thiết kế:
-// - Desktop: cuộn NGANG như dây cót đang nhả đều
-// - Mobile: cuộn DỌC (responsive)
-// - 3 lớp màu phân loại mốc (máy móc / thương hiệu / văn hóa), bật-tắt được
+// - Bố cục dọc so le hai bên (desktop), một cột (mobile)
+// - Đường dọc chạy giữa trang, chấm màu theo lớp
+// - Thanh điều hướng dính bên phải, scroll spy đánh dấu mốc đang xem
+// - 3 lớp màu phân loại mốc, bật-tắt được
 // - Thẻ hiện dần khi cuộn tới (Intersection Observer)
 //
-// Dữ liệu 28 mốc lịch sử lấy từ src/data/timeline.json (KHÔNG tự bịa).
-// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.1.
+// Dữ liệu 28 mốc lịch sử lấy từ src/data/timeline.json.
 // =============================================================================
 
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -21,31 +18,13 @@ import timelineData from '../data/timeline.json';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const isVi = true; // trang này chỉ tiếng Việt (en đã ẩn tạm thời)
+const isVi = true;
 
 // Cấu hình 3 lớp phân loại
 const layers = [
-  {
-    id: 'mechanism',
-    label: '🔧 Máy móc & cơ chế',
-    labelShort: 'Máy móc',
-    color: '#2E86AB',        // xanh dương
-    bgColor: '#2E86AB',
-  },
-  {
-    id: 'brand',
-    label: '🏛 Thương hiệu & mẫu',
-    labelShort: 'Thương hiệu',
-    color: '#B8893C',        // vàng đồng
-    bgColor: '#B8893C',
-  },
-  {
-    id: 'culture',
-    label: '🌍 Bối cảnh & văn hóa',
-    labelShort: 'Văn hóa',
-    color: '#9B2C2C',        // đỏ trầm
-    bgColor: '#9B2C2C',
-  },
+  { id: 'mechanism', label: '🔧 Máy móc & cơ chế', labelShort: 'Máy móc', color: '#2E86AB', bgColor: '#2E86AB' },
+  { id: 'brand', label: '🏛 Thương hiệu & mẫu', labelShort: 'Thương hiệu', color: '#B8893C', bgColor: '#B8893C' },
+  { id: 'culture', label: '🌍 Bối cảnh & văn hóa', labelShort: 'Văn hóa', color: '#9B2C2C', bgColor: '#9B2C2C' },
 ];
 
 const milestones = timelineData as Array<{
@@ -56,6 +35,22 @@ const milestones = timelineData as Array<{
   slug: string;
   internalLink: string | null;
 }>;
+
+// Tạo các mốc nhảy theo thập niên cho thanh điều hướng
+const decadeMarks: { label: string; index: number }[] = [];
+let lastDecade = '';
+milestones.forEach((m, i) => {
+  const yearNum = parseInt(m.year);
+  if (isNaN(yearNum)) return;
+  const decade = Math.floor(yearNum / 50) * 50; // nhóm 50 năm
+  const label = decade === Math.floor(yearNum / 100) * 100
+    ? `${decade}s`
+    : `${decade}–${decade + 49}`;
+  if (label !== lastDecade) {
+    decadeMarks.push({ label, index: i });
+    lastDecade = label;
+  }
+});
 ---
 
 <BaseLayout
@@ -101,64 +96,104 @@ const milestones = timelineData as Array<{
       ))}
       <span class="ml-auto text-xs font-medium text-ink-soft/60 dark:text-dark-text-soft/60" id="milestone-count">{milestones.length} mốc</span>
     </div>
-
-    <!-- Hướng dẫn cuộn (desktop) -->
-    <p class="mt-6 hidden text-center text-sm text-ink-soft/60 dark:text-dark-text-soft/60 md:block">
-      ← Cuộn ngang để xem dòng thời gian →
-    </p>
   </section>
 
-  <!-- Timeline -->
-  <section class="timeline-track px-4 pb-20" id="timeline">
-    <!-- Đường nối (chạy dọc trên mobile, ngang trên desktop) -->
-    <div class="timeline-line"></div>
+  <!-- Layout chính: timeline + thanh điều hướng dính -->
+  <div class="mx-auto max-w-6xl px-4 lg:flex lg:gap-8 lg:px-4">
+    <!-- Timeline -->
+    <section class="timeline-track pb-20 flex-1 lg:min-w-0" id="timeline">
+      <!-- Đường dọc giữa trang -->
+      <div class="timeline-line"></div>
 
-    <div class="timeline-items">
-      {milestones.map((m, i) => {
-        const layer = layers.find((l) => l.id === m.type) ?? layers[0];
-        const imageSrc = existsSync(join(process.cwd(), 'public', 'images', 'timeline', `${m.slug}.jpg`))
-          ? `/images/timeline/${m.slug}.jpg`
-          : `/images/timeline/${m.slug}.svg`;
-        return (
-          <article
-            class="milestone-card"
-            data-anim="card"
-            data-type={m.type}
-            data-index={i}
+      <div class="timeline-items">
+        {milestones.map((m, i) => {
+          const layer = layers.find((l) => l.id === m.type) ?? layers[0];
+          const imageSrc = existsSync(join(process.cwd(), 'public', 'images', 'timeline', `${m.slug}.jpg`))
+            ? `/images/timeline/${m.slug}.jpg`
+            : `/images/timeline/${m.slug}.svg`;
+          return (
+            <article
+              class="milestone-card"
+              data-anim="card"
+              data-type={m.type}
+              data-index={i}
+              id={`milestone-${i}`}
+            >
+              <!-- Điểm trên timeline -->
+              <div class="milestone-dot" style={`background-color: ${layer.color};`}></div>
+
+              <!-- Thẻ nội dung -->
+              <div class="milestone-content rounded-lg border-l-4 bg-white dark:bg-dark-surface p-5 shadow-sm"
+                   style={`border-left-color: ${layer.color};`}>
+                <!-- Năm -->
+                <div class="milestone-year" style={`color: ${layer.color};`}>
+                  {m.year}
+                </div>
+
+                <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{m.title}</h2>
+
+                <!-- Ảnh -->
+                <WatchImage src={imageSrc} alt={m.title} ratio="4/3" />
+
+                <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.description}</p>
+
+                {m.internalLink && (
+                  <a
+                    href={m.internalLink}
+                    class="mt-3 inline-block text-xs font-medium transition-colors hover:underline"
+                    style={`color: ${layer.color};`}
+                  >
+                    Đọc chi tiết →
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Thanh điều hướng dính (desktop) -->
+    <aside class="hidden lg:block lg:w-44 lg:shrink-0">
+      <nav class="timeline-nav sticky top-32" id="timeline-nav" aria-label="Điều hướng dòng thời gian">
+        <p class="mb-3 text-xs font-medium uppercase tracking-wider text-ink-soft/50 dark:text-dark-text-soft/50">Điều hướng</p>
+        <ul class="space-y-1">
+          {decadeMarks.map((dm) => (
+            <li>
+              <button
+                type="button"
+                class="timeline-nav-btn block w-full text-left text-xs text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+                data-jump-to={dm.index}
+              >
+                {dm.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- Nút điều hướng (mobile) -->
+  <button type="button" id="timeline-nav-toggle" class="fixed bottom-20 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream shadow-lg lg:hidden dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border" aria-label="Mở điều hướng dòng thời gian">
+    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <div id="timeline-nav-mobile" class="fixed bottom-20 right-4 z-50 hidden w-48 rounded-lg border border-cream-dark bg-white p-3 shadow-xl lg:hidden dark:border-dark-border dark:bg-dark-surface">
+    <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/50 dark:text-dark-text-soft/50">Điều hướng</p>
+    <ul class="max-h-60 space-y-1 overflow-y-auto">
+      {decadeMarks.map((dm) => (
+        <li>
+          <button
+            type="button"
+            class="timeline-nav-btn-mobile block w-full text-left text-xs text-ink-soft dark:text-dark-text-soft"
+            data-jump-to={dm.index}
           >
-            <!-- Điểm trên timeline -->
-            <div class="milestone-dot" style={`background-color: ${layer.color};`}></div>
-
-            <!-- Năm -->
-            <div class="milestone-year" style={`color: ${layer.color};`}>
-              {m.year}
-            </div>
-
-            <!-- Thẻ nội dung -->
-            <div class="milestone-content rounded-lg border-l-4 bg-white dark:bg-dark-surface p-5 shadow-sm"
-                 style={`border-left-color: ${layer.color};`}>
-              <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{m.title}</h2>
-
-              <!-- Ảnh (dùng WatchImage, hiện placeholder nếu chưa có) -->
-              <WatchImage src={imageSrc} alt={m.title} ratio="4/3" />
-
-              <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.description}</p>
-
-              {m.internalLink && (
-                <a
-                  href={m.internalLink}
-                  class="mt-3 inline-block text-xs font-medium transition-colors hover:underline"
-                  style={`color: ${layer.color};`}
-                >
-                  Đọc chi tiết →
-                </a>
-              )}
-            </div>
-          </article>
-        );
-      })}
-    </div>
-  </section>
+            {dm.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
 
   <!-- Chú thích cuối -->
   <section class="mx-auto max-w-3xl px-4 pb-20">
@@ -173,41 +208,21 @@ const milestones = timelineData as Array<{
 
 <style>
   /* =============================================================================
-     LAYOUT TIMELINE
-     - Mobile (mặc định): cuộn DỌC, thẻ xếp chồng
-     - Desktop (md+): cuộn NGANG, thẻ xếp ngang như dây cót
+     LAYOUT TIMELINE — dọc so le hai bên (desktop), một cột (mobile)
      ============================================================================= */
 
   .timeline-track {
     position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: #B8893C #F0EAE0;
-  }
-  .timeline-track::-webkit-scrollbar {
-    height: 8px;
-  }
-  .timeline-track::-webkit-scrollbar-track {
-    background: #F0EAE0;
-    border-radius: 4px;
-  }
-  .timeline-track::-webkit-scrollbar-thumb {
-    background: #B8893C;
-    border-radius: 4px;
-  }
-
-  /* Container ngang (desktop) / dọc (mobile) */
-  .timeline-items {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
     padding: 2rem 0;
-    min-width: min-content;
   }
 
-  /* Đường nối: dọc (mobile) */
+  /* Container dọc */
+  .timeline-items {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Đường dọc giữa trang — mobile: bên trái */
   .timeline-line {
     position: absolute;
     top: 0;
@@ -216,16 +231,17 @@ const milestones = timelineData as Array<{
     width: 3px;
     background: linear-gradient(to bottom, #B8893C, #F0EAE0);
     border-radius: 2px;
+    z-index: 0;
   }
 
   .milestone-card {
     position: relative;
     padding-left: 50px;
-    scroll-snap-align: start;
-    max-width: 480px;
+    margin-bottom: 3rem;
+    max-width: 100%;
   }
 
-  /* Điểm trên timeline */
+  /* Điểm trên timeline — mobile: bên trái */
   .milestone-dot {
     position: absolute;
     left: 11px;
@@ -245,42 +261,58 @@ const milestones = timelineData as Array<{
     margin-bottom: 0.5rem;
   }
 
-  /* === DESKTOP: chuyển sang cuộn ngang === */
+  /* === DESKTOP: so le hai bên, đường giữa === */
   @media (min-width: 768px) {
-    .timeline-track {
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: 1rem;
-    }
-    .timeline-items {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 2rem;
-      padding: 2rem 0 2rem 2rem;
-    }
-    /* Đường nối ngang */
     .timeline-line {
-      top: 11px;
-      left: 0;
-      right: 0;
-      bottom: auto;
-      width: auto;
-      height: 3px;
-      background: linear-gradient(to right, #B8893C, #F0EAE0);
+      left: 50%;
+      transform: translateX(-50%);
     }
-    .milestone-card {
+
+    .timeline-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* Mốc lẻ: bên trái */
+    .milestone-card:nth-child(odd) {
       padding-left: 0;
-      padding-top: 40px;
-      max-width: 360px;
-      min-width: 320px;
+      padding-right: 3rem;
+      text-align: right;
+      grid-column: 1;
     }
+
+    /* Mốc chẵn: bên phải */
+    .milestone-card:nth-child(even) {
+      padding-left: 3rem;
+      padding-right: 0;
+      grid-column: 2;
+    }
+
+    /* Mỗi mốc chiếm đúng một ô, đẩy mốc kế sang hàng mới */
+    .milestone-card:nth-child(odd) + .milestone-card:nth-child(even) {
+      grid-row: auto;
+    }
+    /* Mốc lẻ mà không có mốc chẵn theo sau → vẫn ở cột trái */
+    .milestone-card:nth-child(odd):last-child {
+      grid-column: 1;
+    }
+
+    /* Điểm trên timeline — desktop: giữa */
     .milestone-dot {
       left: 50%;
       transform: translateX(-50%);
       top: 2px;
     }
-    .milestone-year {
-      text-align: center;
+
+    /* Nội dung bên trái: align phải */
+    .milestone-card:nth-child(odd) .milestone-content {
+      border-left: none;
+      border-right: 4px solid;
+      border-right-color: inherit;
+    }
+    .milestone-card:nth-child(odd) .milestone-content > * {
+      /* Tailwind text-right được đặt qua class inline */
     }
   }
 
@@ -295,18 +327,16 @@ const milestones = timelineData as Array<{
     transform: translateY(0);
   }
 
-  /* Tiêu đề: dùng chữ số lining (không bị 300 → 3oo) */
   .timeline-heading {
     font-variant-numeric: lining-nums;
   }
 
-  /* Nút lọc lớp — BẬT: nền đầy màu, chữ trắng */
+  /* Nút lọc lớp */
   .layer-btn {
     background: var(--layer-bg);
     border-color: var(--layer-color);
     color: #FAF7F2;
   }
-  /* Nút lọc lớp — TẮT: nền trong, viền mờ, chữ xám */
   .layer-btn[aria-pressed="false"] {
     background: transparent;
     border-color: rgba(31, 45, 61, 0.25);
@@ -318,22 +348,30 @@ const milestones = timelineData as Array<{
     box-sizing: border-box;
   }
 
-  /* Nút "Tất cả" — BẬT: nền navy đậm, chữ trắng */
   .layer-btn-all {
     background: #1F2D3D;
     border-color: #1F2D3D;
     color: #FAF7F2;
   }
-  /* Nút "Tất cả" — TẮT: nền trong, viền mờ, chữ xám */
   .layer-btn-all[aria-pressed="false"] {
     background: transparent;
     border-color: rgba(31, 45, 61, 0.25);
     color: rgba(31, 45, 61, 0.45);
   }
 
-  /* Ẩn thẻ khi lớp tắt */
   .milestone-card.layer-hidden {
     display: none;
+  }
+
+  /* Thanh điều hướng — mốc đang xem được nổi bật */
+  .timeline-nav-btn.active,
+  .timeline-nav-btn-mobile.active {
+    color: #B8893C !important;
+    font-weight: 600;
+  }
+  :global(.dark) .timeline-nav-btn.active,
+  :global(.dark) .timeline-nav-btn-mobile.active {
+    color: #D4A85A !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -346,12 +384,6 @@ const milestones = timelineData as Array<{
 </style>
 
 <script>
-  // =============================================================================
-  // JAVASCRIPT TIMELINE
-  // 1. Bật/tắt 3 lớp phân loại
-  // 2. Reveal thẻ khi cuộn tới (Intersection Observer)
-  // =============================================================================
-
   function initTimeline() {
     const track = document.getElementById('timeline');
     if (!track) return;
@@ -373,13 +405,11 @@ const milestones = timelineData as Array<{
         card.classList.toggle('layer-hidden', !visible);
         if (visible) visibleCount++;
       });
-      // Bộ đếm dạng "11 / 28 mốc"; khi đủ hết thì "28 mốc"
       if (countEl) {
         countEl.textContent = visibleCount === total
           ? `${total} mốc`
           : `${visibleCount} / ${total} mốc`;
       }
-      // Đồng bộ nút "Tất cả": chỉ sáng khi cả 3 lớp đang bật
       const allOn = activeLayers.size === 3;
       toggleAll?.setAttribute('aria-pressed', String(allOn));
     }
@@ -398,7 +428,6 @@ const milestones = timelineData as Array<{
       });
     });
 
-    // Nút "Tất cả": bật lại toàn bộ lớp
     toggleAll?.addEventListener('click', () => {
       activeLayers.clear();
       activeLayers.add('mechanism', 'brand', 'culture');
@@ -420,15 +449,71 @@ const milestones = timelineData as Array<{
             }
           });
         },
-        { threshold: 0.15, root: track }
+        { threshold: 0.1 }
       );
       cards.forEach((card) => observer.observe(card));
 
-      // Fallback: hiện tất cả sau 3s
       setTimeout(() => {
         cards.forEach((c) => c.classList.add('reveal-visible'));
       }, 3000);
     }
+
+    // ---- 3. Thanh điều hướng: nhảy tới mốc ----
+    function jumpToMilestone(index: number) {
+      const target = cards[index] as HTMLElement | undefined;
+      if (!target || target.classList.contains('layer-hidden')) return;
+      target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-jump-to]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.jumpTo ?? '0');
+        jumpToMilestone(idx);
+        // Đóng panel mobile nếu đang mở
+        document.getElementById('timeline-nav-mobile')?.classList.add('hidden');
+      });
+    });
+
+    // ---- 4. Scroll spy: đánh dấu mốc đang xem ----
+    const navBtns = document.querySelectorAll<HTMLButtonElement>('.timeline-nav-btn, .timeline-nav-btn-mobile');
+
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = (entry.target as HTMLElement).dataset.index;
+            if (!idx) return;
+            // Tìm decade mark gần nhất
+            navBtns.forEach((btn) => {
+              const jumpIdx = parseInt(btn.dataset.jumpTo ?? '0');
+              const nextBtn = btn.nextElementSibling?.querySelector('[data-jump-to]') as HTMLElement | null;
+              const nextIdx = nextBtn ? parseInt(nextBtn.dataset.jumpTo ?? '999') : 999;
+              if (parseInt(idx) >= jumpIdx && parseInt(idx) < nextIdx) {
+                btn.classList.add('active');
+              } else {
+                btn.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    cards.forEach((card) => spyObserver.observe(card));
+
+    // ---- 5. Nút điều hướng mobile ----
+    const navToggle = document.getElementById('timeline-nav-toggle');
+    const navMobile = document.getElementById('timeline-nav-mobile');
+    navToggle?.addEventListener('click', () => {
+      navMobile?.classList.toggle('hidden');
+    });
+    // Đóng khi bấm ra ngoài
+    document.addEventListener('click', (e) => {
+      if (navMobile?.classList.contains('hidden')) return;
+      if (navToggle?.contains(e.target as Node)) return;
+      if (navMobile?.contains(e.target as Node)) return;
+      navMobile?.classList.add('hidden');
+    });
   }
 
   initTimeline();

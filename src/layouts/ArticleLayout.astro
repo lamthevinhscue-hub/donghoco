@@ -84,6 +84,11 @@ const formattedDate = date
       </div>
     )}
 
+    <!-- Slot "spec" — bảng thông số kỹ thuật (dùng cho trang chi tiết mẫu iconic).
+         Đặt giữa phần tóm tắt/ảnh bìa và nội dung bài. Nếu trang không truyền
+         slot này thì không hiện gì. -->
+    <slot name="spec" />
+
     <!-- Nội dung Markdown được chèn vào đây -->
     <div class="prose-content text-ink dark:text-dark-text">
       <slot />

@@ -1,9 +1,10 @@
 ---
 // Trang chi tiết: MẪU ICONIC
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import SpecTable from '../../components/SpecTable.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
-import { localizedPath } from '../../i18n/ui';
+import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
@@ -37,6 +38,20 @@ const meta = [
   data.year ? `${data.year}` : null,
   data.references && data.references.length > 0 ? `${data.references.length} ref` : null,
 ].filter(Boolean).join(' • ');
+
+// ====== Khối "Thông số kỹ thuật" — 7 dòng theo thứ tự cố định ======
+// Nhãn lấy từ i18n/ui.ts (không viết cứng). SpecTable tự bỏ dòng không có
+// dữ liệu; nếu rỗng hết thì không hiện khối.
+const tr = t(lang);
+const specRows = [
+  { label: tr.spec_brand, value: data.brand || '' },
+  { label: tr.spec_year, value: data.year ? String(data.year) : '' },
+  { label: tr.spec_category, value: data.category ? getIconicCategoryLabel(data.category, lang) : '' },
+  { label: tr.spec_movement, value: data.movement || '' },
+  { label: tr.spec_power_reserve, value: data.power_reserve || '' },
+  { label: tr.spec_water_resistance, value: data.water_resistance || '' },
+  { label: tr.spec_references, value: data.references && data.references.length > 0 ? data.references.join(', ') : '' },
+];
 
 // ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
 // 1. Mẫu cùng category (ưu tiên cùng thập niên)
@@ -116,5 +131,6 @@ if (thirdCandidate) {
   relatedArticles={related}
   compareHref={localizedPath(`/so-sanh?m=${slug}`, lang)}
 >
+  <SpecTable slot="spec" rows={specRows} />
   <Content />
 </ArticleLayout>

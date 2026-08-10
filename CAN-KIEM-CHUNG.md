@@ -189,3 +189,80 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 ---
 
 ## 21. (Dự phòng) — bổ sung thêm các số liệu khác khi phát hiện
+
+---
+
+## 22. Dữ liệu kỹ thuật còn thiếu trong frontmatter các bài mẫu iconic (mauIconic)
+
+- **Vị trí:** `src/content/mauIconic/vi/` (26 bài)
+- **Bối cảnh:** Từ đợt bổ sung khối "Thông số kỹ thuật" trên trang chi tiết mẫu iconic (SpecTable.astro), các trường `year`, `movement`, `power_reserve`, `water_resistance`, `references` được hiển thị trực tiếp lên trang. SpecTable tự bỏ dòng không có dữ liệu — không hiện dấu gạch ngang. Danh sách dưới đây ghi rõ bài nào thiếu trường nào, để anh Vinh kiểm chứng và điền sau.
+- **Nguyên tắc:** **Tuyệt đối không tự điền.** Không tra cứu, không suy đoán, không lấy từ phần chữ bài viết ra. Việc điền số liệu chỉ do anh Vinh thực hiện sau khi kiểm chứng.
+
+### Tổng hợp theo trường
+
+- **Thiếu `year` (2 bài):**
+  - `breguet-type-xx`
+  - `orient-bambino`
+- **Thiếu `movement` (6 bài):**
+  - `breguet-type-xx`
+  - `fc-heart-beat`
+  - `greubel-double-tourbillon`
+  - `hamilton-ventura`
+  - `longines-lindbergh`
+  - `tissot-prx`
+- **Thiếu `power_reserve` (8 bài):**
+  - `breguet-type-xx`
+  - `dufour-simplicity`
+  - `fc-heart-beat`
+  - `fpjourne-chronometre-bleu`
+  - `greubel-double-tourbillon`
+  - `hamilton-ventura`
+  - `longines-lindbergh`
+  - `tissot-prx`
+- **Thiếu `water_resistance` (8 bài):**
+  - `breguet-type-xx`
+  - `dufour-simplicity`
+  - `fc-heart-beat`
+  - `fpjourne-chronometre-bleu`
+  - `greubel-double-tourbillon`
+  - `hamilton-ventura`
+  - `longines-lindbergh`
+  - `tissot-prx`
+- **Thiếu `references` (5 bài):**
+  - `dufour-simplicity`
+  - `fpjourne-chronometre-bleu`
+  - `greubel-double-tourbillon`
+  - `hamilton-ventura`
+  - `longines-lindbergh`
+
+### Chi tiết theo bài
+
+- `breguet-type-xx` — thiếu: `year`, `movement`, `power_reserve`, `water_resistance`
+- `cartier-tank` — đủ dữ liệu
+- `dufour-simplicity` — thiếu: `power_reserve`, `water_resistance`, `references`
+- `fc-heart-beat` — thiếu: `movement`, `power_reserve`, `water_resistance`
+- `fifty-fathoms` — đủ dữ liệu
+- `fpjourne-chronometre-bleu` — thiếu: `power_reserve`, `water_resistance`, `references`
+- `freak` — đủ dữ liệu
+- `glashuette-seaq` — đủ dữ liệu
+- `grand-seiko-snowflake` — đủ dữ liệu
+- `greubel-double-tourbillon` — thiếu: `movement`, `power_reserve`, `water_resistance`, `references`
+- `hamilton-ventura` — thiếu: `movement`, `power_reserve`, `water_resistance`, `references`
+- `iwc-mark-xi` — đủ dữ liệu
+- `lange-1` — đủ dữ liệu
+- `longines-lindbergh` — thiếu: `movement`, `power_reserve`, `water_resistance`, `references`
+- `monaco` — đủ dữ liệu
+- `omega-speedmaster` — đủ dữ liệu
+- `orient-bambino` — thiếu: `year`
+- `patek-nautilus` — đủ dữ liệu
+- `reverso` — đủ dữ liệu
+- `rolex-submariner` — đủ dữ liệu
+- `royal-oak` — đủ dữ liệu
+- `seiko-62mas` — đủ dữ liệu
+- `tissot-prx` — thiếu: `movement`, `power_reserve`, `water_resistance`
+- `tudor-black-bay` — đủ dữ liệu
+- `vc-overseas` — đủ dữ liệu
+- `zenith-el-primero` — đủ dữ liệu
+
+- **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh kiểm chứng và điền.
+

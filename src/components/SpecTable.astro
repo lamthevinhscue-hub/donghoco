@@ -1,0 +1,56 @@
+---
+// =============================================================================
+// SPEC TABLE — Bảng thông số kỹ thuật (dùng chung)
+// =============================================================================
+// Nhận danh sách cặp { label, value } và hiển thị thành bảng hai cột.
+//
+// Nguyên tắc "thà thiếu còn hơn sai":
+//   - Dòng nào không có dữ liệu thì bỏ hẳn — không hiện dấu gạch ngang.
+//   - Nếu không có dòng nào có dữ liệu thì không hiện cả khối.
+//
+// Nhãn lấy từ src/i18n/ui.ts (không viết chữ cứng vào component).
+// Dark mode xử lý giống MiniTimeline.astro.
+// =============================================================================
+
+import { getLangFromUrl, t } from '../i18n/ui';
+
+interface SpecRow {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  rows: SpecRow[];
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const { rows } = Astro.props;
+
+// Lọc: chỉ giữ dòng có value (chuỗi khác rỗng sau khi cắt khoảng trắng).
+// Đây là mảng dữ liệu thật — nếu rỗng thì component không xuất khối HTML nào.
+const filledRows = (rows ?? []).filter(
+  (r) => r && typeof r.value === 'string' && r.value.trim() !== ''
+);
+---
+
+{filledRows.length > 0 && (
+  <section class="spec-table not-prose my-8" aria-label={tr.spec_title}>
+    <h2 class="mb-3 font-serif text-lg font-semibold text-navy dark:text-dark-text">
+      {tr.spec_title}
+    </h2>
+    <dl class="card-bordered divide-y divide-cream-dark dark:divide-dark-border overflow-hidden">
+      {filledRows.map((row) => (
+        <div class="grid grid-cols-1 gap-1 px-4 py-3 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-4">
+          <dt class="text-sm font-medium uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+            {row.label}
+          </dt>
+          <dd class="text-sm text-navy dark:text-dark-text">
+            {row.value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+)}

@@ -130,6 +130,15 @@ export const translations = {
     contact_button: 'Gửi liên hệ',
     lang_notice:
       'Nội dung tiếng Anh đang được chuẩn bị. Tạm thời chỉ có tiếng Việt.',
+    // Khối "Thông số kỹ thuật" trên trang chi tiết mẫu iconic (SpecTable.astro)
+    spec_title: 'Thông số kỹ thuật',
+    spec_brand: 'Thương hiệu',
+    spec_year: 'Năm ra mắt',
+    spec_category: 'Thể loại',
+    spec_movement: 'Bộ máy',
+    spec_power_reserve: 'Trữ cót',
+    spec_water_resistance: 'Chống nước',
+    spec_references: 'Các thế hệ tham chiếu',
   },
   en: {
     siteName: 'Đồng Hồ Cơ',
@@ -171,6 +180,15 @@ export const translations = {
     contact_button: 'Send',
     lang_notice:
       'English content is being prepared. Vietnamese is currently the main language.',
+    // "Technical specifications" block on the iconic model detail page (SpecTable.astro)
+    spec_title: 'Specifications',
+    spec_brand: 'Brand',
+    spec_year: 'Year introduced',
+    spec_category: 'Category',
+    spec_movement: 'Movement',
+    spec_power_reserve: 'Power reserve',
+    spec_water_resistance: 'Water resistance',
+    spec_references: 'References',
   },
 } as const;
 
@@ -355,6 +373,25 @@ const glossaryCategoryLabels: Record<string, { vi: string; en: string }> = {
 
 export function getCategoryLabel(category: string, lang: Lang): string {
   return glossaryCategoryLabels[category]?.[lang] ?? category;
+}
+
+// =============================================================================
+// NHÃN THỂ LOẠI MẪU ICONIC (iconic model categories)
+// =============================================================================
+// Dùng cho SpecTable.astro và các nơi khác cần dịch giá trị category của bài
+// mẫu iconic (enum: lặn / chronograph / dress / pilot / sport-luxury).
+// =============================================================================
+
+const iconicCategoryLabels: Record<string, { vi: string; en: string }> = {
+  'lặn': { vi: 'Lặn', en: 'Diver' },
+  'chronograph': { vi: 'Chronograph', en: 'Chronograph' },
+  'dress': { vi: 'Dress', en: 'Dress' },
+  'pilot': { vi: 'Phi công', en: 'Pilot' },
+  'sport-luxury': { vi: 'Sport-luxury', en: 'Sport-luxury' },
+};
+
+export function getIconicCategoryLabel(category: string, lang: Lang): string {
+  return iconicCategoryLabels[category]?.[lang] ?? category;
 }
 
 // Tạo liên kết chuyển ngôn ngữ cho trang hiện tại

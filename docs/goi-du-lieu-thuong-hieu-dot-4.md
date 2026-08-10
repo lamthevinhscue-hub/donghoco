@@ -283,7 +283,7 @@ So sánh với: **Tudor** (`tudor`) • **TAG Heuer** (`tag-heuer`) • **Hamilt
 
 # 8. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 - Seiko — 1881 Kintaro Hattori, 1892 Seikosha, 1913 Laurel, 1965 đồng hồ lặn đầu tiên, 12/1969 Quartz Astron: [Seiko Group Corporation — History](https://www.seiko.co.jp/en/group/history/), [The Seiko Museum Ginza — Stage 1 (1881–1920s)](https://museum.seiko.co.jp/en/seiko_history/company/company/001/), [Seiko Watch Corporation — 1965 Diver's Re-creation](https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index), [Seiko Design 140 — 1969 Quartz Astron](https://by.seiko-design.com/140th/en/topic/32.html)
 - Tudor — 1926 đăng ký, 1936 Wilsdorf tiếp quản, 1946 Montres Tudor SA, 1952 Oyster Prince, 1969 snowflake và Hải quân Pháp, 2012 Black Bay, 2016 Kenissi và MT5602: [Wikipedia — Tudor Watches](https://en.wikipedia.org/wiki/Tudor_Watches), [Tudor — Inside Tudor: 1926 đến 1949](https://www.tudorwatch.com/en/inside-tudor/history/tudor-history-origins-1926-to-1949), [Tudor — Tudor và Marine Nationale](https://www.tudorwatch.com/en/inside-tudor/history/tudor-and-marine-nationale), [Grail Watch Reference — MT5602](https://reference.grail-watch.com/movement/mt5602/)

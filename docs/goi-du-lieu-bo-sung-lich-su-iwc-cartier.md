@@ -143,7 +143,7 @@ Các mục sau trong `CAN-KIEM-CHUNG.md` phát sinh từ đợt 5 nay đã có c
 
 # 5. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 **IWC**
 

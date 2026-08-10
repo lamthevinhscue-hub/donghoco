@@ -7,6 +7,13 @@ references: ["Classics Heart Beat", "Classics Heart Beat Manufacture"]
 category: "dress"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Frédérique Constant — Men's Heart Beat chính hãng"
+    url: "https://us.frederiqueconstant.com/collection/mens-heart-beat/"
+  - label: "Monochrome — Classics Heart Beat Manufacture"
+    url: "https://monochrome-watches.com/frederique-constant-updates-the-classics-heart-beat-manufacture-specs-price/"
+  - label: "WatchBase — Calibre FC-945"
+    url: "https://watchbase.com/frederique-constant/caliber/fc-945"
 ---
 
 ## Bối cảnh ra đời

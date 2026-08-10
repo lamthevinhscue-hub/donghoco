@@ -64,6 +64,17 @@ segmentComparison:
     value_retention: "Trung bình khá."
     philosophy: "Nhà chế tác của các nhà chế tác."
 collectorNote: "Chọn Greubel Forsey khi bạn muốn một cỗ máy cố tình phô bày độ khó của chính nó. Đây là thứ đối lập hoàn toàn với triết lý ẩn mình của đồng hồ cổ điển: lồng tourbillon nghiêng, cầu máy cắt lớp, mặt số mở toang để bạn nhìn thấy bằng được cái khó. Ba phát minh được nhắc tới nhiều nhất của hãng là Double Tourbillon 30°, Quadruple Tourbillon và Tourbillon 24 Secondes. Nếu bạn thích sáng tạo cơ cấu nhưng trong một hình hài kín đáo, F.P. Journe. Nếu đặt hoàn thiện thủ công thầm lặng lên trên tất cả, Philippe Dufour. Nếu muốn kỹ thuật ở tầm cao nhưng dễ tiếp cận hơn nhiều về giá và bảo hành, Jaeger-LeCoultre. Nói thẳng hai điều: đây là nhóm giá cao nhất trong toàn bộ website này, và thiết kế của Greubel Forsey rất kén người — nhiều nhà sưu tầm kỳ cựu vẫn thấy nó quá phô. Đây không phải chiếc đồng hồ để đeo hằng ngày."
+sources:
+  - label: "Wikipedia — Greubel Forsey"
+    url: "https://en.wikipedia.org/wiki/Greubel_Forsey"
+  - label: "Greubel Forsey — Lịch sử chính hãng"
+    url: "https://greubelforsey.com/en/history"
+  - label: "Revolution — Double Tourbillon 30°"
+    url: "https://revolutionwatch.com/the-revolutionary-list-30-pioneering-watches-the-greubel-forsey-double-tourbillon-30%CB%9A/"
+  - label: "SJX Watches — Hand Made 1"
+    url: "https://watchesbysjx.com/2019/10/greubel-forsey-hand-made-1-tourbillon-watch.html"
+  - label: "Greubel Forsey — Hand Made 1 chính hãng"
+    url: "https://greubelforsey.com/en/collections/collection/hand-made-1"
 ---
 
 ## Tổng quan

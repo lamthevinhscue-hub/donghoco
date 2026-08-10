@@ -10,6 +10,13 @@ power_reserve: "40 giờ"
 water_resistance: "200m"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Monochrome — Glashütte Original SeaQ 39.5mm Review"
+    url: "https://monochrome-watches.com/glashutte-original-seaq-39-5mm-review-price/"
+  - label: "Fratello — Taking A Fresh Look At The 39.5mm SeaQ"
+    url: "https://www.fratellowatches.com/taking-a-fresh-look-at-the-39-5mm-glashutte-original-seaq/"
+  - label: "Exquisite Timepieces — SeaQ Blue Dial 39.5mm"
+    url: "https://www.exquisitetimepieces.com/glashutte-original-seaq-blue-dial-39-5mm-1-39-11-09-81-70.html"
 ---
 
 ## Bối cảnh ra đời

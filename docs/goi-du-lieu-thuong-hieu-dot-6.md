@@ -212,7 +212,7 @@ So sánh với: **Hamilton** (`hamilton`) • **Tissot** (`tissot`) • **Longin
 
 # 7. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 - Hamilton — 1892 Lancaster, Keystone Standard Watch phá sản, danh hiệu đồng hồ chuẩn đường sắt, thuộc Swatch Group và trụ sở tại Biel: [Wikipedia — Hamilton Watch Company](https://en.wikipedia.org/wiki/Hamilton_Watch_Company), [Hamilton — Lịch sử chính hãng](https://www.hamiltonwatch.com/en-us/company/hamilton-watches-history), [Teddy Baldassarre — Hamilton Watch History](https://teddybaldassarre.com/blogs/watches/hamilton-watch-history)
 - Hamilton Ventura — 1957 đồng hồ đeo tay chạy pin đầu tiên thế giới, Richard Arbib thiết kế, Elvis Presley đeo trong phim "Blue Hawaii" năm 1961: [Teddy Baldassarre — Hamilton Ventura and Elvis](https://teddybaldassarre.com/blogs/watches/hamilton-ventura-elvis), [WatchTime — Hamilton Ventura](https://www.watchtime.com/brands/hamilton/hamilton-ventura-s-quartz-the-avant-garde-elvis-presley-watch), [Horobox — The History of Hamilton Ventura](https://www.horobox.com/en/review-detail/the-history-of-hamilton-ventura)

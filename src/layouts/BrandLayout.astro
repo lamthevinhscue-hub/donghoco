@@ -16,6 +16,7 @@ import BaseLayout from './BaseLayout.astro';
 import MiniTimeline from '../components/MiniTimeline.astro';
 import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import SourceList from '../components/SourceList.astro';
 import { getLangFromUrl, t, localizedPath, getTierLabel, CALIBRE_DISPLAY_SLUGS } from '../i18n/ui';
 
 interface IconicModel {
@@ -300,5 +301,8 @@ const breadcrumbData = [
         📝 Chưa có mẫu iconic nào của {title} trên website. Sẽ được bổ sung sau.
       </section>
     )}
+
+    <!-- ====== KHỐI NGUỒN THAM KHẢO — cuối trang thương hiệu ====== -->
+    <SourceList sources={data.sources} />
   </article>
 </BaseLayout>

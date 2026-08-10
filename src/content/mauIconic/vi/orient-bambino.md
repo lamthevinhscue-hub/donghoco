@@ -9,6 +9,13 @@ power_reserve: "40 giờ"
 water_resistance: "30m"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Monochrome — Orient Bambino 38 No-Date"
+    url: "https://monochrome-watches.com/introducing-orient-bambino-38-no-date-and-new-colours-2026-bambino-classic-date-specs-price/"
+  - label: "WatchRanker — Orient Bambino Complete Guide"
+    url: "https://watchranker.com/orient-bambino-watches-guide/"
+  - label: "Relojes Wiki — Orient Bambino, all versions"
+    url: "https://relojes.wiki/en/orient-bambino/"
 ---
 
 ## Bối cảnh ra đời

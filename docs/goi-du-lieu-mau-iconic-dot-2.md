@@ -255,7 +255,7 @@ Dòng này có nhiều đời, và cách phân biệt hay gây lẫn:
 
 # 6. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 **Glashütte Original SeaQ** — ra mắt 2019, kế thừa Spezimatik Type RP TS 200 năm 1969, thông số vỏ 39,5mm và calibre 39-11: [Monochrome — Glashütte Original SeaQ 39.5mm Review](https://monochrome-watches.com/glashutte-original-seaq-39-5mm-review-price/), [Fratello — Taking A Fresh Look At The 39.5mm SeaQ](https://www.fratellowatches.com/taking-a-fresh-look-at-the-39-5mm-glashutte-original-seaq/), [Exquisite Timepieces — SeaQ Blue Dial 39.5mm](https://www.exquisitetimepieces.com/glashutte-original-seaq-blue-dial-39-5mm-1-39-11-09-81-70.html)
 

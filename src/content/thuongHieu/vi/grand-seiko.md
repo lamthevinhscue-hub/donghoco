@@ -69,6 +69,19 @@ segmentComparison:
     value_retention: "Thấp ở dòng phổ thông."
     philosophy: "Đỉnh cao của thực dụng."
 collectorNote: "Chọn Grand Seiko khi bạn **mua bằng mắt chứ không bằng tai** — nghĩa là bạn thực sự nhìn vào chiếc đồng hồ, chứ không nghe người khác nói về nó. Ở cùng tầm tiền, không hãng nào đánh bóng vỏ và làm mặt số đẹp hơn; kỹ thuật Zaratsu tạo ra những bề mặt phẳng phản chiếu không méo mà đồng hồ Thụy Sĩ cùng giá hiếm khi đạt tới. Nếu bạn cần **giữ giá và được người khác nhận ra**, [Rolex](/thuong-hieu/rolex) là câu trả lời khác hẳn. Nếu muốn công nghệ và di sản có bề dày kể chuyện, Omega. Nếu chỉ mới bắt đầu, [Seiko](/thuong-hieu/seiko) là bước đệm tự nhiên. Nói thẳng ba điều: Grand Seiko giữ giá chỉ trung bình khá, mạng lưới bảo hành ngoài Nhật Bản mỏng hơn các hãng Thụy Sĩ lớn, và phần lớn người xung quanh bạn sẽ không biết bạn đang đeo gì. Đây là chiếc đồng hồ mua cho chính mình."
+sources:
+  - label: "Seiko Design 140 — The Grand Seiko Style"
+    url: "https://by.seiko-design.com/140th/en/topic/28.html"
+  - label: "Grand Seiko — 44GS chính hãng"
+    url: "https://www.grand-seiko.com/us-en/collections/heritage/h1"
+  - label: "GS9 Club — History"
+    url: "https://grandseikogs9club.com/history/"
+  - label: "The Hour Glass — History Behind the Grand Seiko 9R Spring Drive"
+    url: "https://www.thehourglass.com/story/history-grand-seiko-9r-spring-drive"
+  - label: "Grand Seiko — Caliber 9R65"
+    url: "https://www.grand-seiko.com/us-en/collections/movement/springdrive/9r65"
+  - label: "Time and Tide — Grand Seiko Movements Part I"
+    url: "https://timeandtidewatches.com/in-depth-grand-seiko-movements-part-i-the-mechanicals/"
 ---
 
 ## Tổng quan

@@ -93,6 +93,23 @@ segmentComparison:
     value_retention: "Trung bình khá."
     philosophy: "Nhà chế tác của các nhà chế tác."
 collectorNote: "Chọn IWC khi bạn muốn một chiếc đồng hồ **trông như dụng cụ chứ không như trang sức**. Đây là hãng cao cấp hiếm hoi mà thẩm mỹ chủ đạo là sự thực dụng: mặt số Pilot của IWC được thiết kế để đọc trong buồng lái tối, và điều đó vẫn còn nguyên trong các mẫu hôm nay. Nếu bạn cần **giữ giá và thanh khoản**, [Rolex](/thuong-hieu/rolex) hơn hẳn. Nếu ưu tiên **công nghệ chống từ và di sản không gian**, Omega. Nếu muốn **bề rộng kỹ thuật và sự tinh tế**, Jaeger-LeCoultre. Nói thẳng: IWC giữ giá chỉ ở mức trung bình, và một số dòng thấp của hãng dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu bạn định mua, đừng mặc định cứ IWC là bộ máy tự sản xuất."
+sources:
+  - label: "Wikipedia — IWC Schaffhausen"
+    url: "https://en.wikipedia.org/wiki/IWC_Schaffhausen"
+  - label: "IWC — Lịch sử chính hãng"
+    url: "https://www.iwc.com/us-en/company/history"
+  - label: "Sotheby's — IWC Schaffhausen"
+    url: "https://www.sothebys.com/en/brands/iwc-schaffhausen"
+  - label: "IWC Press — Timeline"
+    url: "https://press.iwc.com/timeline/"
+  - label: "Fratello — IWC Brand History Highlights"
+    url: "https://www.fratellowatches.com/iwc-brand-history-highlights-from-the-big-pilot-to-the-portofino-ingenieur-aquatimer-and-beyond/"
+  - label: "IWC — Innovative Materials"
+    url: "https://www.iwc.com/us-en/specials/innovative-materials"
+  - label: "Worldtempus — The first Ceratanium watch case"
+    url: "https://en.worldtempus.com/article/watches/innovation-and-technology/iwc-schaffhausen-the-first-ceratanium-watch-case-24619.html"
+  - label: "MR PORTER — How IWC foresaw modern watch trends 40 years ago"
+    url: "https://www.mrporter.com/en-us/journal/watches/iwc-1980s-porsche-design-louis-vuitton-ceramic-titanium-10509766"
 ---
 
 ## Tổng quan

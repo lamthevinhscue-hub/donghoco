@@ -307,7 +307,7 @@ So sánh với: **A. Lange & Söhne** (`a-lange-soehne`) • **Blancpain** (`bla
 
 # 8. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Phần này để anh Vinh đối chiếu khi cần, không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 - Breguet — lịch sử, năm 1775, bằng sáng chế tourbillon 26/6/1801, Swatch Group 1999: [Wikipedia — Breguet (brand)](https://en.wikipedia.org/wiki/Breguet_(brand)), [Swatch Group — Breguet](https://www.swatchgroup.com/en/companies-brands/watches-jewelry/breguet), [Maison Breguet](https://www.breguet.com/en/breguet-house)
 - Breguet — phát minh và chiếc đeo tay số 2639: [Wikipedia — Abraham-Louis Breguet](https://en.wikipedia.org/wiki/Abraham-Louis_Breguet), [Fondation de la Haute Horlogerie](https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/abraham-louis-breguet-)

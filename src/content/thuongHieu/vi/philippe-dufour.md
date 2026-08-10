@@ -60,6 +60,13 @@ segmentComparison:
     value_retention: "Khá."
     philosophy: "Không thua kém ai."
 collectorNote: "Với Philippe Dufour, câu hỏi chọn khi nào gần như không có nghĩa — bạn không chọn, bạn chờ. Simplicity đã ngừng làm, tổng sản lượng cả đời ông chỉ hơn hai trăm chiếc, và mỗi lần một chiếc xuất hiện trên thị trường là một sự kiện. Điều đáng nói hơn: Dufour là người đã chứng minh cho cả một thế hệ thợ trẻ rằng làm đồng hồ một mình, không tập đoàn, không quảng cáo, vẫn có thể đứng ở đỉnh cao nhất của nghề — và ảnh hưởng đó lớn hơn nhiều so với hai trăm chiếc đồng hồ. Nếu bạn muốn tinh thần độc lập tương tự nhưng thực tế mua được, F.P. Journe là lựa chọn gần nhất. Nếu thích kỹ thuật phô diễn hơn là hoàn thiện thầm lặng, Greubel Forsey. Nếu cần chất lượng hoàn thiện cao mà vẫn mua được ở đại lý, A. Lange & Söhne."
+sources:
+  - label: "Fondation de la Haute Horlogerie — Philippe Dufour"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/philippe-dufour"
+  - label: "AHCI — Philippe Dufour"
+    url: "https://www.ahci.ch/members/philippe-dufour/"
+  - label: "Philippe Dufour — trang chính chủ"
+    url: "https://philippedufour.ch/en/mes-creations/"
 ---
 
 ## Tổng quan

@@ -242,7 +242,7 @@ Các mô tả tôi cấp ở Phần 1.6 và 2.6 đã được viết để khớ
 
 # 8. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 **Orient**
 

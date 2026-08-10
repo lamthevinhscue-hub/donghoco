@@ -63,6 +63,13 @@ segmentComparison:
     value_retention: "Trung bình."
     philosophy: "Thanh lịch là thái độ."
 collectorNote: "Chọn Frédérique Constant khi bạn muốn **một chiếc đồng hồ lịch sự cho công sở, có chút chiều sâu kỹ thuật, mà không phải trả giá của một cái tên lâu đời**. Ô Heart Beat là cách rất hay để một người mới nhìn thấy bánh lắc dao động — thứ khiến nhiều người bắt đầu yêu đồng hồ cơ. Dòng Manufacture đáng chú ý hơn cả: rất ít hãng ở tầm giá này tự làm được bộ máy. Nếu bạn thiên về **thiết kế công cụ và di sản dày hơn**, [Hamilton](/thuong-hieu/hamilton). Nếu muốn nhiều lựa chọn kiểu dáng, [Tissot](/thuong-hieu/tissot). Nếu sẵn sàng chi thêm cho một cái tên có gần hai trăm năm lịch sử, [Longines](/thuong-hieu/longines). Nói thẳng hai điều: Frédérique Constant gần như không giữ giá và ít được nhận diện — đây là hãng trẻ, không có kho di sản để kể; và **chỉ dòng Manufacture mới dùng bộ máy tự phát triển**, các dòng còn lại dùng bộ máy mua ngoài, nên hãy kiểm kỹ mã bộ máy của đúng mẫu bạn định mua."
+sources:
+  - label: "Wikipedia — Frédérique Constant"
+    url: "https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9rique_Constant"
+  - label: "Frédérique Constant — Lịch sử chính hãng"
+    url: "https://frederiqueconstant.com/history/"
+  - label: "Swiss Watches Magazine — Frederique Constant"
+    url: "https://swisswatches-magazine.com/brand/frederique-constant/"
 ---
 
 ## Tổng quan

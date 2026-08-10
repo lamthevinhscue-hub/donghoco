@@ -73,6 +73,19 @@ segmentComparison:
     value_retention: "Khá; Speedmaster là trụ giữ giá."
     philosophy: "Chinh phục giới hạn bằng công nghệ."
 collectorNote: "Chọn Zenith khi bạn mua bằng con mắt kỹ thuật. Ở tầm giá này, không hãng nào cho bạn một bộ máy chronograph có tiểu sử dày như El Primero — nó từng tốt tới mức Rolex phải mượn về lắp vào Daytona suốt mười hai năm, và câu chuyện Charles Vermot giấu máy móc trên gác mái là một trong những giai thoại đẹp nhất ngành. Chọn TAG Heuer nếu bạn yêu văn hóa đua xe và muốn thiết kế dễ nhận ra hơn. Chọn Tudor nếu ưu tiên độ bền công cụ và khả năng bán lại. Chọn Omega nếu sẵn sàng chi thêm cho công nghệ chống từ và di sản không gian. Nói thẳng điểm yếu: Zenith không có sức nhận diện đại chúng — người ngoài ngành nhìn vào cổ tay bạn sẽ không biết đó là gì, và khả năng giữ giá chỉ ở mức trung bình. Đây là chiếc đồng hồ mua cho chính mình."
+sources:
+  - label: "Wikipedia — Zenith (watchmaker)"
+    url: "https://en.wikipedia.org/wiki/Zenith_(watchmaker)"
+  - label: "Zenith — Timeline chính hãng"
+    url: "https://www.zenith-watches.com/en_us/brand/timeline"
+  - label: "Chrono24 Magazine"
+    url: "https://www.chrono24.com/magazine/zenith-the-inventor-of-the-automatic-chronograph-p_95834/"
+  - label: "WatchBase — El Primero 3600"
+    url: "https://watchbase.com/zenith/caliber/el-primero-3600"
+  - label: "aBlogtoWatch — Chronomaster Sport 3600"
+    url: "https://www.ablogtowatch.com/zenith-chronomaster-sport-el-primero-3600-calibre/"
+  - label: "Luxury Bazaar — 2025 releases"
+    url: "https://www.luxurybazaar.com/grey-market/2025-zenith-watch-releases/"
 ---
 
 ## Tổng quan

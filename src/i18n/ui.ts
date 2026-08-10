@@ -139,6 +139,8 @@ export const translations = {
     spec_power_reserve: 'Trữ cót',
     spec_water_resistance: 'Chống nước',
     spec_references: 'Các thế hệ tham chiếu',
+    // Khối "Nguồn tham khảo" cuối bài (SourceList.astro)
+    sources_title: 'Nguồn tham khảo',
   },
   en: {
     siteName: 'Đồng Hồ Cơ',
@@ -189,6 +191,8 @@ export const translations = {
     spec_power_reserve: 'Power reserve',
     spec_water_resistance: 'Water resistance',
     spec_references: 'References',
+    // "Sources" block at end of article (SourceList.astro)
+    sources_title: 'Sources',
   },
 } as const;
 

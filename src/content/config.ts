@@ -23,6 +23,12 @@ const baseFields = {
   cover_image: z.string().optional(),        // Ảnh bìa
   draft: z.boolean().default(false),         // true = bản nháp, không hiện trên web
   tags: z.array(z.string()).default([]),     // Thẻ tự do, dùng cho tìm kiếm/lọc
+  // Nguồn tham khảo — hiện ở cuối bài qua SourceList.astro.
+  // Mặc định rỗng để mọi bài hiện có vẫn dựng được bình thường.
+  sources: z.array(z.object({
+    label: z.string(),   // Tên nguồn hiển thị, VD: "Breguet — trang chính hãng"
+    url: z.string(),     // Địa chỉ đầy đủ
+  })).default([]),
 };
 
 // --- Trụ cột 1: Thương hiệu ---

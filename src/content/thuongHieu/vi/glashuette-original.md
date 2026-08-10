@@ -77,6 +77,19 @@ segmentComparison:
     value_retention: "Trung bình khá — mua vì chế tác, chưa vì đầu tư."
     philosophy: "Bản chất của thời gian qua con mắt Nhật Bản."
 collectorNote: "Chọn Glashütte Original khi bạn yêu chế tác Đức nhưng chưa tới ngân sách A. Lange & Söhne — cùng trường phái Glashütte, cùng bản đĩa ba phần tư, cùng cần cổ thiên nga, ở mức giá thấp hơn đáng kể. Ô lịch lớn Panorama và bố cục mặt số lệch của dòng Pano là hai thứ không hãng nào làm giống được. Nếu ngân sách cho phép và bạn muốn đỉnh cao tuyệt đối của trường phái này, A. Lange & Söhne. Nếu ưu tiên di sản lặn và bề dày lâu đời, Blancpain. Nếu yêu hoàn thiện thủ công tỉ mỉ tới mức ám ảnh ở cùng tầm tiền, Grand Seiko là đối thủ đáng gờm nhất. Nói thẳng: đây là thương hiệu bị thị trường định giá thấp hơn giá trị chế tác thực — tốt cho người mua để đeo, kém hấp dẫn cho người mua để bán lại. Mạng lưới bảo hành tại Việt Nam cũng mỏng hơn các hãng Thụy Sĩ lớn."
+sources:
+  - label: "Wikipedia — Glashütte Original"
+    url: "https://en.wikipedia.org/wiki/Glash%C3%BCtte_Original"
+  - label: "Glashütte Original — Lịch sử chính hãng"
+    url: "https://www.glashuette-original.com/en/the-brand-glashutte-original/history/"
+  - label: "SJX Watches — Senator Excellence và Calibre 36"
+    url: "https://watchesbysjx.com/2016/04/hands-on-with-the-glashutte-original-senator-excellence-and-the-impressive-calibre-36.html"
+  - label: "Glashütte Original — Alfred Helwig Tourbillon 1920"
+    url: "https://www.glashuette-original.com/en/watches/senator/alfred-helwig-tourbillon-1920-limited-edition-1-54-01-01-01-01/"
+  - label: "Quill & Pad"
+    url: "https://quillandpad.com/2020/10/08/glashutte-original-limited-edition-flying-tourbillon-honoring-alfred-helwig-and-the-german-school-of-watchmaking-in-glashutte/"
+  - label: "Monochrome — SeaQ 39.5mm"
+    url: "https://monochrome-watches.com/glashutte-original-seaq-39-5mm-review-price/"
 ---
 
 ## Tổng quan

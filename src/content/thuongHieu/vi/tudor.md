@@ -77,6 +77,15 @@ segmentComparison:
     value_retention: "Trung bình."
     philosophy: "Thanh lịch là thái độ."
 collectorNote: "Chọn Tudor khi bạn muốn **chất lượng và tinh thần Rolex mà không phải xếp hàng chờ nhiều năm**. Black Bay là chiếc đồng hồ lặn Thụy Sĩ dễ khuyên nhất cho người mua chiếc đầu tiên: đủ bền để đeo mọi ngày, đủ đẹp để đeo mọi nơi, và có một câu chuyện quân đội thật đứng sau. Nếu bạn coi đồng hồ là tài sản và cần thanh khoản, [Rolex](/thuong-hieu/rolex) vẫn là câu trả lời duy nhất. Nếu ưu tiên công nghệ và di sản không gian, Omega. Nếu thích thẩm mỹ cổ điển thanh lịch hơn là công cụ, Longines. Nói thẳng: Tudor không còn rẻ như thời bị gọi là 'Rolex giá mềm', và ở một số mẫu, khoảng cách giá với Rolex đã hẹp tới mức đáng cân nhắc lại."
+sources:
+  - label: "Wikipedia — Tudor Watches"
+    url: "https://en.wikipedia.org/wiki/Tudor_Watches"
+  - label: "Tudor — Inside Tudor: 1926 đến 1949"
+    url: "https://www.tudorwatch.com/en/inside-tudor/history/tudor-history-origins-1926-to-1949"
+  - label: "Tudor — Tudor và Marine Nationale"
+    url: "https://www.tudorwatch.com/en/inside-tudor/history/tudor-and-marine-nationale"
+  - label: "Grail Watch Reference — MT5602"
+    url: "https://reference.grail-watch.com/movement/mt5602/"
 ---
 
 ## Tổng quan

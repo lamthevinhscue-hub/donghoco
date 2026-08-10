@@ -85,6 +85,25 @@ segmentComparison:
     value_retention: "Thấp ở dòng phổ thông."
     philosophy: "Đỉnh cao của thực dụng."
 collectorNote: "Chọn Tissot khi bạn muốn **chữ 'Swiss made' trên mặt số mà không phải tiết kiệm nhiều tháng**. Đây là hãng có danh mục rộng nhất trong nhóm giá này: từ đồng hồ lặn, đồng hồ lịch sự, tới chiếc T-Touch không giống ai. PRX là mẫu đáng chú ý nhất — thiết kế dây liền vỏ vốn là đặc quyền của các hãng đắt gấp hàng chục lần, nay có ở mức giá người mới cũng với tới, và Powermatic 80 cho trữ cót ba ngày. Nếu bạn thích **di sản dày hơn và thiết kế cổ điển hơn**, [Hamilton](/thuong-hieu/hamilton). Nếu sẵn sàng chi thêm cho một cái tên gần hai trăm năm, [Longines](/thuong-hieu/longines). Nếu muốn hãng tự làm bộ máy từ đầu, [Seiko](/thuong-hieu/seiko). Nói thẳng hai điều: Tissot gần như không giữ giá, và bộ máy của hãng phát triển trên nền bộ máy ETA cùng tập đoàn chứ không phải thiết kế riêng — điều này không làm chúng kém đi, nhưng bạn nên biết mình đang mua gì."
+sources:
+  - label: "Wikipedia — Tissot"
+    url: "https://en.wikipedia.org/wiki/Tissot"
+  - label: "Tissot — A Story That Starts in Le Locle"
+    url: "https://www.tissotwatches.com/en-us/magazine-news-beginnings-le-locle.html"
+  - label: "Swatch Group — Tissot"
+    url: "https://www.swatchgroup.com/en/companies-brands/watches-jewelry/tissot"
+  - label: "Luxuo — The Surprising Story behind the Tissot Heritage Banana Centenary Edition"
+    url: "https://www.luxuo.com/style/watches/the-surprising-story-behind-the-tissot-heritage-banana-centenary-edition.html"
+  - label: "WatchTime — Tissot Channels 1978 with PRX"
+    url: "https://www.watchtime.com/wristwatch-industry-news/watches/priced-for-the-people-tissot-channels-1978-with-prx-40-205-integrated-steel-sports-watch/"
+  - label: "Oracle of Time — The Past and Present of the Tissot PRX Collection"
+    url: "https://oracleoftime.com/the-tissot-prx-history/"
+  - label: "Tissot — Powermatic 80"
+    url: "https://www.tissotwatches.com/en-us/magazine-news-powermatic-80.html"
+  - label: "Tissot — Chemin des Tourelles"
+    url: "https://www.tissotwatches.com/en-us/men/main-collections/tissot-chemin-des-tourelles.html"
+  - label: "Caliber Corner — Tissot Caliber Powermatic 80"
+    url: "https://calibercorner.com/tissot-caliber-powermatic-80/"
 ---
 
 ## Tổng quan

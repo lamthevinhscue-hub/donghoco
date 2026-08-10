@@ -306,7 +306,7 @@ So sánh với: **F.P. Journe** (`fp-journe`) • **Philippe Dufour** (`philippe
 
 # 8. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 - F.P. Journe — lịch sử, mốc 1983, 1991, 1999, 2004, Chronomètre Bleu 2009: [The 1916 Company — F.P. Journe Guide](https://www.the1916company.com/blog/f-p-journe-guide.html), [F.P.Journe — Chronomètre Bleu chính hãng](https://www.fpjourne.com/en/collection/classique-collection/chronometre-bleu), [F.P.Journe — Chronomètre à Résonance chính hãng](https://www.fpjourne.com/en/collection/souveraine-collection/chronometre-resonance), [A Collected Man — Tourbillon Souverain bộ máy đồng thau](https://www.acollectedman.com/products/tourbillon-souverain-brass-movement-platinum)
 - Philippe Dufour — sinh 1948 Le Sentier, xưởng 1978, Grande Sonnerie 1992 (8 chiếc), Duality 1996 (9 chiếc), Simplicity 2000 (hơn 200 chiếc): [Fondation de la Haute Horlogerie — Philippe Dufour](https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/philippe-dufour), [AHCI — Philippe Dufour](https://www.ahci.ch/members/philippe-dufour/), [Philippe Dufour — trang chính chủ](https://philippedufour.ch/en/mes-creations/)

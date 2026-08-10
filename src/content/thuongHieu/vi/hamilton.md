@@ -67,6 +67,19 @@ segmentComparison:
     value_retention: "Trung bình."
     philosophy: "Thanh lịch là thái độ."
 collectorNote: "Chọn Hamilton khi bạn muốn **chiếc đồng hồ cơ Thụy Sĩ đầu tiên mà không phải đắn đo nhiều**. Khaki Field là một trong những lời khuyên phổ biến nhất dành cho người mới: đủ bền để đeo mọi ngày, thiết kế đã được kiểm chứng qua nhiều thập kỷ, và giá thấp tới mức nếu bạn phát hiện mình không hợp với đồng hồ cơ thì cũng không mất mát gì. Nếu bạn thích danh mục rộng hơn và nhiều lựa chọn kiểu dáng, [Tissot](/thuong-hieu/tissot). Nếu muốn hãng tự làm bộ máy ở mọi mức giá, [Seiko](/thuong-hieu/seiko). Nếu sẵn sàng chi thêm cho thẩm mỹ cổ điển và bề dày lịch sử, [Longines](/thuong-hieu/longines) là bước tiếp theo tự nhiên trong cùng tập đoàn. Nói thẳng: Hamilton gần như không giữ giá, và hãng không tự sản xuất bộ máy — nếu điều đó quan trọng với bạn, hãy nhìn sang hướng khác."
+sources:
+  - label: "Wikipedia — Hamilton Watch Company"
+    url: "https://en.wikipedia.org/wiki/Hamilton_Watch_Company"
+  - label: "Hamilton — Lịch sử chính hãng"
+    url: "https://www.hamiltonwatch.com/en-us/company/hamilton-watches-history"
+  - label: "Teddy Baldassarre — Hamilton Watch History"
+    url: "https://teddybaldassarre.com/blogs/watches/hamilton-watch-history"
+  - label: "Teddy Baldassarre — Hamilton Ventura and Elvis"
+    url: "https://teddybaldassarre.com/blogs/watches/hamilton-ventura-elvis"
+  - label: "WatchTime — Hamilton Ventura"
+    url: "https://www.watchtime.com/brands/hamilton/hamilton-ventura-s-quartz-the-avant-garde-elvis-presley-watch"
+  - label: "Horobox — The History of Hamilton Ventura"
+    url: "https://www.horobox.com/en/review-detail/the-history-of-hamilton-ventura"
 ---
 
 ## Tổng quan

@@ -69,6 +69,15 @@ segmentComparison:
     value_retention: "Khá."
     philosophy: "Hoàn thiện Đức lạnh lùng, chính xác."
 collectorNote: "Chọn F.P. Journe khi bạn đã đi qua giai đoạn mua thương hiệu và bắt đầu mua tư duy của người làm ra nó. Journe là nhà chế tác đương đại hiếm hoi vừa nghĩ ra cơ cấu mới, vừa tự làm được nó, vừa khiến nó đẹp — Chronomètre Bleu là chiếc đồng hồ được cả giới sưu tầm đồng thuận là đúng ở mọi khía cạnh. Nếu bạn đặt hoàn thiện thủ công lên trên tất cả, Philippe Dufour là đỉnh cao không tranh cãi. Nếu mê kỹ thuật thuần túy và không ngại phô diễn, Greubel Forsey. Nếu muốn cùng đẳng cấp hoàn thiện nhưng có hệ thống bảo hành của một tập đoàn lớn, A. Lange & Söhne. Nói thẳng: mua mới F.P. Journe gần như không thể nếu bạn chưa có quan hệ với đại lý, và giá thị trường thứ cấp cao hơn giá niêm yết đáng kể."
+sources:
+  - label: "The 1916 Company — F.P. Journe Guide"
+    url: "https://www.the1916company.com/blog/f-p-journe-guide.html"
+  - label: "F.P.Journe — Chronomètre Bleu chính hãng"
+    url: "https://www.fpjourne.com/en/collection/classique-collection/chronometre-bleu"
+  - label: "F.P.Journe — Chronomètre à Résonance chính hãng"
+    url: "https://www.fpjourne.com/en/collection/souveraine-collection/chronometre-resonance"
+  - label: "A Collected Man — Tourbillon Souverain bộ máy đồng thau"
+    url: "https://www.acollectedman.com/products/tourbillon-souverain-brass-movement-platinum"
 ---
 
 ## Tổng quan

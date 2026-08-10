@@ -1,0 +1,57 @@
+---
+// =============================================================================
+// SOURCE LIST — Khối nguồn tham khảo cuối bài
+// =============================================================================
+// Hiển thị danh sách nguồn tham khảo (liên kết ra ngoài) ở cuối bài viết.
+//
+// Nguyên tắc:
+//   - Không hiện gì cả nếu mảng sources rỗng — không tiêu đề trống, không khung rỗng.
+//   - Mọi liên kết ra ngoài BẮT BUỘC rel="noopener noreferrer" + target="_blank".
+//   - Kiểu chữ nhỏ hơn nội dung chính (phần phụ chú), đọc được ở chế độ tối.
+//
+// Nhãn tiêu đề lấy từ src/i18n/ui.ts (không viết cứng).
+// =============================================================================
+
+import { getLangFromUrl, t } from '../i18n/ui';
+
+interface Source {
+  label: string;
+  url: string;
+}
+
+interface Props {
+  sources?: Source[];
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const { sources = [] } = Astro.props;
+
+// Chỉ giữ nguồn có cả label và url hợp lệ. Nếu rỗng thì không xuất HTML.
+const validSources = (sources ?? []).filter(
+  (s) => s && typeof s.label === 'string' && s.label.trim() !== '' && typeof s.url === 'string' && s.url.trim() !== ''
+);
+---
+
+{validSources.length > 0 && (
+  <section class="source-list not-prose mt-12" aria-label={tr.sources_title}>
+    <h2 class="mb-3 font-serif text-base font-semibold text-navy dark:text-dark-text">
+      {tr.sources_title}
+    </h2>
+    <ul class="space-y-1.5 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+      {validSources.map((src) => (
+        <li>
+          <a
+            href={src.url}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="underline decoration-dotted underline-offset-2 transition-colors hover:text-brass dark:hover:text-dark-brass"
+          >
+            {src.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

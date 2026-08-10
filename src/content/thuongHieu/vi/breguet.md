@@ -81,6 +81,23 @@ segmentComparison:
     value_retention: "Khá."
     philosophy: "Thuần cơ học, di sản lặn."
 collectorNote: "Chọn Breguet khi bạn muốn chạm vào cội nguồn của ngành, chứ không chỉ mua một chiếc đồng hồ đẹp. Đeo một chiếc Classique là đeo bộ từ vựng mà cả ngành đang dùng: kim Breguet, số Breguet, mặt guilloché, tourbillon — tất cả đều mang tên một người. Nếu bạn thích sự tinh tế kín đáo và bề dày hoạt động liên tục, Vacheron Constantin là lựa chọn song song. Nếu yêu hoàn thiện tay cơ lạnh lùng kiểu Đức, A. Lange & Söhne. Nếu ưu tiên di sản đồng hồ lặn và triết lý thuần cơ học, Blancpain. Điều cần nói thẳng: Breguet ít được công chúng nhận ra hơn Patek Philippe hay Rolex ở cùng tầm tiền — đây là thương hiệu để bạn tự biết mình đang đeo gì, không phải để người khác nhận ra."
+sources:
+  - label: "Wikipedia — Breguet (brand)"
+    url: "https://en.wikipedia.org/wiki/Breguet_(brand)"
+  - label: "Swatch Group — Breguet"
+    url: "https://www.swatchgroup.com/en/companies-brands/watches-jewelry/breguet"
+  - label: "Maison Breguet"
+    url: "https://www.breguet.com/en/breguet-house"
+  - label: "Wikipedia — Abraham-Louis Breguet"
+    url: "https://en.wikipedia.org/wiki/Abraham-Louis_Breguet"
+  - label: "Fondation de la Haute Horlogerie"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/abraham-louis-breguet-"
+  - label: "Breguet — Type XX"
+    url: "https://www.breguet.com/en/watches/type-xx"
+  - label: "WatchTime — Type XX Chronograph 2067"
+    url: "https://www.watchtime.com/featured/gold-meets-ceramic-in-breguets-new-iterations-of-the-type-xx-chronograph-2067-showing-at-watchtime-new-york-2024/"
+  - label: "Monochrome — Tradition 2026"
+    url: "https://monochrome-watches.com/breguet-tradition-collection-2026-new-5-new-references-7037-7038-7097-7067-enamel-dials-video-review-price/"
 ---
 
 ## Tổng quan

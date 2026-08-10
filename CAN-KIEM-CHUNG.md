@@ -266,3 +266,57 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 - **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh kiểm chứng và điền.
 
+---
+
+## 23. Các trang chưa có nguồn tham khảo (chờ anh Vinh soạn bổ sung)
+
+- **Bối cảnh:** Từ đợt đưa khối "Nguồn tham khảo" lên trang (SourceList.astro), nguồn đã được chuyển từ 8 file `docs/` vào frontmatter `sources`. Tuy nhiên một số trang chưa có nguồn ghi lại — vì file `docs/` tương ứng không có mục "NGUỒN ĐÃ TRA CỨU", hoặc trang được dựng trước khi hệ thống ghi nguồn ra đời. Với những trang đó, `sources` để rỗng và khối nguồn không hiện — đúng như thiết kế.
+- **Nguyên tắc:** không tự đi tìm nguồn thay thế, không lấy tạm liên kết cho có. Chờ anh Vinh soạn nguồn đã kiểm chứng rồi điền vào frontmatter.
+
+### 10 trang thương hiệu chưa có nguồn
+
+- `a-lange-soehne`
+- `audemars-piguet`
+- `blancpain`
+- `jaeger-lecoultre`
+- `omega`
+- `patek-philippe`
+- `rolex`
+- `tag-heuer`
+- `ulysse-nardin`
+- `vacheron-constantin`
+
+(Ghi chú: trong số này, `rolex`, `tag-heuer`, `ulysse-nardin` thuộc đợt 1 — file `docs/goi-du-lieu-thuong-hieu-dot-1.md` không có mục "NGUỒN ĐÃ TRA CỨU". Bảy hãng còn lại được dựng trước khi hệ thống ghi nguồn ra đời.)
+
+### 23 trang mẫu iconic chưa có nguồn
+
+- `breguet-type-xx`
+- `cartier-tank`
+- `dufour-simplicity`
+- `fifty-fathoms`
+- `fpjourne-chronometre-bleu`
+- `freak`
+- `grand-seiko-snowflake`
+- `greubel-double-tourbillon`
+- `hamilton-ventura`
+- `iwc-mark-xi`
+- `lange-1`
+- `longines-lindbergh`
+- `monaco`
+- `omega-speedmaster`
+- `patek-nautilus`
+- `reverso`
+- `rolex-submariner`
+- `royal-oak`
+- `seiko-62mas`
+- `tissot-prx`
+- `tudor-black-bay`
+- `vc-overseas`
+- `zenith-el-primero`
+
+### Lỗi chính tả địa chỉ cần lưu ý
+
+- **Longines — Wikipedia:** file `docs/goi-du-lieu-thuong-hieu-dot-4.md` ghi địa chỉ `https://en.wikipedia.org/wikiLongines` (thiếu dấu `/` giữa `wiki` và `Longines`). Đã sửa thành `https://en.wikipedia.org/wiki/Longines` trên trang để liên kết không bị chết. Anh Vinh rà lại xem đó có phải lỗi gõ trong file gốc hay không.
+
+- **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh soạn nguồn bổ sung.
+

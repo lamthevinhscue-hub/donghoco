@@ -303,7 +303,7 @@ So sánh với: **Jaeger-LeCoultre** (`jaeger-lecoultre`) • **Rolex** (`rolex`
 
 # 8. NGUỒN ĐÃ TRA CỨU
 
-[GHI CHÚ NỘI BỘ] Không đưa lên trang.
+[GHI CHÚ NỘI BỘ] Các nguồn này đã được đưa lên trang qua trường sources trong frontmatter.
 
 - IWC — 1868 Florentine Ariosto Jones, E. Howard tại Boston, Schaffhausen, Mark 11 năm 1948, Rauschenbach 1880, Richemont 2000, Ceratanium: [Wikipedia — IWC Schaffhausen](https://en.wikipedia.org/wiki/IWC_Schaffhausen), [IWC — Lịch sử chính hãng](https://www.iwc.com/us-en/company/history), [Sotheby's — IWC Schaffhausen](https://www.sothebys.com/en/brands/iwc-schaffhausen)
 - Grand Seiko — 1960, 44GS và Ngữ pháp thiết kế 1967 của Taro Tanaka, đánh bóng Zaratsu, hai xưởng Shizukuishi và Shinshu: [Seiko Design 140 — The Grand Seiko Style](https://by.seiko-design.com/140th/en/topic/28.html), [Grand Seiko — 44GS chính hãng](https://www.grand-seiko.com/us-en/collections/heritage/h1), [GS9 Club — History](https://grandseikogs9club.com/history/)

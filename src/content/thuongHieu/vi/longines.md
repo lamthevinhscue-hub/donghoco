@@ -74,6 +74,19 @@ segmentComparison:
     value_retention: "Trung bình."
     philosophy: "Di sản Mỹ, tinh thần công cụ."
 collectorNote: "Chọn Longines khi bạn muốn **một chiếc đồng hồ Thụy Sĩ đẹp cổ điển, mua được ở đại lý chính hãng, không phải xin xỏ ai**. Đây là hãng dễ sống nhất trong nhóm: dòng Heritage phục dựng đẹp và trung thực, dòng Spirit có di sản hàng không thật, giá minh bạch, bảo hành sẵn tại Việt Nam. Nếu bạn ưu tiên **độ bền công cụ và khả năng bán lại**, Tudor tốt hơn rõ rệt. Nếu yêu **văn hóa đua xe và chronograph**, TAG Heuer. Nếu ngân sách hẹp hơn mà vẫn muốn thiết kế cổ điển có gốc gác, Hamilton. Nói thẳng hai điều: Longines giữ giá chỉ ở mức trung bình, nên đừng mua với ý nghĩ đầu tư; và phần lớn bộ máy của hãng phát triển trên nền bộ máy ETA cùng tập đoàn chứ không phải thiết kế riêng từ đầu — điều này không làm chúng kém đi, nhưng bạn nên biết mình đang mua gì."
+sources:
+  - label: "Longines — Lịch sử chính hãng"
+    url: "https://www.longines.com/en-us/universe/history/"
+  - label: "Wikipedia — Longines"
+    url: "https://en.wikipedia.org/wiki/Longines"
+  - label: "Wikipedia — Ernest Francillon"
+    url: "https://en.wikipedia.org/wiki/Ernest_Francillon"
+  - label: "WIPO — Longines Pilot Watches"
+    url: "https://www.wipo.int/en/web/ip-advantage/w/stories/longines-pilot-watches-design-in-flight-and-beyond"
+  - label: "Swatch Group — Longines HydroConquest"
+    url: "https://www.swatchgroup.com/en/services/archive/2026/longines-hydroconquest"
+  - label: "Caliber Corner — Longines Caliber L888"
+    url: "https://calibercorner.com/longines-caliber-l888/"
 ---
 
 ## Tổng quan

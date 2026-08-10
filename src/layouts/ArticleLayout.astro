@@ -10,6 +10,7 @@ import BaseLayout from './BaseLayout.astro';
 import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
+import SourceList from '../components/SourceList.astro';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 
 interface Props {
@@ -25,12 +26,14 @@ interface Props {
   relatedArticles?: RelatedItem[];
   /** Link dẫn sang công cụ so sánh với mẫu hiện tại đã chọn (chỉ /mau-iconic) */
   compareHref?: string;
+  /** Nguồn tham khảo — hiện cuối bài qua SourceList.astro */
+  sources?: { label: string; url: string }[];
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [], compareHref } = Astro.props;
+const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [], compareHref, sources = [] } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 // Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che")
@@ -93,6 +96,9 @@ const formattedDate = date
     <div class="prose-content text-ink dark:text-dark-text">
       <slot />
     </div>
+
+    <!-- Khối nguồn tham khảo — đặt ngay sau nội dung, trước khối "Đọc tiếp" -->
+    <SourceList sources={sources} />
 
     <!-- Khối "Đọc tiếp" — gợi ý bài liên quan (chỉ 4 collection, không cho thương hiệu) -->
     {relatedArticles.length > 0 && (

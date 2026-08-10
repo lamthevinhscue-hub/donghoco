@@ -1,7 +1,7 @@
 ---
 // Trang: VỀ CHÚNG TÔI
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl } from '../i18n/ui';
+import { getLangFromUrl, localizedPath } from '../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const isVi = lang === 'vi';
@@ -30,9 +30,23 @@ const isVi = lang === 'vi';
 
           <h2>Điểm khác biệt</h2>
           <p>
-            Nội dung chữ chỉ là một nửa. Vũ khí khác biệt của chúng tôi là <strong>hệ thống infographic động</strong>
-            — giải thích cơ chế đồng hồ bằng hình ảnh trực quan, điều mà (tính đến nay) chưa có nguồn
-            tiếng Việt nào làm hệ thống. Infographic sẽ được thêm dần trong các giai đoạn tiếp theo.
+            Nội dung chữ chỉ là một nửa. Vũ khí khác biệt của chúng tôi là <strong>hệ thống hoạt ảnh tương tác</strong>
+            — giải thích cơ chế đồng hồ bằng hình ảnh chuyển động mà người đọc tự điều khiển được: chạy, dừng, đi từng bước, đổi tốc độ. Toàn bộ các bài cơ chế trên trang đều đã có hoạt ảnh riêng, cùng bộ minh họa vector do chúng tôi tự dựng cho dòng thời gian lịch sử.
+          </p>
+
+          <h2>Cách chúng tôi kiểm chứng nội dung</h2>
+          <p>
+            Nguyên tắc biên tập của trang gói trong một câu: <strong>thà thiếu còn hơn sai.</strong>
+          </p>
+          <ul>
+            <li><strong>Mọi năm, tên bộ máy (calibre) và thông số kỹ thuật đều phải đối chiếu được với nguồn.</strong> Ưu tiên trang chính hãng, tài liệu của Fondation de la Haute Horlogerie, và các ấn phẩm chuyên ngành có ban biên tập.</li>
+            <li><strong>Dữ kiện nào không truy được nguồn đáng tin thì bỏ hẳn khỏi bài</strong> — không viết theo kiểu phỏng đoán, không dùng cách diễn đạt mập mờ để lấp chỗ trống. Những dữ kiện đã gỡ được ghi lại trong một danh sách riêng để rà lại sau, không xóa đi cho khuất mắt.</li>
+            <li><strong>Nguồn tham khảo được ghi công khai ở cuối bài</strong> đối với những trang đã hoàn tất tra cứu. Trang nào chưa có khối nguồn nghĩa là phần tra cứu chưa xong, không phải là không có nguồn.</li>
+            <li><strong>Không đăng giá bán.</strong> Giá lỗi thời rất nhanh và khác nhau theo thị trường; trang mô tả định vị phân khúc thay vì đưa con số dễ sai.</li>
+            <li><strong>Trang được rà soát toàn diện theo từng đợt</strong>, mỗi đợt lập biên bản riêng ghi rõ đã kiểm gì, phát hiện lỗi gì và sửa ra sao.</li>
+          </ul>
+          <p>
+            Trang này do một người biên soạn, không phải một tòa soạn. Điều đó có nghĩa là nội dung nhất quán về giọng văn và tiêu chuẩn, nhưng cũng có nghĩa là sẽ có sai sót. <strong>Nếu bạn phát hiện một chi tiết sai, xin báo qua trang Liên hệ</strong> — chúng tôi sẽ kiểm và sửa, và ghi nhận việc đó.
           </p>
 
           <h2>Đối tượng</h2>
@@ -44,7 +58,10 @@ const isVi = lang === 'vi';
 
           <h2>Liên hệ</h2>
           <p>
-            Có góp ý, câu hỏi hay ý tưởng chủ đề mới? Ghé trang <a href="/lien-he">Liên hệ</a> để nhắn cho chúng tôi.
+            Có góp ý, câu hỏi hay ý tưởng chủ đề mới? Ghé trang <a href={localizedPath('/lien-he', lang)}>Liên hệ</a> để nhắn cho chúng tôi.
+          </p>
+          <p>
+            Quyền sở hữu nội dung và điều khoản sử dụng được nêu rõ tại trang <a href={localizedPath('/ban-quyen', lang)}>Bản quyền</a>.
           </p>
         </>
       ) : (
@@ -62,9 +79,38 @@ const isVi = lang === 'vi';
           </p>
           <h2>What sets us apart</h2>
           <p>
-            Text is only half the story. Our signature is a <strong>system of animated infographics</strong>
-            that explain watch mechanics visually — something no Vietnamese source has done systematically
-            yet. Infographics will be added in the coming phases.
+            Text is only half the story. Our signature is a <strong>system of interactive animations</strong>
+            that explain watch mechanics through moving images the reader controls: play, pause, step through, change speed. Every mechanism article on the site now has its own animation, along with a set of vector illustrations we drew ourselves for the historical timeline.
+          </p>
+
+          <h2>How we verify content</h2>
+          <p>
+            The editorial principle of this site can be summed up in one sentence: <strong>better to leave a gap than to be wrong.</strong>
+          </p>
+          <ul>
+            <li><strong>Every year, calibre name and technical specification must be traceable to a source.</strong> We prioritise official brand pages, resources from the Fondation de la Haute Horlogerie, and specialist publications with an editorial board.</li>
+            <li><strong>Any fact that cannot be traced to a reliable source is left out of the article entirely</strong> — no guesswork, no vague wording to paper over gaps. Removed facts are recorded in a separate list for later review, not deleted out of sight.</li>
+            <li><strong>Sources are credited openly at the end of each article</strong> for pages where research is complete. A page without a sources block means research is not yet finished — not that no source exists.</li>
+            <li><strong>No selling prices are published.</strong> Prices go out of date quickly and differ by market; the site describes segment positioning instead of giving error-prone figures.</li>
+            <li><strong>The site is reviewed comprehensively in batches</strong>, each batch documented in its own report stating what was checked, what errors were found, and how they were fixed.</li>
+          </ul>
+          <p>
+            This site is run by one editor, not an editorial team. That means the content is consistent in voice and standard, but it also means mistakes will happen. <strong>If you spot an error, please report it via the Contact page</strong> — we will check and fix it, and we appreciate the heads-up.
+          </p>
+
+          <h2>Who this is for</h2>
+          <ul>
+            <li><strong>Newcomers</strong> — who want to understand what a mechanical watch is and where to start.</li>
+            <li><strong>Intermediate enthusiasts</strong> — who want to go deeper into the mechanics and the history.</li>
+            <li><strong>Lovers of Vietnamese</strong> — who want to read quality content in their mother tongue.</li>
+          </ul>
+
+          <h2>Contact</h2>
+          <p>
+            Have feedback, a question, or an idea for a new topic? Visit the <a href={localizedPath('/lien-he', lang)}>Contact</a> page to send us a message.
+          </p>
+          <p>
+            Content ownership and terms of use are set out on the <a href={localizedPath('/ban-quyen', lang)}>Copyright</a> page.
           </p>
         </>
       )}

@@ -7,7 +7,7 @@ draft: false
 
 ## Ai giữ quyền
 
-Toàn bộ nội dung chữ, hình minh họa và mã nguồn giao diện trên website **Đồng Hồ Cơ** (*donghoco1.vercel.app*) do chính chúng tôi biên soạn và thiết kế, và thuộc quyền sở hữu của người biên soạn — Anh Vinh.
+Toàn bộ nội dung chữ, hình minh họa và mã nguồn giao diện trên website **Đồng Hồ Cơ** (*www.kienthucdonghoco.vn*) do chính chúng tôi biên soạn và thiết kế, và thuộc quyền sở hữu của người biên soạn — Anh Vinh.
 
 Các **tên thương hiệu đồng hồ**, **logo** và **tên mẫu đồng hồ** được nhắc đến trên website là tài sản trí tuệ của các hãng sản xuất tương ứng; chúng được sử dụng ở đây chỉ nhằm mục đích nhận diện và cung cấp thông tin, không phải để ngụ ý bất kỳ sự liên kết hay ủy quyền nào từ các hãng đó.
 

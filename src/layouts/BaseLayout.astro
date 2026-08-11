@@ -42,7 +42,7 @@ const {
 const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${tr.siteTagline}`;
 
 // URL đầy đủ (canonical + OG url)
-const siteUrl = Astro.site ?? new URL('https://donghoco1.vercel.app');
+const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
 // OG image: ưu tiên cover_image > ảnh theo khu vực > ảnh mặc định

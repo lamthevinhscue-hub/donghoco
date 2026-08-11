@@ -26,16 +26,16 @@ export const defaultLang = 'vi';
 export const SITE_AUTHOR = {
   '@type': 'Person',
   name: 'Anh Vinh',
-  url: 'https://donghoco1.vercel.app',
+  url: 'https://www.kienthucdonghoco.vn',
 } as const;
 
 export const SITE_PUBLISHER = {
   '@type': 'Organization',
   name: 'Đồng Hồ Cơ',
-  url: 'https://donghoco1.vercel.app',
+  url: 'https://www.kienthucdonghoco.vn',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://donghoco1.vercel.app/og-default.jpg',
+    url: 'https://www.kienthucdonghoco.vn/og-default.jpg',
   },
 } as const;
 

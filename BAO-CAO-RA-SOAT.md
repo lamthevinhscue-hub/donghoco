@@ -2,7 +2,7 @@
 
 **Ngày:** 2026-08-02
 **Mục đích:** Báo cáo hiện trạng repo để Fable 5 rà trước khi giao việc tiếp theo.
-**Phạm vi:** Toàn bộ repo `donghoco` (trang https://donghoco1.vercel.app).
+**Phạm vi:** Toàn bộ repo `donghoco` (trang https://www.kienthucdonghoco.vn).
 
 ---
 

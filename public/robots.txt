@@ -1,5 +1,5 @@
 # =============================================================================
-# robots.txt — Đồng Hồ Cơ (donghoco1.vercel.app)
+# robots.txt — Đồng Hồ Cơ (www.kienthucdonghoco.vn)
 # =============================================================================
 # Mục đích: cho phép các bộ máy tìm kiếm (Google, Bing...) lập chỉ mục để độc
 # giả tìm thấy trang; đồng thời chặn các trình thu thập dữ liệu dùng để huấn
@@ -69,4 +69,4 @@ User-agent: Timpibot
 Disallow: /
 
 # ---- Sơ đồ trang (sinh bởi @astrojs/sitemap) ----
-Sitemap: https://donghoco1.vercel.app/sitemap-index.xml
+Sitemap: https://www.kienthucdonghoco.vn/sitemap-index.xml

@@ -16,7 +16,7 @@ const glossaryTerms = JSON.parse(
 // - tailwind: tự động nạp Tailwind CSS vào mọi trang
 // Output: static (website tĩnh - phù hợp blog nội dung, tải nhanh, deploy đơn giản)
 export default defineConfig({
-  site: 'https://donghoco1.vercel.app',
+  site: 'https://www.kienthucdonghoco.vn',
   integrations: [tailwind(), pagefind(), sitemap()],
   markdown: {
     remarkPlugins: [

@@ -1,6 +1,6 @@
 # KẾ HOẠCH TỔNG THỂ HOÀN THIỆN WEBSITE "ĐỒNG HỒ CƠ"
 
-**Trang hiện tại:** https://donghoco1.vercel.app/ (Astro + Tailwind CSS, deploy trên Vercel)
+**Trang hiện tại:** https://www.kienthucdonghoco.vn/ (Astro + Tailwind CSS, deploy trên Vercel)
 **Người thực hiện:** GLM 5.2 (thi công) — Claude Fable 5 (kiểm tra, cải tiến) — Anh Vinh (phê duyệt, nghiệm thu, cung cấp ảnh)
 **Nguyên tắc xuyên suốt:** Mọi nội dung viết bằng giọng của một nhà sưu tầm đồng hồ am hiểu sâu, đam mê lưu giữ giá trị của ngành chế tác; cơ chế và dấu ấn lịch sử được diễn đạt bằng infographic sinh động, dễ hiểu — phục vụ cả người mới lẫn người chơi lâu năm.
 

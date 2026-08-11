@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "_hsts_note": "Strict-Transport-Security dùng includeSubDomains + preload: buộc MỌI tên miền con phải dùng HTTPS trong 2 năm. Trình duyệt ghi nhớ điều này — KHÔNG gỡ được bằng cách sửa lại cấu hình. Nếu sau này dựng tên miền con chưa có HTTPS, tên miền con đó sẽ không truy cập được. Tắt preload chỉ ảnh hưởng trình duyệt CHƯA thăm trang; trình duyệt đã thăm vẫn nhớ. Đừng thay đổi giá trị này nếu chưa hiểu rõ hệ quả.",
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",

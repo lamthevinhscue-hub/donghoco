@@ -82,6 +82,13 @@ segmentComparison:
     value_retention: "Khá — Fifty Fathoms là trụ giữ giá."
     philosophy: "Thuần cơ học, không bao giờ làm quartz."
 collectorNote: "Chọn Ulysse Nardin khi bạn muốn thứ mà không nhà chế tác truyền thống nào dám làm — Freak là chiếc đồng hồ khiến người đối diện phải hỏi 'nó chỉ giờ kiểu gì?', và câu chuyện silicon 2001 cho bạn quyền nói 'hãng này đi trước cả ngành hai mươi năm'. Chọn Girard-Perregaux nếu bạn yêu vẻ đẹp kiến trúc của bộ máy hơn sự phá cách; Breguet nếu muốn chạm vào cội nguồn các phát minh; Blancpain nếu ưu tiên bề dày lâu đời nhất và đồng hồ lặn di sản. Lưu ý thẳng thắn: UN là hãng độc lập sản lượng nhỏ, mạng lưới bảo hành tại Việt Nam mỏng hơn các hãng thuộc tập đoàn lớn — nên kiểm tra kênh dịch vụ trước khi mua."
+sources:
+  - label: "Ulysse Nardin — Di sản chính hãng"
+    url: "https://www.ulysse-nardin.com/about-us/heritage"
+  - label: "Ulysse Nardin — Chronometry từ năm 1846"
+    url: "https://www.ulysse-nardin.com/row_euro_en/chronometry-1846"
+  - label: "Ulysse Nardin — Di sản độ chính xác"
+    url: "https://www.ulysse-nardin.com/about-us/unvrs/a-legacy-of-precision"
 ---
 
 ## Tổng quan

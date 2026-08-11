@@ -81,6 +81,15 @@ segmentComparison:
     value_retention: "Trung bình khá — IWC nổi tiếng pilot nhưng không giữ giá mạnh như Rolex/Omega."
     philosophy: "Form follows function — thiết kế công cụ hàng không, tối giản, không trang trí thừa."
 collectorNote: "Chọn Omega khi bạn trân trọng **di sản Mặt Trăng** (Speedmaster là chiếc đồng hồ duy nhất từng chạm tới Moon) và **đổi mới kỹ thuật có trách nhiệm** (Co-Axial 1999, Master Chronometer METAS 2015). Omega là lựa chọn **'Rolex ít danh sách chờ'** — chất lượng tương đương, đôi khi hơn về kỹ thuật (chống từ 15.000 gauss), nhưng giá tốt hơn và dễ mua hơn. Hợp với người yêu khoa học/không gian, fan James Bond, và ai muốn một chiếc đồng hồ có câu chuyện lịch sử thực. Nếu ưu tiên **giá trị giữ giá + biểu tượng toàn cầu**, chọn Rolex. Nếu yêu **accuracy cực đoan + hoàn thiện Nhật**, chọn Grand Seiko. Nếu thích **di sản pilot watch tối giản**, chọn IWC. Omega hợp với người hiện đại, thực tế, không cần 'khoe' — ai muốn chất lượng chứng nhận mà không xếp hàng chờ."
+sources:
+  - label: "Omega — Chronicle, biên niên sử chính hãng"
+    url: "https://www.omegawatches.com/chronicle"
+  - label: "Omega — Lịch sử thương hiệu"
+    url: "https://www.omegawatches.com/world-of-omega/history"
+  - label: "Omega — 1948, khai sinh dòng Seamaster"
+    url: "https://www.omegawatches.com/chronicle/1948-creation-of-the-seamaster"
+  - label: "Omega — Bảo tàng tại Biel/Bienne"
+    url: "https://www.omegawatches.com/world-of-omega/history/museum"
 ---
 
 ## Tổng quan

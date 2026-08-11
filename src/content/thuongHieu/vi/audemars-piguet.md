@@ -89,6 +89,13 @@ segmentComparison:
     value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
 collectorNote: "Chọn Audemars Piguet khi bạn muốn **Royal Oak** — sport-luxury thép nguyên bản 1972 của Gérald Genta, mẫu mở đầu kỷ nguyên 'thép sang trọng'. AP là thương hiệu **'táo bạo nhất Holy Trinity'** — phá vỡ quy ước 'thép = rẻ' năm 1972 với Royal Oak, và tiếp tục thử nghiệm với Offshore (1993) và Concept. Hợp với người yêu **thiết kế đột phá + lịch sử phá cách** — không hợp với ai tìm 'sự an toàn cổ điển' (Patek hợp hơn). Royal Oak nhận diện tuyệt đối và giữ giá cực tốt, nhưng phải chấp nhận 'đông người cũng muốn' (danh sách chờ dài). Nếu ưu tiên **di sản lâu đời nhất + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu yêu **chế tác lâu đời + tinh tế tối đa**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne. AP hợp với người có cá tính mạnh, yêu phá vỡ quy ước, và muốn một chiếc Royal Oak 'biểu tượng thế hệ' — đặc biệt hợp với giới sáng tạo, kiến trúc sư, và ai muốn một chiếc Royal Oak mang khí chất đeo 50 năm vẫn hiện đại."
+sources:
+  - label: "AP Chronicles — kho tư liệu lịch sử chính hãng"
+    url: "https://apchronicles.audemarspiguet.com/en/"
+  - label: "AP Chronicles — Royal Oak, khai sinh một biểu tượng"
+    url: "https://apchronicles.audemarspiguet.com/en/article/birth-of-an-icon"
+  - label: "Audemars Piguet — Các phát kiến qua từng thời kỳ"
+    url: "https://www.audemarspiguet.com/en/about/savoir-faire/forward-thinking-spirit"
 ---
 
 ## Tổng quan

@@ -128,6 +128,15 @@ segmentComparison:
     value_retention: "Trung bình."
     philosophy: "Kỹ thuật thực dụng cho nhà thám hiểm."
 collectorNote: "Chọn Rolex khi bạn cần một chiếc đồng hồ 'không bao giờ sai' theo cả ba nghĩa: chạy chính xác, hợp mọi hoàn cảnh, và giữ giá trị tốt nhất toàn ngành — với người Việt, Rolex còn là tài sản thanh khoản gần như tức thì. Chọn Omega nếu muốn công nghệ ngang hoặc hơn ở mức giá thấp hơn đáng kể và chấp nhận giữ giá kém hơn. Chọn Grand Seiko nếu bạn mua bằng con mắt nghệ nhân — ở cùng tầm tiền, không hãng nào hoàn thiện mặt số và vỏ đẹp hơn. Chọn IWC nếu yêu đồng hồ phi công có chiều sâu lịch sử. Hai điều cần nói thẳng về Rolex: các mẫu thể thao 'hot' gần như không thể mua đúng giá niêm yết tại đại lý nếu chưa có lịch sử mua hàng; và về hoàn thiện thủ công thuần túy, Grand Seiko cùng tầm giá làm tốt hơn — Rolex thắng ở sự toàn diện, không phải ở từng chi tiết cực đoan."
+sources:
+  - label: "Rolex — Giới thiệu chính hãng"
+    url: "https://www.rolex.com/about-rolex"
+  - label: "Rolex — Lịch sử 1905 tới 1919"
+    url: "https://www.rolex.com/about-rolex/history/1905-1919"
+  - label: "Rolex — Behind the crown"
+    url: "https://www.rolex.com/about-rolex/behind-the-crown"
+  - label: "Wikipedia — Rolex"
+    url: "https://en.wikipedia.org/wiki/Rolex"
 ---
 
 ## Tổng quan

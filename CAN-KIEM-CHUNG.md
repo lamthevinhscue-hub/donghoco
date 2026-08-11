@@ -273,18 +273,20 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 - **Bối cảnh:** Từ đợt đưa khối "Nguồn tham khảo" lên trang (SourceList.astro), nguồn đã được chuyển từ 8 file `docs/` vào frontmatter `sources`. Tuy nhiên một số trang chưa có nguồn ghi lại — vì file `docs/` tương ứng không có mục "NGUỒN ĐÃ TRA CỨU", hoặc trang được dựng trước khi hệ thống ghi nguồn ra đời. Với những trang đó, `sources` để rỗng và khối nguồn không hiện — đúng như thiết kế.
 - **Nguyên tắc:** không tự đi tìm nguồn thay thế, không lấy tạm liên kết cho có. Chờ anh Vinh soạn nguồn đã kiểm chứng rồi điền vào frontmatter.
 
-### 10 trang thương hiệu chưa có nguồn
+### 10 trang thương hiệu chưa có nguồn — ĐÃ GIẢI QUYẾT (12/08/2026)
 
-- `a-lange-soehne`
-- `audemars-piguet`
-- `blancpain`
-- `jaeger-lecoultre`
-- `omega`
-- `patek-philippe`
-- `rolex`
-- `tag-heuer`
-- `ulysse-nardin`
-- `vacheron-constantin`
+Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 trang thương hiệu trên site đều có khối "Nguồn tham khảo".
+
+- `a-lange-soehne` — ĐÃ CÓ NGUỒN
+- `audemars-piguet` — ĐÃ CÓ NGUỒN
+- `blancpain` — ĐÃ CÓ NGUỒN
+- `jaeger-lecoultre` — ĐÃ CÓ NGUỒN
+- `omega` — ĐÃ CÓ NGUỒN
+- `patek-philippe` — ĐÃ CÓ NGUỒN
+- `rolex` — ĐÃ CÓ NGUỒN
+- `tag-heuer` — ĐÃ CÓ NGUỒN
+- `ulysse-nardin` — ĐÃ CÓ NGUỒN
+- `vacheron-constantin` — ĐÃ CÓ NGUỒN
 
 (Ghi chú: trong số này, `rolex`, `tag-heuer`, `ulysse-nardin` thuộc đợt 1 — file `docs/goi-du-lieu-thuong-hieu-dot-1.md` không có mục "NGUỒN ĐÃ TRA CỨU". Bảy hãng còn lại được dựng trước khi hệ thống ghi nguồn ra đời.)
 
@@ -318,7 +320,9 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 - **Longines — Wikipedia:** file `docs/goi-du-lieu-thuong-hieu-dot-4.md` ghi địa chỉ `https://en.wikipedia.org/wikiLongines` (thiếu dấu `/` giữa `wiki` và `Longines`). Đã sửa thành `https://en.wikipedia.org/wiki/Longines` trên trang để liên kết không bị chết. Anh Vinh rà lại xem đó có phải lỗi gõ trong file gốc hay không.
 
-- **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh soạn nguồn bổ sung.
+- **Patek Philippe — /en/company/history (LIÊN KẾT CHẾT 404):** địa chỉ `https://www.patek.com/en/company/history` do anh Vinh cấp trả về **HTTP 404** (trang không tồn tại) khi kiểm chứng bằng cả HEAD lẫn GET. Đã chép nguyên văn theo quy tắc, **không tự thay địa chỉ**. Chờ anh Vinh cấp địa chỉ đúng cho trang lịch sử Patek Philippe (hai nguồn còn lại của hãng — `/the-founders` và `/the-stern-family` — đều trả về 200, hoạt động bình thường).
+
+- **Trạng thái:** 10 trang thương hiệu ĐÃ GIẢI QUYẾT (12/08/2026) — nay toàn bộ 26 trang thương hiệu đều có nguồn. Phần 23 trang mẫu iconic dưới đây VẪN TREO, chờ anh Vinh soạn nguồn bổ sung.
 
 ---
 

@@ -89,6 +89,13 @@ segmentComparison:
     value_retention: "Tăng mạnh — Lange độc lập, sản xuất ít (~5.000 chiếc/năm), giữ giá rất tốt (tính đến 2024)."
     philosophy: "Deutsche Wertarbeit — chế tác Đức, không bắt chước Thụy Sĩ, exactitud lạnh lùng."
 collectorNote: "Chọn Vacheron Constantin khi bạn trân trọng **di sản lâu đời nhất thế giới** (1755) và **sự tinh tế kín đáo** — Vacheron ít nổi tiếng với công chúng hơn Patek/AP nhưng được giới sành đánh giá ngang tầm, thậm chí cao hơn về hoàn thiện. Là thành viên Holy Trinity 'ít marketing nhất' — hợp với người muốn ultra-luxury mà không phô trương. **Overseas** đang là 'sự lựa chọn thay thế' hoàn hảo khi Nautilus/Royal Oak quá khan hiếm — chất lượng tương đương, dễ mua hơn. Nếu ưu tiên **danh tiếng + gia sản truyền đời**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **chế tác Đức lạnh lùng**, chọn A. Lange & Söhne (LANGE 1). Vacheron Constantin hợp với người khiêm tốn, tinh tế, yêu 'sự hoàn hảo thầm lặng' — và ai muốn một chiếc Overseas 'không phải xếp hàng chờ' mà vẫn thuộc Holy Trinity."
+sources:
+  - label: "Vacheron Constantin — Dòng thời gian lịch sử chính hãng"
+    url: "https://www.vacheron-constantin.com/ww/en/maison/heritage/our-historical-timeline.html"
+  - label: "Vacheron Constantin — Dòng thời gian"
+    url: "https://www.vacheron-constantin.com/us/en/maison/timeline.html"
+  - label: "Vacheron Constantin — Những người sáng lập"
+    url: "https://vacheron-constantin.com/en/manufacture/heritage/legendary-founders.html"
 ---
 
 ## Tổng quan

@@ -95,6 +95,13 @@ segmentComparison:
     value_retention: "Tốt — Speedmaster Seamaster giữ giá vững, danh tiếng toàn cầu."
     philosophy: "Đổi mới có trách nhiệm — Co-Axial giảm ma sát, METAS tiêu chuẩn cao."
 collectorNote: "Chọn Jaeger-LeCoultre khi bạn trân trọng **chế tác 'thợ của thợ'** — hơn 1.200 caliber lịch sử, từng sản xuất movement cho Patek, AP, Vacheron, Cartier. JLC là **'bộ óc kỹ thuật'** của ngành — tự làm dây tóc, lò xo, công cụ riêng, không phụ thuộc ai. **Reverso** vỏ lật 180° là biểu tượng art-deco không thể nhầm, **Atmos** chạy bằng không khí gần như vĩnh viễn là kỳ quan kỹ thuật. Hợp với người yêu **chế tác sâu + tính độc đáo** — JLC ít 'show-off' hơn Rolex nhưng được giới sành đánh giá cao hơn về chất lượng. Giá tiếp cận hơn Holy Trinity nhưng chất lượng chế tác ngang tầm. Nếu ưu tiên **thiết kế đẹp + di sản trang sức**, chọn Cartier (Tank). Nếu thích **di sản pilot watch**, chọn IWC (Mark XI). Nếu muốn **danh tiếng toàn cầu + Moonwatch**, chọn Omega (Speedmaster). JLC hợp với người yêu kỹ thuật, ghét 'thương hiệu chỉ để khoe', và ai muốn một chiếc đồng hồ 'chỉ người sành mới hiểu' — đặc biệt hợp với kiến trúc sư, kỹ sư, bác sĩ, và ai yêu sự hoàn hảo thầm lặng."
+sources:
+  - label: "Jaeger-LeCoultre — Lịch sử chính hãng"
+    url: "https://www.jaeger-lecoultre.com/eu-en/our-maison/manufacture-since-1833/history-of-jaeger-lecoultre"
+  - label: "Jaeger-LeCoultre — Nhà chế tác từ năm 1833"
+    url: "https://www.jaeger-lecoultre.com/us-en/our-maison/manufacture-since-1833"
+  - label: "Jaeger-LeCoultre — Lịch sử dòng Reverso"
+    url: "https://www.jaeger-lecoultre.com/us-en/jaeger-lecoultre-reverso-history"
 ---
 
 ## Tổng quan

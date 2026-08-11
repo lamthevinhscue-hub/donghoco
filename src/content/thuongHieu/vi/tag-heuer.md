@@ -96,6 +96,11 @@ segmentComparison:
     value_retention: "Khá; Speedmaster giữ giá tốt nhất nhóm."
     philosophy: "Chinh phục giới hạn (Mặt Trăng, đại dương) bằng công nghệ."
 collectorNote: "Chọn TAG Heuer khi bạn yêu văn hóa đua xe và muốn một chronograph Thụy Sĩ danh tiếng ở mức giá dễ tiếp cận nhất trong nhóm — đặc biệt Carrera và Monaco là hai thiết kế đã vượt khỏi phạm trù đồng hồ để thành biểu tượng văn hóa. Nếu ưu tiên bộ máy chronograph huyền thoại, Zenith El Primero là lựa chọn 'dân kỹ thuật'. Nếu là dân hàng không, Breitling. Nếu sẵn sàng chi thêm cho công nghệ chống từ và di sản không gian, Omega. Điểm cần cân nhắc thẳng thắn: khả năng giữ giá của TAG Heuer ở các mẫu phổ thông không cao — hãy mua vì thích, không phải để đầu tư."
+sources:
+  - label: "TAG Heuer — Lịch sử từ 1860 tới nay"
+    url: "https://www.tagheuer.com/int/en/our-story/history.html"
+  - label: "TAG Heuer — 1860 tới 1887, Edouard Heuer và bằng sáng chế đầu tiên"
+    url: "https://www.tagheuer.com/us/en/history-1860-1887/strong-foundations.html"
 ---
 
 ## Tổng quan

@@ -73,6 +73,13 @@ segmentComparison:
     value_retention: "Rất tốt — JLC được giới sành đánh giá cao về chế tác, giữ giá vững nhờ danh tiếng kỹ thuật."
     philosophy: "Chế tác vì sự đam mê — không chạy theo xu hướng, tập trung vào bộ máy xuất sắc."
 collectorNote: "Chọn Blancpain khi bạn trân trọng **di sản lâu đời nhất thế giới** (1735) và muốn một chiếc đồng hồ lặn huyền thoại (Fifty Fathoms) hoặc dress watch hoàn thiện thủ công đỉnh cao (Villeret). Blancpain ít danh tiếng với công chúng hơn Rolex, nhưng đúng nghĩa là 'crown jewel' của Swatch Group — được giới sành đánh giá cao về chất lượng chế tác. Nếu ưu tiên **tourbillon + phát minh lịch sử**, chọn Breguet. Nếu yêu **thẩm mỹ East German + lộ máy nghệ thuật**, chọn Glashütte Original. Nếu muốn **đa dụng + danh tiếng kỹ thuật rộng**, chọn Jaeger-LeCoultre. Blancpain hợp với người đam mê lịch sử và muốn sở hữu một mảnh 'sống' của ngành đồng hồ."
+sources:
+  - label: "Blancpain — Lịch sử chính hãng"
+    url: "https://www.blancpain.com/en/brand/our-vision/history"
+  - label: "Blancpain — Đổi mới là truyền thống"
+    url: "https://www.blancpain.com/en-us/brand/innovation-our-tradition"
+  - label: "Lettres du Brassus — Lịch sử và huyền thoại Fifty Fathoms"
+    url: "https://lettresdubrassus.blancpain.com/en/issue-13/history-and-legend"
 ---
 
 ## Tổng quan

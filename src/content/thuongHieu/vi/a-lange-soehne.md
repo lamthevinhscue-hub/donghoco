@@ -97,6 +97,13 @@ segmentComparison:
     value_retention: "Tốt — Overseas đang ngày càng được giới sưu tầm chú ý, Patrimony ổn định (tính đến 2024)."
     philosophy: "Khéo léo tinh tế Thụy Sĩ — 'Do better if possible', ít táo bạo hơn nhưng nhất quán."
 collectorNote: "Chọn A. Lange & Söhne khi bạn trân trọng **chế tác Đức hoàn hảo** — bộ máy tay cơ đẹp bậc nhất thế giới, mặt sau lộ máy là tác phẩm nghệ thuật, bản đĩa 3/4 và hợp kim German silver đặc trưng không thể nhầm với Thụy Sĩ. Lange là **sự lựa chọn 'khác biệt'** — không thuộc Holy Trinity Thụy Sĩ, mà là 'đỉnh cao Đức' với lịch sử tái sinh kỳ diệu sau Bức màn sắt (1990). **LANGE 1** mặt số lệch là biểu tượng, **Datograph** được giới phê bình gọi là 'chronograph đẹp nhất'. Hợp với người yêu hoàn thiện lạnh lùng, chính xác Đức, và ai muốn một chiếc đồng hồ 'không đụng hàng' với Thụy Sĩ. Nếu ưu tiên **danh tiếng + gia sản truyền đời Thụy Sĩ**, chọn Patek Philippe (Nautilus). Nếu thích **sport-luxury thép táo bạo**, chọn AP Royal Oak. Nếu yêu **nhà chế tác hoạt động liên tục lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). A. Lange & Söhne hợp với người có gu riêng, không chạy theo 'thương hiệu ai cũng biết', yêu **sự khác biệt Đức** và hoàn thiện tay cơ xuất sắc — đặc biệt hợp với kiến trúc sư, kỹ sư, và ai trân trọng 'câu chuyện hồi sinh' của hãng."
+sources:
+  - label: "A. Lange & Söhne — Di sản chính hãng"
+    url: "https://www.alange-soehne.com/eu-en/manufacture/heritage"
+  - label: "A. Lange & Söhne — Ferdinand Adolph Lange, những năm đầu"
+    url: "https://www.alange-soehne.com/us-en/manufacture/heritage/ferdinand-adolph-lange-early-years"
+  - label: "A. Lange & Söhne — Hồi sinh thương hiệu"
+    url: "https://www.alange-soehne.com/us-en/manufacture/heritage/a-lange-sohne-is-reborn"
 ---
 
 ## Tổng quan

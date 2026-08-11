@@ -320,3 +320,16 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 
 - **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh soạn nguồn bổ sung.
 
+---
+
+## 24. Giới hạn form liên hệ chạy trên Formspree gói miễn phí
+
+- **Vị trí:** `src/pages/lien-he.astro` — form gửi qua Formspree endpoint, mã lấy từ biến môi trường `PUBLIC_FORMSPREE_ID`.
+- **Giới hạn cần biết:**
+  - **50 lượt gửi mỗi tháng** (gói miễn phí), tính cả thư rác lọt qua honeypot.
+  - **Không có reCAPTCHA** ở gói miễn phí — chỉ có honeypot `_gotcha` chống bot cơ bản.
+  - Khi vượt hạn mức 50 lượt, form **ngừng nhận** cho tới đầu tháng sau. Người đọc sẽ thấy lỗi gửi (trang báo "gửi không thành công"), không biết rõ nguyên nhân là đã hết hạn mức.
+- **Hành động khi cần:** nếu lượng gửi tăng hoặc bị bot lạm dụng, nâng lên gói trả phí của Formspree, hoặc đổi endpoint mới (đổi biến `PUBLIC_FORMSPREE_ID` trên Vercel, không cần sửa mã).
+- **Trạng thái:** ĐÃ GHI (11/08/2026). Giới hạn vận hành, không phải lỗi — chỉ cần lưu ý khi trang có nhiều người đọc hơn.
+
+

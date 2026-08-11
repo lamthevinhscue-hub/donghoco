@@ -128,6 +128,13 @@ export const translations = {
     contact_email: 'Email',
     contact_message: 'Nội dung',
     contact_button: 'Gửi liên hệ',
+    // Trạng thái form liên hệ (lien-he.astro)
+    contact_sending: 'Đang gửi…',
+    contact_success: '✓ Cảm ơn bạn! Tin nhắn đã được gửi. Tôi sẽ phản hồi sớm.',
+    contact_error: '✗ Gửi không thành công. Vui lòng thử lại sau ít phút.',
+    contact_chars_remaining: 'còn lại',
+    contact_disabled_notice:
+      'Trang liên hệ đang tạm ngưng. Vui lòng quay lại sau, hoặc viết trực tiếp qua thư điện tử.',
     lang_notice:
       'Nội dung tiếng Anh đang được chuẩn bị. Tạm thời chỉ có tiếng Việt.',
     // Khối "Thông số kỹ thuật" trên trang chi tiết mẫu iconic (SpecTable.astro)
@@ -180,6 +187,13 @@ export const translations = {
     contact_email: 'Email',
     contact_message: 'Message',
     contact_button: 'Send',
+    // Contact form states (lien-he.astro)
+    contact_sending: 'Sending…',
+    contact_success: '✓ Thank you! Your message has been sent. I will reply soon.',
+    contact_error: '✗ Sending failed. Please try again in a few minutes.',
+    contact_chars_remaining: 'remaining',
+    contact_disabled_notice:
+      'The contact form is temporarily unavailable. Please check back later, or reach out directly by email.',
     lang_notice:
       'English content is being prepared. Vietnamese is currently the main language.',
     // "Technical specifications" block on the iconic model detail page (SpecTable.astro)

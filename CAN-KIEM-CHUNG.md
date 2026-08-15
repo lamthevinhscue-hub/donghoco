@@ -405,4 +405,38 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (15/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 27. Trang Oris, NOMOS Glashütte, Rado — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/oris.md`, `src/content/thuongHieu/vi/nomos-glashuette.md`, `src/content/thuongHieu/vi/rado.md`
+- **Bối cảnh:** Ba trang đợt 9 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Mức chống từ tính bằng gauss của Oris Calibre 400
+
+- Chỉ thấy ở nguồn thứ cấp, trang chính hãng không nêu con số.
+- **Hành động đã làm:** ghi "chống từ cao" không kèm số.
+
+### 2. Năm Oris gia nhập ASUAG
+
+- Nguồn thứ cấp, chưa đối chiếu được.
+- **Hành động đã làm:** không nhắc.
+
+### 3. Mã calibre của Rado
+
+- Không đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm `rado` vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 4. Năm ra mắt các dòng Oris và NOMOS
+
+- Không xác nhận được.
+- **Hành động đã làm:** để trống trường `year` trong `collections`.
+
+### 5. Các calibre khác của Oris ngoài Calibre 400
+
+- Có thấy tên ở nguồn thứ cấp nhưng chưa đối chiếu được thông số từ trang chính hãng.
+- **Hành động đã làm:** chỉ đưa Calibre 400.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

@@ -207,7 +207,7 @@ const breadcrumbData = [
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.movement}</td>)}
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Giá trị giữ giá</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.value_retention_label ?? 'Giá trị giữ giá'}</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.value_retention}</td>)}
               </tr>
               <tr>

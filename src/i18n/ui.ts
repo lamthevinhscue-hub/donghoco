@@ -363,6 +363,8 @@ export const CALIBRE_DISPLAY_SLUGS: ReadonlySet<string> = new Set([
   'breitling',
   'panerai',
   'citizen',
+  'oris',
+  'nomos-glashuette',
 ]);
 
 // =============================================================================

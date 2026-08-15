@@ -72,6 +72,7 @@ const thuongHieu = defineCollection({
         value_retention: z.string(),                // Giá trị giữ giá
         philosophy: z.string(),                     // Triết lý
       })).default([]),
+      value_retention_label: z.string().optional(), // Nhãn tùy chỉnh cho dòng "Giá trị giữ giá" trong bảng đối chiếu (VD: "Vật liệu" của Rado)
       collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
     }),
 });

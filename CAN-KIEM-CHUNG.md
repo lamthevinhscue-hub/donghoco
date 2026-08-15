@@ -361,4 +361,48 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (15/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 26. Trang Breitling, Panerai, Citizen — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/breitling.md`, `src/content/thuongHieu/vi/panerai.md`, `src/content/thuongHieu/vi/citizen.md`
+- **Bối cảnh:** Ba trang được dựng ngày 15/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm Willy Breitling nộp bằng sáng chế nút bấm thứ hai
+
+- Nguồn chính hãng mô tả sự kiện nhưng không nêu năm. Nhiều tài liệu bên ngoài ghi năm nhưng không thống nhất.
+- **Hành động đã làm:** nêu sự kiện **không kèm năm** (thuộc phần Tổng quan), không đưa vào `lineHistory`.
+
+### 2. Năm ra mắt dòng Radiomir và Luminor của Panerai
+
+- Trang lịch sử chính hãng mô tả nguồn gốc tên gọi theo vật liệu phát quang, không nêu năm ra mắt dòng. Các con số phổ biến bên ngoài chưa đối chiếu được.
+- **Hành động đã làm:** để trống trường `year` trong `collections`.
+
+### 3. Năm ra mắt các dòng của Citizen
+
+- Không xác nhận được từ trang chính hãng.
+- **Hành động đã làm:** để trống trường `year`.
+
+### 4. Mã bộ máy Miyota cụ thể
+
+- Miyota là công ty con của Citizen — điều này đã kiểm chứng. Nhưng mã bộ máy cụ thể thì chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** nhắc Miyota ở mức vai trò, **không ghi mã bộ máy nào**.
+
+### 5. Năm thành lập Miyota và năm gia nhập Citizen
+
+- Chưa xác nhận được.
+- **Hành động đã làm:** không nhắc năm.
+
+### 6. Toàn bộ giá bán của cả ba hãng
+
+- Giá lỗi thời nhanh, đúng quy tắc trong `CONTENT-GUIDE.md`.
+- **Hành động đã làm:** mô tả định vị phân khúc thay vì con số.
+
+### 7. Các dòng sản phẩm khác của Breitling ngoài Navitimer và Chronomat
+
+- Chưa kiểm chứng được đặc điểm nhận diện từ nguồn chính hãng.
+- **Hành động đã làm:** chỉ dựng hai dòng đã cấp.
+
+- **Trạng thái:** VẪN TREO (15/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

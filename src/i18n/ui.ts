@@ -360,6 +360,9 @@ export const CALIBRE_DISPLAY_SLUGS: ReadonlySet<string> = new Set([
   'longines',
   'tissot',
   'orient',
+  'breitling',
+  'panerai',
+  'citizen',
 ]);
 
 // =============================================================================

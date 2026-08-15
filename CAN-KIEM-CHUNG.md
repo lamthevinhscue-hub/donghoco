@@ -468,4 +468,38 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 29. Trang Richard Mille, Piaget, Bvlgari — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/richard-mille.md`, `src/content/thuongHieu/vi/piaget.md`, `src/content/thuongHieu/vi/bvlgari.md`
+- **Bối cảnh:** Ba trang đợt 11 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm thành lập hãng Richard Mille
+
+- Nguồn nêu các năm khác nhau: có nguồn ghi 1999, trang chính hãng nói RM 001 ra mắt tại hội chợ Basel năm 2000, nguồn khác ghi 2001.
+- **Hành động đã làm:** **không đặt `founded`**, chỉ giữ mốc 2000 cho RM 001 vì đó là điều trang chính hãng nói.
+
+### 2. Chủ sở hữu hiện tại của Richard Mille
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** để trống `parent_company`.
+
+### 3. Mã calibre của Richard Mille và Bvlgari
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm hai slug này vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 4. Năm ra mắt dòng Altiplano
+
+- Trang chính hãng mô tả nguồn gốc tên gọi nhưng không nêu năm.
+- **Hành động đã làm:** để trống trường `year`.
+
+### 5. Các dòng hiện hành của Richard Mille
+
+- Chưa đối chiếu được đặc điểm nhận diện.
+- **Hành động đã làm:** để mảng `collections` rỗng.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

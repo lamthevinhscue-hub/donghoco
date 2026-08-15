@@ -366,6 +366,7 @@ export const CALIBRE_DISPLAY_SLUGS: ReadonlySet<string> = new Set([
   'oris',
   'nomos-glashuette',
   'hublot',
+  'piaget',
 ]);
 
 // =============================================================================

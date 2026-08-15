@@ -502,4 +502,38 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 30. Trang Montblanc, Sinn, Junghans — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/montblanc.md`, `src/content/thuongHieu/vi/sinn.md`, `src/content/thuongHieu/vi/junghans.md`
+- **Bối cảnh:** Ba trang đợt 12 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm thành lập Montblanc
+
+- 1858 là năm khởi đầu xưởng Minerva, không phải năm thành lập Montblanc. Chưa đối chiếu được năm thành lập Montblanc từ nguồn chính hãng.
+- **Hành động đã làm:** **không đặt `founded`**; giải thích rõ mối quan hệ Montblanc và Minerva trong phần Tổng quan.
+
+### 2. Chính tả tên người sáng lập xưởng Villeret
+
+- Nguồn chính hãng xuất hiện cả hai cách viết: Charles-Yvan Robert và Charles-Ivan Robert.
+- **Hành động đã làm:** dùng cách viết thứ nhất (Charles-Yvan Robert), cần xác nhận lại sau.
+
+### 3. Chủ sở hữu hiện tại của Montblanc và Junghans
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** để trống `parent_company`.
+
+### 4. Mã calibre của cả ba hãng
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 5. Năm các mốc kỹ thuật của Minerva
+
+- Nguồn mô tả theo thập niên, không nêu năm.
+- **Hành động đã làm:** viết theo thập niên trong nội dung, không đưa vào `lineHistory`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

@@ -439,4 +439,33 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 28. Trang Hublot, Chopard, Girard-Perregaux — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/hublot.md`, `src/content/thuongHieu/vi/chopard.md`, `src/content/thuongHieu/vi/girard-perregaux.md`
+- **Bối cảnh:** Ba trang đợt 10 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm gia đình Scheufele mua lại Chopard
+
+- Trang chính hãng chỉ nói gia đình Scheufele đã dẫn dắt hãng, không nêu năm. Nguồn thứ cấp có nêu nhưng chưa đối chiếu được.
+- **Hành động đã làm:** không đưa vào `lineHistory`.
+
+### 2. Chủ sở hữu hiện tại của Girard-Perregaux
+
+- Chưa đối chiếu được từ nguồn đáng tin.
+- **Hành động đã làm:** để trống `parent_company`.
+
+### 3. Mã calibre của Chopard và Girard-Perregaux
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm hai slug này vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 4. Năm ra mắt dòng Classic Fusion của Hublot và các dòng của Chopard
+
+- Không xác nhận được.
+- **Hành động đã làm:** để trống trường `year` trong `collections`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

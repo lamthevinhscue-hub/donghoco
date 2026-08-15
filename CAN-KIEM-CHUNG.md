@@ -336,4 +336,29 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 - **Hành động khi cần:** nếu lượng gửi tăng hoặc bị bot lạm dụng, nâng lên gói trả phí của Formspree, hoặc đổi endpoint mới (đổi biến `PUBLIC_FORMSPREE_ID` trên Vercel, không cần sửa mã).
 - **Trạng thái:** ĐÃ GHI (11/08/2026). Giới hạn vận hành, không phải lỗi — chỉ cần lưu ý khi trang có nhiều người đọc hơn.
 
+---
+
+## 25. Trang Seagull — các dữ kiện cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/seagull.md`
+- **Bối cảnh:** Trang được dựng ngày 15/08/2026 từ nguồn Grail Watch Reference và Wikipedia — Tianjin Seagull (do anh Vinh cấp). Ba nhóm dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm thành lập nhà máy đồng hồ Thiên Tân và mốc chiếc đồng hồ đeo tay đầu tiên của Trung Quốc
+
+- Các nguồn tra được có mâu thuẫn: một số ghi ngày 24 tháng 3 năm 1955 với tên gọi "Ngũ Tinh" (Five-Star), một số ghi tên "Wuyi" (Mùng Một tháng Năm) và mốc sản xuất hàng loạt năm 1958.
+- Chưa xác định được nguồn nào chính xác.
+- **Hành động đã làm:** không đưa mốc nào vào bài, và **không đặt trường `founded`** trong frontmatter.
+
+### 2. Tần số dao động và cơ cấu bánh xe cột của ST19
+
+- Có nguồn nhắc tới nhưng đều là blog thương mại, không phải tài liệu kỹ thuật. Grail Watch Reference không ghi các thông số này.
+- **Hành động đã làm:** không đưa con số tần số vào bài.
+
+### 3. Địa chỉ trang chính hãng của Seagull
+
+- Tra cứu ra nhiều trang cùng tự nhận là cửa hàng chính hãng với tên miền khác nhau, không xác định được đâu là trang chính thức của Tianjin Seagull Watch Group.
+- **Hành động đã làm:** không đưa liên kết chính hãng nào vào phần nguồn.
+
+- **Trạng thái:** VẪN TREO (15/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

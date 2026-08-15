@@ -18,6 +18,8 @@ export default {
     // Biến thể dark: (ghép động qua dark:text-${accent}-light / dark:border-${accent}-light)
     'dark:text-tier-haute-light', 'dark:text-tier-ultra-light', 'dark:text-tier-highend-light', 'dark:text-tier-midrange-light', 'dark:text-tier-entry-light',
     'dark:border-tier-haute-light', 'dark:border-tier-ultra-light', 'dark:border-tier-highend-light', 'dark:border-tier-midrange-light', 'dark:border-tier-entry-light',
+    // Biến thể dark cho accent brass — dùng bởi hai hạng consumer/microbrand (getTierAccent trong ui.ts)
+    'dark:text-brass-light', 'dark:border-brass-light',
   ],
   theme: {
     extend: {

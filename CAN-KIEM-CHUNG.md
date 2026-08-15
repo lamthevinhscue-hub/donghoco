@@ -570,4 +570,43 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 32. Trang Doxa, Bell & Ross, Universal Genève — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/doxa.md`, `src/content/thuongHieu/vi/bell-and-ross.md`, `src/content/thuongHieu/vi/universal-geneve.md`
+- **Bối cảnh:** Ba trang đợt 14 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây có mặt trong một số nguồn nhưng chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Chủ sở hữu hiện tại của Universal Genève và mốc hồi sinh
+
+- Thông tin về việc hãng đổi chủ và trở lại thị trường chỉ thấy ở nguồn thứ cấp, chưa đối chiếu được từ trang chính hãng.
+- **Hành động đã làm:** không đặt `parent_company`, không nêu năm hồi sinh, chỉ nói hãng đang trong giai đoạn trở lại.
+
+### 2. Năm Gérald Genta thiết kế Polerouter và năm ra mắt Polerouter
+
+- Chưa đối chiếu được từ trang chính hãng.
+- **Hành động đã làm:** nhắc việc Genta khởi nghiệp tại đây, không kèm năm và không kèm tên mẫu cụ thể.
+
+### 3. Năm Descombes qua đời và năm ra mắt Universal Watch Extra
+
+- Nguồn chỉ nói "năm tiếp theo" mà không nêu năm gốc.
+- **Hành động đã làm:** viết theo trình tự, không gán năm.
+
+### 4. Danh mục hiện hành của Universal Genève
+
+- Hãng đang trở lại, chưa đối chiếu được.
+- **Hành động đã làm:** để `collections` rỗng.
+
+### 5. Mã calibre của cả ba hãng
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 6. Chủ sở hữu Doxa và Bell & Ross
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** để trống `parent_company`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

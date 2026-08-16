@@ -715,4 +715,33 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 36. Trang Christopher Ward, Stowa, Mühle-Glashütte — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/christopher-ward.md`, `src/content/thuongHieu/vi/stowa.md`, `src/content/thuongHieu/vi/muehle-glashuette.md`
+- **Bối cảnh:** Ba trang đợt 18 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm mẫu C1 Bel Canto đoạt giải GPHG
+
+- Nguồn chỉ ghi "tháng Mười một" không kèm năm.
+- **Hành động đã làm:** nêu giải thưởng **không kèm năm**.
+
+### 2. Cơ chế điều chỉnh cổ chim gõ kiến của Mühle
+
+- Chỉ thấy nhắc trong thông số một mẫu, không có trong phần lịch sử chính hãng.
+- **Hành động đã làm:** không nhắc tới.
+
+### 3. Mã calibre của Stowa và Mühle-Glashütte
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm hai slug này vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 4. Chủ sở hữu Stowa và Mühle-Glashütte
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** để trống `parent_company`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

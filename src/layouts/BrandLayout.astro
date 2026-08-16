@@ -58,11 +58,12 @@ const breadcrumbData = [
 ---
 
 <BaseLayout title={title} description={excerpt} cover_image={heroImage} breadcrumb={breadcrumbData}>
-  <article class="mx-auto max-w-4xl px-4 py-8 sm:py-12">
+  <!-- data-pagefind-body: chỉ lập chỉ mục tìm kiếm trong vùng bài viết này -->
+  <article class="mx-auto max-w-4xl px-4 py-8 sm:py-12" data-pagefind-body>
     <Breadcrumb items={breadcrumbData} />
 
     <!-- Quay lại -->
-    <a href={localizedPath('/thuong-hieu', lang)} class="mb-6 inline-block text-sm text-ink-soft dark:text-dark-text-soft transition-colors hover:text-brass dark:hover:text-dark-brass">
+    <a href={localizedPath('/thuong-hieu', lang)} data-pagefind-ignore class="mb-6 inline-block text-sm text-ink-soft dark:text-dark-text-soft transition-colors hover:text-brass dark:hover:text-dark-brass">
       {tr.back_to_list}
     </a>
 
@@ -232,7 +233,7 @@ const breadcrumbData = [
 
     <!-- ====== KHỐI 5: MẪU ICONIC LIÊN QUAN ====== -->
     {iconicModels.length > 0 && (
-      <section class="mb-12" data-block="iconic-models">
+      <section class="mb-12" data-block="iconic-models" data-pagefind-ignore>
         <h2 class="mb-6 flex items-center gap-3 font-serif text-2xl text-navy dark:text-dark-text">
           <span class="text-brass">⑸</span> Mẫu iconic của {title}
         </h2>
@@ -267,7 +268,7 @@ const breadcrumbData = [
     )}
 
     {iconicModels.length === 0 && sameTierBrands.length > 0 && (
-      <section class="mb-12" data-block="same-tier-brands">
+      <section class="mb-12" data-block="same-tier-brands" data-pagefind-ignore>
         <h2 class="mb-2 font-serif text-2xl text-navy dark:text-dark-text">
           Các hãng cùng phân hạng
         </h2>
@@ -297,7 +298,7 @@ const breadcrumbData = [
     )}
 
     {iconicModels.length === 0 && sameTierBrands.length === 0 && (
-      <section class="mb-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 p-6 text-center text-sm text-ink-soft/60 dark:text-dark-text-soft/60">
+      <section class="mb-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 p-6 text-center text-sm text-ink-soft/60 dark:text-dark-text-soft/60" data-pagefind-ignore>
         📝 Chưa có mẫu iconic nào của {title} trên website. Sẽ được bổ sung sau.
       </section>
     )}

@@ -16,6 +16,7 @@ const tr = t(lang);
 <button
   type="button"
   id="search-trigger"
+  data-pagefind-ignore
   class="flex items-center gap-2 rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass"
   aria-label={tr.search_placeholder}
 >
@@ -27,8 +28,8 @@ const tr = t(lang);
   <kbd class="hidden rounded border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 px-1 text-[10px] font-medium sm:inline">/</kbd>
 </button>
 
-<!-- Overlay tìm kiếm -->
-<div id="search-overlay" class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm">
+<!-- Overlay tìm kiếm — data-pagefind-ignore để chữ gợi ý không lọt vào chỉ mục tìm kiếm -->
+<div id="search-overlay" data-pagefind-ignore class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm">
   <div class="mx-auto mt-20 max-w-2xl px-4">
     <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface shadow-2xl">
       <!-- Thanh input -->

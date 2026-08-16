@@ -27,7 +27,7 @@ const visible = items.slice(0, 3); // tối đa 3 gợi ý
 ---
 
 {visible.length > 0 && (
-  <section class="related-articles mt-16 border-t border-cream-dark pt-10 dark:border-dark-border">
+  <section class="related-articles mt-16 border-t border-cream-dark pt-10 dark:border-dark-border" data-pagefind-ignore>
     <h2 class="mb-6 font-serif text-2xl text-navy dark:text-dark-text">Đọc tiếp</h2>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map((item) => (

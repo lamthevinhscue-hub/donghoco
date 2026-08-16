@@ -199,6 +199,16 @@ export const translations = {
     trust_title: 'Thà thiếu còn hơn sai',
     trust_body: 'Mọi thông số và mốc lịch sử đều đối chiếu nguồn chính hãng hoặc tổ chức chuyên môn, ghi rõ ở cuối mỗi bài. Chưa kiểm chứng được thì ghi nhận là chưa xác minh — không đoán.',
     trust_link: 'Về quy trình biên soạn',
+    // Mục lục bài viết (TableOfContents.astro — Gói 4)
+    toc_title: 'Mục lục',
+    // Card + bộ lọc danh sách (Gói 5)
+    card_compare: 'So sánh',
+    filter_all: 'Tất cả',
+    filter_reset: 'Đặt lại',
+    // {total}/{shown} thay bằng số bài khi đếm kết quả lọc
+    filter_count_all: '{total} bài',
+    filter_count_filtered: '{shown} / {total} bài',
+    filter_no_results: 'Không có bài viết nào phù hợp với bộ lọc.',
   },
   en: {
     siteName: 'Đồng Hồ Cơ',
@@ -280,6 +290,15 @@ export const translations = {
     trust_title: 'Better missing than wrong',
     trust_body: 'Every spec and date is checked against manufacturer or specialist sources, listed at the end of each article. Anything unverified is marked as such — never guessed.',
     trust_link: 'About our process',
+    // Table of contents (TableOfContents.astro — Gói 4)
+    toc_title: 'On this page',
+    // Cards and list filters (Gói 5)
+    card_compare: 'Compare',
+    filter_all: 'All',
+    filter_reset: 'Reset',
+    filter_count_all: '{total} articles',
+    filter_count_filtered: '{shown} / {total} articles',
+    filter_no_results: 'No articles match the current filters.',
     subscribe_title: 'Get new articles',
     subscribe_desc: 'Leave your email and I will notify you when new content is published.',
     // subscribe_email + subscribe_button: tạm không dùng (form bản tin đã vô hiệu hóa).

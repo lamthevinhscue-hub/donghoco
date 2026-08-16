@@ -180,6 +180,17 @@
     color: theme('colors.ink-soft');
     margin: 1.5rem 0;
   }
+  /*
+    Bảng Markdown trên mobile: ưu tiên wrap, chỉ khi bảng thực sự rộng hơn
+    màn hình thì chính bảng cuộn ngang (display:block + overflow) — không kéo
+    cả trang cuộn ngang.
+  */
+  .prose-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-spacing: 0;
+  }
   /* Dark mode prose */
   .dark .prose-content {
     color: theme('colors.dark-text');

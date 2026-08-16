@@ -51,7 +51,7 @@ if (!entry) {
 }
 
 // Dùng render() để lấy Content component (cách đúng trong Astro 4+)
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const { data } = entry;
 const meta = [
   data.category,
@@ -140,6 +140,7 @@ if (matchingTerm) {
 ---
 
 <ArticleLayout
+  headings={headings}
   title={data.title}
   excerpt={data.excerpt}
   date={data.date}

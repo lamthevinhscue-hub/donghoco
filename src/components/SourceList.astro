@@ -39,14 +39,14 @@ const validSources = (sources ?? []).filter(
     <h2 class="mb-3 font-serif text-base font-semibold text-navy dark:text-dark-text">
       {tr.sources_title}
     </h2>
-    <ul class="space-y-1.5 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+    <ul class="space-y-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
       {validSources.map((src) => (
         <li>
           <a
             href={src.url}
             rel="noopener noreferrer"
             target="_blank"
-            class="underline decoration-dotted underline-offset-2 transition-colors hover:text-brass dark:hover:text-dark-brass"
+            class="inline-block break-words py-1 underline decoration-dotted underline-offset-2 transition-colors hover:text-brass dark:hover:text-dark-brass"
           >
             {src.label}
           </a>

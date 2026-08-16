@@ -2,8 +2,10 @@
 // =============================================================================
 // ARTICLE LAYOUT (Bộ khung cho bài viết chi tiết)
 // =============================================================================
-// Dùng cho trang chi tiết của: mẫu iconic, thương hiệu, cơ chế, hướng dẫn...
-// Hiển thị tiêu đề lớn, thông tin phụ, ảnh bìa, rồi đến nội dung Markdown.
+// Dùng cho trang chi tiết của: mẫu iconic, cơ chế, từ điển, hướng dẫn...
+// Bố cục desktop (≥ xl): lưới 2 cột — nội dung trái (độ đọc ~68ch), mục lục
+// dính phải (TableOfContents). Mobile/tablet: một cột, mục lục là <details>.
+// Thanh tiến độ đọc mảnh ở mép trên, cập nhật bằng transform scaleX (rAF).
 // =============================================================================
 
 import BaseLayout from './BaseLayout.astro';
@@ -11,7 +13,14 @@ import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
 import SourceList from '../components/SourceList.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
 
 interface Props {
   title: string;
@@ -22,6 +31,8 @@ interface Props {
   backHref?: string;
   /** Thông tin phụ hiển thị ngay dưới tiêu đề */
   meta?: string;
+  /** Heading h2/h3 từ render(entry) — dùng cho mục lục */
+  headings?: Heading[];
   /** Các bài gợi ý cho khối "Đọc tiếp" (tối đa 3, tự tính ở trang slug) */
   relatedArticles?: RelatedItem[];
   /** Link dẫn sang công cụ so sánh với mẫu hiện tại đã chọn (chỉ /mau-iconic) */
@@ -33,7 +44,7 @@ interface Props {
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, cover_image, backHref, meta, relatedArticles = [], compareHref, sources = [] } = Astro.props;
+const { title, excerpt, date, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [] } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 // Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che")
@@ -66,58 +77,112 @@ const formattedDate = date
 ---
 
 <BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={date}>
-  <!-- data-pagefind-body: chỉ lập chỉ mục tìm kiếm trong vùng bài viết này -->
-  <article class="mx-auto max-w-3xl px-4 py-12" data-pagefind-body>
-    {breadcrumbData && <Breadcrumb items={breadcrumbData} />}
+  <!-- Thanh tiến độ đọc: mảnh 2px, thuần trang trí (aria-hidden), scaleX qua rAF -->
+  <div id="reading-progress" aria-hidden="true" data-pagefind-ignore
+       class="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-brass dark:bg-dark-brass"></div>
 
-    <header class="mb-8">
-      <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-5xl">{title}</h1>
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="grid gap-10 py-8 sm:py-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
+      <!-- ====== CỘT NỘI DUNG ====== -->
+      <!-- data-pagefind-body: chỉ lập chỉ mục tìm kiếm trong vùng bài viết này -->
+      <article class="mx-auto w-full max-w-3xl lg:mx-0" data-pagefind-body>
+        {breadcrumbData && <div data-pagefind-ignore><Breadcrumb items={breadcrumbData} /></div>}
 
-      {(meta || formattedDate) && (
-        <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
-          {[meta, formattedDate].filter(Boolean).join(' • ')}
-        </p>
-      )}
+        <header class="mb-8">
+          <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-5xl">{title}</h1>
 
-      {excerpt && <p class="mt-4 text-lg italic leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>}
-    </header>
+          {(meta || formattedDate) && (
+            <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/85 dark:text-dark-text-soft/85">
+              {[meta, formattedDate && <time datetime={date} class="font-mono">{formattedDate}</time>].filter(Boolean).map((m, i) => i === 0 || !meta ? m : <> • {m}</>)}
+            </p>
+          )}
 
-    {cover_image && (
-      <div class="mb-10">
-        <WatchImage src={cover_image} alt={title} ratio="16/9" eager />
-      </div>
-    )}
+          {excerpt && <p class="mt-4 text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>}
+        </header>
 
-    <!-- Slot "spec" — bảng thông số kỹ thuật (dùng cho trang chi tiết mẫu iconic).
-         Đặt giữa phần tóm tắt/ảnh bìa và nội dung bài. Nếu trang không truyền
-         slot này thì không hiện gì. -->
-    <slot name="spec" />
+        <!-- Mục lục dạng gọn cho mobile/tablet (< 1024px) — ngay sau masthead, trước nội dung -->
+        <div class="mb-6 lg:hidden">
+          <TableOfContents headings={headings} />
+        </div>
 
-    <!-- Nội dung Markdown được chèn vào đây -->
-    <div class="prose-content text-ink dark:text-dark-text">
-      <slot />
+        {cover_image && (
+          <div class="mb-10">
+            <WatchImage src={cover_image} alt={title} ratio="16/9" eager />
+          </div>
+        )}
+
+        <!-- Slot "spec" — bảng thông số kỹ thuật (dùng cho trang chi tiết mẫu iconic).
+             Đặt giữa phần tóm tắt/ảnh bìa và nội dung bài. Nếu trang không truyền
+             slot này thì không hiện gì. -->
+        <slot name="spec" />
+
+        <!-- Nội dung Markdown được chèn vào đây -->
+        <div class="prose-content text-ink dark:text-dark-text">
+          <slot />
+        </div>
+
+        <!-- Khối nguồn tham khảo — đặt ngay sau nội dung, trước khối "Đọc tiếp" -->
+        <SourceList sources={sources} />
+
+        <!-- Khối "Đọc tiếp" — gợi ý bài liên quan (chỉ 4 collection, không cho thương hiệu) -->
+        {relatedArticles.length > 0 && (
+          <RelatedArticles items={relatedArticles} />
+        )}
+
+        <!-- Link "Đặt cạnh mẫu khác" — dẫn sang /so-sanh với mẫu hiện tại đã chọn -->
+        {compareHref && (
+          <a href={compareHref} data-pagefind-ignore class="mt-10 inline-flex min-h-11 items-center gap-2 rounded-lg border border-brass/40 bg-brass/5 px-4 py-2.5 text-sm font-medium text-brass transition-colors hover:bg-brass/10 dark:border-dark-brass/40 dark:bg-dark-brass/5 dark:text-dark-brass dark:hover:bg-dark-brass/10">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 0l-6.5 3.5M12 6l6.5 3.5M5.5 6.5L4 13a2.5 2.5 0 105 0l-1.5-6.5m8 0L14 13a2.5 2.5 0 105 0l-1.5-6.5M8 20h8m-4-4v4" />
+            </svg>
+            {lang === 'vi' ? 'Đặt cạnh mẫu khác' : 'Compare with another model'} →
+          </a>
+        )}
+
+        <!-- Nút "Quay lại danh sách" — dưới cùng, sau mọi nội dung phụ -->
+        {backHref && (
+          <a href={localizedPath(backHref, lang)} data-pagefind-ignore class="mt-12 inline-flex min-h-11 items-center text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
+            {tr.back_to_list}
+          </a>
+        )}
+      </article>
+
+      <!-- ====== RAIL PHẢI (≥ lg = 1024px): mục lục dính ====== -->
+      <aside class="hidden lg:block" aria-label={tr.toc_title}>
+        <TableOfContents headings={headings} />
+      </aside>
     </div>
-
-    <!-- Khối nguồn tham khảo — đặt ngay sau nội dung, trước khối "Đọc tiếp" -->
-    <SourceList sources={sources} />
-
-    <!-- Khối "Đọc tiếp" — gợi ý bài liên quan (chỉ 4 collection, không cho thương hiệu) -->
-    {relatedArticles.length > 0 && (
-      <RelatedArticles items={relatedArticles} />
-    )}
-
-    <!-- Link "Đặt cạnh mẫu khác" — dẫn sang /so-sanh với mẫu hiện tại đã chọn -->
-    {compareHref && (
-      <a href={compareHref} data-pagefind-ignore class="mt-10 inline-flex items-center gap-2 rounded-lg border border-brass/40 bg-brass/5 px-4 py-2.5 text-sm font-medium text-brass transition-colors hover:bg-brass/10 dark:border-dark-brass/40 dark:bg-dark-brass/5 dark:text-dark-brass dark:hover:bg-dark-brass/10">
-        ⚖ Đặt cạnh mẫu khác →
-      </a>
-    )}
-
-    <!-- Nút "Quay lại danh sách" — chuyển từ đầu bài xuống cuối, đặt dưới khối Đọc tiếp -->
-    {backHref && (
-      <a href={localizedPath(backHref, lang)} data-pagefind-ignore class="mt-12 inline-block text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
-        {tr.back_to_list}
-      </a>
-    )}
-  </article>
+  </div>
 </BaseLayout>
+
+<style>
+  /* Heading neo không bị header sticky che khi nhảy từ mục lục */
+  :global(.prose-content :is(h2, h3)) {
+    scroll-margin-top: 6rem;
+  }
+</style>
+
+<script>
+  // ====== Thanh tiến độ đọc ======
+  // Cập nhật bằng transform: scaleX (GPU) trong requestAnimationFrame trên
+  // scroll passive — không animate width, không chặn cuộn. Nếu JS không chạy,
+  // thanh đơn giản không xuất hiện (scale-x-0 mặc định) — bài vẫn đọc trọn vẹn.
+  const bar = document.getElementById('reading-progress');
+  if (bar) {
+    let ticking = false;
+    const update = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      bar.style.transform = `scaleX(${ratio})`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  }
+</script>

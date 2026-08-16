@@ -31,7 +31,7 @@ if (!entry) {
   return Astro.redirect('/404');
 }
 
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const { data } = entry;
 const meta = [
   data.brand,
@@ -122,6 +122,7 @@ if (thirdCandidate) {
 ---
 
 <ArticleLayout
+  headings={headings}
   title={data.title}
   excerpt={data.excerpt}
   date={data.date}

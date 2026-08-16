@@ -807,4 +807,47 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 39. Trang Minase, Hajime Asaoka, Beijing Watch Factory — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/minase.md`, `src/content/thuongHieu/vi/hajime-asaoka.md`, `src/content/thuongHieu/vi/beijing-watch-factory.md`
+- **Bối cảnh:** Ba trang đợt 21 (đợt cuối) được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**. Riêng Beijing Watch Factory: không tìm được trang chính hãng tiếng Anh xác minh được — nguồn là Wikipedia và một tạp chí ngành, thấp hơn chuẩn các hãng khác; trang vì vậy viết ngắn hơn.
+
+### 1. Năm thành lập Minase
+
+- Nguồn nêu mốc 2005 cho chiếc Master Craft M1 nhưng không nêu năm thành lập hãng.
+- **Hành động đã làm:** **không đặt `founded`**, chỉ giữ mốc 2005 trong `lineHistory`.
+
+### 2. Năm thành lập công ty của Hajime Asaoka
+
+- Đây là nhà chế tác cá nhân, không có năm thành lập công ty rõ ràng.
+- **Hành động đã làm:** không đặt `founded`.
+
+### 3. Quan hệ chính xác giữa Kyowa Seiko và thương hiệu Minase
+
+- Nguồn nhắc tên công ty nhưng không mô tả rõ quan hệ.
+- **Hành động đã làm:** chỉ nêu việc chiếc M1 do công ty này sản xuất.
+
+### 4. Danh sách các dòng sản phẩm của Beijing Watch Factory
+
+- Không đối chiếu được.
+- **Hành động đã làm:** để `collections` rỗng.
+
+### 5. Mã calibre của cả ba hãng
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 6. Các danh hiệu và thành tích của Hajime Asaoka ngoài AHCI và Gendai no Meiko
+
+- Chỉ hai điều này xuất hiện nhất quán ở nhiều nguồn.
+- **Hành động đã làm:** không nêu thêm.
+
+### Ghi chú: liên kết chết phát hiện khi kiểm nguồn (Hajime Asaoka)
+
+- **Kurono Tokyo — Năm năm thành lập:** địa chỉ `https://kuronotokyo.com/pages/5th-anniversary` do anh Vinh cấp trả về **HTTP 404** (trang không tồn tại). Đã chép nguyên văn theo quy tắc, **không tự thay địa chỉ**. Trang chủ kuronotokyo.com hiện chỉ liên kết tới `/pages/kurono-anniversary-malachite` — có thể là trang kỷ niệm đã đổi đường dẫn. Chờ anh Vinh cấp lại địa chỉ đúng.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

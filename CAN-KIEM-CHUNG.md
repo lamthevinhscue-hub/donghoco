@@ -773,4 +773,38 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 38. Trang Eterna, Chanel — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/eterna.md`, `src/content/thuongHieu/vi/chanel.md`
+- **Bối cảnh:** Hai trang đợt 20 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Chủ sở hữu và tình trạng hoạt động hiện tại của Eterna
+
+- Không xác minh được từ nguồn đáng tin. Trang chính hãng còn truy cập được nhưng dòng bản quyền ghi năm 2021.
+- **Hành động đã làm:** để trống `parent_company`, và **nói rõ trong nhận định rằng hiện trạng hoạt động chưa xác minh được**.
+
+### 2. Năm ra mắt dòng Kontiki và dòng 1948 của Eterna
+
+- Nguồn mô tả nguồn gốc tên gọi nhưng không nêu năm ra mắt dòng.
+- **Hành động đã làm:** để trống trường `year`.
+
+### 3. Mã calibre của Eterna
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** không đặt `signature_calibres`.
+
+### 4. Năm thành lập nhà mốt Chanel
+
+- Trang này chỉ nói về mảng đồng hồ lập năm 1987.
+- **Hành động đã làm:** **không suy đoán năm thành lập nhà mốt**, giải thích rõ trong bài rằng 1987 là năm lập mảng đồng hồ.
+
+### 5. Danh sách các hãng khác dùng bộ máy của xưởng Kenissi
+
+- Chỉ xác minh được việc Chanel đồng sở hữu Kenissi.
+- **Hành động đã làm:** **không nêu tên hãng nào khác**.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

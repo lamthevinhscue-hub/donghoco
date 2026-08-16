@@ -199,7 +199,7 @@ const breadcrumbData = [
             </thead>
             <tbody class="divide-y divide-cream-dark bg-white dark:bg-dark-surface">
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Thế mạnh chế tác</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.strength_label ?? 'Thế mạnh chế tác'}</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.strength}</td>)}
               </tr>
               <tr>
@@ -211,7 +211,7 @@ const breadcrumbData = [
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.value_retention}</td>)}
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">Triết lý</td>
+                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.philosophy_label ?? 'Triết lý'}</td>
                 {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.philosophy}</td>)}
               </tr>
             </tbody>

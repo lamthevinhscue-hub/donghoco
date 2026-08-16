@@ -74,6 +74,8 @@ const thuongHieu = defineCollection({
       })).default([]),
       value_retention_label: z.string().optional(), // Nhãn tùy chỉnh cho dòng "Giá trị giữ giá" trong bảng đối chiếu (VD: "Vật liệu" của Rado)
       movement_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Bộ máy" trong bảng đối chiếu (VD: "Cách hiển thị giờ" của Urwerk)
+      strength_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Thế mạnh chế tác" (VD: "Gốc gác" của Chanel)
+      philosophy_label: z.string().optional(),      // Nhãn tùy chỉnh cho dòng "Triết lý" (VD: "Vật liệu đặc trưng" của Chanel)
       collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
     }),
 });

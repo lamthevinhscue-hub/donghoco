@@ -744,4 +744,33 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 37. Trang Mido, Certina, Alpina — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/mido.md`, `src/content/thuongHieu/vi/certina.md`, `src/content/thuongHieu/vi/alpina.md`
+- **Bối cảnh:** Ba trang đợt 19 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Bốn nguyên tắc cụ thể của khái niệm Alpina 4
+
+- Nguồn nhắc có bốn nguyên tắc nhưng không liệt kê chúng là gì.
+- **Hành động đã làm:** nêu khái niệm, **không bịa ra bốn nguyên tắc**.
+
+### 2. Năm ra mắt dòng Multifort và Ocean Star
+
+- Nguồn chính hãng không nêu năm.
+- **Hành động đã làm:** để trống trường `year`.
+
+### 3. Quan hệ sở hữu giữa Alpina và Frederique Constant
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** nhắc hai hãng thường bị nhầm lẫn, **không khẳng định quan hệ sở hữu**.
+
+### 4. Mã calibre của cả ba hãng
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

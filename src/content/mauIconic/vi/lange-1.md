@@ -10,6 +10,13 @@ power_reserve: "72 giờ"
 water_resistance: "30m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "A. Lange & Söhne — Dòng LANGE 1"
+    url: "https://www.alange-soehne.com/us-en/timepieces/lange-1"
+  - label: "A. Lange & Söhne — Di sản chính hãng"
+    url: "https://www.alange-soehne.com/eu-en/manufacture/heritage"
+
 ---
 
 ## Bối cảnh ra đời

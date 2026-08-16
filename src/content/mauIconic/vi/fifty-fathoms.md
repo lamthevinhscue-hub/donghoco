@@ -10,6 +10,15 @@ power_reserve: "120 giờ"
 water_resistance: "300m"
 date: "2026-08-01"
 draft: false
+
+sources:
+  - label: "Blancpain — Bộ sưu tập Fifty Fathoms"
+    url: "https://www.blancpain.com/en/collections/fifty-fathoms-collection"
+  - label: "Lettres du Brassus — Lịch sử và huyền thoại Fifty Fathoms"
+    url: "https://lettresdubrassus.blancpain.com/en/issue-13/history-and-legend"
+  - label: "Blancpain — Lịch sử thương hiệu"
+    url: "https://www.blancpain.com/en/brand/our-vision/history"
+
 ---
 
 ## Bối cảnh ra đời

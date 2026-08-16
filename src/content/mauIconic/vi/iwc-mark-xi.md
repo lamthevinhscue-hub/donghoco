@@ -10,6 +10,25 @@ power_reserve: "72 giờ"
 water_resistance: "60m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Wikipedia — IWC Schaffhausen"
+    url: "https://en.wikipedia.org/wiki/IWC_Schaffhausen"
+  - label: "IWC — Lịch sử chính hãng"
+    url: "https://www.iwc.com/us-en/company/history"
+  - label: "Sotheby's — IWC Schaffhausen"
+    url: "https://www.sothebys.com/en/brands/iwc-schaffhausen"
+  - label: "IWC Press — Timeline"
+    url: "https://press.iwc.com/timeline/"
+  - label: "Fratello — IWC Brand History Highlights"
+    url: "https://www.fratellowatches.com/iwc-brand-history-highlights-from-the-big-pilot-to-the-portofino-ingenieur-aquatimer-and-beyond/"
+  - label: "IWC — Innovative Materials"
+    url: "https://www.iwc.com/us-en/specials/innovative-materials"
+  - label: "Worldtempus — The first Ceratanium watch case"
+    url: "https://en.worldtempus.com/article/watches/innovation-and-technology/iwc-schaffhausen-the-first-ceratanium-watch-case-24619.html"
+  - label: "MR PORTER — How IWC foresaw modern watch trends 40 years ago"
+    url: "https://www.mrporter.com/en-us/journal/watches/iwc-1980s-porsche-design-louis-vuitton-ceramic-titanium-10509766"
+
 ---
 
 ## Bối cảnh ra đời

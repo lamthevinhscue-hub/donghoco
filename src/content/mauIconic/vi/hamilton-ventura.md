@@ -6,6 +6,21 @@ year: 1957
 category: "dress"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Wikipedia — Hamilton Watch Company"
+    url: "https://en.wikipedia.org/wiki/Hamilton_Watch_Company"
+  - label: "Hamilton — Lịch sử chính hãng"
+    url: "https://www.hamiltonwatch.com/en-us/company/hamilton-watches-history"
+  - label: "Teddy Baldassarre — Hamilton Watch History"
+    url: "https://teddybaldassarre.com/blogs/watches/hamilton-watch-history"
+  - label: "Teddy Baldassarre — Hamilton Ventura and Elvis"
+    url: "https://teddybaldassarre.com/blogs/watches/hamilton-ventura-elvis"
+  - label: "WatchTime — Hamilton Ventura"
+    url: "https://www.watchtime.com/brands/hamilton/hamilton-ventura-s-quartz-the-avant-garde-elvis-presley-watch"
+  - label: "Horobox — The History of Hamilton Ventura"
+    url: "https://www.horobox.com/en/review-detail/the-history-of-hamilton-ventura"
+
 ---
 
 ## Bối cảnh ra đời

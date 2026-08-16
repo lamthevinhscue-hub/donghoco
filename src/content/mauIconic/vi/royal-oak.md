@@ -10,6 +10,15 @@ power_reserve: "52 giờ"
 water_resistance: "50m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Audemars Piguet — Bộ sưu tập Royal Oak"
+    url: "https://www.audemarspiguet.com/en/collections/royal-oak-collection"
+  - label: "AP Chronicles — Royal Oak, khai sinh một biểu tượng"
+    url: "https://apchronicles.audemarspiguet.com/en/article/birth-of-an-icon"
+  - label: "AP Chronicles — Hoa văn Tapisserie trên mặt số Royal Oak"
+    url: "https://apchronicles.audemarspiguet.com/en/article/guillochage-tapisserie"
+
 ---
 
 ## Bối cảnh ra đời

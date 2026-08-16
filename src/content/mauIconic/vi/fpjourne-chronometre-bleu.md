@@ -7,6 +7,17 @@ movement: "Calibre 1304 (vàng hồng 18 carat)"
 category: "dress"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "The 1916 Company — F.P. Journe Guide"
+    url: "https://www.the1916company.com/blog/f-p-journe-guide.html"
+  - label: "F.P.Journe — Chronomètre Bleu chính hãng"
+    url: "https://www.fpjourne.com/en/collection/classique-collection/chronometre-bleu"
+  - label: "F.P.Journe — Chronomètre à Résonance chính hãng"
+    url: "https://www.fpjourne.com/en/collection/souveraine-collection/chronometre-resonance"
+  - label: "A Collected Man — Tourbillon Souverain bộ máy đồng thau"
+    url: "https://www.acollectedman.com/products/tourbillon-souverain-brass-movement-platinum"
+
 ---
 
 ## Bối cảnh ra đời

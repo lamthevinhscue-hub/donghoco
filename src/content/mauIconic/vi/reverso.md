@@ -10,6 +10,13 @@ power_reserve: "42 giờ"
 water_resistance: "30m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Jaeger-LeCoultre — Lịch sử dòng Reverso"
+    url: "https://www.jaeger-lecoultre.com/us-en/jaeger-lecoultre-reverso-history"
+  - label: "Jaeger-LeCoultre — Lịch sử thương hiệu"
+    url: "https://www.jaeger-lecoultre.com/eu-en/our-maison/manufacture-since-1833/history-of-jaeger-lecoultre"
+
 ---
 
 ## Bối cảnh ra đời

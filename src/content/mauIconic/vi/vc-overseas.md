@@ -10,6 +10,13 @@ power_reserve: "60 giờ"
 water_resistance: "150m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Vacheron Constantin — Bộ sưu tập Overseas"
+    url: "https://www.vacheron-constantin.com/ww/en/watches/all-collections/overseas.html"
+  - label: "Vacheron Constantin — Dòng thời gian lịch sử"
+    url: "https://www.vacheron-constantin.com/ww/en/maison/heritage/our-historical-timeline.html"
+
 ---
 
 ## Bối cảnh ra đời

@@ -10,6 +10,13 @@ power_reserve: "7 ngày (168 giờ)"
 water_resistance: "30m"
 date: "2026-08-01"
 draft: false
+
+sources:
+  - label: "Ulysse Nardin — Di sản chính hãng"
+    url: "https://www.ulysse-nardin.com/about-us/heritage"
+  - label: "Ulysse Nardin — Di sản độ chính xác"
+    url: "https://www.ulysse-nardin.com/about-us/unvrs/a-legacy-of-precision"
+
 ---
 
 ## Bối cảnh ra đời

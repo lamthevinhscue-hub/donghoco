@@ -6,6 +6,21 @@ year: 1931
 category: "pilot"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Longines — Lịch sử chính hãng"
+    url: "https://www.longines.com/en-us/universe/history/"
+  - label: "Wikipedia — Longines"
+    url: "https://en.wikipedia.org/wiki/Longines"
+  - label: "Wikipedia — Ernest Francillon"
+    url: "https://en.wikipedia.org/wiki/Ernest_Francillon"
+  - label: "WIPO — Longines Pilot Watches"
+    url: "https://www.wipo.int/en/web/ip-advantage/w/stories/longines-pilot-watches-design-in-flight-and-beyond"
+  - label: "Swatch Group — Longines HydroConquest"
+    url: "https://www.swatchgroup.com/en/services/archive/2026/longines-hydroconquest"
+  - label: "Caliber Corner — Longines Caliber L888"
+    url: "https://calibercorner.com/longines-caliber-l888/"
+
 ---
 
 ## Bối cảnh ra đời

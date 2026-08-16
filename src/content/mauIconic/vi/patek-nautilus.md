@@ -10,6 +10,13 @@ power_reserve: "45 giờ"
 water_resistance: "120m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Patek Philippe — Bộ sưu tập Nautilus"
+    url: "https://www.patek.com/en/collection/nautilus"
+  - label: "Patek Philippe — Lịch sử thương hiệu"
+    url: "https://www.patek.com/en/company/history"
+
 ---
 
 ## Bối cảnh ra đời

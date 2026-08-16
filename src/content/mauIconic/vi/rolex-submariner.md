@@ -10,6 +10,13 @@ power_reserve: "70 giờ"
 water_resistance: "300m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Rolex — Submariner"
+    url: "https://www.rolex.com/watches/submariner"
+  - label: "Rolex — Lịch sử thương hiệu"
+    url: "https://www.rolex.com/about-rolex/history/1905-1919"
+
 ---
 
 ## Bối cảnh ra đời

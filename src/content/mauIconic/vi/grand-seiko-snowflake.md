@@ -10,6 +10,13 @@ power_reserve: "72 giờ"
 water_resistance: "100m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Grand Seiko — SBGA211"
+    url: "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  - label: "Grand Seiko — Câu chuyện Spring Drive"
+    url: "https://www.grand-seiko.com/gr-en/worldofgrandseiko/manufacture/springdrivestories/chapter1"
+
 ---
 
 ## Bối cảnh ra đời

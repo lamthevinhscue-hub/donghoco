@@ -10,6 +10,13 @@ power_reserve: "41 giờ"
 water_resistance: "150m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Seiko — Prospex, bản dựng lại mẫu lặn 1965"
+    url: "https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index"
+  - label: "Seiko — Ba mẫu Prospex kỷ niệm 60 năm đồng hồ lặn Seiko"
+    url: "https://www.seikowatches.com/us-en/news/2025/pr/20250306_psx"
+
 ---
 
 ## Bối cảnh ra đời

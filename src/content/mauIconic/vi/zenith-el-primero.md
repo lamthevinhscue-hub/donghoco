@@ -10,6 +10,11 @@ power_reserve: "60 giờ"
 water_resistance: "100m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Zenith — Dòng thời gian chính hãng"
+    url: "https://www.zenith-watches.com/en_us/brand/timeline"
+
 ---
 
 ## Bối cảnh ra đời

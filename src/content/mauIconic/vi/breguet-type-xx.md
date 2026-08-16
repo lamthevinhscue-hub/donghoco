@@ -6,6 +6,13 @@ references: ["Type 20 (quân sự, 2023)", "Type XX (dân dụng, 2023)", "Type 
 category: "chronograph"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Breguet — Dòng Type XX"
+    url: "https://www.breguet.com/en/watches/type-xx"
+  - label: "Breguet — Lịch sử thương hiệu từ 1884"
+    url: "https://www.breguet.com/en/breguet-house"
+
 ---
 
 ## Bối cảnh ra đời

@@ -10,6 +10,13 @@ power_reserve: "80 giờ"
 water_resistance: "100m"
 date: "2026-08-01"
 draft: false
+
+sources:
+  - label: "TAG Heuer — Bộ sưu tập Monaco"
+    url: "https://www.tagheuer.com/us/en/collection-monaco/collection-monaco.html"
+  - label: "TAG Heuer — Lịch sử từ 1860 tới nay"
+    url: "https://www.tagheuer.com/int/en/our-story/history.html"
+
 ---
 
 ## Bối cảnh ra đời

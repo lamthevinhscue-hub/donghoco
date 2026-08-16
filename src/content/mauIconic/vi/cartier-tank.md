@@ -10,6 +10,11 @@ power_reserve: "38 giờ"
 water_resistance: "30m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Cartier — Bộ sưu tập Tank"
+    url: "https://www.cartier.com/en-us/watches/collections/tank/"
+
 ---
 
 ## Bối cảnh ra đời

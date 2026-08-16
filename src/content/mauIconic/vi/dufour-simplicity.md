@@ -7,6 +7,15 @@ movement: "Lên dây tay"
 category: "dress"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Philippe Dufour"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/philippe-dufour"
+  - label: "AHCI — Philippe Dufour"
+    url: "https://www.ahci.ch/members/philippe-dufour/"
+  - label: "Philippe Dufour — trang chính chủ"
+    url: "https://philippedufour.ch/en/mes-creations/"
+
 ---
 
 ## Bối cảnh ra đời

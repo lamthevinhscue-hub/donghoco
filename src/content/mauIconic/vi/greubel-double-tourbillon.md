@@ -6,6 +6,19 @@ year: 2004
 category: "dress"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Wikipedia — Greubel Forsey"
+    url: "https://en.wikipedia.org/wiki/Greubel_Forsey"
+  - label: "Greubel Forsey — Lịch sử chính hãng"
+    url: "https://greubelforsey.com/en/history"
+  - label: "Revolution — Double Tourbillon 30°"
+    url: "https://revolutionwatch.com/the-revolutionary-list-30-pioneering-watches-the-greubel-forsey-double-tourbillon-30%CB%9A/"
+  - label: "SJX Watches — Hand Made 1"
+    url: "https://watchesbysjx.com/2019/10/greubel-forsey-hand-made-1-tourbillon-watch.html"
+  - label: "Greubel Forsey — Hand Made 1 chính hãng"
+    url: "https://greubelforsey.com/en/collections/collection/hand-made-1"
+
 ---
 
 ## Bối cảnh ra đời

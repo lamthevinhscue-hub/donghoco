@@ -7,6 +7,11 @@ references: ["PRX (bản gốc quartz, 1978)", "PRX Powermatic 80 (hiện đại
 category: "sport-luxury"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Tissot — Bộ sưu tập PRX"
+    url: "https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html"
+
 ---
 
 ## Bối cảnh ra đời

@@ -10,6 +10,15 @@ power_reserve: "50 giờ"
 water_resistance: "50m"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Omega — Speedmaster Moonwatch Professional"
+    url: "https://www.omegawatches.com/en-us/watches/speedmaster/moonwatch-professional/catalog"
+  - label: "Omega — Bộ sưu tập Speedmaster"
+    url: "https://www.omegawatches.com/en-us/watches/speedmaster"
+  - label: "Omega — Chronicle, biên niên sử chính hãng"
+    url: "https://www.omegawatches.com/chronicle"
+
 ---
 
 ## Bối cảnh ra đời

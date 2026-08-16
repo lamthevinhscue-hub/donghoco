@@ -5,6 +5,12 @@ term_en: "Anglage"
 category: "hoàn thiện"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Chamfer, tức vát cạnh"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/chamfer-bevel-1"
+  - label: "FHH Journal — Trang trí đồng hồ và bộ máy"
+    url: "https://journal.hautehorlogerie.org/en/decoration-of-watches-and-movements/"
+
 ---
 
 **Vát cạnh** (anglage, hay beveling / chamfering) là **vát mép các cạnh** của [cầu máy](/tu-dien/cau-may) và bộ máy rồi **đánh bóng** chúng như gương. Nghe đơn giản — nhưng đây là **dấu hiệu phân biệt rõ nhất** giữa hoàn thiện thủ công thật và hoàn thiện công nghiệp.

@@ -5,6 +5,10 @@ term_en: "Crown"
 category: "thiết kế"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Núm vặn, lịch sử và công dụng"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/crown-watchmaking"
+
 ---
 
 **Núm vặn** (crown) là **núm nhỏ bên hông vỏ** (thường bên phải, vị trí 3 giờ). Đây là giao diện cơ học duy nhất giữa bạn và bộ máy — dùng để **lên dây** và **chỉnh giờ**.

@@ -6,6 +6,10 @@ category: "bộ máy"
 has_infographic: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Incabloc** là **hệ thống chống sốc** tiêu chuẩn nhất cho đồng hồ cơ — bảo vệ bộ phận mỏng manh nhất: **bánh lắc và trục bánh lắc**. Hãy tưởng tượng: trục bánh lắc chỉ dày ~0.1mm (mỏng hơn sợi tóc) — một cú sốc nhẹ cũng có thể gãy.

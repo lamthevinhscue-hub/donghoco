@@ -850,4 +850,23 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 40. Gói A — nguồn cho 32 mục từ điển; liên kết chết phát hiện khi kiểm
+
+- **Vị trí:** 32 file trong `src/content/tuDien/vi/` được điền trường `sources` ngày 16/08/2026 theo danh sách anh Vinh cấp (chép nguyên văn). Nay **33/33 mục từ điển** đều có nguồn (kể cả `microbrand` đã có từ trước).
+
+### Liên kết chết: COSC — /chronometer-certified (404)
+
+- Địa chỉ `https://www.cosc.swiss/chronometer-certified` trả về **HTTP 404**, không có redirect. Menu site COSC hiện liên kết tới `/certified-chronometer` — khả năng cao từ bị đảo thứ tự trong địa chỉ cấp.
+- **Ảnh hưởng 3 file:** `chronometer.md` (nguồn 1/3), `metas.md` (nguồn 3/3), `vph.md` (nguồn 2/2).
+- **Hành động đã làm:** giữ nguyên văn theo quy tắc, **không tự thay địa chỉ**. Chờ anh Vinh quyết định.
+
+### Các nguồn còn lại
+
+- 10 URL xác nhận 200 trực tiếp (COSC khác, METAS, Wikipedia, Roger Dubuis, 4 trang FHH).
+- 17 URL FHH/journal bị chặn công cụ tự động nhưng xác nhận **đang sống** qua webReader (đại diện: trang tourbillon và trang journal decoration tải đầy đủ nội dung khớp).
+
+- **Trạng thái:** ĐÃ LÀM (16/08/2026), một liên kết chết chờ anh Vinh xử lý.
+
 

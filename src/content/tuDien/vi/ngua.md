@@ -5,6 +5,10 @@ term_en: "Pallet fork"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Ngựa** (pallet fork, còn gọi pallet lever) là chi tiết **hình mỏ neo** nằm giữa [bánh thoát](/tu-dien/banh-thoat) và [bánh lắc](/tu-dien/day-toc-banh-lac). Nó làm hai việc cùng lúc: **chặn và nhả bánh thoát từng nấc**, và **truyền xung lực cho bánh lắc**.

@@ -5,6 +5,10 @@ term_en: "Perlage"
 category: "hoàn thiện"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Perlage** là **hoa văn vòng tròn** chấm đều trên mặt máy, tạo bằng cách úp một đầu cụp (burr) xoay vào mặt kim loại — mỗi vòng tròn để lại một tổ kim loại đồng tâm. Các vòng tròn đặt **chồng lấn** lên nhau một phần, tạo thành rặng chấm tròn đều đặn phủ kín mặt máy.

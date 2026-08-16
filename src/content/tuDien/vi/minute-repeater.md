@@ -6,6 +6,10 @@ category: "phức tạp cao cấp"
 has_infographic: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 **Minute Repeater** (cơ chế điểm chuông) là một trong những phức tạp **cao cấp và khó chế tạo nhất** của đồng hồ cơ. Khi bạn bấm cần gạt, đồng hồ sẽ **gõ chuông** báo giờ, phút (và đôi khi cả giây) bằng tiếng "ting" thực sự — không phải âm thanh điện tử.

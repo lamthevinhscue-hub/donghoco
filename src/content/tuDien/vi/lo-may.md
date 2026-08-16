@@ -5,6 +5,10 @@ term_en: "Skeleton"
 category: "hoàn thiện"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Lộ máy** (skeleton) là **cắt bỏ phần lớn vật liệu thừa** của cầu máy và mặt đế để bộ máy nhìn xuyên được — bạn thấy bánh răng, thùng cót, bánh lắc qua các lỗ khoét. Đi xa hơn nữa là *squelette* (hoàn toàn lộ máy) hoặc mặt số cũng cắt bỏ chỉ còn vài con số lơ lửng.

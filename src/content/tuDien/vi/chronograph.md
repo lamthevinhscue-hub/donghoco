@@ -7,6 +7,12 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "COSC — Phân biệt chronograph và chronometer"
+    url: "https://www.cosc.swiss/cosc-chronograph-chronometer"
+
 ---
 
 **Chronograph** (tiếng Hy Lạp: *chronos* = thời gian, *graph* = viết) là đồng hồ có thêm chức năng **bấm giờ** — bạn đo một khoảng thời gian ngắn (giây, phút) độc lập với việc xem giờ, bằng các nút ở hai bên vỏ.

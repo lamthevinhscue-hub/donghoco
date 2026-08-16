@@ -7,6 +7,10 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 **GMT** (viết tắt *Greenwich Mean Time*) là phức tạp **hiển thị múi giờ thứ hai** — cho phép biết giờ ở một múi giờ khác (thường là giờ quê nhà khi bạn đang đi du lịch).

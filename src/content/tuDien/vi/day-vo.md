@@ -5,6 +5,10 @@ term_en: "Caseback"
 category: "thiết kế"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Đáy vỏ** (caseback) là **mặt sau của vỏ** đồng hồ — mặt úp xuống cổ tay. Có hai loại chính, mỗi loại có ưu nhược rõ rệt.

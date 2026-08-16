@@ -7,6 +7,10 @@ has_infographic: true
 interactive: true
 date: "2026-08-02"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Dây tóc, bộ phận thiết yếu của đồng hồ cơ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"
+
 ---
 
 **Bánh lắc** (balance wheel) là bánh xe dao động qua lại không ngừng — thường màu đỏ (hợp kim Glucydur), xoay trái rồi xoay phải hàng chục ngàn lần mỗi giờ. **Dây tóc** (hairspring) là cuộn xoắn ốc mỏng manh cuộn quanh bánh lắc, phồng xẹp theo nhịp.

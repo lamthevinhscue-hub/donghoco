@@ -5,6 +5,10 @@ term_en: "Tachymeter"
 category: "thiết kế"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Thang tachymeter** là **dãy số khắc trên vành** (bezel) hoặc trên viền mặt số, dùng cùng [chronograph](/tu-dien/chronograph) để **đo tốc độ** dựa trên thời gian. Số trên thang thường chạy từ khoảng 60 xuống 400, nhưng **không chia đều** — và đó không phải lỗi.

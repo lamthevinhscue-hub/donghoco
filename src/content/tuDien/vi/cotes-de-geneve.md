@@ -5,6 +5,12 @@ term_en: "Côtes de Genève / Geneva Stripes"
 category: "hoàn thiện"
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Côtes de Genève"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/cotes-or-vagues-de-geneve/"
+  - label: "FHH Journal — Trang trí đồng hồ và bộ máy"
+    url: "https://journal.hautehorlogerie.org/en/decoration-of-watches-and-movements/"
+
 ---
 
 **Côtes de Genève** (tiếng Pháp: "vân Genève", tiếng Anh: *Geneva Stripes*) là **họa tiết sọc song song** trên bề mặt movement và rotor của đồng hồ. Nó là một trong những cách trang trí (finishing) đặc trưng nhất của đồng hồ Thụy Sĩ cao cấp.

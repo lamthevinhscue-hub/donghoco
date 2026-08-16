@@ -5,6 +5,12 @@ term_en: "Jewel"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Jewel"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/jewel-1/"
+  - label: "Fondation de la Haute Horlogerie — Hiểu về chân kính trong bộ máy"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/jewels"
+
 ---
 
 **Chân kính** (jewel) là **viên đá tổng hợp** (thường là ruby nhân tạo) đóng vai trò **ổ đỡ trục** của các bánh răng. Trục kim loại quay trong lỗ viên đá cứng này thay vì trong lỗ kim loại — giảm ma sát và mài mòn đáng kể.

@@ -5,6 +5,10 @@ term_en: "Movement / Caliber"
 category: "bộ máy"
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Movement"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/movement/"
+
 ---
 
 **Movement** (bộ máy) là toàn bộ cơ cấu bên trong đồng hồ — bộ phận **làm cho đồng hồ hoạt động**. Nó gồm: dây cót, bánh răng, bộ thoát, bánh lắc, và (nếu là automatic) rotor.

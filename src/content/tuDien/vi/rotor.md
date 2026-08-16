@@ -6,6 +6,14 @@ category: "bộ máy"
 has_infographic: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Rotor"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/rotor-1/"
+  - label: "Fondation de la Haute Horlogerie — Oscillating weight, tức rotor"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/oscillating-weight-rotor/"
+  - label: "Fondation de la Haute Horlogerie — Rotor và hệ lên dây tự động"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/rotor"
+
 ---
 
 **Rotor** (còn gọi "oscillating weight" — quả nặng dao động) là bộ phận đặc trưng của đồng hồ **automatic** (lên dây tự động). Nó là một quả nặng hình bán nguyệt (hoặc tròn), gắn trên trục có thể quay tự do 360°.

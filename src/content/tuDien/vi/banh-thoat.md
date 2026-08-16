@@ -5,6 +5,10 @@ term_en: "Escape wheel"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Bánh thoát** (escape wheel) là **bánh răng cuối cùng** của chuỗi truyền động, nằm ngay trước [bánh lắc](/tu-dien/day-toc-banh-lac). Đây là bộ phận **chuyển đổi lực liên tục của dây cót thành từng nhịp rời rạc** — và là nguồn của tiếng tíc tắc đặc trưng.

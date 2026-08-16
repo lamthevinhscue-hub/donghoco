@@ -5,6 +5,10 @@ term_en: "Power Reserve / Reserve de marche"
 category: "bộ máy"
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 **Power Reserve** (trữ cót, tiếng Pháp *reserve de marche*) là **thời gian đồng hồ cơ chạy được** sau khi dây cót được lên đầy. Nó tương đương với "tuổi thọ pin" của đồng hồ cơ.

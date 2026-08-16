@@ -5,6 +5,10 @@ term_en: "Clasp"
 category: "thiết kế"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Khóa dây** (clasp) là **bộ phận nối và mở dây đeo**. Với dây da, khóa ở đầu dây; với dây kim loại, khóa nằm giữa dây. Kiểu khóa ảnh hưởng tới cả độ an toàn lẫn độ thoải mái.

@@ -5,6 +5,10 @@ term_en: "Bezel"
 category: "thiết kế"
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Bezel** là **vành kim loại** bao quanh mặt số đồng hồ, nằm giữa mặt số và kính.

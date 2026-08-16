@@ -5,6 +5,10 @@ term_en: "Lug"
 category: "thiết kế"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+
 ---
 
 **Vấu dây** (lug) là **phần nhô ra** ở hai đầu vỏ đồng hồ, nơi dây đeo được gắn vào. Nhìn đồng hồ nghiêng, bạn sẽ thấy bốn góc vỏ kéo dài ra thành bốn mỏ — đó là vấu.

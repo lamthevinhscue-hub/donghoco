@@ -7,6 +7,12 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Lịch vạn niên"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 **Perpetual Calendar** (lịch vạn niên, viết tắt **QP** — từ tiếng Pháp *quantième perpétuel*) là một trong những phức tạp cao cấp nhất. Nó **tự động tính đúng số ngày của mỗi tháng** — kể cả tháng 28/29 ngày của tháng Hai năm nhuận — và hiển thị ngày, tháng, năm (thường cả năm nhuận).

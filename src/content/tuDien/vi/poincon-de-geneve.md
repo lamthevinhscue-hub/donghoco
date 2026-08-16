@@ -5,6 +5,12 @@ term_en: "Geneva Seal"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Wikipedia — Geneva Seal"
+    url: "https://en.wikipedia.org/wiki/Geneva_Seal"
+  - label: "Roger Dubuis — Chứng nhận Poinçon de Genève"
+    url: "https://www.rogerdubuis.com/en/roger-dubuis-the-poincon-de-geneve"
+
 ---
 
 **Poinçon de Genève** (Dấu Genève, Geneva Seal) là chứng nhận **khắt khe nhất về hoàn thiện và nguồn gốc** trong ngành đồng hồ Thụy Sĩ. Không giống [COSC](/tu-dien/chronometer) chỉ đo độ chính xác, Poinçon de Genève đòi hỏi **cả nơi sản xuất lẫn cách làm**.

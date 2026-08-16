@@ -5,6 +5,12 @@ term_en: "Guilloché"
 category: "hoàn thiện"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Engine turning, tức guilloché"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/engine-turning-guilloche"
+  - label: "FHH Journal — Trang trí đồng hồ và bộ máy"
+    url: "https://journal.hautehorlogerie.org/en/decoration-of-watches-and-movements/"
+
 ---
 
 **Guilloché** là **hoa văn chạm khắc** trên mặt số hoặc bộ máy, tạo bằng **máy tiện hoa** (guilloché lathe) — một máy cơ học chạy tay, dùng con quay (rosette) để dẫn đạo cụ cắt theo những đường cong toán học lặp lại. Kết quả là những họa tiết hình tròn xoáy, rẽ quạt, lưới thoi... bắt ánh sáng theo nhiều góc.

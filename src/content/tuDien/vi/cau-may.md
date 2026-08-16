@@ -5,6 +5,10 @@ term_en: "Bridge"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Cầu máy cổ điển"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/watches/watch/classic-bridge/"
+
 ---
 
 **Cầu máy** (bridge) là **thanh kim loại** nằm trên mặt bộ máy, giữ đầu trên của các trục bánh răng. Nếu tháo hết cầu máy ra, toàn bộ bộ máy sẽ rời ra — cầu máy là xương sống giữ mọi chi tiết đúng vị trí.

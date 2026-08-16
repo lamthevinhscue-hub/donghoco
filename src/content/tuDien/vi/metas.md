@@ -5,6 +5,14 @@ term_en: "Master Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "METAS — Chứng nhận Master Chronometer"
+    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
+  - label: "METAS — Cơ quan chứng nhận METAS-Cert"
+    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert.html"
+  - label: "COSC — Chứng nhận Chronometer, điều kiện tiên quyết của Master Chronometer"
+    url: "https://www.cosc.swiss/chronometer-certified"
+
 ---
 
 **Master Chronometer** là chuẩn chứng nhận do **METAS** (Viện Đo lường Liên bang Thụy Sĩ) cấp. Đây là thế hệ mới hơn so với [COSC](/tu-dien/chronometer), sinh ra để giải quyết hạn chế lớn nhất của COSC: COSC kiểm **bộ máy rời**, Master Chronometer kiểm **đồng hồ đã lắp vỏ hoàn chỉnh**.

@@ -5,6 +5,10 @@ term_en: "Caliber / Movement"
 category: "bộ máy"
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Calibre"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/calibre"
+
 ---
 
 **Calibre** (phát âm gần như "ca-li-pờ", đôi khi viết "caliber") là từ dùng để chỉ **một kiểu bộ máy (movement) cụ thể** của đồng hồ.

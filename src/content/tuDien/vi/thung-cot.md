@@ -5,6 +5,14 @@ term_en: "Barrel"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Barrel"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/barrel-1"
+  - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
+  - label: "Fondation de la Haute Horlogerie — Trục hộp cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel-arbor"
+
 ---
 
 **Thùng cót** (barrel) là **hộp tròn** chứa [dây cót](/tu-dien/day-cot). Bên trong, dây cót quấn quanh một trục; mặt ngoài của hộp có răng, truyền lực sang bánh răng đầu tiên của chuỗi truyền động.

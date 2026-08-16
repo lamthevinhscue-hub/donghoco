@@ -7,6 +7,12 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Tourbillon"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/tourbillon-1/"
+  - label: "Fondation de la Haute Horlogerie — Cơ chế tourbillon"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/tourbillon-complications"
+
 ---
 
 **Tourbillon** (phát âm "tua-bi-ông", tiếng Pháp nghĩa là "xoáy") là cơ chế do **Abraham-Louis Breguet** phát minh năm 1801. Nó đặt **bộ thoát và bánh lắc vào trong một lồng xoay** (thường 1 vòng/60 giây) để trung hòa sai số do trọng lực gây ra.

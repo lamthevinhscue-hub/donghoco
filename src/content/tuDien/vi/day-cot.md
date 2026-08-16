@@ -5,6 +5,10 @@ term_en: "Mainspring"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót và dây cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
+
 ---
 
 **Dây cót** (mainspring) là một **dải thép cuộn** nằm trong thùng cót. Đây là **nguồn năng lượng duy nhất** của đồng hồ cơ — không có pin, không có điện, toàn bộ năng lượng khiến kim chạy đều lấy từ dải thép này.

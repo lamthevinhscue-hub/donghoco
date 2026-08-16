@@ -5,6 +5,14 @@ term_en: "Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
+sources:
+  - label: "COSC — Chứng nhận Chronometer"
+    url: "https://www.cosc.swiss/chronometer-certified"
+  - label: "COSC — Chronograph hay Chronometer"
+    url: "https://www.cosc.swiss/cosc-chronograph-chronometer"
+  - label: "COSC — Các loại chứng nhận"
+    url: "https://www.cosc.swiss/cosc-certifications"
+
 ---
 
 **Chronometer** có hai nghĩa — và việc nhầm lẫn giữa chúng gây hiểu sai nhiều. Trong ngôn ngữ thông thường, *chronometer* chỉ "đồng hồ đo thời gian chính xác". Nhưng trong đồng hồ cơ hiện đại, **Chronometer là một chứng nhận độ chính xác** do tổ chức độc lập cấp — và đó là nghĩa cần phân biệt.

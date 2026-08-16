@@ -871,4 +871,32 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** ĐÃ LÀM (16/08/2026), một liên kết chết chờ anh Vinh xử lý.
 
+---
+
+## 41. Gói 1 — mười mẫu iconic mới; số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** 10 file mới trong `src/content/mauIconic/vi/`: `breitling-navitimer.md`, `panerai-luminor.md`, `rado-diastar.md`, `doxa-sub-300.md`, `bvlgari-octo-finissimo.md`, `piaget-altiplano.md`, `chanel-j12.md`, `hublot-big-bang.md`, `richard-mille-rm-001.md`, `girard-perregaux-tourbillon-ba-cau.md` (dựng ngày 16/08/2026 từ nguồn anh Vinh cấp)
+
+### 1. Thông số kỹ thuật của chín trên mười mẫu
+
+- Các trường `movement`, `power_reserve`, `water_resistance` không đối chiếu được từ nguồn chính hãng cho phần lớn mẫu. Chỉ Chanel J12 có `movement: Calibre 12.1`.
+- **Hành động đã làm:** để trống các trường còn lại — bảng thông số tự bỏ dòng không có dữ liệu.
+
+### 2. Các thế hệ tham chiếu của cả mười mẫu
+
+- Không đối chiếu được danh sách reference từ nguồn chính hãng.
+- **Hành động đã làm:** để trống `references`.
+
+### 3. Năm ra mắt dòng Luminor và Altiplano
+
+- Trang chính hãng mô tả nguồn gốc tên gọi nhưng không nêu năm ra mắt dòng.
+- **Hành động đã làm:** không đặt `year` cho hai mẫu này.
+
+### 4. Năm ra mắt DiaStar so với Captain Cook
+
+- Nguồn nói cả hai cùng năm 1962 nhưng không nêu thứ tự.
+- **Hành động đã làm:** không suy đoán mẫu nào trước.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

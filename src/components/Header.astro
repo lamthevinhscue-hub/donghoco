@@ -126,7 +126,7 @@ const exploreGroup = {
       <button
         type="button"
         id="menu-toggle"
-        class="md:hidden"
+        class="flex h-11 w-11 items-center justify-center rounded-md md:hidden"
         aria-label="Mở menu"
         aria-expanded="false"
       >
@@ -190,9 +190,17 @@ const exploreGroup = {
   // ====== Menu điện thoại: bật/tắt ======
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+
+  // Đổi trạng thái menu mobile — aria-label đi cùng aria-expanded để
+  // trình đọc màn hình nói đúng thao tác tiếp theo ("Đóng" khi đang mở).
+  function setMobileMenu(open: boolean) {
+    menu?.classList.toggle('hidden', !open);
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+  }
+
   toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
+    setMobileMenu(menu?.classList.contains('hidden'));
   });
 
   // ====== Mục xổ desktop: hover + focus + click-để-giữ + đóng khi bấm ra ngoài ======
@@ -244,6 +252,13 @@ const exploreGroup = {
   });
   // ESC đóng tất cả
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') dropdowns.forEach((dd) => closeMenu(dd));
+    if (e.key === 'Escape') {
+      dropdowns.forEach((dd) => closeMenu(dd));
+      // Menu mobile: đóng và trả focus về nút hamburger để bàn phím không bị "lạc"
+      if (menu && !menu.classList.contains('hidden')) {
+        setMobileMenu(false);
+        toggle?.focus();
+      }
+    }
   });
 </script>

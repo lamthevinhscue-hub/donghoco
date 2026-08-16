@@ -29,7 +29,14 @@ const tr = t(lang);
 </button>
 
 <!-- Overlay tìm kiếm — data-pagefind-ignore để chữ gợi ý không lọt vào chỉ mục tìm kiếm -->
-<div id="search-overlay" data-pagefind-ignore class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm">
+<div
+  id="search-overlay"
+  data-pagefind-ignore
+  role="dialog"
+  aria-modal="true"
+  aria-label={tr.search_placeholder}
+  class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm"
+>
   <div class="mx-auto mt-20 max-w-2xl px-4">
     <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface shadow-2xl">
       <!-- Thanh input -->
@@ -55,6 +62,8 @@ const tr = t(lang);
       <div id="search-hint" class="px-4 py-3 text-center text-xs text-ink-soft/60 dark:text-dark-text-soft/60">
         Gõ để tìm kiếm • Esc để đóng
       </div>
+      <!-- Thông báo số kết quả cho trình đọc màn hình (ẩn thị giác) -->
+      <div id="search-status" class="sr-only" role="status" aria-live="polite"></div>
     </div>
   </div>
 </div>
@@ -130,10 +139,12 @@ const tr = t(lang);
   async function doSearch(query: string) {
     const resultsContainer = document.getElementById('search-results')!;
     const hint = document.getElementById('search-hint')!;
+    const statusEl = document.getElementById('search-status');
 
     if (!query.trim()) {
       resultsContainer.innerHTML = '';
       hint.style.display = '';
+      if (statusEl) statusEl.textContent = '';
       return;
     }
 
@@ -152,6 +163,7 @@ const tr = t(lang);
 
       if (rendered.length === 0) {
         resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">Không tìm thấy kết quả.</p>';
+        if (statusEl) statusEl.textContent = 'Không tìm thấy kết quả.';
         return;
       }
 
@@ -179,8 +191,16 @@ const tr = t(lang);
         frag.appendChild(a);
       });
       resultsContainer.replaceChildren(frag);
+      // Thông báo cho trình đọc màn hình: đã có kết quả và có bao nhiêu
+      if (statusEl) {
+        const total = search.results.length;
+        statusEl.textContent = total > rendered.length
+          ? `Tìm thấy ${total} kết quả cho "${query}", hiện ${rendered.length} kết quả đầu.`
+          : `Tìm thấy ${total} kết quả cho "${query}".`;
+      }
     } catch (e) {
       resultsContainer.innerHTML = '<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">Lỗi tìm kiếm.</p>';
+      if (statusEl) statusEl.textContent = 'Lỗi tìm kiếm.';
     }
   }
 
@@ -202,12 +222,37 @@ const tr = t(lang);
     if (rc) rc.innerHTML = '';
     const hint = document.getElementById('search-hint');
     if (hint) hint.style.display = '';
+    const statusEl = document.getElementById('search-status');
+    if (statusEl) statusEl.textContent = '';
+    // Trả focus về nút mở tìm kiếm — người dùng bàn phím không bị lạc sau khi đóng
+    trigger?.focus();
   }
 
   trigger?.addEventListener('click', openSearch);
   closeBtn?.addEventListener('click', closeSearch);
   overlay?.addEventListener('click', (e) => {
     if (e.target === overlay) closeSearch();
+  });
+
+  // ====== Focus trap: khi hộp mở, Tab chỉ xoay vòng bên trong hộp ======
+  // Danh sách phần tử focus được lấy lại ở mỗi lần Tab vì kết quả tìm kiếm
+  // render động sau khi gõ.
+  overlay?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = Array.from(
+      overlay.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input')
+    ).filter((el) => el.offsetParent !== null);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && (active === first || !overlay.contains(active))) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && (active === last || !overlay.contains(active))) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   // Phím tắt "/" mở, Esc đóng

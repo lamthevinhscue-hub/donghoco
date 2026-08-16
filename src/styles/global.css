@@ -74,6 +74,22 @@
     background-color: theme('colors.brass');
     color: white;
   }
+
+  /*
+    Focus ring toàn cục — viền kép (outline đậm + quầng sáng phía ngoài) để
+    nhìn thấy trên mọi nền: kem/trắng ở chế độ sáng, than chì ở chế độ tối,
+    và cả các dải nền navy (footer, khối số liệu). Người dùng bàn phím cần
+    biết con trỏ focus đang ở đâu sau mỗi lần nhấn Tab.
+  */
+  :focus-visible {
+    outline: 2px solid theme('colors.navy');
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(250, 247, 242, 0.85);
+  }
+  .dark :focus-visible {
+    outline-color: theme('colors.dark-text');
+    box-shadow: 0 0 0 4px rgba(26, 29, 35, 0.85);
+  }
 }
 
 /* Tối ưu hình ảnh trong bài viết: không bao giờ tràn lề */
@@ -164,6 +180,34 @@
   /* Ô đọc kết quả — nền mờ, viền, dùng trong hoạt ảnh tương tác */
   .readout-box {
     @apply rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30;
+  }
+
+  /*
+    Skip link — phần tử đầu <body>, chỉ hiện khi nhận focus từ bàn phím.
+    z-index 200 để nổi trên cả header sticky (50) và overlay tìm kiếm (100).
+  */
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    transform: translateY(-300%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid theme('colors.brass');
+    background-color: theme('colors.navy');
+    color: theme('colors.cream');
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+  /* Giữ màu chữ khi hover — quy tắc a:hover toàn cục đổi sang navy, vô hình trên nền navy */
+  .skip-link:hover,
+  .skip-link:focus {
+    color: theme('colors.cream');
   }
 }
 

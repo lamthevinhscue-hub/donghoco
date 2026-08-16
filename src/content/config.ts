@@ -77,6 +77,7 @@ const thuongHieu = defineCollection({
       strength_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Thế mạnh chế tác" (VD: "Gốc gác" của Chanel)
       philosophy_label: z.string().optional(),      // Nhãn tùy chỉnh cho dòng "Triết lý" (VD: "Vật liệu đặc trưng" của Chanel)
       collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
+      featured_rank: z.number().optional(),         // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
     }),
 });
 
@@ -102,6 +103,7 @@ const mauIconic = defineCollection({
     movement: z.string().optional(),                // Bộ máy (VD: "Calibre 3235")
     power_reserve: z.string().optional(),           // Trữ cót (VD: "70 giờ")
     water_resistance: z.string().optional(),        // Chống nước (VD: "300m")
+    featured_rank: z.number().optional(),           // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
   }),
 });
 

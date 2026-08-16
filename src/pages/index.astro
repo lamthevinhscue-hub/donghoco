@@ -24,8 +24,18 @@ const allIconics = await getEntriesByLang('mauIconic', lang);
 const allMechanisms = await getEntriesByLang('coChe', lang);
 const allGlossary = await getEntriesByLang('tuDien', lang);
 
-const brands = allBrands.slice(0, 3);
-const iconics = allIconics.slice(0, 3);
+// Chọn bài nổi bật bằng biên tập: bài có featured_rank đứng trước (số nhỏ lên trước).
+// Chưa đủ 3 bài có featured_rank thì lấy bù theo thứ tự hiện tại — trang chủ không bao giờ trống.
+function byFeaturedRank<T extends { data: { featured_rank?: number } }>(entries: T[]): T[] {
+  const ranked = entries
+    .filter((e) => typeof e.data.featured_rank === 'number')
+    .sort((a, b) => (a.data.featured_rank ?? Infinity) - (b.data.featured_rank ?? Infinity));
+  const rest = entries.filter((e) => typeof e.data.featured_rank !== 'number');
+  return [...ranked, ...rest];
+}
+
+const brands = byFeaturedRank(allBrands).slice(0, 3);
+const iconics = byFeaturedRank(allIconics).slice(0, 3);
 
 // 3 trụ cột — kèm biểu tượng SVG riêng
 const pillars = [

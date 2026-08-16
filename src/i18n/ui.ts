@@ -414,6 +414,10 @@ const iconicCategoryLabels: Record<string, { vi: string; en: string }> = {
   'dress': { vi: 'Dress', en: 'Dress' },
   'pilot': { vi: 'Phi công', en: 'Pilot' },
   'sport-luxury': { vi: 'Sport-luxury', en: 'Sport-luxury' },
+  'chế tác độc lập': { vi: 'Chế tác độc lập', en: 'Independent watchmaking' },
+  'siêu mỏng': { vi: 'Siêu mỏng', en: 'Ultra-thin' },
+  'vật liệu': { vi: 'Vật liệu', en: 'Materials' },
+  'phức tạp cao cấp': { vi: 'Phức tạp cao cấp', en: 'Grand complication' },
 };
 
 export function getIconicCategoryLabel(category: string, lang: Lang): string {

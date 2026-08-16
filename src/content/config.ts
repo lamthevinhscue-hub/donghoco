@@ -94,6 +94,10 @@ const mauIconic = defineCollection({
       'dress',        // thanh lịch
       'pilot',        // phi công
       'sport-luxury', // thể thao sang trọng (Royal Oak, Nautilus)
+      'chế tác độc lập', // tác phẩm của các nhà chế tác độc lập sản lượng rất thấp
+      'siêu mỏng',    // đồng hồ mà độ mỏng là đặc tính cốt lõi
+      'vật liệu',     // đồng hồ mà đóng góp chính nằm ở vật liệu mới
+      'phức tạp cao cấp', // đồng hồ có phức tạp cao cấp là trọng tâm (VD tourbillon)
     ]).optional(),
     movement: z.string().optional(),                // Bộ máy (VD: "Calibre 3235")
     power_reserve: z.string().optional(),           // Trữ cót (VD: "70 giờ")

@@ -1052,6 +1052,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 | `stowa-flieger.md` | Dòng có quá nhiều biến thể về cỡ vỏ, cấp bộ máy Sellita và mức chống nước |
 
 - **Ghi chú:** đây là kết quả tra cứu ngày 11/08/2026. Nếu sau này các hãng cập nhật trang sản phẩm, có thể tra lại.
+- **Cập nhật 16/08/2026:** `seagull-1963.md` đã được điền `movement: ST19 / ST1901` kèm bảng thông số ST1901 lấy từ **Caliber Corner — nguồn cộng đồng, không phải chính hãng** (ngoại lệ đầu tiên trên trang, có ghi chú rõ trong bài và trong nhãn nguồn). Mười bài còn lại trong bảng trên vẫn trống.
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ nguồn cập nhật rồi tra lại.
 
 

@@ -1003,4 +1003,32 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 45. Đợt 2 bổ sung thông số — mười một bài mẫu iconic; số liệu cố tình bỏ
+
+- **Bối cảnh:** Ngày 16/08/2026 bổ sung thông số cho 11 bài theo giá trị anh Vinh cấp (chép nguyên văn): breitling-navitimer, hublot-big-bang, breguet-type-xx, vostok-amphibia, hamilton-ventura, timex-marlin, rado-diastar, piaget-altiplano, swatch-sistem51, longines-lindbergh, fpjourne-chronometre-bleu. Các mục dưới vẫn để trống.
+
+### 1. Mức chống nước của Piaget Altiplano
+
+- Trang chính hãng chỉ nói chung rằng phần lớn đồng hồ Piaget chống nước ít nhất 30 mét, không có con số riêng cho Altiplano.
+- **Hành động đã làm:** không đặt.
+
+### 2. Mức chống nước của Swatch Sistem51
+
+- Thay đổi theo từng bản trong dòng, không có con số chung.
+- **Hành động đã làm:** không đặt.
+
+### 3. Mức chống nước của F.P. Journe Chronomètre Bleu
+
+- Trang chính hãng không nêu.
+- **Hành động đã làm:** không đặt.
+
+### 4. Tên calibre của Timex Marlin và Longines Lindbergh
+
+- Trang sản phẩm mô tả bộ máy nhưng không nêu tên calibre.
+- **Hành động đã làm:** không đặt `movement`.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

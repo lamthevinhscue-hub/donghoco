@@ -4,6 +4,9 @@ excerpt: "Dòng chronograph flyback phục vụ không quân Pháp từ thập n
 brand: "Breguet"
 references: ["Type 20 (quân sự, 2023)", "Type XX (dân dụng, 2023)", "Type XX bản vàng hồng (2024)"]
 category: "chronograph"
+movement: "Calibre 728"
+power_reserve: "60 giờ"
+water_resistance: "100m"
 date: "2026-08-08"
 draft: false
 
@@ -36,7 +39,9 @@ Sau nhiều thập kỷ im tiếng, năm **2023** Breguet **hồi sinh dòng Typ
 
 ## Bộ máy
 
-Type XX dùng cơ cấu chronograph flyback đúng gốc của dòng. Các thông số bộ máy cụ thể không nêu ở đây.
+Type XX dùng cơ cấu chronograph flyback đúng gốc của dòng. Calibre **728** chạy ở tần số **5 Hz**, gồm **350 chi tiết**. **Dây tóc phẳng bằng silicon**, **bộ thoát đòn bẩy thẳng đảo chiều với sừng bằng silicon**. Vỏ thép **42mm dày 14,1mm**. Chức năng: **chronograph flyback, lịch ngày, kim giây nhỏ, bộ đếm 15 phút và 12 giờ**.
+
+Lưu ý: thông số trên thuộc bản **Type XX Chronographe 2067**, tức bản dân dụng hồi sinh.
 
 ## Vị trí trong lịch sử
 

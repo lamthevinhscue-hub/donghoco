@@ -3,6 +3,9 @@ title: "Vostok Amphibia — Càng sâu càng kín"
 excerpt: "Thay vì làm vỏ dày và gioăng khỏe theo lối thông thường, thiết kế dùng chính áp lực nước để ép các bộ phận khít vào nhau."
 brand: "Vostok"
 category: "lặn"
+movement: "2415 / 2416"
+power_reserve: "ít nhất 31 giờ"
+water_resistance: "200m"
 date: "2026-08-11"
 draft: false
 
@@ -23,6 +26,10 @@ Phần dưới đây là điều **được ghi nhận rộng rãi trong các ng
 Amphibia được biết đến vì cách giải bài toán chống nước ở độ sâu 200 mét **trong điều kiện chế tạo hạn chế**. Thay vì làm vỏ dày và gioăng khỏe theo lối thông thường, thiết kế dùng **nguyên tắc áp lực tự siết**: càng xuống sâu, áp lực nước càng ép các bộ phận khít vào nhau.
 
 Đi kèm là **mặt kính acrylic có độ đàn hồi** và **nắp lưng lắp theo kiểu xoay khóa** — mỗi chi tiết đều phục vụ cùng một nguyên tắc dùng áp lực nước làm đồng minh thay vì kẻ thù.
+
+## Bộ máy và thông số
+
+Amphibia dùng hai calibre tự lên dây: **2415** và **2416**, đều có **31 chân kính**. **Bản 2416 có thêm chức năng lịch ngày và chỉnh ngày nhanh.** Cả hai đều **chống sốc**, trữ cót **ít nhất 31 giờ**, vỏ thép không gỉ. Mức chống nước **200 mét tương đương 20 atm**.
 
 ## Vị trí trong lịch sử
 

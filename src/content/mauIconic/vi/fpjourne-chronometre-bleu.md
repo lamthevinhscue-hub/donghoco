@@ -5,6 +5,7 @@ brand: "F.P. Journe"
 year: 2009
 movement: "Calibre 1304 (vàng hồng 18 carat)"
 category: "dress"
+power_reserve: "56 giờ"
 date: "2026-08-08"
 draft: false
 
@@ -35,7 +36,11 @@ Năm **2009**, François-Paul Journe ra mắt **Chronomètre Bleu** — chiếc 
 
 ## Bộ máy
 
-Chronomètre Bleu dùng **calibre 1304**, chế tạo bằng **vàng hồng 18 carat**. Đây là điểm khác biệt lớn nhất của F.P. Journe với phần còn lại của ngành: từ năm 2004 hãng chuyển toàn bộ sản xuất bộ máy sang vàng 18 carat — tốn kém và không bắt buộc, làm vì Journe muốn thế. Các chiếc trước đó dùng bộ máy đồng thau, nay được giới sưu tầm săn tìm riêng.
+Chronomètre Bleu dùng **calibre 1304**, chế tạo bằng **vàng hồng 18 carat**, **lên dây tay**, chạy ở tần số **21.600 dao động mỗi giờ**. Đây là điểm khác biệt lớn nhất của F.P. Journe với phần còn lại của ngành: từ năm 2004 hãng chuyển toàn bộ sản xuất bộ máy sang vàng 18 carat — tốn kém và không bắt buộc, làm vì Journe muốn thế. Các chiếc trước đó dùng bộ máy đồng thau, nay được giới sưu tầm săn tìm riêng.
+
+Về kiến trúc độ chính xác: **hai hộp cót hoạt động song song** theo cấu hình cổ điển của đồng hồ độ chính xác cao, giữ lực ổn định trong phần lớn quãng trữ cót **56 giờ**. **Bánh lắc chronometer không dùng chốt điều chỉnh, chỉnh quán tính bằng bốn khối đối xứng**, được **hiệu chỉnh động ở sáu vị trí**.
+
+Riêng vỏ tantalum: đây là **kim loại rất ít dùng trong chế tác đồng hồ** vì rất cứng và khó gia công, nhưng được chuộng nhờ **khả năng chống ăn mòn và mài mòn cực cao**.
 
 ## Vị trí trong lịch sử
 

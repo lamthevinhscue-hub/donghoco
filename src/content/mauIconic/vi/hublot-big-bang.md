@@ -4,6 +4,9 @@ excerpt: "Mẫu bán chạy nhất của hãng từ năm 2005, và là hiện th
 brand: "Hublot"
 year: 2005
 category: "vật liệu"
+movement: "HUB1280 Unico"
+power_reserve: "72 giờ"
+water_resistance: "100m"
 date: "2026-08-11"
 draft: false
 
@@ -24,6 +27,12 @@ Big Bang ra mắt năm 2005 và trở thành **mẫu biểu tượng và bán ch
 - **Vỏ nhiều lớp ghép vật liệu khác nhau** — kết cấu cho phép trộn vật liệu theo từng phiên bản.
 - **Thiết kế mạnh và dễ nhận** — kích thước lớn, mặt số khung lộ, đai tích hợp.
 - **Mỗi phiên bản là một thử nghiệm vật liệu** — đúng tinh thần Art of Fusion.
+
+## Bộ máy và thông số
+
+Calibre **HUB1280** là **chronograph flyback tự lên dây có bánh xe cột**. Bộ máy có **bộ ly hợp giây dao động** và **hệ ma sát chronograph điều chỉnh bằng vòng bi**. **Bánh xe cột nhìn thấy được qua mặt số.** Bộ máy chỉ **dày 6,75mm**, cho phép vỏ mỏng **14,5mm**.
+
+Lưu ý: thông số thuộc các bản **Big Bang Unico**. Dòng Big Bang rất rộng, nhiều bản dùng calibre khác.
 
 ## Vị trí trong lịch sử
 

@@ -4,6 +4,9 @@ excerpt: "Vỏ hình khiên phi đối xứng, núm vặn lệch (1957) — chi�
 brand: "Hamilton"
 year: 1957
 category: "dress"
+movement: "H-10"
+power_reserve: "80 giờ"
+water_resistance: "50m"
 date: "2026-08-08"
 draft: false
 
@@ -41,6 +44,10 @@ Năm **1961**, **Elvis Presley** đeo Ventura trong phim *Blue Hawaii* — kho�
 ## Bộ máy
 
 Ventura năm 1957 dùng **bộ máy chạy pin** — loại đầu tiên trong đồng hồ đeo tay. Việc phát triển bộ máy này mất khoảng một thập kỷ trước khi ra mắt.
+
+Bản tự động hiện hành dùng calibre **H-10**, bộ máy ba kim **có hoặc không có lịch ngày**, trữ cót **80 giờ** — mức cao bất thường ở tầm giá này. **Kính sapphire**, vỏ thép không gỉ, **nắp lưng mở nhìn thấy bộ máy**.
+
+Lưu ý: dòng Ventura có cả bản quartz và bản tự động; thông số ở bảng trên thuộc **bản tự động**.
 
 ## Vị trí trong lịch sử
 

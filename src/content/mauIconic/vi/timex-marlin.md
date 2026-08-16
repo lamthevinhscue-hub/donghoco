@@ -3,6 +3,8 @@ title: "Timex Marlin — Cửa vào đồng hồ cơ"
 excerpt: "Chiếc đồng hồ cơ có gốc gác thật ở mức giá thấp nhất trong toàn bộ danh sách trên trang này."
 brand: "Timex"
 category: "dress"
+power_reserve: "khoảng 40 giờ"
+water_resistance: "50m"
 date: "2026-08-11"
 draft: false
 
@@ -23,6 +25,10 @@ Marlin **xuất hiện từ thập niên 1960** — dòng đồng hồ cơ của
 - **Thiết kế mảnh và tối giản, vạch giờ rõ ràng** — dùng được vừa như một chiếc dress watch vừa như đồng hồ thường ngày.
 - **Bố cục mặt số cổ điển** của thập niên 1960: không thừa, không thiếu một chi tiết.
 - Có cả bản lên dây tay và bản tự động.
+
+## Bộ máy và thông số
+
+Bản tự động dùng **bộ máy tự lên dây 21 chân kính**, trữ cót khoảng **40 giờ**. Vỏ thép không gỉ **40mm**, **mặt kính acrylic vòm**. Mức chống nước **50 mét** — đủ cho mưa nhẹ, mồ hôi và bơi ngắn, **không phù hợp để lặn**.
 
 ## Vị trí trong lịch sử
 

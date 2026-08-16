@@ -4,6 +4,9 @@ excerpt: "Chiếc chronograph ra đời năm 1952 theo đề nghị của một 
 brand: "Breitling"
 year: 1952
 category: "chronograph"
+movement: "Breitling 01"
+power_reserve: "khoảng 70 giờ"
+water_resistance: "30m"
 date: "2026-08-11"
 draft: false
 
@@ -27,6 +30,12 @@ Cách làm: Willy Breitling **lấy thước tính logarit của mẫu Chronomat
 
 - **Vành xoay tích hợp thước tính tròn** — dấu hiệu nhận diện không thể nhầm, với các vạch logarit khắc dày đặc.
 - **Mặt số nhiều thang đo chồng lớp** — mọi vạch đều có công dụng tính toán, không có chi tiết trang trí.
+
+## Bộ máy và thông số
+
+Bộ máy in-house **Breitling 01** chạy ở tần số **28.800 dao động mỗi giờ**, có **47 chân kính**. Chức năng chronograph đo tới **một phần tư giây, 30 phút và 12 giờ**. Vỏ **43mm dày 13,69mm**. Mức chống nước **30 mét tương đương 3 bar**.
+
+Lưu ý: thông số thuộc bản **Navitimer B01 Chronograph 43**. Dòng Navitimer có nhiều cỡ vỏ và cấu hình khác.
 
 ## Vị trí trong lịch sử
 

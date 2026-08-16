@@ -4,6 +4,8 @@ excerpt: "Đồng hồ làm cùng Charles Lindbergh (1931) — dùng kèm kính 
 brand: "Longines"
 year: 1931
 category: "pilot"
+power_reserve: "46 giờ"
+water_resistance: "30m"
 date: "2026-08-08"
 draft: false
 
@@ -37,7 +39,7 @@ Năm **1931**, Lindbergh cùng [Longines](/thuong-hieu/longines) phát triển *
 
 ## Bộ máy
 
-Lindbergh Hour Angle là đồng hồ cơ. Các thông số bộ máy cụ thể không nêu ở đây.
+Lindbergh Hour Angle là đồng hồ cơ. Bản hiện hành dùng **bộ máy tự lên dây chạy ở 28.800 dao động mỗi giờ**, trữ cót **46 giờ**. Vỏ thép không gỉ **đường kính 47,50mm** — cỡ rất lớn, đúng tinh thần chiếc đồng hồ hoa tiêu gốc. **Vành xoay hai chiều**, **kính sapphire phủ chống phản quang nhiều lớp ở mặt trong**.
 
 ## Vị trí trong lịch sử
 

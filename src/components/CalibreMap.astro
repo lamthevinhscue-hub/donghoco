@@ -1,0 +1,94 @@
+---
+// =============================================================================
+// CALIBRE MAP — sơ đồ dòng năng lượng qua 5 khâu của bộ máy cơ
+// =============================================================================
+// Sơ đồ khái niệm (không phải bản vẽ kỹ thuật): năng lượng đi từ rotor lên dây
+// → qua chuỗi bánh răng → bộ thoát → bánh lắc. Mỗi khâu là link tới bài cơ chế
+// tương ứng. SVG dùng từ md trở lên; mobile có danh sách chữ tương đương
+// (cũng là phương án cho screen reader muốn đọc tuyến tính).
+// Màu dùng token toàn trang (steel/ruby/alloy) — không palette riêng.
+// Chuyển động duy nhất: nét đứt chạy nhẹ trên đường nối (mô tả dòng năng lượng),
+// tắt hoàn toàn nhờ rule prefers-reduced-motion toàn cục.
+// =============================================================================
+
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+// 5 khâu theo thứ tự năng lượng — slug bài cơ chế đều tồn tại (kiểm khi dựng).
+const nodes = [
+  { n: 1, label: tr.calibre_node_1, href: '/co-che/len-day-tu-dong' },
+  { n: 2, label: tr.calibre_node_2, href: '/co-che/tru-cot' },
+  { n: 3, label: tr.calibre_node_3, href: '/co-che/chuyen-dong-co' },
+  { n: 4, label: tr.calibre_node_4, href: '/co-che/bo-thoat' },
+  { n: 5, label: tr.calibre_node_5, href: '/co-che/day-toc-banh-lac' },
+];
+
+// Toạ độ SVG (viewBox 1000×230): 5 tâm node cách đều 200 đơn vị.
+const xs = [100, 300, 500, 700, 900];
+const y = 90;
+---
+
+<section class="mx-auto max-w-6xl px-4 py-14" aria-labelledby="calibre-map-title">
+  <h2 id="calibre-map-title" class="font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">{tr.calibre_map_title}</h2>
+  <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.calibre_map_desc}</p>
+
+  <!-- SVG dòng năng lượng — ẩn dưới md (mobile dùng danh sách chữ bên dưới) -->
+  <div class="mt-8 hidden md:block">
+    <svg viewBox="0 0 1000 230" class="w-full text-alloy dark:text-dark-brass" role="img" aria-label={tr.calibre_map_title}>
+      {/* Đường nối + mũi tên + nét đứt chạy nhẹ (reduced-motion tắt nhờ rule toàn cục) */}
+      {xs.slice(0, -1).map((x, i) => (
+        <g>
+          <line x1={x + 52} y1={y} x2={xs[i + 1] - 58} y2={y} stroke="currentColor" stroke-width="2" class="text-line dark:text-dark-border" />
+          <line x1={x + 52} y1={y} x2={xs[i + 1] - 58} y2={y} stroke="currentColor" stroke-width="3" stroke-dasharray="10 14" class="calibre-flow" />
+          <path d={`M ${xs[i + 1] - 66} ${y - 7} L ${xs[i + 1] - 52} ${y} L ${xs[i + 1] - 66} ${y + 7}`} fill="none" stroke="currentColor" stroke-width="2" />
+        </g>
+      ))}
+      {nodes.map((node, i) => (
+        <a href={localizedPath(node.href, lang)} aria-label={`${node.n}. ${node.label}`} class="group">
+          {/* Vùng bấm lớn trong suốt (đường kính ~100 đơn vị viewBox ≈ 70px ở 768px) */}
+          <circle cx={xs[i]} cy={y} r="50" fill="transparent" />
+          <circle
+            cx={xs[i]}
+            cy={y}
+            r="36"
+            class="fill-white stroke-steel transition-colors group-hover:stroke-alloy dark:fill-dark-surface dark:stroke-steel dark:group-hover:stroke-dark-brass"
+            stroke-width="2.5"
+          />
+          <text x={xs[i]} y={y + 9} text-anchor="middle" class="fill-ruby font-mono text-2xl font-semibold" style="font-variant-numeric: lining-nums;">{node.n}</text>
+          <text x={xs[i]} y={y + 66} text-anchor="middle" class="fill-ink text-base font-medium dark:fill-dark-text">{node.label}</text>
+        </a>
+      ))}
+    </svg>
+  </div>
+
+  <!-- Danh sách chữ — hiện dưới md (mobile) làm phương án bấm/đọc chính -->
+  <ol class="mt-6 space-y-1 md:hidden">
+    {nodes.map((node) => (
+      <li>
+        <a
+          href={localizedPath(node.href, lang)}
+          class="flex min-h-11 items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15"
+        >
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-steel font-mono text-sm font-semibold text-ruby dark:border-steel" style="font-variant-numeric: lining-nums;">{node.n}</span>
+          <span class="text-base font-medium text-ink dark:text-dark-text">{node.label}</span>
+          <span class="ml-auto text-alloy transition-transform group-hover:translate-x-1 dark:text-dark-brass" aria-hidden="true">→</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  /* Nét đứt chạy nhẹ theo chiều dòng năng lượng — chuyển động duy nhất của sơ đồ.
+     prefers-reduced-motion toàn cục (global.css) đã ép animation-duration ~0ms. */
+  @keyframes calibre-dash {
+    to {
+      stroke-dashoffset: -48;
+    }
+  }
+  .calibre-flow {
+    animation: calibre-dash 2.4s linear infinite;
+  }
+</style>

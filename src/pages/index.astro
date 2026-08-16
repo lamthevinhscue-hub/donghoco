@@ -1,15 +1,19 @@
 ---
 // =============================================================================
-// TRANG CHỦ
+// TRANG CHỦ — "Hồ sơ calibre của người thợ đồng hồ"
 // =============================================================================
-// Cửa ngõ vào website. Đổi nhịp trình bày: hero guilloché → 3 trụ cột có icon
-// → mẫu iconic (1 lớn + 2 nhỏ) → dải mốc lịch sử cuộn ngang → dải tên hãng dạng
-// bảng chữ → khối số liệu nền navy (đếm tự động từ content collection).
+// Cấu trúc (nhẹ dần từ giá trị cốt lõi ra thông tin phụ):
+//   1. Hero: value proposition + 2 CTA + chỉ dấu thư viện (số đếm động, 1 dòng)
+//   2. Calibre Map: sơ đồ dòng năng lượng qua 5 khâu — mỗi khâu là link thật
+//   3. Chọn lộ trình: người mới / đi sâu bộ máy
+//   4. Hồ sơ được biên tập chọn: danh sách slug cố định, không slice ngẫu nhiên
+//   5. Dải mốc lịch sử + tường thương hiệu (giữ từ bản cũ)
+//   6. Khối độ tin cậy: "Thà thiếu còn hơn sai"
 // =============================================================================
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import Card from '../components/Card.astro';
+import CalibreMap from '../components/CalibreMap.astro';
 import { getEntriesByLang, getCollectionRoute, getSlug } from '../lib/content';
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 import timelineData from '../data/timeline.json';
@@ -18,56 +22,57 @@ const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 const isVi = lang === 'vi';
 
-// Lấy nội dung nổi bật từ các collection (đã lọc theo ngôn ngữ)
+// Số đếm chỉ dấu thư viện (đếm động từ collection — phục vụ định vị, không phô trương)
 const allBrands = await getEntriesByLang('thuongHieu', lang);
 const allIconics = await getEntriesByLang('mauIconic', lang);
 const allMechanisms = await getEntriesByLang('coChe', lang);
 const allGlossary = await getEntriesByLang('tuDien', lang);
+const heroCounts = tr.hero_counts
+  .replace('{brands}', String(allBrands.length))
+  .replace('{iconics}', String(allIconics.length))
+  .replace('{mechanisms}', String(allMechanisms.length))
+  .replace('{glossary}', String(allGlossary.length));
 
-// Chọn bài nổi bật bằng biên tập: bài có featured_rank đứng trước (số nhỏ lên trước).
-// Chưa đủ 3 bài có featured_rank thì lấy bù theo thứ tự hiện tại — trang chủ không bao giờ trống.
-function byFeaturedRank<T extends { data: { featured_rank?: number } }>(entries: T[]): T[] {
-  const ranked = entries
-    .filter((e) => typeof e.data.featured_rank === 'number')
-    .sort((a, b) => (a.data.featured_rank ?? Infinity) - (b.data.featured_rank ?? Infinity));
-  const rest = entries.filter((e) => typeof e.data.featured_rank !== 'number');
-  return [...ranked, ...rest];
-}
+// ====== Hồ sơ nổi bật: chọn tay theo slug, giữ đúng thứ tự biên tập ======
+// Không dùng slice(0, 3) — nếu sau này đổi danh sách, chỉ sửa mảng này.
+const FEATURED_SLUGS = ['rolex-submariner', 'omega-speedmaster', 'cartier-tank'] as const;
+const featured = FEATURED_SLUGS.map((slug) => {
+  const entry = allIconics.find((e) => getSlug(e) === slug);
+  if (!entry) {
+    // Cảnh báo lúc build — dễ thấy khi bảo trì, không âm thầm lấy bài khác thay
+    console.warn(`[trang chủ] Slug nổi bật "${slug}" không tồn tại trong mauIconic — đã bỏ khỏi danh sách.`);
+  }
+  return entry;
+}).filter((e): e is NonNullable<typeof e> => Boolean(e));
+const [featuredLead, ...featuredRest] = featured;
 
-const brands = byFeaturedRank(allBrands).slice(0, 3);
-const iconics = byFeaturedRank(allIconics).slice(0, 3);
+// ====== Hai lộ trình đọc — mọi link đều tới trang đang tồn tại ======
+// Nhãn bước lấy từ i18n (tr.path_*_step_N) — không hard-code trong trang.
+const pathNew = {
+  title: tr.path_new_title,
+  desc: tr.path_new_desc,
+  cta: tr.path_new_cta,
+  ctaHref: '/huong-dan/chon-dong-ho-dau-tien',
+  steps: [
+    { href: '/huong-dan/chon-dong-ho-dau-tien', label: tr.path_new_step_1 },
+    { href: '/co-che/chuyen-dong-co', label: tr.path_new_step_2 },
+    { href: '/tu-dien', label: tr.path_new_step_3 },
+  ],
+};
+const pathDeep = {
+  title: tr.path_deep_title,
+  desc: tr.path_deep_desc,
+  cta: tr.path_deep_cta,
+  ctaHref: '/co-che/tru-cot',
+  steps: [
+    { href: '/co-che/tru-cot', label: tr.path_deep_step_1 },
+    { href: '/co-che/chuyen-dong-co', label: tr.path_deep_step_2 },
+    { href: '/co-che/bo-thoat', label: tr.path_deep_step_3 },
+    { href: '/co-che/day-toc-banh-lac', label: tr.path_deep_step_4 },
+  ],
+};
 
-// 3 trụ cột — kèm biểu tượng SVG riêng
-const pillars = [
-  {
-    title: tr.pillar_brands,
-    desc: tr.pillar_brands_desc,
-    path: '/thuong-hieu',
-    count: allBrands.length,
-    icon: 'brand',
-  },
-  {
-    title: tr.pillar_iconic,
-    desc: tr.pillar_iconic_desc,
-    path: '/mau-iconic',
-    count: allIconics.length,
-    icon: 'iconic',
-  },
-  {
-    title: tr.pillar_mechanisms,
-    desc: tr.pillar_mechanisms_desc,
-    path: '/co-che',
-    count: allMechanisms.length,
-    icon: 'mechanism',
-  },
-];
-
-// ====== Mẫu iconic nổi bật: 1 thẻ lớn + 2 thẻ nhỏ ======
-// Lấy tối đa 3 mẫu; mẫu đầu làm thẻ lớn (span 2 cột), 2 mẫu sau làm thẻ nhỏ.
-const featuredIconic = iconics[0];
-const secondaryIconics = iconics.slice(1, 3);
-
-// ====== Dải mốc lịch sử: chọn ~6 mốc trải đều trên toàn timeline ======
+// ====== Dải mốc lịch sử: chọn ~6 mốc trải đều (giữ nguyên logic bản cũ) ======
 const totalMilestones = timelineData.length;
 const pickIndices = totalMilestones > 6
   ? [0, Math.floor(totalMilestones / 5), Math.floor(2 * totalMilestones / 5),
@@ -75,148 +80,154 @@ const pickIndices = totalMilestones > 6
      totalMilestones - 1]
   : timelineData.map((_, i) => i);
 const timelineHighlights = pickIndices
-  .filter((idx, i, arr) => arr.indexOf(idx) === i) // bỏ trùng lặp nếu mảng ngắn
+  .filter((idx, i, arr) => arr.indexOf(idx) === i)
   .map((idx) => timelineData[idx])
   .filter(Boolean);
-
-// ====== Khối số liệu: đếm tự động từ content collection ======
-const stats = [
-  { value: allBrands.length, label: isVi ? 'Thương hiệu' : 'Brands' },
-  { value: allIconics.length, label: isVi ? 'Mẫu iconic' : 'Iconic watches' },
-  { value: allMechanisms.length, label: isVi ? 'Bài cơ chế' : 'Mechanism articles' },
-  { value: allGlossary.length, label: isVi ? 'Thuật ngữ' : 'Glossary terms' },
-];
 ---
 
 <BaseLayout>
-  <!-- ===== PHẦN HERO (KHỞI ĐẦU) — ảnh nền + hoa văn guilloché ===== -->
-  <section class="relative overflow-hidden border-b border-cream-dark bg-gradient-to-b from-cream-dark/40 to-cream dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
-    <!-- Ảnh nền hero — độ mờ 10% sáng, 5% tối (nền tối làm hoa văn nổi hơn) -->
-    <img src="/images/og/hero-bg.jpg" alt="" loading="eager" class="hero-bg-img pointer-events-none absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
-
-    <!-- Hoa văn guilloché nền — giữ nguyên, nằm trên ảnh nền -->
-    <svg class="pointer-events-none absolute inset-0 h-full w-full text-brass dark:text-dark-brass" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <pattern id="hero-guilloche" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="12" cy="12" r="1.5" fill="none" stroke="currentColor" stroke-width="0.4" />
-          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="0.3" />
-          <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="0.25" />
-        </pattern>
-      </defs>
-      <rect width="200" height="200" fill="url(#hero-guilloche)" opacity="0.06" />
-    </svg>
-
-    <div class="relative mx-auto max-w-4xl px-4 py-20 text-center sm:py-28">
-      <div class="mx-auto mb-5 h-1 w-16 rounded bg-brass"></div>
-      <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-6xl">
-        {tr.siteName}
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft sm:text-xl">
-        {tr.siteTagline}
-      </p>
-      <p class="mx-auto mt-3 max-w-2xl text-sm text-ink-soft/90 dark:text-dark-text-soft/70">
-        {isVi
-          ? 'Lịch sử thương hiệu • Câu chuyện các mẫu huyền thoại • Cơ chế hoạt động — giải thích bằng cả chữ và infographic.'
-          : 'Brand history • Stories of iconic watches • How it works — explained with words and infographics.'}
-      </p>
+  <!-- ===== 1. HERO — value proposition + CTA, không trang trí lớn chắn đường ===== -->
+  <section class="border-b border-line bg-surface-tech/50 dark:bg-dark-surface/30">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-3xl leading-tight text-navy dark:text-dark-text sm:text-5xl">
+          {tr.hero_title}
+        </h1>
+        <p class="mt-5 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft sm:text-lg">
+          {tr.hero_lead}
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href={localizedPath('/huong-dan/chon-dong-ho-dau-tien', lang)}
+            class="inline-flex min-h-11 items-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-steel dark:bg-steel dark:text-cream dark:hover:bg-steel/80"
+          >
+            {tr.cta_start}
+          </a>
+          <a
+            href={localizedPath('/co-che/chuyen-dong-co', lang)}
+            class="inline-flex min-h-11 items-center rounded-lg border-2 border-navy px-5 py-2 text-sm font-semibold text-navy transition-colors hover:border-brass hover:text-brass dark:border-steel dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          >
+            {tr.cta_mechanism}
+          </a>
+          <a
+            href={localizedPath('/tu-dien', lang)}
+            class="ml-1 inline-flex min-h-11 items-center px-2 text-sm font-medium text-steel underline-offset-4 transition-colors hover:text-brass hover:underline dark:text-steel dark:hover:text-dark-brass"
+          >
+            {tr.cta_glossary} →
+          </a>
+        </div>
+        <!-- Chỉ dấu thư viện: một dòng chữ thay cho khối số liệu lớn -->
+        <p class="mt-8 text-base leading-relaxed text-ink-soft/90 dark:text-dark-text-soft/70">
+          {heroCounts}
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ===== PHẦN 3 TRỤ CỘT — lưới 3 cột, thẻ cao hơn, kèm biểu tượng lớn ===== -->
-  <section class="mx-auto max-w-6xl px-4 py-16">
-    <SectionHeading title={isVi ? 'Ba trụ cột nội dung' : 'Three content pillars'} />
-    <div class="grid gap-6 md:grid-cols-3">
-      {pillars.map((p) => (
-        <a
-          href={localizedPath(p.path, lang)}
-          class="group flex flex-col rounded-lg border border-cream-dark bg-white p-6 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
-        >
-          <!-- Biểu tượng cỡ lớn cho mỗi trụ cột -->
-          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-brass/10 text-brass dark:bg-dark-brass/10 dark:text-dark-brass">
-            {p.icon === 'brand' && (
-              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0V8m0 0l-3 3m3-3l3 3" />
-              </svg>
-            )}
-            {p.icon === 'iconic' && (
-              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.5a.56.56 0 011.04 0l2.13 5.11a.56.56 0 00.47.34l5.52.44c.5.04.7.66.32.98l-4.2 3.6a.56.56 0 00-.18.56l1.28 5.38c.12.49-.42.88-.85.62L12 17.99l-4.66 2.77c-.43.26-.97-.13-.85-.62l1.28-5.38a.56.56 0 00-.18-.56l-4.2-3.6c-.38-.32-.18-.94.32-.98l5.52-.44a.56.56 0 00.47-.34l2.13-5.11z" />
-              </svg>
-            )}
-            {p.icon === 'mechanism' && (
-              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36l-1.42-1.42M7.05 7.05L5.64 5.64m12.72 0l-1.42 1.42M7.05 16.95l-1.41 1.41M12 8a4 4 0 100 8 4 4 0 000-8z" />
-              </svg>
-            )}
-          </div>
-          <h3 class="mb-2 font-serif text-2xl text-navy dark:text-dark-text">{p.title}</h3>
-          <p class="mb-6 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{p.desc}</p>
-          <div class="flex items-center justify-between text-sm">
-            <span class="font-medium text-brass dark:text-dark-brass">{p.count} {isVi ? 'bài' : 'articles'}</span>
-            <span class="text-ink-soft transition-transform group-hover:translate-x-1 dark:text-dark-text-soft">→</span>
-          </div>
-        </a>
+  <!-- ===== 2. CALIBRE MAP ===== -->
+  <CalibreMap />
+
+  <!-- ===== 3. CHỌN LỘ TRÌNH — hai hướng, mỗi bước là link thật ===== -->
+  <section class="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="paths-title">
+    <h2 id="paths-title" class="font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
+      {tr.paths_title}
+    </h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      {[pathNew, pathDeep].map((path) => (
+        <div class="rounded-xl border border-line bg-surface-raised p-6 dark:border-dark-border dark:bg-dark-surface">
+          <h3 class="font-serif text-xl text-navy dark:text-dark-text">{path.title}</h3>
+          <p class="mt-2 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{path.desc}</p>
+          <ol class="mt-5 space-y-2">
+            {path.steps.map((step, i) => (
+              <li>
+                <a
+                  href={localizedPath(step.href, lang)}
+                  class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15"
+                >
+                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel dark:border-steel" style="font-variant-numeric: lining-nums;">{i + 1}</span>
+                  <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">{step.label}</span>
+                  <span class="ml-auto text-alloy transition-transform group-hover:translate-x-1 dark:text-dark-brass" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <a
+            href={localizedPath(path.ctaHref, lang)}
+            class="mt-4 inline-flex min-h-11 items-center rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-steel dark:bg-steel dark:hover:bg-steel/80"
+          >
+            {path.cta}
+          </a>
+        </div>
       ))}
     </div>
   </section>
 
-  <!-- ===== MẪU ICONIC NỔI BẬT — 1 thẻ lớn (2 cột) + 2 thẻ nhỏ ===== -->
-  {featuredIconic && (
-    <section class="mx-auto max-w-6xl px-4 py-16">
-      <SectionHeading
-        title={tr.featured}
-        subtitle={isVi ? 'Những mẫu đồng hồ định hình cả một thể loại.' : 'Watches that defined entire categories.'}
-      />
-      <!--
-        Một lưới duy nhất: lg:grid-cols-4. Thẻ lớn chiếm lg:col-span-2 + lg:row-span-2
-        (nửa rộng, cao gấp đôi); hai thẻ nhỏ mỗi cái 1 cột. Trên điện thoại và máy tính
-        nhỏ hơn lg, mọi thẻ xếp dọc (1 cột).
-      -->
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="h-full sm:col-span-2 lg:col-span-2 lg:row-span-2">
-          <Card
-            href={`${getCollectionRoute('mauIconic')}/${getSlug(featuredIconic)}`}
-            title={featuredIconic.data.title}
-            excerpt={featuredIconic.data.excerpt}
-            meta={featuredIconic.data.brand}
-            featureYear={featuredIconic.data.year ? String(featuredIconic.data.year) : undefined}
-          />
-        </div>
-        {secondaryIconics.map((entry) => (
-          <Card
-            href={`${getCollectionRoute('mauIconic')}/${getSlug(entry)}`}
-            title={entry.data.title}
-            excerpt={entry.data.excerpt}
-            meta={entry.data.brand}
-            featureYear={entry.data.year ? String(entry.data.year) : undefined}
-          />
+  <!-- ===== 4. HỒ SƠ ĐƯỢC BIÊN TẬP CHỌN — slug cố định, đúng thứ tự ===== -->
+  {featured.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="featured-title">
+      <SectionHeading title={tr.featured_title} subtitle={tr.featured_desc} />
+      <div class="grid gap-6 lg:grid-cols-3">
+        {featuredLead && (
+          <article class="flex flex-col rounded-xl border-2 border-brass/40 bg-surface-raised p-7 dark:border-dark-brass/40 dark:bg-dark-surface lg:col-span-2">
+            {featuredLead.data.year && (
+              <span class="font-mono text-sm font-semibold text-ruby" style="font-variant-numeric: lining-nums;">{featuredLead.data.year}</span>
+            )}
+            <h3 class="mt-1 font-serif text-2xl leading-tight text-navy dark:text-dark-text sm:text-3xl">
+              <a href={`${getCollectionRoute('mauIconic')}/${getSlug(featuredLead)}`} class="transition-colors hover:text-brass dark:hover:text-dark-brass">
+                {featuredLead.data.title}
+              </a>
+            </h3>
+            <p class="mt-1 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{featuredLead.data.brand}</p>
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{featuredLead.data.excerpt}</p>
+            <a
+              href={`${getCollectionRoute('mauIconic')}/${getSlug(featuredLead)}`}
+              class="mt-auto inline-flex min-h-11 items-center self-start pt-4 text-sm font-semibold text-steel transition-colors hover:text-brass dark:hover:text-dark-brass"
+            >
+              {tr.read_more} →
+            </a>
+          </article>
+        )}
+        {featuredRest.map((entry) => (
+          <article class="flex flex-col rounded-xl border border-line bg-surface-raised p-6 dark:border-dark-border dark:bg-dark-surface">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-serif text-lg leading-tight text-navy dark:text-dark-text">
+                <a href={`${getCollectionRoute('mauIconic')}/${getSlug(entry)}`} class="transition-colors hover:text-brass dark:hover:text-dark-brass">
+                  {entry.data.title}
+                </a>
+              </h3>
+              {entry.data.year && (
+                <span class="shrink-0 font-mono text-xs font-semibold text-ruby" style="font-variant-numeric: lining-nums;">{entry.data.year}</span>
+              )}
+            </div>
+            <p class="mt-1 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{entry.data.brand}</p>
+            <p class="mt-3 line-clamp-3 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{entry.data.excerpt}</p>
+          </article>
         ))}
       </div>
     </section>
   )}
 
-  <!-- ===== DẢI MỐC LỊCH SỬ — cuộn ngang, 5-6 mốc từ timeline.json ===== -->
+  <!-- ===== 5. DẢI MỐC LỊCH SỬ (giữ từ bản cũ) ===== -->
   {timelineHighlights.length > 0 && (
-    <section class="border-y border-cream-dark bg-cream-dark/20 py-16 dark:border-dark-border dark:bg-dark-surface/40">
+    <section class="border-y border-line bg-surface-tech/50 py-14 dark:border-dark-border dark:bg-dark-surface/30">
       <div class="mx-auto max-w-6xl px-4">
         <SectionHeading
           title={isVi ? 'Dòng chảy lịch sử' : 'Timeline highlights'}
           subtitle={isVi ? 'Những khoảnh khắc định hình ngành đồng hồ cơ.' : 'Moments that shaped mechanical watchmaking.'}
         />
       </div>
-      <!-- Dải cuộn ngang: vuốt ngang trên điện thoại, ẩn thanh cuộn cho gọn -->
       <div class="timeline-strip mx-auto max-w-6xl px-4">
         <div class="timeline-track flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
           {timelineHighlights.map((m) => (
             <a
               href={localizedPath('/lich-su', lang)}
-              class="group flex w-64 shrink-0 snap-start flex-col rounded-lg border border-cream-dark bg-white p-5 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
+              class="group flex w-64 shrink-0 snap-start flex-col rounded-xl border border-line bg-surface-raised p-5 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
             >
-              <span class="timeline-year font-serif text-3xl text-brass dark:text-dark-brass" style="font-variant-numeric: lining-nums;">
+              <span class="font-mono text-2xl font-semibold text-brass dark:text-dark-brass" style="font-variant-numeric: lining-nums;">
                 {m.year}
               </span>
-              <p class="mt-2 line-clamp-2 text-sm font-medium text-navy dark:text-dark-text">{m.title}</p>
-              <p class="mt-1 line-clamp-3 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.description}</p>
+              <p class="mt-2 line-clamp-2 text-base font-medium text-navy dark:text-dark-text">{m.title}</p>
+              <p class="mt-1 line-clamp-3 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.description}</p>
               <span class="mt-3 text-xs font-medium text-brass dark:text-dark-brass">{isVi ? 'Xem dòng lịch sử →' : 'View timeline →'}</span>
             </a>
           ))}
@@ -225,16 +236,16 @@ const stats = [
     </section>
   )}
 
-  <!-- ===== THƯƠNG HIỆU — dải tên hãng xếp dày dạng bảng chữ ===== -->
+  <!-- ===== 6. TƯỜNG THƯƠNG HIỆU (giữ từ bản cũ — nằm cuối, không che lối vào chính) ===== -->
   {allBrands.length > 0 && (
-    <section class="mx-auto max-w-6xl px-4 py-16">
+    <section class="mx-auto max-w-6xl px-4 py-14">
       <SectionHeading
         title={tr.pillar_brands}
         subtitle={tr.pillar_brands_desc}
       />
       <a
         href={localizedPath('/thuong-hieu', lang)}
-        class="group block rounded-lg border border-cream-dark bg-white p-6 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass sm:p-8"
+        class="group block rounded-xl border border-line bg-surface-raised p-6 transition-all hover:border-brass hover:shadow-lg dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass sm:p-8"
       >
         <div class="brand-wall flex flex-wrap gap-x-4 gap-y-2">
           {allBrands.map((entry, i) => (
@@ -251,20 +262,22 @@ const stats = [
     </section>
   )}
 
-  <!-- ===== KHỐI SỐ LIỆU — dải nền navy, số lớn đếm tự động từ collection ===== -->
-  <section class="relative overflow-hidden bg-navy py-16 dark:bg-dark-bg">
-    <!-- Hoa văn guilloche-tile lặp trên nền navy, độ mờ thấp -->
-    <div class="stats-guilloche-bg pointer-events-none absolute inset-0"></div>
-    <div class="relative mx-auto max-w-6xl px-4">
-      <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-        {stats.map((s) => (
-          <div class="text-center">
-            <p class="stats-count font-serif text-4xl text-cream dark:text-dark-text sm:text-5xl" style="font-variant-numeric: lining-nums;">
-              {s.value}
-            </p>
-            <p class="mt-2 text-sm text-cream/70 dark:text-dark-text-soft">{s.label}</p>
-          </div>
-        ))}
+  <!-- ===== 7. KHỐI ĐỘ TIN CẬY — không tự nhận điều không có ===== -->
+  <section class="border-t border-line dark:border-dark-border">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-steel text-steel dark:border-steel" aria-hidden="true">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="font-serif text-xl text-navy dark:text-dark-text">{tr.trust_title}</h2>
+          <p class="mt-2 max-w-3xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.trust_body}</p>
+          <a href={localizedPath('/ve-chung-toi', lang)} class="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-steel underline-offset-4 transition-colors hover:text-brass hover:underline dark:hover:text-dark-brass">
+            {tr.trust_link} →
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -272,7 +285,7 @@ const stats = [
 
 <style>
   /*
-    Dải mốc lịch sử: ẩn thanh cuộn ngang cho gọn, vẫn cuộn được bằng vuốt/người.
+    Dải mốc lịch sử: ẩn thanh cuộn ngang cho gọn, vẫn cuộn được bằng vuốt.
     -webkit-scrollbar: Safari/Chrome; scrollbar-width: Firefox.
   */
   .timeline-track {
@@ -294,23 +307,5 @@ const stats = [
   }
   :global(.dark) .timeline-track::-webkit-scrollbar-thumb {
     background: #D0B27B;
-  }
-
-  /* Ảnh nền hero: độ mờ 10% sáng, 5% tối (nền tối làm hoa văn nổi hơn) */
-  .hero-bg-img {
-    opacity: 0.10;
-  }
-  :global(.dark) .hero-bg-img {
-    opacity: 0.05;
-  }
-
-  /* Hoa văn guilloche-tile lặp trên khối số liệu navy */
-  .stats-guilloche-bg {
-    background-image: url('/images/og/guilloche-tile.png');
-    background-repeat: repeat;
-    opacity: 0.06;
-  }
-  :global(.dark) .stats-guilloche-bg {
-    opacity: 0.04;
   }
 </style>

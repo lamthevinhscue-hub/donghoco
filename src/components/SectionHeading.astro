@@ -9,15 +9,29 @@
 interface Props {
   title: string;
   subtitle?: string;
+  /** Liên kết ngắn nối tiếp phần mô tả, dùng cho một hành động liên quan. */
+  subtitleLink?: { href: string; label: string };
   align?: 'left' | 'center';
 }
 
-const { title, subtitle, align = 'left' } = Astro.props;
+const { title, subtitle, subtitleLink, align = 'left' } = Astro.props;
 const alignment = align === 'center' ? 'text-center mx-auto' : 'text-left';
 ---
 
 <div class={`max-w-2xl ${alignment} mb-8`}>
   <div class={`mb-3 h-1 w-12 rounded bg-brass ${align === 'center' ? 'mx-auto' : ''}`}></div>
   <h2 class="font-serif text-3xl text-navy sm:text-4xl dark:text-dark-text">{title}</h2>
-  {subtitle && <p class="mt-3 text-ink-soft dark:text-dark-text-soft">{subtitle}</p>}
+  {subtitle && (
+    <p class="mt-3 text-ink-soft dark:text-dark-text-soft">
+      {subtitle}
+      {subtitleLink && (
+        <>
+          {' '}
+          <a href={subtitleLink.href} class="font-medium text-brass underline underline-offset-2 transition-colors hover:text-navy dark:text-dark-brass dark:hover:text-dark-text">
+            {subtitleLink.label}
+          </a>
+        </>
+      )}
+    </p>
+  )}
 </div>

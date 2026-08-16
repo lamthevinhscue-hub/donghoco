@@ -72,7 +72,7 @@ milestones.forEach((m, i) => {
 
     <!-- Thanh điều khiển 3 lớp -->
     <div class="sticky top-16 z-40 mt-8 flex flex-wrap items-center gap-2 rounded-lg border border-cream-dark dark:border-dark-border bg-cream/95 p-3 backdrop-blur">
-      <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Lọc theo lớp:</span>
+      <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Lọc theo lớp:</span>
       <button
         type="button"
         id="toggle-all"
@@ -94,7 +94,7 @@ milestones.forEach((m, i) => {
           <span class="sm:hidden">{layer.labelShort}</span>
         </button>
       ))}
-      <span class="ml-auto text-xs font-medium text-ink-soft/60 dark:text-dark-text-soft/60" id="milestone-count">{milestones.length} mốc</span>
+      <span class="ml-auto text-xs font-medium text-ink-soft/90 dark:text-dark-text-soft/70" id="milestone-count">{milestones.length} mốc</span>
     </div>
   </section>
 
@@ -156,7 +156,7 @@ milestones.forEach((m, i) => {
     <!-- Thanh điều hướng dính (desktop) -->
     <aside class="hidden lg:block lg:w-44 lg:shrink-0">
       <nav class="timeline-nav sticky top-32" id="timeline-nav" aria-label="Điều hướng dòng thời gian">
-        <p class="mb-3 text-xs font-medium uppercase tracking-wider text-ink-soft/50 dark:text-dark-text-soft/50">Điều hướng</p>
+        <p class="mb-3 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Điều hướng</p>
         <ul class="space-y-1">
           {decadeMarks.map((dm) => (
             <li>
@@ -179,7 +179,7 @@ milestones.forEach((m, i) => {
     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
   </button>
   <div id="timeline-nav-mobile" class="fixed bottom-20 right-4 z-50 hidden w-48 rounded-lg border border-cream-dark bg-white p-3 shadow-xl lg:hidden dark:border-dark-border dark:bg-dark-surface">
-    <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/50 dark:text-dark-text-soft/50">Điều hướng</p>
+    <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Điều hướng</p>
     <ul class="max-h-60 space-y-1 overflow-y-auto">
       {decadeMarks.map((dm) => (
         <li>
@@ -255,7 +255,7 @@ milestones.forEach((m, i) => {
   }
 
   .milestone-year {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Newsreader', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;

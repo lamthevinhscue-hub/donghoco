@@ -48,7 +48,7 @@ const tr = t(lang);
         <input
           type="text"
           id="search-input"
-          class="w-full border-0 px-3 py-4 text-lg text-navy dark:text-dark-text placeholder:text-ink-soft/50 dark:text-dark-text-soft/50 focus:outline-none"
+          class="w-full border-0 px-3 py-4 text-lg text-navy dark:text-dark-text placeholder:text-ink-soft/90 dark:placeholder:text-dark-text-soft/70 focus:outline-none"
           placeholder={tr.search_placeholder}
           autocomplete="off"
         />
@@ -59,7 +59,7 @@ const tr = t(lang);
       <!-- Kết quả -->
       <div id="search-results" class="max-h-[60vh] overflow-y-auto p-2"></div>
       <!-- Gợi ý khi chưa gõ -->
-      <div id="search-hint" class="px-4 py-3 text-center text-xs text-ink-soft/60 dark:text-dark-text-soft/60">
+      <div id="search-hint" class="px-4 py-3 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
         Gõ để tìm kiếm • Esc để đóng
       </div>
       <!-- Thông báo số kết quả cho trình đọc màn hình (ẩn thị giác) -->
@@ -80,16 +80,16 @@ const tr = t(lang);
   }
   #search-results .search-result-title {
     font-weight: 600;
-    color: #1F2D3D;
+    color: #15191D;
   }
   #search-results .search-result-excerpt {
     margin-top: 0.25rem;
     font-size: 0.875rem;
-    color: #6B5B4A;
+    color: #4F5962;
     line-height: 1.5;
   }
   #search-results mark {
-    background: rgba(184, 137, 60, 0.25);
+    background: rgba(138, 106, 53, 0.25);
     color: inherit;
     border-radius: 2px;
   }

@@ -58,12 +58,12 @@ const tierLabelClasses = tierAccent
 
     <div class="mb-2 flex flex-wrap items-center gap-2">
       {tierLabel && tierAccent && (
-        <span class={`inline-block w-fit rounded-full px-2.5 py-0.5 text-xs font-medium ${tierLabelClasses}`}>
+        <span class={`inline-block w-fit rounded px-2.5 py-0.5 text-xs font-medium ${tierLabelClasses}`}>
           {tierLabel}
         </span>
       )}
       {badge && (
-        <span class="inline-block w-fit rounded-full bg-brass/10 px-2.5 py-0.5 text-xs font-medium text-brass">
+        <span class="inline-block w-fit rounded bg-brass/10 px-2.5 py-0.5 text-xs font-medium text-brass">
           {badge}
         </span>
       )}
@@ -76,7 +76,7 @@ const tierLabelClasses = tierAccent
       <a href={fullHref} class="transition-colors hover:text-brass dark:hover:text-dark-brass">{title}</a>
     </h3>
 
-    {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">{meta}</p>}
+    {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{meta}</p>}
 
     <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>
 

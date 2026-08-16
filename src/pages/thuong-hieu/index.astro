@@ -45,7 +45,7 @@ const groups = TIER_ORDER.map((tier) => ({
     <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">
       {isVi ? 'Thư viện thương hiệu' : 'Brand library'}
     </h1>
-    <p class="mt-3 max-w-2xl text-ink-soft">
+    <p class="mt-3 max-w-2xl text-ink-soft dark:text-dark-text-soft">
       {isVi
         ? 'Tất cả thương hiệu đồng hồ cơ, sắp theo hạng phân cấp — từ đỉnh cao chế tác đến phổ thông.'
         : 'All mechanical watch brands, organized by tier — from the pinnacle of watchmaking to consumer.'}
@@ -55,6 +55,7 @@ const groups = TIER_ORDER.map((tier) => ({
     <div class="mt-8 flex flex-wrap gap-2" id="tier-filter">
       <button
         data-tier="all"
+        aria-pressed="true"
         class="filter-btn rounded-full border border-navy bg-navy px-4 py-1.5 text-xs font-medium text-cream transition-colors"
       >
         {isVi ? 'Tất cả' : 'All'} ({entries.length})
@@ -62,7 +63,8 @@ const groups = TIER_ORDER.map((tier) => ({
       {groups.map((g) => (
         <button
           data-tier={g.tier}
-          class="filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass"
+          aria-pressed="false"
+          class="filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
         >
           {g.label} ({g.items.length})
         </button>
@@ -105,7 +107,7 @@ const groups = TIER_ORDER.map((tier) => ({
     </div>
 
     <!-- Thông báo khi không có kết quả (khi lọc) -->
-    <p id="no-results" class="hidden py-12 text-center text-ink-soft">
+    <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft">
       {isVi ? 'Không có thương hiệu nào trong hạng này.' : 'No brands in this tier.'}
     </p>
   </section>
@@ -134,8 +136,17 @@ const groups = TIER_ORDER.map((tier) => ({
   });
 
   // Danh sách mọi class màu có thể có trên nút (để xóa sạch khi đổi trạng thái).
+  // offClasses gồm đủ biến thể dark để trạng thái "chưa chọn" không giữ nền trắng ở chế độ tối,
+  // kèm 4 lớp hover brass: chỉ nút CHƯA CHỌN được đổi màu khi rê chuột. Nút đã chọn luôn
+  // giữ chữ text-cream (đủ tương phản trên mọi nền hạng) — hover brass bị xóa khi chọn
+  // và được trả lại khi nút trở về trạng thái chưa chọn.
   const allAccentClasses = Object.values(tierAccentMap).flatMap((c) => [c.bg, c.border]);
-  const offClasses = ['bg-white', 'text-ink-soft', 'border-cream-dark'];
+  const offClasses = [
+    'bg-white', 'text-ink-soft', 'border-cream-dark',
+    'dark:bg-dark-surface', 'dark:text-dark-text-soft', 'dark:border-dark-border',
+    'hover:border-brass', 'hover:text-brass',
+    'dark:hover:border-dark-brass', 'dark:hover:text-dark-brass',
+  ];
   const allOnClasses = ['bg-navy', 'text-cream', 'border-navy', ...allAccentClasses];
 
   function setButtonOff(b: HTMLButtonElement) {
@@ -147,8 +158,11 @@ const groups = TIER_ORDER.map((tier) => ({
     btn.addEventListener('click', () => {
       const selected = btn.dataset.tier;
 
-      // Đặt mọi nút về trạng thái tắt
-      buttons.forEach((b) => setButtonOff(b));
+      // Đặt mọi nút về trạng thái tắt (kèm aria-pressed cho trình đọc màn hình)
+      buttons.forEach((b) => {
+        setButtonOff(b);
+        b.setAttribute('aria-pressed', 'false');
+      });
 
       // Bật nút được chọn: "Tất cả" dùng navy; nút hạng dùng màu nhấn riêng.
       if (selected === 'all') {
@@ -162,6 +176,7 @@ const groups = TIER_ORDER.map((tier) => ({
         }
       }
       offClasses.forEach((c) => btn.classList.remove(c));
+      btn.setAttribute('aria-pressed', 'true');
 
       // Hiển thị nhóm tương ứng
       let anyVisible = false;

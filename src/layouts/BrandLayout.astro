@@ -83,7 +83,7 @@ const breadcrumbData = [
         <div class="min-w-0">
           <h1 class="font-serif text-4xl leading-tight text-navy dark:text-dark-text sm:text-5xl">{title}</h1>
           {meta && (
-            <p class="mt-2 text-sm uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">{meta}</p>
+            <p class="mt-2 text-sm uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{meta}</p>
           )}
         </div>
       </div>
@@ -95,35 +95,35 @@ const breadcrumbData = [
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Quốc gia -->
         <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
-          <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Quốc gia</p>
+          <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Quốc gia</p>
           <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.country}</p>
         </div>
         <!-- Năm thành lập -->
         {data.founded && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
-            <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Thành lập</p>
+            <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Thành lập</p>
             <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.founded} <span class="text-sm text-ink-soft dark:text-dark-text-soft">({new Date().getFullYear() - data.founded} năm)</span></p>
           </div>
         )}
         <!-- Tập đoàn mẹ -->
         {data.parent_company && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4">
-            <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Tập đoàn mẹ</p>
+            <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Tập đoàn mẹ</p>
             <p class="mt-1 font-serif text-lg text-navy dark:text-dark-text">{data.parent_company}</p>
           </div>
         )}
         <!-- Phân khúc -->
         <div class="rounded-lg border-l-4 border-brass bg-brass/5 p-4">
-          <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Phân khúc</p>
+          <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Phân khúc</p>
           <p class="mt-1 font-serif text-base font-medium text-navy dark:text-dark-text">{tierLabel}</p>
         </div>
         <!-- Calibre tiêu biểu — chỉ hiện khi slug thuộc allowlist (đã kiểm chứng) -->
         {data.signature_calibres && data.signature_calibres.length > 0 && CALIBRE_DISPLAY_SLUGS.has(slug) && (
           <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:col-span-2">
-            <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Bộ máy in-house tiêu biểu</p>
+            <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Bộ máy in-house tiêu biểu</p>
             <div class="mt-2 flex flex-wrap gap-2">
               {data.signature_calibres.map((c: string) => (
-                <span class="rounded-full bg-navy/10 px-3 py-1 text-xs font-medium text-navy dark:text-dark-text">Calibre {c}</span>
+                <span class="rounded bg-navy/10 px-3 py-1 font-mono text-xs font-medium text-navy dark:text-dark-text">Calibre {c}</span>
               ))}
             </div>
           </div>
@@ -163,7 +163,7 @@ const breadcrumbData = [
                 {col.year && <span class="shrink-0 text-xs font-medium text-brass">{col.year}</span>}
               </div>
               <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{col.identity}</p>
-              <p class="mt-2 text-xs italic text-ink-soft/70 dark:text-dark-text-soft/70">📍 {col.positioning}</p>
+              <p class="mt-2 text-xs italic text-ink-soft/90 dark:text-dark-text-soft/70">📍 {col.positioning}</p>
               {col.iconic_ref && (
                 <p class="mt-2 text-xs font-medium text-navy dark:text-dark-text">★ Mẫu tiêu biểu: {col.iconic_ref}</p>
               )}
@@ -287,7 +287,7 @@ const breadcrumbData = [
                 )}
                 {brand.title}
               </h3>
-              <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+              <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
                 {brand.country}{brand.founded ? ` • ${brand.founded}` : ''}
               </p>
               <p class="flex-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">{brand.excerpt}</p>
@@ -298,7 +298,7 @@ const breadcrumbData = [
     )}
 
     {iconicModels.length === 0 && sameTierBrands.length === 0 && (
-      <section class="mb-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 p-6 text-center text-sm text-ink-soft/60 dark:text-dark-text-soft/60" data-pagefind-ignore>
+      <section class="mb-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 p-6 text-center text-sm text-ink-soft/90 dark:text-dark-text-soft/70" data-pagefind-ignore>
         📝 Chưa có mẫu iconic nào của {title} trên website. Sẽ được bổ sung sau.
       </section>
     )}

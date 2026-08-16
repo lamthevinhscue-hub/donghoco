@@ -47,7 +47,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
     <div class="tacho-controls w-full max-w-xs space-y-4 lg:w-72">
       <!-- Nhập quãng đường -->
       <div>
-        <label for="tacho-distance" class="block text-xs font-medium uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+        <label for="tacho-distance" class="block text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
           Quãng đường (1 đơn vị)
         </label>
         <div class="mt-1 flex items-center gap-2">
@@ -65,7 +65,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
 
       <!-- Bộ đếm thời gian -->
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 text-center dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Thời gian trôi qua</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Thời gian trôi qua</p>
         <p class="tacho-elapsed font-serif text-3xl text-navy dark:text-dark-text">0.0 giây</p>
       </div>
 
@@ -84,7 +84,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
 
       <!-- Kết quả -->
       <div class="tacho-result hidden rounded-lg border-l-4 border-brass bg-brass/5 p-3">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">Tốc độ trung bình</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Tốc độ trung bình</p>
         <p class="tacho-speed font-serif text-3xl text-navy dark:text-dark-text">—</p>
         <p class="tacho-note text-xs text-ink-soft dark:text-dark-text-soft"></p>
       </div>
@@ -131,7 +131,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
         t.setAttribute('y', String(ty));
         t.setAttribute('text-anchor', 'middle');
         t.setAttribute('fill', '#1F2D3D');
-        t.setAttribute('font-family', 'Inter, sans-serif');
+        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
         t.setAttribute('font-size', '9');
         t.setAttribute('font-weight', '600');
         t.textContent = String(sp);
@@ -150,7 +150,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
         t.setAttribute('y', String(y + 4));
         t.setAttribute('text-anchor', 'middle');
         t.setAttribute('fill', '#FAF7F2');
-        t.setAttribute('font-family', 'Inter, sans-serif');
+        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
         t.setAttribute('font-size', '13');
         t.setAttribute('font-weight', '600');
         t.textContent = i === 0 ? '12' : String(i);

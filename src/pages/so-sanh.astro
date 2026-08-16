@@ -72,7 +72,7 @@ const models = entries.map((e) => ({
           Thêm
         </button>
       </div>
-      <p class="mt-2 text-xs text-ink-soft/60 dark:text-dark-text-soft/60">Tối đa 3 mẫu. Bấm tên mẫu trong bảng để bỏ.</p>
+      <p class="mt-2 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Tối đa 3 mẫu. Bấm tên mẫu trong bảng để bỏ.</p>
     </div>
 
     <!-- ====== TRẠNG THÁI RỖNG / 1 MẪU ====== -->
@@ -91,7 +91,7 @@ const models = entries.map((e) => ({
 
     <!-- ====== CHIA SẺ LINK ====== -->
     <div id="share-link-wrap" class="mt-6 hidden">
-      <p class="text-xs text-ink-soft/60 dark:text-dark-text-soft/60">
+      <p class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
         🔗 Link chia sẻ: <span id="share-link" class="font-mono text-brass"></span>
       </p>
     </div>
@@ -181,7 +181,7 @@ const models = entries.map((e) => ({
 
     // Header — tạo DOM thay vì ghép innerHTML
     const labelTh = document.createElement('th');
-    labelTh.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60';
+    labelTh.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70';
     labelTh.textContent = 'Tiêu chí';
     const headerFrag = document.createDocumentFragment();
     headerFrag.appendChild(labelTh);

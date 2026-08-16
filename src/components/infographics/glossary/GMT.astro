@@ -87,7 +87,7 @@ const cities = [
       {[12, 3, 6, 9].map((n, i) => {
         const a = (i * 90) - 90;
         const rad = (a * Math.PI) / 180;
-        return <text x={Math.cos(rad) * 95} y={Math.sin(rad) * 95 + 6} text-anchor="middle" font-size="18" fill="#1F2D3D" font-weight="bold" font-family="serif">{n}</text>;
+        return <text x={Math.cos(rad) * 95} y={Math.sin(rad) * 95 + 6} text-anchor="middle" font-size="18" fill="#1F2D3D" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
       })}
 
       <!-- ====== KIM ====== -->
@@ -158,13 +158,13 @@ const cities = [
   <!-- Bộ chọn múi giờ nhà + múi giờ thứ 3 -->
   <div class="mt-4 space-y-3 text-xs">
     <div class="flex flex-wrap items-center gap-2">
-      <span class="text-ink-soft/70 dark:text-dark-text-soft/70">Múi giờ nhà (kim 24h):</span>
+      <span class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ nhà (kim 24h):</span>
       <select id="home-tz" class="rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-navy dark:text-dark-text">
         {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
       </select>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <span class="text-ink-soft/70 dark:text-dark-text-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</span>
+      <span class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</span>
       <select id="third-tz" class="rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-navy dark:text-dark-text">
         {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
       </select>

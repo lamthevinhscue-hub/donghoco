@@ -43,11 +43,11 @@ const filledRows = (rows ?? []).filter(
     <dl class="card-bordered divide-y divide-cream-dark dark:divide-dark-border overflow-hidden">
       {filledRows.map((row) => (
         <div class="grid grid-cols-1 gap-1 px-4 py-3 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-4">
-          <dt class="text-sm font-medium uppercase tracking-wider text-ink-soft/70 dark:text-dark-text-soft/70">
+          <dt class="text-sm font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
             {row.label}
           </dt>
           <dd class="text-sm text-navy dark:text-dark-text">
-            {row.value}
+            <span class="font-mono">{row.value}</span>
           </dd>
         </div>
       ))}

@@ -34,8 +34,9 @@ decades.sort();
   collection="mauIconic"
   title={lang === 'vi' ? 'Những mẫu iconic' : 'Iconic watches'}
   description={lang === 'vi'
-    ? 'Câu chuyện của những chiếc đồng hồ định hình cả một thể loại. Muốn đối chiếu thông số? <a href="/so-sanh" class="text-brass underline">Mở công cụ so sánh →</a>'
+    ? 'Câu chuyện của những chiếc đồng hồ định hình cả một thể loại. Muốn đối chiếu thông số?'
     : 'Stories of the watches that defined entire categories.'}
+  descriptionLink={lang === 'vi' ? { href: '/so-sanh', label: 'Mở công cụ so sánh →' } : undefined}
   entries={entries}
   getMeta={(e) => e.data.brand}
   getFeatureYear={(e) => (e.data.year ? String(e.data.year) : undefined)}

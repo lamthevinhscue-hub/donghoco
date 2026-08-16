@@ -10,9 +10,39 @@
    ============================================================================= */
 
 @layer base {
+  /* =====================================================================
+     DESIGN TOKEN — "Hồ sơ calibre của người thợ đồng hồ"
+     Biến dạng "R G B" để Tailwind dùng được cả alpha (bg-steel/10 v.v.).
+     Chế độ tối đổi giá trị biến — không phải đảo màu máy móc: nền than chì
+     hơi lạnh, bề mặt nổi sáng dần lên, accent nấu sáng hơn để giữ tương phản.
+     Nguồn chân trị nằm ở tailwind.config.mjs (phần colors).
+     ===================================================================== */
+  :root {
+    --c-page: 251 251 248;             /* giấy sáng #FBFBF8 */
+    --c-surface-tech: 238 240 237;     /* mặt số bạc #EEF0ED */
+    --c-surface-raised: 255 255 255;   /* bề mặt nổi #FFFFFF */
+    --c-primary: 21 25 29;             /* anthracite #15191D */
+    --c-secondary: 79 89 98;           /* #4F5962 */
+    --c-steel: 35 74 115;              /* vít nung xanh #234A73 */
+    --c-ruby: 163 58 58;               /* đá rubi #A33A3A */
+    --c-alloy: 138 106 53;             /* hợp kim ấm #8A6A35 */
+    --c-line: 204 209 206;             /* viền #CCD1CE */
+  }
+  .dark {
+    --c-page: 17 21 25;                /* than chì #111519 */
+    --c-surface-tech: 26 32 37;        /* #1A2025 */
+    --c-surface-raised: 32 39 45;      /* #20272D */
+    --c-primary: 238 240 237;          /* #EEF0ED */
+    --c-secondary: 183 192 198;        /* #B7C0C6 */
+    --c-steel: 139 178 218;            /* thép xanh sáng #8BB2DA */
+    --c-ruby: 224 131 131;             /* #E08383 */
+    --c-alloy: 208 178 123;            /* #D0B27B */
+    --c-line: 57 67 74;                /* #39434A */
+  }
+
   /* Thiết lập font chữ mặc định cho toàn trang */
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
     /* Kích thước chữ cơ bản - dễ điều chỉnh */
     font-size: 17px;
     line-height: 1.7;
@@ -27,9 +57,9 @@
     background-color: theme('colors.cream');
   }
 
-  /* Tiêu đề dùng font serif (có chân) cho cảm giác sang trọng */
+  /* Tiêu đề dùng font serif (có chân) cho cảm giác biên tập */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Newsreader', Georgia, serif;
     font-weight: 600;
     line-height: 1.25;
     color: theme('colors.navy');
@@ -37,9 +67,9 @@
 
   /*
     Dark mode — tiêu đề phải hiện rõ trên nền than chì.
-    Không có quy tắc này thì navy (#1F2D3D) trên nền tối (#1A1D23) chỉ
-    đạt tỷ lệ tương phản 1,21:1 — gần như vô hình. dark-text (#E8DCC4)
-    cho 12,43:1, vượt chuẩn AAA.
+    Không có quy tắc này thì steel (#234A73) trên nền tối (#111519) chỉ
+    đạt tỷ lệ tương phản khoảng 1,9:1 — gần như vô hình. dark-text (#EEF0ED)
+    cho khoảng 15:1, vượt chuẩn AAA.
 
     QUAN TRỌNG: không xóa quy tắc này. Nếu xóa, mọi tiêu đề trên site
     trở nên vô hình ở chế độ tối — lỗi nghiêm trọng accessibility.
@@ -53,7 +83,7 @@
   /*
     Dark mode — tiêu đề cấp 1 (tiêu đề trang) dùng màu ánh kim đồng
     để tạo phân cấp rõ: tiêu đề trang nổi bật, tiêu đề mục dùng chữ ngà,
-    nội dung dùng chữ ngà nhạt hơn. dark-brass (#D4A85A) cho 7,68:1 — AAA.
+    nội dung dùng chữ ngà nhạt hơn. dark-brass (#D0B27B) cho khoảng 7,4:1 — AAA.
   */
   .dark h1 {
     color: theme('colors.dark-brass');
@@ -76,19 +106,38 @@
   }
 
   /*
-    Focus ring toàn cục — viền kép (outline đậm + quầng sáng phía ngoài) để
-    nhìn thấy trên mọi nền: kem/trắng ở chế độ sáng, than chì ở chế độ tối,
-    và cả các dải nền navy (footer, khối số liệu). Người dùng bàn phím cần
-    biết con trỏ focus đang ở đâu sau mỗi lần nhấn Tab.
+    Focus ring toàn cục — xanh thép (token), viền kép với quầng màu nền phía
+    ngoài để nhìn thấy trên mọi bề mặt: giấy/mặt số ở chế độ sáng, than chì
+    ở chế độ tối, và cả dải nền đậm (footer, khối số liệu, bảng).
   */
   :focus-visible {
-    outline: 2px solid theme('colors.navy');
+    outline: 2px solid rgb(var(--c-steel));
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(250, 247, 242, 0.85);
+    box-shadow: 0 0 0 4px rgb(var(--c-page) / 0.9);
   }
-  .dark :focus-visible {
-    outline-color: theme('colors.dark-text');
-    box-shadow: 0 0 0 4px rgba(26, 29, 35, 0.85);
+
+  /* Trạng thái disabled nhất quán — không chỉ dựa vào màu */
+  button:disabled,
+  a[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /*
+    Tôn trọng prefers-reduced-motion: tắt chuyển động trang trí, giữ nhịp
+    tương tác gần như tức thì cho người nhạy với chuyển động.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 

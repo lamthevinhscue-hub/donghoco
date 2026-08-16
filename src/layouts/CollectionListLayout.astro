@@ -29,6 +29,8 @@ interface Props {
   collection: ContentCollectionName;
   title: string;
   description: string;
+  /** Liên kết ngắn nối tiếp mô tả, không nhận HTML thô trong description. */
+  descriptionLink?: { href: string; label: string };
   entries: ContentEntry<ContentCollectionName>[];
   getMeta?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   getBadge?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
@@ -41,13 +43,13 @@ interface Props {
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
-const { collection, title, description, entries, getMeta, getBadge, getFeatureYear, getCompareSlug, filters = [] } = Astro.props;
+const { collection, title, description, descriptionLink, entries, getMeta, getBadge, getFeatureYear, getCompareSlug, filters = [] } = Astro.props;
 const route = getCollectionRoute(collection);
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="mx-auto max-w-6xl px-4 py-16">
-    <SectionHeading title={title} subtitle={description} />
+    <SectionHeading title={title} subtitle={description} subtitleLink={descriptionLink} />
 
     {entries.length === 0 ? (
       <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft">
@@ -62,10 +64,10 @@ const route = getCollectionRoute(collection);
           <div id="filter-bar" class="mb-10 space-y-4">
             {filters.map((group) => (
               <div class="flex flex-wrap items-center gap-2" data-filter-group={group.key}>
-                <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/60 dark:text-dark-text-soft/60">{group.label}:</span>
+                <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{group.label}:</span>
                 <button
                   type="button"
-                  class="filter-btn rounded-full border-2 border-navy bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-all"
+                  class="filter-btn rounded-lg border-2 border-navy bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-all"
                   data-filter-key={group.key}
                   data-filter-value="all"
                   aria-pressed="true"
@@ -75,7 +77,7 @@ const route = getCollectionRoute(collection);
                 {group.options.map((opt) => (
                   <button
                     type="button"
-                    class="filter-btn rounded-full border-2 border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1.5 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-all hover:border-brass"
+                    class="filter-btn rounded-lg border-2 border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1.5 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-all hover:border-brass"
                     data-filter-key={group.key}
                     data-filter-value={opt.value}
                     aria-pressed="false"
@@ -86,7 +88,7 @@ const route = getCollectionRoute(collection);
               </div>
             ))}
             <div class="flex items-center justify-between">
-              <span id="filter-count" class="text-xs text-ink-soft/60 dark:text-dark-text-soft/60"></span>
+              <span id="filter-count" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70"></span>
               <button type="button" id="filter-reset" class="text-xs text-brass hover:underline">Đặt lại</button>
             </div>
           </div>
@@ -179,11 +181,16 @@ const route = getCollectionRoute(collection);
           const isActive = btnVal === activeVal;
           btn.setAttribute('aria-pressed', String(isActive));
           if (isActive) {
+            // Trạng thái chọn: xóa sạch cả lớp light lẫn dark của trạng thái chưa chọn
+            // để nền navy không bị lớp dark đè ở chế độ tối.
             btn.classList.add('bg-navy', 'text-cream', 'border-navy');
             btn.classList.remove('bg-white', 'text-ink-soft', 'border-cream-dark');
+            btn.classList.remove('dark:bg-dark-surface', 'dark:text-dark-text-soft', 'dark:border-dark-border');
           } else {
+            // Trạng thái chưa chọn: đủ cả light và dark — nền #20272D ở chế độ tối, không trắng.
             btn.classList.remove('bg-navy', 'text-cream', 'border-navy');
             btn.classList.add('bg-white', 'text-ink-soft', 'border-cream-dark');
+            btn.classList.add('dark:bg-dark-surface', 'dark:text-dark-text-soft', 'dark:border-dark-border');
           }
         });
       }

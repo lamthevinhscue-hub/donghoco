@@ -899,4 +899,37 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 42. Gói 2 — mười sáu mẫu iconic mới; số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** 16 file mới trong `src/content/mauIconic/vi/` (dựng ngày 16/08/2026 từ nguồn anh Vinh cấp): `universal-geneve-polerouter.md`, `eterna-matic-1948.md`, `swatch-sistem51.md`, `vostok-amphibia.md`, `nomos-tangente.md`, `junghans-max-bill.md`, `stowa-flieger.md`, `bell-ross-br-01.md`, `oris-aquis-depth-gauge.md`, `seagull-1963.md`, `timex-marlin.md`, `montblanc-minerva-monopusher.md`, `roger-dubuis-excalibur.md`, `parmigiani-toric.md`, `chopard-luc.md`, `mido-multifort.md`
+
+### 1. Thông số kỹ thuật của toàn bộ mười sáu mẫu
+
+- Các trường `movement`, `power_reserve`, `water_resistance` không đối chiếu được từ nguồn chính hãng cho mẫu cụ thể.
+- **Hành động đã làm:** để trống hết — bảng thông số tự bỏ dòng không có dữ liệu.
+
+### 2. Các thế hệ tham chiếu
+
+- Không đối chiếu được.
+- **Hành động đã làm:** để trống `references`.
+
+### 3. Năm ra mắt của tám mẫu
+
+- Amphibia, Tangente, Aquis Depth Gauge, Marlin, Minerva Monopusher, Excalibur, L.U.C, Multifort — nguồn không nêu năm (đề ghi "bảy mẫu" nhưng liệt kê tám tên; thực tế bỏ year ở cả tám).
+- **Hành động đã làm:** không đặt `year`.
+
+### 4. Năm ra mắt Amphibia và tên các nhà thiết kế Vostok
+
+- Chỉ có ở nguồn thứ cấp.
+- **Hành động đã làm:** viết trong nội dung với cách diễn đạt thận trọng ("được ghi nhận rộng rãi"), **không nêu năm, không nêu tên người**.
+
+### 5. Calibre dùng cho mẫu Oris Aquis Depth Gauge
+
+- Không xác nhận được mẫu này dùng Calibre 400 hay bộ máy khác.
+- **Hành động đã làm:** **không gán calibre cho mẫu**; bài chỉ nêu Calibre 400 như năng lực chung của hãng, có chú thích rõ.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

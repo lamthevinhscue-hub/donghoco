@@ -647,4 +647,38 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 34. Trang De Bethune, Laurent Ferrier, Voutilainen — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/de-bethune.md`, `src/content/thuongHieu/vi/laurent-ferrier.md`, `src/content/thuongHieu/vi/voutilainen.md`
+- **Bối cảnh:** Ba trang đợt 16 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm thành lập hãng Laurent Ferrier
+
+- Nguồn nêu mốc 1979 là năm quyết định làm đồng hồ, 2010 là năm mẫu đầu đoạt giải, nhưng không nêu rõ năm thành lập công ty.
+- **Hành động đã làm:** **không đặt `founded`**.
+
+### 2. Mã calibre của De Bethune và Voutilainen
+
+- Chưa đối chiếu được đầy đủ từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+### 3. Danh mục hiện hành của De Bethune
+
+- Chưa đối chiếu được đặc điểm từng dòng.
+- **Hành động đã làm:** để `collections` rỗng.
+
+### 4. Sản lượng hằng năm của cả ba hãng
+
+- Không có số liệu từ nguồn chính hãng.
+- **Hành động đã làm:** không suy đoán.
+
+### 5. Chi tiết về xưởng làm mặt số riêng của Voutilainen
+
+- Có nghe nhắc nhưng không xác nhận được từ trang chính hãng.
+- **Hành động đã làm:** không nhắc tới.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

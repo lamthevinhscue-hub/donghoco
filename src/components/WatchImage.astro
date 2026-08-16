@@ -1,11 +1,11 @@
 ---
 // =============================================================================
-// COMPONENT WatchImage — hiển thị ảnh đồng hồ với placeholder đẹp
+// COMPONENT WatchImage — hiển thị ảnh đồng hồ với technical plate trung thực
 // =============================================================================
-// Tự động kiểm tra: nếu file ảnh tồn tại → hiển thị ảnh thật (lazy-load).
-// Nếu chưa có → hiển thị placeholder đồ họa (không phải báo lỗi):
-//   nền navy + hoa văn guilloché (đường tròn đồng tâm) + mặt số mô phỏng
-//   + chữ cái đầu của alt ở giữa. Co giãn theo mọi tỷ lệ khung.
+// Nếu src có và tải được → hiển thị ảnh thật. Nếu chưa có ảnh → hiển thị
+// "technical plate" trang trí (nền thép + hoa văn guilloché + mặt số mô phỏng),
+// hoàn toàn aria-hidden: trình đọc màn hình không hiểu nhầm là ảnh thật của mẫu.
+// Không dùng chữ cái đầu — tránh cảm giác đó là logo chính thức của hãng.
 //
 // Cách dùng:
 //   <WatchImage src="/images/mau-iconic/rolex-submariner.jpg" alt="Rolex Submariner" />
@@ -14,16 +14,16 @@
 // =============================================================================
 
 interface Props {
-  src: string;              // Đường dẫn ảnh (VD: "/images/mau-iconic/rolex-submariner.jpg")
-  alt: string;              // Mô tả ảnh (quan trọng cho accessibility)
+  src?: string;             // Đường dẫn ảnh — để trống/không có → chỉ plate
+  alt?: string;             // Mô tả ảnh thật (bắt buộc khi có src)
   ratio?: '16/10' | '16/9' | '1/1' | '4/3';  // Tỷ lệ khung hình
   caption?: string;         // Chú thích bên dưới ảnh (tùy chọn)
   eager?: boolean;          // true = tải ngay (cho ảnh above-the-fold), false = lazy (mặc định)
 }
 
-const { src, alt, ratio = '16/10', caption, eager = false } = Astro.props;
+const { src, alt = '', ratio = '16/10', caption, eager = false } = Astro.props;
 
-// Tỷ lệ → padding-top (cho khung giữ tỷ lệ)
+// Tỷ lệ → padding-top (cho khung giữ tỷ lệ, tránh CLS)
 const aspectClass = {
   '16/10': 'aspect-[16/10]',
   '16/9': 'aspect-[16/9]',
@@ -31,34 +31,31 @@ const aspectClass = {
   '4/3': 'aspect-[4/3]',
 }[ratio];
 
-// Chữ cái đầu của alt (hỗ trợ tiếng Việt có dấu) để hiển thị giữa mặt số
-const firstChar = (alt.trim().match(/[A-Za-z\u00C0-\u024F]/)?.[0] ?? '?').toUpperCase();
+// Chỉ render <img> khi có src thật — không bao giờ gửi request tới URL rỗng
+const hasImage = typeof src === 'string' && src.trim() !== '';
 ---
 
 <figure class="watch-image my-6">
   <div class={`relative overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/30 dark:bg-dark-border/30 ${aspectClass}`}>
-    <!-- Ảnh thật (nếu có) -->
-    <img
-      src={src}
-      alt={alt}
-      loading={eager ? 'eager' : 'lazy'}
-      class="absolute inset-0 h-full w-full object-cover"
-      onload="this.parentElement.classList.add('loaded')"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-    />
-    <!-- Placeholder đồ họa khi chưa có ảnh: nền navy + guilloché + mặt số mô phỏng -->
-    <div class="placeholder absolute inset-0 hidden items-center justify-center p-4 text-center">
-      <!--
-        SVG dùng viewBox 0 0 200 200 với preserveAspectRatio="xMidYMid meet",
-        tự co giãn và giữ tỷ lệ vuông ở giữa khung dù khung là 16:10, 4:3 hay 1:1.
-        Hoa văn guilloché qua <pattern> lặp các đường tròn đồng tâm, opacity 5%.
-      -->
+    <!-- Ảnh thật (chỉ khi có src) -->
+    {hasImage && (
+      <img
+        src={src}
+        alt={alt}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        class="absolute inset-0 h-full w-full object-cover"
+        onload="this.parentElement.classList.add('loaded')"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+    )}
+    <!-- Technical plate khi chưa có ảnh: nền thép + guilloché + mặt số mô phỏng.
+         aria-hidden + không có nhãn — đây là trang trí, không phải ảnh mẫu. -->
+    <div class="placeholder absolute inset-0 hidden items-center justify-center p-4 text-center" aria-hidden="true">
       <svg
         class="h-full w-full"
         viewBox="0 0 200 200"
         preserveAspectRatio="xMidYMid meet"
-        role="img"
-        aria-label={alt}
       >
         <defs>
           <!-- Hoa văn guilloché: các đường tròn đồng tâm, lặp toàn nền -->
@@ -69,7 +66,7 @@ const firstChar = (alt.trim().match(/[A-Za-z\u00C0-\u024F]/)?.[0] ?? '?').toUppe
           </pattern>
         </defs>
 
-        <!-- Lớp nền navy (dark mode dùng dark-surface qua class) -->
+        <!-- Nền plate: token thép (biến CSS tự đổi theo dark mode) -->
         <rect width="200" height="200" class="placeholder-bg" />
 
         <!-- Lớp guilloché phủ toàn nền, độ mờ 5% -->
@@ -98,12 +95,10 @@ const firstChar = (alt.trim().match(/[A-Za-z\u00C0-\u024F]/)?.[0] ?? '?').toUppe
             );
           })}
 
-          <!-- Chữ cái đầu của alt, font serif, màu brass, cỡ lớn -->
-          <text
-            x="0" y="0"
-            text-anchor="middle" dominant-baseline="central"
-            class="dial-initial"
-          >{firstChar}</text>
+          <!-- Kim giờ + kim phút mô phỏng (10:08) — thay cho chữ cái đầu -->
+          <line x1="0" y1="0" x2="0" y2="-18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="dial-ring" />
+          <line x1="0" y1="0" x2="14" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="dial-ring" />
+          <circle r="2.5" fill="currentColor" class="dial-mark" />
         </g>
       </svg>
     </div>
@@ -115,35 +110,16 @@ const firstChar = (alt.trim().match(/[A-Za-z\u00C0-\u024F]/)?.[0] ?? '?').toUppe
 
 <style is:global>
   /*
-    Màu cho placeholder WatchImage — tách ra để dễ đổi và đảm bảo tương phản.
-    Nền navy đậm + hoa văn/đường nét màu brass (trộn cả guilloché và vành mặt số).
-    Chế độ tối: nền dark-surface, đường nét sáng hơn (dark-brass).
+    Màu technical plate — dùng token biến CSS của trang: nền thép đậm, đường nét
+    hợp kim ấm. Chế độ tối tự đổi nhờ giá trị biến trong .dark (không cần rule riêng).
   */
   .watch-image .placeholder-bg {
-    fill: #1F2D3D; /* navy */
+    fill: rgb(var(--c-steel));
   }
   .watch-image .guilloche-stroke,
   .watch-image .dial-ring,
   .watch-image .dial-mark {
-    color: #B8893C; /* brass */
-  }
-  .watch-image .dial-initial {
-    fill: #B8893C;             /* brass */
-    font-family: "Newsreader", Georgia, serif;
-    font-size: 34px;
-    font-weight: 600;
-  }
-
-  /* Chế độ tối: nền sáng hơn một chút, đường nét sáng hơn cho tương phản */
-  :root.dark .watch-image .placeholder-bg {
-    fill: #252830; /* dark-surface */
-  }
-  :root.dark .watch-image .guilloche-stroke,
-  :root.dark .watch-image .dial-ring,
-  :root.dark .watch-image .dial-mark,
-  :root.dark .watch-image .dial-initial {
-    color: #D4A85A; /* dark-brass */
-    fill: #D4A85A;
+    color: rgb(var(--c-alloy));
   }
 </style>
 

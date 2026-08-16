@@ -43,6 +43,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
 const { collection, title, description, descriptionLink, entries, getMeta, getBadge, getFeatureYear, getCompareSlug, filters = [] } = Astro.props;
 const route = getCollectionRoute(collection);
 ---
@@ -61,23 +62,23 @@ const route = getCollectionRoute(collection);
       <>
         {/* ====== Bộ lọc ====== */}
         {filters.length > 0 && (
-          <div id="filter-bar" class="mb-10 space-y-4">
+          <div id="filter-bar" class="mb-10 space-y-4" data-count-all={tr.filter_count_all} data-count-filtered={tr.filter_count_filtered}>
             {filters.map((group) => (
               <div class="flex flex-wrap items-center gap-2" data-filter-group={group.key}>
                 <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{group.label}:</span>
                 <button
                   type="button"
-                  class="filter-btn rounded-lg border-2 border-navy bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-all"
+                  class="filter-btn rounded-lg border-2 border-navy bg-navy px-3 py-2 text-xs font-medium text-cream transition-all"
                   data-filter-key={group.key}
                   data-filter-value="all"
                   aria-pressed="true"
                 >
-                  Tất cả
+                  {tr.filter_all}
                 </button>
                 {group.options.map((opt) => (
                   <button
                     type="button"
-                    class="filter-btn rounded-lg border-2 border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1.5 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-all hover:border-brass"
+                    class="filter-btn rounded-lg border-2 border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-2 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-all hover:border-brass"
                     data-filter-key={group.key}
                     data-filter-value={opt.value}
                     aria-pressed="false"
@@ -88,8 +89,8 @@ const route = getCollectionRoute(collection);
               </div>
             ))}
             <div class="flex items-center justify-between">
-              <span id="filter-count" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70"></span>
-              <button type="button" id="filter-reset" class="text-xs text-brass hover:underline">Đặt lại</button>
+              <span id="filter-count" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70" role="status" aria-live="polite"></span>
+              <button type="button" id="filter-reset" class="min-h-11 px-2 text-xs text-brass hover:underline disabled:cursor-not-allowed disabled:opacity-40 disabled:no-underline">{tr.filter_reset}</button>
             </div>
           </div>
           <div id="filter-config" data-filter-keys={JSON.stringify(filters.map((f) => f.key))} hidden></div>
@@ -108,6 +109,7 @@ const route = getCollectionRoute(collection);
                   href={`${route}/${getSlug(entry)}`}
                   title={entry.data.title}
                   excerpt={entry.data.excerpt}
+                  image={entry.data.cover_image}
                   meta={getMeta?.(entry)}
                   badge={getBadge?.(entry)}
                   featureYear={getFeatureYear?.(entry)}
@@ -120,7 +122,7 @@ const route = getCollectionRoute(collection);
 
         {/* Thông báo khi không có kết quả */}
         <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft">
-          Không có bài viết nào phù hợp với bộ lọc.
+          {tr.filter_no_results}
         </p>
       </>
     )}
@@ -214,12 +216,23 @@ const route = getCollectionRoute(collection);
         });
 
         if (countEl) {
+          // Nhãn đếm đã dịch, truyền từ server qua data-attrs (script inline không thấy biến Astro)
+          var bar = document.getElementById('filter-bar');
+          var tplAll = (bar && bar.getAttribute('data-count-all')) || '{total}';
+          var tplFiltered = (bar && bar.getAttribute('data-count-filtered')) || '{shown} / {total}';
           countEl.textContent = visible === total
-            ? total + ' bài'
-            : visible + ' / ' + total + ' bài';
+            ? tplAll.replace('{total}', total)
+            : tplFiltered.replace('{shown}', visible).replace('{total}', total);
         }
         if (noResults) {
           noResults.classList.toggle('hidden', visible > 0);
+        }
+        // Nút "Đặt lại" chỉ bấm được khi có bộ lọc khác "all" — disabled state rõ ràng
+        if (resetBtn) {
+          var hasActive = filterKeys.some(function(key) {
+            return activeFilters[key] && activeFilters[key] !== 'all';
+          });
+          resetBtn.disabled = !hasActive;
         }
       }
 

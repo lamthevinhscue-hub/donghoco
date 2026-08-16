@@ -1,9 +1,12 @@
 ---
 // =============================================================================
-// CARD (Thẻ bài viết)
+// CARD (Thẻ bài viết) — ngôn ngữ "phiếu hồ sơ kỹ thuật"
 // =============================================================================
-// Dùng để hiển thị một bài viết / thương hiệu / mẫu iconic ở dạng thẻ tóm tắt
-// trong các trang danh sách. Bạn không cần sửa tệp này.
+// Hai biến thể trong một component:
+//   - Mặc định: thẻ danh sách đầy đủ (badge → title → meta → excerpt → hành động).
+//   - compact: gọn hơn cho tra cứu nhanh (từ điển, bài liên quan) — bỏ excerpt.
+// Title là link chính duy nhất tới bài (không lặp link trùng); "So sánh" là
+// hành động phụ tách biệt — không lồng link vào link.
 // =============================================================================
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
@@ -12,20 +15,21 @@ interface Props {
   href: string;          // Đường dẫn gốc (chưa có tiền tố ngôn ngữ), ví dụ: "/thuong-hieu/rolex"
   title: string;
   excerpt: string;
-  image?: string;
+  image?: string;        // Ảnh thật (chỉ truyền khi asset tồn tại)
   meta?: string;         // Thông tin phụ (ví dụ: "Rolex • 1905")
   badge?: string;        // Nhãn nhỏ ở góc (ví dụ: "Thụy Sĩ")
-  logo?: string;         // Logo nhỏ bên cạnh tiêu đề (cho thương hiệu)
+  logo?: string;         // Logo chính thức (chỉ khi có asset thật trong dữ liệu)
   tierLabel?: string;    // Nhãn phân hạng (ví dụ: "Cao cấp") — chỉ dùng cho thẻ thương hiệu
   tierAccent?: string;   // Mã màu nhấn (khóa Tailwind, ví dụ: 'tier-haute') — kèm biến thể -light cho dark mode
-  featureYear?: string;  // Năm thành lập / ra mắt — hiển thị như yếu tố thị giác chính (serif, lớn, brass) ở góc trên-phải
+  featureYear?: string;  // Năm thành lập / ra mắt — chi tiết đồ họa lining-nums góc trên-phải
   compareSlug?: string;  // Slug mẫu iconic — khi có, hiện nút 'So sánh' dẫn sang /so-sanh?m=slug
+  compact?: boolean;     // true = biến thể gọn (từ điển / bài liên quan): bỏ excerpt, padding nhỏ
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent, featureYear, compareSlug } = Astro.props;
+const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent, featureYear, compareSlug, compact = false } = Astro.props;
 const fullHref = localizedPath(href, lang);
 const compareHref = compareSlug ? localizedPath(`/so-sanh?m=${compareSlug}`, lang) : null;
 
@@ -36,27 +40,28 @@ const tierLabelClasses = tierAccent
   : '';
 ---
 
-<article class="group flex h-full flex-col overflow-hidden rounded-lg border border-cream-dark bg-white transition-shadow hover:shadow-lg dark:border-dark-border dark:bg-dark-surface">
+<article class={`group flex h-full flex-col overflow-hidden rounded-lg border border-cream-dark bg-white transition-shadow hover:shadow-lg focus-within:border-brass dark:border-dark-border dark:bg-dark-surface dark:focus-within:border-dark-brass ${compact ? 'p-4' : 'p-5'}`}>
   {image && (
-    <a href={fullHref} class="block aspect-[16/10] overflow-hidden bg-cream-dark">
+    <a href={fullHref} class="-mx-5 -mt-5 mb-4 block aspect-[16/10] overflow-hidden bg-cream-dark" style={compact ? 'margin: -1rem -1rem 1rem;' : undefined} tabindex="-1" aria-hidden="true">
       <img
         src={image}
-        alt={title}
+        alt=""
         loading="lazy"
-        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        decoding="async"
+        class="h-full w-full object-cover"
       />
     </a>
   )}
 
-  <div class="relative flex flex-1 flex-col p-5">
-    <!-- Năm thành lập / ra mắt — yếu tố thị giác chính, góc trên-phải -->
+  <div class="relative flex flex-1 flex-col">
+    <!-- Năm thành lập / ra mắt — chi tiết đồ họa lining-nums, góc trên-phải -->
     {featureYear && (
-      <span class="feature-year pointer-events-none absolute right-4 top-3 font-serif text-2xl leading-none text-brass dark:text-dark-brass">
+      <span class="feature-year pointer-events-none absolute right-0 top-0 font-mono text-xl font-semibold leading-none text-brass dark:text-dark-brass">
         {featureYear}
       </span>
     )}
 
-    <div class="mb-2 flex flex-wrap items-center gap-2">
+    <div class="mb-2 flex flex-wrap items-center gap-2 pr-14">
       {tierLabel && tierAccent && (
         <span class={`inline-block w-fit rounded px-2.5 py-0.5 text-xs font-medium ${tierLabelClasses}`}>
           {tierLabel}
@@ -69,30 +74,36 @@ const tierLabelClasses = tierAccent
       )}
     </div>
 
-    <h3 class="mb-2 flex items-center gap-2 font-serif text-lg text-navy dark:text-dark-text">
+    <h3 class={`mb-1 flex items-center gap-2 font-serif text-navy dark:text-dark-text ${compact ? 'pr-14 text-base' : 'pr-14 text-lg'}`}>
       {logo && (
-        <img src={logo} alt={`${title} logo`} loading="lazy" class="h-6 w-6 shrink-0 object-contain" />
+        <img src={logo} alt="" loading="lazy" decoding="async" class="h-6 w-6 shrink-0 object-contain" />
       )}
       <a href={fullHref} class="transition-colors hover:text-brass dark:hover:text-dark-brass">{title}</a>
     </h3>
 
     {meta && <p class="mb-2 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{meta}</p>}
 
-    <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>
+    {!compact && (
+      <p class="mb-4 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{excerpt}</p>
+    )}
 
-    <div class="mt-auto flex items-center gap-4">
-      <a
-        href={fullHref}
-        class="text-sm font-medium text-brass transition-colors hover:text-navy dark:text-dark-brass dark:hover:text-brass-light"
-      >
-        {tr.read_more} →
-      </a>
+    <div class={`flex items-center gap-4 ${compact ? 'mt-auto pt-2' : 'mt-auto'}`}>
+      <!-- Chỉ báo hành động (không phải link — title là link chính, tránh hai link trùng URL) -->
+      <span class="inline-flex items-center gap-1 text-sm font-medium text-brass dark:text-dark-brass" aria-hidden="true">
+        {tr.read_more}
+        <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </span>
       {compareHref && (
         <a
           href={compareHref}
-          class="text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+          class="inline-flex min-h-11 items-center gap-1.5 py-1 text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
         >
-          ⚖ So sánh
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 0l-6.5 3.5M12 6l6.5 3.5M5.5 6.5L4 13a2.5 2.5 0 105 0l-1.5-6.5m8 0L14 13a2.5 2.5 0 105 0l-1.5-6.5M8 20h8m-4-4v4" />
+          </svg>
+          {tr.card_compare}
         </a>
       )}
     </div>
@@ -101,14 +112,12 @@ const tierLabelClasses = tierAccent
 
 <style is:global>
   /*
-    Năm trên thẻ: dùng chữ số lining (chữ số nằm thẳng, không phải kiểu cũ với
-    descender/ascender) để các số như 1735, 1969 hiển thị rõ và dễ đọc.
-    Tránh lỗi từng xảy ra trên /lich-su: font serif mặc định dùng oldstyle figures
-    khiến "300" trông như "3oo".
+    Năm trên thẻ: dùng chữ số lining/tabular (nằm thẳng, đều nhau) để các số như
+    1735, 1969 hiển thị rõ và không nhảy khi đổi số; font mono đồng bộ SpecTable.
   */
   .card .feature-year,
   .feature-year {
-    font-variant-numeric: lining-nums;
-    font-feature-settings: "lnum";
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum", "tnum";
   }
 </style>

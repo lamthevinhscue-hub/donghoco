@@ -932,4 +932,37 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 43. Gói 3 — chín mẫu iconic mới; số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** 9 file mới trong `src/content/mauIconic/vi/` (dựng ngày 16/08/2026 từ nguồn anh Vinh cấp): `mbf-horological-machine-1.md`, `urwerk-ur-105.md`, `de-bethune-db28.md`, `voutilainen-vingt-8.md`, `laurent-ferrier-galet-classic.md`, `hajime-asaoka-project-t.md`, `credor-eichi-2.md`, `minase-horizon.md`, `h-moser-streamliner.md`
+
+### 1. Thông số kỹ thuật của toàn bộ chín mẫu
+
+- Không đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** để trống `movement`, `power_reserve`, `water_resistance`.
+
+### 2. Năm ra mắt Project T
+
+- Nguồn chính là hồ sơ AHCI nêu mốc 2009 cho chiếc tourbillon in-house đầu tiên, nhưng năm ra mắt riêng của Project T chỉ có ở nguồn thứ cấp.
+- **Hành động đã làm:** không đặt `year`, chỉ nêu mốc 2009 trong nội dung.
+
+### 3. Chi tiết Project T dùng vòng bi thay chân kính hồng ngọc
+
+- Chỉ thấy ở nguồn thứ cấp, không có ở hồ sơ AHCI.
+- **Hành động đã làm:** không nhắc tới.
+
+### 4. Năm ra mắt UR-105, DB28, Horizon
+
+- Nguồn không nêu.
+- **Hành động đã làm:** không đặt `year`.
+
+### 5. Sản lượng hằng năm của MB&F, Urwerk, De Bethune, Voutilainen, Laurent Ferrier
+
+- Chỉ có số liệu của H. Moser.
+- **Hành động đã làm:** không suy đoán cho các hãng còn lại.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

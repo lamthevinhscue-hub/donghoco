@@ -1055,4 +1055,14 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Cập nhật 16/08/2026:** `seagull-1963.md` đã được điền `movement: ST19 / ST1901` kèm bảng thông số ST1901 lấy từ **Caliber Corner — nguồn cộng đồng, không phải chính hãng** (ngoại lệ đầu tiên trên trang, có ghi chú rõ trong bài và trong nhãn nguồn). Mười bài còn lại trong bảng trên vẫn trống.
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ nguồn cập nhật rồi tra lại.
 
+---
+
+## 47. Mốc năm sản xuất Rolex Submariner reference 14060 và 14060M
+
+- **Vị trí:** `src/content/mauIconic/vi/rolex-submariner.md` — mục "Các thế hệ tham chiếu (reference)"
+- **Bối cảnh:** Bài vốn ghi `**14060M** (1989–2012)`. Khoảng năm này gộp hai reference khác nhau là 14060 và 14060M thành một, nên không chắc chắn áp cho reference nào.
+- **Hành động đã làm (16/08/2026):** theo nguyên tắc bỏ số liệu không chắc chắn, đã bỏ hẳn khoảng năm trong ngoặc. Dòng mới: `**14060 và 14060M** — thế hệ "No Date" (không lịch), được yêu thích vì thiết kế đối xứng.`
+- **Cần kiểm chứng:** mốc năm sản xuất chính xác của từng reference 14060 và 14060M.
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ dữ kiện kiểm chứng được thì bổ sung lại từng reference.
+
 

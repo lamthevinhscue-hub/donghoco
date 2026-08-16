@@ -28,7 +28,7 @@ Hãy tưởng tượng dây cót (mainspring) như một cuộn dây tiết ki�
 
 ## Ba bộ phận cốt lõi
 
-Bộ thoát Swiss lever (loại phổ biến nhất, do Thomas Mudge hoàn thiện thế kỷ 18) gồm 3 bộ phận chuyển động đồng bộ:
+Bộ thoát Swiss lever (loại phổ biến nhất, có gốc từ bộ thoát đòn bẩy tách rời của Thomas Mudge thế kỷ 18) gồm 3 bộ phận chuyển động đồng bộ:
 
 1. **Bánh thoát (escape wheel)** — bánh răng đặc biệt, răng hình móc neo. Nó muốn quay liên tục (do dây cót đẩy), nhưng bị "ngựa" giữ lại.
 2. **Ngựa (pallet fork)** — thanh chữ Y ngược, 2 đầu có **đá (pallet/jewel)** bằng rubi/sapphire. Dao động qua lại, luân phiên giữ-rãnh bánh thoát.
@@ -51,7 +51,7 @@ Mỗi lần nhả, một **xung năng lượng nhỏ** được truyền cho bá
 Các **đá (jewels)** ở pallet và các trục là **rubi/sapphire tổng hợp** (đỏ, trong suốt). Lý do:
 - **Cứng** (9/10 thang Mohs) → ít mài mòn, tuổi thọ hàng thế kỷ.
 - **Trơn** → giảm ma sát, ít cần dầu bôi trơn.
-- Trước 1902 (khi **Auguste Verneuil** phát minh quy trình tổng hợp rubi), đồng hồ dùng đá tự nhiên → cực đắt. Nay rubi tổng hợp làm chi phí rẻ đi, mọi đồng hồ cơ đều có 17-21 đá.
+- Trước 1902 (khi **Auguste Verneuil** phát minh quy trình tổng hợp rubi), đồng hồ dùng đá tự nhiên → cực đắt. Nay rubi tổng hợp làm chi phí rẻ đi. Phần lớn bộ máy ba kim đơn giản dùng khoảng 17 đến 21 chân kính; bộ máy chronograph hoặc nhiều chức năng thường nhiều hơn, có loại vượt 30.
 
 Số "21 jewels" trên mặt sau = 21 viên đá rubi trong máy.
 
@@ -59,14 +59,15 @@ Số "21 jewels" trên mặt sau = 21 viên đá rubi trong máy.
 
 Bộ thoát Swiss lever tồn tại **hơn 250 năm** và vẫn là chuẩn mực — chưa có gì thay thế hoàn toàn. Mỗi cải tiến bộ thoát đều là cơn địa chấn:
 
-- **1755**: Thomas Mudge hoàn thiện Swiss lever → chuẩn mực đến nay.
+- **Khoảng 1755**: Thomas Mudge phát minh bộ thoát đòn bẩy tách rời (detached lever) → nền tảng cho Swiss lever về sau. Bộ thoát Swiss lever dùng phổ biến hôm nay là kết quả của quá trình cải tiến kéo dài suốt thế kỷ 19, không phải thiết kế gốc của Mudge.
 - **1999**: Omega thương mại hóa **Co-Axial** của George Daniels — cải tiến quan trọng nhất sau 250 năm, giảm ma sát (xem [mốc 1999 trong timeline](/lich-su)).
 - **2001**: Ulysse Nardin Freak dùng **silicon** trong bộ thoát → không nhiễm từ, không cần dầu (xem [mốc 2001](/lich-su)).
 
 ## "Độ đập" và cảm nhận
 
-Người chơi đồng hồ lâu năm phân biệt thương hiệu qua **chất âm "tíc-tắc"**:
-- **Rolex**: tiếng trầm, êm — vì tần số 28.800 vph và vỏ dày.
+Người chơi đồng hồ lâu năm phân biệt thương hiệu qua **chất âm "tíc-tắc"**. Những mô tả dưới đây là cảm nhận chủ quan của người nghe — phụ thuộc mẫu cụ thể, chất liệu vỏ và cả tai người nghe, không phải thông số đo được:
+
+- **Rolex**: tiếng trầm, êm.
 - **Tudor**: gần Rolex nhưng hơi "giòn" hơn.
 - **Grand Seiko Spring Drive**: <em>không có tiếng tíc-tắc</em> — vì kim trượt liên tục (lai cơ-điện tử).
 - **Bộ thoát Co-Axial (Omega)**: tiếng khác, "lách cách" thay vì "tíc-tắc" rõ.

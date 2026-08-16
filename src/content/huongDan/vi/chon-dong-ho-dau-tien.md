@@ -49,18 +49,20 @@ Kích thước mặt đồng hồ (đường kính) ảnh hưởng lớn đến 
 
 **Quy tắc:** đồng hồ không nên nhô ra khỏi cổ tay khi nhìn từ trên xuống.
 
-## 5. Cơ hay automatic?
+## 5. Lên dây tay hay tự động?
 
-- **Cơ (manual):** phải vặn cót tay mỗi ngày — cảm giác nghi thức, nhưng bất tiện.
-- **Automatic (lên dây tự động):** chỉ cần đeo là chạy — tiện hơn cho người mới.
+Cả hai đều là đồng hồ cơ — khác nhau ở cách nạp năng lượng cho dây cót, không phải ở loại bộ máy.
 
-Hầu hết người mới nên chọn **automatic**.
+- **Lên dây tay (manual):** phải vặn cót mỗi ngày — cảm giác nghi thức, nhưng bất tiện.
+- **Tự động (automatic):** chỉ cần đeo là chạy — tiện hơn cho người mới.
+
+Hầu hết người mới nên chọn bản **tự động**.
 
 ## 6. Nên mua ở đâu?
 
 - **Đại lý chính hãng (AD):** bảo hành tốt, giá niêm yết, có thể phải chờ mẫu hot.
 - **Cửa hàng gray market (tuồn):** rẻ hơn, nhưng cần chọn cửa hàng uy tín.
-- **Trình secondhand:** cần kỹ năng kiểm tra, nhưng có thể mua được mẫu đã nghỉ sản xuất.
+- **Thị trường đồng hồ đã qua sử dụng:** cần kỹ năng kiểm tra, nhưng có thể mua được mẫu đã ngừng sản xuất.
 
 ## 7. Những điều KHÔNG nên làm
 

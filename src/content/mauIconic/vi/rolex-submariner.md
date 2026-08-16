@@ -5,7 +5,7 @@ brand: "Rolex"
 year: 1953
 references: ["6204", "5513", "14060M", "114060", "126610LV"]
 category: "lặn"
-movement: "Calibre 3235 / 2231"
+movement: "Calibre 3230 / 3235"
 power_reserve: "70 giờ"
 water_resistance: "300m"
 date: "2026-07-31"
@@ -16,6 +16,8 @@ sources:
     url: "https://www.rolex.com/watches/submariner"
   - label: "Rolex — Lịch sử thương hiệu"
     url: "https://www.rolex.com/about-rolex/history/1905-1919"
+  - label: "Rolex Newsroom — Submariner, calibre 3230 và 3235"
+    url: "https://newsroom.rolex.com/watches/oyster-collection/submariner"
 
 ---
 
@@ -36,13 +38,13 @@ Submariner không phải là đồng hồ lặn đầu tiên, nhưng nó đã đ
 
 - **6204** (1953) — thế hệ đầu tiên, dấu chấm gốc của mọi Submariner sau này.
 - **5513** (1962–1989) — thế hệ cổ điển được sưu tầm nhiều nhất.
-- **14060M** (1989–2012) — thế hệ "No Date" (không lịch), được yêu thích vì thiết kế đối xứng.
+- **14060 và 14060M** — thế hệ "No Date" (không lịch), được yêu thích vì thiết kế đối xứng.
 - **114060** (2012–2020) — thế hệ vỏ siêu lớn (super case).
 - **126610LV "Starbucks"** (2020–nay) — thế hệ hiện tại, bezel xanh-lục.
 
 ## Bộ máy
 
-Submariner dùng các calibre in-house của Rolex, hiện tại là **calibre 3235** (Date) và **2231** (No Date) với trữ cót khoảng 70 giờ, chứng nhận Superlative Chronometer (sai số ±2 giây/ngày).
+Submariner dùng calibre in-house của Rolex. Bản không lịch dùng **calibre 3230**, bản Submariner Date dùng **calibre 3235** — cả hai đều tự lên dây, trữ cót khoảng 70 giờ, đạt chứng nhận Superlative Chronometer với sai số trong khoảng âm 2 đến cộng 2 giây mỗi ngày. Cả hai calibre dùng bộ thoát Chronergy được cấp bằng sáng chế và dây tóc Parachrom xanh chống từ.
 
 ## Vị trí trong lịch sử
 

@@ -4,6 +4,15 @@ excerpt: "Cách đo độ chính xác đồng hồ cơ tại nhà, dùng app mi�
 difficulty: "trung cấp"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "COSC — Tiêu chí chứng nhận Chronometer"
+    url: "https://www.cosc.swiss/chronometer-certified"
+  - label: "COSC — Giải đáp thắc mắc"
+    url: "https://www.cosc.swiss/cosc-faq"
+  - label: "METAS — Chứng nhận Master Chronometer"
+    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
+
 ---
 
 > Đồng hồ cơ **luôn có sai số** — không chính xác tuyệt đối như quartz. Bài này giúp bạn đo sai số, hiểu kết quả, và biết khi nào cần can thiệp.

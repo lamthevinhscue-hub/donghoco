@@ -4,6 +4,11 @@ excerpt: "Bấm chạy khi bắt đầu, dừng sau khi đi đúng một đơn v
 difficulty: "trung cấp"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 > Thang [tachymeter](/tu-dien/tachymeter) là vòng số ngoài cùng trên nhiều đồng hồ [chronograph](/tu-dien/chronograph). Nó đo tốc độ — nhưng cách dùng không trực giác. Dụng cụ bên dưới cho bạn bấm chạy và dừng để thấy cách nó hoạt động.

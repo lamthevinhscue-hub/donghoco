@@ -4,6 +4,11 @@ excerpt: "Xoay mốc 0 về vị trí kim phút, đọc số phút đã trôi tr
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "ISO 6425:2018 — Chuẩn quốc tế về đồng hồ lặn"
+    url: "https://www.iso.org/standard/66517.html"
+
 ---
 
 > Dụng cụ tương tác bên dưới cho bạn xoay vành và quan sát kim phút chạy. Thử trước khi đọc giải thích — rồi đọc tiếp để hiểu vì sao vành chỉ xoay một chiều.

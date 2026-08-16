@@ -4,6 +4,13 @@ excerpt: "Vặn cót đúng cách cho đồng hồ cơ và automatic — tránh 
 difficulty: "người mới"
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Núm vặn, lịch sử và công dụng"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/crown-watchmaking"
+  - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
+
 ---
 
 > Đây là kỹ năng cơ bản nhất khi sở hữu đồng hồ cơ. Làm đúng → đồng hồ chạy chính xác và bền. Làm sai → có thể hỏng dây cót.

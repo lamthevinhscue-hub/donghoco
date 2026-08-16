@@ -4,6 +4,15 @@ excerpt: "Bảng tra thực dụng theo từng mức. Nhấn hiểu lầm nguy h
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "ISO 22810:2010 — Chuẩn quốc tế về đồng hồ chống nước"
+    url: "https://www.iso.org/standard/45334.html"
+  - label: "ISO 6425:2018 — Chuẩn quốc tế về đồng hồ lặn"
+    url: "https://www.iso.org/standard/66517.html"
+  - label: "ISO — Chuẩn mới về đồng hồ chống nước"
+    url: "https://www.iso.org/news/2010/11/Ref1367.html"
+
 ---
 
 > Con số chống nước trên đồng hồ gây hiểu lầm nhiều hơn bất kỳ thông số nào khác. "50m" nghe như lặn được 50 mét — nhưng thực tế bạn không nên tắm với nó. Bài này giải thích vì sao.

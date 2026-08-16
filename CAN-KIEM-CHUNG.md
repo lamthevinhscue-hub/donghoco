@@ -861,7 +861,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 ### Liên kết chết: COSC — /chronometer-certified (404)
 
 - Địa chỉ `https://www.cosc.swiss/chronometer-certified` trả về **HTTP 404**, không có redirect. Menu site COSC hiện liên kết tới `/certified-chronometer` — khả năng cao từ bị đảo thứ tự trong địa chỉ cấp.
-- **Ảnh hưởng 3 file:** `chronometer.md` (nguồn 1/3), `metas.md` (nguồn 3/3), `vph.md` (nguồn 2/2).
+- **Ảnh hưởng 4 file:** `chronometer.md` (nguồn 1/3), `metas.md` (nguồn 3/3), `vph.md` (nguồn 2/2), `do-sai-so.md` trong huongDan (nguồn 1/3 — Gói C).
 - **Hành động đã làm:** giữ nguyên văn theo quy tắc, **không tự thay địa chỉ**. Chờ anh Vinh quyết định.
 
 ### Các nguồn còn lại

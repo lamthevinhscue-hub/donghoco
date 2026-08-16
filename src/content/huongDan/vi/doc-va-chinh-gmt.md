@@ -4,6 +4,11 @@ excerpt: "Kim GMT quay một vòng mỗi 24 giờ. Phân biệt hai kiểu chỉ
 difficulty: "trung cấp"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 > Đồng hồ [GMT](/tu-dien/gmt) hiển thị hai (hoặc ba) múi giờ cùng lúc. Khó không nằm ở việc đọc — mà nằm ở việc chỉnh, vì có hai kiểu máy khác nhau. Dụng cụ dưới đây cho bạn chỉnh từng kim và quan sát ba múi giờ.

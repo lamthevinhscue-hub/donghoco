@@ -4,6 +4,11 @@ excerpt: "Cơ cấu lịch bắt đầu ăn khớp từ khoảng 20 giờ tối 
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Lịch vạn niên và cơ cấu lịch"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"
+
 ---
 
 > Đây là lỗi tốn tiền phổ biến nhất mà người mới mắc phải — và dễ tránh nhất nếu biết. Dụng cụ bên dưới cho bạn kéo kim giờ vào vùng nguy hiểm và thấy cảnh báo.

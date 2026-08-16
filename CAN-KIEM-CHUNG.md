@@ -609,4 +609,42 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 33. Trang Timex, Swatch, Vostok — số liệu cố tình bỏ khỏi bài vì chưa kiểm chứng được
+
+- **Vị trí:** `src/content/thuongHieu/vi/timex.md`, `src/content/thuongHieu/vi/swatch.md`, `src/content/thuongHieu/vi/vostok.md`
+- **Bối cảnh:** Ba trang đợt 15 được dựng ngày 16/08/2026 từ nguồn do anh Vinh cấp. Cả ba hãng nổi tiếng nhất qua sản phẩm quartz hoặc điện tử — trang chỉ tập trung mảng cơ khí, quartz nhắc ở mức bối cảnh. Các dữ kiện dưới đây chưa đạt chuẩn kiểm chứng nên **đã bị cố tình bỏ khỏi bài**.
+
+### 1. Năm thành lập Swatch
+
+- Nguồn nói về các mẫu quartz đầu tiên năm 1983 nhưng không nêu rõ năm thành lập công ty.
+- **Hành động đã làm:** **không đặt `founded`**, chỉ ghi mốc 1983 trong `lineHistory`.
+
+### 2. Năm ra mắt Amphibia và tên các nhà thiết kế Vostok
+
+- Chỉ thấy ở nguồn thứ cấp, không có ở trang giới thiệu chính thức.
+- **Hành động đã làm:** không đưa vào `lineHistory`, không nêu tên người; viết trong nội dung với cách diễn đạt thận trọng ("được ghi nhận rộng rãi", không khẳng định như dữ kiện đã xác minh, không nêu năm cụ thể).
+
+### 3. Năm ra mắt dòng Marlin của Timex
+
+- Nguồn chính hãng chỉ ghi theo thập niên 1960.
+- **Hành động đã làm:** viết theo thập niên trong nội dung, để trống trường `year`.
+
+### 4. Chủ sở hữu Timex và Vostok
+
+- Chưa đối chiếu được.
+- **Hành động đã làm:** để trống `parent_company`.
+
+### 5. Mã calibre của cả ba hãng
+
+- Chưa đối chiếu được từ nguồn chính hãng.
+- **Hành động đã làm:** không đặt `signature_calibres`, không thêm slug nào vào `CALIBRE_DISPLAY_SLUGS`.
+
+### Ghi chú về nguồn Vostok
+
+- Trang `vostok.watch` tự mô tả là **nhà bán lẻ được ủy quyền** của nhà máy Chistopol, không phải trang chính thức của nhà máy. Chỉ lấy phần lịch sử nhà máy ở mức cơ bản nhất, bỏ mọi chi tiết khác.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

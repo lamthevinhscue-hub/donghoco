@@ -1031,4 +1031,27 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 46. Mười một bài mẫu iconic không có thông số kỹ thuật — đã tra cứu và xác nhận không lấy được từ nguồn chính hãng
+
+- **Bối cảnh:** Kết quả tra cứu ngày 11/08/2026. Các bài dưới đây **không được bổ sung thông số** trong các đợt điền thông số trước đó — không phải bỏ sót, mà là đã tra và không tìm được thông số đủ tin cậy. **Không sửa các bài này cho tới khi có dữ liệu kiểm chứng được.**
+
+| Bài | Lý do |
+|---|---|
+| `bell-ross-br-01.md` | Trang chính hãng hiện chỉ còn thông số dòng **BR-03**, là bản vỏ nhỏ hơn. **Không gán thông số BR-03 cho bài về BR-01** |
+| `greubel-double-tourbillon.md` | Có nhiều bản khác nhau, trữ cót chênh lệch lớn giữa các bản. Không bản nào đại diện được |
+| `fc-heart-beat.md` | Calibre FC-810 tra được thuộc dòng **Monolithic**, không phải dòng Heart Beat. Các mẫu Heart Beat dùng dòng FC-310 nhưng không có bảng thông số chi tiết |
+| `universal-geneve-polerouter.md` | Hãng đang trong giai đoạn trở lại thị trường, chưa có bảng thông số sản phẩm hiện hành |
+| `eterna-matic-1948.md` | Tình trạng hoạt động của hãng không xác minh được, trang sản phẩm không cập nhật |
+| `montblanc-minerva-monopusher.md` | Không tìm được trang sản phẩm riêng cho mẫu dùng bộ máy Minerva |
+| `girard-perregaux-tourbillon-ba-cau.md` | Mẫu phức tạp cao cấp, trang sản phẩm không công bố bảng thông số đầy đủ |
+| `seagull-1963.md` | Thông số bộ máy ST19 đã có trong bài thương hiệu Seagull, nhưng **không xác minh được mẫu 1963 dùng biến thể nào** trong dòng ST19 |
+| `dufour-simplicity.md` | Philippe Dufour không có trang web chính thức |
+| `richard-mille-rm-001.md` | Trang mẫu lịch sử mô tả quá trình chế tác nhưng không có bảng thông số |
+| `stowa-flieger.md` | Dòng có quá nhiều biến thể về cỡ vỏ, cấp bộ máy Sellita và mức chống nước |
+
+- **Ghi chú:** đây là kết quả tra cứu ngày 11/08/2026. Nếu sau này các hãng cập nhật trang sản phẩm, có thể tra lại.
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ nguồn cập nhật rồi tra lại.
+
 

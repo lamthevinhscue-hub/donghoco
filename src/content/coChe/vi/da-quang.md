@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Panerai — Lịch sử thương hiệu, nguồn gốc vật liệu phát quang Radiomir và Luminor"
+    url: "https://www.panerai.com/en/world-of-panerai/history.html"
+  - label: "Fondation de la Haute Horlogerie — Vật liệu trong chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watchmaking-s-material-world"
+
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?

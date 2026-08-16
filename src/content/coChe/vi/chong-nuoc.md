@@ -7,6 +7,15 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "ISO 22810:2010 — Chuẩn quốc tế về đồng hồ chống nước"
+    url: "https://www.iso.org/standard/45334.html"
+  - label: "ISO 6425:2018 — Chuẩn quốc tế về đồng hồ lặn"
+    url: "https://www.iso.org/standard/66517.html"
+  - label: "ISO — Chuẩn mới về đồng hồ chống nước"
+    url: "https://www.iso.org/news/2010/11/Ref1367.html"
+
 ---
 
 > **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.

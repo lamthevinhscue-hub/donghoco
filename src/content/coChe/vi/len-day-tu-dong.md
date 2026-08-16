@@ -7,6 +7,15 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Rotor và hệ lên dây tự động"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/rotor"
+  - label: "Fondation de la Haute Horlogerie — Oscillating weight, tức rotor"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/oscillating-weight-rotor/"
+  - label: "Eterna — Sáng chế rotor quay trên vòng bi năm 1948"
+    url: "https://www.eterna.com/the-brand"
+
 ---
 
 

@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-02"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+  - label: "Fondation de la Haute Horlogerie — Dây tóc và bộ dao động"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"
+
 ---
 
 ## Bạn đang nghe gì?

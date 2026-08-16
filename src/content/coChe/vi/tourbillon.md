@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-02"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Tourbillon"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/tourbillon-1/"
+  - label: "Fondation de la Haute Horlogerie — Cơ chế tourbillon"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/tourbillon-complications"
+
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?

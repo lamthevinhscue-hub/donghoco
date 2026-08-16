@@ -7,6 +7,11 @@ has_infographic: true
 interactive: true
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Vật liệu trong chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watchmaking-s-material-world"
+
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?

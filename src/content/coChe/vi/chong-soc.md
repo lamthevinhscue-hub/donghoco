@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+  - label: "Sinn — Công nghệ TEGIMENT và xử lý bề mặt"
+    url: "https://sinn.de/en/Sinn_Technologies.htm"
+
 ---
 
 > **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.

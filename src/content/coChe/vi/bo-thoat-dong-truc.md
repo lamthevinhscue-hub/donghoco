@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-08"
 draft: false
+
+sources:
+  - label: "Omega — Lịch sử thương hiệu và bộ thoát Co-Axial"
+    url: "https://www.omegawatches.com/world-of-omega/history"
+  - label: "Omega — Chronicle, biên niên sử chính hãng"
+    url: "https://www.omegawatches.com/chronicle"
+
 ---
 
 > **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.

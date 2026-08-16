@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-02"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Dây tóc, bộ phận thiết yếu của đồng hồ cơ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"
+  - label: "FHH Journal — Cuộc chiến của các kỹ sư quanh dây tóc"
+    url: "https://journal.hautehorlogerie.org/en/why-engineers-are-leading-the-battle-of-the-balance-spring/"
+
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?

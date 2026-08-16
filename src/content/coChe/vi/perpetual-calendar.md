@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-02"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Lịch vạn niên"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?

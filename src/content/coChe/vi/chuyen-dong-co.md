@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Movement"
+    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/movement/"
+  - label: "Fondation de la Haute Horlogerie — Calibre"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/calibre"
+
 ---
 
 

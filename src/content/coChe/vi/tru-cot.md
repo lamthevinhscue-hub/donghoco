@@ -7,6 +7,15 @@ has_infographic: true
 interactive: true
 date: "2026-08-01"
 draft: false
+
+sources:
+  - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
+  - label: "Fondation de la Haute Horlogerie — Trục hộp cót"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel-arbor"
+  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+
 ---
 
 > **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.

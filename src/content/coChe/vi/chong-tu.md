@@ -7,6 +7,13 @@ has_infographic: true
 interactive: true
 date: "2026-08-01"
 draft: false
+
+sources:
+  - label: "METAS — Chứng nhận Master Chronometer, chuẩn chống từ 15.000 gauss"
+    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
+  - label: "Oris — Calibre 400 và khả năng chống từ"
+    url: "https://www.oris.ch/en-US/worldoforis/movements/calibre-400"
+
 ---
 
 > **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.

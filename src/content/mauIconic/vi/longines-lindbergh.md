@@ -18,10 +18,6 @@ sources:
     url: "https://en.wikipedia.org/wiki/Ernest_Francillon"
   - label: "WIPO — Longines Pilot Watches"
     url: "https://www.wipo.int/en/web/ip-advantage/w/stories/longines-pilot-watches-design-in-flight-and-beyond"
-  - label: "Swatch Group — Longines HydroConquest"
-    url: "https://www.swatchgroup.com/en/services/archive/2026/longines-hydroconquest"
-  - label: "Caliber Corner — Longines Caliber L888"
-    url: "https://calibercorner.com/longines-caliber-l888/"
 
 ---
 

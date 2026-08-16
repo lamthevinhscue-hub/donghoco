@@ -3,6 +3,9 @@ title: "Oris Aquis Depth Gauge — Đo độ sâu bằng chính nước biển"
 excerpt: "Cơ chế đo độ sâu được cấp bằng sáng chế: nước tràn vào một rãnh qua lỗ nhỏ ở vị trí 12 giờ, và mực nước cho biết độ sâu."
 brand: "Oris"
 category: "lặn"
+movement: "Calibre 733"
+power_reserve: "38 giờ"
+water_resistance: "500m"
 date: "2026-08-11"
 draft: false
 
@@ -24,10 +27,16 @@ Oris có **bằng sáng chế cho cơ chế đo độ sâu Aquis Depth Gauge** �
 
 Không cảm biến, không pin, không mạch điện: chỉ thủy lực và một vạch chia độ.
 
+## Bộ máy và thông số
+
+Bộ máy **Calibre 733** chạy ở tần số **28.800 dao động mỗi giờ, tức 4 Hz**, đường kính **25,60mm**, trữ cót **38 giờ**. Mức chống nước **500 mét tương đương 50 bar**.
+
+Lưu ý: dòng Aquis còn có **bản Chronograph dùng Calibre 774 với trữ cót 48 giờ** — thông số ở bảng trên thuộc bản thường (ba kim).
+
 ## Vị trí trong lịch sử
 
 Điểm đáng nói: đây là **lời giải cơ học thuần túy cho một bài toán mà phần lớn ngành giải bằng cảm biến điện tử**. Trong thời mọi thứ đều số hóa, một cơ chế dùng chính môi trường đo (nước biển) làm thước đo là tuyên ngôn của cơ học.
 
-Về bộ máy: hãng có **Calibre 400 với trữ cót năm ngày và chu kỳ bảo dưỡng mười năm** — nhưng đó là năng lực chung của Oris, không nhất thiết là bộ máy trong mẫu này.
+Về năng lực chế tác: Oris có **Calibre 400 với trữ cót năm ngày và chu kỳ bảo dưỡng mười năm** — bộ máy in-house tiêu biểu của hãng (riêng Aquis Depth Gauge dùng Calibre 733 như ghi ở phần thông số).
 
 Nói thẳng: cơ chế độc đáo nhưng **đòi hỏi rãnh nước được làm sạch sau mỗi lần lặn biển** — độ chính xác và tuổi thọ phụ thuộc cách chăm sóc của người dùng.

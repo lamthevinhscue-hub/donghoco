@@ -965,4 +965,42 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 
+---
+
+## 44. Bổ sung thông số kỹ thuật cho tám bài mẫu iconic — số liệu cố tình bỏ
+
+- **Bối cảnh:** Ngày 16/08/2026 bổ sung `movement`/`power_reserve`/`water_resistance` cho 8 bài theo giá trị anh Vinh cấp (chép nguyên văn): tissot-prx, oris-aquis-depth-gauge, doxa-sub-300, chanel-j12, nomos-tangente, panerai-luminor, bvlgari-octo-finissimo, junghans-max-bill. Các mục dưới vẫn để trống vì chưa có con số thống nhất.
+
+### 1. Mức chống nước của NOMOS Tangente
+
+- Nguồn nêu khoảng 3 tới 5 atm tùy bản, không có con số thống nhất cho bản lên dây tay.
+- **Hành động đã làm:** không đặt `water_resistance`.
+
+### 2. Mức chống nước của Panerai Luminor
+
+- Trang sản phẩm chính hãng không nêu trong phần tra được.
+- **Hành động đã làm:** không đặt.
+
+### 3. Mức chống nước của Bvlgari Octo Finissimo
+
+- Trang sản phẩm chính hãng không nêu trong phần tra được.
+- **Hành động đã làm:** không đặt.
+
+### 4. Mức chống nước của Junghans max bill
+
+- Cùng dòng nhưng có bản 5 bar, có bản 3 bar.
+- **Hành động đã làm:** không lấy một bản làm đại diện.
+
+### 5. Tên calibre của Doxa SUB 300
+
+- Trang chính hãng mô tả bộ máy đạt chứng nhận COSC nhưng không nêu tên calibre.
+- **Hành động đã làm:** không đặt `movement`; nội dung ghi "bộ máy ba kim tự lên dây đạt chứng nhận Chronometer của COSC".
+
+### 6. Toàn bộ thông số của Stowa Flieger
+
+- Dòng này có quá nhiều biến thể về cỡ vỏ, cấp bộ máy Sellita và mức chống nước. Không mẫu nào đại diện được cho cả dòng.
+- **Hành động đã làm:** để trống toàn bộ.
+
+- **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+
 

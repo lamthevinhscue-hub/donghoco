@@ -5,6 +5,8 @@ brand: "Chanel"
 year: 2000
 category: "vật liệu"
 movement: "Calibre 12.1"
+power_reserve: "khoảng 70 giờ"
+water_resistance: "200m"
 date: "2026-08-11"
 draft: false
 
@@ -32,7 +34,9 @@ Người đứng sau là **Jacques Helleu** — người dẫn dắt mảng đ�
 
 ## Bộ máy
 
-**Calibre 12.1 đạt chứng nhận chronometer** của cơ quan kiểm định độc lập Thụy Sĩ, và được sản xuất tại **xưởng Kenissi mà Chanel đồng sở hữu** — nghĩa là Chanel có phần trong hạ tầng sản xuất bộ máy của ngành, không chỉ mua ngoài.
+**Calibre 12.1 đạt chứng nhận chronometer** của cơ quan kiểm định chính thức Thụy Sĩ, và được sản xuất tại **xưởng Kenissi mà Chanel đồng sở hữu** — nghĩa là Chanel có phần trong hạ tầng sản xuất bộ máy của ngành, không chỉ mua ngoài.
+
+Về chi tiết vỏ và núm: **núm vặn thép khóa ren** bảo đảm mức chống nước 200 mét; vỏ là **khối liền một mảnh bằng gốm trắng độ bền cao**; **vành xoay một chiều bằng thép** có vòng sapphire phủ sơn mài.
 
 ## Vị trí trong lịch sử
 

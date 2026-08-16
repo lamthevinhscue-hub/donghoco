@@ -4,6 +4,8 @@ excerpt: "Màu cam không phải để nổi bật: nghiên cứu cho thấy đ�
 brand: "Doxa"
 year: 1967
 category: "lặn"
+power_reserve: "38 giờ"
+water_resistance: "300m"
 date: "2026-08-11"
 draft: false
 
@@ -30,6 +32,12 @@ Mặt số cam của SUB 300 là ví dụ điển hình cho nguyên tắc thiế
 ## Vai trò của Jacques-Yves Cousteau
 
 Doxa **hợp tác với nhà hải dương học và thợ lặn Jacques-Yves Cousteau để phát triển SUB 300**. Ông còn **thương lượng quyền phân phối độc quyền cho công ty US Divers của mình** — nên các mẫu đồng hồ lặn Doxa bán qua US Divers ở châu Mỹ **có in logo Aqua Lung trên mặt số**. Đây là chi tiết mà người sưu tầm dùng để nhận dạng các bản đời đầu.
+
+## Bộ máy và thông số
+
+Bộ máy ba kim tự lên dây **đạt chứng nhận Chronometer của COSC**, chạy ở tần số **28.800 dao động mỗi giờ, tức 4 Hz**. Vỏ **42,5mm bằng thép không gỉ 316L**, có **núm vặn khóa ren**. Mức chống nước **300 mét tương đương 30 bar**.
+
+Một chi tiết kỹ thuật đáng nói của vành xoay: **thang kép cho cả độ sâu lẫn thời gian lặn** — giúp tính toán đường lên an toàn không cần dừng giảm áp.
 
 ## Vị trí trong lịch sử
 

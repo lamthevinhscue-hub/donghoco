@@ -5,6 +5,9 @@ brand: "Tissot"
 year: 1978
 references: ["PRX (bản gốc quartz, 1978)", "PRX Powermatic 80 (hiện đại)"]
 category: "sport-luxury"
+movement: "Powermatic 80"
+power_reserve: "80 giờ"
+water_resistance: "100m"
 date: "2026-08-08"
 draft: false
 
@@ -34,6 +37,8 @@ PRX ra đời giữa thập niên 1970, khi **dây thép liền vỏ** (integrat
 ## Bộ máy
 
 Bản hiện đại dùng **Powermatic 80** — bộ máy tự động **trữ cót 80 giờ**, phát triển trên nền **calibre 2824 của ETA** (công ty cùng tập đoàn Swatch Group). Đây là bộ máy **độc quyền của Tissot**, không phải thiết kế riêng từ đầu: nâng trữ cót lên tới 80 giờ, so với mức 42 giờ thông thường — nghĩa là tháo ra tối thứ Sáu, sáng thứ Hai đeo lại vẫn đúng giờ. Nhiều bản dùng **dây tóc Nivachron**, hợp kim gốc titan chịu từ trường, sốc và thay đổi nhiệt độ tốt hơn thép thường.
+
+Lưu ý về thông số ở bảng trên: chúng thuộc **bản tự động Powermatic 80**. Dòng PRX hiện nay vẫn có **bản quartz** với thông số khác — hai bản dùng chung vỏ và dây nhưng khác nhau hoàn toàn về bộ máy.
 
 ## Vị trí trong lịch sử
 

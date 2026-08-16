@@ -3,6 +3,8 @@ title: "Panerai Luminor — Cần gạt sinh ra từ đáy biển"
 excerpt: "Cơ cấu bảo vệ núm vặn không phải chi tiết trang trí mà là lời giải cho yêu cầu kín nước của thợ lặn quân đội Ý — và tên dòng vốn là tên một hợp chất phát quang."
 brand: "Panerai"
 category: "lặn"
+movement: "P.9010"
+power_reserve: "3 ngày"
 date: "2026-08-11"
 draft: false
 
@@ -27,6 +29,24 @@ Cần nhớ bối cảnh: thiết kế của Panerai **bị Đạo luật Bí m�
 - **Cần gạt bảo vệ núm vặn** — dấu hiệu nhận diện rõ nhất của dòng, sinh ra từ yêu cầu kín nước tuyệt đối của thợ lặn Hải quân Ý. Đây không phải chi tiết trang trí.
 - **Mặt số sandwich** hai lớp — kết cấu để đọc được trong bóng tối dưới nước, và cũng là dấu nhận diện của nhà máy.
 - **Kim và vạch số cỡ lớn** — tất cả phục vụ một mục tiêu: đọc được ở nơi không có ánh sáng.
+
+## Bộ máy và thông số
+
+Thông số calibre **P.9010** (chép đúng từ trang chính hãng):
+
+| Thông số | Giá trị |
+|---|---|
+| Loại | Tự động |
+| Kích thước | 13¾ ligne |
+| Độ dày | 6,0 mm |
+| Chân kính | 31 |
+| Số chi tiết | 200 |
+| Bánh lắc | Glucydur |
+| Tần số | 28.800 dao động mỗi giờ |
+| Chống sốc | Incabloc |
+| Hộp cót | Hai hộp |
+
+Lưu ý: thông số trên thuộc các bản **Luminor Marina 44mm dùng calibre P.9010**. Dòng Luminor rất rộng, nhiều bản dùng calibre khác.
 
 ## Vị trí trong lịch sử
 

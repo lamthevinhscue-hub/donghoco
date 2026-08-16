@@ -3,6 +3,8 @@ title: "NOMOS Tangente — Bauhaus bán chạy ba mươi năm"
 excerpt: "Mẫu bán chạy liên tục hơn ba thập kỷ của một hãng lập ngay sau khi Bức tường Berlin sụp đổ, và tự làm cả bộ thoát."
 brand: "NOMOS Glashütte"
 category: "dress"
+movement: "DUW 4001"
+power_reserve: "53 giờ"
 date: "2026-08-11"
 draft: false
 
@@ -27,6 +29,12 @@ Tangente **bán chạy liên tục hơn ba mươi năm** và là gương mặt n
 ## Kỹ thuật phía sau
 
 Điểm kỹ thuật đáng nói của hãng: **tự làm bộ thoát, gọi là NOMOS swing system** — rất ít hãng ở tầm giá này làm được điều đó. Tangente hưởng lợi từ nền tảng ấy: bộ máy hoàn chỉnh của một nhà chế tác thật, không phải nền mua ngoài.
+
+## Bộ máy và thông số
+
+Các mẫu lên dây tay của NOMOS dùng **calibre in-house DUW 4001**, **lắp ráp bằng tay**, trang bị **bộ thoát NOMOS swing system và hệ chỉnh DUW**, trữ cót tới **53 giờ**.
+
+Lưu ý: dòng Tangente có nhiều biến thể dùng calibre khác — thông số ở bảng trên thuộc **bản lên dây tay**.
 
 ## Vị trí trong lịch sử
 

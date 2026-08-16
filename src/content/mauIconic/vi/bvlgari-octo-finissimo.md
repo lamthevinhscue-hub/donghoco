@@ -4,6 +4,8 @@ excerpt: "Một nhà kim hoàn La Mã đẩy giới hạn độ mỏng xa hơn p
 brand: "Bvlgari"
 year: 2014
 category: "siêu mỏng"
+movement: "BVL 138"
+power_reserve: "60 giờ"
 date: "2026-08-11"
 draft: false
 
@@ -26,6 +28,12 @@ Kỷ lục đáng nói nhất: **Octo Finissimo Ultra COSC dày tổng cộng 1,
 - **Vỏ tám cạnh nhiều mặt cắt** — hình học đặc trưng của dòng Octo.
 - **Titan phủ nhám** — vật liệu thường dùng, cho cảm giác kỹ thuật và hiện đại.
 - **Độ mỏng cực hạn** — đeo lên tay là thấy ngay: chiếc đồng hồ gần như biến mất theo chiều dày.
+
+## Bộ máy và thông số
+
+Calibre **BVL 138 Finissimo** là bộ máy **tự động dùng micro-rotor bằng bạch kim**, có **kim giây nhỏ**, hoàn thiện tay với **côtes de Genève, vát cạnh và perlage**, chạy ở tần số **21.600 dao động mỗi giờ, tức 3 Hz**. **Bộ máy chỉ dày 2,23mm.** Vỏ titan **40mm dày 5,15mm**, mặt số titan phun cát.
+
+Lưu ý: đây là thông số bản **Octo Finissimo Automatic vỏ titan**. Dòng này có nhiều bản khác, trong đó bản Ultra COSC mỏng 1,70mm đã nhắc ở phần đầu bài.
 
 ## Vị trí trong lịch sử
 

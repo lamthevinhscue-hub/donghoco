@@ -4,6 +4,8 @@ excerpt: "Không phải bản phục dựng hoài cổ mà là sản xuất liê
 brand: "Junghans"
 year: 1956
 category: "dress"
+movement: "J800.1"
+power_reserve: "tới 38 giờ"
 date: "2026-08-11"
 draft: false
 
@@ -26,6 +28,12 @@ Những chiếc đồng hồ Max Bill đầu tiên ra đời **năm 1956**, từ
 - **Mặt số sạch, chữ số mảnh** — bố cục cân đối tuyệt đối, không một chi tiết thừa.
 - **Vành mỏng** — tối đa diện tích cho mặt số.
 - **Kính vòm** — đường cong mềm đặc trưng của dòng.
+
+## Bộ máy và thông số
+
+Bản tự động của max bill dùng **bộ máy tự lên dây J800.1**, trữ cót **tới 38 giờ**. Vỏ **đường kính 38,0mm, cao 10,0mm**, **kính sapphire phủ chống phản quang**.
+
+Lưu ý: dòng max bill có cả bản lên dây tay và bản tự động; thông số ở bảng trên thuộc **bản tự động**.
 
 ## Vị trí trong lịch sử
 

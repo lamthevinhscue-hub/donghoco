@@ -290,7 +290,9 @@ Anh Vinh đã soạn và điền nguồn cho cả 10 trang. Nay toàn bộ 26 tr
 
 (Ghi chú: trong số này, `rolex`, `tag-heuer`, `ulysse-nardin` thuộc đợt 1 — file `docs/goi-du-lieu-thuong-hieu-dot-1.md` không có mục "NGUỒN ĐÃ TRA CỨU". Bảy hãng còn lại được dựng trước khi hệ thống ghi nguồn ra đời.)
 
-### 23 trang mẫu iconic chưa có nguồn
+### 23 trang mẫu iconic chưa có nguồn — ĐÃ GIẢI QUYẾT (16/08/2026, Gói D)
+
+Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài nguồn riêng, 6 bài chép từ file thương hiệu tương ứng). Nay **26/26 bài mẫu iconic có khối "Nguồn tham khảo"**.
 
 - `breguet-type-xx`
 - `cartier-tank`

@@ -100,7 +100,7 @@ const myths = [
       Cuộn xuống để khám phá cách đồng hồ cơ chống nước thực sự hoạt động —
       và vì sao con số trên mặt số lại nói dối bạn.
     </p>
-    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+    <div class="mt-8 intro-arrow text-brass-light">↓</div>
   </div>
 
   <!-- ====================================================================
@@ -109,8 +109,8 @@ const myths = [
   <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
     <div class="svg-container" data-svg="case">
       <MechanismAnimation label="Kéo thanh trượt độ sâu — gioăng bị ép; bấm nút dưới nước = tràn" data-mech-step-id="water-resistance">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="water-resistance-svg">
-          <text x="200" y="18" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+        <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="water-resistance-svg">
+          <text x="200" y="18" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">
             Áp suất tăng theo độ sâu → gioăng càng ép chặt
           </text>
 
@@ -123,7 +123,7 @@ const myths = [
           <path d="M 80 80 L 80 240 L 320 240 L 320 80 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
           <rect x="100" y="100" width="200" height="120" fill="#FAF7F2" class="dark:fill-dark-surface"/>
           <circle cx="200" cy="160" r="30" fill="#B8893C" opacity="0.3"/>
-          <text x="200" y="165" text-anchor="middle" font-size="10" fill="#4A5568" class="dark:fill-dark-text-soft">Máy</text>
+          <text x="200" y="165" text-anchor="middle" font-size="10" fill="#4A5568" class="svg-label dark:fill-dark-text-soft">Máy</text>
 
           <!-- Kính -->
           <rect x="100" y="80" width="200" height="20" fill="#90CDF4" opacity="0.5" stroke="#4299E1" stroke-width="1.5"/>
@@ -143,27 +143,49 @@ const myths = [
           <path id="wr-flood" d="" fill="#3182CE" opacity="0" />
 
           <!-- ====== THANH TRƯỢT ĐỘ SÂU (dưới) ====== -->
-          <text x="200" y="300" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Độ sâu</text>
+          <text x="200" y="300" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="wr-label dark:fill-dark-text">Độ sâu</text>
+          <!-- Thước đo độ sâu trong hình — nhận giá trị từ thanh kéo HTML bên dưới SVG -->
           <rect x="60" y="310" width="280" height="20" rx="4" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <rect id="wr-depth-fill" x="62" y="312" width="0" height="16" rx="2" fill="#3182CE"/>
-          <!-- Nút kéo (input range chồng lên) -->
-          <foreignObject x="55" y="305" width="290" height="30">
-            <input type="range" id="wr-depth-slider" min="0" max="300" value="0" style="width:100%;accent-color:#3182CE;touch-action:none;" aria-label="Độ sâu (mét)" />
-          </foreignObject>
-          <text id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Mặt nước (0m)</text>
-          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" fill="#3182CE" class="dark:fill-dark-text-soft">1 ATM</text>
-
-          <!-- Nút "kéo núm vặn" — gây tràn nước -->
-          <foreignObject x="120" y="375" width="160" height="24">
-            <button id="wr-pull-crown-btn" style="width:100%;padding:4px 8px;font-size:11px;border-radius:9999px;background:#9B2C2C;color:#FAF7F2;border:none;cursor:pointer;touch-action:none;">Kéo núm vặn (dưới nước!)</button>
-          </foreignObject>
+          <text id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="wr-label dark:fill-dark-text">Mặt nước (0m)</text>
+          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-label dark:fill-dark-text-soft">1 ATM</text>
         </svg>
+
+        <!-- Thanh kéo độ sâu — HTML ngoài SVG. Trong foreignObject, input bị
+             thu nhỏ theo tỉ lệ SVG nên vùng chạm chỉ còn ~18-22px trên mobile;
+             input native cao 44px này dùng được bằng chuột, bàn phím và chạm,
+             mỗi lần kéo cập nhật ngay hình minh họa (cột nước, gioăng, thước). -->
+        <div class="mt-4">
+          <input
+            type="range"
+            id="wr-depth-slider"
+            min="0"
+            max="300"
+            value="0"
+            step="1"
+            class="wr-depth-slider w-full cursor-pointer appearance-none bg-transparent"
+            aria-label="Độ sâu (mét)"
+          />
+        </div>
+
+        <!-- Nút gây tràn nước — HTML ngoài SVG để có vùng bấm 44px và chữ
+             đọc được trên mobile (nút nhỏ trong foreignObject không đạt) -->
+        <div class="mt-3 text-center">
+          <button
+            type="button"
+            id="wr-pull-crown-btn"
+            class="min-h-11 rounded-full bg-[#9B2C2C] px-4 py-2 text-sm font-medium text-[#FAF7F2] transition-colors hover:bg-[#7A2020]"
+          >
+            Kéo núm vặn (dưới nước!)
+          </button>
+        </div>
 
         <script is:inline define:vars={{}} slot="script">
           (function() {
             const svg = document.getElementById('water-resistance-svg');
             if (!svg) return;
-            const slider = svg.querySelector('#wr-depth-slider');
+            // Thanh kéo độ sâu là input HTML bên ngoài SVG (vùng chạm 44px)
+            const slider = document.getElementById('wr-depth-slider');
             const depthFill = svg.querySelector('#wr-depth-fill');
             const depthLabel = svg.querySelector('#wr-depth-label');
             const pressureLabel = svg.querySelector('#wr-pressure-label');
@@ -172,7 +194,8 @@ const myths = [
             const gCrown = svg.querySelector('#wr-gasket-crown');
             const gCaseback = svg.querySelector('#wr-gasket-caseback');
             const flood = svg.querySelector('#wr-flood');
-            const pullBtn = svg.querySelector('#wr-pull-crown-btn');
+            // Nút giờ là HTML bên ngoài SVG (vùng bấm 44px)
+            const pullBtn = document.getElementById('wr-pull-crown-btn');
             if (!slider) return;
 
             function render() {
@@ -221,6 +244,13 @@ const myths = [
 
             // Đăng ký hàm step rỗng (MechanismAnimation cần có để hiện controls)
             (window.__mechSteps = window.__mechSteps || {})['water-resistance'] = function() {};
+
+            // Nút "Đặt lại" — thanh trượt về mặt nước, gioăng trở lại bình thường
+            (window.__mechResets = window.__mechResets || {})['water-resistance'] = function() {
+              slider.value = '0';
+              flood.setAttribute('opacity', '0');
+              render();
+            };
 
             render();
           })();
@@ -284,19 +314,19 @@ const myths = [
             <!-- Trên -->
             <line x1="250" y1="20" x2="250" y2="45" stroke="#3182CE" stroke-width="3"/>
             <polygon points="250,50 245,42 255,42" fill="#3182CE"/>
-            <text x="250" y="15" text-anchor="middle" font-size="10" fill="#3182CE">10 ATM</text>
+            <text x="250" y="15" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
             <!-- Dưới -->
             <line x1="250" y1="180" x2="250" y2="155" stroke="#3182CE" stroke-width="3"/>
             <polygon points="250,150 245,158 255,158" fill="#3182CE"/>
-            <text x="250" y="195" text-anchor="middle" font-size="10" fill="#3182CE">10 ATM</text>
+            <text x="250" y="195" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
             <!-- Trái -->
             <line x1="170" y1="100" x2="195" y2="100" stroke="#3182CE" stroke-width="3"/>
             <polygon points="200,100 192,95 192,105" fill="#3182CE"/>
-            <text x="160" y="104" text-anchor="end" font-size="10" fill="#3182CE">10 ATM</text>
+            <text x="160" y="104" text-anchor="end" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
             <!-- Phải -->
             <line x1="330" y1="100" x2="305" y2="100" stroke="#3182CE" stroke-width="3"/>
             <polygon points="300,100 308,95 308,105" fill="#3182CE"/>
-            <text x="340" y="104" font-size="10" fill="#3182CE">10 ATM</text>
+            <text x="340" y="104" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
           </g>
 
           <!-- Bong bóng nước (hiệu ứng) -->
@@ -398,6 +428,60 @@ const myths = [
   .svg-container svg {
     width: 100%;
     height: auto;
+  }
+
+  /*
+    Mobile: nhãn mô tả (svg-label: tiêu đề, chữ "Máy", nhãn "10 ATM" cảnh 3)
+    quá nhỏ khi SVG co lại — ẩn đi, phần chữ HTML kèm theo từng cảnh đã giải
+    thích đầy đủ. Chỉ số phản hồi tương tác (wr-label: Độ sâu, mét, ATM)
+    tăng cỡ để đạt tối thiểu ~12px ở cả 320 và 375px.
+  */
+  @media (max-width: 767px) {
+    .svg-label,
+    .wr-atm-label {
+      display: none;
+    }
+    .wr-label {
+      font-size: 19px;
+    }
+  }
+
+  /*
+    Thanh kéo độ sâu (HTML ngoài SVG): vùng chạm 44px, track mảnh 6px màu
+    token --c-line (tự đổi theo dark mode), núm tròn 22px màu nước.
+  */
+  .wr-depth-slider {
+    height: 2.75rem;
+  }
+  .wr-depth-slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: rgb(var(--c-line));
+  }
+  .wr-depth-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    margin-top: -8px;
+    border-radius: 50%;
+    background: #3182CE;
+    cursor: pointer;
+    border: 2px solid rgb(var(--c-surface-raised));
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  }
+  .wr-depth-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: rgb(var(--c-line));
+  }
+  .wr-depth-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #3182CE;
+    cursor: pointer;
+    border: 2px solid rgb(var(--c-surface-raised));
   }
 
   /* =============================================================================

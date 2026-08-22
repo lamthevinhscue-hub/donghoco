@@ -159,15 +159,16 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       <button
         type="button"
         id="toggle-explode"
-        class="flex items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
+        class="flex min-h-11 items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
+        aria-pressed="false"
       >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         <span id="toggle-label">Tách lớp</span>
       </button>
       <button
         type="button"
         id="reset-view"
-        class="rounded-full border border-cream-dark dark:border-dark-border px-3 py-2 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-colors hover:bg-cream-dark"
+        class="min-h-11 rounded-full border border-cream-dark dark:border-dark-border px-4 py-2 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-colors hover:bg-cream-dark"
       >Đặt lại</button>
     </div>
   </div>
@@ -177,8 +178,10 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     <!-- Cột trái: SVG -->
     <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
       <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
-        <!-- Nhãn lớp bên trái — đẩy ra xa, font nhỏ hơn -->
-        <g font-size="8" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7">
+        <!-- Nhãn lớp bên trái — đẩy ra xa, font nhỏ hơn.
+             class svg-label: ẩn trên mobile (thông tin đã có panel bộ phận bên dưới),
+             tránh chữ thu nhỏ tới mức không đọc được khi SVG co lại. -->
+        <g class="svg-label" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7">
           <text x="5" y="100">Lớp 0 · Kính</text>
           <text x="5" y="220">Lớp 1 · Kim</text>
           <text x="5" y="340">Lớp 2 · Mặt số</text>
@@ -195,7 +198,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
-          <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">SAPPHIRE CRYSTAL</text>
+          <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
         </g>
 
         <!-- LỚP 1: KIM (hands) -->
@@ -215,7 +218,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
           </g>
           <circle cx="250" cy="0" r="4" fill="#1F2D3D"/>
           <!-- Nhãn -->
-          <text x="250" y="30" text-anchor="middle" font-size="9" fill="#9CA3AF">KIM (hands)</text>
+          <text x="250" y="30" text-anchor="middle" font-size="9" fill="#9CA3AF" class="svg-label">KIM (hands)</text>
         </g>
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
@@ -238,7 +241,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
               return <text x={250 + Math.cos(rad) * 90} y={Math.sin(rad) * 90 + 5} text-anchor="middle" font-size="16" fill="#1F2D3D" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
             })}
             {/* Logo giả */}
-            <text x="250" y="-40" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" letter-spacing="2">ĐỒNG HỒ CƠ</text>
+            <text x="250" y="-40" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" letter-spacing="2" class="svg-label">ĐỒNG HỒ CƠ</text>
           </g>
           <!-- Sub-dial (mặt phụ) -->
           <g data-part="subdial" data-name-vi="Mặt số phụ" data-name-en="Sub-dial" data-role="Hiển thị chức năng phụ: giây chạy, lịch, v.v." data-link="/tu-dien/perpetual-calendar" style="cursor: pointer;">
@@ -263,7 +266,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
             <path d="M 180 0 m -22 0 a 22 22 0 1 1 44 0 a 16 16 0 1 0 -32 0 a 10 10 0 1 1 20 0"
                   fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.7"/>
             <circle cx="180" cy="0" r="5" fill="#2D3748"/>
-            <text x="180" y="55" text-anchor="middle" font-size="8" fill="#9B6E2C" font-weight="bold">Thùng cót</text>
+            <text x="180" y="55" text-anchor="middle" font-size="10" fill="#9B6E2C" font-weight="bold" class="svg-label">Thùng cót</text>
           </g>
           <!-- Bánh răng trung gian (3 bánh) -->
           <g data-part="gear-train" data-name-vi="Bánh răng trung gian" data-name-en="Gear train" data-role="Chuỗi 4 bánh răng truyền năng lượng + chia tỷ lệ cho kim." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
@@ -289,7 +292,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
               <circle r="16" fill="#5A6878" stroke="#2D3748" stroke-width="1"/>
               <circle r="2.5" fill="#2D3748"/>
             </g>
-            <text x="265" y="55" text-anchor="middle" font-size="8" fill="#4A5568" font-weight="bold">Chuỗi truyền động</text>
+            <text x="265" y="55" text-anchor="middle" font-size="10" fill="#4A5568" font-weight="bold" class="svg-label">Chuỗi truyền động</text>
           </g>
         </g>
 
@@ -312,7 +315,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
                 <path d="M 0 0 L -7 -10 L -9 -12 M 0 0 L 7 -10 L 9 -12 M 0 0 L 0 12"
                       fill="none" stroke="#B8893C" stroke-width="1.8" stroke-linecap="round"/>
               </g>
-              <text x="190" y="40" text-anchor="middle" font-size="8" fill="#1F4E6B" font-weight="bold">Bộ thoát</text>
+              <text x="0" y="40" text-anchor="middle" font-size="10" fill="#1F4E6B" font-weight="bold" class="svg-label">Bộ thoát</text>
             </g>
           </g>
           <!-- Bánh lắc + dây tóc -->
@@ -329,7 +332,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
                 <path d="M 310 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
                       fill="none" stroke="#3182CE" stroke-width="1.2" transform="translate(-310, 0)"/>
               </g>
-              <text x="310" y="50" text-anchor="middle" font-size="8" fill="#9B2C2C" font-weight="bold">Bánh lắc</text>
+              <text x="0" y="50" text-anchor="middle" font-size="10" fill="#9B2C2C" font-weight="bold" class="svg-label">Bánh lắc</text>
             </g>
           </g>
         </g>
@@ -344,7 +347,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
                   fill="#7A8898" opacity="0.6"/>
             <circle cx="250" cy="0" r="8" fill="#2D3748"/>
             <circle cx="250" cy="0" r="3" fill="#B8893C"/>
-            <text x="250" y="45" text-anchor="middle" font-size="8" fill="#5A6878" font-weight="bold">ROTOR (automatic)</text>
+            <text x="250" y="45" text-anchor="middle" font-size="10" fill="#5A6878" font-weight="bold" class="svg-label">ROTOR (automatic)</text>
           </g>
         </g>
 
@@ -353,7 +356,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
           <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
             <ellipse cx="250" cy="0" rx="135" ry="18" fill="#2D3748" stroke="#1F2D3D" stroke-width="1.5"/>
             <ellipse cx="250" cy="-2" rx="120" ry="14" fill="none" stroke="#4A5568" stroke-width="0.8"/>
-            <text x="250" y="3" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold">CASEBACK</text>
+            <text x="250" y="3" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" class="svg-label">CASEBACK</text>
           </g>
         </g>
 
@@ -375,7 +378,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
           <span id="detail-icon" class="text-3xl">👆</span>
           <div>
             <h3 id="detail-name-vi" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</h3>
-            <p id="detail-name-en" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Click vào bất kỳ bộ phận nào trong sơ đồ bên cạnh</p>
+            <p id="detail-name-en" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Chạm hoặc bấm vào bất kỳ bộ phận nào trong sơ đồ bên cạnh</p>
           </div>
         </div>
         <p id="detail-role" class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
@@ -390,12 +393,12 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
       <!-- Danh sách nhanh các bộ phận -->
       <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 p-4">
-        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — click để chọn</h4>
+        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — chạm hoặc bấm để chọn</h4>
         <div class="grid grid-cols-2 gap-2 text-xs">
           {parts.map((p) => (
             <button
               type="button"
-              class="part-quick flex items-center gap-2 rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:bg-dark-brass/10"
+              class="part-quick flex min-h-11 items-center gap-2 rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:bg-dark-brass/10"
               data-part-id={p.id}
             >
               <span class="text-base">{p.icon}</span>
@@ -409,7 +412,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
   <!-- Hướng dẫn -->
   <p class="mt-4 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-    💡 Mẹo: Bấm <strong>"Tách lớp"</strong> để xem đồng hồ phân rã thành các lớp • Click bộ phận để xem chi tiết • Mũi tên ↓ chỉ hướng trọng lực
+    💡 Mẹo: Bấm <strong>"Tách lớp"</strong> để xem đồng hồ phân rã thành các lớp • Chạm hoặc bấm bộ phận để xem chi tiết • Mũi tên ↓ chỉ hướng trọng lực
   </p>
 </section>
 
@@ -426,6 +429,16 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
   .part-quick.active {
     border-color: #B8893C !important;
     background: rgba(184, 137, 60, 0.1) !important;
+  }
+  /*
+    Mobile: ẩn nhãn chữ trong SVG — khi khung co lại (320-375px) chữ chỉ còn
+    5-7px, không đọc được. Thông tin đầy đủ đã có ở panel "12 bộ phận" và
+    thẻ chi tiết bên dưới SVG.
+  */
+  @media (max-width: 767px) {
+    .svg-label {
+      display: none;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .layer-group { transition: none; }
@@ -497,6 +510,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       });
       toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
       modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)';
+      toggleBtn?.setAttribute('aria-pressed', isExploded ? 'true' : 'false');
       // Đổi chiều mũi tên icon
       const arrow = toggleBtn?.querySelector('svg path');
       if (arrow) {
@@ -525,8 +539,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         // Reset detail card
         detailIcon.textContent = '👆';
         detailNameVi.textContent = 'Chọn một bộ phận';
-        detailNameEn.textContent = 'Click vào bất kỳ bộ phận nào trong sơ đồ bên cạnh';
-        detailRole.innerHTML = 'Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ — từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt, hoặc click trực tiếp vào bộ phận để đọc vai trò và link bài chi tiết.';
+        detailNameEn.textContent = 'Chạm hoặc bấm vào bất kỳ bộ phận nào trong sơ đồ bên cạnh';
+        detailRole.innerHTML = 'Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ — từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt, hoặc chạm/bấm trực tiếp bộ phận để đọc vai trò và link bài chi tiết.';
         detailLink.classList.add('hidden');
         return;
       }
@@ -561,7 +575,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         if (!p || !tooltip) return;
         tipVi.textContent = p.nameVi;
         tipEn.textContent = p.nameEn;
-        tipLink.textContent = p.link ? '→ Click để đọc bài' : '';
+        tipLink.textContent = p.link ? '→ Chạm hoặc bấm để đọc bài' : '';
         tipBg.setAttribute('width', Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30);
         tooltip.setAttribute('opacity', '1');
       });

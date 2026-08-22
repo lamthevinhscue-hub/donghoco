@@ -20,7 +20,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
 <MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
   <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg">
     <!-- ====== BACKGROUND: các nhãn vùng ====== -->
-    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold" class="svg-label">
       Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
     </text>
 
@@ -103,11 +103,11 @@ import MechanismAnimation from './MechanismAnimation.astro';
       <text x="370" y="180" font-size="20" fill="#B8893C">→</text>
     </g>
 
-    <!-- ====== CHÚ THÍCH KHI HOVER (tooltip động) ====== -->
+    <!-- ====== CHÚ THÍCH KHI HOVER (tooltip động — desktop) ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="160" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="80" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="80" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="160" height="42" rx="6" fill="#1F2D3D" opacity="0.95"/>
+      <text id="tooltip-vi" x="80" y="18" text-anchor="middle" font-size="13" fill="#FAF7F2" font-weight="bold"></text>
+      <text id="tooltip-en" x="80" y="34" text-anchor="middle" font-size="10" fill="#B8893C"></text>
     </g>
 
     <!-- ====== TRẠNG THÁI (đang "tíc" hay "tắc") ====== -->
@@ -178,7 +178,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           const en = part.getAttribute('data-name-en') || '';
           tooltipVi.textContent = vi;
           tooltipEn.textContent = en;
-          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7 + 20);
+          tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7.5 + 20);
           tooltip.setAttribute('opacity', '1');
         };
         const unhighlight = () => {
@@ -187,10 +187,11 @@ import MechanismAnimation from './MechanismAnimation.astro';
         };
         part.addEventListener('mouseenter', highlight);
         part.addEventListener('mouseleave', unhighlight);
+        // Thiết bị cảm ứng: chỉ highlight — tên bộ phận đã có legend mobile
         part.addEventListener('touchstart', (e) => {
           e.preventDefault();
-          highlight();
-          setTimeout(unhighlight, 2000);
+          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          setTimeout(() => { part.style.filter = ''; }, 2000);
         });
       });
 
@@ -208,4 +209,21 @@ import MechanismAnimation from './MechanismAnimation.astro';
     });
   </script>
 </MechanismAnimation>
+
+<style>
+  /*
+    Mobile: nhãn mô tả chu kỳ trong SVG bị thu nhỏ tới ~7px khi viewBox 600
+    co về 320-375px — ẩn đi (tên bộ phận đã có trong legend chip và phần
+    chữ của bài). Chỉ báo tíc/tắc là feedback của hoạt ảnh nên tăng cỡ
+    thay vì ẩn, để người dùng vẫn đọc được trạng thái.
+  */
+  @media (max-width: 767px) {
+    .svg-label {
+      display: none;
+    }
+    #beat-indicator {
+      font-size: 30px;
+    }
+  }
+</style>
 

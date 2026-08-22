@@ -51,7 +51,7 @@ const comparisons = [
       Bí mật của đồng hồ automatic: một quả nặng xoay theo chuyển động cổ tay,
       biến mọi cử động của bạn thành năng lượng. Cuộn xuống để hiểu.
     </p>
-    <div class="mt-8 animate-bounce text-brass-light">↓</div>
+    <div class="mt-8 intro-arrow text-brass-light">↓</div>
   </div>
 
   <!-- ====================================================================
@@ -60,8 +60,8 @@ const comparisons = [
   <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
     <div class="svg-container" data-svg="rotor">
       <MechanismAnimation label="Rotor dao động + ly hợp một chiều (bấm 'Mô phỏng cổ tay')" data-mech-step-id="auto-winding">
-        <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="auto-winding-svg">
-          <text x="200" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+        <svg viewBox="0 0 400 392" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="auto-winding-svg">
+          <text x="200" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">
             Rotor dao động qua lại — ly hợp chỉ truyền lực một chiều
           </text>
 
@@ -80,10 +80,10 @@ const comparisons = [
           <!-- ====== Ly hợp + bánh răng truyền lực (bên dưới movement) ====== -->
           <g transform="translate(200, 300)">
             <!-- Ly hợp (hộp) -->
-            <rect id="aw-clutch" x="-45" y="-18" width="90" height="36" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2"/>
-            <text x="0" y="4" text-anchor="middle" font-size="10" fill="#FAF7F2" font-weight="bold">Ly hợp</text>
+            <rect id="aw-clutch" x="-45" y="-18" width="90" height="36" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2" data-part="clutch" data-name-vi="Ly hợp một chiều" data-name-en="One-way clutch"/>
+            <text x="0" y="4" text-anchor="middle" font-size="10" fill="#FAF7F2" font-weight="bold" class="aw-inline-label">Ly hợp</text>
             <!-- Bánh răng truyền lực (sáng khi truyền, mờ khi trượt tự do) -->
-            <g id="aw-gear" transform="translate(75, 0)">
+            <g id="aw-gear" transform="translate(75, 0)" data-part="transmission-gear" data-name-vi="Bánh răng truyền lực" data-name-en="Drive gear">
               <circle r="16" fill="none" stroke="#4FB286" stroke-width="3" id="aw-gear-circle"/>
               {Array.from({ length: 8 }).map((_, i) => {
                 const a = (i * 360) / 8;
@@ -94,18 +94,18 @@ const comparisons = [
           </g>
 
           <!-- ====== Thanh trữ cót (dưới cùng) ====== -->
-          <text x="200" y="345" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Trữ cót</text>
+          <text x="200" y="345" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="aw-inline-label dark:fill-dark-text">Trữ cót</text>
           <rect x="100" y="350" width="200" height="14" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <rect id="aw-reserve-bar" x="102" y="352" width="0" height="10" rx="2" fill="#B8893C"/>
-          <text id="aw-reserve-label" x="200" y="378" text-anchor="middle" font-size="10" fill="#1F2D3D" class="dark:fill-dark-text">0%</text>
+          <text id="aw-reserve-label" x="200" y="378" text-anchor="middle" font-size="10" fill="#1F2D3D" class="aw-inline-label dark:fill-dark-text">0%</text>
 
           <!-- ====== Trạng thái ly hợp (text động) ====== -->
-          <text id="aw-clutch-status" x="200" y="275" text-anchor="middle" font-size="10" fill="#2D7A55" font-weight="bold">Truyền lực</text>
+          <text id="aw-clutch-status" x="200" y="275" text-anchor="middle" font-size="10" fill="#2D7A55" font-weight="bold" class="aw-inline-label">Truyền lực</text>
         </svg>
 
         <!-- Nút mô phỏng cử động cổ tay (bên ngoài SVG, trong MechanismAnimation) -->
         <div class="mt-3 text-center">
-          <button type="button" id="aw-wrist-btn" class="btn-navy-pill">
+          <button type="button" id="aw-wrist-btn" class="btn-navy-pill min-h-11">
             🤚 Mô phỏng cử động cổ tay
           </button>
         </div>
@@ -176,6 +176,13 @@ const comparisons = [
             reserveLabel.textContent = Math.round(awReserve) + '%';
           };
 
+          // Nút "Đặt lại" của MechanismAnimation — hồi phục trạng thái riêng:
+          // thanh trữ cót về 0%, xóa các cú đạp đang chờ.
+          (window.__mechResets = window.__mechResets || {})['auto-winding'] = function() {
+            awReserve = 0;
+            awKicks = [];
+          };
+
           // Nút mô phỏng cử động cổ tay
           document.addEventListener('DOMContentLoaded', function() {
             const btn = document.getElementById('aw-wrist-btn');
@@ -230,9 +237,9 @@ const comparisons = [
           <g data-anim="clutch-input" opacity="0">
             <circle cx="80" cy="90" r="35" fill="none" stroke="#4A5568" stroke-width="2.5"/>
             <path d="M 80 90 L 80 55" stroke="#4A5568" stroke-width="2"/>
-            <text x="80" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Rotor</text>
+            <text x="80" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">Rotor</text>
             <text x="80" y="50" text-anchor="middle" font-size="14" fill="#2E86AB">↻ ↺</text>
-            <text x="80" y="35" text-anchor="middle" font-size="9" fill="#2E86AB">quay 2 chiều</text>
+            <text x="80" y="35" text-anchor="middle" font-size="9" fill="#2E86AB" class="svg-label">quay 2 chiều</text>
           </g>
 
           <!-- Mũi tên tới ly hợp -->
@@ -244,8 +251,8 @@ const comparisons = [
           <!-- Ly hợp một chiều -->
           <g data-anim="clutch" opacity="0">
             <rect x="200" y="65" width="100" height="50" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2"/>
-            <text x="250" y="95" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold">Ly hợp</text>
-            <text x="250" y="135" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">1 chiều</text>
+            <text x="250" y="95" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold" class="svg-label">Ly hợp</text>
+            <text x="250" y="135" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">1 chiều</text>
           </g>
 
           <!-- Mũi tên tới thùng cót -->
@@ -260,9 +267,9 @@ const comparisons = [
             <path d="M 420 60 a 30 30 0 1 1 -0.1 0 m 0 5 a 25 25 0 1 0 0.1 0"
                   fill="none" stroke="#B8893C" stroke-width="2.5"/>
             <circle cx="420" cy="90" r="3" fill="#B8893C"/>
-            <text x="420" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Thùng cót</text>
+            <text x="420" y="145" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">Thùng cót</text>
             <text x="420" y="50" text-anchor="middle" font-size="14" fill="#2D7A55">↻</text>
-            <text x="420" y="35" text-anchor="middle" font-size="9" fill="#2D7A55">cuộn 1 chiều</text>
+            <text x="420" y="35" text-anchor="middle" font-size="9" fill="#2D7A55" class="svg-label">cuộn 1 chiều</text>
           </g>
         </svg>
       </div>
@@ -327,6 +334,20 @@ const comparisons = [
   .svg-container svg {
     width: 100%;
     height: auto;
+  }
+
+  /*
+    Mobile: nhãn mô tả trên đầu SVG (svg-label) quá nhỏ khi co lại — ẩn đi.
+    Các nhãn phản hồi tương tác (aw-inline-label: Ly hợp, Trữ cót, %, trạng
+    thái truyền lực) tăng cỡ để đạt tối thiểu ~12px trên 375px.
+  */
+  @media (max-width: 767px) {
+    .svg-label {
+      display: none;
+    }
+    .aw-inline-label {
+      font-size: 19px;
+    }
   }
 
   .scene [data-anim] {

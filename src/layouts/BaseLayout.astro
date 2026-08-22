@@ -144,5 +144,27 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <Footer />
     <ScrollToTop />
     <Analytics />
+    <script>
+      // Bảng rộng: khi bảng thực sự tràn ngang (chỉ xảy ra với bảng nhiều cột
+      // trong bài viết), gắn bóng mờ mép phải + dòng chú thích "kéo ngang"
+      // ngay dưới bảng để người dùng mobile biết có thể cuộn. Bảng không tràn
+      // thì không thêm gì — tránh tín hiệu sai.
+      function markOverflowTables() {
+        document.querySelectorAll('main table').forEach((table) => {
+          const overflowing = table.scrollWidth - table.clientWidth > 4;
+          if (overflowing && !table.classList.contains('table-can-scroll')) {
+            table.classList.add('table-can-scroll');
+            const hint = document.createElement('p');
+            hint.className = 'table-scroll-hint';
+            hint.setAttribute('aria-hidden', 'true');
+            hint.textContent = '← Kéo ngang để xem hết bảng →';
+            table.insertAdjacentElement('afterend', hint);
+          }
+        });
+      }
+      markOverflowTables();
+      // Font hiển thị (display=swap) có thể đổi độ rộng chữ sau khi tải — kiểm lại một lần
+      window.addEventListener('load', markOverflowTables);
+    </script>
   </body>
 </html>

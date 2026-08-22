@@ -81,14 +81,15 @@ const y = 90;
 </section>
 
 <style>
-  /* Nét đứt chạy nhẹ theo chiều dòng năng lượng — chuyển động duy nhất của sơ đồ.
-     prefers-reduced-motion toàn cục (global.css) đã ép animation-duration ~0ms. */
+  /* Nét đứt chạy theo chiều dòng năng lượng — chạy vài chu kỳ ngắn ngay khi
+     trang tải rồi dừng hẳn (không lặp vô hạn). prefers-reduced-motion toàn
+     cục (global.css) đã ép animation-duration ~0ms → hiển thị tĩnh ngay. */
   @keyframes calibre-dash {
     to {
       stroke-dashoffset: -48;
     }
   }
   .calibre-flow {
-    animation: calibre-dash 2.4s linear infinite;
+    animation: calibre-dash 2.4s linear 3;
   }
 </style>

@@ -2,9 +2,20 @@
 // =============================================================================
 // COMPONENT MechanismAnimation — wrapper điều khiển cho hoạt ảnh cơ chế
 // =============================================================================
-// Cung cấp: nút Play/Pause, thanh trượt tốc độ, nút "từng bước một".
-// Phần SVG cụ thể (escape wheel, pallet fork, balance wheel...) được truyền vào
-// qua slot, kèm một hàm JS điều khiển chuyển động.
+// Cung cấp: nút Play/Pause, thanh trượt tốc độ, nút "từng bước một" và nút
+// "Đặt lại". Phần SVG cụ thể (escape wheel, pallet fork, balance wheel...)
+// được truyền vào qua slot, kèm một hàm JS điều khiển chuyển động.
+//
+// Vòng đời hoạt ảnh (nguyên tắc):
+//   - KHÔNG tự phát — chờ người dùng bấm Phát.
+//   - Khi component ra khỏi viewport hoặc tab bị ẩn → hủy requestAnimationFrame.
+//   - Khi quay lại viewport / tab hiện → chỉ chạy tiếp nếu người dùng đang
+//     ở trạng thái "phát" (đã chủ động bấm Phát trước đó).
+//   - "Từng bước" luôn dừng hoạt ảnh trước khi tiến một nhịp.
+//   - "Đặt lại" dừng hoạt ảnh rồi đưa hình về trạng thái ban đầu.
+//
+// Trên mobile, tên các bộ phận (data-part / data-name-vi) được xuất ra
+// legend chip bên dưới SVG — không phụ thuộc hover chuột.
 //
 // Cách dùng (trong các component cụ thể như Escapement.astro):
 //   <MechanismAnimation>
@@ -36,25 +47,35 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
       <!-- Nút Play/Pause -->
       <button
         type="button"
-        class="play-btn flex h-9 w-9 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
-        aria-label="Phát / Tạm dừng"
+        class="play-btn flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
+        aria-label="Phát hoạt ảnh"
       >
-        <svg class="play-icon h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon hidden h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </button>
 
       <!-- Nút từng bước -->
       <button
         type="button"
-        class="step-btn flex items-center gap-1 rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy dark:text-dark-text transition-colors hover:bg-navy hover:text-cream"
+        class="step-btn flex min-h-11 items-center gap-1 rounded-full border border-navy px-4 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:text-dark-text"
         aria-label="Từng bước một"
       >
-        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
         Từng bước
       </button>
 
+      <!-- Nút đặt lại -->
+      <button
+        type="button"
+        class="reset-btn flex min-h-11 items-center gap-1 rounded-full border border-cream-dark dark:border-dark-border px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+        aria-label="Đặt lại hoạt ảnh về trạng thái đầu"
+      >
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/></svg>
+        Đặt lại
+      </button>
+
       <!-- Thanh trượt tốc độ -->
-      <div class="flex items-center gap-2">
+      <div class="flex min-h-11 items-center gap-2">
         <span class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Tốc độ</span>
         <input
           type="range"
@@ -62,7 +83,7 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
           max="1"
           step="0.05"
           value="0.2"
-          class="speed-slider h-1.5 w-24 cursor-pointer appearance-none rounded-full bg-cream-dark"
+          class="speed-slider w-24 cursor-pointer appearance-none bg-transparent"
           aria-label="Tốc độ hoạt ảnh"
         />
         <span class="speed-label w-8 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">0.2x</span>
@@ -75,58 +96,84 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
     <slot />
   </div>
 
+  <!-- Legend tên bộ phận — JS sinh từ data-part, chỉ hiện dưới md (thay tooltip hover) -->
+  <div class="mech-legend mt-3 hidden flex-wrap gap-2 md:hidden"></div>
+
   <!-- Khu vực script điều khiển (slot ẩn) -->
   <slot name="script" />
 
   <!-- Gợi ý tương tác -->
   <p class="mt-3 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-    Rê chuột vào từng bộ phận để xem tên • Bấm nút để điều khiển hoạt ảnh
+    Chạm hoặc rê chuột vào từng bộ phận để xem tên • Bấm Phát để xem hoạt ảnh
   </p>
 </div>
 
 <style>
+  /*
+    Thanh trượt tốc độ: input cao 44px (vùng bấm chuẩn), track mảnh 6px màu
+    token --c-line (tự đổi theo dark mode), núm tròn 20px màu alloy.
+  */
+  .speed-slider {
+    height: 2.75rem;
+  }
+  .speed-slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: rgb(var(--c-line));
+  }
   .speed-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
     border-radius: 50%;
-    background: #B8893C;
+    background: rgb(var(--c-alloy));
     cursor: pointer;
-    border: 2px solid #FAF7F2;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border: 2px solid rgb(var(--c-surface-raised));
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+  }
+  .speed-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: rgb(var(--c-line));
   }
   .speed-slider::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: #B8893C;
+    background: rgb(var(--c-alloy));
     cursor: pointer;
-    border: 2px solid #FAF7F2;
+    border: 2px solid rgb(var(--c-surface-raised));
   }
 </style>
 
 <script>
   // =============================================================================
-  // BỘ ĐIỀU KHIỂN HOẠT ẢNH — dùng cho mọi MechanismAnimation trên trang
+  // BỘ ĐIỀU KHIỂN HOẠT ẢNH — dùng chung cho mọi MechanismAnimation trên trang
   // =============================================================================
-  // Cung cấp API chung (play/pause/tốc độ/từng bước) cho các SVG cụ thể.
-  // Mỗi instance tìm phần tử [data-mechanism] gần nhất, rồi gọi callback
-  // step(elapsedMs, deltaMs) mà component con cung cấp qua window.__mechStep.
+  // Cung cấp API chung (play/pause/tốc độ/từng bước/đặt lại) cho các SVG cụ thể.
+  // Mỗi instance tìm phần tử [data-mechanism], rồi gọi callback
+  // step(deltaMs, accumulatedMs) mà component con cung cấp qua window.__mechSteps.
+  // Component con có thể đăng ký thêm window.__mechResets[id] để nút "Đặt lại"
+  // hồi phục cả trạng thái riêng (VD: thanh trữ cót về 0%).
   // =============================================================================
 
   document.querySelectorAll<HTMLElement>('[data-mechanism]').forEach((root) => {
     const playBtn = root.querySelector<HTMLButtonElement>('.play-btn');
     const stepBtn = root.querySelector<HTMLButtonElement>('.step-btn');
+    const resetBtn = root.querySelector<HTMLButtonElement>('.reset-btn');
     const slider = root.querySelector<HTMLInputElement>('.speed-slider');
     const speedLabel = root.querySelector<HTMLElement>('.speed-label');
     const playIcon = root.querySelector('.play-icon');
     const pauseIcon = root.querySelector('.pause-icon');
+    const legend = root.querySelector<HTMLElement>('.mech-legend');
 
     let rafId: number | null = null;
     let lastTime = 0;
     let accumulated = 0;
-    let isPlaying = false;
+    let isPlaying = false;  // người dùng có đang ở trạng thái "phát" không
+    let inView = true;      // component có nằm trong viewport không
     let speed = 0.2;
 
     // Lấy hàm step từ registry (component con đăng ký qua data-mech-step-id)
@@ -135,18 +182,30 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
 
     if (!stepFn) return; // không có animation cụ thể thì thôi
 
-    function setPlaying(playing: boolean) {
-      isPlaying = playing;
-      playIcon?.classList.toggle('hidden', playing);
-      pauseIcon?.classList.toggle('hidden', !playing);
-      if (playing) {
-        lastTime = performance.now();
-        loop();
-      } else if (rafId) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
+    // ---- Legend tên bộ phận (mobile) — nguồn cùng data-part với tooltip ----
+    if (legend) {
+      const seen = new Set<string>();
+      root.querySelectorAll<SVGElement>('[data-part][data-name-vi]').forEach((el) => {
+        const vi = el.getAttribute('data-name-vi') || '';
+        if (!vi || seen.has(vi)) return;
+        seen.add(vi);
+        const en = el.getAttribute('data-name-en') || '';
+        const chip = document.createElement('span');
+        chip.className =
+          'rounded-full border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1 text-sm text-ink dark:text-dark-text';
+        chip.textContent = en ? `${vi} · ${en}` : vi;
+        legend.appendChild(chip);
+      });
+      if (legend.childElementCount === 0) {
+        legend.remove();
+      } else {
+        legend.classList.remove('hidden');
+        legend.classList.add('flex');
       }
     }
+
+    // Chỉ chạy rAF khi: người dùng đã bấm Phát + đang trong viewport + tab hiện
+    const canRun = () => isPlaying && inView && !document.hidden;
 
     function loop() {
       const now = performance.now();
@@ -154,18 +213,54 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
       accumulated += delta;
       stepFn(delta, accumulated);
       lastTime = now;
-      if (isPlaying) rafId = requestAnimationFrame(loop);
+      if (canRun()) {
+        rafId = requestAnimationFrame(loop);
+      } else {
+        rafId = null;
+      }
     }
 
-    // Nút Play/Pause
+    // Bật/tắt rAF theo trạng thái hiện tại — gọi sau mọi thay đổi trạng thái
+    function syncLoop() {
+      if (canRun()) {
+        if (rafId === null) {
+          lastTime = performance.now();
+          rafId = requestAnimationFrame(loop);
+        }
+      } else if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    function setPlaying(playing: boolean) {
+      isPlaying = playing;
+      playIcon?.classList.toggle('hidden', playing);
+      pauseIcon?.classList.toggle('hidden', !playing);
+      playBtn?.setAttribute('aria-label', playing ? 'Tạm dừng hoạt ảnh' : 'Phát hoạt ảnh');
+      syncLoop();
+    }
+
+    // Nút Play/Pause — nguồn duy nhất khởi động hoạt ảnh
     playBtn?.addEventListener('click', () => setPlaying(!isPlaying));
 
-    // Nút từng bước — chạy 1 frame rồi dừng
+    // Nút từng bước — dừng hoạt ảnh trước, rồi tiến đúng một nhịp
     stepBtn?.addEventListener('click', () => {
       if (isPlaying) setPlaying(false);
-      // Kích hoạt callback step với delta cố định (1 nhịp)
       stepFn(50, accumulated + 50);
       accumulated += 50;
+    });
+
+    // Nút đặt lại — dừng hoạt ảnh trước, rồi đưa về trạng thái đầu
+    // (setPlaying(false) hủy rAF, hiện icon Play, aria về "Phát hoạt ảnh";
+    //  __mechResets nếu component có trạng thái riêng cần hồi phục)
+    resetBtn?.addEventListener('click', () => {
+      setPlaying(false);
+      accumulated = 0;
+      lastTime = performance.now();
+      const resetFn = stepId && (window as any).__mechResets?.[stepId];
+      if (resetFn) resetFn();
+      stepFn(0, 0);
     });
 
     // Thanh trượt tốc độ
@@ -174,23 +269,19 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
       if (speedLabel) speedLabel.textContent = `${speed.toFixed(2)}x`;
     });
 
-    // Tự động phát khi cuộn tới (Intersection Observer)
-    const observer = new IntersectionObserver(
+    // Ra vào viewport: dừng rAF khi rời đi, hồi phục (nếu đang phát) khi quay lại.
+    // Không tự phát mới — isPlaying chỉ đổi qua nút Play/Pause.
+    new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !isPlaying) {
-            setPlaying(true);
-            observer.unobserve(entry.target);
-          }
+          inView = entry.isIntersecting;
+          syncLoop();
         });
       },
-      { threshold: 0.4 }
-    );
-    observer.observe(root);
+      { threshold: 0 }
+    ).observe(root);
 
-    // Tôn trọng reduced motion → không tự phát
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      observer.disconnect();
-    }
+    // Tab ẩn → dừng; tab hiện lại → chỉ chạy tiếp nếu người dùng đang phát
+    document.addEventListener('visibilitychange', syncLoop);
   });
 </script>

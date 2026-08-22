@@ -10,6 +10,7 @@
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
 import SearchBox from './SearchBox.astro';
+import SearchInline from './SearchInline.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -135,8 +136,9 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
       </div>
     </nav>
 
-    <!-- Nút mở menu (điện thoại) + tìm kiếm + dark mode -->
+    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + dark mode -->
     <div class="flex items-center gap-3">
+      <SearchInline inputId="header-search-input" variant="header" />
       <SearchBox />
       <ThemeToggle />
       <button

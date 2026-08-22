@@ -1,10 +1,14 @@
 ---
 // =============================================================================
-// SEARCH BOX — Ô tìm kiếm Pagefind với phím tắt "/" + overlay
+// SEARCH BOX — dialog tìm kiếm toàn màn hình (mobile) + phím tắt "/"
 // =============================================================================
-// Pagefind index nội dung build, client-side search, hỗ trợ tìm không dấu
-// (Pagefind tự normalize diacritics khi index tiếng Việt).
-// Phím tắt "/" mở overlay, Esc đóng.
+// Từ 1024px trở lên, header hiển thị ô tìm kiếm trực tiếp (SearchInline) nên
+// nút mở dialog này chỉ còn ở màn hình nhỏ. CẢ HAI dùng chung một controller
+// Pagefind (src/scripts/searchCore.ts) — không có hai hệ thống tìm kiếm
+// độc lập: một instance, một debounce, một bảng trạng thái phát cho mọi UI.
+//
+// Dialog: focus trap, Escape đóng và trả focus về phần tử đã mở, aria-live
+// thông báo số kết quả. Pagefind tự normalize diacritics khi index tiếng Việt.
 // =============================================================================
 
 import { getLangFromUrl, t } from '../i18n/ui';
@@ -12,12 +16,13 @@ const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 ---
 
-<!-- Nút tìm kiếm (icon) — min-h-11 đảm bảo vùng bấm 44px ở cả mobile (khi chữ ẩn) -->
+<!-- Nút tìm kiếm (icon) — chỉ còn ở dưới sm (640px): từ 640px trở lên header có
+     ô nhập trực tiếp. min-h-11 đảm bảo vùng bấm 44px ở cả mobile (khi chữ ẩn). -->
 <button
   type="button"
   id="search-trigger"
   data-pagefind-ignore
-  class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass"
+  class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass sm:hidden"
   aria-label={tr.search_placeholder}
 >
   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -28,8 +33,8 @@ const tr = t(lang);
   <kbd class="hidden rounded border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 px-1 text-[10px] font-medium sm:inline">/</kbd>
 </button>
 
-<!-- Overlay tìm kiếm — data-pagefind-ignore để chữ gợi ý không lọt vào chỉ mục tìm kiếm.
-     Các data-msg-* truyền nhãn đã dịch từ frontmatter vào client script (script không đọc được biến Astro). -->
+<!-- Dialog tìm kiếm — data-pagefind-ignore để chữ gợi ý không lọt vào chỉ mục.
+     Các data-msg-* truyền nhãn đã dịch từ frontmatter vào client script. -->
 <div
   id="search-overlay"
   data-pagefind-ignore
@@ -38,8 +43,7 @@ const tr = t(lang);
   aria-label={tr.search_placeholder}
   data-msg-no-results={tr.search_no_results}
   data-msg-no-results-hint={tr.search_no_results_hint}
-  data-msg-not-ready={tr.search_not_ready}
-  data-msg-not-ready-hint={tr.search_not_ready_hint}
+  data-msg-prep={tr.search_prep}
   data-msg-error={tr.search_error}
   data-msg-error-hint={tr.search_error_hint}
   data-msg-status-found={tr.search_status_found}
@@ -81,8 +85,6 @@ const tr = t(lang);
   /*
     Chỉ <mark> trong kết quả tìm kiếm cần CSS ở đây: mark nằm trong excerpt do
     JavaScript tạo nên không mang [data-astro-cid] — style scoped không với tới.
-    Mọi thứ khác (màu, 44px, hover) đã là class Tailwind gắn trực tiếp lúc tạo phần tử.
-    is:global nhưng selector giới hạn trong .search-result nên không rò ra ngoài.
   */
   .search-result mark {
     background: rgb(var(--c-alloy) / 0.28);
@@ -96,178 +98,121 @@ const tr = t(lang);
 </style>
 
 <script>
-  // Khởi tạo Pagefind khi overlay mở lần đầu
-  let pagefindInstance: any = null;
-  let pagefindLoading: Promise<void> | null = null;
+  // =============================================================================
+  // DIALOG TÌM KIẾM — UI bao quanh; việc tìm nằm hết trong searchCore (dùng
+  // chung với ô inline của header và ô hero của trang chủ).
+  // =============================================================================
+  import { requestSearch, subscribeSearch } from '../scripts/searchCore';
 
-  // Ghi nhận sự kiện lỗi tải Pagefind lên Vercel Analytics
-  function trackPagefindError(stage: string, error: unknown) {
-    const msg = error instanceof Error ? error.message : String(error);
-    console.warn('Pagefind lỗi (' + stage + '):', msg);
-    // Vercel Analytics — nếu không có thì bỏ qua im lặng
-    try {
-      if (typeof (window as any).va === 'function') {
-        (window as any).va('event', {
-          name: 'pagefind_error',
-          data: { stage, message: msg.substring(0, 200) },
-        });
-      }
-    } catch { /* Analytics không có — không sao */ }
-  }
+  const overlay = document.getElementById('search-overlay')!;
+  const resultsContainer = document.getElementById('search-results')!;
+  const hint = document.getElementById('search-hint')!;
+  const statusEl = document.getElementById('search-status');
 
-  async function loadPagefind() {
-    if (pagefindInstance) return;
-    if (pagefindLoading) { await pagefindLoading; return; }
-    pagefindLoading = (async () => {
-      try {
-        pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
-        await pagefindInstance.init();
-      } catch (e) {
-        // Fallback: dùng pagefind core API trực tiếp
-        try {
-          pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
-          await pagefindInstance.options({});
-          await pagefindInstance.init();
-        } catch (e2) {
-          trackPagefindError('init', e2);
-        }
-      }
-    })();
-    await pagefindLoading;
-  }
+  const msg = (key: string) => overlay.getAttribute('data-msg-' + key) ?? '';
+  const msgHtml = (main: string, hintKey: string) =>
+    `<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">${main}<br /><span class="text-xs">${msg(hintKey)}</span></p>`;
 
-  // Số thứ tự tìm kiếm: chỉ kết quả của lần MỚI NHẤT được render. Nếu người dùng gõ
-  // nhanh rồi xóa, promise của từ khóa cũ có thể resolve sau — guard này bỏ qua nó.
-  let searchSeq = 0;
-
-  async function doSearch(query: string) {
-    const seq = ++searchSeq;
-    const resultsContainer = document.getElementById('search-results')!;
-    const hint = document.getElementById('search-hint')!;
-    const statusEl = document.getElementById('search-status');
-    // Nhãn đã dịch truyền từ frontmatter qua data-attrs (client script không thấy biến Astro)
-    const overlayEl = document.getElementById('search-overlay');
-    const msg = (key: string) => overlayEl?.getAttribute('data-msg-' + key) ?? '';
-    const msgHtml = (main: string, hintKey: string) =>
-      `<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">${main}<br /><span class="text-xs">${msg(hintKey)}</span></p>`;
-
-    // Query rỗng: xóa kết quả, hiện lại gợi ý, dọn thông báo — không gọi Pagefind
-    if (!query.trim()) {
+  // ----- Render kết quả từ trạng thái dùng chung -----
+  const unsubscribe = subscribeSearch((state) => {
+    if (state.status === 'idle') {
       resultsContainer.innerHTML = '';
       hint.style.display = '';
       if (statusEl) statusEl.textContent = '';
       return;
     }
 
-    await loadPagefind();
-    if (seq !== searchSeq) return; // có lần gõ mới hơn — bỏ kết quả cũ
-    if (!pagefindInstance) {
-      resultsContainer.innerHTML = msgHtml(msg('not-ready'), 'not-ready-hint');
-      if (statusEl) statusEl.textContent = msg('not-ready') + ' ' + msg('not-ready-hint');
+    hint.style.display = 'none';
+
+    if (state.status === 'preparing') {
+      resultsContainer.innerHTML = `<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">${msg('prep')}</p>`;
+      if (statusEl) statusEl.textContent = msg('prep');
+      return;
+    }
+    if (state.status === 'error') {
+      resultsContainer.innerHTML = msgHtml(msg('error'), 'error-hint');
+      if (statusEl) statusEl.textContent = msg('error') + ' ' + msg('error-hint');
+      return;
+    }
+    if (state.status === 'none') {
+      resultsContainer.innerHTML = msgHtml(msg('no-results'), 'no-results-hint');
+      if (statusEl) statusEl.textContent = msg('no-results') + ' ' + msg('no-results-hint');
       return;
     }
 
-    hint.style.display = 'none';
+    // ready — dựng kết quả: nhóm nội dung + tiêu đề + đoạn trích
+    const frag = document.createDocumentFragment();
+    state.hits.forEach((hit) => {
+      const a = document.createElement('a');
+      a.href = hit.url;
+      a.className = 'search-result block min-h-[44px] rounded-lg px-4 py-3 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15';
 
-    try {
-      const search = await pagefindInstance.search(query);
-      const topResults = search.results.slice(0, 8);
-      const rendered = await Promise.all(topResults.map((r: any) => r.data()));
-      if (seq !== searchSeq) return; // kết quả về muộn sau khi user đổi từ khóa
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = 'text-xs font-medium uppercase tracking-wider text-alloy dark:text-dark-brass';
+      sectionDiv.textContent = hit.section;
 
-      if (rendered.length === 0) {
-        resultsContainer.innerHTML = msgHtml(msg('no-results'), 'no-results-hint');
-        if (statusEl) statusEl.textContent = msg('no-results') + ' ' + msg('no-results-hint');
-        return;
-      }
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'search-result-title mt-0.5 font-semibold text-navy dark:text-dark-text';
+      titleDiv.textContent = hit.title;
 
-      // Tạo phần tử DOM thay vì ghép chuỗi HTML — phòng thủ theo chiều sâu.
-      // Màu/hover/44px dùng class Tailwind ngay trên phần tử: CSS scoped của Astro
-      // (gắn [data-astro-cid]) không áp cho phần tử tạo bằng JavaScript.
-      // Tương phản: navy/white 8.8:1, dark-text/dark-surface 13.2:1 — đều vượt AA.
-      const frag = document.createDocumentFragment();
-      rendered.forEach((r: any) => {
-        const a = document.createElement('a');
-        a.href = r.url;
-        a.className = 'search-result block min-h-[44px] rounded-lg px-4 py-3 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15';
+      const excerptDiv = document.createElement('div');
+      excerptDiv.className = 'search-result-excerpt mt-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft';
+      excerptDiv.innerHTML = hit.excerptHtml;
 
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'search-result-title font-semibold text-navy dark:text-dark-text';
-        titleDiv.textContent = r.meta?.title || r.url;
+      a.appendChild(sectionDiv);
+      a.appendChild(titleDiv);
+      a.appendChild(excerptDiv);
+      frag.appendChild(a);
+    });
+    resultsContainer.replaceChildren(frag);
 
-        const excerptDiv = document.createElement('div');
-        excerptDiv.className = 'search-result-excerpt mt-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft';
-        const rawExcerpt = r.excerpt || (r.meta?.excerpt || '');
-        // Chỉ giữ thẻ <mark>…</mark>, loại bỏ mọi thẻ khác
-        const safeExcerpt = rawExcerpt.replace(/<\/?(?!mark\b)[^>]*>/gi, '');
-        excerptDiv.innerHTML = safeExcerpt;
-
-        a.appendChild(titleDiv);
-        a.appendChild(excerptDiv);
-        frag.appendChild(a);
-      });
-      resultsContainer.replaceChildren(frag);
-      // Thông báo cho trình đọc màn hình: đã có kết quả và có bao nhiêu
-      if (statusEl) {
-        const total = search.results.length;
-        const template = total > rendered.length ? msg('status-showing') : msg('status-found');
-        statusEl.textContent = template
-          .replace('{total}', String(total))
-          .replace('{shown}', String(rendered.length))
-          .replace('{query}', query);
-      }
-    } catch (e) {
-      if (seq !== searchSeq) return;
-      resultsContainer.innerHTML = msgHtml(msg('error'), 'error-hint');
-      if (statusEl) statusEl.textContent = msg('error') + ' ' + msg('error-hint');
+    if (statusEl) {
+      const template = state.total > state.shown ? msg('status-showing') : msg('status-found');
+      statusEl.textContent = template
+        .replace('{total}', String(state.total))
+        .replace('{shown}', String(state.shown))
+        .replace('{query}', state.query);
     }
-  }
+  });
 
-  // ====== Overlay open/close ======
+  // ----- Mở/đóng dialog -----
   const trigger = document.getElementById('search-trigger');
-  const overlay = document.getElementById('search-overlay');
   const input = document.getElementById('search-input') as HTMLInputElement | null;
   const closeBtn = document.getElementById('search-close');
 
-  // Phần tử đã mở hộp tìm kiếm — dùng trả focus khi đóng (trigger, hoặc phần tử
-  // đang focus khi mở bằng phím tắt "/")
+  // Phần tử đã mở hộp tìm kiếm — dùng trả focus khi đóng
   let searchOpener: HTMLElement | null = null;
 
   function openSearch() {
-    if (!overlay?.classList.contains('hidden')) return;
+    if (!overlay.classList.contains('hidden')) return;
     const active = document.activeElement as HTMLElement | null;
     searchOpener = active && active !== document.body ? active : trigger;
     overlay.classList.remove('hidden');
-    // Khóa cuộn nền khi dialog mở (bôi đen nền không cuộn được phía sau)
     document.body.style.overflow = 'hidden';
     setTimeout(() => input?.focus(), 50);
   }
 
   function closeSearch() {
-    overlay?.classList.add('hidden');
+    overlay.classList.add('hidden');
     document.body.style.overflow = '';
     if (input) input.value = '';
+    requestSearch(''); // đưa core về idle — dọn kết quả ở MỌI ô tìm kiếm
     const rc = document.getElementById('search-results');
     if (rc) rc.innerHTML = '';
-    const hint = document.getElementById('search-hint');
-    if (hint) hint.style.display = '';
-    const statusEl = document.getElementById('search-status');
+    hint.style.display = '';
     if (statusEl) statusEl.textContent = '';
-    // Trả focus về phần tử đã mở hộp tìm kiếm — người dùng bàn phím không bị lạc
     (searchOpener ?? trigger)?.focus();
     searchOpener = null;
   }
 
   trigger?.addEventListener('click', openSearch);
   closeBtn?.addEventListener('click', closeSearch);
-  overlay?.addEventListener('click', (e) => {
+  overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeSearch();
   });
 
-  // ====== Focus trap: khi hộp mở, Tab chỉ xoay vòng bên trong hộp ======
-  // Danh sách phần tử focus được lấy lại ở mỗi lần Tab vì kết quả tìm kiếm
-  // render động sau khi gõ.
-  overlay?.addEventListener('keydown', (e) => {
+  // ----- Focus trap: khi hộp mở, Tab chỉ xoay vòng bên trong hộp -----
+  overlay.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
     const focusables = Array.from(
       overlay.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input')
@@ -285,28 +230,28 @@ const tr = t(lang);
     }
   });
 
-  // Phím tắt "/" mở, Esc đóng
+  // ----- Phím tắt "/" và Escape -----
   document.addEventListener('keydown', (e) => {
-    // Bỏ qua khi đang gõ trong input/textarea
     const tag = (e.target as HTMLElement)?.tagName;
     const isTyping = tag === 'INPUT' || tag === 'TEXTAREA';
 
     if (e.key === '/' && !isTyping) {
       e.preventDefault();
-      openSearch();
+      // Desktop (từ lg): header có ô nhập trực tiếp — focus thẳng vào nó.
+      // Màn hình nhỏ: mở dialog toàn màn hình.
+      const inline = document.querySelector<HTMLInputElement>('[data-inline-search] input[role="combobox"]');
+      if (inline && inline.offsetParent !== null) {
+        inline.focus();
+        inline.select();
+      } else {
+        openSearch();
+      }
     }
-    if (e.key === 'Escape' && !overlay?.classList.contains('hidden')) {
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
       closeSearch();
     }
   });
 
-  // Debounce search — LUÔN gọi doSearch kể cả khi xóa hết chuỗi:
-  // nhánh query rỗng trong doSearch sẽ dọn kết quả, hiện lại gợi ý và dọn aria-live.
-  let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-  input?.addEventListener('input', () => {
-    if (debounceTimer) clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      doSearch(input.value);
-    }, 200);
-  });
+  // ----- Gõ trong dialog → tìm (debounce nằm trong core, dùng chung) -----
+  input?.addEventListener('input', () => requestSearch(input.value));
 </script>

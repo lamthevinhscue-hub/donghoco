@@ -1,0 +1,291 @@
+---
+// =============================================================================
+// SEARCH INLINE — ô tìm kiếm trực tiếp (combobox) dùng chung 2 vị trí:
+//   - variant "header": ô trong thanh header, chỉ hiện từ lg (1024px) trở lên
+//   - variant "hero": ô lớn gần hero trang chủ, kèm chip gợi ý nhanh
+// Dùng chung searchCore (một instance Pagefind cho cả trang — xem searchCore.ts).
+// Bàn phím: mũi tên lên/xuống di chuyển, Enter mở kết quả đang chọn,
+// Escape lần một xóa chữ + đóng danh sách, lần hai bỏ focus khỏi ô nhập.
+// -----------------------------------------------------------------------------
+
+import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+
+interface Props {
+  inputId: string;
+  variant?: 'header' | 'hero';
+  suggestions?: string[];
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+const { inputId, variant = 'header', suggestions = [] } = Astro.props;
+const listboxId = `${inputId}-listbox`;
+const isHero = variant === 'hero';
+---
+
+<div
+  class={`relative ${isHero ? 'mt-8 max-w-xl' : 'hidden w-52 sm:block xl:w-64'}`}
+  data-inline-search
+  data-pagefind-ignore
+  data-msg-prep={tr.search_prep}
+  data-msg-none={tr.search_no_results}
+  data-msg-none-hint={tr.search_no_results_hint}
+  data-msg-glossary={tr.cta_glossary}
+  data-section-glossary={tr.search_section_glossary}
+  data-section-mechanism={tr.search_section_mechanism}
+  data-section-brand={tr.search_section_brand}
+  data-section-iconic={tr.search_section_iconic}
+  data-section-guide={tr.search_section_guide}
+  data-section-history={tr.search_section_history}
+  data-section-anatomy={tr.search_section_anatomy}
+  data-section-article={tr.search_section_article}
+>
+  <label
+    for={inputId}
+    class={isHero
+      ? 'block font-serif text-xl text-navy dark:text-dark-text sm:text-2xl'
+      : 'sr-only'}
+  >
+    {isHero ? tr.hero_search_label : tr.search_label}
+  </label>
+
+  <div class={`relative ${isHero ? 'mt-3' : ''}`}>
+    <svg
+      class={`pointer-events-none absolute text-ink-soft/90 dark:text-dark-text-soft/70 ${isHero ? 'left-4 h-5 w-5 top-5' : 'left-3 h-4 w-4 top-3.5'}`}
+      fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="7" />
+      <path stroke-linecap="round" d="M21 21l-4.3-4.3" />
+    </svg>
+    <input
+      type="text"
+      id={inputId}
+      class={`w-full rounded-lg border border-cream-dark bg-white pl-10 pr-4 text-navy placeholder:text-ink-soft/90 focus:border-brass focus:outline-none dark:border-dark-border dark:bg-dark-surface dark:text-dark-text dark:placeholder:text-dark-text-soft/70 ${isHero ? 'min-h-14 text-base' : 'min-h-11 text-sm'}`}
+      placeholder={tr.search_placeholder}
+      autocomplete="off"
+      role="combobox"
+      aria-expanded="false"
+      aria-controls={listboxId}
+      aria-autocomplete="list"
+    />
+  </div>
+
+  <!-- Dropdown kết quả — JS render; absolute nên không đẩy bố cục -->
+  <ul
+    id={listboxId}
+    role="listbox"
+    aria-label={tr.search_label}
+    class="hidden absolute left-0 right-0 top-full z-50 mt-2 max-h-[60vh] overflow-y-auto rounded-lg border border-cream-dark bg-white py-2 shadow-xl dark:border-dark-border dark:bg-dark-surface"
+  >
+  </ul>
+
+  {isHero && suggestions.length > 0 && (
+    <div class="mt-3 flex flex-wrap items-center gap-2">
+      <span class="text-sm text-ink-soft/90 dark:text-dark-text-soft/70">{tr.hero_search_suggest_label}</span>
+      {suggestions.map((s) => (
+        <button
+          type="button"
+          class="suggestion-chip inline-flex min-h-11 items-center rounded-full border border-cream-dark bg-white px-4 text-sm text-ink transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          data-suggest={s}
+        >
+          {s}
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+<style is:global>
+  /* Excerpt do JavaScript tạo nên không mang [data-astro-cid] — dùng is:global
+     nhưng giới hạn trong .search-result của ô inline. */
+  .search-result mark {
+    background: rgb(var(--c-alloy) / 0.28);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .dark .search-result mark {
+    background: rgb(var(--c-alloy) / 0.38);
+  }
+</style>
+
+<script>
+  import { initSearchCore, requestSearch, subscribeSearch } from '../scripts/searchCore';
+
+  document.querySelectorAll<HTMLElement>('[data-inline-search]').forEach((root) => {
+    const input = root.querySelector<HTMLInputElement>('input[role="combobox"]');
+    const listbox = root.querySelector<HTMLUListElement>('[role="listbox"]');
+    if (!input || !listbox) return;
+
+    const msg = (key: string) => root.getAttribute('data-msg-' + key) ?? '';
+
+    // Đăng ký nhãn nhóm nội dung cho core (idempotent — mọi ô ghi đè cùng bộ nhãn)
+    initSearchCore({
+      glossary: root.getAttribute('data-section-glossary') ?? '',
+      mechanism: root.getAttribute('data-section-mechanism') ?? '',
+      brand: root.getAttribute('data-section-brand') ?? '',
+      iconic: root.getAttribute('data-section-iconic') ?? '',
+      guide: root.getAttribute('data-section-guide') ?? '',
+      history: root.getAttribute('data-section-history') ?? '',
+      anatomy: root.getAttribute('data-section-anatomy') ?? '',
+      article: root.getAttribute('data-section-article') ?? '',
+    });
+
+    let selectedIndex = -1;
+    let optionEls: HTMLAnchorElement[] = [];
+
+    function closeDropdown() {
+      listbox.classList.add('hidden');
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      selectedIndex = -1;
+    }
+
+    function highlight() {
+      optionEls.forEach((el, i) => {
+        const on = i === selectedIndex;
+        el.setAttribute('aria-selected', String(on));
+        el.classList.toggle('bg-brass/10', on);
+        el.classList.toggle('dark:bg-dark-brass/15', on);
+        if (on) {
+          input.setAttribute('aria-activedescendant', el.id);
+          el.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    }
+
+    function renderMessage(main: string, hint?: string, glossaryLink = false) {
+      listbox.replaceChildren();
+      const li = document.createElement('li');
+      li.className = 'px-4 py-4 text-sm text-ink-soft dark:text-dark-text-soft';
+      const p = document.createElement('p');
+      p.textContent = main;
+      li.appendChild(p);
+      if (hint) {
+        const small = document.createElement('p');
+        small.className = 'mt-1 text-xs';
+        small.textContent = hint;
+        li.appendChild(small);
+      }
+      if (glossaryLink) {
+        const a = document.createElement('a');
+        a.href = '/tu-dien';
+        a.className = 'mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-steel hover:text-brass dark:hover:text-dark-brass';
+        a.textContent = msg('glossary') + ' →';
+        li.appendChild(a);
+      }
+      listbox.appendChild(li);
+      listbox.classList.remove('hidden');
+      input.setAttribute('aria-expanded', 'true');
+      optionEls = [];
+      selectedIndex = -1;
+      input.removeAttribute('aria-activedescendant');
+    }
+
+    const unsubscribe = subscribeSearch((state) => {
+      // Chỉ render khi dropdown của ô này có thể đang được dùng (input là chủ thể
+      // của query hiện tại, hoặc trạng thái idle dọn dọn kết quả cũ)
+      if (state.status === 'idle') {
+        closeDropdown();
+        return;
+      }
+      if (state.query !== input.value.trim()) return; // query từ ô khác
+
+      if (state.status === 'preparing') {
+        renderMessage(msg('prep'));
+        return;
+      }
+      if (state.status === 'error') {
+        renderMessage(msg('none'), msg('none-hint'), true);
+        return;
+      }
+      if (state.status === 'none') {
+        renderMessage(msg('none'), msg('none-hint'), true);
+        return;
+      }
+
+      // ready — dựng tối đa 8 kết quả: nhóm nội dung + tiêu đề + đoạn trích
+      const frag = document.createDocumentFragment();
+      optionEls = state.hits.map((hit, i) => {
+        const a = document.createElement('a');
+        a.href = hit.url;
+        a.id = `${input.id}-opt-${i}`;
+        a.role = 'option';
+        a.setAttribute('aria-selected', 'false');
+        a.className = 'search-result block min-h-[44px] px-4 py-2.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15';
+
+        const section = document.createElement('span');
+        section.className = 'text-xs font-medium uppercase tracking-wider text-alloy dark:text-dark-brass';
+        section.textContent = hit.section;
+
+        const title = document.createElement('span');
+        title.className = 'mt-0.5 block font-semibold text-navy dark:text-dark-text';
+        title.textContent = hit.title;
+
+        const excerpt = document.createElement('span');
+        excerpt.className = 'mt-0.5 block text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft line-clamp-2';
+        excerpt.innerHTML = hit.excerptHtml;
+
+        a.appendChild(section);
+        a.appendChild(title);
+        a.appendChild(excerpt);
+        frag.appendChild(a);
+        return a;
+      });
+      listbox.replaceChildren(frag);
+      listbox.classList.remove('hidden');
+      input.setAttribute('aria-expanded', 'true');
+      selectedIndex = -1;
+    });
+
+    // Gõ → yêu cầu tìm (debounce nằm trong core)
+    input.addEventListener('input', () => requestSearch(input.value));
+
+    // Chip gợi ý: điền và tìm ngay
+    root.querySelectorAll<HTMLButtonElement>('.suggestion-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        input.value = chip.dataset.suggest ?? '';
+        input.focus();
+        requestSearch(input.value);
+      });
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (listbox.classList.contains('hidden') || optionEls.length === 0) return;
+        e.preventDefault();
+        const dir = e.key === 'ArrowDown' ? 1 : -1;
+        selectedIndex = (selectedIndex + dir + optionEls.length) % optionEls.length;
+        highlight();
+      } else if (e.key === 'Enter') {
+        if (listbox.classList.contains('hidden') || optionEls.length === 0) return;
+        e.preventDefault();
+        const target = optionEls[selectedIndex] ?? optionEls[0];
+        target.click();
+      } else if (e.key === 'Escape') {
+        // Lần một: xóa toàn bộ chữ + đóng danh sách, giữ focus ở ô nhập.
+        // Lần hai (ô đã rỗng): bỏ focus khỏi ô nhập.
+        e.preventDefault();
+        if (input.value !== '' || !listbox.classList.contains('hidden')) {
+          input.value = '';
+          requestSearch(''); // đưa core về idle — đóng dropdown ở mọi ô tìm kiếm
+          closeDropdown();
+          input.focus();
+        } else {
+          input.blur();
+        }
+      }
+    });
+
+    // Focus rời hẳn khỏi ô (và không vào kết quả) → đóng dropdown
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget as Node)) closeDropdown();
+    });
+
+    // Chọn kết quả bằng chuột → điều hướng bình thường qua href
+    listbox.addEventListener('click', (e) => {
+      const a = (e.target as HTMLElement).closest('a');
+      if (a) closeDropdown();
+    });
+  });
+</script>

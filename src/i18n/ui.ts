@@ -137,6 +137,22 @@ export const translations = {
     // Template {total}/{shown}/{query} được client script thay thế khi thông báo số kết quả
     search_status_found: 'Tìm thấy {total} kết quả cho "{query}".',
     search_status_showing: 'Tìm thấy {total} kết quả cho "{query}", hiện {shown} kết quả đầu.',
+    // Tìm kiếm trực tiếp (ô trong header + ô lớn trang chủ)
+    search_prep: 'Đang chuẩn bị tìm kiếm…',
+    search_label: 'Tìm kiếm',
+    search_section_glossary: 'Từ điển',
+    search_section_mechanism: 'Cơ chế',
+    search_section_brand: 'Thương hiệu',
+    search_section_iconic: 'Mẫu iconic',
+    search_section_guide: 'Hướng dẫn',
+    search_section_history: 'Lịch sử',
+    search_section_anatomy: 'Giải phẫu',
+    search_section_article: 'Bài viết',
+    hero_search_label: 'Bạn muốn tìm hiểu điều gì?',
+    hero_search_suggest_label: 'Gợi ý nhanh:',
+    // Khối nhóm thương hiệu trang chủ + /thuong-hieu
+    brand_group_and_more: 'và {n} hãng khác',
+    brand_groups_note: 'Phân hạng mang tính biên tập, không phải bảng xếp hạng chất lượng tuyệt đối.',
     subscribe_title: 'Nhận bài viết mới',
     subscribe_desc: 'Để lại email, tôi sẽ thông báo khi có bài mới.',
     // subscribe_email + subscribe_button: tạm không dùng (form bản tin đã vô hiệu hóa).
@@ -257,6 +273,22 @@ export const translations = {
     // {total}/{shown}/{query} placeholders are replaced by the client script
     search_status_found: 'Found {total} results for "{query}".',
     search_status_showing: 'Found {total} results for "{query}", showing the first {shown}.',
+    // Direct search (header inline input + homepage hero input)
+    search_prep: 'Preparing search…',
+    search_label: 'Search',
+    search_section_glossary: 'Glossary',
+    search_section_mechanism: 'Mechanism',
+    search_section_brand: 'Brand',
+    search_section_iconic: 'Iconic watch',
+    search_section_guide: 'Guide',
+    search_section_history: 'History',
+    search_section_anatomy: 'Anatomy',
+    search_section_article: 'Article',
+    hero_search_label: 'What would you like to explore?',
+    hero_search_suggest_label: 'Quick suggestions:',
+    // Homepage brand groups + /thuong-hieu
+    brand_group_and_more: 'and {n} more brands',
+    brand_groups_note: 'Tiering is editorial, not an absolute ranking of quality.',
     // ===== Homepage — calibre profile (Gói 3) =====
     hero_title: 'Learn mechanical watches from how the movement works',
     hero_lead: 'Foundations → mechanisms → brands and the watches that defined categories. Every fact is sourced.',
@@ -396,7 +428,7 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
     },
   },
   consumer: {
-    vi: 'Consumer — Phổ thông',
+    vi: 'Phổ thông',
     en: 'Consumer',
     desc: {
       vi: 'Phổ thông — dưới $500, dùng hàng ngày.',
@@ -404,7 +436,7 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
     },
   },
   microbrand: {
-    vi: 'Microbrand — Độc lập nhỏ',
+    vi: 'Độc lập nhỏ',
     en: 'Microbrand',
     desc: {
       vi: 'Thương hiệu nhỏ độc lập — sáng tạo, direct-to-consumer.',

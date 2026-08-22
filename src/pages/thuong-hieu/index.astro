@@ -1,10 +1,12 @@
 ---
 // =============================================================================
-// Trang danh sách: THƯƠNG HIỆU (Trụ cột 1) — nhóm theo hạng + lọc
+// Trang danh sách: THƯƠNG HIỆU (Trụ cột 1) — nhóm theo hạng + lọc theo hạng
 // =============================================================================
 // Hiển thị tất cả thương hiệu, ĐƯỢC NHÓM THEO TỪNG HẠNG (từ cao xuống thấp).
-// Có thanh lọc ở trên: bấm để chỉ xem một hạng cụ thể, hoặc "Tất cả".
-// Lọc chạy ở trình duyệt (JavaScript nhẹ), không cần tải lại trang.
+// Thanh lọc ở trên chọn theo TỪNG HẠNG RIÊNG (không gộp) — khớp với 6 nhóm
+// trên trang chủ. Trạng thái lọc ghi vào hash (#tier=<slug>) để chia sẻ được;
+// tải lại trang với hash thì tự kích hoạt đúng hạng (link "và N hãng khác"
+// từ trang chủ dẫn về đây). Lọc chạy ở trình duyệt, không tải lại trang.
 // =============================================================================
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -23,9 +25,13 @@ const foundedLabel: Record<string, string> = {
   'philippe-dufour': '1978 — lập xưởng riêng',
 };
 
+// Slug hóa tier cho hash (haute horlogerie -> haute-horlogerie) — ổn định, chia sẻ được
+const tierSlug = (tier: string) => tier.replace(/\s+/g, '-');
+
 // Nhóm thương hiệu theo hạng — mỗi nhóm kèm mã màu nhấn (tier accent)
 const groups = TIER_ORDER.map((tier) => ({
   tier,
+  slug: tierSlug(tier),
   label: getTierLabel(tier, lang),
   desc: getTierDesc(tier, lang),
   accent: getTierAccent(tier),
@@ -51,20 +57,21 @@ const groups = TIER_ORDER.map((tier) => ({
         : 'All mechanical watch brands, organized by tier — from the pinnacle of watchmaking to consumer.'}
     </p>
 
-    <!-- Thanh lọc theo hạng -->
+    <!-- Thanh lọc theo từng hạng — vùng bấm 44px, aria-pressed, không gộp hạng -->
     <div class="mt-8 flex flex-wrap gap-2" id="tier-filter">
       <button
         data-tier="all"
         aria-pressed="true"
-        class="filter-btn rounded-full border border-navy bg-navy px-4 py-1.5 text-xs font-medium text-cream transition-colors"
+        class="filter-btn min-h-11 rounded-full border border-navy bg-navy px-4 text-xs font-medium text-cream transition-colors"
       >
-        {isVi ? 'Tất cả' : 'All'} ({entries.length})
+        {tr.filter_all} ({entries.length})
       </button>
       {groups.map((g) => (
         <button
           data-tier={g.tier}
+          data-accent={g.accent}
           aria-pressed="false"
-          class="filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          class="filter-btn min-h-11 rounded-full border border-cream-dark bg-white px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
         >
           {g.label} ({g.items.length})
         </button>
@@ -110,18 +117,21 @@ const groups = TIER_ORDER.map((tier) => ({
     <p id="no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft">
       {isVi ? 'Không có thương hiệu nào trong hạng này.' : 'No brands in this tier.'}
     </p>
+
+    <p class="mt-12 border-t border-line pt-4 text-sm italic text-ink-soft/90 dark:border-dark-border dark:text-dark-text-soft/70">
+      {tr.brand_groups_note}
+    </p>
   </section>
 </BaseLayout>
 
 <script>
-  // Lọc theo hạng — chạy ở trình duyệt, không cần tải lại trang
+  // Lọc theo từng hạng — chạy ở trình duyệt, không cần tải lại trang.
   // Nút đang bật dùng màu nhấn riêng của hạng (thay vì navy chung cho mọi hạng).
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
   const groups = document.querySelectorAll<HTMLElement>('.tier-group');
   const noResults = document.getElementById('no-results');
 
   // Lập bản đồ tier -> mã màu nhấn (lấy từ data-accent của nhóm tương ứng).
-  // Dùng cho nút lọc khi đang bật.
   const tierAccentMap: Record<string, { bg: string; text: string; border: string }> = {};
   groups.forEach((g) => {
     const tier = g.dataset.tierGroup;
@@ -136,10 +146,8 @@ const groups = TIER_ORDER.map((tier) => ({
   });
 
   // Danh sách mọi class màu có thể có trên nút (để xóa sạch khi đổi trạng thái).
-  // offClasses gồm đủ biến thể dark để trạng thái "chưa chọn" không giữ nền trắng ở chế độ tối,
-  // kèm 4 lớp hover brass: chỉ nút CHƯA CHỌN được đổi màu khi rê chuột. Nút đã chọn luôn
-  // giữ chữ text-cream (đủ tương phản trên mọi nền hạng) — hover brass bị xóa khi chọn
-  // và được trả lại khi nút trở về trạng thái chưa chọn.
+  // offClasses gồm đủ biến thể dark để trạng thái "chưa chọn" không giữ nền trắng
+  // ở chế độ tối; hover brass chỉ trên nút CHƯA chọn — nút đã chọn giữ chữ text-cream.
   const allAccentClasses = Object.values(tierAccentMap).flatMap((c) => [c.bg, c.border]);
   const offClasses = [
     'bg-white', 'text-ink-soft', 'border-cream-dark',
@@ -154,41 +162,57 @@ const groups = TIER_ORDER.map((tier) => ({
     offClasses.forEach((c) => b.classList.add(c));
   }
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const selected = btn.dataset.tier;
+  function selectTier(selected: string) {
+    // Đặt mọi nút về trạng thái tắt (kèm aria-pressed cho trình đọc màn hình)
+    buttons.forEach((b) => {
+      setButtonOff(b);
+      b.setAttribute('aria-pressed', 'false');
+    });
 
-      // Đặt mọi nút về trạng thái tắt (kèm aria-pressed cho trình đọc màn hình)
-      buttons.forEach((b) => {
-        setButtonOff(b);
-        b.setAttribute('aria-pressed', 'false');
-      });
-
-      // Bật nút được chọn: "Tất cả" dùng navy; nút hạng dùng màu nhấn riêng.
-      if (selected === 'all') {
+    // Bật nút được chọn: "Tất cả" dùng navy; nút hạng dùng màu nhấn riêng.
+    const btn = Array.from(buttons).find((b) => b.dataset.tier === selected);
+    if (btn) {
+      const accent = tierAccentMap[selected];
+      if (selected === 'all' || !accent) {
         btn.classList.add('bg-navy', 'text-cream', 'border-navy');
       } else {
-        const accent = tierAccentMap[selected];
-        if (accent) {
-          btn.classList.add(accent.bg, accent.text, accent.border);
-        } else {
-          btn.classList.add('bg-navy', 'text-cream', 'border-navy');
-        }
+        btn.classList.add(accent.bg, accent.text, accent.border);
       }
-      offClasses.forEach((c) => btn.classList.remove(c));
       btn.setAttribute('aria-pressed', 'true');
+    }
 
-      // Hiển thị nhóm tương ứng
-      let anyVisible = false;
-      groups.forEach((group) => {
-        if (selected === 'all' || group.dataset.tierGroup === selected) {
-          group.classList.remove('hidden');
-          anyVisible = true;
-        } else {
-          group.classList.add('hidden');
-        }
-      });
-      noResults?.classList.toggle('hidden', anyVisible);
+    // Hiển thị đúng hạng được chọn — không gộp hạng
+    let anyVisible = false;
+    groups.forEach((group) => {
+      const show = selected === 'all' || group.dataset.tierGroup === selected;
+      group.classList.toggle('hidden', !show);
+      if (show) anyVisible = true;
     });
+    noResults?.classList.toggle('hidden', anyVisible);
+
+    // Ghi trạng thái vào hash để chia sẻ được (không tạo mục lịch sử mới)
+    const newHash = `#tier=${selected === 'all' ? 'all' : selected.replace(/\s+/g, '-')}`;
+    if (location.hash !== newHash) {
+      history.replaceState(null, '', newHash);
+    }
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => selectTier(btn.dataset.tier ?? 'all'));
   });
+
+  // Khôi phục lọc từ hash khi tải trang: /thuong-hieu#tier=haute-horlogerie
+  // (link "và N hãng khác" từ trang chủ dẫn về đây)
+  function applyHash() {
+    const m = location.hash.match(/^#tier=([a-z0-9-]+)/i);
+    if (!m) return;
+    // slug -> tier: đối chiếu data-tier của các nút sau khi thay gạch nối bằng khoảng trắng
+    const target = Array.from(buttons).find(
+      (b) => b.dataset.tier !== 'all' && b.dataset.tier.replace(/\s+/g, '-') === m[1]
+    );
+    if (target) selectTier(target.dataset.tier!);
+  }
+  applyHash();
+  // Điều hướng hash nội bộ (không tải lại trang) cũng cập nhật lọc
+  window.addEventListener('hashchange', applyHash);
 </script>

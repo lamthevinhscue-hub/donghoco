@@ -120,6 +120,8 @@ export const translations = {
     footer_made: 'Xây dựng bằng Astro & Tailwind CSS',
     switch_lang: 'English',
     search_placeholder: 'Tìm bài viết, thương hiệu, thuật ngữ...',
+    // Mô tả ảnh chia sẻ (OG) cho trình đọc màn hình
+    og_image_alt: 'Kiến Thức Đồng Hồ Cơ — bách khoa tiếng Việt về đồng hồ cơ, từ nguyên lý bộ máy đến nghệ thuật sưu tầm',
     // Nhãn cho header/menu/tìm kiếm/chủ đề (Gói 2 Prompt 2)
     skip_to_content: 'Bỏ qua tới nội dung chính',
     menu_open: 'Mở menu',
@@ -256,6 +258,8 @@ export const translations = {
     footer_made: 'Built with Astro & Tailwind CSS',
     switch_lang: 'Tiếng Việt',
     search_placeholder: 'Search articles, brands, terms...',
+    // OG share image description for screen readers
+    og_image_alt: 'Kiến Thức Đồng Hồ Cơ — a Vietnamese encyclopedia of mechanical watches, from movement principles to the art of collecting',
     // Labels for header/menu/search/theme (Gói 2 Prompt 2)
     skip_to_content: 'Skip to main content',
     menu_open: 'Open menu',

@@ -1,38 +1,52 @@
 # =============================================================================
 # robots.txt — Đồng Hồ Cơ (www.kienthucdonghoco.vn)
 # =============================================================================
-# Mục đích: cho phép các bộ máy tìm kiếm (Google, Bing...) lập chỉ mục để độc
-# giả tìm thấy trang; đồng thời chặn các trình thu thập dữ liệu dùng để huấn
-# luyện mô hình ngôn ngữ / máy học AI, bảo vệ nội dung biên soạn gốc.
+# Mục đích: quản lý hai nhóm bot theo hai chính sách khác nhau:
+#   1. BOT HUẤN LUYỆN MÔ HÌNH AI — BỊ CHẶN (các khối Disallow bên dưới).
+#      Nội dung biên soạn gốc không được dùng để huấn luyện mô hình ngôn ngữ
+#      hay máy học.
+#   2. BOT TÌM KIẾM VÀ BOT ĐỌC THEO YÊU CẦU NGƯỜI DÙNG — ĐƯỢC PHÉP, để trang
+#      được lập chỉ mục và trích dẫn kèm dẫn nguồn (Google, Bing, ChatGPT
+#      Search, Perplexity, Claude...). Nhóm này đi theo quy tắc mặc định
+#      bên dưới; riêng hai bot của Anthropic có khối Allow tường minh.
 #
-# Sau này khi cần cho phép/thêm bot AI nào, chỉ cần xoá khối tương ứng dưới đây.
+# Cập nhật 22/08/2026: mở khóa nhóm bot tìm kiếm và bot đọc theo yêu cầu
+# (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-User, Claude-SearchBot)
+# để trang hiện diện trong các công cụ tìm kiếm; xoá hai tên cũ đã ngừng dùng
+# (Claude-Web, anthropic-ai); nhóm bot huấn luyện vẫn bị chặn đủ.
+#
+# Muốn CHẶN LẠI nhóm tìm kiếm và đọc theo yêu cầu: thêm khối sau cho TỪNG bot
+# (OAI-SearchBot, PerplexityBot, Claude-User, Claude-SearchBot):
+#   User-agent: <tên bot>
+#   Disallow: /
+# Lưu ý: hệ thống của OpenAI cần khoảng 24 giờ để cập nhật theo thay đổi
+# robots.txt. Không đụng vào các khối Disallow của nhóm huấn luyện bên dưới.
 # =============================================================================
 
 # ---- Mặc định: cho phép mọi bot thu thập toàn bộ trang ----
 User-agent: *
 Allow: /
 
-# ---- Chặn các trình thu thập dữ liệu huấn luyện AI (mỗi bot một khối) ----
+# ---- Hai bot của Anthropic được phép TƯỜNG MINH ----
+# Claude-User: bot đọc trang theo yêu cầu trực tiếp của người dùng.
+# Claude-SearchBot: bot tìm kiếm của Anthropic.
+# Cả hai KHÔNG phải bot huấn luyện — đừng chặn nhầm. Bot huấn luyện của
+# Anthropic là ClaudeBot, đã nằm trong nhóm bị chặn bên dưới.
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# ---- Chặn các trình thu thập dữ liệu HUẤN LUYỆN AI (13 bot, mỗi bot một khối) ----
 
 User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: OAI-SearchBot
 Disallow: /
 
 User-agent: CCBot
 Disallow: /
 
 User-agent: ClaudeBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
 Disallow: /
 
 User-agent: Google-Extended
@@ -42,9 +56,6 @@ User-agent: Applebot-Extended
 Disallow: /
 
 User-agent: Bytespider
-Disallow: /
-
-User-agent: PerplexityBot
 Disallow: /
 
 User-agent: Amazonbot

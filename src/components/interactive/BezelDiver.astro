@@ -53,22 +53,22 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       <!-- Vành lặn (xoay được) -->
       <g class="bezel-ring" style="cursor: grab; transform-origin: 150px 150px;">
         <!-- Vành ngoài tối -->
-        <circle cx="150" cy="150" r="138" fill="#1F2D3D" stroke="#0f1620" stroke-width="2" />
+        <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="138" stroke="#0f1620" stroke-width="2" />
         <!-- Vạch phút 0-60 trên vành -->
         <g class="bezel-marks"></g>
         <!-- Số 0 lớn -->
         <text x="150" y="32" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="16" font-weight="700">0</text>
       </g>
       <!-- Mặt số -->
-      <circle cx="150" cy="150" r="112" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" />
+      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="112" stroke-width="2" />
       <!-- Kim giờ (tĩnh cho ví dụ, chỉ vị trí 10:10) -->
-      <line x1="150" y1="150" x2="120" y2="100" stroke="#1F2D3D" stroke-width="5" stroke-linecap="round" />
+      <line style="stroke:var(--ig-stroke)" x1="150" y1="150" x2="120" y2="100" stroke-width="5" stroke-linecap="round" />
       <!-- Kim phút (xoay được) -->
       <g class="minute-hand" style="transform-origin: 150px 150px;">
-        <line x1="150" y1="150" x2="150" y2="55" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round" />
+        <line style="stroke:var(--ig-stroke)" x1="150" y1="150" x2="150" y2="55" stroke-width="3" stroke-linecap="round" />
       </g>
       <!-- Tâm -->
-      <circle cx="150" cy="150" r="5" fill="#1F2D3D" />
+      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="5" />
       <!-- Chỉ mục mốc 0 cố định ở đỉnh -->
       <polygon points="150,4 142,18 158,18" fill="#B8893C" />
     </svg>

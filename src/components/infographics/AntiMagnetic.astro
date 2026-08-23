@@ -90,25 +90,25 @@ const sources = [
 
     <MechanismAnimation label="Kéo thanh trượt từ trường — dây tóc thép bị nhiễm, silicon không đổi" data-mech-step-id="anti-magnetic">
       <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="anti-magnetic-svg">
-        <text x="300" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+        <text style="fill:var(--ig-stroke)" x="300" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">
           Cùng một từ trường — hai phản ứng khác nhau
         </text>
 
         <!-- ====== BÊN TRÁI: DÂY TÓC THÉP ====== -->
         <g transform="translate(150, 140)">
-          <text x="0" y="-70" text-anchor="middle" font-size="11" fill="#9B2C2C" font-weight="bold">Dây tóc thép</text>
+          <text style="fill:var(--ig-rubi)" x="0" y="-70" text-anchor="middle" font-size="11" font-weight="bold">Dây tóc thép</text>
           <!-- Dây tóc thép (xoắn ốc — bị hút dính khi từ trường cao) -->
           <g id="am-steel-spring">
-            <path id="am-steel-path" d="" fill="none" stroke="#9B2C2C" stroke-width="2.5"/>
+            <path style="stroke:var(--ig-rubi)" id="am-steel-path" d="" fill="none" stroke-width="2.5"/>
           </g>
-          <circle r="3" fill="#9B2C2C"/>
+          <circle style="fill:var(--ig-rubi)" r="3"/>
           <!-- Sai số -->
-          <text id="am-steel-error" x="0" y="80" text-anchor="middle" font-size="12" fill="#9B2C2C" font-weight="bold">±0 giây/ngày</text>
-          <text x="0" y="95" text-anchor="middle" font-size="9" fill="#9B2C2C" opacity="0.7">chạy sai khi nhiễm từ</text>
+          <text style="fill:var(--ig-rubi)" id="am-steel-error" x="0" y="80" text-anchor="middle" font-size="12" font-weight="bold">±0 giây/ngày</text>
+          <text style="fill:var(--ig-rubi)" x="0" y="95" text-anchor="middle" font-size="9" opacity="0.7">chạy sai khi nhiễm từ</text>
         </g>
 
         <!-- ====== ĐƯỜNG PHÂN CÁCH GIỮA ====== -->
-        <line x1="300" y1="50" x2="300" y2="230" stroke="#FAF7F2" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.3"/>
+        <line style="stroke:var(--ig-stroke-soft)" x1="300" y1="50" x2="300" y2="230" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.3"/>
 
         <!-- ====== BÊN PHẢI: DÂY TÓC SILICON ====== -->
         <g transform="translate(450, 140)">
@@ -132,8 +132,8 @@ const sources = [
         </g>
 
         <!-- ====== THANH TRƯỢT TỪ TRƯỜNG ====== -->
-        <text x="300" y="270" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Cường độ từ trường</text>
-        <rect x="100" y="280" width="400" height="20" rx="4" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+        <text style="fill:var(--ig-stroke)" x="300" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Cường độ từ trường</text>
+        <rect style="stroke:var(--ig-stroke)" x="100" y="280" width="400" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
         <rect id="am-field-fill" x="102" y="282" width="0" height="16" rx="2" fill="#3182CE"/>
         <foreignObject x="95" y="275" width="410" height="30">
           <input type="range" id="am-field-slider" min="0" max="15000" value="0" step="500" style="width:100%;accent-color:#3182CE;touch-action:none;" aria-label="Cường độ từ trường (gauss)" />
@@ -217,18 +217,18 @@ const sources = [
         <div class="svg-container mb-4">
           <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs">
             <!-- Lồng sắt (soft iron cage) - lớp bao ngoài -->
-            <rect x="60" y="40" width="180" height="120" rx="8" fill="none" stroke="#4A5568" stroke-width="4" stroke-dasharray="6 3" data-anim="iron-cage" opacity="0"/>
+            <rect style="stroke:var(--ig-steel)" x="60" y="40" width="180" height="120" rx="8" fill="none" stroke-width="4" stroke-dasharray="6 3" data-anim="iron-cage" opacity="0"/>
             <!-- Movement ở giữa -->
             <rect x="90" y="65" width="120" height="70" rx="4" fill="#B8893C" opacity="0.4"/>
-            <text x="150" y="105" text-anchor="middle" font-size="11" fill="#1A1A1A" font-weight="bold">Máy</text>
+            <text style="fill:var(--ig-text)" x="150" y="105" text-anchor="middle" font-size="11" font-weight="bold">Máy</text>
             <!-- Mũi tên từ trường bị chặn -->
             <g data-anim="field-blocked" opacity="0">
               <line x1="30" y1="100" x2="55" y2="100" stroke="#3182CE" stroke-width="2.5"/>
               <polygon points="55,100 48,95 48,105" fill="#3182CE"/>
               <text x="20" y="90" text-anchor="middle" font-size="9" fill="#3182CE" font-weight="bold">Từ trường</text>
-              <text x="20" y="120" text-anchor="middle" font-size="8" fill="#9B2C2C">✗ bị chặn</text>
+              <text style="fill:var(--ig-rubi)" x="20" y="120" text-anchor="middle" font-size="8">✗ bị chặn</text>
             </g>
-            <text x="150" y="185" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">Lồng sắt dẫn từ trường đi vòng quanh máy</text>
+            <text style="fill:var(--ig-stroke)" x="150" y="185" text-anchor="middle" font-size="10" font-weight="bold">Lồng sắt dẫn từ trường đi vòng quanh máy</text>
           </svg>
         </div>
         <h4 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">① Lồng sắt mềm (Soft Iron Cage)</h4>
@@ -254,7 +254,7 @@ const sources = [
                        a 12 12 0 1 1 -24 0"
                     fill="none" stroke="#2D9D6C" stroke-width="2.5"/>
               <circle cx="150" cy="100" r="4" fill="#2D9D6C"/>
-              <text x="150" y="145" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="bold">Dây tóc silicon</text>
+              <text style="fill:var(--ig-text)" x="150" y="145" text-anchor="middle" font-size="9" font-weight="bold">Dây tóc silicon</text>
             </g>
             <!-- Từ trường đi qua nhưng không ảnh hưởng -->
             <g data-anim="field-pass" opacity="0">

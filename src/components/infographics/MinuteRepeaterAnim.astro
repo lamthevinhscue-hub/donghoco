@@ -17,12 +17,12 @@ import MechanismAnimation from './MechanismAnimation.astro';
   <div class="grid gap-6 md:grid-cols-[1fr_200px]">
     <!-- ====== BÊN TRÁI: SVG bộ máy ====== -->
     <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" class="w-full" id="repeater-svg">
-      <text x="250" y="20" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+      <text style="fill:var(--ig-stroke)" x="250" y="20" text-anchor="middle" font-size="12" font-weight="bold" class="">
         Hai thanh cộng hưởng + hai búa — gõ theo trình tự
       </text>
 
       <!-- ====== BỘ MÁY (vòng tròn nền) ====== -->
-      <circle cx="250" cy="170" r="100" fill="#FAF7F2" stroke="#2D3748" stroke-width="2" class="dark:fill-dark-surface"/>
+      <circle style="fill:var(--ig-bg);stroke:var(--ig-edge)" cx="250" cy="170" r="100" stroke-width="2" class=""/>
       <!-- Bánh răng trang trí -->
       <circle cx="220" cy="150" r="18" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
       <circle cx="280" cy="190" r="14" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
@@ -56,7 +56,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
       <g id="rep-waves"></g>
 
       <!-- ====== TRẠNG THÁI GÕ HIỆN TẠI (trên SVG) ====== -->
-      <text id="rep-current-tone" x="250" y="320" text-anchor="middle" font-size="11" fill="#1F2D3D" opacity="0" class="dark:fill-dark-text"></text>
+      <text style="fill:var(--ig-stroke)" id="rep-current-tone" x="250" y="320" text-anchor="middle" font-size="11" opacity="0" class=""></text>
     </svg>
 
     <!-- ====== BÊN PHẢI: BẢNG ĐẾM ====== -->

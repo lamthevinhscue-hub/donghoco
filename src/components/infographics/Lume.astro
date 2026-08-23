@@ -47,14 +47,14 @@ const materials = [
 <MechanismAnimation label="Dạ quang — nạp sáng rồi tắt đèn, xem độ sáng giảm dần" data-mech-step-id="lume">
   <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="lume-svg">
     <!-- Nền (đổi sáng/tối) -->
-    <rect id="lume-bg" x="0" y="0" width="500" height="300" fill="#FAF7F2" class="dark:fill-dark-surface"/>
+    <rect style="fill:var(--ig-bg)" id="lume-bg" x="0" y="0" width="500" height="300" class=""/>
 
-    <text x="250" y="22" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" id="lume-title" class="dark:fill-dark-text">
+    <text style="fill:var(--ig-stroke)" x="250" y="22" text-anchor="middle" font-size="12" font-weight="bold" id="lume-title" class="">
       Mặt số dạ quang — bấm "Chiếu sáng" để nạp năng lượng
     </text>
 
     <!-- ====== MẶT SỐ ĐỒNG HỒ ====== -->
-    <circle cx="250" cy="150" r="100" fill="none" stroke="#1F2D3D" stroke-width="2" id="lume-dial-ring" class="dark:stroke-dark-text"/>
+    <circle style="stroke:var(--ig-stroke)" cx="250" cy="150" r="100" fill="none" stroke-width="2" id="lume-dial-ring" class="dark:stroke-dark-text"/>
 
     <!-- Cọc số dạ quang (12 vị trí) -->
     <g id="lume-markers">
@@ -74,8 +74,8 @@ const materials = [
     </g>
 
     <!-- Thanh độ sáng dạ quang -->
-    <text x="250" y="275" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" id="lume-intensity-label" class="dark:fill-dark-text">Độ sáng dạ quang</text>
-    <rect x="150" y="282" width="200" height="12" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1" id="lume-bar-bg" class="dark:stroke-dark-text"/>
+    <text style="fill:var(--ig-stroke)" x="250" y="275" text-anchor="middle" font-size="10" font-weight="bold" id="lume-intensity-label" class="">Độ sáng dạ quang</text>
+    <rect style="stroke:var(--ig-stroke)" x="150" y="282" width="200" height="12" rx="3" fill="none" stroke-width="1" id="lume-bar-bg" class="dark:stroke-dark-text"/>
     <rect id="lume-bar-fill" x="152" y="284" width="196" height="8" rx="2" fill={materials[2].color}/>
 
     <!-- Vùng chọn vật liệu (dưới) -->

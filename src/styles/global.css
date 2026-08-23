@@ -32,13 +32,48 @@
     --c-page: 17 21 25;                /* than chì #111519 */
     --c-surface-tech: 26 32 37;        /* #1A2025 */
     --c-surface-raised: 32 39 45;      /* #20272D */
-    --c-primary: 238 240 237;          /* #EEF0ED */
-    --c-secondary: 183 192 198;        /* #B7C0C6 */
-    --c-steel: 139 178 218;            /* thép xanh sáng #8BB2DA */
-    --c-ruby: 224 131 131;             /* #E08383 */
-    --c-alloy: 208 178 123;            /* #D0B27B */
-    --c-line: 57 67 74;                /* #39434A */
+    --c-primary: 238 240 237;         /* #EEF0ED */
+    --c-secondary: 183 192 198;       /* #B7C0C6 */
+    --c-steel: 139 178 218;           /* thép xanh sáng #8BB2DA */
+    --c-ruby: 224 131 131;            /* #E08383 */
+    --c-alloy: 208 178 123;           /* #D0B27B */
+    --c-line: 57 67 74;               /* #39434A */
   }
+
+  /* =====================================================================
+     BỘ BIẾN MÀU RIÊNG CHO HÌNH VẼ SVG (infographic + sơ đồ tương tác)
+     =====================================================================
+     Chế sáng giữ đúng mã màu vốn có của hình. Chế tối lấy tông khớp hệ
+     token (nền = surface-raised, chữ = primary) và chỉ TĂNG ĐỘ SÁNG của
+     chính màu nghĩa (rubi) — không đổi sang màu khác.
+     Dùng qua style="fill:var(--ig-...)" / style="stroke:var(--ig-...)"
+     trên phần tử SVG (attribute fill/stroke không nhận var()).
+     ===================================================================== */
+  :root {
+    --ig-bg: #FAF7F2;          /* nền hình chính */
+    --ig-bg-soft: #E8E2D6;     /* nền phụ (sub-dial) */
+    --ig-stroke: #1F2D3D;      /* nét chính + chữ đậm trên hình */
+    --ig-stroke-soft: #D1D5DB; /* nét phụ, đường tâm tham chiếu */
+    --ig-edge: #2D3748;        /* viền và khối đậm của chi tiết */
+    --ig-text: #1F2D3D;        /* chữ trên hình */
+    --ig-label: #A8A095;       /* chữ chú thích nhạt */
+    --ig-steel: #4A5568;       /* chi tiết máy xám đậm */
+    --ig-steel-soft: #5A6878;  /* chi tiết máy xám sáng (rotor) */
+    --ig-rubi: #9B2C2C;        /* chân kính rubi — màu nghĩa */
+  }
+  .dark {
+    --ig-bg: #20272D;          /* = dark-surface */
+    --ig-bg-soft: #2A313A;     /* nổi một nấc trên nền chính */
+    --ig-stroke: #C7D2DC;
+    --ig-stroke-soft: #4A5560;
+    --ig-edge: #8A94A0;
+    --ig-text: #EEF0ED;        /* = dark-text */
+    --ig-label: #98A2AE;
+    --ig-steel: #8C99A6;
+    --ig-steel-soft: #9AA7B4;
+    --ig-rubi: #E08383;        /* = token rubi tối — cùng tông đỏ, sáng hơn */
+  }
+
 
   /* Thiết lập font chữ mặc định cho toàn trang */
   html {

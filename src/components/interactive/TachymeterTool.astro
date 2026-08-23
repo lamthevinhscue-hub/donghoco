@@ -31,16 +31,16 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       aria-label="Mô phỏng thang tachymeter"
     >
       <!-- Thang tachymeter (vòng ngoài cùng) -->
-      <circle cx="150" cy="150" r="142" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="1.5" />
+      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="142" stroke-width="1.5" />
       <g class="tacho-scale"></g>
       <!-- Mặt số -->
-      <circle cx="150" cy="150" r="110" fill="#1F2D3D" />
+      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="110" />
       <g class="tacho-hour-marks"></g>
       <!-- Kim giây chronograph (đỏ) -->
       <g class="tacho-sec-hand" style="transform-origin: 150px 150px;">
         <line x1="150" y1="165" x2="150" y2="40" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round" />
       </g>
-      <circle cx="150" cy="150" r="5" fill="#FAF7F2" />
+      <circle style="fill:var(--ig-bg)" cx="150" cy="150" r="5" />
     </svg>
 
     <!-- Bảng điều khiển -->

@@ -13,7 +13,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
 <MechanismAnimation label="Hiển thị ngày — kéo thanh thời gian, xem khung giờ nguy hiểm" data-mech-step-id="date-display">
   <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="date-display-svg">
-    <text x="250" y="22" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">
+    <text style="fill:var(--ig-stroke)" x="250" y="22" text-anchor="middle" font-size="12" font-weight="bold" class="">
       Đĩa ngày 31 vị trí — bánh răng đẩy một nấc mỗi 24 giờ
     </text>
 
@@ -23,16 +23,16 @@ import MechanismAnimation from './MechanismAnimation.astro';
     <!-- 20h ở vị trí góc (20*15-90)=210° từ ngang phải... ta dùng hệ 0=đỉnh CW -->
     <!-- 20h = 300° từ đỉnh CW = vị trí số 10 trên mặt 12h; 4h = 60° = vị trí số 2 -->
     <!-- Vùng nguy hiểm = cung từ 300° qua 0° tới 60° -->
-    <path id="dd-danger-arc" d="" fill="#9B2C2C" opacity="0.15"/>
-    <text x="370" y="120" font-size="9" fill="#9B2C2C" font-weight="bold" opacity="0.6">Vùng nguy hiểm</text>
-    <text x="370" y="132" font-size="8" fill="#9B2C2C" opacity="0.5">20:00 — 04:00</text>
+    <path style="fill:var(--ig-rubi)" id="dd-danger-arc" d="" opacity="0.15"/>
+    <text style="fill:var(--ig-rubi)" x="370" y="120" font-size="9" font-weight="bold" opacity="0.6">Vùng nguy hiểm</text>
+    <text style="fill:var(--ig-rubi)" x="370" y="132" font-size="8" opacity="0.5">20:00 — 04:00</text>
 
     <!-- Vòng 24h -->
-    <circle cx="250" cy="200" r="130" fill="none" stroke="#1F2D3D" stroke-width="2" class="dark:stroke-dark-text"/>
+    <circle style="stroke:var(--ig-stroke)" cx="250" cy="200" r="130" fill="none" stroke-width="2" class="dark:stroke-dark-text"/>
     <g id="dd-hour-marks"></g>
 
     <!-- ====== Ô CỬA SỔ NGÀY (vị trí 3 giờ) ====== -->
-    <rect x="345" y="188" width="50" height="24" rx="3" fill="#1F2D3D" class="dark:fill-dark-border"/>
+    <rect style="fill:var(--ig-stroke)" x="345" y="188" width="50" height="24" rx="3"/>
     <text id="dd-date-label" x="370" y="205" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="bold">15</text>
 
     <!-- ====== ĐĨA NGÀY 31 VỊ TRÍ (xoay được, nằm dưới mặt số) ====== -->
@@ -44,18 +44,18 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
     <!-- ====== KIM GIỜ (chỉ vị trí thời gian hiện tại trên vòng 24h) ====== -->
     <g id="dd-hour-hand">
-      <line x1="250" y1="200" x2="250" y2="90" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round" class="dark:stroke-dark-text"/>
-      <circle cx="250" cy="200" r="6" fill="#1F2D3D" class="dark:fill-dark-text"/>
+      <line style="stroke:var(--ig-stroke)" x1="250" y1="200" x2="250" y2="90" stroke-width="3" stroke-linecap="round" class="dark:stroke-dark-text"/>
+      <circle style="fill:var(--ig-stroke)" cx="250" cy="200" r="6" class=""/>
     </g>
 
     <!-- ====== THANH TRƯỢT THỜI GIAN (dưới) ====== -->
-    <text x="250" y="350" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thời gian trong ngày</text>
-    <rect x="80" y="360" width="340" height="16" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+    <text style="fill:var(--ig-stroke)" x="250" y="350" text-anchor="middle" font-size="10" font-weight="bold" class="">Thời gian trong ngày</text>
+    <rect style="stroke:var(--ig-stroke)" x="80" y="360" width="340" height="16" rx="3" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
     <rect id="dd-time-fill" x="82" y="362" width="0" height="12" rx="2" fill="#B8893C"/>
     <foreignObject x="75" y="355" width="350" height="26">
       <input type="range" id="dd-time-slider" min="0" max="1440" value="720" step="10" style="width:100%;accent-color:#B8893C;touch-action:none;" aria-label="Thời gian (phút trong ngày)" />
     </foreignObject>
-    <text id="dd-time-label" x="250" y="390" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">12:00</text>
+    <text style="fill:var(--ig-stroke)" id="dd-time-label" x="250" y="390" text-anchor="middle" font-size="12" font-weight="bold" class="">12:00</text>
   </svg>
 
   <!-- Nút chuyển kiểu nhảy + cảnh báo -->
@@ -99,7 +99,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
         const line = document.createElementNS(svgNS, 'line');
         line.setAttribute('x1', String(x1)); line.setAttribute('y1', String(y1));
         line.setAttribute('x2', String(x2)); line.setAttribute('y2', String(y2));
-        line.setAttribute('stroke', '#1F2D3D');
+        line.style.stroke = 'var(--ig-stroke)';
         line.setAttribute('stroke-width', i % 6 === 0 ? '2' : '1');
         line.setAttribute('class', 'dark:stroke-dark-text');
         hourMarks.appendChild(line);
@@ -110,7 +110,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           t.setAttribute('x', String(tx)); t.setAttribute('y', String(ty));
           t.setAttribute('text-anchor', 'middle');
           t.setAttribute('font-size', '10');
-          t.setAttribute('fill', '#1F2D3D');
+          t.style.fill = 'var(--ig-stroke)';
           t.setAttribute('class', 'dark:fill-dark-text');
           t.textContent = String(i);
           hourMarks.appendChild(t);

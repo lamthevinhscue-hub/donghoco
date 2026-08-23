@@ -182,118 +182,118 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
              để luôn ngang hàng và di chuyển theo phép biến đổi của lớp. -->
 
         <!-- Đường tâm dọc tham chiếu -->
-        <line x1="250" y1="40" x2="250" y2="840" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
+        <line style="stroke:var(--ig-stroke-soft)" x1="250" y1="40" x2="250" y2="840" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
 
         <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
         <!-- LỚP 0: KÍNH (crystal) -->
         <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 0 · Kính</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 0 · Kính</text>
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
-          <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
+          <text style="fill:var(--ig-stroke)" x="250" y="3" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
         </g>
 
         <!-- LỚP 1: KIM (hands) -->
         <g class="layer-group" data-part="hands" data-layer="1" data-target-y="251" data-assembled-y="320" transform="translate(0, 320)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 1 · Kim</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 1 · Kim</text>
           <!-- Kim giờ -->
           <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
-            <rect x="248" y="-55" width="4" height="60" fill="#1F2D3D" rx="2"/>
+            <rect style="fill:var(--ig-stroke)" x="248" y="-55" width="4" height="60" rx="2"/>
           </g>
           <!-- Kim phút -->
           <g data-part="minute-hand" data-name-vi="Kim phút" data-name-en="Minute hand" data-role="Quay 1 vòng mỗi 60 phút." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
-            <rect x="249" y="-90" width="2.5" height="95" fill="#1F2D3D" rx="1.5"/>
+            <rect style="fill:var(--ig-stroke)" x="249" y="-90" width="2.5" height="95" rx="1.5"/>
           </g>
           <!-- Kim giây -->
           <g data-part="second-hand" data-name-vi="Kim giây" data-name-en="Second hand" data-role="Quay 1 vòng mỗi 60 giây — liên kết với bộ thoát." data-link="/co-che/bo-thoat" style="cursor: pointer;">
-            <rect x="249.5" y="-105" width="1.5" height="115" fill="#9B2C2C"/>
-            <circle cx="250" cy="-95" r="5" fill="#9B2C2C"/>
+            <rect style="fill:var(--ig-rubi)" x="249.5" y="-105" width="1.5" height="115"/>
+            <circle style="fill:var(--ig-rubi)" cx="250" cy="-95" r="5"/>
           </g>
-          <circle cx="250" cy="0" r="4" fill="#1F2D3D"/>
+          <circle style="fill:var(--ig-stroke)" cx="250" cy="0" r="4"/>
           <!-- Nhãn -->
-          <text x="250" y="30" text-anchor="middle" font-size="9" fill="#9CA3AF" class="svg-label">KIM (hands)</text>
+          <text style="fill:var(--ig-label)" x="250" y="30" text-anchor="middle" font-size="9" class="svg-label">KIM (hands)</text>
         </g>
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
         <g class="layer-group" data-part="dial" data-layer="2" data-target-y="428" data-assembled-y="360" transform="translate(0, 360)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 2 · Mặt số</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 2 · Mặt số</text>
           <!-- Mặt số chính -->
           <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
-            <circle cx="250" cy="0" r="120" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2"/>
+            <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="250" cy="0" r="120" stroke-width="2"/>
             <!-- Vạch giờ -->
             {Array.from({ length: 60 }).map((_, i) => {
               const a = (i * 360) / 60 - 90;
               const rad = (a * Math.PI) / 180;
               const isMajor = i % 5 === 0;
               const r1 = isMajor ? 105 : 112;
-              return <line x1={250 + Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={250 + Math.cos(rad) * 118} y2={Math.sin(rad) * 118} stroke="#1F2D3D" stroke-width={isMajor ? 2.5 : 0.8}/>;
+              return <line style="stroke:var(--ig-stroke)" x1={250 + Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={250 + Math.cos(rad) * 118} y2={Math.sin(rad) * 118} stroke-width={isMajor ? 2.5 : 0.8}/>;
             })}
             {/* Số */}
             {[12, 3, 6, 9].map((n, i) => {
               const a = (i * 90) - 90;
               const rad = (a * Math.PI) / 180;
-              return <text x={250 + Math.cos(rad) * 90} y={Math.sin(rad) * 90 + 5} text-anchor="middle" font-size="16" fill="#1F2D3D" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
+              return <text style="fill:var(--ig-stroke)" x={250 + Math.cos(rad) * 90} y={Math.sin(rad) * 90 + 5} text-anchor="middle" font-size="16" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
             })}
             {/* Logo giả */}
             <text x="250" y="-40" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" letter-spacing="2" class="svg-label">ĐỒNG HỒ CƠ</text>
           </g>
           <!-- Sub-dial (mặt phụ) -->
           <g data-part="subdial" data-name-vi="Mặt số phụ" data-name-en="Sub-dial" data-role="Hiển thị chức năng phụ: giây chạy, lịch, v.v." data-link="/tu-dien/perpetual-calendar" style="cursor: pointer;">
-            <circle cx="250" cy="50" r="28" fill="#E8E2D6" stroke="#1F2D3D" stroke-width="1"/>
+            <circle style="fill:var(--ig-bg-soft);stroke:var(--ig-stroke)" cx="250" cy="50" r="28" stroke-width="1"/>
             {Array.from({ length: 12 }).map((_, i) => {
               const a = (i * 360) / 12 - 90;
               const rad = (a * Math.PI) / 180;
-              return <line x1={250 + Math.cos(rad) * 22} y1={50 + Math.sin(rad) * 22} x2={250 + Math.cos(rad) * 26} y2={50 + Math.sin(rad) * 26} stroke="#4A5568" stroke-width="0.6"/>;
+              return <line style="stroke:var(--ig-steel)" x1={250 + Math.cos(rad) * 22} y1={50 + Math.sin(rad) * 22} x2={250 + Math.cos(rad) * 26} y2={50 + Math.sin(rad) * 26} stroke-width="0.6"/>;
             })}
-            <line x1="250" y1="50" x2="262" y2="42" stroke="#9B2C2C" stroke-width="1.2"/>
-            <circle cx="250" cy="50" r="2" fill="#1F2D3D"/>
+            <line style="stroke:var(--ig-rubi)" x1="250" y1="50" x2="262" y2="42" stroke-width="1.2"/>
+            <circle style="fill:var(--ig-stroke)" cx="250" cy="50" r="2"/>
           </g>
         </g>
 
         <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
         <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="613" data-assembled-y="410" transform="translate(0, 410)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 3 · Bộ máy</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 3 · Bộ máy</text>
           <!-- Thùng cót -->
           <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
             <circle cx="180" cy="0" r="38" fill="#B8893C" opacity="0.85" stroke="#9B6E2C" stroke-width="1.5"/>
             <circle cx="180" cy="0" r="30" fill="none" stroke="#9B6E2C" stroke-width="0.8"/>
             {/* Dây cót xoắn bên trong */}
-            <path d="M 180 0 m -22 0 a 22 22 0 1 1 44 0 a 16 16 0 1 0 -32 0 a 10 10 0 1 1 20 0"
-                  fill="none" stroke="#FAF7F2" stroke-width="1" opacity="0.7"/>
-            <circle cx="180" cy="0" r="5" fill="#2D3748"/>
+            <path style="stroke:var(--ig-stroke-soft)" d="M 180 0 m -22 0 a 22 22 0 1 1 44 0 a 16 16 0 1 0 -32 0 a 10 10 0 1 1 20 0"
+                  fill="none" stroke-width="1" opacity="0.7"/>
+            <circle style="fill:var(--ig-edge)" cx="180" cy="0" r="5"/>
             <text x="180" y="55" text-anchor="middle" font-size="10" fill="#9B6E2C" font-weight="bold" class="svg-label">Thùng cót</text>
           </g>
           <!-- Bánh răng trung gian (3 bánh) -->
           <g data-part="gear-train" data-name-vi="Bánh răng trung gian" data-name-en="Gear train" data-role="Chuỗi 4 bánh răng truyền năng lượng + chia tỷ lệ cho kim." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
             {/* Bánh 1 */}
             <g transform="translate(250, -15)">
-              <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+              <g style="fill:var(--ig-steel);stroke:var(--ig-edge)" stroke-width="0.8">
                 {Array.from({ length: 16 }).map((_, i) => {
                   const a = (i * 360) / 16;
                   return <g transform={`rotate(${a})`}><rect x="-1" y="-26" width="2" height="5"/></g>;
                 })}
               </g>
-              <circle r="22" fill="#5A6878" stroke="#2D3748" stroke-width="1"/>
-              <circle r="3" fill="#2D3748"/>
+              <circle style="fill:var(--ig-steel-soft);stroke:var(--ig-edge)" r="22" stroke-width="1"/>
+              <circle style="fill:var(--ig-edge)" r="3"/>
             </g>
             {/* Bánh 2 */}
             <g transform="translate(310, 5)">
-              <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+              <g style="fill:var(--ig-steel);stroke:var(--ig-edge)" stroke-width="0.8">
                 {Array.from({ length: 12 }).map((_, i) => {
                   const a = (i * 360) / 12;
                   return <g transform={`rotate(${a})`}><rect x="-1" y="-20" width="2" height="4"/></g>;
                 })}
               </g>
-              <circle r="16" fill="#5A6878" stroke="#2D3748" stroke-width="1"/>
-              <circle r="2.5" fill="#2D3748"/>
+              <circle style="fill:var(--ig-steel-soft);stroke:var(--ig-edge)" r="16" stroke-width="1"/>
+              <circle style="fill:var(--ig-edge)" r="2.5"/>
             </g>
-            <text x="265" y="55" text-anchor="middle" font-size="10" fill="#4A5568" font-weight="bold" class="svg-label">Chuỗi truyền động</text>
+            <text style="fill:var(--ig-steel)" x="265" y="55" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Chuỗi truyền động</text>
           </g>
         </g>
 
         <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
         <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="729" data-assembled-y="460" transform="translate(0, 460)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 4 · Bộ thoát</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 4 · Bộ thoát</text>
           <!-- Bộ thoát (escape wheel + pallet) -->
           <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
             <g transform="translate(190, 0)">
@@ -305,7 +305,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
                 })}
               </g>
               <circle r="14" fill="#2E86AB" stroke="#1F4E6B" stroke-width="1"/>
-              <circle r="2.5" fill="#1F2D3D"/>
+              <circle style="fill:var(--ig-stroke)" r="2.5"/>
               {/* Pallet fork */}
               <g transform="translate(28, 8)">
                 <path d="M 0 0 L -7 -10 L -9 -12 M 0 0 L 7 -10 L 9 -12 M 0 0 L 0 12"
@@ -317,43 +317,43 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
           <!-- Bánh lắc + dây tóc -->
           <g data-part="balance" data-name-vi="Bánh lắc + dây tóc" data-name-en="Balance & Hairspring" data-role="Hệ dao động điều hòa — biến năng lượng thành nhịp thời gian." data-link="/tu-dien/day-toc-banh-lac" style="cursor: pointer;">
             <g transform="translate(310, 0)">
-              <circle r="32" fill="none" stroke="#9B2C2C" stroke-width="3"/>
-              <line x1="-32" y1="0" x2="32" y2="0" stroke="#9B2C2C" stroke-width="2"/>
-              <line x1="0" y1="-32" x2="0" y2="32" stroke="#9B2C2C" stroke-width="2"/>
-              <circle r="4" fill="#9B2C2C"/>
-              <circle cx="0" cy="-32" r="2.5" fill="#2D3748"/>
-              <circle cx="0" cy="32" r="2.5" fill="#2D3748"/>
+              <circle style="stroke:var(--ig-rubi)" r="32" fill="none" stroke-width="3"/>
+              <line style="stroke:var(--ig-rubi)" x1="-32" y1="0" x2="32" y2="0" stroke-width="2"/>
+              <line style="stroke:var(--ig-rubi)" x1="0" y1="-32" x2="0" y2="32" stroke-width="2"/>
+              <circle style="fill:var(--ig-rubi)" r="4"/>
+              <circle style="fill:var(--ig-edge)" cx="0" cy="-32" r="2.5"/>
+              <circle style="fill:var(--ig-edge)" cx="0" cy="32" r="2.5"/>
               {/* Dây tóc */}
               <g opacity="0.5">
                 <path d="M 310 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
                       fill="none" stroke="#3182CE" stroke-width="1.2" transform="translate(-310, 0)"/>
               </g>
-              <text x="0" y="50" text-anchor="middle" font-size="10" fill="#9B2C2C" font-weight="bold" class="svg-label">Bánh lắc</text>
+              <text style="fill:var(--ig-rubi)" x="0" y="50" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Bánh lắc</text>
             </g>
           </g>
         </g>
 
         <!-- LỚP 5: ROTOR -->
         <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="866" data-assembled-y="510" transform="translate(0, 510)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 5 · Rotor</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 5 · Rotor</text>
           <g data-part="rotor" data-name-vi="Rotor (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
             {/* Hình bán nguyệt đặc trưng của rotor */}
-            <path d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
-                  fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
-            <path d="M 250 -45 A 65 65 0 0 1 315 20 L 312 24 A 70 70 0 0 0 250 -50 Z"
-                  fill="#7A8898" opacity="0.6"/>
-            <circle cx="250" cy="0" r="8" fill="#2D3748"/>
+            <path style="fill:var(--ig-steel-soft);stroke:var(--ig-edge)" d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
+                  stroke-width="1.5"/>
+            <path style="fill:var(--ig-steel-soft)" d="M 250 -45 A 65 65 0 0 1 315 20 L 312 24 A 70 70 0 0 0 250 -50 Z"
+                  opacity="0.6"/>
+            <circle style="fill:var(--ig-edge)" cx="250" cy="0" r="8"/>
             <circle cx="250" cy="0" r="3" fill="#B8893C"/>
-            <text x="250" y="45" text-anchor="middle" font-size="10" fill="#5A6878" font-weight="bold" class="svg-label">ROTOR (automatic)</text>
+            <text style="fill:var(--ig-steel-soft)" x="250" y="45" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">ROTOR (automatic)</text>
           </g>
         </g>
 
         <!-- LỚP 6: ĐÁY VỎ (caseback) -->
         <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="956" data-assembled-y="570" transform="translate(0, 570)">
-          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 6 · Đáy vỏ</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 6 · Đáy vỏ</text>
           <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
-            <ellipse cx="250" cy="0" rx="135" ry="18" fill="#2D3748" stroke="#1F2D3D" stroke-width="1.5"/>
-            <ellipse cx="250" cy="-2" rx="120" ry="14" fill="none" stroke="#4A5568" stroke-width="0.8"/>
+            <ellipse style="fill:var(--ig-edge);stroke:var(--ig-stroke)" cx="250" cy="0" rx="135" ry="18" stroke-width="1.5"/>
+            <ellipse style="stroke:var(--ig-steel)" cx="250" cy="-2" rx="120" ry="14" fill="none" stroke-width="0.8"/>
             <text x="250" y="3" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" class="svg-label">CASEBACK</text>
           </g>
         </g>

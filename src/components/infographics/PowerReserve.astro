@@ -77,16 +77,16 @@ const levels = [
       <MechanismAnimation label="Dây cót nhả dần — trữ cót tụt, biên độ bánh lắc giảm khi gần hết" data-mech-step-id="power-reserve">
         <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="power-reserve-svg">
           <!-- ====== THANH TRỮ CÓT (trên cùng) ====== -->
-          <text x="200" y="20" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thanh trữ cót</text>
-          <rect x="60" y="28" width="280" height="18" rx="3" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+          <text style="fill:var(--ig-stroke)" x="200" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">Thanh trữ cót</text>
+          <rect style="stroke:var(--ig-stroke)" x="60" y="28" width="280" height="18" rx="3" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <!-- Thanh lấp (động) -->
           <rect id="pr-bar-fill" x="62" y="30" width="276" height="14" rx="2" fill="#B8893C"/>
-          <text id="pr-bar-label" x="200" y="62" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">100%</text>
+          <text style="fill:var(--ig-stroke)" id="pr-bar-label" x="200" y="62" text-anchor="middle" font-size="12" font-weight="bold" class="">100%</text>
 
           <!-- ====== THÙNG CÓT (giữa) ====== -->
           <g transform="translate(200, 170)">
             <!-- Vỏ thùng cót -->
-            <circle r="78" fill="#FAF7F2" stroke="#2D3748" stroke-width="3" class="dark:fill-dark-surface"/>
+            <circle style="fill:var(--ig-bg);stroke:var(--ig-edge)" r="78" stroke-width="3" class=""/>
             <!-- Răng ngoài -->
             {Array.from({ length: 20 }).map((_, i) => {
               const a = (i * 360) / 20;
@@ -95,23 +95,23 @@ const levels = [
             <!-- Dây cót xoắn (động — giãn ra khi nhả) -->
             <g id="pr-mainspring" data-part="mainspring" data-name-vi="Dây cót (Mainspring)" data-name-en="Mainspring"></g>
             <!-- Trục -->
-            <circle r="8" fill="#2D3748"/>
+            <circle style="fill:var(--ig-edge)" r="8"/>
           </g>
-          <text x="200" y="270" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="dark:fill-dark-text">Thùng cót + dây cót</text>
+          <text style="fill:var(--ig-stroke)" x="200" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Thùng cót + dây cót</text>
 
           <!-- ====== BÁNH LẮC (dưới — biên độ giảm khi cót thấp) ====== -->
           <g transform="translate(200, 320)">
             <!-- Quỹ đạo dao động (mờ) -->
-            <path id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke="#9B2C2C" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+            <path style="stroke:var(--ig-rubi)" id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
             <!-- Bánh lắc (dao động) -->
             <g id="pr-balance" data-part="balance-pr" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
-              <circle r="22" fill="none" stroke="#9B2C2C" stroke-width="3"/>
-              <line x1="0" y1="-22" x2="0" y2="22" stroke="#9B2C2C" stroke-width="2"/>
-              <line x1="-19" y1="-11" x2="19" y2="11" stroke="#9B2C2C" stroke-width="2"/>
-              <circle r="4" fill="#9B2C2C"/>
+              <circle style="stroke:var(--ig-rubi)" r="22" fill="none" stroke-width="3"/>
+              <line style="stroke:var(--ig-rubi)" x1="0" y1="-22" x2="0" y2="22" stroke-width="2"/>
+              <line style="stroke:var(--ig-rubi)" x1="-19" y1="-11" x2="19" y2="11" stroke-width="2"/>
+              <circle style="fill:var(--ig-rubi)" r="4"/>
             </g>
           </g>
-          <text id="pr-amplitude-note" x="200" y="354" text-anchor="middle" font-size="10" fill="#1F2D3D" opacity="0" class="dark:fill-dark-text"></text>
+          <text style="fill:var(--ig-stroke)" id="pr-amplitude-note" x="200" y="354" text-anchor="middle" font-size="10" opacity="0" class=""></text>
         </svg>
 
         <script is:inline define:vars={{}} slot="script">

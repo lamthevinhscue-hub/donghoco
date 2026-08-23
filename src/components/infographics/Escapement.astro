@@ -20,7 +20,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
 <MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
   <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg">
     <!-- ====== BACKGROUND: các nhãn vùng ====== -->
-    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold" class="svg-label">
+    <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
       Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
     </text>
 
@@ -28,7 +28,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
     <g id="escape-wheel-group" transform="translate(180, 220)">
       <g id="escape-wheel" data-part="escape-wheel" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
         <!-- Vẽ 15 răng hình mỏ neo -->
-        <g fill="#4A5568" stroke="#2D3748" stroke-width="1">
+        <g style="fill:var(--ig-steel);stroke:var(--ig-edge)" stroke-width="1">
           {Array.from({ length: 15 }).map((_, i) => {
             const angle = (i * 360) / 15;
             return (
@@ -39,13 +39,13 @@ import MechanismAnimation from './MechanismAnimation.astro';
           })}
         </g>
         <!-- Vòng tròn thân -->
-        <circle r="38" fill="#4A5568" stroke="#2D3748" stroke-width="1.5"/>
+        <circle style="fill:var(--ig-steel);stroke:var(--ig-edge)" r="38" stroke-width="1.5"/>
         <!-- Trục giữa -->
-        <circle r="5" fill="#2D3748"/>
+        <circle style="fill:var(--ig-edge)" r="5"/>
         <!-- Các chấm trang trí -->
         {Array.from({ length: 5 }).map((_, i) => {
           const a = (i * 360) / 5;
-          return <circle cx={Math.cos((a * Math.PI) / 180) * 22} cy={Math.sin((a * Math.PI) / 180) * 22} r="3" fill="#2D3748"/>;
+          return <circle style="fill:var(--ig-edge)" cx={Math.cos((a * Math.PI) / 180) * 22} cy={Math.sin((a * Math.PI) / 180) * 22} r="3"/>;
         })}
       </g>
     </g>
@@ -71,18 +71,18 @@ import MechanismAnimation from './MechanismAnimation.astro';
     <g id="balance-group" transform="translate(450, 150)">
       <g id="balance-wheel" data-part="balance-wheel" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
         <!-- Vòng ngoài -->
-        <circle r="45" fill="none" stroke="#9B2C2C" stroke-width="5"/>
+        <circle style="stroke:var(--ig-rubi)" r="45" fill="none" stroke-width="5"/>
         <!-- 3 chân (spokes) -->
-        <line x1="0" y1="-45" x2="0" y2="45" stroke="#9B2C2C" stroke-width="3"/>
-        <line x1="-39" y1="-22.5" x2="39" y2="22.5" stroke="#9B2C2C" stroke-width="3"/>
-        <line x1="-39" y1="22.5" x2="39" y2="-22.5" stroke="#9B2C2C" stroke-width="3"/>
+        <line style="stroke:var(--ig-rubi)" x1="0" y1="-45" x2="0" y2="45" stroke-width="3"/>
+        <line style="stroke:var(--ig-rubi)" x1="-39" y1="-22.5" x2="39" y2="22.5" stroke-width="3"/>
+        <line style="stroke:var(--ig-rubi)" x1="-39" y1="22.5" x2="39" y2="-22.5" stroke-width="3"/>
         <!-- Trục -->
-        <circle r="6" fill="#9B2C2C"/>
+        <circle style="fill:var(--ig-rubi)" r="6"/>
         <!-- Trọng lượng cố định (timing screws) -->
-        <circle cx="0" cy="-45" r="4" fill="#2D3748"/>
-        <circle cx="0" cy="45" r="4" fill="#2D3748"/>
-        <circle cx="-45" cy="0" r="4" fill="#2D3748"/>
-        <circle cx="45" cy="0" r="4" fill="#2D3748"/>
+        <circle style="fill:var(--ig-edge)" cx="0" cy="-45" r="4"/>
+        <circle style="fill:var(--ig-edge)" cx="0" cy="45" r="4"/>
+        <circle style="fill:var(--ig-edge)" cx="-45" cy="0" r="4"/>
+        <circle style="fill:var(--ig-edge)" cx="45" cy="0" r="4"/>
       </g>
       <!-- Dây tóc (hairspring) - xoắn ốc mờ -->
       <g id="hairspring" opacity="0.5" data-part="hairspring" data-name-vi="Dây tóc" data-name-en="Hairspring">

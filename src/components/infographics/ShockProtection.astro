@@ -11,21 +11,21 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
 <MechanismAnimation label="Hệ chống sốc (Incabloc)" data-mech-step-id="shock-protection">
   <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="shock-svg">
-    <text x="300" y="30" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold">
       Va đập → trục lùi → lò xo hình sao hấp thụ lực → bật về vị trí
     </text>
 
     <!-- ====== CẦU MÁY (trên) ====== -->
     <g transform="translate(300, 90)">
       <rect x="-90" y="-25" width="180" height="40" rx="4" fill="#B8893C" opacity="0.25" stroke="#B8893C" stroke-width="1.5"/>
-      <text x="0" y="-35" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="600">Cầu máy (bridge)</text>
+      <text style="fill:var(--ig-stroke)" x="0" y="-35" text-anchor="middle" font-size="11" font-weight="600">Cầu máy (bridge)</text>
     </g>
 
     <!-- ====== KHỐI CHỐNG SỐC (cố định) ====== -->
     <g transform="translate(300, 180)">
       <!-- Vỏ khối -->
-      <circle r="55" fill="none" stroke="#4A5568" stroke-width="2"/>
-      <text x="0" y="-65" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="600">Khối Incabloc</text>
+      <circle style="stroke:var(--ig-steel)" r="55" fill="none" stroke-width="2"/>
+      <text style="fill:var(--ig-stroke)" x="0" y="-65" text-anchor="middle" font-size="11" font-weight="600">Khối Incabloc</text>
 
       <!-- Lò xo hình sao (lyre spring) — cố định -->
       <g id="shock-spring" data-part="shock-spring" data-name-vi="Lò xo hình sao" data-name-en="Lyre spring">
@@ -37,7 +37,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
       <g id="shock-jewel-group">
         <!-- Chân kính (viên đá) -->
         <g id="shock-jewel" data-part="shock-jewel" data-name-vi="Chân kính (ổ trục)" data-name-en="Jewel bearing">
-          <circle r="20" fill="#9B2C2C" opacity="0.35" stroke="#9B2C2C" stroke-width="1.5"/>
+          <circle style="fill:var(--ig-rubi);stroke:var(--ig-rubi)" r="20" opacity="0.35" stroke-width="1.5"/>
           <circle r="8" fill="#1F2D3D"/>
         </g>
       </g>
@@ -46,25 +46,25 @@ import MechanismAnimation from './MechanismAnimation.astro';
     <!-- ====== BÁNH LẮC (dưới trục) ====== -->
     <g id="shock-balance-group" transform="translate(300, 300)">
       <g id="shock-balance" data-part="shock-balance" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
-        <circle r="50" fill="none" stroke="#1F2D3D" stroke-width="4"/>
+        <circle style="stroke:var(--ig-stroke)" r="50" fill="none" stroke-width="4"/>
         <!-- Dây tóc -->
         <circle r="40" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.5"/>
         <!-- Trục nối lên -->
-        <line x1="0" y1="0" x2="0" y2="-70" stroke="#1F2D3D" stroke-width="3"/>
+        <line style="stroke:var(--ig-stroke)" x1="0" y1="0" x2="0" y2="-70" stroke-width="3"/>
         <!-- Chân kính đỉnh trục (ở giữa) -->
-        <circle r="3" fill="#1F2D3D"/>
+        <circle style="fill:var(--ig-stroke)" r="3"/>
         <!-- 4 chân kính trang trí -->
         {[0, 90, 180, 270].map((a) => (
-          <circle cx={Math.cos((a * Math.PI) / 180) * 50} cy={Math.sin((a * Math.PI) / 180) * 50} r="3" fill="#1F2D3D"/>
+          <circle style="fill:var(--ig-stroke)" cx={Math.cos((a * Math.PI) / 180) * 50} cy={Math.sin((a * Math.PI) / 180) * 50} r="3"/>
         ))}
       </g>
     </g>
 
     <!-- ====== Mũi tên sốc (động) ====== -->
     <g id="shock-arrow" opacity="0">
-      <line x1="300" y1="40" x2="300" y2="70" stroke="#9B2C2C" stroke-width="3" stroke-linecap="round"/>
-      <polygon points="294,68 306,68 300,80" fill="#9B2C2C"/>
-      <text x="320" y="60" font-size="11" fill="#9B2C2C" font-weight="600">sốc</text>
+      <line style="stroke:var(--ig-rubi)" x1="300" y1="40" x2="300" y2="70" stroke-width="3" stroke-linecap="round"/>
+      <polygon style="fill:var(--ig-rubi)" points="294,68 306,68 300,80"/>
+      <text style="fill:var(--ig-rubi)" x="320" y="60" font-size="11" font-weight="600">sốc</text>
     </g>
 
     <!-- Tooltip -->

@@ -110,7 +110,7 @@ const myths = [
     <div class="svg-container" data-svg="case">
       <MechanismAnimation label="Kéo thanh trượt độ sâu — gioăng bị ép; bấm nút dưới nước = tràn" data-mech-step-id="water-resistance">
         <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="water-resistance-svg">
-          <text x="200" y="18" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">
+          <text style="fill:var(--ig-stroke)" x="200" y="18" text-anchor="middle" font-size="11" font-weight="bold" class="svg-label">
             Áp suất tăng theo độ sâu → gioăng càng ép chặt
           </text>
 
@@ -120,10 +120,10 @@ const myths = [
           <g id="wr-bubbles" opacity="0"></g>
 
           <!-- ====== VỎ ĐỒNG HỒ (cắt mặt bên) ====== -->
-          <path d="M 80 80 L 80 240 L 320 240 L 320 80 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
-          <rect x="100" y="100" width="200" height="120" fill="#FAF7F2" class="dark:fill-dark-surface"/>
+          <path style="fill:var(--ig-steel);stroke:var(--ig-edge)" d="M 80 80 L 80 240 L 320 240 L 320 80 Z" stroke-width="2"/>
+          <rect style="fill:var(--ig-bg)" x="100" y="100" width="200" height="120" class=""/>
           <circle cx="200" cy="160" r="30" fill="#B8893C" opacity="0.3"/>
-          <text x="200" y="165" text-anchor="middle" font-size="10" fill="#4A5568" class="svg-label dark:fill-dark-text-soft">Máy</text>
+          <text style="fill:var(--ig-steel)" x="200" y="165" text-anchor="middle" font-size="10" class="svg-label ">Máy</text>
 
           <!-- Kính -->
           <rect x="100" y="80" width="200" height="20" fill="#90CDF4" opacity="0.5" stroke="#4299E1" stroke-width="1.5"/>
@@ -131,23 +131,23 @@ const myths = [
           <rect id="wr-gasket-crystal" x="100" y="78" width="200" height="6" fill="#48BB78" rx="2"/>
 
           <!-- Núm vặn -->
-          <rect id="wr-crown" x="320" y="150" width="30" height="20" rx="4" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+          <rect style="fill:var(--ig-steel);stroke:var(--ig-edge)" id="wr-crown" x="320" y="150" width="30" height="20" rx="4" stroke-width="2"/>
           <!-- Gioăng núm vặn (động) -->
           <ellipse id="wr-gasket-crown" cx="320" cy="160" rx="3" ry="8" fill="#48BB78"/>
 
           <!-- Nắp lưng -->
-          <rect x="100" y="220" width="200" height="20" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+          <rect style="fill:var(--ig-steel);stroke:var(--ig-edge)" x="100" y="220" width="200" height="20" stroke-width="2"/>
           <rect id="wr-gasket-caseback" x="100" y="218" width="200" height="6" fill="#48BB78" rx="2"/>
 
           <!-- Nước tràn vào (khi bấm nút dưới nước) -->
           <path id="wr-flood" d="" fill="#3182CE" opacity="0" />
 
           <!-- ====== THANH TRƯỢT ĐỘ SÂU (dưới) ====== -->
-          <text x="200" y="300" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="wr-label dark:fill-dark-text">Độ sâu</text>
+          <text style="fill:var(--ig-stroke)" x="200" y="300" text-anchor="middle" font-size="10" font-weight="bold" class="wr-label">Độ sâu</text>
           <!-- Thước đo độ sâu trong hình — nhận giá trị từ thanh kéo HTML bên dưới SVG -->
-          <rect x="60" y="310" width="280" height="20" rx="4" fill="none" stroke="#1F2D3D" stroke-width="1.5" class="dark:stroke-dark-text"/>
+          <rect style="stroke:var(--ig-stroke)" x="60" y="310" width="280" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <rect id="wr-depth-fill" x="62" y="312" width="0" height="16" rx="2" fill="#3182CE"/>
-          <text id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="wr-label dark:fill-dark-text">Mặt nước (0m)</text>
+          <text style="fill:var(--ig-stroke)" id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" font-weight="bold" class="wr-label">Mặt nước (0m)</text>
           <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-label dark:fill-dark-text-soft">1 ATM</text>
         </svg>
 
@@ -305,8 +305,8 @@ const myths = [
       <div class="svg-container" data-svg="pressure">
         <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl">
           <!-- Đồng hồ ở giữa -->
-          <circle cx="250" cy="100" r="50" fill="#4A5568" stroke="#2D3748" stroke-width="3"/>
-          <circle cx="250" cy="100" r="35" fill="#FAF7F2"/>
+          <circle style="fill:var(--ig-steel);stroke:var(--ig-edge)" cx="250" cy="100" r="50" stroke-width="3"/>
+          <circle style="fill:var(--ig-bg)" cx="250" cy="100" r="35"/>
           <circle cx="250" cy="100" r="35" fill="none" stroke="#48BB78" stroke-width="3" data-anim="seal-ring"/>
 
           <!-- Mũi tên áp suất từ nhiều phía -->

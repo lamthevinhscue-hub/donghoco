@@ -11,32 +11,32 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
 <MechanismAnimation label="Bộ thoát đồng trục (Co-Axial)" data-mech-step-id="co-axial">
   <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="coaxial-svg">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <text style="fill:var(--ig-stroke)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
       Bộ thoát đồng trục: truyền lực đẩy gần thẳng góc → ít ma sát → ít cần dầu
     </text>
 
     <!-- ====== BÊN TRÁI: BỘ THOÁT THỤY SĨ (ma sát trượt) ====== -->
     <g transform="translate(170, 230)">
-      <text x="0" y="-130" text-anchor="middle" font-size="11" fill="#9B2C2C" font-weight="700">Bộ thoát Thụy Sĩ</text>
-      <text x="0" y="-115" text-anchor="middle" font-size="9" fill="#9B2C2C" opacity="0.7">ma sát trượt → cần dầu</text>
+      <text style="fill:var(--ig-rubi)" x="0" y="-130" text-anchor="middle" font-size="11" font-weight="700">Bộ thoát Thụy Sĩ</text>
+      <text style="fill:var(--ig-rubi)" x="0" y="-115" text-anchor="middle" font-size="9" opacity="0.7">ma sát trượt → cần dầu</text>
 
       <!-- Bánh thoát (8 răng) -->
       <g id="sw-escape" data-part="sw-escape" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
-        <circle r="38" fill="none" stroke="#4A5568" stroke-width="1.5"/>
+        <circle style="stroke:var(--ig-steel)" r="38" fill="none" stroke-width="1.5"/>
         {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
           <g transform={`rotate(${a})`}>
-            <path d="M 0 -38 L 6 -28 L -6 -28 Z" fill="#4A5568"/>
+            <path style="fill:var(--ig-steel)" d="M 0 -38 L 6 -28 L -6 -28 Z"/>
           </g>
         ))}
-        <circle r="4" fill="#2D3748"/>
+        <circle style="fill:var(--ig-edge)" r="4"/>
       </g>
 
       <!-- Ngựa (pallet fork) — đá ruby chạm vào răng -->
       <g id="sw-pallet" data-part="sw-pallet" data-name-vi="Ngựa (ma sát trượt)" data-name-en="Pallet fork (sliding friction)">
-        <line x1="0" y1="0" x2="0" y2="40" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
+        <line style="stroke:var(--ig-steel)" x1="0" y1="0" x2="0" y2="40" stroke-width="3" stroke-linecap="round"/>
         <!-- Hai viên đá ruby (điểm ma sát) -->
-        <circle cx="-14" cy="-8" r="5" fill="#9B2C2C"/>
-        <circle cx="14" cy="-8" r="5" fill="#9B2C2C"/>
+        <circle style="fill:var(--ig-rubi)" cx="-14" cy="-8" r="5"/>
+        <circle style="fill:var(--ig-rubi)" cx="14" cy="-8" r="5"/>
       </g>
 
       <!-- Dấu chấm dầu (vàng) -->
@@ -44,7 +44,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
         <ellipse cx="-14" cy="-8" rx="7" ry="4" fill="#ECC94B" opacity="0.5"/>
         <ellipse cx="14" cy="-8" rx="7" ry="4" fill="#ECC94B" opacity="0.5"/>
       </g>
-      <text x="0" y="80" text-anchor="middle" font-size="9" fill="#9B2C2C">dầu bôi trơn ma sát (cần thay định kỳ)</text>
+      <text style="fill:var(--ig-rubi)" x="0" y="80" text-anchor="middle" font-size="9">dầu bôi trơn ma sát (cần thay định kỳ)</text>
     </g>
 
     <!-- ====== DẤU ">" GIỮA HAI BÊN ====== -->
@@ -58,29 +58,29 @@ import MechanismAnimation from './MechanismAnimation.astro';
       <!-- Bánh thoát đồng trục (2 lớp răng) -->
       <g id="cx-escape" data-part="cx-escape" data-name-vi="Bánh thoát đồng trục (2 lớp)" data-name-en="Co-axial escape wheel (2 layers)">
         <!-- Lớp trên -->
-        <circle r="38" fill="none" stroke="#4A5568" stroke-width="1.5"/>
+        <circle style="stroke:var(--ig-steel)" r="38" fill="none" stroke-width="1.5"/>
         {[0, 60, 120, 180, 240, 300].map((a) => (
           <g transform={`rotate(${a})`}>
-            <path d="M 0 -38 L 4 -30 L -4 -30 Z" fill="#4A5568"/>
+            <path style="fill:var(--ig-steel)" d="M 0 -38 L 4 -30 L -4 -30 Z"/>
           </g>
         ))}
         <!-- Lớp dưới (nhỏ hơn) -->
-        <circle r="26" fill="none" stroke="#4A5568" stroke-width="1" opacity="0.5"/>
+        <circle style="stroke:var(--ig-steel)" r="26" fill="none" stroke-width="1" opacity="0.5"/>
         {[30, 90, 150, 210, 270, 330].map((a) => (
           <g transform={`rotate(${a})`}>
-            <path d="M 0 -26 L 3 -20 L -3 -20 Z" fill="#4A5568" opacity="0.7"/>
+            <path style="fill:var(--ig-steel)" d="M 0 -26 L 3 -20 L -3 -20 Z" opacity="0.7"/>
           </g>
         ))}
-        <circle r="4" fill="#2D3748"/>
+        <circle style="fill:var(--ig-edge)" r="4"/>
       </g>
 
       <!-- Ngựa đồng trục — chạm đẩy -->
       <g id="cx-pallet" data-part="cx-pallet" data-name-vi="Ngựa (lực đẩy)" data-name-en="Pallet fork (impulse force)">
-        <line x1="0" y1="0" x2="0" y2="40" stroke="#4A5568" stroke-width="3" stroke-linecap="round"/>
+        <line style="stroke:var(--ig-steel)" x1="0" y1="0" x2="0" y2="40" stroke-width="3" stroke-linecap="round"/>
         <!-- Ba viên đá (đặc trưng đồng trục) -->
-        <circle cx="-16" cy="-10" r="4" fill="#9B2C2C"/>
-        <circle cx="0" cy="-14" r="4" fill="#9B2C2C"/>
-        <circle cx="16" cy="-10" r="4" fill="#9B2C2C"/>
+        <circle style="fill:var(--ig-rubi)" cx="-16" cy="-10" r="4"/>
+        <circle style="fill:var(--ig-rubi)" cx="0" cy="-14" r="4"/>
+        <circle style="fill:var(--ig-rubi)" cx="16" cy="-10" r="4"/>
       </g>
 
       <text x="0" y="80" text-anchor="middle" font-size="9" fill="#2F855A">ít dầu — giữ chính xác lâu giữa 2 lần bảo dưỡng</text>
@@ -88,12 +88,12 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
     <!-- ====== BÁNH LẮC (trên cùng, hai bên) ====== -->
     <g transform="translate(170, 100)">
-      <text x="0" y="-25" text-anchor="middle" font-size="9" fill="#1F2D3D" opacity="0.6">bánh lắc</text>
-      <circle r="18" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+      <text style="fill:var(--ig-stroke)" x="0" y="-25" text-anchor="middle" font-size="9" opacity="0.6">bánh lắc</text>
+      <circle style="stroke:var(--ig-stroke)" r="18" fill="none" stroke-width="2"/>
     </g>
     <g transform="translate(430, 100)">
-      <text x="0" y="-25" text-anchor="middle" font-size="9" fill="#1F2D3D" opacity="0.6">bánh lắc</text>
-      <circle r="18" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+      <text style="fill:var(--ig-stroke)" x="0" y="-25" text-anchor="middle" font-size="9" opacity="0.6">bánh lắc</text>
+      <circle style="stroke:var(--ig-stroke)" r="18" fill="none" stroke-width="2"/>
     </g>
 
     <!-- Tooltip -->

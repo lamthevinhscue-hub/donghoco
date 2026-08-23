@@ -38,26 +38,25 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
     >
       <!-- Vùng nguy hiểm 20h-4h (tô đỏ mờ) -->
       <!-- 20h ở vị trí số 8, 4h ở vị trí số 4. Vùng từ số 8 qua 12 xuống số 4 (nửa trên-phải). -->
-      <path
+      <path style="fill:var(--ig-rubi)"
         class="danger-zone"
         d="M 150 150 L 150 20 A 130 130 0 0 1 280 150 Z"
-        fill="#9B2C2C"
         opacity="0.12"
       />
-      <text x="215" y="60" text-anchor="middle" fill="#9B2C2C" font-family="Be Vietnam Pro, sans-serif" font-size="10" font-weight="600" opacity="0.7">Vùng nguy hiểm</text>
-      <text x="215" y="73" text-anchor="middle" fill="#9B2C2C" font-family="Be Vietnam Pro, sans-serif" font-size="9" opacity="0.6">20:00 — 04:00</text>
+      <text style="fill:var(--ig-rubi)" x="215" y="60" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="10" font-weight="600" opacity="0.7">Vùng nguy hiểm</text>
+      <text style="fill:var(--ig-rubi)" x="215" y="73" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="9" opacity="0.6">20:00 — 04:00</text>
 
       <!-- Mặt số -->
-      <circle cx="150" cy="150" r="130" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" />
+      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="130" stroke-width="2" />
       <g class="date-hour-marks"></g>
       <!-- Vạch ngày ở số 3 -->
-      <rect x="142" y="30" width="16" height="22" rx="2" fill="#1F2D3D" />
+      <rect style="fill:var(--ig-stroke)" x="142" y="30" width="16" height="22" rx="2" />
       <text x="150" y="46" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="11" font-weight="700">15</text>
       <!-- Kim giờ (kéo được) -->
       <g class="date-hour-hand" style="cursor: grab; transform-origin: 150px 150px;">
-        <line x1="150" y1="160" x2="150" y2="60" stroke="#1F2D3D" stroke-width="6" stroke-linecap="round" />
+        <line style="stroke:var(--ig-stroke)" x1="150" y1="160" x2="150" y2="60" stroke-width="6" stroke-linecap="round" />
       </g>
-      <circle cx="150" cy="150" r="6" fill="#1F2D3D" />
+      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="6" />
     </svg>
 
     <div class="date-readout w-full max-w-xs space-y-3 sm:w-56">
@@ -107,7 +106,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
           dot.setAttribute('cx', String(150 + 95 * Math.cos(angle)));
           dot.setAttribute('cy', String(150 + 95 * Math.sin(angle)));
           dot.setAttribute('r', '2');
-          dot.setAttribute('fill', '#1F2D3D');
+          dot.style.fill = 'var(--ig-stroke)';
           dot.setAttribute('opacity', '0.3');
           hm.appendChild(dot);
           continue;
@@ -118,7 +117,7 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
         t.setAttribute('x', String(x));
         t.setAttribute('y', String(y + 5));
         t.setAttribute('text-anchor', 'middle');
-        t.setAttribute('fill', '#1F2D3D');
+        t.style.fill = 'var(--ig-stroke)';
         t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
         t.setAttribute('font-size', '16');
         t.setAttribute('font-weight', '600');

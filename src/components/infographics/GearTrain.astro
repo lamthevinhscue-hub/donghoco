@@ -85,13 +85,13 @@ const stations = [
       <!-- ====== HOẠT ẢNH TƯƠNG TÁC: 5 bánh răng quay với tỷ lệ tốc độ đúng ====== -->
       <MechanismAnimation label="Chuỗi truyền động (5 bánh răng quay với tốc độ khác nhau)" data-mech-step-id="gear-train">
         <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl" id="gear-train-svg">
-          <text x="400" y="26" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">
+          <text style="fill:var(--ig-stroke)" x="400" y="26" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
             Thùng cót (chậm) → bánh răng → bánh thoát (nhanh) — ngược chiều kề nhau
           </text>
 
           <!-- ====== 1. THÙNG CÓT (lớn nhất, chậm nhất, chiều CW) ====== -->
           <g id="gt-barrel" transform="translate(110, 170)" data-part="barrel" data-name-vi="Thùng cót (Barrel)" data-name-en="Mainspring Barrel">
-            <circle r="62" fill="#FAF7F2" stroke="#B8893C" stroke-width="3" class="dark:fill-dark-surface"/>
+            <circle style="fill:var(--ig-bg)" r="62" stroke="#B8893C" stroke-width="3" class=""/>
             <!-- Răng ngoài thùng cót -->
             {Array.from({ length: 24 }).map((_, i) => {
               const a = (i * 360) / 24;
@@ -105,12 +105,12 @@ const stations = [
             <path d="M 110 170 m -45 0 a 45 45 0 1 1 90 0 a 38 38 0 1 1 -76 0 a 28 28 0 1 1 56 0"
                   fill="none" stroke="#B8893C" stroke-width="3" opacity="0.7" transform="translate(-110,-170)"/>
             <circle r="8" fill="#B8893C"/>
-            <text y="90" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">Thùng cót</text>
+            <text style="fill:var(--ig-stroke)" y="90" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Thùng cót</text>
           </g>
 
           <!-- ====== 2. BÁNH RĂNG TRUNG GIAN (vừa, nhanh hơn, CCW) ====== -->
           <g id="gt-center" transform="translate(290, 170)" data-part="center-wheel" data-name-vi="Bánh răng trung gian (Center wheel)" data-name-en="Center wheel">
-            <circle r="48" fill="#FAF7F2" stroke="#4FB286" stroke-width="3" class="dark:fill-dark-surface"/>
+            <circle style="fill:var(--ig-bg)" r="48" stroke="#4FB286" stroke-width="3" class=""/>
             {Array.from({ length: 16 }).map((_, i) => {
               const a = (i * 360) / 16;
               return (
@@ -121,12 +121,12 @@ const stations = [
             })}
             <circle r="14" fill="none" stroke="#4FB286" stroke-width="2"/>
             <circle r="5" fill="#4FB286"/>
-            <text y="76" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">Bánh răng trung gian</text>
+            <text style="fill:var(--ig-stroke)" y="76" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh răng trung gian</text>
           </g>
 
           <!-- ====== 3. BÁNH RĂNG THỨ BA (nhỏ hơn, nhanh hơn nữa, CW) ====== -->
           <g id="gt-third" transform="translate(440, 170)" data-part="third-wheel" data-name-vi="Bánh răng thứ ba (Third wheel)" data-name-en="Third wheel">
-            <circle r="38" fill="#FAF7F2" stroke="#4FB286" stroke-width="3" class="dark:fill-dark-surface"/>
+            <circle style="fill:var(--ig-bg)" r="38" stroke="#4FB286" stroke-width="3" class=""/>
             {Array.from({ length: 14 }).map((_, i) => {
               const a = (i * 360) / 14;
               return (
@@ -137,12 +137,12 @@ const stations = [
             })}
             <circle r="12" fill="none" stroke="#4FB286" stroke-width="2"/>
             <circle r="4" fill="#4FB286"/>
-            <text y="64" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">Bánh răng ba</text>
+            <text style="fill:var(--ig-stroke)" y="64" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh răng ba</text>
           </g>
 
           <!-- ====== 4. BÁNH THOÁT (nhỏ nhất, nhanh nhất, CCW) ====== -->
           <g id="gt-escape" transform="translate(560, 170)" data-part="escape-wheel-gt" data-name-vi="Bánh thoát (Escape wheel)" data-name-en="Escape wheel">
-            <circle r="30" fill="#FAF7F2" stroke="#2E86AB" stroke-width="3" class="dark:fill-dark-surface"/>
+            <circle style="fill:var(--ig-bg)" r="30" stroke="#2E86AB" stroke-width="3" class=""/>
             {Array.from({ length: 15 }).map((_, i) => {
               const a = (i * 360) / 15;
               return (
@@ -153,19 +153,19 @@ const stations = [
             })}
             <circle r="8" fill="none" stroke="#2E86AB" stroke-width="2"/>
             <circle r="4" fill="#2E86AB"/>
-            <text y="54" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">Bánh thoát</text>
+            <text style="fill:var(--ig-stroke)" y="54" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh thoát</text>
           </g>
 
           <!-- ====== 5. BÁNH LẮC (dao động, không quay tròn) ====== -->
           <g id="gt-balance" transform="translate(690, 170)" data-part="balance-gt" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
-            <circle r="34" fill="none" stroke="#9B2C2C" stroke-width="4"/>
-            <line x1="0" y1="-34" x2="0" y2="34" stroke="#9B2C2C" stroke-width="2.5"/>
-            <line x1="-29" y1="-17" x2="29" y2="17" stroke="#9B2C2C" stroke-width="2.5"/>
-            <line x1="-29" y1="17" x2="29" y2="-17" stroke="#9B2C2C" stroke-width="2.5"/>
-            <circle r="5" fill="#9B2C2C"/>
-            <circle cx="0" cy="-34" r="3" fill="#2D3748"/>
-            <circle cx="0" cy="34" r="3" fill="#2D3748"/>
-            <text y="58" text-anchor="middle" font-size="12" fill="#1F2D3D" font-weight="bold" class="svg-label dark:fill-dark-text">Bánh lắc</text>
+            <circle style="stroke:var(--ig-rubi)" r="34" fill="none" stroke-width="4"/>
+            <line style="stroke:var(--ig-rubi)" x1="0" y1="-34" x2="0" y2="34" stroke-width="2.5"/>
+            <line style="stroke:var(--ig-rubi)" x1="-29" y1="-17" x2="29" y2="17" stroke-width="2.5"/>
+            <line style="stroke:var(--ig-rubi)" x1="-29" y1="17" x2="29" y2="-17" stroke-width="2.5"/>
+            <circle style="fill:var(--ig-rubi)" r="5"/>
+            <circle style="fill:var(--ig-edge)" cx="0" cy="-34" r="3"/>
+            <circle style="fill:var(--ig-edge)" cx="0" cy="34" r="3"/>
+            <text style="fill:var(--ig-stroke)" y="58" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh lắc</text>
           </g>
 
           <!-- Mũi tên dòng chảy (giữa các bánh) -->
@@ -261,21 +261,21 @@ const stations = [
           <!-- Bánh lắc ở giữa dao động -->
           <g data-anim="balance-oscillate" opacity="0">
             <!-- Quỹ đạo dao động -->
-            <path d="M 130 90 A 70 70 0 0 1 270 90" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+            <path style="stroke:var(--ig-rubi)" d="M 130 90 A 70 70 0 0 1 270 90" fill="none" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
             <!-- Bánh lắc (vẽ 2 vị trí mờ) -->
-            <circle cx="150" cy="90" r="18" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
-            <circle cx="250" cy="90" r="18" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
+            <circle style="stroke:var(--ig-rubi)" cx="150" cy="90" r="18" fill="none" stroke-width="2" opacity="0.3"/>
+            <circle style="stroke:var(--ig-rubi)" cx="250" cy="90" r="18" fill="none" stroke-width="2" opacity="0.3"/>
             <!-- Bánh lắc vị trí giữa -->
-            <circle cx="200" cy="90" r="18" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2.5"/>
-            <line x1="200" y1="72" x2="200" y2="108" stroke="#9B2C2C" stroke-width="2"/>
-            <line x1="182" y1="78" x2="218" y2="102" stroke="#9B2C2C" stroke-width="2"/>
-            <line x1="182" y1="102" x2="218" y2="78" stroke="#9B2C2C" stroke-width="2"/>
-            <circle cx="200" cy="90" r="3" fill="#9B2C2C"/>
+            <circle style="fill:var(--ig-bg);stroke:var(--ig-rubi)" cx="200" cy="90" r="18" stroke-width="2.5"/>
+            <line style="stroke:var(--ig-rubi)" x1="200" y1="72" x2="200" y2="108" stroke-width="2"/>
+            <line style="stroke:var(--ig-rubi)" x1="182" y1="78" x2="218" y2="102" stroke-width="2"/>
+            <line style="stroke:var(--ig-rubi)" x1="182" y1="102" x2="218" y2="78" stroke-width="2"/>
+            <circle style="fill:var(--ig-rubi)" cx="200" cy="90" r="3"/>
             <!-- Mũi tên 2 chiều -->
-            <text x="160" y="50" font-size="20" fill="#9B2C2C">←</text>
-            <text x="230" y="50" font-size="20" fill="#9B2C2C">→</text>
+            <text style="fill:var(--ig-rubi)" x="160" y="50" font-size="20">←</text>
+            <text style="fill:var(--ig-rubi)" x="230" y="50" font-size="20">→</text>
           </g>
-          <text x="200" y="125" text-anchor="middle" font-size="10" fill="#1F2D3D" class="gt-caption">Dao động qua lại liên tục</text>
+          <text style="fill:var(--ig-stroke)" x="200" y="125" text-anchor="middle" font-size="10" class="gt-caption">Dao động qua lại liên tục</text>
         </svg>
       </div>
 

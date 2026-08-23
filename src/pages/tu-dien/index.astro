@@ -29,6 +29,26 @@ const groups = GLOSSARY_CATEGORY_ORDER.map((category) => ({
   label: getCategoryLabel(category, lang),
   items: entries.filter((e) => e.data.category === category),
 })).filter((g) => g.items.length > 0); // bỏ các nhóm không có thuật ngữ
+
+// ====== Schema DefinedTermSet (Prompt 4 — SEO) ======
+// Danh sách thuật ngữ lấy THẬT từ collection (không ghi tay số lượng/tên):
+// mỗi entry sinh một DefinedTerm con qua hasPart, URL tuyệt đối từ Astro.site.
+const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
+const termSetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: isVi ? 'Từ điển thuật ngữ đồng hồ cơ' : 'Mechanical watch glossary',
+  description: isVi
+    ? 'Tra cứu thuật ngữ đồng hồ cơ — từ thiết kế, bộ máy đến các phức tạp cao cấp.'
+    : 'Mechanical watch terms — from design and movement to high-end complications.',
+  url: new URL('/tu-dien', siteUrl).href,
+  inLanguage: 'vi-VN',
+  hasDefinedTerm: entries.map((e) => ({
+    '@type': 'DefinedTerm',
+    name: e.data.title,
+    url: new URL(`/tu-dien/${getSlug(e)}`, siteUrl).href,
+  })),
+};
 ---
 
 <BaseLayout
@@ -36,6 +56,7 @@ const groups = GLOSSARY_CATEGORY_ORDER.map((category) => ({
   description={isVi
     ? 'Tra cứu thuật ngữ đồng hồ cơ — từ thiết kế, bộ máy đến các phức tạp cao cấp.'
     : 'Mechanical watch terms — from design and movement to high-end complications.'}
+  articleSchema={termSetSchema}
 >
   <section class="mx-auto max-w-6xl px-4 py-16">
     <!-- Tiêu đề trang -->

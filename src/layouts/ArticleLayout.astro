@@ -14,7 +14,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
 import SourceList from '../components/SourceList.astro';
 import TableOfContents from '../components/TableOfContents.astro';
-import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, t, localizedPath, SITE_AUTHOR, SITE_PUBLISHER } from '../i18n/ui';
 
 interface Heading {
   depth: number;
@@ -26,6 +26,8 @@ interface Props {
   title: string;
   excerpt?: string;
   date?: string;
+  /** Ngày cập nhật (SEO — Prompt 4): nguồn của dateModified; trống = dùng ngày đăng */
+  updated?: string | Date;
   cover_image?: string;
   /** Đường dẫn về trang danh sách (không tính tiền tố ngôn ngữ) */
   backHref?: string;
@@ -39,12 +41,14 @@ interface Props {
   compareHref?: string;
   /** Nguồn tham khảo — hiện cuối bài qua SourceList.astro */
   sources?: { label: string; url: string }[];
+  /** Ghi đè schema JSON-LD (VD: DefinedTerm cho trang từ điển) — thay Article mặc định */
+  schemaOverride?: object;
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [] } = Astro.props;
+const { title, excerpt, date, updated, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [], schemaOverride } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 // Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che")
@@ -61,19 +65,47 @@ const breadcrumbData = backHref ? [
   { name: title, path: Astro.url.pathname },
 ] : undefined;
 
-const articleData = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: excerpt,
-  datePublished: date,
-  inLanguage: 'vi-VN',
-};
+// Article JSON-LD (Prompt 4 — SEO dữ liệu có cấu trúc)
+// - author/publisher: từ cấu hình site (SITE_AUTHOR = "Anh Vinh" đã được xác nhận).
+// - image: ảnh bìa bài nếu có, nếu không dùng ảnh chia sẻ mặc định (tuyệt đối).
+// - dateModified: trường `updated` nếu có, nếu không lấy đúng ngày xuất bản —
+//   không bao giờ để trống khi đã có ngày đăng.
+// - schemaOverride: trang từ điển truyền DefinedTerm thay cho Article.
+const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const normDate = (d?: string | Date) =>
+  d === undefined ? undefined : (typeof d === 'string' ? d : d.toISOString().slice(0, 10));
+const updatedStr = normDate(updated);
+
+// Tách rõ hai nhánh: schemaOverride (DefinedTerm cho trang từ điển) được truyền
+// NGUYÊN VẸN — không gán thêm bất kỳ trường Article nào vào nó. Nhánh Article
+// tự bổ sung description/datePublished/dateModified theo điều kiện.
+let articleData: Record<string, any>;
+if (schemaOverride) {
+  articleData = schemaOverride as Record<string, any>;
+} else {
+  articleData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    inLanguage: 'vi-VN',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    author: SITE_AUTHOR,
+    publisher: SITE_PUBLISHER,
+    image: [cover_image ? new URL(cover_image, siteUrl).href : 'https://www.kienthucdonghoco.vn/og-default.jpg'],
+  };
+  if (excerpt) articleData.description = excerpt;
+  if (date) articleData.datePublished = date;
+  if (updatedStr ?? date) articleData.dateModified = updatedStr ?? date;
+}
 
 // Định dạng ngày thân thiện với tiếng Việt
-const formattedDate = date
-  ? new Date(date).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' })
-  : null;
+const fmtVi = (d?: string) =>
+  d ? new Date(d).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+const formattedDate = fmtVi(date);
+// Chỉ coi là "đã cập nhật" khi updated khác ngày đăng — chưa bài nào có nên
+// dòng này hiện không xuất hiện ở bất kỳ trang nào
+const formattedUpdated = updatedStr && updatedStr !== date ? fmtVi(updatedStr) : null;
 ---
 
 <BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={date}>
@@ -94,6 +126,12 @@ const formattedDate = date
           {(meta || formattedDate) && (
             <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/85 dark:text-dark-text-soft/85">
               {[meta, formattedDate && <time datetime={date} class="font-mono">{formattedDate}</time>].filter(Boolean).map((m, i) => i === 0 || !meta ? m : <> • {m}</>)}
+            </p>
+          )}
+
+          {formattedUpdated && (
+            <p class="mt-2 text-sm text-ink-soft/85 dark:text-dark-text-soft/85">
+              {lang === 'vi' ? 'Cập nhật' : 'Updated'}: <time datetime={updatedStr} class="font-mono">{formattedUpdated}</time>
             </p>
           )}
 

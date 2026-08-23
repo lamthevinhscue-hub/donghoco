@@ -29,6 +29,9 @@ const baseFields = {
     label: z.string(),   // Tên nguồn hiển thị, VD: "Breguet — trang chính hãng"
     url: z.string(),     // Địa chỉ đầy đủ
   })).default([]),
+  // Ngày cập nhật nội dung (SEO — Prompt 4): nguồn của schema.org dateModified.
+  // Trống = bài chưa từng cập nhật sau khi đăng.
+  updated: z.string().or(z.date()).optional(),
 };
 
 // --- Trụ cột 1: Thương hiệu ---

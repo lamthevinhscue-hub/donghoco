@@ -91,6 +91,19 @@ for (const e of sameCategory) {
     meta: ed.term_en ? `EN: ${ed.term_en}` : ed.category,
   });
 }
+
+// ====== Schema DefinedTerm (Prompt 4 — SEO) ======
+// Trang thuật ngữ KHÔNG dùng Article: mỗi thuật ngữ là một DefinedTerm thuộc
+// DefinedTermSet của trang /tu-dien. URL tuyệt đối từ Astro.site.
+const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
+const termSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: data.title,
+  description: data.excerpt,
+  url: new URL(Astro.url.pathname, siteUrl).href,
+  inDefinedTermSet: new URL('/tu-dien', siteUrl).href,
+};
 ---
 
 <ArticleLayout
@@ -98,10 +111,12 @@ for (const e of sameCategory) {
   title={data.title}
   excerpt={data.excerpt}
   date={data.date}
+  updated={data.updated}
   backHref="/tu-dien"
   meta={meta}
   relatedArticles={related}
   sources={data.sources}
+  schemaOverride={termSchema}
 >
   {Infographic && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-3 text-center text-xs font-medium text-brass">

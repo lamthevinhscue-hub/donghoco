@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "check": "node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs",
+    "check": "node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs && node scripts/check-keyboard-accessibility.mjs",
+    "check:a11y-keyboard": "node scripts/check-keyboard-accessibility.mjs",
     "check:contrast": "node scripts/check-color-contrast.mjs",
     "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-links.mjs",
     "preview": "astro preview",

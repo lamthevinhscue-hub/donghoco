@@ -24,6 +24,8 @@ const tr = t(lang);
   data-pagefind-ignore
   class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass sm:hidden"
   aria-label={tr.search_placeholder}
+  aria-controls="search-overlay"
+  aria-expanded="false"
 >
   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <circle cx="11" cy="11" r="7" />
@@ -40,7 +42,7 @@ const tr = t(lang);
   data-pagefind-ignore
   role="dialog"
   aria-modal="true"
-  aria-label={tr.search_placeholder}
+  aria-labelledby="search-dialog-title"
   data-msg-no-results={tr.search_no_results}
   data-msg-no-results-hint={tr.search_no_results_hint}
   data-msg-prep={tr.search_prep}
@@ -51,6 +53,8 @@ const tr = t(lang);
   class="fixed inset-0 z-[100] hidden bg-navy/60 backdrop-blur-sm"
 >
   <div class="mx-auto mt-20 max-w-2xl px-4">
+    <!-- Tiêu đề dành riêng cho trình đọc màn hình — không thay đổi giao diện -->
+    <h2 id="search-dialog-title" class="sr-only">{tr.search_placeholder}</h2>
     <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface shadow-2xl">
       <!-- Thanh input -->
       <div class="flex items-center border-b border-cream-dark dark:border-dark-border px-4">
@@ -61,7 +65,7 @@ const tr = t(lang);
         <input
           type="text"
           id="search-input"
-          class="w-full border-0 px-3 py-4 text-lg text-navy dark:text-dark-text placeholder:text-ink-soft/90 dark:placeholder:text-dark-text-soft/70 focus:outline-none"
+          class="w-full border-0 px-3 py-4 text-lg text-navy dark:text-dark-text placeholder:text-ink-soft/90 dark:placeholder:text-dark-text-soft/70"
           placeholder={tr.search_placeholder}
           autocomplete="off"
         />
@@ -188,12 +192,14 @@ const tr = t(lang);
     const active = document.activeElement as HTMLElement | null;
     searchOpener = active && active !== document.body ? active : trigger;
     overlay.classList.remove('hidden');
+    trigger?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     setTimeout(() => input?.focus(), 50);
   }
 
   function closeSearch() {
     overlay.classList.add('hidden');
+    trigger?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     if (input) input.value = '';
     requestSearch(''); // đưa core về idle — dọn kết quả ở MỌI ô tìm kiếm

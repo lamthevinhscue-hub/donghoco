@@ -11,6 +11,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WatchExplodedView from '../components/WatchExplodedView.astro';
+import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
 ---
 
 <BaseLayout
@@ -30,8 +31,64 @@ import WatchExplodedView from '../components/WatchExplodedView.astro';
       </p>
     </header>
 
-    <!-- ====== EXPLODED VIEW (component chính) ====== -->
-    <WatchExplodedView />
+    <!-- ====== BỘ CHỌN CHẾ ĐỘ: SƠ ĐỒ 2D (mặc định) / MÔ HÌNH 3D (tùy chọn) ====== -->
+    <div
+      id="anatomy-tabs"
+      role="tablist"
+      aria-label="Chế độ minh họa"
+      class="mb-5 flex flex-wrap items-center gap-2"
+    >
+      <button
+        type="button"
+        id="tab-anatomy-2d"
+        role="tab"
+        aria-selected="true"
+        aria-controls="view-2d-wrapper"
+        class="flex min-h-11 items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:hover:bg-dark-brass"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v14H4zM4 12h16M12 5v14"/></svg>
+        Sơ đồ 2D
+      </button>
+      <button
+        type="button"
+        id="tab-anatomy-3d"
+        role="tab"
+        aria-selected="false"
+        aria-controls="view-3d-wrapper"
+        tabindex="-1"
+        class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:bg-brass/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-9-9m9 9a9 9 0 01-9 9m9-9H3m9-9a9 9 0 019 9m-9-9v18"/></svg>
+        Mô hình 3D
+      </button>
+      <!-- Thông báo khi mô hình 3D không mở được — tự quay về sơ đồ 2D.
+           Ẩn/hiện bằng class "hidden" (Tailwind) ĐỒNG THỜI attribute "hidden":
+           class "flex" ghi đè display:none của attribute, còn trong CSS Tailwind
+           ".hidden" đứng sau ".flex" nên luôn thắng khi cả hai cùng có mặt. -->
+      <div
+        id="anatomy-3d-error"
+        hidden
+        role="alert"
+        class="hidden w-full flex flex-wrap items-center gap-2 rounded-lg border border-[#9B2C2C]/40 bg-[#9B2C2C]/10 px-4 py-2 text-sm text-ink-soft dark:text-dark-text-soft"
+      >
+        <span>Không mở được mô hình 3D (mạng chậm hoặc thiết bị không hỗ trợ). Đang xem sơ đồ 2D.</span>
+        <button
+          type="button"
+          id="anatomy-3d-retry"
+          class="min-h-11 rounded-full border border-cream-dark px-3 py-1 text-xs font-medium text-ink-soft transition-colors hover:bg-cream-dark dark:border-dark-border dark:text-dark-text-soft"
+        >Thử lại</button>
+      </div>
+    </div>
+
+    <!-- ====== PANEL 2D (mặc định — không cần tải gì thêm) ====== -->
+    <div id="view-2d-wrapper" role="tabpanel" aria-labelledby="tab-anatomy-2d">
+      <WatchExplodedView />
+    </div>
+
+    <!-- ====== PANEL 3D (tùy chọn — Three.js chỉ tải khi mở tab này) ====== -->
+    <div id="view-3d-wrapper" role="tabpanel" aria-labelledby="tab-anatomy-3d" hidden>
+      <WatchExplodedView3D />
+    </div>
 
     <!-- ====== PHẦN GIẢI THÍCH BỔ SUNG ====== -->
     <section class="mt-16 space-y-8">
@@ -117,3 +174,139 @@ import WatchExplodedView from '../components/WatchExplodedView.astro';
     </section>
   </div>
 </BaseLayout>
+
+<script>
+  // =============================================================================
+  // BỘ CHỌN CHẾ ĐỘ 2D / 3D trên /giai-phau
+  // =============================================================================
+  // - Sơ đồ 2D là mặc định, hoạt động độc lập.
+  // - Tab "Mô hình 3D" chỉ dynamic import engine Three.js NGAY LÚC người dùng
+  //   bấm — chunk 3D không được tải trước đó (kiểm chứng bằng Network).
+  // - Khi 3D lỗi (mạng/WebGL): tự quay về 2D + hiện thông báo + nút thử lại.
+  // =============================================================================
+  import type { Exploded3DHandle } from '../scripts/exploded3d';
+
+  const tablist = document.getElementById('anatomy-tabs');
+  const tab2d = document.getElementById('tab-anatomy-2d') as HTMLButtonElement | null;
+  const tab3d = document.getElementById('tab-anatomy-3d') as HTMLButtonElement | null;
+  const panel2d = document.getElementById('view-2d-wrapper');
+  const panel3d = document.getElementById('view-3d-wrapper');
+  const errorBox = document.getElementById('anatomy-3d-error');
+  const retryBtn = document.getElementById('anatomy-3d-retry') as HTMLButtonElement | null;
+
+  let engine: Exploded3DHandle | null = null;
+  let loading3d = false;
+
+  const tabs = [tab2d, tab3d].filter(Boolean) as HTMLButtonElement[];
+
+  // Đồng bộ trạng thái khối thông báo lỗi: class "hidden" (thắng "flex") +
+  // attribute "hidden" (loại khỏi cây accessibility). Phải đổi cả hai cùng lúc.
+  function showError(show: boolean) {
+    if (!errorBox) return;
+    errorBox.classList.toggle('hidden', !show);
+    errorBox.hidden = !show;
+  }
+
+  // Hình thức tab — đồng bộ tuyệt đối với aria-selected/tabIndex/panel.
+  // Gán lại toàn bộ className (base + trạng thái) để không bao giờ dư class cũ.
+  const TAB_BASE =
+    'flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass';
+  const TAB_ACTIVE = 'bg-navy text-cream hover:bg-brass dark:hover:bg-dark-brass';
+  const TAB_INACTIVE =
+    'border border-cream-dark text-ink-soft hover:border-brass hover:bg-brass/5 dark:border-dark-border dark:text-dark-text-soft';
+
+  function styleTab(tab: HTMLButtonElement, selected: boolean) {
+    tab.className = `${TAB_BASE} ${selected ? TAB_ACTIVE : TAB_INACTIVE}`;
+  }
+
+  function activateTab(index: number, focusTab = true) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+      tab.tabIndex = selected ? 0 : -1;
+      styleTab(tab, selected);
+      if (selected && focusTab) tab.focus();
+    });
+    if (panel2d) panel2d.hidden = index !== 0;
+    if (panel3d) panel3d.hidden = index !== 1;
+
+    if (index === 0) {
+      // Về 2D: dừng render loop 3D (giữ nguyên instance cho lần sau)
+      engine?.pause();
+    } else {
+      void open3D();
+    }
+  }
+
+  // Trang vừa tải: 2D active, 3D inactive — hình thức khớp aria-selected sẵn trong HTML
+  tabs.forEach((tab, i) => styleTab(tab, i === 0));
+
+  async function open3D() {
+    if (engine) {
+      engine.resume();
+      return;
+    }
+    if (loading3d) return;
+    loading3d = true;
+    try {
+      // Dynamic import: chunk chứa Three.js chỉ được tải ở đây
+      const mod = await import('../scripts/exploded3d');
+      const rootEl = document.querySelector('[data-exploded-3d-root]');
+      if (!rootEl) throw new Error('Không tìm thấy khung mô hình 3D.');
+      engine = await mod.mountExploded3D(rootEl as HTMLElement);
+    } catch (err) {
+      engine = null;
+      console.error('Không mở được mô hình 3D:', err);
+      // Quay về sơ đồ 2D và thông báo cho người dùng
+      activateTab(0, false);
+      showError(true);
+    } finally {
+      loading3d = false;
+    }
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      showError(false);
+      activateTab(i, false);
+    });
+    tab.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); activateTab((i + 1) % tabs.length); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); activateTab((i - 1 + tabs.length) % tabs.length); }
+      else if (e.key === 'Home') { e.preventDefault(); activateTab(0); }
+      else if (e.key === 'End') { e.preventDefault(); activateTab(tabs.length - 1); }
+    });
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    showError(false);
+    // Module đã fail bị browser ghi vĩnh viễn vào module map của trang này —
+    // import lại cùng URL không bao giờ thành công. Cách duy nhất: tải lại
+    // trang (document mới) rồi tự mở lại tab 3D qua cờ sessionStorage.
+    try {
+      sessionStorage.setItem('anatomy-retry-3d', '1');
+    } catch {
+      // sessionStorage bị chặn — vẫn tải lại trang, người dùng bấm 3D lại
+    }
+    location.reload();
+  });
+
+  // Sau khi tải lại từ nút "Thử lại": tự mở lại mô hình 3D (người dùng đã chủ động yêu cầu)
+  try {
+    if (sessionStorage.getItem('anatomy-retry-3d') === '1') {
+      sessionStorage.removeItem('anatomy-retry-3d');
+      activateTab(1, false);
+    }
+  } catch {
+    // bỏ qua nếu sessionStorage bị chặn
+  }
+
+  // Giải phóng WebGL khi rời trang (component bị hủy)
+  window.addEventListener('pagehide', () => {
+    engine?.destroy();
+    engine = null;
+  });
+
+  // Tránh cảnh báo unused khi tablist không tồn tại (trang khác)
+  void tablist;
+</script>

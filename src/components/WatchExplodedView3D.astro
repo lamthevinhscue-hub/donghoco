@@ -1,96 +1,138 @@
 ---
 // =============================================================================
-// WATCH EXPLODED VIEW 3D — Giải phẫu đồng hồ cơ bằng Three.js
+// WATCH EXPLODED VIEW 3D — Chế độ "Mô hình 3D" tùy chọn trên /giai-phau
 // =============================================================================
-// Model 3D dựng bằng primitive shapes (cylinder, torus, box) — không file ngoài.
-// Tải Three.js runtime từ CDN (không thêm package.json).
-// Tương tác: OrbitControls xoay 360°, nút "Tách lớp", click lớp để xem chi tiết.
-// Fallback: nếu Three.js không tải → hiện nút "Xem bản 2D".
+// Component này CHỈ là markup: engine Three.js nằm ở src/scripts/exploded3d.ts
+// và chỉ được dynamic import khi người dùng chủ động mở tab 3D
+// (xem script ở src/pages/giai-phau.astro). Không tải Three.js trước lúc đó.
+//
+// Mô hình dựng bằng primitive shapes — mô hình khái niệm minh họa cấu trúc,
+// KHÔNG mô phỏng một calibre cụ thể (ghi chú hiển thị ngay dưới khung 3D).
+//
+// Dữ liệu 12 bộ phận gắn trực tiếp vào các nút chọn nhanh dưới dạng
+// data-* — engine đọc từ DOM, không dùng biến toàn cục window.
 // =============================================================================
 
 // Dữ liệu 12 bộ phận — cùng nguồn với bản 2D
 const parts = [
-  { id: 'crystal', nameVi: 'Kính cường lực', nameEn: 'Crystal', role: 'Lớp trong suốt bảo vệ mặt số. Thường là sapphire.', link: null, color: '#A8C5E2', icon: '◈' },
-  { id: 'second-hand', nameVi: 'Kim giây', nameEn: 'Second hand', role: 'Quay 1 vòng mỗi 60 giây — liên kết bộ thoát.', link: '/co-che/bo-thoat', color: '#9B2C2C', icon: '→' },
-  { id: 'minute-hand', nameVi: 'Kim phút', nameEn: 'Minute hand', role: 'Quay 1 vòng mỗi 60 phút.', link: '/co-che/chuyen-dong-co', color: '#1F2D3D', icon: '↛' },
-  { id: 'hour-hand', nameVi: 'Kim giờ', nameEn: 'Hour hand', role: 'Quay 1 vòng mỗi 12 giờ.', link: '/co-che/chuyen-dong-co', color: '#1F2D3D', icon: '⏰' },
-  { id: 'dial', nameVi: 'Mặt số', nameEn: 'Dial', role: '"Gương mặt" của đồng hồ — quyết định 80% diện mạo.', link: null, color: '#FAF7F2', icon: '◔' },
-  { id: 'subdial', nameVi: 'Mặt số phụ', nameEn: 'Sub-dial', role: 'Hiển thị chức năng phụ: giây, lịch.', link: '/tu-dien/perpetual-calendar', color: '#E8E2D6', icon: '○' },
-  { id: 'mainspring-barrel', nameVi: 'Thùng cót', nameEn: 'Mainspring barrel', role: 'Nguồn năng lượng! Dây cót xoắn.', link: '/co-che/tru-cot', color: '#B8893C', icon: '◎' },
-  { id: 'gear-train', nameVi: 'Bánh răng trung gian', nameEn: 'Gear train', role: 'Chuỗi 4 bánh răng truyền năng lượng.', link: '/co-che/chuyen-dong-co', color: '#4A5568', icon: '⚙' },
-  { id: 'escapement', nameVi: 'Bộ thoát', nameEn: 'Escapement', role: 'TRÁI TIM ĐẬP — chia năng lượng thành nhịp.', link: '/co-che/bo-thoat', color: '#2E86AB', icon: '♥' },
-  { id: 'balance', nameVi: 'Bánh lắc + dây tóc', nameEn: 'Balance & Hairspring', role: 'Hệ dao động — quyết định độ chính xác.', link: '/tu-dien/day-toc-banh-lac', color: '#9B2C2C', icon: '✺' },
-  { id: 'rotor', nameVi: 'Rotor', nameEn: 'Rotor', role: 'Quả nặng xoay → tự động lên dây.', link: '/co-che/len-day-tu-dong', color: '#5A6878', icon: '◐' },
-  { id: 'caseback', nameVi: 'Đáy vỏ', nameEn: 'Caseback', role: 'Nắp đáy — kín hoặc lộ máy.', link: null, color: '#2D3748', icon: '▣' },
+  { id: 'crystal', nameVi: 'Kính cường lực', nameEn: 'Crystal', role: 'Lớp trong suốt bảo vệ mặt số. Thường là sapphire.', link: '', icon: '◈' },
+  { id: 'second-hand', nameVi: 'Kim giây', nameEn: 'Second hand', role: 'Quay 1 vòng mỗi 60 giây — liên kết bộ thoát.', link: '/co-che/bo-thoat', icon: '→' },
+  { id: 'minute-hand', nameVi: 'Kim phút', nameEn: 'Minute hand', role: 'Quay 1 vòng mỗi 60 phút.', link: '/co-che/chuyen-dong-co', icon: '↛' },
+  { id: 'hour-hand', nameVi: 'Kim giờ', nameEn: 'Hour hand', role: 'Quay 1 vòng mỗi 12 giờ.', link: '/co-che/chuyen-dong-co', icon: '⏰' },
+  { id: 'dial', nameVi: 'Mặt số', nameEn: 'Dial', role: '"Gương mặt" của đồng hồ — quyết định 80% diện mạo.', link: '', icon: '◔' },
+  { id: 'subdial', nameVi: 'Mặt số phụ', nameEn: 'Sub-dial', role: 'Hiển thị chức năng phụ: giây, lịch.', link: '/tu-dien/perpetual-calendar', icon: '○' },
+  { id: 'mainspring-barrel', nameVi: 'Thùng cót', nameEn: 'Mainspring barrel', role: 'Nguồn năng lượng! Dây cót xoắn.', link: '/co-che/tru-cot', icon: '◎' },
+  { id: 'gear-train', nameVi: 'Bánh răng trung gian', nameEn: 'Gear train', role: 'Chuỗi 4 bánh răng truyền năng lượng.', link: '/co-che/chuyen-dong-co', icon: '⚙' },
+  { id: 'escapement', nameVi: 'Bộ thoát', nameEn: 'Escapement', role: 'TRÁI TIM ĐẬP — chia năng lượng thành nhịp.', link: '/co-che/bo-thoat', icon: '♥' },
+  { id: 'balance', nameVi: 'Bánh lắc + dây tóc', nameEn: 'Balance & Hairspring', role: 'Hệ dao động — quyết định độ chính xác.', link: '/tu-dien/day-toc-banh-lac', icon: '✺' },
+  { id: 'rotor', nameVi: 'Rotor', nameEn: 'Rotor', role: 'Quả nặng xoay → tự động lên dây.', link: '/co-che/len-day-tu-dong', icon: '◐' },
+  { id: 'caseback', nameVi: 'Đáy vỏ', nameEn: 'Caseback', role: 'Nắp đáy — kín hoặc lộ máy.', link: '', icon: '▣' },
 ];
 ---
 
-<section class="my-6" data-exploded-3d-root>
+<div class="my-6" data-exploded-3d-root>
   <!-- Thanh điều khiển -->
   <div class="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 dark:border-dark-border dark:bg-dark-border/20">
     <div class="flex items-center gap-2">
-      <span class="text-sm font-medium text-navy dark:text-dark-text">🔧 Trạng thái:</span>
+      <span class="text-sm font-medium text-navy dark:text-dark-text">Trạng thái:</span>
       <span id="mode-label-3d" class="text-sm font-bold text-brass dark:text-dark-brass">Đang ghép</span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <button type="button" id="toggle-explode-3d" class="flex items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass">
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <button
+        type="button"
+        id="toggle-explode-3d"
+        aria-pressed="false"
+        class="flex min-h-11 items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         <span id="toggle-label-3d">Tách lớp</span>
       </button>
-      <button type="button" id="reset-view-3d" class="rounded-full border border-cream-dark px-3 py-2 text-xs font-medium text-ink-soft transition-colors hover:bg-cream-dark dark:border-dark-border dark:text-dark-text-soft">Đặt lại</button>
+      <!-- Toggle chuẩn accessibility: nhãn cố định "Chuyển động 3D",
+           aria-pressed = trạng thái chuyển động (true: đang chạy / false: đã tắt),
+           icon pause/play đổi theo trạng thái làm tín hiệu trực quan phụ -->
+      <button
+        type="button"
+        id="motion-toggle-3d"
+        aria-pressed="false"
+        class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:bg-brass/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft"
+      >
+        <svg id="icon-pause-3d" class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M10 9v6m4-6v6"/></svg>
+        <svg id="icon-play-3d" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5v14l11-7z"/></svg>
+        <span>Chuyển động 3D</span>
+      </button>
+      <button
+        type="button"
+        id="reset-view-3d"
+        class="min-h-11 rounded-full border border-cream-dark px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-cream-dark dark:border-dark-border dark:text-dark-text-soft"
+      >Đặt lại</button>
     </div>
   </div>
 
-  <!-- Layout 2 cột -->
+  <!-- Layout 2 cột trên desktop, canvas trên + panel dưới trên mobile -->
   <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-    <!-- Cột trái: Canvas 3D -->
-    <div class="relative rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg" style="min-height: 500px;">
-      <!-- Canvas Three.js -->
-      <div id="three-canvas-container" style="width: 100%; height: 500px;"></div>
-      <!-- Loading / fallback -->
-      <div id="three-loading" class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-        <div class="animate-spin h-8 w-8 rounded-full border-2 border-brass border-t-transparent"></div>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">Đang tải mô hình 3D...</p>
+    <!-- Cột trái: khung canvas 3D (chiều cao cố định theo breakpoint — không CLS) -->
+    <div>
+      <div class="relative h-[340px] overflow-hidden rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg sm:h-[420px] lg:h-[520px]">
+        <div id="three-canvas-container" class="absolute inset-0"></div>
+        <!-- Lớp phủ trạng thái đang tải — engine tự ẩn sau frame đầu -->
+        <div
+          id="three-loading"
+          class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-white/70 text-center dark:bg-dark-bg/70"
+        >
+          <div class="h-8 w-8 animate-spin rounded-full border-2 border-brass border-t-transparent" role="progressbar" aria-label="Đang tải"></div>
+          <p class="text-sm text-ink-soft dark:text-dark-text-soft">Đang tải mô hình 3D…</p>
+        </div>
       </div>
-      <!-- Fallback 2D -->
-      <div id="three-fallback" class="hidden text-center py-12">
-        <p class="mb-3 text-sm text-ink-soft dark:text-dark-text-soft">Không tải được mô hình 3D.</p>
-        <button type="button" id="show-2d-btn" class="rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream hover:bg-brass">Xem bản 2D →</button>
-      </div>
-      <!-- Hint -->
-      <p id="three-hint" class="mt-2 hidden text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-        🖱 Kéo để xoay · Lăn chuột để zoom · Click bộ phận để xem chi tiết
+      <p class="mt-3 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
+        Kéo để xoay · Cuộn hoặc chụm để thu phóng · Chạm hoặc bấm một bộ phận để xem chi tiết
+      </p>
+      <p class="mt-1 text-center text-xs italic text-ink-soft/80 dark:text-dark-text-soft/60">
+        Mô hình khái niệm để minh họa cấu trúc, không mô phỏng một calibre cụ thể.
       </p>
     </div>
 
-    <!-- Cột phải: thẻ chi tiết + quick-pick -->
+    <!-- Cột phải: thẻ chi tiết + danh sách bộ phận (dùng được bằng bàn phím) -->
     <div class="space-y-4">
-      <div id="detail-card-3d" class="rounded-lg border-l-4 border-brass bg-white p-5 dark:bg-dark-surface">
+      <div
+        id="detail-card-3d"
+        class="rounded-lg border-l-4 border-brass bg-white p-5 dark:bg-dark-surface"
+        role="status"
+      >
         <div class="mb-2 flex items-center gap-3">
-          <span id="detail-icon-3d" class="text-3xl">👆</span>
+          <span id="detail-icon-3d" class="text-3xl" aria-hidden="true">👆</span>
           <div>
             <h3 id="detail-name-vi-3d" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</h3>
-            <p id="detail-name-en-3d" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Click vào bộ phận trong mô hình 3D</p>
+            <p id="detail-name-en-3d" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Chạm hoặc bấm vào bộ phận trong mô hình, hoặc chọn từ danh sách</p>
           </div>
         </div>
         <p id="detail-role-3d" class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Kéo để xoay mô hình 360°. Bấm <strong>"Tách lớp"</strong> để phân rã. Click từng bộ phận để hiểu vai trò.
+          Kéo để xoay mô hình 360 độ. Bấm <strong>"Tách lớp"</strong> để phân rã thành từng lớp.
+          Chạm hoặc bấm từng bộ phận (trong mô hình hoặc trong danh sách) để hiểu vai trò.
         </p>
-        <a id="detail-link-3d" href="#" class="mt-4 hidden inline-flex items-center gap-1 rounded-full bg-navy px-4 py-2 text-xs font-medium text-cream hover:bg-brass dark:hover:bg-dark-brass">
+        <a
+          id="detail-link-3d"
+          href="#"
+          class="mt-4 hidden inline-flex min-h-11 items-center gap-1 rounded-full bg-navy px-4 py-2 text-xs font-medium text-cream hover:bg-brass dark:hover:bg-dark-brass"
+        >
           Đọc bài chi tiết →
         </a>
       </div>
 
       <div class="rounded-lg border border-cream-dark bg-cream-dark/10 p-4 dark:border-dark-border dark:bg-dark-surface/50">
-        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — click để chọn</h4>
+        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — bấm để chọn</h4>
         <div class="grid grid-cols-2 gap-2 text-xs">
           {parts.map((p) => (
             <button
               type="button"
-              class="part-quick-3d flex items-center gap-2 rounded border border-cream-dark bg-white p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:border-dark-border dark:bg-dark-surface dark:bg-dark-brass/10"
+              class="part-quick-3d flex min-h-11 items-center gap-2 rounded border border-cream-dark bg-white p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:border-dark-border dark:bg-dark-surface"
               data-part-id={p.id}
+              data-name-vi={p.nameVi}
+              data-name-en={p.nameEn}
+              data-role={p.role}
+              data-link={p.link}
+              data-icon={p.icon}
             >
-              <span class="text-base">{p.icon}</span>
+              <span class="text-base" aria-hidden="true">{p.icon}</span>
               <span class="text-navy dark:text-dark-text">{p.nameVi}</span>
             </button>
           ))}
@@ -98,10 +140,4 @@ const parts = [
       </div>
     </div>
   </div>
-</section>
-
-<script is:inline define:vars={{ partsData: parts }}>
-  // Truyền data parts ra window cho script ngoài dùng
-  window.__partsData3D = partsData;
-</script>
-<script type="module" src="/js/exploded-3d.js"></script>
+</div>

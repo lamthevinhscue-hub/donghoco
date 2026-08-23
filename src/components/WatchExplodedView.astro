@@ -177,7 +177,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
   <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
     <!-- Cột trái: SVG -->
     <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
-      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
+      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg" aria-hidden="true" focusable="false">
         <!-- Nhãn lớp bên trái nằm NGAY TRONG nhóm lớp (y = 0 so với tâm lớp)
              để luôn ngang hàng và di chuyển theo phép biến đổi của lớp. -->
 
@@ -371,7 +371,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     <!-- Cột phải: bảng các bộ phận + thẻ chi tiết -->
     <div class="space-y-4">
       <!-- Thẻ chi tiết bộ phận đang chọn -->
-      <div id="detail-card" class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-5">
+      <div id="detail-card" role="status" aria-live="polite" class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-5">
         <div class="mb-2 flex items-center gap-3">
           <span id="detail-icon" class="text-3xl">👆</span>
           <div>
@@ -397,6 +397,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
             <button
               type="button"
               class="part-quick flex min-h-11 items-center gap-2 rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:bg-dark-brass/10"
+              aria-pressed="false"
               data-part-id={p.id}
             >
               <span class="text-base">{p.icon}</span>
@@ -474,6 +475,9 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     // Map part id -> thông tin chi tiết (lấy từ data attributes)
     const partMap = {};
     svg?.querySelectorAll('[data-part]').forEach((el) => {
+      // Bỏ qua layer-group cha (có data-part nhưng không có data-name-vi) —
+      // nếu không tên bộ phận fallback thành id thô (VD: "rotor" thay vì tên tiếng Việt)
+      if (!el.getAttribute('data-name-vi')) return;
       const id = el.getAttribute('data-part');
       if (!partMap[id]) {
         partMap[id] = {
@@ -646,6 +650,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       svg?.querySelectorAll(`[data-part="${id}"]`).forEach((el) => el.classList.add('active'));
       // Active quick button
       document.querySelector(`.part-quick[data-part-id="${id}"]`)?.classList.add('active');
+      quickButtons.forEach((b) => b.setAttribute('aria-pressed', b.dataset.partId === id ? 'true' : 'false'));
 
       // Cập nhật detail card
       detailIcon.textContent = iconMap[id] || '•';

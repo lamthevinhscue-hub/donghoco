@@ -454,6 +454,25 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   const detailLink = root.querySelector<HTMLAnchorElement>('#detail-link-3d');
   const quickBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('.part-quick-3d'));
 
+  // Xoay camera quanh trục thẳng đứng (độ) — dùng cho nút xoay trái/phải
+  function rotateBy(deg: number) {
+    const offset = camera.position.clone().sub(controls.target);
+    const sph = new THREE.Spherical().setFromVector3(offset);
+    sph.theta += THREE.MathUtils.degToRad(deg);
+    offset.setFromSpherical(sph);
+    camera.position.copy(controls.target).add(offset);
+    controls.update();
+    wake();
+  }
+  // Thu/phóng theo hệ số (0.85 = phóng to, 1.18 = thu nhỏ) — tôn trọng min/maxDistance
+  function zoomBy(factor: number) {
+    const offset = camera.position.clone().sub(controls.target);
+    offset.setLength(THREE.MathUtils.clamp(offset.length() * factor, controls.minDistance, controls.maxDistance));
+    camera.position.copy(controls.target).add(offset);
+    controls.update();
+    wake();
+  }
+
   const DETAIL_DEFAULT_ROLE =
     'Kéo để xoay mô hình 360 độ. Bấm "Tách lớp" để phân rã thành từng lớp. Chạm hoặc bấm từng bộ phận (trong mô hình hoặc trong danh sách) để hiểu vai trò.';
 
@@ -480,6 +499,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
       }),
     );
     quickBtns.forEach((b) => b.classList.remove('border-brass', 'bg-brass/10'));
+    quickBtns.forEach((b) => b.setAttribute('aria-pressed', 'false'));
 
     if (!id || !partMap[id]) {
       if (detailIcon) detailIcon.textContent = '👆';
@@ -504,6 +524,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     );
     const qb = quickBtns.find((b) => b.dataset.partId === id);
     qb?.classList.add('border-brass', 'bg-brass/10');
+    qb?.setAttribute('aria-pressed', 'true');
 
     if (detailIcon) detailIcon.textContent = p.icon;
     if (detailNameVi) detailNameVi.textContent = p.nameVi;
@@ -543,6 +564,12 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   quickBtns.forEach((btn) => {
     btn.addEventListener('click', () => selectPart(btn.dataset.partId || null));
   });
+
+  // Nút điều khiển thay thế thao tác kéo (keyboard-accessible)
+  root.querySelector('#rot-left-3d')?.addEventListener('click', () => rotateBy(-15));
+  root.querySelector('#rot-right-3d')?.addEventListener('click', () => rotateBy(15));
+  root.querySelector('#zoom-in-3d')?.addEventListener('click', () => zoomBy(0.85));
+  root.querySelector('#zoom-out-3d')?.addEventListener('click', () => zoomBy(1.18));
 
   // Click/chạm chọn bộ phận — chỉ tính là click khi không phải thao tác kéo xoay
   const raycaster = new THREE.Raycaster();

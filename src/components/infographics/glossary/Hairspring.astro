@@ -159,11 +159,11 @@ import MechanismAnimation from '../MechanismAnimation.astro';
         btn.addEventListener('click', () => {
           __currentFreq = parseInt(btn.dataset.freq, 10);
           buttons.forEach((b) => {
-            b.classList.remove('bg-navy', 'text-cream', 'border-navy');
-            b.classList.add('border-cream-dark', 'text-navy');
+            b.classList.remove('bg-navy', 'text-cream', 'border-navy', 'dark:text-dark-text');
+            b.classList.add('border-cream-dark', 'text-navy', 'dark:text-dark-text');
           });
           btn.classList.add('bg-navy', 'text-cream', 'border-navy');
-          btn.classList.remove('border-cream-dark', 'text-navy');
+          btn.classList.remove('border-cream-dark', 'text-navy', 'dark:text-dark-text');
           if (freqValue) freqValue.textContent = __currentFreq.toLocaleString('en-US') + ' vph';
           if (freqHz) freqHz.textContent = (__currentFreq / 3600).toFixed(2) + ' Hz';
         });

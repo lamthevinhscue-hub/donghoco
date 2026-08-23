@@ -50,10 +50,10 @@ export default {
         navy: '#234A73',         // = steel (sáng) — nền khối đậm + tiêu đề
         'navy-light': '#3A4D63', // gradient infographic (giữ hệ cũ)
         brass: '#8A6A35',        // = alloy (sáng)
-        'brass-light': '#D0B27B',
+        'brass-light': '#D9BC8B', // sáng hơn #D0B27B để đạt 4.5:1 trên nền navy footer
         'dark-bg': '#111519',        // = page (tối)
         'dark-surface': '#20272D',   // = surface-raised (tối)
-        'dark-border': '#39434A',    // = line (tối)
+        'dark-border': '#66758A',    // = line (tối) — đủ 3:1 trên cả nền tối và bề mặt tối
         'dark-text': '#EEF0ED',      // = primary (tối)
         'dark-text-soft': '#B7C0C6', // = secondary (tối)
         'dark-brass': '#D0B27B',     // = alloy (tối)

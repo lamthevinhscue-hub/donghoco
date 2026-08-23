@@ -178,17 +178,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     <!-- Cột trái: SVG -->
     <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
       <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg">
-        <!-- Nhãn lớp bên trái — đẩy ra xa, font nhỏ hơn.
-             class svg-label: ẩn trên mobile (thông tin đã có panel bộ phận bên dưới),
-             tránh chữ thu nhỏ tới mức không đọc được khi SVG co lại. -->
-        <g class="svg-label" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7">
-          <text x="5" y="100">Lớp 0 · Kính</text>
-          <text x="5" y="220">Lớp 1 · Kim</text>
-          <text x="5" y="340">Lớp 2 · Mặt số</text>
-          <text x="5" y="490">Lớp 3 · Bộ máy</text>
-          <text x="5" y="630">Lớp 4 · Bộ thoát</text>
-          <text x="5" y="770">Lớp 5-6 · Rotor + Đáy</text>
-        </g>
+        <!-- Nhãn lớp bên trái nằm NGAY TRONG nhóm lớp (y = 0 so với tâm lớp)
+             để luôn ngang hàng và di chuyển theo phép biến đổi của lớp. -->
 
         <!-- Đường tâm dọc tham chiếu -->
         <line x1="250" y1="40" x2="250" y2="840" stroke="#D1D5DB" stroke-width="0.5" stroke-dasharray="3 4" opacity="0.5"/>
@@ -196,13 +187,15 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
         <!-- LỚP 0: KÍNH (crystal) -->
         <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 0 · Kính</text>
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
           <text x="250" y="3" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
         </g>
 
         <!-- LỚP 1: KIM (hands) -->
-        <g class="layer-group" data-part="hands" data-layer="1" data-target-y="220" data-assembled-y="320" transform="translate(0, 320)">
+        <g class="layer-group" data-part="hands" data-layer="1" data-target-y="251" data-assembled-y="320" transform="translate(0, 320)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 1 · Kim</text>
           <!-- Kim giờ -->
           <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
             <rect x="248" y="-55" width="4" height="60" fill="#1F2D3D" rx="2"/>
@@ -222,7 +215,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         </g>
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
-        <g class="layer-group" data-part="dial" data-layer="2" data-target-y="340" data-assembled-y="360" transform="translate(0, 360)">
+        <g class="layer-group" data-part="dial" data-layer="2" data-target-y="428" data-assembled-y="360" transform="translate(0, 360)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 2 · Mặt số</text>
           <!-- Mặt số chính -->
           <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
             <circle cx="250" cy="0" r="120" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2"/>
@@ -257,7 +251,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         </g>
 
         <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
-        <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="490" data-assembled-y="410" transform="translate(0, 410)">
+        <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="613" data-assembled-y="410" transform="translate(0, 410)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 3 · Bộ máy</text>
           <!-- Thùng cót -->
           <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
             <circle cx="180" cy="0" r="38" fill="#B8893C" opacity="0.85" stroke="#9B6E2C" stroke-width="1.5"/>
@@ -297,7 +292,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         </g>
 
         <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
-        <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="630" data-assembled-y="460" transform="translate(0, 460)">
+        <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="729" data-assembled-y="460" transform="translate(0, 460)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 4 · Bộ thoát</text>
           <!-- Bộ thoát (escape wheel + pallet) -->
           <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
             <g transform="translate(190, 0)">
@@ -338,7 +334,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         </g>
 
         <!-- LỚP 5: ROTOR -->
-        <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="740" data-assembled-y="510" transform="translate(0, 510)">
+        <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="866" data-assembled-y="510" transform="translate(0, 510)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 5 · Rotor</text>
           <g data-part="rotor" data-name-vi="Rotor (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
             {/* Hình bán nguyệt đặc trưng của rotor */}
             <path d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
@@ -352,7 +349,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         </g>
 
         <!-- LỚP 6: ĐÁY VỎ (caseback) -->
-        <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="820" data-assembled-y="570" transform="translate(0, 570)">
+        <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="956" data-assembled-y="570" transform="translate(0, 570)">
+          <text x="5" y="0" font-size="10" fill="#A8A095" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 6 · Đáy vỏ</text>
           <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
             <ellipse cx="250" cy="0" rx="135" ry="18" fill="#2D3748" stroke="#1F2D3D" stroke-width="1.5"/>
             <ellipse cx="250" cy="-2" rx="120" ry="14" fill="none" stroke="#4A5568" stroke-width="0.8"/>
@@ -497,16 +495,114 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     });
 
     // ====== TÁCH / GHÉP (với stagger tuần tự) ======
+    // Vị trí tách KHÔNG viết tay: đo chiều cao thật từng lớp bằng getBBox()
+    // rồi xếp tuần tự — mỗi lớp cách đáy lớp trước ít nhất GAP đơn vị.
+    // Fallback (getBBox không đo được — ví dụ SVG bị ẩn): số cố định đã tính
+    // đúng theo cùng công thức với kích thước chuẩn của hình.
+    const GAP = 24;
+    const FALLBACK_TARGETS = [100, 251, 428, 613, 729, 866, 956];
+    const FALLBACK_EXPLODED_VIEWBOX_H = 996; // khung trạng thái TÁCH (dự phòng)
+    const FALLBACK_ASSEMBLED_VIEWBOX_Y = 193; // khung trạng thái GHÉP (dự phòng)
+    const FALLBACK_ASSEMBLED_VIEWBOX_H = 417;
+
+    function computeExplodeTargets() {
+      const boxes = [];
+      let measurable = true;
+      layers?.forEach((layer) => {
+        try {
+          const b = layer.getBBox();
+          if (!Number.isFinite(b.y) || !Number.isFinite(b.height) || b.height <= 0) throw new Error('bbox rỗng');
+          boxes.push(b);
+        } catch {
+          measurable = false;
+          boxes.push(null);
+        }
+      });
+      if (!measurable) {
+        return {
+          targets: FALLBACK_TARGETS,
+          explodedVB: { y: 0, h: FALLBACK_EXPLODED_VIEWBOX_H },
+          assembledVB: { y: FALLBACK_ASSEMBLED_VIEWBOX_Y, h: FALLBACK_ASSEMBLED_VIEWBOX_H },
+        };
+      }
+      const targets = [];
+      let prevBottom = 0;
+      layers?.forEach((layer, i) => {
+        const b = boxes[i];
+        if (i === 0) {
+          // Lớp đầu giữ nguyên vị trí tách gốc trong markup
+          targets[0] = parseFloat(layer.dataset.targetY);
+        } else {
+          targets[i] = prevBottom + GAP - b.y;
+        }
+        prevBottom = targets[i] + b.y + b.height;
+      });
+      // Khung tách: chừa 22 đơn vị lề dưới như thiết kế cũ; không thu nhỏ dưới 860
+      const explodedVB = { y: 0, h: Math.max(860, Math.ceil(prevBottom + 22)) };
+      // Khung ghép: đo vùng chiếm chỗ THẬT của các lớp ở vị trí data-assembled-y
+      // (chồng nhau là chủ đích — lấy bao ngoài cùng), chừa lề 22 trên/dưới
+      let minTop = Infinity;
+      let maxBottom = -Infinity;
+      layers?.forEach((layer, i) => {
+        const b = boxes[i];
+        const ty = parseFloat(layer.dataset.assembledY);
+        minTop = Math.min(minTop, ty + b.y);
+        maxBottom = Math.max(maxBottom, ty + b.y + b.height);
+      });
+      const y0 = Math.max(0, Math.floor(minTop - 22));
+      const assembledVB = { y: y0, h: Math.ceil(maxBottom + 22 - y0) };
+      return { targets, explodedVB, assembledVB };
+    }
+
+    const explode = computeExplodeTargets();
+
+    // Đọc LIVE mỗi lần dùng — người dùng đổi cài đặt giảm chuyển động
+    // giữa chừng sẽ được áp dụng ngay ở lần bấm kế tiếp
+    const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function setViewBox(vb) {
+      svg?.setAttribute('viewBox', `0 ${vb.y} 500 ${vb.h}`);
+    }
+
+    let viewBoxRaf = 0;
+    function animateViewBox(to) {
+      if (!svg) return;
+      const cur = svg.viewBox.baseVal;
+      const from = { y: cur.y, h: cur.height };
+      if (rmQuery.matches || (from.y === to.y && from.h === to.h)) {
+        cancelAnimationFrame(viewBoxRaf);
+        setViewBox(to);
+        return;
+      }
+      cancelAnimationFrame(viewBoxRaf);
+      const DUR = 700; // khớp transition transform 0.7s của .layer-group
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / DUR, 1);
+        // easeInOutQuad ~ cubic-bezier(0.4, 0, 0.2, 1) của transition lớp
+        const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        setViewBox({ y: from.y + (to.y - from.y) * eased, h: from.h + (to.h - from.h) * eased });
+        if (t < 1) viewBoxRaf = requestAnimationFrame(step);
+      };
+      viewBoxRaf = requestAnimationFrame(step);
+    }
+
+    // Trang mở ở trạng thái ghép — khung thu ngay theo chiều cao ghép
+    setViewBox(explode.assembledVB);
+
     function applyMode() {
       if (!layers) return;
+      // Khung đổi theo trạng thái: thu khi ghép, nới khi tách (mượt, tôn trọng RM)
+      animateViewBox(isExploded ? explode.explodedVB : explode.assembledVB);
       layers.forEach((layer, i) => {
         const targetY = isExploded
-          ? parseFloat(layer.dataset.targetY)
+          ? explode.targets[i]
           : parseFloat(layer.dataset.assembledY);
-        // Stagger: mỗi lớp trễ 60ms so với lớp trước (từ ngoài vào trong)
+        // Stagger: mỗi lớp trễ 60ms so với lớp trước — bằng 0 khi người dùng
+        // bật giảm chuyển động (các lớp chuyển cùng lúc, không lan tuần tự)
         setTimeout(() => {
           layer.setAttribute('transform', `translate(0, ${targetY})`);
-        }, i * 60);
+        }, rmQuery.matches ? 0 : i * 60);
       });
       toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
       modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)';

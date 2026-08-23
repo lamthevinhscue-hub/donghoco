@@ -101,7 +101,7 @@ const parts = [
         <div class="mb-2 flex items-center gap-3">
           <span id="detail-icon-3d" class="text-3xl" aria-hidden="true">👆</span>
           <div>
-            <h3 id="detail-name-vi-3d" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</h3>
+            <div id="detail-name-vi-3d" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</div>
             <p id="detail-name-en-3d" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Chạm hoặc bấm vào bộ phận trong mô hình, hoặc chọn từ danh sách</p>
           </div>
         </div>
@@ -119,7 +119,7 @@ const parts = [
       </div>
 
       <div class="rounded-lg border border-cream-dark bg-cream-dark/10 p-4 dark:border-dark-border dark:bg-dark-surface/50">
-        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — bấm để chọn</h4>
+        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — bấm để chọn</p>
         <div class="grid grid-cols-2 gap-2 text-xs">
           {parts.map((p) => (
             <button

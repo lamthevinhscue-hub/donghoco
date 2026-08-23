@@ -8,7 +8,7 @@
 // Trên điện thoại: tên bài dài cắt bằng dấu ba chấm, không xuống dòng.
 // =============================================================================
 
-import { getLangFromUrl, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, localizedPath, t } from '../i18n/ui';
 
 interface Props {
   /** Cùng mảng breadcrumb đã truyền cho BaseLayout (JSON-LD) */
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
 const { items } = Astro.props;
 // Bỏ phần tử cuối (trang hiện tại) khỏi link — chỉ hiện tên, không link chính nó
 const links = items.slice(0, -1);
@@ -23,7 +24,7 @@ const current = items[items.length - 1];
 ---
 
 {items.length > 1 && (
-  <nav aria-label="Breadcrumb" data-pagefind-ignore class="mb-6">
+  <nav aria-label={tr.nav_breadcrumb} data-pagefind-ignore class="mb-6">
     <ol class="flex flex-wrap items-center gap-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
       {links.map((item, i) => (
         <li class="flex items-center gap-1">

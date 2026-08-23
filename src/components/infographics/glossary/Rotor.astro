@@ -63,7 +63,7 @@ const toneColors = { common: '#2E86AB', rare: '#9B2C2C', high: '#2D7A55', mid: '
   <div class="grid gap-4 sm:grid-cols-2">
     {layouts.map((layout, i) => (
       <div class="rounded-lg border-l-4 bg-white dark:bg-dark-surface p-4" style={`border-left-color: ${toneColors[layout.tone]};`} data-anim="layout-card" data-index={i}>
-        <h4 class="font-serif text-base" style={`color: ${toneColors[layout.tone]};`}>{layout.name}</h4>
+        <p class="font-serif text-base" style={`color: ${toneColors[layout.tone]};`}>{layout.name}</p>
         <p class="text-xs font-medium text-navy dark:text-dark-text">{layout.nameVi}</p>
         <p class="mt-2 text-xs text-ink-soft dark:text-dark-text-soft">{layout.detail}</p>
         <p class="mt-2 text-xs">

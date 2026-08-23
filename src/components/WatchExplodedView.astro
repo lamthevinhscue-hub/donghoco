@@ -375,7 +375,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         <div class="mb-2 flex items-center gap-3">
           <span id="detail-icon" class="text-3xl">👆</span>
           <div>
-            <h3 id="detail-name-vi" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</h3>
+            <div id="detail-name-vi" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</div>
             <p id="detail-name-en" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Chạm hoặc bấm vào bất kỳ bộ phận nào trong sơ đồ bên cạnh</p>
           </div>
         </div>
@@ -391,7 +391,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
       <!-- Danh sách nhanh các bộ phận -->
       <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 p-4">
-        <h4 class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — chạm hoặc bấm để chọn</h4>
+        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — chạm hoặc bấm để chọn</p>
         <div class="grid grid-cols-2 gap-2 text-xs">
           {parts.map((p) => (
             <button

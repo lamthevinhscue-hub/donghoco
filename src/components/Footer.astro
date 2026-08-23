@@ -29,15 +29,15 @@ const footerLinks = [
   <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
     <!-- Cột 1: Giới thiệu -->
     <div>
-      <h3 class="mb-3 font-serif text-xl text-cream">
+      <p class="mb-3 font-serif text-xl text-cream">
         <a href={localizedPath('/', lang)} class="text-cream transition-colors hover:text-brass-light focus-visible:text-brass-light">{tr.siteName}</a>
-      </h3>
+      </p>
       <p class="text-sm leading-relaxed">{tr.siteTagline}</p>
     </div>
 
     <!-- Cột 2: Liên kết nhanh -->
     <div>
-      <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-brass-light">{tr.featured}</h4>
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-brass-light">{tr.featured}</p>
       <ul class="space-y-2 text-sm">
         {footerLinks.map((item) => (
           <li>
@@ -51,7 +51,7 @@ const footerLinks = [
 
     <!-- Cột 3: Thông báo bản tin (đang chuẩn bị) -->
     <div>
-      <h4 class="mb-2 text-sm font-semibold uppercase tracking-wider text-brass-light">{tr.subscribe_title}</h4>
+      <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-brass-light">{tr.subscribe_title}</p>
       <p class="text-sm leading-relaxed text-cream/70">
         {tr.subscribe_desc}
       </p>

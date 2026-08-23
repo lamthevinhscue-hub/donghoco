@@ -57,7 +57,7 @@ const points = [
     {points.map((point, i) => (
       <div class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-4" data-anim="point-card" data-index={i}>
         <p class="mb-1 text-lg font-bold text-brass dark:text-dark-brass">{point.num}</p>
-        <h4 class="font-serif text-sm text-navy dark:text-dark-text">{point.title}</h4>
+        <p class="font-serif text-sm font-semibold text-navy dark:text-dark-text">{point.title}</p>
         <p class="mt-1 text-xs text-ink-soft dark:text-dark-text-soft">{point.detail}</p>
       </div>
     ))}

@@ -62,6 +62,7 @@ const isHero = variant === 'hero';
       id={inputId}
       class={`w-full rounded-lg border border-ink-soft/70 bg-white pl-10 pr-4 text-navy placeholder:text-ink-soft/90 focus:border-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text dark:placeholder:text-dark-text-soft/70 ${isHero ? 'min-h-14 text-base' : 'min-h-11 text-sm'}`}
       placeholder={tr.search_placeholder}
+      aria-label={tr.search_placeholder}
       autocomplete="off"
       role="combobox"
       aria-expanded="false"

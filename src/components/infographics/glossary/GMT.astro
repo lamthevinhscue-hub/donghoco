@@ -158,13 +158,13 @@ const cities = [
   <!-- Bộ chọn múi giờ nhà + múi giờ thứ 3 -->
   <div class="mt-4 space-y-3 text-xs">
     <div class="flex flex-wrap items-center gap-2">
-      <span class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ nhà (kim 24h):</span>
+      <label for="home-tz" class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ nhà (kim 24h):</label>
       <select id="home-tz" class="rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-navy dark:text-dark-text">
         {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
       </select>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <span class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</span>
+      <label for="third-tz" class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</label>
       <select id="third-tz" class="rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-navy dark:text-dark-text">
         {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
       </select>
@@ -281,7 +281,7 @@ const cities = [
 <!-- Phần giải thích -->
 <div class="mt-10 space-y-6" data-explanation>
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white dark:bg-dark-surface p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">① Hiện tượng — bạn nhìn thấy gì?</h3>
+    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">① Hiện tượng — bạn nhìn thấy gì?</h2>
     <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
       Một chiếc đồng hồ GMT có thêm <strong>một kim phụ màu nổi bật</strong> (thường xanh, cam, hoặc vàng) —
       kim này <strong>đi hết 1 vòng trong 24 giờ</strong> (thay vì 12 giờ như kim giờ thường). Vòng bezel ngoài
@@ -290,7 +290,7 @@ const cities = [
   </div>
 
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white dark:bg-dark-surface p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">② Nguyên lý — 3 thời gian trên 1 mặt</h3>
+    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">② Nguyên lý — 3 thời gian trên 1 mặt</h2>
     <ul class="space-y-2 text-sm text-ink-soft dark:text-dark-text-soft">
       <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">a)</span>
         <span><strong>Kim giờ + phút</strong> thông thường → giờ địa phương (nơi bạn đang đứng).</span>
@@ -308,7 +308,7 @@ const cities = [
   </div>
 
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white dark:bg-dark-surface p-5">
-    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">③ Lịch sử — sinh ra cho phi công</h3>
+    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">③ Lịch sử — sinh ra cho phi công</h2>
     <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
       Năm <strong>1954</strong>, hãng hàng không <strong>Pan Am</strong> yêu cầu Rolex chế tạo đồng hồ cho phi công
       bay xuyên lục địa — cần biết giờ cả điểm đi lẫn điểm đến. Rolex đáp ứng bằng <strong>GMT-Master</strong>

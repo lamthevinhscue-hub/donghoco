@@ -31,9 +31,14 @@ const formAction = `https://formspree.io/f/${formspreeId}`;
         method="POST"
         action={formAction}
         data-form="contact"
+        novalidate
         data-sending-text={tr.contact_sending}
         data-success-text={tr.contact_success}
         data-error-text={tr.contact_error}
+        data-msg-fill-name={isVi ? 'Vui lòng điền tên của bạn.' : 'Please enter your name.'}
+        data-msg-fill-email={isVi ? 'Vui lòng điền địa chỉ email.' : 'Please enter your email address.'}
+        data-msg-email-invalid={isVi ? 'Địa chỉ email chưa hợp lệ — kiểm tra lại giúp tôi.' : 'That email address does not look valid — please check again.'}
+        data-msg-fill-message={isVi ? 'Vui lòng điền nội dung tin nhắn.' : 'Please write your message.'}
       >
         <!-- Honeypot chống bot: ẩn khỏi người dùng, Formspree loại bỏ lượt gửi có ô này được điền -->
         <div class="hidden" aria-hidden="true">
@@ -45,45 +50,51 @@ const formAction = `https://formspree.io/f/${formspreeId}`;
 
         <div>
           <label for="name" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
-            {tr.contact_name}
+            {tr.contact_name} <span class="sr-only">({isVi ? 'bắt buộc' : 'required'})</span>
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
+            aria-describedby="name-error"
             maxlength="100"
             class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
           />
+          <p id="name-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
         </div>
 
         <div>
           <label for="email" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
-            {tr.contact_email}
+            {tr.contact_email} <span class="sr-only">({isVi ? 'bắt buộc' : 'required'})</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
+            aria-describedby="email-error"
             maxlength="100"
             class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
           />
+          <p id="email-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
         </div>
 
         <div>
           <label for="message" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
-            {tr.contact_message}
+            {tr.contact_message} <span class="sr-only">({isVi ? 'bắt buộc' : 'required'})</span>
           </label>
           <textarea
             id="message"
             name="message"
             rows="6"
             required
+            aria-describedby="message-error"
             maxlength="2000"
             class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
             data-message
           ></textarea>
+          <p id="message-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
           <p class="mt-1 text-right text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
             <span data-char-count>2000</span> {tr.contact_chars_remaining}
           </p>
@@ -126,6 +137,58 @@ const formAction = `https://formspree.io/f/${formspreeId}`;
     const sendingText = form.dataset.sendingText ?? 'Sending…';
     const successText = form.dataset.successText ?? 'Sent.';
     const errorText = form.dataset.errorText ?? 'Error.';
+    const msg = (key: string) => form.dataset[key] ?? '';
+
+    // ----- Validation cho trình đọc màn hình -----
+    // Native bubble của trình duyệt không được mọi trình đọc đọc lên — tự kiểm tra
+    // bằng Constraint Validation API (attribute required/type vẫn là nguồn chuẩn),
+    // hiển thị text lỗi cụ thể + aria-invalid + đưa focus về field lỗi đầu.
+    interface FieldRule {
+      el: HTMLInputElement | HTMLTextAreaElement | null;
+      emptyMsg: string;
+      invalidMsg?: string;
+    }
+    const fields: FieldRule[] = [
+      { el: form.querySelector('#name'), emptyMsg: msg('msgFillName') },
+      { el: form.querySelector('#email'), emptyMsg: msg('msgFillEmail'), invalidMsg: msg('msgEmailInvalid') },
+      { el: form.querySelector('#message'), emptyMsg: msg('msgFillMessage') },
+    ];
+
+    function setFieldError(rule: FieldRule, text: string) {
+      if (!rule.el) return;
+      const errEl = document.getElementById(rule.el.id + '-error');
+      if (text) {
+        rule.el.setAttribute('aria-invalid', 'true');
+        if (errEl) {
+          errEl.textContent = text;
+          errEl.classList.remove('hidden');
+        }
+      } else {
+        rule.el.setAttribute('aria-invalid', 'false');
+        if (errEl) {
+          errEl.textContent = '';
+          errEl.classList.add('hidden');
+        }
+      }
+    }
+
+    function validateField(rule: FieldRule): boolean {
+      if (!rule.el) return true;
+      const v = rule.el.validity;
+      if (v.valid) {
+        setFieldError(rule, '');
+        return true;
+      }
+      setFieldError(rule, v.valueMissing ? rule.emptyMsg : rule.invalidMsg ?? rule.emptyMsg);
+      return false;
+    }
+
+    // Gõ lại ở field đang lỗi → xét lại ngay để người dùng thấy đã sửa xong
+    fields.forEach((rule) => {
+      rule.el?.addEventListener('input', () => {
+        if (rule.el?.getAttribute('aria-invalid') === 'true') validateField(rule);
+      });
+    });
 
     // Đếm ký tự còn lại cho ô nội dung
     const textarea = form.querySelector('[data-message]') as HTMLTextAreaElement | null;
@@ -143,6 +206,14 @@ const formAction = `https://formspree.io/f/${formspreeId}`;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!status || !btn) return;
+      // Kiểm tra hợp lệ trước khi gửi — focus chuyển đến field lỗi đầu tiên
+      // để trình đọc màn hình đọc label + thông báo lỗi (qua aria-describedby)
+      const results = fields.map(validateField);
+      if (results.includes(false)) {
+        const firstBad = fields[results.indexOf(false)];
+        firstBad?.el?.focus();
+        return;
+      }
       // Tránh gửi nhiều lần liên tiếp
       if (btn.disabled) return;
       btn.disabled = true;

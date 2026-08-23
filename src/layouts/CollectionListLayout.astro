@@ -97,6 +97,7 @@ const route = getCollectionRoute(collection);
         )}
 
         {/* ====== Danh sách thẻ ====== */}
+        <h2 class="sr-only">{lang === 'vi' ? 'Danh sách bài viết' : 'Article list'}</h2>
         <div id="card-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((entry) => {
             const filterAttrs = {};

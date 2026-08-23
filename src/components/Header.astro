@@ -63,7 +63,7 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
     </a>
 
     <!-- Menu (máy tính) -->
-    <nav class="hidden items-center gap-6 md:flex">
+    <nav aria-label={tr.nav_primary} class="hidden items-center gap-6 md:flex">
       <!-- Nút Trang chủ (biểu tượng nhà) — vùng bấm 44px qua py-3 -->
       <a
         href={localizedPath('/', lang)}
@@ -163,7 +163,7 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
   </div>
 
   <!-- Menu đổ xuống (điện thoại) — hai cụm có tiêu đề nhỏ, không xổ -->
-  <nav id="mobile-menu" class="hidden border-t border-cream-dark bg-cream md:hidden dark:border-dark-border dark:bg-dark-bg">
+  <nav id="mobile-menu" aria-label={tr.nav_primary} class="hidden border-t border-cream-dark bg-cream md:hidden dark:border-dark-border dark:bg-dark-bg">
     <div class="mx-auto max-h-[70vh] max-w-6xl overflow-y-auto px-4 py-2">
       {/* Mục cấp 1 */}
       <a

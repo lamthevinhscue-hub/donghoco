@@ -50,7 +50,7 @@ const route = getCollectionRoute(collection);
 
 <BaseLayout title={title} description={description}>
   <section class="mx-auto max-w-6xl px-4 py-16">
-    <SectionHeading title={title} subtitle={description} subtitleLink={descriptionLink} />
+    <SectionHeading title={title} level={1} subtitle={description} subtitleLink={descriptionLink} />
 
     {entries.length === 0 ? (
       <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft">

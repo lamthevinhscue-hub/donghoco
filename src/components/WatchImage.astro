@@ -31,6 +31,15 @@ const aspectClass = {
   '4/3': 'aspect-[4/3]',
 }[ratio];
 
+// Kích thước danh nghĩa theo tỷ lệ cho attr width/height (SEO/CLS: trình duyệt
+// biết trước tỉ lệ ảnh; CSS absolute inset-0 vẫn phủ kín khung như cũ)
+const ratioDims = {
+  '16/10': { width: 800, height: 500 },
+  '16/9': { width: 800, height: 450 },
+  '1/1': { width: 600, height: 600 },
+  '4/3': { width: 800, height: 600 },
+}[ratio];
+
 // Chỉ render <img> khi có src thật — không bao giờ gửi request tới URL rỗng
 const hasImage = typeof src === 'string' && src.trim() !== '';
 ---
@@ -44,6 +53,8 @@ const hasImage = typeof src === 'string' && src.trim() !== '';
         alt={alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
+        width={ratioDims.width}
+        height={ratioDims.height}
         class="absolute inset-0 h-full w-full object-cover"
         onload="this.parentElement.classList.add('loaded')"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"

@@ -8,19 +8,22 @@
 
 interface Props {
   title: string;
+  /** Cấp heading: 1 cho tiêu đề trang (SEO — mỗi trang đúng 1 H1), 2 cho tiêu đề mục */
+  level?: 1 | 2;
   subtitle?: string;
   /** Liên kết ngắn nối tiếp phần mô tả, dùng cho một hành động liên quan. */
   subtitleLink?: { href: string; label: string };
   align?: 'left' | 'center';
 }
 
-const { title, subtitle, subtitleLink, align = 'left' } = Astro.props;
+const { title, level = 2, subtitle, subtitleLink, align = 'left' } = Astro.props;
+const Heading = (level === 1 ? 'h1' : 'h2') as 'h1' | 'h2';
 const alignment = align === 'center' ? 'text-center mx-auto' : 'text-left';
 ---
 
 <div class={`max-w-2xl ${alignment} mb-8`}>
   <div class={`mb-3 h-1 w-12 rounded bg-brass ${align === 'center' ? 'mx-auto' : ''}`}></div>
-  <h2 class="font-serif text-3xl text-navy sm:text-4xl dark:text-dark-text">{title}</h2>
+  <Heading class="font-serif text-3xl text-navy sm:text-4xl dark:text-dark-text">{title}</Heading>
   {subtitle && (
     <p class="mt-3 text-ink-soft dark:text-dark-text-soft">
       {subtitle}

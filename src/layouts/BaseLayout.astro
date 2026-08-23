@@ -41,6 +41,19 @@ const {
 // Tiêu đề đầy đủ hiển thị trên tab trình duyệt
 const fullTitle = title ? `${title} — ${tr.siteName}` : `${tr.siteName} — ${tr.siteTagline}`;
 
+// Meta description: Google cắt hiện thị ~160 ký tự — excerpt dài hơn sẽ bị cụt lởn.
+// Cắt tại ranh giới câu (ưu tiên) hoặc từ, CHỈ áp cho thẻ meta/OG — nội dung hiển
+// thị trên trang giữ nguyên excerpt gốc.
+function truncateMeta(text: string, max = 165): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSentence = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+  const lastSpace = cut.lastIndexOf(' ');
+  const at = lastSentence > 80 ? lastSentence + 1 : lastSpace;
+  return cut.slice(0, at).trimEnd() + '…';
+}
+const metaDescription = description ? truncateMeta(description) : undefined;
+
 // URL đầy đủ (canonical + OG url)
 const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
@@ -66,7 +79,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
 
     <!-- Ngôn ngữ nội dung -->
     <meta name="language" content={lang} />
@@ -78,7 +91,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={tr.siteName} />
     <meta property="og:title" content={title ?? tr.siteName} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
@@ -90,7 +103,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title ?? tr.siteName} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={tr.og_image_alt} />
 

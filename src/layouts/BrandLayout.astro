@@ -72,7 +72,7 @@ const breadcrumbData = [
       <!-- Ảnh hero (nếu có cover_image) -->
       {heroImage && (
         <figure class="mb-6">
-          <WatchImage src={heroImage} alt={title} ratio="16/9" eager />
+          <WatchImage src={heroImage} alt={title + ' — ảnh đại diện thương hiệu'} ratio="16/9" eager />
         </figure>
       )}
 
@@ -247,7 +247,7 @@ const breadcrumbData = [
               <div class="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-cream-dark/30">
                 {model.cover_image
                   ? <img src={model.cover_image} alt={model.title} class="h-full w-full object-cover" loading="lazy" />
-                  : <WatchImage alt={model.title} class="h-full w-full" />}
+                  : <WatchImage alt={model.title + ' — ảnh đại diện'} class="h-full w-full" />}
               </div>
               <!-- Nội dung -->
               <div class="min-w-0 flex-1">

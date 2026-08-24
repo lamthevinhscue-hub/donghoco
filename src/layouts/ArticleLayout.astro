@@ -114,7 +114,7 @@ const formattedUpdated = updatedStr && updatedStr !== date ? fmtVi(updatedStr) :
        class="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-brass dark:bg-dark-brass"></div>
 
   <div class="mx-auto max-w-6xl px-4">
-    <div class="grid gap-10 py-8 sm:py-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
+    <div class="grid grid-cols-1 gap-10 py-8 sm:py-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
       <!-- ====== CỘT NỘI DUNG ====== -->
       <!-- data-pagefind-body: chỉ lập chỉ mục tìm kiếm trong vùng bài viết này -->
       <article class="mx-auto w-full max-w-3xl lg:mx-0" data-pagefind-body>
@@ -145,7 +145,7 @@ const formattedUpdated = updatedStr && updatedStr !== date ? fmtVi(updatedStr) :
 
         {cover_image && (
           <div class="mb-10">
-            <WatchImage src={cover_image} alt={title} ratio="16/9" eager />
+            <WatchImage src={cover_image} alt={title + ' — ảnh bìa minh họa'} ratio="16/9" eager />
           </div>
         )}
 

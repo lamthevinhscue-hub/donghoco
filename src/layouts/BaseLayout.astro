@@ -156,33 +156,70 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       {tr.skip_to_content}
     </a>
     <Header />
-    <main id="main-content" tabindex="-1" class="flex-1">
+    <main id="main-content" tabindex="-1" class="min-w-0 flex-1">
       <slot />
     </main>
     <Footer />
     <ScrollToTop />
     <Analytics />
     <script>
-      // Bảng rộng: khi bảng thực sự tràn ngang (chỉ xảy ra với bảng nhiều cột
-      // trong bài viết), gắn bóng mờ mép phải + dòng chú thích "kéo ngang"
-      // ngay dưới bảng để người dùng mobile biết có thể cuộn. Bảng không tràn
-      // thì không thêm gì — tránh tín hiệu sai.
+      // Bảng rộng: bọc trong vùng cuộn ngang riêng + gắn bóng mờ mép phải và
+      // dòng chú thích "kéo ngang" ngay dưới bảng để người dùng mobile biết
+      // cuộn. Bảng không tràn thì không thêm gì — tránh tín hiệu sai.
+      // Phát hiện theo MÉP PHẢI VIEWPORT (bảng deterministic tràn theo cách
+      // scrollWidth == clientWidth nên không so được trên chính bảng).
+      // Wrapper (dù tạo ở BUILD bởi rehype hay tạo động ở đây) luôn là vùng
+      // region có tên, nhận focus và cuộn được bằng bàn phím (WCAG 2.1.1).
+      function ensureWrapAttrs(wrap) {
+        if (!wrap.hasAttribute('tabindex')) wrap.setAttribute('tabindex', '0');
+        if (!wrap.hasAttribute('role')) wrap.setAttribute('role', 'region');
+        if (!wrap.hasAttribute('aria-label')) {
+          wrap.setAttribute('aria-label', 'Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột');
+        }
+      }
+
       function markOverflowTables() {
+        // Bù thuộc tính cho wrapper sinh tại build (rehype) nếu thiếu
+        document.querySelectorAll('main .table-scroll-wrap').forEach(ensureWrapAttrs);
         document.querySelectorAll('main table').forEach((table) => {
-          const overflowing = table.scrollWidth - table.clientWidth > 4;
-          if (overflowing && !table.classList.contains('table-can-scroll')) {
-            table.classList.add('table-can-scroll');
-            const hint = document.createElement('p');
-            hint.className = 'table-scroll-hint';
-            hint.setAttribute('aria-hidden', 'true');
-            hint.textContent = '← Kéo ngang để xem hết bảng →';
-            table.insertAdjacentElement('afterend', hint);
-          }
+          if (table.closest('.table-scroll-wrap')) return; // đã bọc
+          const rect = table.getBoundingClientRect();
+          const overflowing =
+            rect.right > document.documentElement.clientWidth + 4 ||
+            table.scrollWidth - table.clientWidth > 4;
+          if (!overflowing) return;
+          const wrap = document.createElement('div');
+          wrap.className = 'table-scroll-wrap overflow-x-auto';
+          ensureWrapAttrs(wrap);
+          table.parentNode.insertBefore(wrap, table);
+          wrap.appendChild(table);
+          table.classList.add('table-can-scroll');
+          const hint = document.createElement('p');
+          hint.className = 'table-scroll-hint';
+          hint.setAttribute('aria-hidden', 'true');
+          hint.textContent = '← Kéo ngang để xem hết bảng →';
+          wrap.insertAdjacentElement('afterend', hint);
         });
       }
       markOverflowTables();
       // Font hiển thị (display=swap) có thể đổi độ rộng chữ sau khi tải — kiểm lại một lần
       window.addEventListener('load', markOverflowTables);
+
+      // ====== Cuộn bảng bằng bàn phím (WCAG 2.1.1) ======
+      // Chỉ chặn bốn phím điều hướng này — Tab và mọi phím khác giữ hành vi
+      // mặc định của trình duyệt (đi qua link/nút trong bảng như thường).
+      document.addEventListener('keydown', (e) => {
+        const wrap = e.target instanceof Element ? e.target.closest('.table-scroll-wrap') : null;
+        if (!wrap) return;
+        const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+        if (!keys.includes(e.key)) return;
+        e.preventDefault();
+        const step = Math.max(80, wrap.clientWidth * 0.5);
+        if (e.key === 'ArrowRight') wrap.scrollLeft += step;
+        else if (e.key === 'ArrowLeft') wrap.scrollLeft -= step;
+        else if (e.key === 'Home') wrap.scrollLeft = 0;
+        else if (e.key === 'End') wrap.scrollLeft = wrap.scrollWidth;
+      });
     </script>
   </body>
 </html>

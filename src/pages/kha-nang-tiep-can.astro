@@ -1,0 +1,94 @@
+---
+// Trang: KHẢ NĂNG TIẾP CẬN — cam kết thiết kế theo WCAG 2.2 AA
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl } from '../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const isVi = lang === 'vi';
+const reviewDate = '2026-08-24';
+---
+
+<BaseLayout title={isVi ? 'Khả năng tiếp cận' : 'Accessibility'}>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">{isVi ? 'Khả năng tiếp cận' : 'Accessibility'}</h1>
+
+    <div class="prose-content mt-8">
+      {isVi ? (
+        <>
+          <p>
+            <strong>Đồng Hồ Cơ</strong> được thiết kế với mục tiêu đạt
+            <strong> WCAG 2.2 cấp AA</strong> — bộ tiêu chuẩn khả năng tiếp cận nội dung web
+            do W3C công bố. Chúng tôi muốn kiến thức về đồng hồ cơ đến được với mọi người,
+            bất kể cách họ thao tác với trang web: chuột, bàn phím, trình đọc màn hình,
+            chế độ giảm chuyển động, hay mức zoom cao.
+          </p>
+
+          <h2>Những gì trang web đang hỗ trợ</h2>
+          <ul>
+            <li><strong>Tương phản màu:</strong> hệ màu giấy — than chì — xanh thép — đồng được đo tỷ lệ tương phản theo WCAG ở cả chế độ sáng và tối, cho chữ và cả viền của các ô nhập, nút bấm.</li>
+            <li><strong>Điều hướng bằng bàn phím:</strong> mọi menu, ô tìm kiếm, bộ lọc, form và sơ đồ đều thao tác được bằng Tab, Enter, phím mũi tên và Escape; có liên kết "Bỏ qua tới nội dung chính" ở đầu trang.</li>
+            <li><strong>Giảm chuyển động:</strong> tôn trọng cài đặt <em>prefers-reduced-motion</em> của hệ điều hành — hoạt ảnh đứng yên hoặc chuyển tức thì, không mất nội dung.</li>
+            <li><strong>Hoạt ảnh có nút điều khiển:</strong> mọi hoạt ảnh cơ chế chỉ chạy khi bạn bấm Phát, và luôn có nút Tạm dừng; mô hình 3D có nút xoay, phóng to, thu nhỏ thay cho thao tác kéo.</li>
+            <li><strong>Form rõ ràng:</strong> nhãn cho mọi ô nhập, thông báo lỗi bằng chữ cụ thể kèm con trỏ tự nhảy về ô cần sửa, dành cho cả trình đọc màn hình.</li>
+            <li><strong>Văn bản thay thế:</strong> ảnh minh họa có mô tả; biểu đồ và sơ đồ luôn kèm phần giải thích bằng chữ; nội dung quan trọng không phụ thuộc vào màu sắc hay hình động.</li>
+            <li><strong>Reflow:</strong> trang đọc được ở chiều rộng 320 CSS px và khi zoom 200% mà không phải cuộn ngang (trừ bảng dữ liệu lớn, vốn có vùng cuộn riêng được chú thích).</li>
+          </ul>
+
+          <h2>Gửi phản hồi</h2>
+          <p>
+            Nếu bạn gặp rào cản khi sử dụng trang — chữ khó đọc, nút không bấm được bằng bàn phím,
+            trình đọc màn hình đọc sai — hãy cho tôi biết qua trang
+            <a href="/lien-he">Liên hệ</a>. Mỗi phản hồi về khả năng tiếp cận đều được ưu tiên xử lý.
+          </p>
+
+          <h2>Cam kết cải tiến liên tục</h2>
+          <p>
+            Đây là một quá trình đang tiến hành, không phải đích đến. Trang web được rà soát định kỳ
+            bằng kiểm tra tự động (tương phản, cấu trúc ngữ nghĩa, bàn phím, hoạt ảnh) kết hợp kiểm
+            tra thủ công trên trình duyệt thật. Lần rà soát gần nhất: <time datetime={reviewDate}>{reviewDate}</time>.
+            Chúng tôi không tuyên bố chứng nhận độc lập từ bên thứ ba, và không có trang web nào
+            "hoàn hảo 100%" — nhưng mỗi bản cập nhật đều hướng tới tiêu chí AA chặt hơn.
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            <strong>Đồng Hồ Cơ</strong> is designed to meet
+            <strong> WCAG 2.2 Level AA</strong> — the Web Content Accessibility Guidelines
+            published by the W3C. We want mechanical watch knowledge to reach everyone,
+            regardless of how they interact with the web: mouse, keyboard, screen reader,
+            reduced motion, or high zoom levels.
+          </p>
+
+          <h2>What this site currently supports</h2>
+          <ul>
+            <li><strong>Color contrast:</strong> the paper–charcoal–steel–brass palette is measured against WCAG ratios in both light and dark modes, for text and for borders of inputs and buttons.</li>
+            <li><strong>Keyboard navigation:</strong> every menu, search box, filter, form and diagram works with Tab, Enter, arrow keys and Escape; a "Skip to main content" link sits at the top of the page.</li>
+            <li><strong>Reduced motion:</strong> the operating system's <em>prefers-reduced-motion</em> setting is respected — animations hold still or change instantly, with no content lost.</li>
+            <li><strong>Controlled animations:</strong> mechanism animations only run when you press Play and always have a Pause button; the 3D model offers rotate and zoom buttons as alternatives to dragging.</li>
+            <li><strong>Clear forms:</strong> labels on every field, text-specific error messages with focus moved to the first invalid field, announced to screen readers.</li>
+            <li><strong>Text alternatives:</strong> illustrative images carry descriptions; charts and diagrams always come with a text explanation; nothing important depends on color or motion alone.</li>
+            <li><strong>Reflow:</strong> pages remain readable at 320 CSS px wide and at 200% zoom without horizontal scrolling (wide data tables have their own labelled scroll region).</li>
+          </ul>
+
+          <h2>Send feedback</h2>
+          <p>
+            If you hit a barrier — hard-to-read text, a button unreachable by keyboard, a screen
+            reader misreading something — please tell me via the
+            <a href="/lien-he">Contact</a> page. Accessibility feedback is treated with priority.
+          </p>
+
+          <h2>An ongoing commitment</h2>
+          <p>
+            This is a continuing process, not a finish line. The site is reviewed regularly with
+            automated checks (contrast, semantics, keyboard, motion) combined with manual browser
+            testing. Most recent review: <time datetime={reviewDate}>{reviewDate}</time>.
+            We do not claim independent third-party certification, and no website is
+            "100% error-free" — but every update aims at a stricter AA bar.
+          </p>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -216,11 +216,11 @@
     margin: 1.5rem 0;
   }
   /*
-    Bảng Markdown trên mobile: ưu tiên wrap, chỉ khi bảng thực sự rộng hơn
-    màn hình thì chính bảng cuộn ngang (display:block + overflow) — không kéo
-    cả trang cuộn ngang. Thanh cuộn mảnh màu alloy để người dùng thấy có
-    thể kéo; bảng tràn còn được JS gắn class table-can-scroll (kèm dòng
-    chú thích "kéo ngang" ngay dưới — xem BaseLayout).
+    Bảng Markdown: vùng cuộn ngang DUY NHẤT là .table-scroll-wrap (bọc tại
+    build bằng rehype). Bảng bên trong wrapper không tự cuộn nữa — tránh hai
+    thanh cuộn lồng nhau; bảng ngoài wrapper (hiếm) giữ fallback cuộn chính nó.
+    Thanh cuộn mảnh màu alloy; bảng tràn có bóng mờ mép phải (table-can-scroll)
+    và dòng chú thích "kéo ngang" ngay dưới — xem BaseLayout.
   */
   .prose-content table {
     display: block;
@@ -229,6 +229,24 @@
     border-spacing: 0;
     scrollbar-width: thin;
     scrollbar-color: rgb(var(--c-alloy) / 0.6) transparent;
+  }
+  /* Trong wrapper: chỉ wrapper cuộn — bảng tràn tự nhiên sang phải */
+  .table-scroll-wrap table {
+    overflow-x: visible;
+    scrollbar-width: auto;
+  }
+  .table-scroll-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--c-alloy) / 0.6) transparent;
+  }
+  /* Focus ring cho vùng cuộn nhận focus bằng bàn phím — dùng token steel
+     (8.8:1 trên nền sáng, 8.3:1 trên nền tối — đạt AA cho viền control) */
+  .table-scroll-wrap:focus-visible {
+    outline: 2px solid rgb(var(--c-steel));
+    outline-offset: 2px;
+    border-radius: 0.25rem;
   }
   .table-can-scroll {
     box-shadow: inset -14px 0 12px -14px rgb(0 0 0 / 0.35);

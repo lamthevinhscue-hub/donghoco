@@ -126,6 +126,7 @@ export const translations = {
     og_image_alt: 'Kiến Thức Đồng Hồ Cơ — bách khoa tiếng Việt về đồng hồ cơ, từ nguyên lý bộ máy đến nghệ thuật sưu tầm',
     // Nhãn cho header/menu/tìm kiếm/chủ đề (Gói 2 Prompt 2)
     skip_to_content: 'Bỏ qua tới nội dung chính',
+    footer_a11y: 'Khả năng tiếp cận',
     menu_open: 'Mở menu',
     menu_close: 'Đóng menu',
     theme_to_dark: 'Chuyển sang chế độ tối',
@@ -266,6 +267,7 @@ export const translations = {
     og_image_alt: 'Kiến Thức Đồng Hồ Cơ — a Vietnamese encyclopedia of mechanical watches, from movement principles to the art of collecting',
     // Labels for header/menu/search/theme (Gói 2 Prompt 2)
     skip_to_content: 'Skip to main content',
+    footer_a11y: 'Accessibility',
     menu_open: 'Open menu',
     menu_close: 'Close menu',
     theme_to_dark: 'Switch to dark mode',

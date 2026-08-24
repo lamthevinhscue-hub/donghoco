@@ -4,6 +4,7 @@ import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
 import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink';
+import rehypeWrapTables from './src/plugins/rehype-wrap-tables.mjs';
 
 // Tải danh sách thuật ngữ từ điển (sinh bởi scripts/generate-glossary-terms.mjs)
 // File này được cập nhật trước mỗi lần build (xem package.json script "build").
@@ -22,6 +23,7 @@ export default defineConfig({
     remarkPlugins: [
       [remarkGlossaryAutolink, { terms: glossaryTerms }],
     ],
+    rehypePlugins: [rehypeWrapTables],
   },
   i18n: {
     defaultLocale: 'vi',

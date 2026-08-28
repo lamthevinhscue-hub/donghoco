@@ -19,16 +19,51 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
 <MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
   <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg" role="img" aria-label="Sơ đồ hoạt ảnh bộ thoát Swiss lever: bánh thoát, ngựa, bánh lắc và dây tóc">
+    <!-- ====== CHẤT LIỆU: 4 chuyển sắc + bóng đổ (điểm dừng bằng biến CSS — tự đổi theo .dark) ====== -->
+    <defs>
+      <!-- Thép chải: sáng mép trên → tối mép dưới -->
+      <linearGradient id="escSteel" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--g-steel-hi)" />
+        <stop offset="0.5" style="stop-color:var(--ig-steel)" />
+        <stop offset="1" style="stop-color:var(--g-steel-dk)" />
+      </linearGradient>
+      <!-- Đồng thau: ấm, một dải phản chiếu hẹp ở ~1/3 chiều dài -->
+      <linearGradient id="escBrass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--g-brass-dk)" />
+        <stop offset="0.3" style="stop-color:var(--g-brass-hi)" />
+        <stop offset="0.42" style="stop-color:var(--ig-alloy)" />
+        <stop offset="1" style="stop-color:var(--g-brass-dk)" />
+      </linearGradient>
+      <!-- Rubi chân kính: toả tròn, tâm lệch trên-trái, sáng tâm đậm rìa -->
+      <radialGradient id="escRuby" cx="0.35" cy="0.3" r="0.9">
+        <stop offset="0" style="stop-color:var(--g-ruby-hi)" />
+        <stop offset="0.55" style="stop-color:var(--ig-rubi)" />
+        <stop offset="1" style="stop-color:var(--g-ruby-dk)" />
+      </radialGradient>
+      <!-- Bánh lắc Glucydur: hợp kim đỏ sáng, chuyển sắc nhẹ hơn thép -->
+      <linearGradient id="escBalance" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--g-bal-hi)" />
+        <stop offset="1" style="stop-color:var(--g-bal-dk)" />
+      </linearGradient>
+      <!-- Bóng đổ rất nhẹ, tách ba bộ phận khỏi nền (bản nhạt hơn cho chế tối) -->
+      <filter id="escShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="#1F2D3D" flood-opacity="0.22" />
+      </filter>
+      <filter id="escShadowDim" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.14" />
+      </filter>
+    </defs>
+
     <!-- ====== BACKGROUND: các nhãn vùng ====== -->
     <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
       Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
     </text>
 
     <!-- ====== ESCAPE WHEEL (bánh thoát) - bên trái, 15 răng ====== -->
-    <g id="escape-wheel-group" transform="translate(180, 220)">
+    <g id="escape-wheel-group" transform="translate(180, 220)" class="esc-shadow">
       <g id="escape-wheel" data-part="escape-wheel" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
         <!-- Vẽ 15 răng hình mỏ neo -->
-        <g style="fill:var(--ig-steel);stroke:var(--ig-edge)" stroke-width="1">
+        <g style="fill:url(#escSteel);stroke:var(--ig-edge)" stroke-width="1">
           {Array.from({ length: 15 }).map((_, i) => {
             const angle = (i * 360) / 15;
             return (
@@ -39,7 +74,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           })}
         </g>
         <!-- Vòng tròn thân -->
-        <circle style="fill:var(--ig-steel);stroke:var(--ig-edge)" r="38" stroke-width="1.5"/>
+        <circle style="fill:url(#escSteel);stroke:var(--ig-edge)" r="38" stroke-width="2"/>
         <!-- Trục giữa -->
         <circle style="fill:var(--ig-edge)" r="5"/>
         <!-- Các chấm trang trí -->
@@ -51,31 +86,37 @@ import MechanismAnimation from './MechanismAnimation.astro';
     </g>
 
     <!-- ====== PALLET FORK (ngựa) - giữa, 2 chân kính ====== -->
-    <g id="pallet-fork-group" transform="translate(310, 220)">
+    <g id="pallet-fork-group" transform="translate(310, 220)" class="esc-shadow">
       <g id="pallet-fork" data-part="pallet-fork" data-name-vi="Ngựa (pallet fork)" data-name-en="Pallet fork">
         <!-- Thân ngựa (hình chữ Y ngược) -->
         <path d="M 0 0 L -20 -30 L -25 -38 M 0 0 L 20 -30 L 25 -38 M 0 0 L 0 35"
-              fill="none" stroke="#B8893C" stroke-width="4" stroke-linecap="round"/>
+              fill="none" style="stroke:url(#escBrass)" stroke-width="2" stroke-linecap="round"/>
         <!-- Đá trên (entry pallet) -->
-        <rect x="-28" y="-42" width="8" height="6" rx="1" fill="#3182CE" transform="rotate(-15 -24 -39)"/>
+        <g transform="rotate(-15 -24 -39)">
+          <rect x="-28" y="-42" width="8" height="6" rx="1" style="fill:url(#escRuby)" />
+          <ellipse cx="-25.8" cy="-40.4" rx="1.4" ry="1" fill="#FFFFFF" opacity="0.75" />
+        </g>
         <!-- Đá dưới (exit pallet) -->
-        <rect x="20" y="-42" width="8" height="6" rx="1" fill="#3182CE" transform="rotate(15 24 -39)"/>
+        <g transform="rotate(15 24 -39)">
+          <rect x="20" y="-42" width="8" height="6" rx="1" style="fill:url(#escRuby)" />
+          <ellipse cx="22.4" cy="-40.4" rx="1.4" ry="1" fill="#FFFFFF" opacity="0.75" />
+        </g>
         <!-- Trục -->
         <circle cx="0" cy="35" r="5" fill="#9B6E2C"/>
         <!-- Mỏ ngựa (horns) -->
-        <path d="M -8 -2 L -14 5 M 8 -2 L 14 5" fill="none" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
+        <path d="M -8 -2 L -14 5 M 8 -2 L 14 5" fill="none" style="stroke:url(#escBrass)" stroke-width="1" stroke-linecap="round"/>
       </g>
     </g>
 
     <!-- ====== BALANCE WHEEL (bánh lắc) - bên phải ====== -->
-    <g id="balance-group" transform="translate(450, 150)">
+    <g id="balance-group" transform="translate(450, 150)" class="esc-shadow">
       <g id="balance-wheel" data-part="balance-wheel" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
         <!-- Vòng ngoài -->
-        <circle style="stroke:var(--ig-rubi)" r="45" fill="none" stroke-width="5"/>
+        <circle style="stroke:url(#escBalance)" r="45" fill="none" stroke-width="2"/>
         <!-- 3 chân (spokes) -->
-        <line style="stroke:var(--ig-rubi)" x1="0" y1="-45" x2="0" y2="45" stroke-width="3"/>
-        <line style="stroke:var(--ig-rubi)" x1="-39" y1="-22.5" x2="39" y2="22.5" stroke-width="3"/>
-        <line style="stroke:var(--ig-rubi)" x1="-39" y1="22.5" x2="39" y2="-22.5" stroke-width="3"/>
+        <line style="stroke:url(#escBalance)" x1="0" y1="-45" x2="0" y2="45" stroke-width="1"/>
+        <line style="stroke:url(#escBalance)" x1="-39" y1="-22.5" x2="39" y2="22.5" stroke-width="1"/>
+        <line style="stroke:url(#escBalance)" x1="-39" y1="22.5" x2="39" y2="-22.5" stroke-width="1"/>
         <!-- Trục -->
         <circle style="fill:var(--ig-rubi)" r="6"/>
         <!-- Trọng lượng cố định (timing screws) -->
@@ -91,7 +132,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
                  a 12 12 0 1 1 -24 0
                  a 16 16 0 1 1 32 0
                  a 20 20 0 1 1 -40 0"
-              fill="none" stroke="#3182CE" stroke-width="1.5"/>
+              fill="none" stroke="#3182CE" stroke-width="1"/>
       </g>
     </g>
 
@@ -141,13 +182,20 @@ import MechanismAnimation from './MechanismAnimation.astro';
       const balanceAngle = Math.sin(phase * Math.PI * 2) * 35;
       balanceWheel.setAttribute('transform', `translate(450, 150) rotate(${balanceAngle})`);
 
-      // Pallet fork: dao động ngược pha một chút, -12° đến +12°
-      const palletAngle = Math.sin(phase * Math.PI * 2 + 0.3) * 12;
+      // Pallet fork: KHÔNG đung đưa — nằm yên ở chốt chặn, búng sang vị trí đối
+      // xứng trong FLIP_WINDOW (10% chu kỳ) rồi lại giữ. easeInOutCubic mạnh tạo
+      // cú "tíc" dứt khoát của đòn bẩy thật.
+      const FLIP_START = 0.1;
+      const FLIP_WINDOW = 0.1;
+      const flipT = phase < FLIP_START ? 0 : phase < FLIP_START + FLIP_WINDOW ? (phase - FLIP_START) / FLIP_WINDOW : 1;
+      const snapT = flipT < 0.5 ? 4 * flipT * flipT * flipT : 1 - Math.pow(-2 * flipT + 2, 3) / 2;
+      const palletAngle = -10 + 20 * snapT;
       palletFork.setAttribute('transform', `translate(310, 220) rotate(${palletAngle})`);
 
-      // Escape wheel: chỉ tiến (xoay 1 chiều), mỗi beat xoay 24° (= 360°/15 răng)
-      // Nhảy từng răng: dùng floor để tạo hiệu ứng "nhả - khóa"
-      const escapeAngle = -(beatNum * 24);
+      // Escape wheel: bị khoá phần lớn chu kỳ, nhả đúng lúc ngựa búng — xoay 24°
+      // với easeOut (tăng tốc rất nhanh, chậm dần khi vào vị trí khoá kế tiếp).
+      const releaseT = 1 - Math.pow(1 - flipT, 3);
+      const escapeAngle = -(beatNum * 24 + 24 * releaseT);
       escapeWheel.setAttribute('transform', `translate(180, 220) rotate(${escapeAngle})`);
 
       // Chỉ báo tíc-tắc
@@ -230,6 +278,38 @@ import MechanismAnimation from './MechanismAnimation.astro';
 </MechanismAnimation>
 
 <style>
+  /*
+    Điểm dừng chuyển sắc cho <defs> phía trên — dẫn xuất từ token --ig-* nên
+    tự đổi theo .dark (chuyển sắc không bao giờ hỏng ở chế tối).
+    Bóng đổ: bản đủ đậm cho chế sáng, bản nhạt hơn cho chế tối để không bẩn.
+  */
+  #escapement-svg {
+    --g-steel-hi: #94A0B2;
+    --g-steel-dk: #333D4B;
+    --g-brass-hi: #EBD8AF;
+    --g-brass-dk: #8A6A35;
+    --g-ruby-hi: #C85858;
+    --g-ruby-dk: #741F1F;
+    --g-bal-hi: #C05353;
+    --g-bal-dk: #6B1D1D;
+  }
+  :global(.dark) #escapement-svg {
+    --g-steel-hi: #A6B1BD;
+    --g-steel-dk: #717D89;
+    --g-brass-hi: #E6D0A5;
+    --g-brass-dk: #B08F55;
+    --g-ruby-hi: #F0AFAF;
+    --g-ruby-dk: #9C3A3A;
+    --g-bal-hi: #E59696;
+    --g-bal-dk: #A85A5A;
+  }
+  #escapement-svg .esc-shadow {
+    filter: url(#escShadow);
+  }
+  :global(.dark) #escapement-svg .esc-shadow {
+    filter: url(#escShadowDim);
+  }
+
   /*
     Mobile: nhãn mô tả chu kỳ trong SVG bị thu nhỏ tới ~7px khi viewBox 600
     co về 320-375px — ẩn đi (tên bộ phận đã có trong legend chip và phần

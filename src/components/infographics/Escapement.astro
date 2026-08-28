@@ -18,7 +18,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
 ---
 
 <MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
-  <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg" aria-hidden="true" focusable="false">
+  <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg" role="img" aria-label="Sơ đồ hoạt ảnh bộ thoát Swiss lever: bánh thoát, ngựa, bánh lắc và dây tóc">
     <!-- ====== BACKGROUND: các nhãn vùng ====== -->
     <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
       Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
@@ -193,6 +193,14 @@ import MechanismAnimation from './MechanismAnimation.astro';
           part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
           setTimeout(() => { part.style.filter = ''; }, 2000);
         });
+      // Bàn phím + cảm ứng (WCAG 1.4.13): bộ phận nhận focus được, chú thích
+      // mở khi focus vào và đóng khi rời focus — không phụ thuộc rê chuột.
+      part.setAttribute('tabindex', '0');
+      part.setAttribute('role', 'img'); // g SVG: đọc aria-label rồi dừng — bộ phận không phải nút bấm
+      part.setAttribute('aria-label', part.getAttribute('data-name-vi') || part.getAttribute('data-name-en') || '');
+      part.addEventListener('focusin', highlight);
+      part.addEventListener('focusout', unhighlight);
+
       });
 
       // Tooltip theo chuột
@@ -207,7 +215,18 @@ import MechanismAnimation from './MechanismAnimation.astro';
         tooltip.setAttribute('transform', `translate(${Math.min(x, viewBox.width - 170)}, ${Math.max(y - 45, 0)})`);
       });
     });
-  </script>
+
+  // Escape đóng chú thích mà không rời focus (WCAG 1.4.13) — self-contained,
+  // query trực tiếp theo id, không phụ thuộc closure vòng lặp phía trên.
+  (() => {
+    const svgEl = document.getElementById('escapement-svg');
+    const tipEl = document.getElementById('tooltip');
+    if (!svgEl || !tipEl) return;
+    svgEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') tipEl.setAttribute('opacity', '0');
+    });
+  })();
+</script>
 </MechanismAnimation>
 
 <style>

@@ -56,7 +56,7 @@
     --ig-stroke-soft: #D1D5DB; /* nét phụ, đường tâm tham chiếu */
     --ig-edge: #2D3748;        /* viền và khối đậm của chi tiết */
     --ig-text: #1F2D3D;        /* chữ trên hình */
-    --ig-label: #A8A095;       /* chữ chú thích nhạt */
+    --ig-label: #655D53;       /* chữ chú thích nhạt — 6.06:1 trên nền hình sáng (AA) */
     --ig-steel: #4A5568;       /* chi tiết máy xám đậm */
     --ig-steel-soft: #5A6878;  /* chi tiết máy xám sáng (rotor) */
     --ig-rubi: #9B2C2C;        /* chân kính rubi — màu nghĩa */

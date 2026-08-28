@@ -124,8 +124,11 @@ function walk(dir, out = []) {
   else fail('WatchExplodedView 2D: panel chi tiết thiếu aria-live');
   if (/part-quick/.test(s) && /aria-pressed/.test(s)) ok('WatchExplodedView 2D: nút chọn bộ phận + aria-pressed');
   else fail('WatchExplodedView 2D: nút chọn bộ phận thiếu aria-pressed');
-  if (/id="exploded-svg"[^>]*aria-hidden="true"/.test(s)) ok('WatchExplodedView 2D: SVG đánh dấu aria-hidden (có text thay thế)');
-  else fail('WatchExplodedView 2D: SVG thiếu aria-hidden');
+  // 2D exploded giờ là svg THÔNG TIN (role=img + aria-label) vì bên trong có bộ phận
+  // focus được (tooltip theo focus) — không được aria-hidden. Text fallback: danh sách nút.
+  if (/id="exploded-svg"[^>]*aria-hidden="true"/.test(s)) fail('WatchExplodedView 2D: SVG đang aria-hidden trong khi chứa phần tử focus được — mâu thuẫn');
+  else if (/id="exploded-svg"[^>]*role="img"[^>]*aria-label="[^"]+"/.test(s) || /id="exploded-svg"[^>]*aria-label="[^"]+"[^>]*role="img"/.test(s)) ok('WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)');
+  else fail('WatchExplodedView 2D: SVG chưa phân loại — cần role="img" + aria-label');
 }
 
 // ----- 6. Không animation CSS lặp vô hạn ngoài tầm kiểm soát RM -----

@@ -84,7 +84,7 @@ const stations = [
     <div class="svg-container mb-12">
       <!-- ====== HOẠT ẢNH TƯƠNG TÁC: 5 bánh răng quay với tỷ lệ tốc độ đúng ====== -->
       <MechanismAnimation label="Chuỗi truyền động (5 bánh răng quay với tốc độ khác nhau)" data-mech-step-id="gear-train">
-        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl" id="gear-train-svg" aria-hidden="true" focusable="false">
+        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl" id="gear-train-svg" role="img" aria-label="Sơ đồ chuỗi truyền động: thùng cót và các bánh răng trung gian">
           <text style="fill:var(--ig-stroke)" x="400" y="26" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
             Thùng cót (chậm) → bánh răng → bánh thoát (nhanh) — ngược chiều kề nhau
           </text>
@@ -450,6 +450,13 @@ const stations = [
         part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
         setTimeout(() => { part.style.filter = ''; }, 2000);
       });
+      // Bàn phím + cảm ứng (WCAG 1.4.13): bộ phận nhận focus được, chú thích
+      // mở khi focus vào và đóng khi rời focus — không phụ thuộc rê chuột.
+      part.setAttribute('tabindex', '0');
+      part.setAttribute('role', 'img'); // g SVG: đọc aria-label rồi dừng — bộ phận không phải nút bấm
+      part.setAttribute('aria-label', part.getAttribute('data-name-vi') || part.getAttribute('data-name-en') || '');
+      part.addEventListener('focusin', highlight);
+      part.addEventListener('focusout', unhighlight);
     });
 
     // Tooltip theo chuột
@@ -464,4 +471,15 @@ const stations = [
 
   initInfographic();
   setupGearTooltips();
+
+  // Escape đóng chú thích mà không rời focus (WCAG 1.4.13) — self-contained,
+  // query trực tiếp theo id, không phụ thuộc closure vòng lặp phía trên.
+  (() => {
+    const svgEl = document.getElementById('gear-train-svg');
+    const tipEl = document.getElementById('gt-tooltip');
+    if (!svgEl || !tipEl) return;
+    svgEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') tipEl.setAttribute('opacity', '0');
+    });
+  })();
 </script>

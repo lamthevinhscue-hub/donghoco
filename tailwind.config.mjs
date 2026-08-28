@@ -54,6 +54,7 @@ export default {
         'dark-bg': '#111519',        // = page (tối)
         'dark-surface': '#20272D',   // = surface-raised (tối)
         'dark-border': '#66758A',    // = line (tối) — đủ 3:1 trên cả nền tối và bề mặt tối
+        'dark-input-border': '#6B7780', // viền Ô NHẬP chế tối — 3.29:1 trên dark-surface (AA 1.4.11)
         'dark-text': '#EEF0ED',      // = primary (tối)
         'dark-text-soft': '#B7C0C6', // = secondary (tối)
         'dark-brass': '#D0B27B',     // = alloy (tối)

@@ -177,7 +177,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
   <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
     <!-- Cột trái: SVG -->
     <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
-      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg" aria-hidden="true" focusable="false">
+      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg" role="img" aria-label="Sơ đồ giải phẫu đồng hồ cơ với 12 bộ phận — dùng danh sách bộ phận bên dưới để chọn từng chi tiết">
         <!-- Nhãn lớp bên trái nằm NGAY TRONG nhóm lớp (y = 0 so với tâm lớp)
              để luôn ngang hàng và di chuyển theo phép biến đổi của lớp. -->
 
@@ -187,7 +187,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
         <!-- LỚP 0: KÍNH (crystal) -->
         <g class="layer-group" data-part="crystal" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 0 · Kính</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 0 · Kính</text>
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="#A8C5E2" opacity="0.4" stroke="#3182CE" stroke-width="1.5"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" fill="#A8C5E2" opacity="0.25"/>
           <text style="fill:var(--ig-stroke)" x="250" y="3" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
@@ -195,7 +195,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 1: KIM (hands) -->
         <g class="layer-group" data-part="hands" data-layer="1" data-target-y="251" data-assembled-y="320" transform="translate(0, 320)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 1 · Kim</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 1 · Kim</text>
           <!-- Kim giờ -->
           <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
             <rect style="fill:var(--ig-stroke)" x="248" y="-55" width="4" height="60" rx="2"/>
@@ -216,7 +216,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
         <g class="layer-group" data-part="dial" data-layer="2" data-target-y="428" data-assembled-y="360" transform="translate(0, 360)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 2 · Mặt số</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 2 · Mặt số</text>
           <!-- Mặt số chính -->
           <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
             <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="250" cy="0" r="120" stroke-width="2"/>
@@ -252,7 +252,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
         <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="613" data-assembled-y="410" transform="translate(0, 410)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 3 · Bộ máy</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 3 · Bộ máy</text>
           <!-- Thùng cót -->
           <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
             <circle cx="180" cy="0" r="38" fill="#B8893C" opacity="0.85" stroke="#9B6E2C" stroke-width="1.5"/>
@@ -293,7 +293,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
         <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="729" data-assembled-y="460" transform="translate(0, 460)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 4 · Bộ thoát</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 4 · Bộ thoát</text>
           <!-- Bộ thoát (escape wheel + pallet) -->
           <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
             <g transform="translate(190, 0)">
@@ -335,7 +335,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 5: ROTOR -->
         <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="866" data-assembled-y="510" transform="translate(0, 510)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 5 · Rotor</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 5 · Rotor</text>
           <g data-part="rotor" data-name-vi="Rotor (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
             {/* Hình bán nguyệt đặc trưng của rotor */}
             <path style="fill:var(--ig-steel-soft);stroke:var(--ig-edge)" d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
@@ -350,7 +350,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 
         <!-- LỚP 6: ĐÁY VỎ (caseback) -->
         <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="956" data-assembled-y="570" transform="translate(0, 570)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" opacity="0.7" class="svg-label">Lớp 6 · Đáy vỏ</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 6 · Đáy vỏ</text>
           <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
             <ellipse style="fill:var(--ig-edge);stroke:var(--ig-stroke)" cx="250" cy="0" rx="135" ry="18" stroke-width="1.5"/>
             <ellipse style="stroke:var(--ig-steel)" cx="250" cy="-2" rx="120" ry="14" fill="none" stroke-width="0.8"/>
@@ -683,6 +683,38 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       el.addEventListener('mouseleave', () => {
         tooltip?.setAttribute('opacity', '0');
       });
+
+      // Bàn phím + cảm ứng (WCAG 1.4.13): bộ phận nhận focus, chú thích
+      // mở theo focus; Enter/Space chọn bộ phận như bấm chuột.
+      if (el.getAttribute('data-name-vi')) {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', el.getAttribute('data-name-vi'));
+        el.addEventListener('focusin', (e) => {
+          const id = el.getAttribute('data-part');
+          const p = partMap[id];
+          if (!p || !tooltip) return;
+          tipVi.textContent = p.nameVi;
+          tipEn.textContent = p.nameEn;
+          tipLink.textContent = p.link ? '→ Chạm hoặc bấm để đọc bài' : '';
+          tipBg.setAttribute('width', Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30);
+          tooltip.setAttribute('opacity', '1');
+        });
+        el.addEventListener('focusout', () => {
+          tooltip?.setAttribute('opacity', '0');
+        });
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectPart(el.getAttribute('data-part'));
+          }
+        });
+      }
+    });
+
+    // Escape đóng chú thích mà không rời focus (WCAG 1.4.13)
+    svg?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') tooltip?.setAttribute('opacity', '0');
     });
 
     // Tooltip theo chuột

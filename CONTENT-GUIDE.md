@@ -53,6 +53,26 @@ Website Đồng Hồ Cơ không viết như bài bán hàng, không viết như 
 - Ảnh phải có quyền sử dụng hợp lệ (xem IMAGE-MANIFEST.md).
 - Ghi nguồn nếu giấy phép yêu cầu: `*Ảnh: © Rolex*`.
 
+### 2.5. Khả năng tiếp cận (WCAG 2.2 AA)
+
+Trang đã công bố tuân thủ WCAG 2.2 mức AA tại `/kha-nang-tiep-can`, nên mỗi nội dung mới phải giữ đúng mức đó. Đối chiếu trước khi xuất bản:
+
+**Khi thêm hình vẽ hoặc sơ đồ mới:**
+- [ ] Nếu thông tin trong hình đã có ở phần chữ: thêm `aria-hidden="true"` vào thẻ `<svg>`.
+- [ ] Nếu hình mang thông tin riêng: thêm `role="img"` kèm `aria-label` mô tả ý nghĩa bằng 1–2 câu tiếng Việt.
+- [ ] Không bao giờ để một hình vẽ lớn trống cả hai.
+
+**Khi thêm màu mới:**
+- [ ] Chữ trên nền đạt tối thiểu 4,5:1.
+- [ ] Viền và ranh giới của thành phần tương tác đạt tối thiểu 3:1.
+- [ ] Kiểm ở CẢ chế độ sáng và tối — không suy từ một chế độ.
+
+**Khi thêm thành phần tương tác mới:**
+- [ ] Dùng được hoàn toàn bằng bàn phím.
+- [ ] Có chú thích khi rê chuột thì phải hiện cả khi focus, và đóng được bằng Escape.
+- [ ] Vùng bấm tối thiểu 44 điểm ảnh.
+- [ ] Có chuyển động thì tôn trọng cài đặt giảm chuyển động của hệ điều hành.
+
 ---
 
 ## 3. CẤU TRÚC BÀI CHUẨN

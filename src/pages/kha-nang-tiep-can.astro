@@ -1,11 +1,13 @@
 ---
-// Trang: KHẢ NĂNG TIẾP CẬN — cam kết thiết kế theo WCAG 2.2 AA
+// Trang: KHẢ NĂNG TIẾP CẬN — công bố mức tuân thủ WCAG 2.2 AA
+// Cấu trúc theo mẫu ve-chung-toi.astro: BaseLayout + prose-content + song ngữ isVi.
+// Giọng trang: nói thẳng mức đã chọn và lý do, kể cả những gì chưa xong.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getLangFromUrl } from '../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const isVi = lang === 'vi';
-const reviewDate = '2026-08-24';
+const reviewDate = '2026-08-28';
 ---
 
 <BaseLayout title={isVi ? 'Khả năng tiếp cận' : 'Accessibility'}>
@@ -17,76 +19,177 @@ const reviewDate = '2026-08-24';
       {isVi ? (
         <>
           <p>
-            <strong>Đồng Hồ Cơ</strong> được thiết kế với mục tiêu đạt
-            <strong> WCAG 2.2 cấp AA</strong> — bộ tiêu chuẩn khả năng tiếp cận nội dung web
-            do W3C công bố. Chúng tôi muốn kiến thức về đồng hồ cơ đến được với mọi người,
-            bất kể cách họ thao tác với trang web: chuột, bàn phím, trình đọc màn hình,
-            chế độ giảm chuyển động, hay mức zoom cao.
+            Một bách khoa về bộ thoát đồng trục mà người dùng trình đọc màn hình không đọc được,
+            hay một sơ đồ chỉ thao tác được bằng chuột, thì mới chỉ hoàn thành một nửa nhiệm vụ.
+            Trang này nói rõ chúng tôi đang đứng ở đâu với khả năng tiếp cận: đã làm được gì,
+            chưa làm được gì, và cách bạn báo lỗi.
           </p>
 
-          <h2>Những gì trang web đang hỗ trợ</h2>
+          <h2>Mức tuân thủ: WCAG 2.2, mức AA</h2>
+          <p>
+            Chúng tôi thiết kế theo <strong>WCAG 2.2 mức AA</strong> — mức được chọn có cân nhắc,
+            không phải mặc nhiên. Mức cao nhất (AAA) không phù hợp với trang này, vì hai lý do cụ thể:
+          </p>
           <ul>
-            <li><strong>Tương phản màu:</strong> hệ màu giấy — than chì — xanh thép — đồng được đo tỷ lệ tương phản theo WCAG ở cả chế độ sáng và tối, cho chữ và cả viền của các ô nhập, nút bấm.</li>
-            <li><strong>Điều hướng bằng bàn phím:</strong> mọi menu, ô tìm kiếm, bộ lọc, form và sơ đồ đều thao tác được bằng Tab, Enter, phím mũi tên và Escape; có liên kết "Bỏ qua tới nội dung chính" ở đầu trang.</li>
-            <li><strong>Giảm chuyển động:</strong> tôn trọng cài đặt <em>prefers-reduced-motion</em> của hệ điều hành — hoạt ảnh đứng yên hoặc chuyển tức thì, không mất nội dung.</li>
-            <li><strong>Hoạt ảnh có nút điều khiển:</strong> mọi hoạt ảnh cơ chế chỉ chạy khi bạn bấm Phát, và luôn có nút Tạm dừng; mô hình 3D có nút xoay, phóng to, thu nhỏ thay cho thao tác kéo.</li>
-            <li><strong>Form rõ ràng:</strong> nhãn cho mọi ô nhập, thông báo lỗi bằng chữ cụ thể kèm con trỏ tự nhảy về ô cần sửa, dành cho cả trình đọc màn hình.</li>
-            <li><strong>Văn bản thay thế:</strong> ảnh minh họa có mô tả; biểu đồ và sơ đồ luôn kèm phần giải thích bằng chữ; nội dung quan trọng không phụ thuộc vào màu sắc hay hình động.</li>
-            <li><strong>Reflow:</strong> trang đọc được ở chiều rộng 320 CSS px và khi zoom 200% mà không phải cuộn ngang (trừ bảng dữ liệu lớn, vốn có vùng cuộn riêng được chú thích).</li>
+            <li>
+              Ngưỡng tương phản 7:1 của AAA sẽ buộc bỏ bảng màu kem, xanh thép và hợp kim đồng
+              — bản sắc thị giác mà toàn bộ trang được xây dựng trên đó.
+            </li>
+            <li>
+              Tiêu chí về trình độ đọc của AAA yêu cầu văn bản ở mức trung học cơ sở,
+              mâu thuẫn trực tiếp với một bách khoa phải giải thích tourbillon, biên độ dao động
+              và lịch vạn niên cho đúng bản chất.
+            </li>
+          </ul>
+          <p>AA là mức mà nội dung chuyên môn và trải nghiệm đọc cùng giữ được tiêu chuẩn của riêng nó.</p>
+
+          <h2>Những gì đã làm được</h2>
+          <ul>
+            <li>
+              <strong>Tương phản chữ</strong> vượt ngưỡng AA ở cả chế độ sáng và tối — chữ chính đạt từ 13:1 tới
+              17:1 tùy nền, cao nhất trên nền trang sáng và thấp nhất trên thẻ ở chế tối
+              (ngưỡng AA là 4,5:1); viền của ô nhập biểu mẫu cũng được đo riêng cho ngưỡng 3:1
+              của thành phần điều khiển.
+            </li>
+            <li>
+              <strong>Toàn bộ trang thao tác được bằng bàn phím</strong>: menu, tìm kiếm, bộ lọc,
+              biểu mẫu, sơ đồ. Có liên kết "bỏ qua tới nội dung chính" ở đầu trang và viền focus
+              rõ ràng trên mọi phần tử tương tác.
+            </li>
+            <li>
+              <strong>Sơ đồ không bắt buộc rê chuột</strong>: mọi hình tương tác đều có đường thao tác
+              thay thế bằng danh sách nút; chú thích hiện theo focus bàn phím và theo chạm,
+              đóng được bằng phím Escape.
+            </li>
+            <li>
+              <strong>Vùng bấm tối thiểu 44 điểm ảnh</strong> — vượt yêu cầu 24 điểm ảnh của chuẩn.
+            </li>
+            <li>
+              <strong>Chuyển động tôn trọng cài đặt giảm chuyển động</strong> của hệ điều hành:
+              hoạt ảnh đứng yên hoặc chuyển tức thì, không mất nội dung.
+            </li>
+            <li>
+              <strong>Biểu mẫu có nhãn đầy đủ</strong> cho mọi ô nhập; lỗi hiện bằng chữ cụ thể
+              kèm con trỏ tự nhảy về ô cần sửa.
+            </li>
           </ul>
 
-          <h2>Gửi phản hồi</h2>
+          <h2>Những gì chưa xong</h2>
           <p>
-            Nếu bạn gặp rào cản khi sử dụng trang — chữ khó đọc, nút không bấm được bằng bàn phím,
-            trình đọc màn hình đọc sai — hãy cho tôi biết qua trang
-            <a href="/lien-he">Liên hệ</a>. Mỗi phản hồi về khả năng tiếp cận đều được ưu tiên xử lý.
+            Trung thực thì mới đáng tin. Đây là những giới hạn còn lại tính đến lần rà soát gần nhất:
+          </p>
+          <ul>
+            <li>
+              Viền của thẻ nội dung nói chung chưa đạt ngưỡng 3:1 với nền — mới chỉ viền của ô nhập
+              và thành phần điều khiển được xử lý; viền thẻ hiện là đường phân cách thị giác,
+              không phải ranh giới của thành phần tương tác.
+            </li>
+            <li>
+              Một số hình vẽ phức tạp (hoạt ảnh cơ chế) được đánh dấu ẩn với trình đọc màn hình —
+              vì thông tin đầy đủ đã có trong phần chữ của bài và danh sách bộ phận; cách xử lý này
+              chủ đích, không phải bỏ sót.
+            </li>
+            <li>
+              Trang chưa được kiểm định bằng trình đọc màn hình thật một cách thường quy;
+              các quyết định hiện dựa trên đặc tả WCAG/ARIA và kiểm tra tự động.
+            </li>
+          </ul>
+
+          <h2>Gặp lỗi thì báo</h2>
+          <p>
+            Nếu bạn gặp trở ngại khi dùng trang — chữ khó đọc, nút không với tới được bằng bàn phím,
+            trình đọc màn hình đọc sai — thì đó là lỗi cần sửa, không phải phiền phức của bạn.
+            Hãy cho tôi biết qua trang <a href="/lien-he">Liên hệ</a>, ghi rõ trang và thao tác gặp lỗi.
           </p>
 
-          <h2>Cam kết cải tiến liên tục</h2>
-          <p>
-            Đây là một quá trình đang tiến hành, không phải đích đến. Trang web được rà soát định kỳ
-            bằng kiểm tra tự động (tương phản, cấu trúc ngữ nghĩa, bàn phím, hoạt ảnh) kết hợp kiểm
-            tra thủ công trên trình duyệt thật. Lần rà soát gần nhất: <time datetime={reviewDate}>{reviewDate}</time>.
-            Chúng tôi không tuyên bố chứng nhận độc lập từ bên thứ ba, và không có trang web nào
-            "hoàn hảo 100%" — nhưng mỗi bản cập nhật đều hướng tới tiêu chí AA chặt hơn.
-          </p>
+          <h2>Lần rà soát gần nhất</h2>
+          <p><time datetime={reviewDate}>{reviewDate}</time>.</p>
         </>
       ) : (
         <>
           <p>
-            <strong>Đồng Hồ Cơ</strong> is designed to meet
-            <strong> WCAG 2.2 Level AA</strong> — the Web Content Accessibility Guidelines
-            published by the W3C. We want mechanical watch knowledge to reach everyone,
-            regardless of how they interact with the web: mouse, keyboard, screen reader,
-            reduced motion, or high zoom levels.
+            An encyclopedia of the co-axial escapement that a screen reader cannot read,
+            or a diagram that only works with a mouse, has only fulfilled half its mission.
+            This page states plainly where we stand on accessibility: what is done,
+            what is not, and how to report problems.
           </p>
 
-          <h2>What this site currently supports</h2>
+          <h2>Conformance level: WCAG 2.2, level AA</h2>
+          <p>
+            We design to <strong>WCAG 2.2 level AA</strong> — a deliberate choice, not a default.
+            The highest level (AAA) does not fit this site, for two concrete reasons:
+          </p>
           <ul>
-            <li><strong>Color contrast:</strong> the paper–charcoal–steel–brass palette is measured against WCAG ratios in both light and dark modes, for text and for borders of inputs and buttons.</li>
-            <li><strong>Keyboard navigation:</strong> every menu, search box, filter, form and diagram works with Tab, Enter, arrow keys and Escape; a "Skip to main content" link sits at the top of the page.</li>
-            <li><strong>Reduced motion:</strong> the operating system's <em>prefers-reduced-motion</em> setting is respected — animations hold still or change instantly, with no content lost.</li>
-            <li><strong>Controlled animations:</strong> mechanism animations only run when you press Play and always have a Pause button; the 3D model offers rotate and zoom buttons as alternatives to dragging.</li>
-            <li><strong>Clear forms:</strong> labels on every field, text-specific error messages with focus moved to the first invalid field, announced to screen readers.</li>
-            <li><strong>Text alternatives:</strong> illustrative images carry descriptions; charts and diagrams always come with a text explanation; nothing important depends on color or motion alone.</li>
-            <li><strong>Reflow:</strong> pages remain readable at 320 CSS px wide and at 200% zoom without horizontal scrolling (wide data tables have their own labelled scroll region).</li>
+            <li>
+              AAA's 7:1 contrast threshold would force us to abandon the cream, steel-blue
+              and alloy palette that is the site's visual identity.
+            </li>
+            <li>
+              AAA's reading-level criterion calls for lower-secondary-school text — directly at odds
+              with an encyclopedia that must explain the tourbillon, amplitude and the perpetual
+              calendar accurately.
+            </li>
+          </ul>
+          <p>AA is the level where specialist content and the reading experience each keep their own standard.</p>
+
+          <h2>What is done</h2>
+          <ul>
+            <li>
+              <strong>Text contrast</strong> passes AA in both light and dark modes — main text ranges from 13:1
+              to 17:1 depending on the background, highest on the light page background and lowest
+              on dark-mode cards (the AA threshold is 4.5:1); form input borders are also measured
+              separately against the 3:1 threshold for controls.
+            </li>
+            <li>
+              <strong>The whole site works by keyboard</strong>: menus, search, filters, forms,
+              diagrams. A "skip to main content" link sits at the top and every interactive
+              element has a clear focus ring.
+            </li>
+            <li>
+              <strong>Diagrams do not require a mouse</strong>: every interactive figure has a
+              button-list alternative; tooltips appear on keyboard focus and touch,
+              and close with the Escape key.
+            </li>
+            <li>
+              <strong>Minimum hit area of 44 CSS pixels</strong> — above the standard's 24-pixel floor.
+            </li>
+            <li>
+              <strong>Motion respects the operating system's reduced-motion setting</strong>:
+              animations hold still or change instantly, with no content lost.
+            </li>
+            <li>
+              <strong>Forms have full labels</strong> on every field; errors appear as specific text
+              with focus moved to the first invalid field.
+            </li>
           </ul>
 
-          <h2>Send feedback</h2>
+          <h2>What is not done yet</h2>
+          <p>Being honest is what makes this statement trustworthy. As of the latest review:</p>
+          <ul>
+            <li>
+              Borders of content cards in general do not yet meet the 3:1 threshold against their
+              background — only input and control borders have been addressed; card borders currently
+              serve as visual separators, not boundaries of interactive components.
+            </li>
+            <li>
+              Some complex illustrations (mechanism animations) are hidden from screen readers —
+              because the full information exists in the article text and part lists; this is deliberate.
+            </li>
+            <li>
+              The site has not been regularly audited with a real screen reader;
+              current decisions rest on WCAG/ARIA specifications and automated checks.
+            </li>
+          </ul>
+
+          <h2>Report a problem</h2>
           <p>
-            If you hit a barrier — hard-to-read text, a button unreachable by keyboard, a screen
-            reader misreading something — please tell me via the
-            <a href="/lien-he">Contact</a> page. Accessibility feedback is treated with priority.
+            If something blocks you — hard-to-read text, a button unreachable by keyboard, a screen
+            reader misreading a passage — that is a bug to fix, not your problem. Tell me via the
+            <a href="/lien-he">Contact</a> page, noting the page and the action that failed.
           </p>
 
-          <h2>An ongoing commitment</h2>
-          <p>
-            This is a continuing process, not a finish line. The site is reviewed regularly with
-            automated checks (contrast, semantics, keyboard, motion) combined with manual browser
-            testing. Most recent review: <time datetime={reviewDate}>{reviewDate}</time>.
-            We do not claim independent third-party certification, and no website is
-            "100% error-free" — but every update aims at a stricter AA bar.
-          </p>
+          <h2>Last reviewed</h2>
+          <p><time datetime={reviewDate}>{reviewDate}</time>.</p>
         </>
       )}
     </div>

@@ -257,8 +257,8 @@ import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
     } catch (err) {
       engine = null;
       console.error('Không mở được mô hình 3D:', err);
-      // Quay về sơ đồ 2D và thông báo cho người dùng
-      activateTab(0, false);
+      // Quay về sơ đồ 2D, focus về tab 2D và thông báo cho người dùng
+      activateTab(0);
       showError(true);
     } finally {
       loading3d = false;

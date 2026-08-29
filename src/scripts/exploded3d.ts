@@ -67,14 +67,14 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   } catch {
     throw new Error('Trình duyệt hoặc thiết bị không hỗ trợ WebGL.');
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); // ≤2 — tránh nóng máy
 
   const w = container.clientWidth || 1;
   const h = container.clientHeight || 1;
   renderer.setSize(w, h);
   renderer.domElement.setAttribute(
     'aria-label',
-    'Mô hình 3D khái niệm của một chiếc đồng hồ cơ — kéo để xoay, cuộn hoặc chụm để thu phóng, chạm một bộ phận để xem chi tiết. Danh sách bộ phận bằng bàn phím nằm bên dưới.',
+    'Mô hình 3D khái niệm của một chiếc đồng hồ cơ — kéo để xoay, cuộn hoặc chụm để thu phóng, chạm một bộ phận để xem chi tiết. Các nút danh sách bộ phận và nút điều khiển bằng HTML bên cạnh là phương thức điều khiển thay thế.',
   );
   renderer.domElement.tabIndex = 0;
   renderer.domElement.className = 'block h-full w-full';
@@ -85,11 +85,12 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   const camera = new THREE.PerspectiveCamera(35, w / h, 0.1, 1000);
   camera.position.copy(CAM_DIR).multiplyScalar(120); // tạm — frameModel() sẽ chỉnh đúng sau khi dựng mô hình
 
-  scene.add(new THREE.AmbientLight(0xffffff, 1.1));
-  const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  // ---- Ánh sáng: 1 chính + 1 bù ấm + ambient vừa đủ (không post-processing) ----
+  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
   keyLight.position.set(50, 80, 50);
   scene.add(keyLight);
-  const fillLight = new THREE.DirectionalLight(0xb8893c, 0.9);
+  const fillLight = new THREE.DirectionalLight(0xb89254, 0.7);
   fillLight.position.set(-50, 30, -50);
   scene.add(fillLight);
 
@@ -101,7 +102,32 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   controls.maxDistance = 280; // đủ dư địa để vừa khung mô hình đã tách lớp ở mọi tỷ lệ canvas
   controls.autoRotateSpeed = 0.8;
 
-  // ---- Vật liệu ----
+  // ---- Vật liệu (đối xứng với bản 2D: thép chải / đồng thau / rubi / sapphire / mặt số) ----
+  // Thép: metalness cao vừa phải, roughness đủ để không thành gương.
+  // Đồng thau: sắc ấm, phản chiếu có kiểm soát. Rubi: đỏ sâu, không neon.
+  // Mặt số: gần như không phản chiếu — nhường kịch tính cho kim và vỏ.
+  function matSteel(color = 0x7d8791) {
+    return new THREE.MeshStandardMaterial({ color, metalness: 0.8, roughness: 0.42 });
+  }
+  function matBrass() {
+    return new THREE.MeshStandardMaterial({ color: 0xb89254, metalness: 0.85, roughness: 0.32 });
+  }
+  function matRuby() {
+    return new THREE.MeshStandardMaterial({ color: 0xa33b3b, metalness: 0.15, roughness: 0.25 });
+  }
+  function matDial(color = 0xf4f2ed) {
+    return new THREE.MeshStandardMaterial({ color, metalness: 0.05, roughness: 0.9 });
+  }
+  function matCrystal() {
+    return new THREE.MeshStandardMaterial({
+      color: 0xdfe8f0,
+      transparent: true,
+      opacity: 0.18,
+      metalness: 0.1,
+      roughness: 0.05,
+      depthWrite: false,
+    });
+  }
   function mat(color: number, opacity?: number) {
     const opts: THREE.MeshStandardMaterialParameters = { color };
     if (opacity !== undefined) {
@@ -126,88 +152,90 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     return m;
   }
 
-  // Lớp 0: kính
+  // Lớp 0: kính sapphire (gần trong suốt + viền thép xanh-xám mỏng)
   {
     const g = new THREE.Group();
-    const crystal = partMesh(new THREE.CylinderGeometry(22, 22, 3, 64), mat(0xa8c5e2, 0.25), 'crystal');
-    g.add(crystal);
+    const crystal = partMesh(new THREE.CylinderGeometry(22, 22, 3, 64), matCrystal(), 'crystal');
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(22, 0.45, 8, 64), matSteel(0x7d8791));
+    rim.rotation.x = Math.PI / 2;
+    g.add(crystal, rim);
     layers.push({ group: g, meshes: [crystal], assembledY: 8, explodedY: 40 });
   }
-  // Lớp 1: kim giờ/phút/giây
+  // Lớp 1: kim giờ/phút/giây — thép, kim giây ruby
   {
     const g = new THREE.Group();
-    const hour = partMesh(new THREE.BoxGeometry(1.5, 0.3, 9), mat(0x1f2d3d), 'hour-hand');
+    const hour = partMesh(new THREE.BoxGeometry(1.5, 0.3, 9), matSteel(0xcfd6dd), 'hour-hand');
     hour.position.set(0, 5, 4.5);
-    const minute = partMesh(new THREE.BoxGeometry(1, 0.3, 13), mat(0x1f2d3d), 'minute-hand');
+    const minute = partMesh(new THREE.BoxGeometry(1, 0.3, 13), matSteel(0xcfd6dd), 'minute-hand');
     minute.position.set(3, 5, 6.5);
     minute.rotation.y = -0.4;
-    const second = partMesh(new THREE.BoxGeometry(0.6, 0.2, 15), mat(0x9b2c2c), 'second-hand');
+    const second = partMesh(new THREE.BoxGeometry(0.6, 0.2, 15), matRuby(), 'second-hand');
     second.position.set(-2, 5.5, 7.5);
     second.rotation.y = 0.3;
-    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 1, 16), mat(0x1f2d3d));
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 1, 16), matSteel(0xcfd6dd));
     pin.position.y = 5.5;
     g.add(hour, minute, second, pin);
     layers.push({ group: g, meshes: [hour, minute, second], assembledY: 5, explodedY: 20 });
   }
-  // Lớp 2: mặt số + mặt số phụ
+  // Lớp 2: mặt số + mặt số phụ — bề mặt lì, ít phản chiếu hơn kim/vỏ
   {
     const g = new THREE.Group();
-    const dial = partMesh(new THREE.CylinderGeometry(20, 20, 1.5, 64), mat(0xfaf7f2), 'dial');
+    const dial = partMesh(new THREE.CylinderGeometry(20, 20, 1.5, 64), matDial(), 'dial');
     dial.position.y = 3;
-    const subdial = partMesh(new THREE.CylinderGeometry(5, 5, 0.5, 32), mat(0xe8e2d6), 'subdial');
+    const subdial = partMesh(new THREE.CylinderGeometry(5, 5, 0.5, 32), matDial(0xe8e2d6), 'subdial');
     subdial.position.set(5, 3.8, 5);
     g.add(dial, subdial);
     layers.push({ group: g, meshes: [dial, subdial], assembledY: 3, explodedY: 0 });
   }
-  // Lớp 3: đế máy + thùng cót + bánh răng
+  // Lớp 3: đế máy + thùng cót (đồng thau) + bánh răng (thép)
   {
     const g = new THREE.Group();
-    const plate = new THREE.Mesh(new THREE.CylinderGeometry(19, 19, 2, 64), mat(0x6b6555));
-    const barrel = partMesh(new THREE.CylinderGeometry(7, 7, 4, 32), mat(0xb8893c), 'mainspring-barrel');
+    const plate = new THREE.Mesh(new THREE.CylinderGeometry(19, 19, 2, 64), matSteel(0x6b6555));
+    const barrel = partMesh(new THREE.CylinderGeometry(7, 7, 4, 32), matBrass(), 'mainspring-barrel');
     barrel.position.set(-8, 1, 0);
-    const gear1 = partMesh(new THREE.CylinderGeometry(4, 4, 3, 20), mat(0x4a5568), 'gear-train');
+    const gear1 = partMesh(new THREE.CylinderGeometry(4, 4, 3, 20), matSteel(0x4a545f), 'gear-train');
     gear1.position.set(2, 0.5, 0);
-    const gear2 = partMesh(new THREE.CylinderGeometry(3, 3, 3, 16), mat(0x5a6878), 'gear-train');
+    const gear2 = partMesh(new THREE.CylinderGeometry(3, 3, 3, 16), matSteel(0x5a6878), 'gear-train');
     gear2.position.set(8, 0.5, -3);
-    const gear3 = partMesh(new THREE.CylinderGeometry(2.5, 2.5, 3, 14), mat(0x5a6878), 'gear-train');
+    const gear3 = partMesh(new THREE.CylinderGeometry(2.5, 2.5, 3, 14), matSteel(0x5a6878), 'gear-train');
     gear3.position.set(8, 0.5, 4);
     g.add(plate, barrel, gear1, gear2, gear3);
     layers.push({ group: g, meshes: [barrel, gear1, gear2, gear3], assembledY: 0, explodedY: -20 });
   }
-  // Lớp 4: bộ thoát + bánh lắc
+  // Lớp 4: bộ thoát (thép) + bánh lắc (rubi)
   let balance: THREE.Mesh;
   {
     const g = new THREE.Group();
-    const escPlate = new THREE.Mesh(new THREE.CylinderGeometry(17, 17, 1.5, 48), mat(0x4a4a4a));
+    const escPlate = new THREE.Mesh(new THREE.CylinderGeometry(17, 17, 1.5, 48), matSteel(0x4a545f));
     escPlate.position.y = -3;
-    const escWheel = partMesh(new THREE.CylinderGeometry(3, 3, 2, 15), mat(0x2e86ab), 'escapement');
+    const escWheel = partMesh(new THREE.CylinderGeometry(3, 3, 2, 15), matSteel(0x9aa5af), 'escapement');
     escWheel.position.set(-4, -3, 2);
-    balance = partMesh(new THREE.TorusGeometry(5, 0.8, 12, 32), mat(0x9b2c2c), 'balance');
+    balance = partMesh(new THREE.TorusGeometry(5, 0.8, 12, 32), matRuby(), 'balance');
     balance.rotation.x = Math.PI / 2;
     balance.position.set(5, -3, -2);
     g.add(escPlate, escWheel, balance);
     layers.push({ group: g, meshes: [escWheel, balance], assembledY: -3, explodedY: -40 });
   }
-  // Lớp 5: rotor
+  // Lớp 5: rotor — thép chải, trục đồng thau
   {
     const g = new THREE.Group();
     const rotor = partMesh(
       new THREE.CylinderGeometry(14, 14, 2.5, 32, 1, false, 0, Math.PI),
-      mat(0x5a6878),
+      matSteel(0x7d8791),
       'rotor',
     );
     rotor.rotation.z = Math.PI / 2;
     rotor.rotation.y = Math.PI / 2;
     rotor.position.y = -6;
-    const rotorPin = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 3, 16), mat(0xb8893c));
+    const rotorPin = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 3, 16), matBrass());
     rotorPin.position.y = -6;
     g.add(rotor, rotorPin);
     layers.push({ group: g, meshes: [rotor], assembledY: -6, explodedY: -60 });
   }
-  // Lớp 6: thân vỏ + đáy vỏ
+  // Lớp 6: thân vỏ + đáy vỏ — thép đậm
   {
     const g = new THREE.Group();
-    const caseback = partMesh(new THREE.CylinderGeometry(21, 21, 3, 64), mat(0x2d3748), 'caseback');
+    const caseback = partMesh(new THREE.CylinderGeometry(21, 21, 3, 64), matSteel(0x4a545f), 'caseback');
     caseback.position.y = -9;
     const caseWall = new THREE.Mesh(
       new THREE.CylinderGeometry(21, 21, 18, 64, 1, true),
@@ -230,7 +258,9 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   let rafId = 0;
   let needsRender = true;
   let interacting = false;
-  let motionOn = !prefersReduced(); // reduced motion: không auto-rotate, bánh lắc đứng yên
+  // KHÔNG tự quay khi vừa mở — mô hình đứng yên cho tới khi người dùng chủ
+  // động bấm "Chuyển động 3D" (reduced motion vẫn cho phép bấm thủ công).
+  let motionOn = false;
 
   const canRun = () => isActive && inView && !document.hidden;
 
@@ -358,12 +388,13 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
         l.group.position.y = targetY;
         tweens[i] = null;
       } else {
+        // Stagger 35ms/lớp + dur 400ms → tổng ~575ms, đúng trần 600ms
         tweens[i] = {
           from: l.group.position.y,
           to: targetY,
           start: performance.now(),
-          delay: i * 60,
-          dur: 600,
+          delay: i * 35,
+          dur: 400,
         };
       }
     });

@@ -13,6 +13,9 @@ dist/
 # ZCode internal (file nội bộ của công cụ, không commit)
 .zcode/
 
+# Công cụ kiểm trình duyệt (sinh ra khi chạy playwright-cli, không commit)
+.playwright-cli/
+
 # Nhật ký
 npm-debug.log*
 yarn-debug.log*

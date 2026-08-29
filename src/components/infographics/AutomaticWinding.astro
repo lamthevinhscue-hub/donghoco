@@ -61,18 +61,31 @@ const comparisons = [
     <div class="svg-container" data-svg="rotor">
       <MechanismAnimation label="Rotor dao động + ly hợp một chiều (bấm 'Mô phỏng cổ tay')" data-mech-step-id="auto-winding">
         <svg viewBox="0 0 400 392" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="auto-winding-svg" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="awRotor" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+              <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+              <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+            </linearGradient>
+            <linearGradient id="awClutch" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+              <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+              <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+              <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+            </linearGradient>
+          </defs>
           <text style="fill:var(--ig-stroke)" x="200" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="svg-label">
             Rotor dao động qua lại — ly hợp chỉ truyền lực một chiều
           </text>
 
           <!-- ====== Movement (nền tròn) ====== -->
           <circle style="fill:var(--ig-bg);stroke:var(--ig-edge)" cx="200" cy="160" r="100" stroke-width="2" class=""/>
-          <circle cx="170" cy="140" r="15" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.4"/>
-          <circle cx="230" cy="180" r="12" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="170" cy="140" r="15" fill="none" style="stroke:var(--obs-brass)" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="230" cy="180" r="12" fill="none" style="stroke:var(--obs-brass)" stroke-width="0.5" opacity="0.4"/>
 
           <!-- ====== Rotor (bán nguyệt, dao động qua lại) ====== -->
           <g id="aw-rotor" data-part="rotor" data-name-vi="Rotor (quả nặng)" data-name-en="Rotor (oscillating weight)">
-            <path style="fill:var(--ig-steel);stroke:var(--ig-edge)" d="M 200 160 L 200 70 A 90 90 0 0 1 290 160 Z" stroke-width="2"/>
+            <path fill="url(#awRotor)" style="stroke:var(--obs-steel-deep)" d="M 200 160 L 200 70 A 90 90 0 0 1 290 160 Z" stroke-width="2"/>
           </g>
           <!-- Trục rotor -->
           <circle style="fill:var(--ig-edge)" cx="200" cy="160" r="6"/>
@@ -80,27 +93,27 @@ const comparisons = [
           <!-- ====== Ly hợp + bánh răng truyền lực (bên dưới movement) ====== -->
           <g transform="translate(200, 300)">
             <!-- Ly hợp (hộp) -->
-            <rect id="aw-clutch" x="-45" y="-18" width="90" height="36" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2" data-part="clutch" data-name-vi="Ly hợp một chiều" data-name-en="One-way clutch"/>
-            <text x="0" y="4" text-anchor="middle" font-size="10" fill="#FAF7F2" font-weight="bold" class="aw-inline-label">Ly hợp</text>
+            <rect id="aw-clutch" x="-45" y="-18" width="90" height="36" rx="6" fill="url(#awClutch)" style="stroke:var(--obs-brass-deep)" stroke-width="2" data-part="clutch" data-name-vi="Ly hợp một chiều" data-name-en="One-way clutch"/>
+            <text x="0" y="4" text-anchor="middle" font-size="10" style="fill:var(--obs-ivory)" font-weight="bold" class="aw-inline-label">Ly hợp</text>
             <!-- Bánh răng truyền lực (sáng khi truyền, mờ khi trượt tự do) -->
             <g id="aw-gear" transform="translate(75, 0)" data-part="transmission-gear" data-name-vi="Bánh răng truyền lực" data-name-en="Drive gear">
-              <circle r="16" fill="none" stroke="#4FB286" stroke-width="3" id="aw-gear-circle"/>
+              <circle r="16" fill="none" style="stroke:var(--obs-steel-soft)" stroke-width="3" id="aw-gear-circle"/>
               {Array.from({ length: 8 }).map((_, i) => {
                 const a = (i * 360) / 8;
-                return <g transform={`rotate(${a})`}><rect x="-1.5" y="-20" width="3" height="6" fill="#4FB286"/></g>;
+                return <g transform={`rotate(${a})`}><rect x="-1.5" y="-20" width="3" height="6" style="fill:var(--obs-steel-soft)"/></g>;
               })}
-              <circle r="3" fill="#4FB286"/>
+              <circle r="3" style="fill:var(--obs-steel-soft)"/>
             </g>
           </g>
 
           <!-- ====== Thanh trữ cót (dưới cùng) ====== -->
           <text style="fill:var(--ig-stroke)" x="200" y="345" text-anchor="middle" font-size="10" font-weight="bold" class="aw-inline-label">Trữ cót</text>
           <rect style="stroke:var(--ig-stroke)" x="100" y="350" width="200" height="14" rx="3" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
-          <rect id="aw-reserve-bar" x="102" y="352" width="0" height="10" rx="2" fill="#B8893C"/>
+          <rect id="aw-reserve-bar" x="102" y="352" width="0" height="10" rx="2" style="fill:var(--obs-brass)"/>
           <text style="fill:var(--ig-stroke)" id="aw-reserve-label" x="200" y="378" text-anchor="middle" font-size="10" class="aw-inline-label">0%</text>
 
           <!-- ====== Trạng thái ly hợp (text động) ====== -->
-          <text id="aw-clutch-status" x="200" y="275" text-anchor="middle" font-size="10" fill="#2D7A55" font-weight="bold" class="aw-inline-label">Truyền lực</text>
+          <text id="aw-clutch-status" x="200" y="275" text-anchor="middle" font-size="10" style="fill:var(--obs-steel-deep)" font-weight="bold" class="aw-inline-label">Truyền lực</text>
         </svg>
 
         <!-- Nút mô phỏng cử động cổ tay (bên ngoài SVG, trong MechanismAnimation) -->
@@ -143,18 +156,18 @@ const comparisons = [
 
             if (isDriving) {
               // Bánh răng sáng + quay
-              gearCircle.setAttribute('stroke', '#4FB286');
+              gearCircle.style.stroke = 'var(--obs-steel-soft)';
               gear.setAttribute('opacity', '1');
               const gearRot = elapsed * 0.3; // quay chậm
               gear.setAttribute('transform', `translate(275, 300) rotate(${gearRot})`);
               clutchStatus.textContent = '⚡ Truyền lực';
-              clutchStatus.setAttribute('fill', '#2D7A55');
+              clutchStatus.style.fill = 'var(--obs-steel-deep)';
             } else {
               // Bánh răng mờ (trượt tự do)
-              gearCircle.setAttribute('stroke', '#A0AEC0');
+              gearCircle.style.stroke = 'var(--obs-steel-deep)';
               gear.setAttribute('opacity', '0.35');
               clutchStatus.textContent = 'Trượt tự do';
-              clutchStatus.setAttribute('fill', '#9B6E2C');
+              clutchStatus.style.fill = 'var(--obs-brass-deep)';
             }
 
             // Trữ cót dâng lên khi truyền lực (chậm dần khi gần đầy)
@@ -233,43 +246,57 @@ const comparisons = [
 
       <div class="svg-container mb-6">
         <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" aria-hidden="true" focusable="false">
+          <!-- Vật liệu: thép chải + đồng thau (token --obs-*) -->
+          <defs>
+            <linearGradient id="awSteel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+              <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+              <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+            </linearGradient>
+            <linearGradient id="awBrass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+              <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+              <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+              <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+            </linearGradient>
+          </defs>
           <!-- Rotor quay 2 chiều -->
           <g data-anim="clutch-input" opacity="0">
             <circle style="stroke:var(--ig-steel)" cx="80" cy="90" r="35" fill="none" stroke-width="2.5"/>
             <path style="stroke:var(--ig-steel)" d="M 80 90 L 80 55" stroke-width="2"/>
             <text style="fill:var(--ig-stroke)" x="80" y="145" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Rotor</text>
-            <text x="80" y="50" text-anchor="middle" font-size="14" fill="#2E86AB">↻ ↺</text>
-            <text x="80" y="35" text-anchor="middle" font-size="9" fill="#2E86AB" class="svg-label">quay 2 chiều</text>
+            <text x="80" y="50" text-anchor="middle" font-size="14" style="fill:var(--obs-steel)">↻ ↺</text>
+            <text x="80" y="35" text-anchor="middle" font-size="9" style="fill:var(--obs-steel)" class="svg-label">quay 2 chiều</text>
           </g>
 
           <!-- Mũi tên tới ly hợp -->
           <g data-anim="clutch-arrow1" opacity="0">
-            <line x1="125" y1="90" x2="190" y2="90" stroke="#B8893C" stroke-width="2" stroke-dasharray="4 2"/>
-            <polygon points="195,90 187,85 187,95" fill="#B8893C"/>
+            <line x1="125" y1="90" x2="190" y2="90" style="stroke:var(--obs-brass)" stroke-width="1" stroke-dasharray="4 2"/>
+            <polygon points="195,90 187,85 187,95" style="fill:var(--obs-brass)"/>
           </g>
 
           <!-- Ly hợp một chiều -->
           <g data-anim="clutch" opacity="0">
-            <rect x="200" y="65" width="100" height="50" rx="6" fill="#B8893C" stroke="#9B6E2C" stroke-width="2"/>
-            <text x="250" y="95" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold" class="svg-label">Ly hợp</text>
+            <rect x="200" y="65" width="100" height="50" rx="6" fill="url(#awBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="2"/>
+            <text x="250" y="95" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold" class="svg-label">Ly hợp</text>
             <text style="fill:var(--ig-stroke)" x="250" y="135" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">1 chiều</text>
           </g>
 
           <!-- Mũi tên tới thùng cót -->
           <g data-anim="clutch-arrow2" opacity="0">
-            <line x1="310" y1="90" x2="375" y2="90" stroke="#B8893C" stroke-width="2" stroke-dasharray="4 2"/>
-            <polygon points="380,90 372,85 372,95" fill="#B8893C"/>
+            <line x1="310" y1="90" x2="375" y2="90" style="stroke:var(--obs-brass)" stroke-width="1" stroke-dasharray="4 2"/>
+            <polygon points="380,90 372,85 372,95" style="fill:var(--obs-brass)"/>
           </g>
 
           <!-- Thùng cót -->
           <g data-anim="barrel-output" opacity="0">
-            <circle cx="420" cy="90" r="35" fill="none" stroke="#B8893C" stroke-width="2.5"/>
+            <circle cx="420" cy="90" r="35" fill="none" stroke="url(#awBrass)" stroke-width="2"/>
             <path d="M 420 60 a 30 30 0 1 1 -0.1 0 m 0 5 a 25 25 0 1 0 0.1 0"
-                  fill="none" stroke="#B8893C" stroke-width="2.5"/>
-            <circle cx="420" cy="90" r="3" fill="#B8893C"/>
+                  fill="none" stroke="url(#awBrass)" stroke-width="1"/>
+            <circle cx="420" cy="90" r="3" style="fill:var(--obs-brass)"/>
             <text style="fill:var(--ig-stroke)" x="420" y="145" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Thùng cót</text>
-            <text x="420" y="50" text-anchor="middle" font-size="14" fill="#2D7A55">↻</text>
-            <text x="420" y="35" text-anchor="middle" font-size="9" fill="#2D7A55" class="svg-label">cuộn 1 chiều</text>
+            <text x="420" y="50" text-anchor="middle" font-size="14" style="fill:var(--obs-steel-deep)">↻</text>
+            <text x="420" y="35" text-anchor="middle" font-size="9" style="fill:var(--obs-steel-deep)" class="svg-label">cuộn 1 chiều</text>
           </g>
         </svg>
       </div>

@@ -12,9 +12,9 @@
 import MechanismAnimation from './MechanismAnimation.astro';
 
 const crystals = [
-  { id: 'acrylic', name: 'Acrylic', vi: 'Nhựa dẻo', color: '#90CDF4', scratch: 'deep', impact: 'dent', polish: true },
-  { id: 'mineral', name: 'Khoáng', vi: 'Thủy tinh', color: '#B8893C', scratch: 'medium', impact: 'chip', polish: false },
-  { id: 'sapphire', name: 'Sapphire', vi: 'Kính sapphire', color: '#4FB286', scratch: 'none', impact: 'crack', polish: false },
+  { id: 'acrylic', name: 'Acrylic', vi: 'Nhựa dẻo', color: 'var(--obs-ivory)', scratch: 'deep', impact: 'dent', polish: true },
+  { id: 'mineral', name: 'Khoáng', vi: 'Thủy tinh', color: 'var(--obs-brass)', scratch: 'medium', impact: 'chip', polish: false },
+  { id: 'sapphire', name: 'Sapphire', vi: 'Kính sapphire', color: 'var(--obs-steel)', scratch: 'none', impact: 'crack', polish: false },
 ];
 ---
 
@@ -28,25 +28,25 @@ const crystals = [
     {crystals.map((c, i) => (
       <g transform={`translate(${100 + i * 200}, 130)`} data-crystal={c.id}>
         <!-- Nhãn -->
-        <text x="0" y="-50" text-anchor="middle" font-size="13" fill={c.color} font-weight="bold">{c.name}</text>
+        <text x="0" y="-50" text-anchor="middle" font-size="13" style={`fill:${c.color}`} font-weight="bold">{c.name}</text>
         <text style="fill:var(--ig-stroke)" x="0" y="-36" text-anchor="middle" font-size="9" opacity="0.6" class="">{c.vi}</text>
 
         <!-- Tấm kính (hình chữ nhật bo góc) -->
-        <rect class="crystal-pane" x="-60" y="-30" width="120" height="100" rx="8" fill={c.color} opacity="0.3" stroke={c.color} stroke-width="2.5"/>
+        <rect class="crystal-pane" x="-60" y="-30" width="120" height="100" rx="8" style={`fill:${c.color};stroke:${c.color}`} opacity="0.3" stroke-width="2"/>
 
         <!-- Vết xước (ẩn ban đầu, hiện khi thử) -->
         <g class="crystal-scratch" opacity="0">
           {c.scratch === 'deep' && (
             <>
-              <path style="stroke:var(--ig-rubi)" d="M -40 0 L 40 -5" stroke-width="3" opacity="0.7"/>
-              <path style="stroke:var(--ig-rubi)" d="M -38 5 L 42 0" stroke-width="2" opacity="0.5"/>
+              <path style="stroke:var(--ig-rubi)" d="M -40 0 L 40 -5" stroke-width="2" opacity="0.7"/>
+              <path style="stroke:var(--ig-rubi)" d="M -38 5 L 42 0" stroke-width="1" opacity="0.5"/>
             </>
           )}
           {c.scratch === 'medium' && (
-            <path d="M -35 -2 L 35 -6" stroke="#9B6E2C" stroke-width="1.5" opacity="0.6"/>
+            <path d="M -35 -2 L 35 -6" style="stroke:var(--obs-brass-deep)" stroke-width="1" opacity="0.6"/>
           )}
           {c.scratch === 'none' && (
-            <text x="0" y="5" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold">✓ Không xước</text>
+            <text x="0" y="5" text-anchor="middle" font-size="11" style="fill:var(--obs-steel-deep)" font-weight="bold">✓ Không xước</text>
           )}
         </g>
 
@@ -54,14 +54,14 @@ const crystals = [
         <g class="crystal-impact" opacity="0">
           {c.impact === 'dent' && (
             <>
-              <ellipse cx="0" cy="20" rx="18" ry="8" fill="#9B6E2C" opacity="0.4"/>
-              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#9B6E2C" font-weight="bold">Móp — không vỡ</text>
+              <ellipse cx="0" cy="20" rx="18" ry="8" style="fill:var(--obs-brass-deep)" opacity="0.4"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-deep)" font-weight="bold">Móp — không vỡ</text>
             </>
           )}
           {c.impact === 'chip' && (
             <>
-              <path d="M 0 -30 L 8 -20 L -8 -20 Z" fill="#9B6E2C" opacity="0.5"/>
-              <text x="0" y="50" text-anchor="middle" font-size="9" fill="#9B6E2C" font-weight="bold">Mẻ</text>
+              <path d="M 0 -30 L 8 -20 L -8 -20 Z" style="fill:var(--obs-brass-deep)" opacity="0.5"/>
+              <text x="0" y="50" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-deep)" font-weight="bold">Mẻ</text>
             </>
           )}
           {c.impact === 'crack' && (
@@ -78,8 +78,8 @@ const crystals = [
         <g class="crystal-polished" opacity="0">
           {c.polish ? (
             <>
-              <circle cx="0" cy="0" r="35" fill="none" stroke="#4FB286" stroke-width="2" stroke-dasharray="4 3"/>
-              <text x="0" y="5" text-anchor="middle" font-size="10" fill="#2D7A55" font-weight="bold">✓ Phục hồi</text>
+              <circle cx="0" cy="0" r="35" fill="none" style="stroke:var(--obs-steel-soft)" stroke-width="1" stroke-dasharray="4 3"/>
+              <text x="0" y="5" text-anchor="middle" font-size="10" style="fill:var(--obs-steel-deep)" font-weight="bold">✓ Phục hồi</text>
             </>
           ) : (
             <text style="fill:var(--ig-rubi)" x="0" y="5" text-anchor="middle" font-size="10" opacity="0.6">Không phục hồi</text>

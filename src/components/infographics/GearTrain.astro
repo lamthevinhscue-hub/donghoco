@@ -23,7 +23,7 @@ const stations = [
     nameEn: 'Mainspring',
     role: 'Nguồn năng lượng',
     detail: 'Dải thép cuộn trong thùng cót. Lên dây = tích năng lượng. Nhả = giải phóng.',
-    color: '#B8893C',
+    color: 'var(--obs-brass)',
     icon: '🌀',
   },
   {
@@ -32,7 +32,7 @@ const stations = [
     nameEn: 'Gear Train',
     role: 'Truyền + giảm tốc',
     detail: 'Chuỗi bánh răng lớn→nhỏ, truyền năng lượng tới bộ thoát và lái các kim.',
-    color: '#4FB286',
+    color: 'var(--obs-steel-soft)',
     icon: '⚙️',
   },
   {
@@ -41,7 +41,7 @@ const stations = [
     nameEn: 'Escapement',
     role: 'Chia năng lượng thành nhịp',
     detail: 'Ngăn dây cót nhả hết một lần. Chia năng lượng thành các "nhịp" nhỏ, từng chút một.',
-    color: '#2E86AB',
+    color: 'var(--obs-steel)',
     icon: '⏱️',
   },
   {
@@ -50,7 +50,7 @@ const stations = [
     nameEn: 'Balance Wheel',
     role: 'Gác nhịp',
     detail: 'Dao động qua lại như con lắc. Mỗi nhịp, bộ thoát nhả đúng một chút năng lượng.',
-    color: '#9B2C2C',
+    color: 'var(--ig-rubi)',
     icon: '🎡',
   },
 ];
@@ -85,83 +85,96 @@ const stations = [
       <!-- ====== HOẠT ẢNH TƯƠNG TÁC: 5 bánh răng quay với tỷ lệ tốc độ đúng ====== -->
       <MechanismAnimation label="Chuỗi truyền động (5 bánh răng quay với tốc độ khác nhau)" data-mech-step-id="gear-train">
         <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-4xl" id="gear-train-svg" role="img" aria-label="Sơ đồ chuỗi truyền động: thùng cót và các bánh răng trung gian">
+          <defs>
+            <linearGradient id="gtBrass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+              <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+              <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+              <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+            </linearGradient>
+            <linearGradient id="gtSteel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+              <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+              <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+            </linearGradient>
+          </defs>
           <text style="fill:var(--ig-stroke)" x="400" y="26" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
             Thùng cót (chậm) → bánh răng → bánh thoát (nhanh) — ngược chiều kề nhau
           </text>
 
           <!-- ====== 1. THÙNG CÓT (lớn nhất, chậm nhất, chiều CW) ====== -->
           <g id="gt-barrel" transform="translate(110, 170)" data-part="barrel" data-name-vi="Thùng cót (Barrel)" data-name-en="Mainspring Barrel">
-            <circle style="fill:var(--ig-bg)" r="62" stroke="#B8893C" stroke-width="3" class=""/>
+            <circle style="fill:var(--ig-bg);stroke:var(--obs-brass-deep)" r="62" stroke-width="2" class=""/>
             <!-- Răng ngoài thùng cót -->
             {Array.from({ length: 24 }).map((_, i) => {
               const a = (i * 360) / 24;
               return (
                 <g transform={`rotate(${a})`}>
-                  <rect x="-2" y="-68" width="4" height="8" fill="#B8893C"/>
+                  <rect x="-2" y="-68" width="4" height="8" style="fill:var(--obs-brass)"/>
                 </g>
               );
             })}
             <!-- Dây cót xoắn bên trong -->
             <path d="M 110 170 m -45 0 a 45 45 0 1 1 90 0 a 38 38 0 1 1 -76 0 a 28 28 0 1 1 56 0"
-                  fill="none" stroke="#B8893C" stroke-width="3" opacity="0.7" transform="translate(-110,-170)"/>
-            <circle r="8" fill="#B8893C"/>
+                  fill="none" stroke="url(#gtBrass)" stroke-width="1.5" opacity="0.7" transform="translate(-110,-170)"/>
+            <circle r="8" style="fill:var(--obs-brass)"/>
             <text style="fill:var(--ig-stroke)" y="90" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Thùng cót</text>
           </g>
 
           <!-- ====== 2. BÁNH RĂNG TRUNG GIAN (vừa, nhanh hơn, CCW) ====== -->
           <g id="gt-center" transform="translate(290, 170)" data-part="center-wheel" data-name-vi="Bánh răng trung gian (Center wheel)" data-name-en="Center wheel">
-            <circle style="fill:var(--ig-bg)" r="48" stroke="#4FB286" stroke-width="3" class=""/>
+            <circle style="fill:var(--ig-bg);stroke:var(--obs-steel-deep)" r="48" stroke-width="2" class=""/>
             {Array.from({ length: 16 }).map((_, i) => {
               const a = (i * 360) / 16;
               return (
                 <g transform={`rotate(${a})`}>
-                  <path d="M 0 -48 L 4 -56 L -4 -56 Z" fill="#4FB286"/>
+                  <path d="M 0 -48 L 4 -56 L -4 -56 Z" style="fill:var(--obs-steel)"/>
                 </g>
               );
             })}
-            <circle r="14" fill="none" stroke="#4FB286" stroke-width="2"/>
-            <circle r="5" fill="#4FB286"/>
+            <circle r="14" fill="none" style="stroke:var(--obs-steel)" stroke-width="1"/>
+            <circle r="5" fill="url(#gtSteel)"/>
             <text style="fill:var(--ig-stroke)" y="76" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh răng trung gian</text>
           </g>
 
           <!-- ====== 3. BÁNH RĂNG THỨ BA (nhỏ hơn, nhanh hơn nữa, CW) ====== -->
           <g id="gt-third" transform="translate(440, 170)" data-part="third-wheel" data-name-vi="Bánh răng thứ ba (Third wheel)" data-name-en="Third wheel">
-            <circle style="fill:var(--ig-bg)" r="38" stroke="#4FB286" stroke-width="3" class=""/>
+            <circle style="fill:var(--ig-bg);stroke:var(--obs-steel-deep)" r="38" stroke-width="2" class=""/>
             {Array.from({ length: 14 }).map((_, i) => {
               const a = (i * 360) / 14;
               return (
                 <g transform={`rotate(${a})`}>
-                  <path d="M 0 -38 L 3 -45 L -3 -45 Z" fill="#4FB286"/>
+                  <path d="M 0 -38 L 3 -45 L -3 -45 Z" style="fill:var(--obs-steel)"/>
                 </g>
               );
             })}
-            <circle r="12" fill="none" stroke="#4FB286" stroke-width="2"/>
-            <circle r="4" fill="#4FB286"/>
+            <circle r="12" fill="none" style="stroke:var(--obs-steel)" stroke-width="1"/>
+            <circle r="4" fill="url(#gtSteel)"/>
             <text style="fill:var(--ig-stroke)" y="64" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh răng ba</text>
           </g>
 
           <!-- ====== 4. BÁNH THOÁT (nhỏ nhất, nhanh nhất, CCW) ====== -->
           <g id="gt-escape" transform="translate(560, 170)" data-part="escape-wheel-gt" data-name-vi="Bánh thoát (Escape wheel)" data-name-en="Escape wheel">
-            <circle style="fill:var(--ig-bg)" r="30" stroke="#2E86AB" stroke-width="3" class=""/>
+            <circle style="fill:var(--ig-bg);stroke:var(--obs-steel-deep)" r="30" stroke-width="2" class=""/>
             {Array.from({ length: 15 }).map((_, i) => {
               const a = (i * 360) / 15;
               return (
                 <g transform={`rotate(${a})`}>
-                  <path d="M 0 -30 L 3 -37 L -3 -37 Z" fill="#2E86AB"/>
+                  <path d="M 0 -30 L 3 -37 L -3 -37 Z" style="fill:var(--obs-steel-soft)"/>
                 </g>
               );
             })}
-            <circle r="8" fill="none" stroke="#2E86AB" stroke-width="2"/>
-            <circle r="4" fill="#2E86AB"/>
+            <circle r="8" fill="none" style="stroke:var(--obs-steel)" stroke-width="1"/>
+            <circle r="4" fill="url(#gtSteel)"/>
             <text style="fill:var(--ig-stroke)" y="54" text-anchor="middle" font-size="12" font-weight="bold" class="svg-label">Bánh thoát</text>
           </g>
 
           <!-- ====== 5. BÁNH LẮC (dao động, không quay tròn) ====== -->
           <g id="gt-balance" transform="translate(690, 170)" data-part="balance-gt" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
-            <circle style="stroke:var(--ig-rubi)" r="34" fill="none" stroke-width="4"/>
-            <line style="stroke:var(--ig-rubi)" x1="0" y1="-34" x2="0" y2="34" stroke-width="2.5"/>
-            <line style="stroke:var(--ig-rubi)" x1="-29" y1="-17" x2="29" y2="17" stroke-width="2.5"/>
-            <line style="stroke:var(--ig-rubi)" x1="-29" y1="17" x2="29" y2="-17" stroke-width="2.5"/>
+            <circle style="stroke:var(--ig-rubi)" r="34" fill="none" stroke-width="2"/>
+            <line style="stroke:var(--ig-rubi)" x1="0" y1="-34" x2="0" y2="34" stroke-width="1"/>
+            <line style="stroke:var(--ig-rubi)" x1="-29" y1="-17" x2="29" y2="17" stroke-width="1"/>
+            <line style="stroke:var(--ig-rubi)" x1="-29" y1="17" x2="29" y2="-17" stroke-width="1"/>
             <circle style="fill:var(--ig-rubi)" r="5"/>
             <circle style="fill:var(--ig-edge)" cx="0" cy="-34" r="3"/>
             <circle style="fill:var(--ig-edge)" cx="0" cy="34" r="3"/>
@@ -170,18 +183,18 @@ const stations = [
 
           <!-- Mũi tên dòng chảy (giữa các bánh) -->
           <g opacity="0.5">
-            <text x="195" y="155" font-size="14" fill="#B8893C">→</text>
-            <text x="360" y="155" font-size="14" fill="#B8893C">→</text>
-            <text x="495" y="155" font-size="14" fill="#B8893C">→</text>
-            <text x="620" y="155" font-size="14" fill="#B8893C">→</text>
+            <text x="195" y="155" font-size="14" style="fill:var(--obs-brass)">→</text>
+            <text x="360" y="155" font-size="14" style="fill:var(--obs-brass)">→</text>
+            <text x="495" y="155" font-size="14" style="fill:var(--obs-brass)">→</text>
+            <text x="620" y="155" font-size="14" style="fill:var(--obs-brass)">→</text>
           </g>
 
           <!-- Tooltip khi rê chuột (desktop). Trên mobile, tên bộ phận nằm trong
                legend chip bên dưới SVG — không hiện tooltip chữ bé khi chạm. -->
           <g id="gt-tooltip" opacity="0" style="pointer-events: none;">
-            <rect id="gt-tooltip-bg" x="0" y="0" width="160" height="38" rx="4" fill="#1F2D3D" opacity="0.95"/>
-            <text id="gt-tooltip-vi" x="80" y="16" text-anchor="middle" font-size="13" fill="#FAF7F2" font-weight="bold"></text>
-            <text id="gt-tooltip-en" x="80" y="31" text-anchor="middle" font-size="10" fill="#B8893C"></text>
+            <rect id="gt-tooltip-bg" x="0" y="0" width="160" height="38" rx="4" style="fill:var(--obs-graphite)" opacity="0.95"/>
+            <text id="gt-tooltip-vi" x="80" y="16" text-anchor="middle" font-size="13" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+            <text id="gt-tooltip-en" x="80" y="31" text-anchor="middle" font-size="10" style="fill:var(--obs-brass-soft)"></text>
           </g>
         </svg>
 
@@ -318,11 +331,11 @@ const stations = [
       <div class="flex flex-wrap items-center justify-center gap-2 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6 text-center text-sm font-medium">
         <span class="rounded-full bg-brass/15 px-3 py-2 text-brass dark:text-dark-brass">Dây cót</span>
         <span class="text-2xl text-ink-soft/40">→</span>
-        <span class="rounded-full bg-[#4FB286]/15 px-3 py-2 text-[#2D7A55]">Bánh răng</span>
+        <span class="rounded-full bg-steel/15 px-3 py-2 text-steel">Bánh răng</span>
         <span class="text-2xl text-ink-soft/40">→</span>
-        <span class="rounded-full bg-[#2E86AB]/15 px-3 py-2 text-[#1F6E8C]">Bộ thoát</span>
+        <span class="rounded-full bg-steel/15 px-3 py-2 text-steel-deep">Bộ thoát</span>
         <span class="text-2xl text-ink-soft/40">→</span>
-        <span class="rounded-full bg-[#9B2C2C]/15 px-3 py-2 text-[#9B2C2C]">Bánh lắc</span>
+        <span class="rounded-full bg-ruby/15 px-3 py-2 text-ruby">Bánh lắc</span>
         <span class="text-2xl text-ink-soft/40">→</span>
         <span class="rounded-full bg-navy px-3 py-2 text-cream">Kim đồng hồ</span>
       </div>
@@ -433,7 +446,7 @@ const stations = [
 
     parts.forEach((part) => {
       const highlight = () => {
-        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
         tooltipEn.textContent = part.getAttribute('data-name-en') || '';
         tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7.5 + 20);
@@ -447,7 +460,7 @@ const stations = [
       part.addEventListener('mouseleave', unhighlight);
       part.addEventListener('touchstart', (e) => {
         e.preventDefault();
-        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         setTimeout(() => { part.style.filter = ''; }, 2000);
       });
       // Bàn phím + cảm ứng (WCAG 1.4.13): bộ phận nhận focus được, chú thích

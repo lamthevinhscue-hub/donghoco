@@ -76,21 +76,29 @@ const levels = [
     <div class="svg-container" data-svg="barrel">
       <MechanismAnimation label="Dây cót nhả dần — trữ cót tụt, biên độ bánh lắc giảm khi gần hết" data-mech-step-id="power-reserve">
         <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="power-reserve-svg" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="prBrass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+              <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+              <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+              <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+            </linearGradient>
+          </defs>
           <!-- ====== THANH TRỮ CÓT (trên cùng) ====== -->
           <text style="fill:var(--ig-stroke)" x="200" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">Thanh trữ cót</text>
           <rect style="stroke:var(--ig-stroke)" x="60" y="28" width="280" height="18" rx="3" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <!-- Thanh lấp (động) -->
-          <rect id="pr-bar-fill" x="62" y="30" width="276" height="14" rx="2" fill="#B8893C"/>
+          <rect id="pr-bar-fill" x="62" y="30" width="276" height="14" rx="2" style="fill:var(--obs-brass)"/>
           <text style="fill:var(--ig-stroke)" id="pr-bar-label" x="200" y="62" text-anchor="middle" font-size="12" font-weight="bold" class="">100%</text>
 
           <!-- ====== THÙNG CÓT (giữa) ====== -->
           <g transform="translate(200, 170)">
             <!-- Vỏ thùng cót -->
-            <circle style="fill:var(--ig-bg);stroke:var(--ig-edge)" r="78" stroke-width="3" class=""/>
+            <circle style="fill:var(--ig-bg);stroke:var(--obs-brass-deep)" r="78" stroke-width="2" class=""/>
             <!-- Răng ngoài -->
             {Array.from({ length: 20 }).map((_, i) => {
               const a = (i * 360) / 20;
-              return <g transform={`rotate(${a})`}><rect x="-2" y="-84" width="4" height="8" fill="#B8893C"/></g>;
+              return <g transform={`rotate(${a})`}><rect x="-2" y="-84" width="4" height="8" style="fill:var(--obs-brass)"/></g>;
             })}
             <!-- Dây cót xoắn (động — giãn ra khi nhả) -->
             <g id="pr-mainspring" data-part="mainspring" data-name-vi="Dây cót (Mainspring)" data-name-en="Mainspring"></g>
@@ -102,12 +110,12 @@ const levels = [
           <!-- ====== BÁNH LẮC (dưới — biên độ giảm khi cót thấp) ====== -->
           <g transform="translate(200, 320)">
             <!-- Quỹ đạo dao động (mờ) -->
-            <path style="stroke:var(--ig-rubi)" id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+            <path style="stroke:var(--ig-rubi)" id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.3"/>
             <!-- Bánh lắc (dao động) -->
             <g id="pr-balance" data-part="balance-pr" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
-              <circle style="stroke:var(--ig-rubi)" r="22" fill="none" stroke-width="3"/>
-              <line style="stroke:var(--ig-rubi)" x1="0" y1="-22" x2="0" y2="22" stroke-width="2"/>
-              <line style="stroke:var(--ig-rubi)" x1="-19" y1="-11" x2="19" y2="11" stroke-width="2"/>
+              <circle style="stroke:var(--ig-rubi)" r="22" fill="none" stroke-width="2"/>
+              <line style="stroke:var(--ig-rubi)" x1="0" y1="-22" x2="0" y2="22" stroke-width="1"/>
+              <line style="stroke:var(--ig-rubi)" x1="-19" y1="-11" x2="19" y2="11" stroke-width="1"/>
               <circle style="fill:var(--ig-rubi)" r="4"/>
             </g>
           </g>
@@ -126,7 +134,7 @@ const levels = [
               const c = document.createElementNS(svgNS, 'circle');
               c.setAttribute('r', String(r));
               c.setAttribute('fill', 'none');
-              c.setAttribute('stroke', '#B8893C');
+              c.style.stroke = 'var(--obs-brass)'; // vật liệu đồng thau qua token (attribute không nhận var)
               c.setAttribute('stroke-width', '4');
               c.setAttribute('opacity', '0.7');
               c.setAttribute('stroke-dasharray', String(r * 2.5) + ' ' + String(r * 3.8));
@@ -182,7 +190,7 @@ const levels = [
             // Cảnh báo khi biên độ thấp (dưới 1/4 trữ cót)
             if (reserve <= 0.25) {
               ampNote.setAttribute('opacity', '1');
-              ampNote.setAttribute('fill', '#9B2C2C');
+              ampNote.style.fill = 'var(--ig-rubi)';
               ampNote.textContent = '⚠ Biên độ giảm — đồng hồ chạy sai khi gần hết cót';
             } else {
               ampNote.setAttribute('opacity', '0');
@@ -245,7 +253,7 @@ const levels = [
           <div class="col-span-12 sm:col-span-8">
             <h3 class="font-serif text-lg text-navy dark:text-dark-text">{level.label}</h3>
             <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-              <span class="font-medium text-[#2D7A55]">Ví dụ: {level.examples}</span>
+              <span class="font-medium text-steel">Ví dụ: {level.examples}</span>
             </p>
             <p class="mt-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
               <span class="font-medium">{level.note}</span>

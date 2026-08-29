@@ -23,7 +23,7 @@ const levels = [
     label: 'Chống nước cơ bản',
     activities: ['Rửa tay', 'Mưa nhẹ'],
     danger: 'Không tắm, không bơi',
-    color: '#B8E0D2',
+    color: 'var(--obs-steel-soft)',
     height: 8,
   },
   {
@@ -31,7 +31,7 @@ const levels = [
     label: 'Chống nước nông',
     activities: ['Bơi nông', 'Rửa tay', 'Tắm vòi sen'],
     danger: 'Không lặn, không nhảy nước',
-    color: '#7FC8A9',
+    color: 'var(--obs-steel-soft)',
     height: 14,
   },
   {
@@ -39,7 +39,7 @@ const levels = [
     label: 'Bơi lội thoải mái',
     activities: ['Bơi hồ bơi', 'Lặn nông (snorkeling)'],
     danger: 'Không lặn bình khí',
-    color: '#4FB286',
+    color: 'var(--obs-steel)',
     height: 24,
   },
   {
@@ -47,7 +47,7 @@ const levels = [
     label: 'Thể thao nước',
     activities: ['Lặn nông', 'Thể thao nước', 'Jet ski'],
     danger: 'Đủ cho phần lớn nhu cầu',
-    color: '#2D9D6C',
+    color: 'var(--obs-steel)',
     height: 42,
   },
   {
@@ -55,7 +55,7 @@ const levels = [
     label: 'Đồng hồ lặn',
     activities: ['Lặn bình khí (scuba)', 'Tất cả thể thao nước'],
     danger: 'Tiêu chuẩn đồng hồ lặn chuyên nghiệp',
-    color: '#1A7A55',
+    color: 'var(--obs-steel-deep)',
     height: 60,
   },
   {
@@ -63,7 +63,7 @@ const levels = [
     label: 'Lặn sâu chuyên nghiệp',
     activities: ['Lặn sâu', 'Helmét lặn', 'Diver chuyên nghiệp'],
     danger: 'Rolex Deepsea, Omega Ploprof',
-    color: '#0D4D33',
+    color: 'var(--obs-steel-deep)',
     height: 95,
   },
 ];
@@ -110,45 +110,57 @@ const myths = [
     <div class="svg-container" data-svg="case">
       <MechanismAnimation label="Kéo thanh trượt độ sâu — gioăng bị ép; bấm nút dưới nước = tràn" data-mech-step-id="water-resistance">
         <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="water-resistance-svg" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="wrSteel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+              <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+              <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+            </linearGradient>
+            <linearGradient id="wrSapphire" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--obs-ivory)" stop-opacity="0.5" />
+              <stop offset="0.5" style="stop-color:var(--obs-ivory)" stop-opacity="0.1" />
+              <stop offset="1" style="stop-color:var(--obs-ivory)" stop-opacity="0.3" />
+            </linearGradient>
+          </defs>
           <text style="fill:var(--ig-stroke)" x="200" y="18" text-anchor="middle" font-size="11" font-weight="bold" class="svg-label">
             Áp suất tăng theo độ sâu → gioăng càng ép chặt
           </text>
 
           <!-- ====== CỘT NƯỚC (bên trái, dâng lên theo độ sâu) ====== -->
-          <rect id="wr-water" x="0" y="380" width="400" height="0" fill="#3182CE" opacity="0.15"/>
+          <rect id="wr-water" x="0" y="380" width="400" height="0" style="fill:var(--obs-steel)" opacity="0.15"/>
           <!-- Bọt khí -->
           <g id="wr-bubbles" opacity="0"></g>
 
           <!-- ====== VỎ ĐỒNG HỒ (cắt mặt bên) ====== -->
-          <path style="fill:var(--ig-steel);stroke:var(--ig-edge)" d="M 80 80 L 80 240 L 320 240 L 320 80 Z" stroke-width="2"/>
+          <path fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" d="M 80 80 L 80 240 L 320 240 L 320 80 Z" stroke-width="2"/>
           <rect style="fill:var(--ig-bg)" x="100" y="100" width="200" height="120" class=""/>
-          <circle cx="200" cy="160" r="30" fill="#B8893C" opacity="0.3"/>
+          <circle cx="200" cy="160" r="30" style="fill:var(--obs-brass)" opacity="0.25"/>
           <text style="fill:var(--ig-steel)" x="200" y="165" text-anchor="middle" font-size="10" class="svg-label ">Máy</text>
 
           <!-- Kính -->
-          <rect x="100" y="80" width="200" height="20" fill="#90CDF4" opacity="0.5" stroke="#4299E1" stroke-width="1.5"/>
+          <rect x="100" y="80" width="200" height="20" fill="url(#wrSapphire)" opacity="0.55" style="stroke:var(--obs-steel)" stroke-width="1"/>
           <!-- Gioăng kính (động — bị ép dẹt) -->
-          <rect id="wr-gasket-crystal" x="100" y="78" width="200" height="6" fill="#48BB78" rx="2"/>
+          <rect id="wr-gasket-crystal" x="100" y="78" width="200" height="6" style="fill:var(--obs-brass-soft)" rx="2"/>
 
           <!-- Núm vặn -->
-          <rect style="fill:var(--ig-steel);stroke:var(--ig-edge)" id="wr-crown" x="320" y="150" width="30" height="20" rx="4" stroke-width="2"/>
+          <rect fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" id="wr-crown" x="320" y="150" width="30" height="20" rx="4" stroke-width="1"/>
           <!-- Gioăng núm vặn (động) -->
-          <ellipse id="wr-gasket-crown" cx="320" cy="160" rx="3" ry="8" fill="#48BB78"/>
+          <ellipse id="wr-gasket-crown" cx="320" cy="160" rx="3" ry="8" style="fill:var(--obs-brass-soft)"/>
 
           <!-- Nắp lưng -->
-          <rect style="fill:var(--ig-steel);stroke:var(--ig-edge)" x="100" y="220" width="200" height="20" stroke-width="2"/>
-          <rect id="wr-gasket-caseback" x="100" y="218" width="200" height="6" fill="#48BB78" rx="2"/>
+          <rect fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" x="100" y="220" width="200" height="20" stroke-width="1"/>
+          <rect id="wr-gasket-caseback" x="100" y="218" width="200" height="6" style="fill:var(--obs-brass-soft)" rx="2"/>
 
           <!-- Nước tràn vào (khi bấm nút dưới nước) -->
-          <path id="wr-flood" d="" fill="#3182CE" opacity="0" />
+          <path id="wr-flood" d="" style="fill:var(--obs-steel)" opacity="0" />
 
           <!-- ====== THANH TRƯỢT ĐỘ SÂU (dưới) ====== -->
           <text style="fill:var(--ig-stroke)" x="200" y="300" text-anchor="middle" font-size="10" font-weight="bold" class="wr-label">Độ sâu</text>
           <!-- Thước đo độ sâu trong hình — nhận giá trị từ thanh kéo HTML bên dưới SVG -->
           <rect style="stroke:var(--ig-stroke)" x="60" y="310" width="280" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
-          <rect id="wr-depth-fill" x="62" y="312" width="0" height="16" rx="2" fill="#3182CE"/>
+          <rect id="wr-depth-fill" x="62" y="312" width="0" height="16" rx="2" style="fill:var(--obs-steel)"/>
           <text style="fill:var(--ig-stroke)" id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" font-weight="bold" class="wr-label">Mặt nước (0m)</text>
-          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-label dark:fill-dark-text-soft">1 ATM</text>
+          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-label dark:fill-dark-text-soft">1 ATM</text>
         </svg>
 
         <!-- Thanh kéo độ sâu — HTML ngoài SVG. Trong foreignObject, input bị
@@ -174,7 +186,7 @@ const myths = [
           <button
             type="button"
             id="wr-pull-crown-btn"
-            class="min-h-11 rounded-full bg-[#9B2C2C] px-4 py-2 text-sm font-medium text-[#FAF7F2] transition-colors hover:bg-[#7A2020]"
+            class="min-h-11 rounded-full bg-ruby px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass"
           >
             Kéo núm vặn (dưới nước!)
           </button>
@@ -231,13 +243,13 @@ const myths = [
                 // Đang dưới nước → tràn!
                 flood.setAttribute('opacity', '0.6');
                 flood.setAttribute('d', 'M 100 100 L 100 240 L 300 240 L 300 100 Z');
-                flood.setAttribute('fill', '#3182CE');
+                flood.style.fill = 'var(--obs-steel)';
                 setTimeout(function() { flood.setAttribute('opacity', '0'); }, 3000);
               } else {
                 // Trên mặt nước → không sao
                 flood.setAttribute('opacity', '0.3');
                 flood.setAttribute('d', 'M 280 150 L 260 145 L 270 155 Z');
-                flood.setAttribute('fill', '#48BB78');
+                flood.style.fill = 'var(--obs-brass-soft)';
                 setTimeout(function() { flood.setAttribute('opacity', '0'); }, 1500);
               }
             });
@@ -307,30 +319,30 @@ const myths = [
           <!-- Đồng hồ ở giữa -->
           <circle style="fill:var(--ig-steel);stroke:var(--ig-edge)" cx="250" cy="100" r="50" stroke-width="3"/>
           <circle style="fill:var(--ig-bg)" cx="250" cy="100" r="35"/>
-          <circle cx="250" cy="100" r="35" fill="none" stroke="#48BB78" stroke-width="3" data-anim="seal-ring"/>
+          <circle cx="250" cy="100" r="35" fill="none" style="stroke:var(--obs-brass-soft)" stroke-width="3" data-anim="seal-ring"/>
 
           <!-- Mũi tên áp suất từ nhiều phía -->
           <g data-anim="pressure-arrows" opacity="0">
             <!-- Trên -->
-            <line x1="250" y1="20" x2="250" y2="45" stroke="#3182CE" stroke-width="3"/>
-            <polygon points="250,50 245,42 255,42" fill="#3182CE"/>
-            <text x="250" y="15" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
+            <line x1="250" y1="20" x2="250" y2="45" style="stroke:var(--obs-steel)" stroke-width="2"/>
+            <polygon points="250,50 245,42 255,42" style="fill:var(--obs-steel)"/>
+            <text x="250" y="15" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
             <!-- Dưới -->
-            <line x1="250" y1="180" x2="250" y2="155" stroke="#3182CE" stroke-width="3"/>
-            <polygon points="250,150 245,158 255,158" fill="#3182CE"/>
-            <text x="250" y="195" text-anchor="middle" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
+            <line x1="250" y1="180" x2="250" y2="155" style="stroke:var(--obs-steel)" stroke-width="2"/>
+            <polygon points="250,150 245,158 255,158" style="fill:var(--obs-steel)"/>
+            <text x="250" y="195" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
             <!-- Trái -->
-            <line x1="170" y1="100" x2="195" y2="100" stroke="#3182CE" stroke-width="3"/>
-            <polygon points="200,100 192,95 192,105" fill="#3182CE"/>
-            <text x="160" y="104" text-anchor="end" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
+            <line x1="170" y1="100" x2="195" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
+            <polygon points="200,100 192,95 192,105" style="fill:var(--obs-steel)"/>
+            <text x="160" y="104" text-anchor="end" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
             <!-- Phải -->
-            <line x1="330" y1="100" x2="305" y2="100" stroke="#3182CE" stroke-width="3"/>
-            <polygon points="300,100 308,95 308,105" fill="#3182CE"/>
-            <text x="340" y="104" font-size="10" fill="#3182CE" class="wr-atm-label">10 ATM</text>
+            <line x1="330" y1="100" x2="305" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
+            <polygon points="300,100 308,95 308,105" style="fill:var(--obs-steel)"/>
+            <text x="340" y="104" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
           </g>
 
           <!-- Bong bóng nước (hiệu ứng) -->
-          <circle cx="250" cy="100" r="35" fill="none" stroke="#3182CE" stroke-width="2" opacity="0" data-anim="water-test"/>
+          <circle cx="250" cy="100" r="35" fill="none" style="stroke:var(--obs-steel)" stroke-width="2" opacity="0" data-anim="water-test"/>
         </svg>
       </div>
       <p class="mx-auto mt-6 max-w-2xl text-ink-soft dark:text-dark-text-soft">
@@ -465,7 +477,7 @@ const myths = [
     height: 22px;
     margin-top: -8px;
     border-radius: 50%;
-    background: #3182CE;
+    background: var(--obs-steel);
     cursor: pointer;
     border: 2px solid rgb(var(--c-surface-raised));
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
@@ -479,7 +491,7 @@ const myths = [
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: #3182CE;
+    background: var(--obs-steel);
     cursor: pointer;
     border: 2px solid rgb(var(--c-surface-raised));
   }

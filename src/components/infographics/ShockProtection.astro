@@ -11,26 +11,39 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
 <MechanismAnimation label="Hệ chống sốc (Incabloc)" data-mech-step-id="shock-protection">
   <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="shock-svg" role="img" aria-label="Sơ đồ hệ chống sốc Incabloc: cầu máy, lò xo hình sao, chân kính và bánh lắc">
+    <defs>
+      <linearGradient id="shockBrass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+        <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+      <linearGradient id="shockSteel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+    </defs>
     <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold">
       Va đập → trục lùi → lò xo hình sao hấp thụ lực → bật về vị trí
     </text>
 
     <!-- ====== CẦU MÁY (trên) ====== -->
     <g transform="translate(300, 90)">
-      <rect x="-90" y="-25" width="180" height="40" rx="4" fill="#B8893C" opacity="0.25" stroke="#B8893C" stroke-width="1.5"/>
+      <rect x="-90" y="-25" width="180" height="40" rx="4" style="fill:var(--obs-brass);stroke:var(--obs-brass)" opacity="0.18" stroke-width="1"/>
       <text style="fill:var(--ig-stroke)" x="0" y="-35" text-anchor="middle" font-size="11" font-weight="600">Cầu máy (bridge)</text>
     </g>
 
     <!-- ====== KHỐI CHỐNG SỐC (cố định) ====== -->
     <g transform="translate(300, 180)">
       <!-- Vỏ khối -->
-      <circle style="stroke:var(--ig-steel)" r="55" fill="none" stroke-width="2"/>
+      <circle stroke="url(#shockSteel)" r="55" fill="none" stroke-width="2"/>
       <text style="fill:var(--ig-stroke)" x="0" y="-65" text-anchor="middle" font-size="11" font-weight="600">Khối Incabloc</text>
 
       <!-- Lò xo hình sao (lyre spring) — cố định -->
       <g id="shock-spring" data-part="shock-spring" data-name-vi="Lò xo hình sao" data-name-en="Lyre spring">
         <path d="M -42 0 Q -35 -28 -20 -10 Q -10 -30 0 -12 Q 10 -30 20 -10 Q 35 -28 42 0 Q 35 28 20 10 Q 10 30 0 12 Q -10 30 -20 10 Q -35 28 -42 0 Z"
-              fill="none" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round"/>
+              fill="none" stroke="url(#shockBrass)" stroke-width="1" stroke-linecap="round"/>
       </g>
 
       <!-- Chân kính (jewel) + trục — nhóm di chuyển theo sốc -->
@@ -38,7 +51,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
         <!-- Chân kính (viên đá) -->
         <g id="shock-jewel" data-part="shock-jewel" data-name-vi="Chân kính (ổ trục)" data-name-en="Jewel bearing">
           <circle style="fill:var(--ig-rubi);stroke:var(--ig-rubi)" r="20" opacity="0.35" stroke-width="1.5"/>
-          <circle r="8" fill="#1F2D3D"/>
+          <circle r="8" style="fill:var(--obs-steel-deep)"/>
         </g>
       </g>
     </g>
@@ -46,11 +59,11 @@ import MechanismAnimation from './MechanismAnimation.astro';
     <!-- ====== BÁNH LẮC (dưới trục) ====== -->
     <g id="shock-balance-group" transform="translate(300, 300)">
       <g id="shock-balance" data-part="shock-balance" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
-        <circle style="stroke:var(--ig-stroke)" r="50" fill="none" stroke-width="4"/>
+        <circle stroke="url(#shockSteel)" r="50" fill="none" stroke-width="2"/>
         <!-- Dây tóc -->
-        <circle r="40" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.5"/>
+        <circle r="40" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" opacity="0.5"/>
         <!-- Trục nối lên -->
-        <line style="stroke:var(--ig-stroke)" x1="0" y1="0" x2="0" y2="-70" stroke-width="3"/>
+        <line stroke="url(#shockSteel)" x1="0" y1="0" x2="0" y2="-70" stroke-width="2"/>
         <!-- Chân kính đỉnh trục (ở giữa) -->
         <circle style="fill:var(--ig-stroke)" r="3"/>
         <!-- 4 chân kính trang trí -->
@@ -69,9 +82,9 @@ import MechanismAnimation from './MechanismAnimation.astro';
 
     <!-- Tooltip -->
     <g id="shock-tooltip" opacity="0" pointer-events="none">
-      <rect id="shock-tooltip-bg" x="0" y="0" width="120" height="34" rx="4" fill="#1F2D3D" opacity="0.9"/>
-      <text id="shock-tooltip-vi" x="60" y="14" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="600">—</text>
-      <text id="shock-tooltip-en" x="60" y="28" text-anchor="middle" font-size="9" fill="#B8893C">—</text>
+      <rect id="shock-tooltip-bg" x="0" y="0" width="120" height="34" rx="4" style="fill:var(--obs-graphite)" opacity="0.9"/>
+      <text id="shock-tooltip-vi" x="60" y="14" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="600">—</text>
+      <text id="shock-tooltip-en" x="60" y="28" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)">—</text>
     </g>
   </svg>
 
@@ -139,7 +152,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
     if (!tooltip || !tooltipVi) return;
     parts.forEach((part) => {
       const highlight = () => {
-        part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+        part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
         tooltipEn.textContent = part.getAttribute('data-name-en') || '';
         tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);

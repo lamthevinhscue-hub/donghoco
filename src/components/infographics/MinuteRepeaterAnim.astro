@@ -17,6 +17,14 @@ import MechanismAnimation from './MechanismAnimation.astro';
   <div class="grid gap-6 md:grid-cols-[1fr_200px]">
     <!-- ====== BÊN TRÁI: SVG bộ máy ====== -->
     <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" class="w-full" id="repeater-svg" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="repBrass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+          <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+          <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+          <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+        </linearGradient>
+      </defs>
       <text style="fill:var(--ig-stroke)" x="250" y="20" text-anchor="middle" font-size="12" font-weight="bold" class="">
         Hai thanh cộng hưởng + hai búa — gõ theo trình tự
       </text>
@@ -24,32 +32,32 @@ import MechanismAnimation from './MechanismAnimation.astro';
       <!-- ====== BỘ MÁY (vòng tròn nền) ====== -->
       <circle style="fill:var(--ig-bg);stroke:var(--ig-edge)" cx="250" cy="170" r="100" stroke-width="2" class=""/>
       <!-- Bánh răng trang trí -->
-      <circle cx="220" cy="150" r="18" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
-      <circle cx="280" cy="190" r="14" fill="none" stroke="#B8893C" stroke-width="1.5" opacity="0.3" class="dark:stroke-dark-brass"/>
-      <circle cx="250" cy="170" r="6" fill="#B8893C" opacity="0.3"/>
+      <circle cx="220" cy="150" r="18" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" opacity="0.3"/>
+      <circle cx="280" cy="190" r="14" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" opacity="0.3"/>
+      <circle cx="250" cy="170" r="6" style="fill:var(--obs-brass)" opacity="0.3"/>
 
       <!-- ====== THANH CỘNG HƯỞNG TRẦM (vòng tròn lớn, vàng đồng) ====== -->
       <g id="rep-gong-low" data-part="gong-low" data-name-vi="Thanh cộng hưởng trầm (Low-pitch gong)" data-name-en="Hour gong (low pitch)">
-        <circle cx="250" cy="170" r="125" fill="none" stroke="#B8893C" stroke-width="3" opacity="0.6" class="dark:stroke-dark-brass"/>
-        <circle cx="250" cy="170" r="120" fill="none" stroke="#9B6E2C" stroke-width="1" opacity="0.4"/>
+        <circle cx="250" cy="170" r="125" fill="none" stroke="url(#repBrass)" stroke-width="2" opacity="0.6"/>
+        <circle cx="250" cy="170" r="120" fill="none" style="stroke:var(--obs-brass-deep)" stroke-width="0.5" opacity="0.4"/>
       </g>
 
       <!-- ====== THANH CỘNG HƯỞNG BỔNG (vòng tròn nhỏ hơn, xanh) ====== -->
       <g id="rep-gong-high" data-part="gong-high" data-name-vi="Thanh cộng hưởng bổng (High-pitch gong)" data-name-en="Minute gong (high pitch)">
-        <circle cx="250" cy="170" r="108" fill="none" stroke="#2E86AB" stroke-width="2.5" opacity="0.5"/>
-        <circle cx="250" cy="170" r="104" fill="none" stroke="#1F6E8C" stroke-width="1" opacity="0.3"/>
+        <circle cx="250" cy="170" r="108" fill="none" style="stroke:var(--obs-steel)" stroke-width="2" opacity="0.5"/>
+        <circle cx="250" cy="170" r="104" fill="none" style="stroke:var(--obs-steel-deep)" stroke-width="0.5" opacity="0.3"/>
       </g>
 
       <!-- ====== BÚA TRẦM (trên, đập ra ngoài) ====== -->
       <g id="rep-hammer-low" data-part="hammer-low" data-name-vi="Búa giờ (trầm)" data-name-en="Hour hammer">
-        <line x1="250" y1="30" x2="250" y2="45" stroke="#B8893C" stroke-width="4" stroke-linecap="round" class="dark:stroke-dark-brass"/>
-        <rect x="245" y="22" width="10" height="8" rx="2" fill="#B8893C" class="dark:fill-dark-brass"/>
+        <line x1="250" y1="30" x2="250" y2="45" stroke="url(#repBrass)" stroke-width="3" stroke-linecap="round"/>
+        <rect x="245" y="22" width="10" height="8" rx="2" fill="url(#repBrass)"/>
       </g>
 
       <!-- ====== BÚA BỔNG (dưới-phải, đập chéo) ====== -->
       <g id="rep-hammer-high" data-part="hammer-high" data-name-vi="Búa phút (bổng)" data-name-en="Minute hammer">
-        <line x1="370" y1="240" x2="358" y2="230" stroke="#2E86AB" stroke-width="3.5" stroke-linecap="round"/>
-        <rect x="366" y="237" width="9" height="7" rx="2" fill="#2E86AB" transform="rotate(-30 370 240)"/>
+        <line x1="370" y1="240" x2="358" y2="230" style="stroke:var(--obs-steel)" stroke-width="3" stroke-linecap="round"/>
+        <rect x="366" y="237" width="9" height="7" rx="2" style="fill:var(--obs-steel)" transform="rotate(-30 370 240)"/>
       </g>
 
       <!-- ====== SÓNG ÂM (sinh động, xóa sau mỗi tiếng) ====== -->
@@ -148,7 +156,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
         const isLow = tone === 'low';
         const baseR = isLow ? 130 : 115;
         const maxR = isLow ? 200 : 165;
-        const stroke = isLow ? '#B8893C' : '#2E86AB';
+        const strokeToken = isLow ? 'var(--obs-brass)' : 'var(--obs-steel)'; // trầm đồng thau, bổng thép
         const strokeWidth = isLow ? 2.5 : 1.5;
         const waveCount = isLow ? 3 : 5; // bổng nhiều vòng hơn (mật độ cao)
         const duration = 800;
@@ -160,6 +168,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           wave.setAttribute('r', String(baseR));
           wave.setAttribute('fill', 'none');
           wave.setAttribute('stroke', stroke);
+          wave.style.stroke = strokeToken; // token trầm — style thắng attribute
           wave.setAttribute('stroke-width', String(strokeWidth));
           wave.setAttribute('opacity', String(0.6 - i * 0.1));
           wavesGroup.appendChild(wave);
@@ -203,7 +212,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           emitWave(tone);
           currentTone.textContent = label;
           currentTone.setAttribute('opacity', '1');
-          currentTone.setAttribute('fill', tone === 'low' ? '#B8893C' : '#2E86AB');
+          currentTone.style.fill = tone === 'low' ? 'var(--obs-brass)' : 'var(--obs-steel)';
         }, delay);
         timeouts.push(t);
       }

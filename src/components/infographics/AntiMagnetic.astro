@@ -99,7 +99,7 @@ const sources = [
           <text style="fill:var(--ig-rubi)" x="0" y="-70" text-anchor="middle" font-size="11" font-weight="bold">Dây tóc thép</text>
           <!-- Dây tóc thép (xoắn ốc — bị hút dính khi từ trường cao) -->
           <g id="am-steel-spring">
-            <path style="stroke:var(--ig-rubi)" id="am-steel-path" d="" fill="none" stroke-width="2.5"/>
+            <path style="stroke:var(--ig-rubi)" id="am-steel-path" d="" fill="none" stroke-width="2"/>
           </g>
           <circle style="fill:var(--ig-rubi)" r="3"/>
           <!-- Sai số -->
@@ -108,37 +108,37 @@ const sources = [
         </g>
 
         <!-- ====== ĐƯỜNG PHÂN CÁCH GIỮA ====== -->
-        <line style="stroke:var(--ig-stroke-soft)" x1="300" y1="50" x2="300" y2="230" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.3"/>
+        <line style="stroke:var(--ig-stroke-soft)" x1="300" y1="50" x2="300" y2="230" stroke-width="0.5" stroke-dasharray="6 4" opacity="0.3"/>
 
         <!-- ====== BÊN PHẢI: DÂY TÓC SILICON ====== -->
         <g transform="translate(450, 140)">
-          <text x="0" y="-70" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold">Dây tóc silicon</text>
+          <text x="0" y="-70" text-anchor="middle" font-size="11" style="fill:var(--obs-steel-deep)" font-weight="bold">Dây tóc silicon</text>
           <!-- Dây tóc silicon (không đổi dù từ trường cao) -->
           <g id="am-silicon-spring">
-            <path id="am-silicon-path" d="" fill="none" stroke="#2D7A55" stroke-width="2.5"/>
+            <path id="am-silicon-path" d="" fill="none" style="stroke:var(--obs-steel)" stroke-width="2"/>
           </g>
-          <circle r="3" fill="#2D7A55"/>
+          <circle r="3" style="fill:var(--obs-steel)"/>
           <!-- Sai số -->
-          <text id="am-silicon-error" x="0" y="80" text-anchor="middle" font-size="12" fill="#2D7A55" font-weight="bold">±0 giây/ngày</text>
-          <text x="0" y="95" text-anchor="middle" font-size="9" fill="#2D7A55" opacity="0.7">không bị ảnh hưởng</text>
+          <text id="am-silicon-error" x="0" y="80" text-anchor="middle" font-size="12" style="fill:var(--obs-steel-deep)" font-weight="bold">±0 giây/ngày</text>
+          <text x="0" y="95" text-anchor="middle" font-size="9" style="fill:var(--obs-steel-deep)" opacity="0.7">không bị ảnh hưởng</text>
         </g>
 
         <!-- ====== DÒNG TỪ TRƯỜNG (hiện khi > 0) ====== -->
         <g id="am-field-lines" opacity="0">
-          <line x1="40" y1="80" x2="560" y2="80" stroke="#3182CE" stroke-width="1" stroke-dasharray="3 4"/>
-          <line x1="40" y1="200" x2="560" y2="200" stroke="#3182CE" stroke-width="1" stroke-dasharray="3 4"/>
-          <line x1="40" y1="140" x2="560" y2="140" stroke="#3182CE" stroke-width="1.5" stroke-dasharray="4 3"/>
-          <text x="570" y="144" font-size="9" fill="#3182CE" font-weight="bold">B</text>
+          <line x1="40" y1="80" x2="560" y2="80" style="stroke:var(--obs-steel)" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="40" y1="200" x2="560" y2="200" style="stroke:var(--obs-steel)" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="40" y1="140" x2="560" y2="140" style="stroke:var(--obs-steel)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="570" y="144" font-size="9" style="fill:var(--obs-steel)" font-weight="bold">B</text>
         </g>
 
         <!-- ====== THANH TRƯỢT TỪ TRƯỜNG ====== -->
         <text style="fill:var(--ig-stroke)" x="300" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Cường độ từ trường</text>
         <rect style="stroke:var(--ig-stroke)" x="100" y="280" width="400" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
-        <rect id="am-field-fill" x="102" y="282" width="0" height="16" rx="2" fill="#3182CE"/>
+        <rect id="am-field-fill" x="102" y="282" width="0" height="16" rx="2" style="fill:var(--obs-steel)"/>
         <foreignObject x="95" y="275" width="410" height="30">
-          <input type="range" id="am-field-slider" min="0" max="15000" value="0" step="500" style="width:100%;accent-color:#3182CE;touch-action:none;" aria-label="Cường độ từ trường (gauss)" />
+          <input type="range" id="am-field-slider" min="0" max="15000" value="0" step="500" style="width:100%;accent-color:var(--obs-steel);touch-action:none;" aria-label="Cường độ từ trường (gauss)" />
         </foreignObject>
-        <text id="am-field-label" x="300" y="325" text-anchor="middle" font-size="12" fill="#3182CE" font-weight="bold" class="dark:fill-dark-text-soft">0 gauss</text>
+        <text id="am-field-label" x="300" y="325" text-anchor="middle" font-size="12" style="fill:var(--obs-steel)" font-weight="bold" class="dark:fill-dark-text-soft">0 gauss</text>
       </svg>
 
       <script is:inline define:vars={{}} slot="script">
@@ -219,13 +219,13 @@ const sources = [
             <!-- Lồng sắt (soft iron cage) - lớp bao ngoài -->
             <rect style="stroke:var(--ig-steel)" x="60" y="40" width="180" height="120" rx="8" fill="none" stroke-width="4" stroke-dasharray="6 3" data-anim="iron-cage" opacity="0"/>
             <!-- Movement ở giữa -->
-            <rect x="90" y="65" width="120" height="70" rx="4" fill="#B8893C" opacity="0.4"/>
+            <rect x="90" y="65" width="120" height="70" rx="4" style="fill:var(--obs-brass)" opacity="0.4"/>
             <text style="fill:var(--ig-text)" x="150" y="105" text-anchor="middle" font-size="11" font-weight="bold">Máy</text>
             <!-- Mũi tên từ trường bị chặn -->
             <g data-anim="field-blocked" opacity="0">
-              <line x1="30" y1="100" x2="55" y2="100" stroke="#3182CE" stroke-width="2.5"/>
-              <polygon points="55,100 48,95 48,105" fill="#3182CE"/>
-              <text x="20" y="90" text-anchor="middle" font-size="9" fill="#3182CE" font-weight="bold">Từ trường</text>
+              <line x1="30" y1="100" x2="55" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
+              <polygon points="55,100 48,95 48,105" style="fill:var(--obs-steel)"/>
+              <text x="20" y="90" text-anchor="middle" font-size="9" style="fill:var(--obs-steel)" font-weight="bold">Từ trường</text>
               <text style="fill:var(--ig-rubi)" x="20" y="120" text-anchor="middle" font-size="8">✗ bị chặn</text>
             </g>
             <text style="fill:var(--ig-stroke)" x="150" y="185" text-anchor="middle" font-size="10" font-weight="bold">Lồng sắt dẫn từ trường đi vòng quanh máy</text>
@@ -252,15 +252,15 @@ const sources = [
                        a 24 24 0 1 1 -48 0
                        a 18 18 0 1 1 36 0
                        a 12 12 0 1 1 -24 0"
-                    fill="none" stroke="#2D9D6C" stroke-width="2.5"/>
-              <circle cx="150" cy="100" r="4" fill="#2D9D6C"/>
+                    fill="none" style="stroke:var(--obs-steel)" stroke-width="2"/>
+              <circle cx="150" cy="100" r="4" style="fill:var(--obs-steel)"/>
               <text style="fill:var(--ig-text)" x="150" y="145" text-anchor="middle" font-size="9" font-weight="bold">Dây tóc silicon</text>
             </g>
             <!-- Từ trường đi qua nhưng không ảnh hưởng -->
             <g data-anim="field-pass" opacity="0">
-              <line x1="30" y1="60" x2="270" y2="60" stroke="#3182CE" stroke-width="2" stroke-dasharray="4 3"/>
-              <line x1="30" y1="140" x2="270" y2="140" stroke="#3182CE" stroke-width="2" stroke-dasharray="4 3"/>
-              <text x="150" y="180" text-anchor="middle" font-size="8" fill="#2D7A55" font-weight="bold">✓ Đi qua nhưng không gây hại</text>
+              <line x1="30" y1="60" x2="270" y2="60" style="stroke:var(--obs-steel)" stroke-width="2" stroke-dasharray="4 3"/>
+              <line x1="30" y1="140" x2="270" y2="140" style="stroke:var(--obs-steel)" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="150" y="180" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)" font-weight="bold">✓ Đi qua nhưng không gây hại</text>
             </g>
           </svg>
         </div>
@@ -297,10 +297,10 @@ const sources = [
             <div class="h-10 w-full overflow-hidden rounded bg-cream-dark">
               <div
                 class={`flex h-full items-center justify-end rounded pr-2 text-xs font-bold text-white ${
-                  level.tone === 'great' ? 'bg-gradient-to-r from-[#2D9D6C] to-[#1A7A55]' :
-                  level.tone === 'good' ? 'bg-gradient-to-r from-[#4FB286] to-[#2D9D6C]' :
-                  level.tone === 'ok' ? 'bg-gradient-to-r from-[#B8893C] to-[#9B6E2C]' :
-                  'bg-gradient-to-r from-[#9B2C2C] to-[#742A2A]'
+                  level.tone === 'great' ? 'bg-gradient-to-r from-steel to-steel-deep' :
+                  level.tone === 'good' ? 'bg-gradient-to-r from-steel-soft to-steel' :
+                  level.tone === 'ok' ? 'bg-gradient-to-r from-brass to-brass-deep' :
+                  'bg-gradient-to-r from-ruby to-ruby'
                 }`}
                 style={`width: ${level.barWidth}%;`}
               >
@@ -311,7 +311,7 @@ const sources = [
           <div class="col-span-12 sm:col-span-8">
             <h3 class="font-serif text-lg text-navy dark:text-dark-text">{level.label}</h3>
             <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-              <span class="font-medium text-[#2D7A55]">{level.detail}</span>
+              <span class="font-medium text-steel">{level.detail}</span>
             </p>
             <p class="mt-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">{level.note}</p>
           </div>
@@ -343,7 +343,7 @@ const sources = [
             <div>
               <h3 class="font-serif text-base text-navy dark:text-dark-text">{source.name}</h3>
               <p class="mt-1 text-xs">
-                <span class="font-medium text-[#9B2C2C]">{source.strength}</span>
+                <span class="font-medium text-ruby">{source.strength}</span>
               </p>
               <p class="mt-1 text-xs text-ink-soft dark:text-dark-text-soft">{source.risk}</p>
             </div>
@@ -352,9 +352,9 @@ const sources = [
       ))}
     </div>
 
-    <div class="mt-8 rounded-lg border-l-4 border-[#9B2C2C] bg-[#9B2C2C]/5 p-5">
+    <div class="mt-8 rounded-lg border-l-4 border-ruby bg-ruby/5 p-5">
       <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        <strong class="text-[#9B2C2C]">⚠ Dấu hiệu đồng hồ nhiễm từ:</strong> chạy nhanh đột ngột
+        <strong class="text-ruby">⚠ Dấu hiệu đồng hồ nhiễm từ:</strong> chạy nhanh đột ngột
         (vài chục giây đến vài phút/ngày). <strong>Khắc phục:</strong> mang tới thợ để
         <strong>demagnetize</strong> (khử từ) — nhanh, rẻ (vài trăm nghìn), sau đó sai số trở lại bình thường.
       </p>

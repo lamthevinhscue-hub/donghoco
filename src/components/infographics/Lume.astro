@@ -17,7 +17,7 @@ const materials = [
     en: 'Radium',
     desc: 'Phóng xạ, tự phát sáng liên tục — đã được bỏ vì vấn đề an toàn.',
     type: 'self',
-    color: '#A0AEC0',
+    color: 'var(--obs-steel-soft)',
     initialGlow: 0.4,
     decay: 0, // không giảm (tự phát)
   },
@@ -27,7 +27,7 @@ const materials = [
     en: 'Tritium',
     desc: 'Phóng xạ yếu hơn nhiều, tự phát sáng yếu nhưng bền. Nay ít dùng.',
     type: 'self',
-    color: '#9B6E2C',
+    color: 'var(--obs-brass-deep)',
     initialGlow: 0.25,
     decay: 0,
   },
@@ -37,7 +37,7 @@ const materials = [
     en: 'Super-LumiNova',
     desc: 'Không phóng xạ. Phải nạp sáng, sáng mạnh lúc đầu rồi giảm dần.',
     type: 'charge',
-    color: '#4FB286',
+    color: 'var(--obs-lume)',
     initialGlow: 1.0,
     decay: 0.0008, // giảm dần
   },
@@ -46,7 +46,19 @@ const materials = [
 
 <MechanismAnimation label="Dạ quang — nạp sáng rồi tắt đèn, xem độ sáng giảm dần" data-mech-step-id="lume">
   <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="lume-svg" aria-hidden="true" focusable="false">
-    <!-- Nền (đổi sáng/tối) -->
+    <!-- Vật liệu: nền mặt số radial nhẹ, đồng thau khung, dạ quang qua token --obs-lume -->
+    <defs>
+      <radialGradient id="lumeDial" cx="0.5" cy="0.42" r="0.75">
+        <stop offset="0" style="stop-color:var(--ig-bg)" />
+        <stop offset="1" style="stop-color:var(--ig-bg-soft)" />
+      </radialGradient>
+      <linearGradient id="lumeRing" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+    </defs>
+    <!-- Nền (đổi sáng/tối — JS setAttribute fill: giữ hex token cho attribute, style.quy) -->
     <rect style="fill:var(--ig-bg)" id="lume-bg" x="0" y="0" width="500" height="300" class=""/>
 
     <text style="fill:var(--ig-stroke)" x="250" y="22" text-anchor="middle" font-size="12" font-weight="bold" id="lume-title" class="">
@@ -54,7 +66,7 @@ const materials = [
     </text>
 
     <!-- ====== MẶT SỐ ĐỒNG HỒ ====== -->
-    <circle style="stroke:var(--ig-stroke)" cx="250" cy="150" r="100" fill="none" stroke-width="2" id="lume-dial-ring" class="dark:stroke-dark-text"/>
+    <circle stroke="url(#lumeRing)" cx="250" cy="150" r="100" fill="url(#lumeDial)" stroke-width="2" id="lume-dial-ring"/>
 
     <!-- Cọc số dạ quang (12 vị trí) -->
     <g id="lume-markers">
@@ -62,27 +74,27 @@ const materials = [
         const a = (i * 30 - 90) * Math.PI / 180;
         const x = 250 + 85 * Math.cos(a);
         const y = 150 + 85 * Math.sin(a);
-        return <rect class="lume-marker" x={x - 3} y={y - 6} width="6" height="12" rx="1" fill={materials[2].color} data-index={i} />;
+        return <rect class="lume-marker" x={x - 3} y={y - 6} width="6" height="12" rx="1" style={`fill:${materials[2].color}`} data-index={i} />;
       })}
     </g>
 
     <!-- Kim dạ quang -->
     <g id="lume-hands">
-      <rect class="lume-hand" id="lume-hour-hand" x="248" y="100" width="4" height="55" rx="2" fill={materials[2].color} />
-      <rect class="lume-hand" id="lume-min-hand" x="248.5" y="75" width="3" height="80" rx="1.5" fill={materials[2].color} />
-      <circle cx="250" cy="150" r="5" fill={materials[2].color} />
+      <rect class="lume-hand" id="lume-hour-hand" x="248" y="100" width="4" height="55" rx="2" style={`fill:${materials[2].color}`} />
+      <rect class="lume-hand" id="lume-min-hand" x="248.5" y="75" width="3" height="80" rx="1.5" style={`fill:${materials[2].color}`} />
+      <circle cx="250" cy="150" r="5" style={`fill:${materials[2].color}`} />
     </g>
 
     <!-- Thanh độ sáng dạ quang -->
     <text style="fill:var(--ig-stroke)" x="250" y="275" text-anchor="middle" font-size="10" font-weight="bold" id="lume-intensity-label" class="">Độ sáng dạ quang</text>
     <rect style="stroke:var(--ig-stroke)" x="150" y="282" width="200" height="12" rx="3" fill="none" stroke-width="1" id="lume-bar-bg" class="dark:stroke-dark-text"/>
-    <rect id="lume-bar-fill" x="152" y="284" width="196" height="8" rx="2" fill={materials[2].color}/>
+    <rect id="lume-bar-fill" x="152" y="284" width="196" height="8" rx="2" style={`fill:${materials[2].color}`}/>
 
     <!-- Vùng chọn vật liệu (dưới) -->
     <foreignObject x="50" y="310" width="400" height="60">
       <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">
         {materials.map((m, i) => (
-          <button data-mat={m.id} class="lume-mat-btn" style={`padding:4px 10px;font-size:11px;border-radius:9999px;border:1px solid #B8893C;background:${i === 2 ? '#B8893C' : 'transparent'};color:${i === 2 ? '#FAF7F2' : '#1F2D3D'};cursor:pointer;touch-action:none;`}>{m.name}</button>
+          <button data-mat={m.id} class="lume-mat-btn" style={`padding:4px 10px;font-size:11px;border-radius:9999px;border:1px solid var(--obs-brass);background:${i === 2 ? 'var(--obs-brass)' : 'transparent'};color:${i === 2 ? 'var(--obs-ivory)' : 'var(--ig-text)'};cursor:pointer;touch-action:none;`}>{m.name}</button>
         ))}
       </div>
     </foreignObject>
@@ -120,9 +132,9 @@ const materials = [
       let rafId = null;
 
       const materials = {
-        radium: { glow: 0.4, decay: 0, color: '#A0AEC0', type: 'self' },
-        tritium: { glow: 0.25, decay: 0, color: '#9B6E2C', type: 'self' },
-        lumineva: { glow: 1.0, decay: 0.0008, color: '#4FB286', type: 'charge' },
+        radium: { glow: 0.4, decay: 0, color: 'var(--obs-steel-soft)', type: 'self' },
+        tritium: { glow: 0.25, decay: 0, color: 'var(--obs-brass-deep)', type: 'self' },
+        lumineva: { glow: 1.0, decay: 0.0008, color: 'var(--obs-lume)', type: 'charge' },
       };
 
       function updateGlow() {
@@ -130,11 +142,11 @@ const materials = [
         const markers = svg.querySelectorAll('.lume-marker');
         const hands = svg.querySelectorAll('.lume-hand');
         const opacity = isDark ? glowLevel : Math.max(glowLevel, 0.15); // ở sáng, dạ quang luôn hơi thấy
-        markers.forEach((mk) => { mk.setAttribute('opacity', String(opacity)); mk.setAttribute('fill', m.color); });
-        hands.forEach((h) => { h.setAttribute('opacity', String(opacity)); h.setAttribute('fill', m.color); });
-        barFill.setAttribute('fill', m.color);
+        markers.forEach((mk) => { mk.setAttribute('opacity', String(opacity)); mk.style.fill = m.color; });
+        hands.forEach((h) => { h.setAttribute('opacity', String(opacity)); h.style.fill = m.color; });
+        barFill.style.fill = m.color;
         barFill.setAttribute('width', String(glowLevel * 196));
-        intensityLabel.setAttribute('fill', m.color);
+        intensityLabel.style.fill = m.color;
       }
 
       function render(ts) {
@@ -175,16 +187,16 @@ const materials = [
       darkBtn.addEventListener('click', function() {
         isDark = !isDark;
         if (isDark) {
-          bg.setAttribute('fill', '#0a0f15');
-          title.setAttribute('fill', '#FAF7F2');
+          bg.style.fill = 'var(--obs-graphite)';
+          title.style.fill = 'var(--obs-ivory)';
           title.setAttribute('class', '');
           darkBtn.textContent = '☀ Bật đèn';
           status.textContent = 'Đang ở bóng tối — xem dạ quang phát sáng';
           lastTs = 0;
           rafId = requestAnimationFrame(render);
         } else {
-          bg.setAttribute('fill', '#FAF7F2');
-          title.setAttribute('fill', '#1F2D3D');
+          bg.style.fill = 'var(--ig-bg)';
+          title.style.fill = 'var(--ig-text)';
           darkBtn.textContent = '🌙 Tắt đèn';
           status.textContent = 'Đang ở chế độ sáng';
           if (rafId) cancelAnimationFrame(rafId);
@@ -199,10 +211,10 @@ const materials = [
           currentMat = btn.getAttribute('data-mat');
           matBtns.forEach((b) => {
             b.style.background = 'transparent';
-            b.style.color = '#1F2D3D';
+            b.style.color = 'var(--ig-text)';
           });
-          btn.style.background = '#B8893C';
-          btn.style.color = '#FAF7F2';
+          btn.style.background = 'var(--obs-brass)';
+          btn.style.color = 'var(--obs-ivory)';
           const m = materials[currentMat];
           glowLevel = m.glow;
           updateGlow();

@@ -15,37 +15,60 @@ import MechanismAnimation from '../MechanismAnimation.astro';
 
 <MechanismAnimation label="Dây tóc & bánh lắc — Trái tim dao động" data-mech-step-id="hairspring">
   <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="hairspring-svg" aria-hidden="true" focusable="false">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <!-- ====== VẬT LIỆU (token --obs-*/--ig-* — tự đổi theo .dark) ====== -->
+    <defs>
+      <!-- Glucydur bánh lắc: hợp kim đỏ SÁNG hơn nền/panel xung quanh -->
+      <linearGradient id="hsBalance" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-ruby)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
+      </linearGradient>
+      <!-- Thép: cầu máy, vít cố định, tần số -->
+      <linearGradient id="hsSteel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+      <!-- Đồng thau: dấu chỉ vị trí + con trỏ dao động ký -->
+      <linearGradient id="hsBrass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+        <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+    </defs>
+
+    <text style="fill:var(--ig-text)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
       Bánh lắc dao động qua lại → dây tóc co giãn → tạo nhịp thời gian
     </text>
 
-    <!-- ====== BÁNH LẮC (balance wheel) - trung tâm, dao động ====== -->
+    <!-- ====== BÁNH LẮC (balance wheel) - trung tâm, dao động — Glucydur SÁNG ====== -->
     <g id="balance-group" transform="translate(300, 200) rotate(0)">
       <g id="balance-wheel" data-part="balance-wheel" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
-        <!-- Vòng ngoài -->
-        <circle r="70" fill="none" stroke="#9B2C2C" stroke-width="5"/>
-        <circle r="70" fill="none" stroke="#9B2C2C" stroke-width="1" opacity="0.4" transform="scale(1.05)"/>
-        <!-- 2 chân ngang (cross spokes) -->
-        <line x1="-70" y1="0" x2="70" y2="0" stroke="#9B2C2C" stroke-width="3"/>
-        <line x1="0" y1="-70" x2="0" y2="70" stroke="#9B2C2C" stroke-width="3"/>
+        <!-- Vành ngoài: nét bao chính, sáng hơn panel nền -->
+        <circle r="70" fill="none" stroke="url(#hsBalance)" stroke-width="2"/>
+        <circle r="70" fill="none" style="stroke:var(--obs-ruby-soft)" stroke-width="0.5" opacity="0.4" transform="scale(1.05)"/>
+        <!-- 2 chân ngang (cross spokes) — chi tiết 1px -->
+        <line x1="-70" y1="0" x2="70" y2="0" stroke="url(#hsBalance)" stroke-width="1"/>
+        <line x1="0" y1="-70" x2="0" y2="70" stroke="url(#hsBalance)" stroke-width="1"/>
         <!-- Trục -->
-        <circle r="8" fill="#9B2C2C"/>
-        <circle r="3" fill="#2D3748"/>
-        <!-- Trọng lượng cố định (timing screws) — 4 cái -->
-        <circle cx="0" cy="-70" r="6" fill="#2D3748" stroke="#1F2D3D" stroke-width="0.8"/>
-        <circle cx="0" cy="70" r="6" fill="#2D3748" stroke="#1F2D3D" stroke-width="0.8"/>
-        <circle cx="-70" cy="0" r="6" fill="#2D3748" stroke="#1F2D3D" stroke-width="0.8"/>
-        <circle cx="70" cy="0" r="6" fill="#2D3748" stroke="#1F2D3D" stroke-width="0.8"/>
-        <!-- Vết đỏ chỉ vị trí (để nhìn rõ sự quay) -->
-        <circle cx="0" cy="-58" r="4" fill="#B8893C"/>
+        <circle r="8" fill="url(#hsBalance)"/>
+        <circle r="3" style="fill:var(--obs-steel-deep)"/>
+        <!-- Trọng lượng cố định (timing screws) — 4 cái, thép -->
+        <circle cx="0" cy="-70" r="6" fill="url(#hsSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <circle cx="0" cy="70" r="6" fill="url(#hsSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <circle cx="-70" cy="0" r="6" fill="url(#hsSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <circle cx="70" cy="0" r="6" fill="url(#hsSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <!-- Vết brass chỉ vị trí (để nhìn rõ sự quay) -->
+        <circle cx="0" cy="-58" r="4" fill="url(#hsBrass)"/>
       </g>
     </g>
 
-    <!-- ====== DÂY TÓC (hairspring) - vòng trong bánh lắc, phồng/xẹp ====== -->
+    <!-- ====== DÂY TÓC (hairspring) - vòng trong bánh lắc, phồng/xẹp — thép mảnh ====== -->
     <g id="hairspring-group" transform="translate(300, 200)">
       <g id="hairspring" data-part="hairspring" data-name-vi="Dây tóc (hairspring)" data-name-en="Hairspring / Balance spring">
-        <!-- Vòng xoắn ốc - sẽ scale theo dao động -->
-        <g id="hairspring-coils" fill="none" stroke="#3182CE" stroke-width="1.5">
+        <!-- Vòng xoắn ốc - nét mảnh 1px rõ trên cả nền sáng/tối -->
+        <g id="hairspring-coils" fill="none" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           <path d="M 0 0
                    m -15 0 a 15 15 0 1 1 30 0
                    a 22 22 0 1 1 -44 0
@@ -55,37 +78,37 @@ import MechanismAnimation from '../MechanismAnimation.astro';
                 transform="scale(1)"/>
         </g>
         <!-- Điểm cố định ngoài (stud) -->
-        <rect x="46" y="-3" width="8" height="6" fill="#2D3748"/>
+        <rect x="46" y="-3" width="8" height="6" style="fill:var(--obs-steel-deep)"/>
         <!-- Điểm nối trong (collet) -->
-        <circle r="8" fill="#3182CE" opacity="0.4"/>
+        <circle r="8" style="fill:var(--obs-steel)" opacity="0.4"/>
       </g>
     </g>
 
     <!-- ====== CHỈ SỐ DAO ĐỘNG (vạch đo + kim) ====== -->
     <g id="oscilloscope" transform="translate(80, 320)">
-      <rect x="-5" y="-50" width="490" height="80" rx="6" fill="#1F2D3D" opacity="0.9"/>
-      <text x="0" y="-32" font-size="9" fill="#B8893C" font-weight="bold">DAO ĐỘNG (oscilloscope)</text>
-      <!-- Đường giữa -->
-      <line x1="0" y1="0" x2="480" y2="0" stroke="#4A5568" stroke-width="1" stroke-dasharray="3 3"/>
-      <!-- Đường sóng sin động (path sẽ được JS cập nhật) -->
-      <path id="wave-path" d="M 0 0" fill="none" stroke="#3182CE" stroke-width="2"/>
+      <rect x="-5" y="-50" width="490" height="80" rx="6" style="fill:var(--obs-graphite)" opacity="0.9"/>
+      <text x="0" y="-32" font-size="9" style="fill:var(--obs-brass-soft)" font-weight="bold">DAO ĐỘNG (oscilloscope)</text>
+      <!-- Đường giữa — vạch tham chiếu 0.5px -->
+      <line x1="0" y1="0" x2="480" y2="0" style="stroke:var(--obs-steel-deep)" stroke-width="0.5" stroke-dasharray="3 3"/>
+      <!-- Đường sóng sin động (path sẽ được JS cập nhật) — đường dữ liệu chính -->
+      <path id="wave-path" d="M 0 0" fill="none" stroke="url(#hsBrass)" stroke-width="2"/>
       <!-- Con trỏ hiện tại -->
-      <circle id="wave-dot" cx="0" cy="0" r="4" fill="#B8893C"/>
+      <circle id="wave-dot" cx="0" cy="0" r="4" fill="url(#hsBrass)"/>
     </g>
 
     <!-- ====== TẦN SỐ DISPLAY ====== -->
     <g id="freq-display" transform="translate(420, 50)">
-      <rect x="0" y="0" width="160" height="60" rx="6" fill="#1F2D3D"/>
-      <text x="80" y="22" text-anchor="middle" font-size="9" fill="#B8893C">TẦN SỐ ĐANG MÔ PHỎNG</text>
-      <text id="freq-value" x="80" y="42" text-anchor="middle" font-size="16" fill="#FAF7F2" font-weight="bold">28.800 vph</text>
-      <text id="freq-hz" x="80" y="54" text-anchor="middle" font-size="10" fill="#B8893C">4 Hz</text>
+      <rect x="0" y="0" width="160" height="60" rx="6" style="fill:var(--obs-graphite)"/>
+      <text x="80" y="22" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)">TẦN SỐ ĐANG MÔ PHỎNG</text>
+      <text id="freq-value" x="80" y="42" text-anchor="middle" font-size="16" style="fill:var(--obs-ivory)" font-weight="bold">28.800 vph</text>
+      <text id="freq-hz" x="80" y="54" text-anchor="middle" font-size="10" style="fill:var(--obs-brass-soft)">4 Hz</text>
     </g>
 
     <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="180" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="90" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="90" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="180" height="40" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="90" y="17" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="90" y="32" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)"></text>
     </g>
   </svg>
 
@@ -265,36 +288,3 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     </p>
   </div>
 </div>
-
-<style>
-  [data-explanation] [data-anim] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-explanation] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function initExplanation() {
-    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cards.forEach((c) => c.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    cards.forEach((c) => obs.observe(c));
-    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
-  }
-  initExplanation();
-</script>

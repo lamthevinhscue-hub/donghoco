@@ -22,31 +22,63 @@ import MechanismAnimation from '../MechanismAnimation.astro';
 
 <MechanismAnimation label="Chronograph bánh răng cột (Column Wheel)" data-mech-step-id="chronograph">
   <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="chrono-svg" aria-hidden="true" focusable="false">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <!-- ====== VẬT LIỆU (token --obs-*/--ig-* — tự đổi theo .dark) ====== -->
+    <defs>
+      <!-- Thép chải: bánh răng, đòn bẩy, búa -->
+      <linearGradient id="chronoSteel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+      <!-- Đồng thau ấm: cột truyền động, đòn ly hợp, nút bấm — dải phản chiếu hẹp 1/3 -->
+      <linearGradient id="chronoBrass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+        <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+      <!-- Chân kính rubi — chỉ dùng ở trục ma sát của bánh giây -->
+      <radialGradient id="chronoRuby" cx="0.35" cy="0.3" r="0.9">
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-ruby)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
+      </radialGradient>
+      <!-- Vùng nhấn nút: lớp phủ sáng đặt trên mặt nút khi pha đó kích hoạt -->
+      <linearGradient id="chronoPress" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-ivory)" stop-opacity="0.55" />
+        <stop offset="1" style="stop-color:var(--obs-ivory)" stop-opacity="0.08" />
+      </linearGradient>
+    </defs>
+
+    <text style="fill:var(--ig-text)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
       Bấm nút START → ly hợp đóng (chạy) • STOP → ly hợp mở (dừng) • RESET → búa đập về 0
     </text>
 
     <!-- ====== NÚT BẤM (pushers) - bên trên ====== -->
     <g id="start-button" data-part="start-button" data-name-vi="Nút START/STOP" data-name-en="Start/Stop pusher">
-      <rect x="80" y="50" width="50" height="22" rx="4" fill="#B8893C" stroke="#9B6E2C" stroke-width="1.5"/>
-      <text x="105" y="65" text-anchor="middle" font-size="9" fill="#FAF7F2" font-weight="bold">START</text>
+      <rect x="80" y="50" width="50" height="22" rx="4" fill="url(#chronoBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="2"/>
+      <!-- Vùng nhấn (lớp phủ hiện khi pha bấm — JS điều khiển opacity) -->
+      <rect id="chrono-start-cap" x="81" y="51" width="48" height="10" rx="3" fill="url(#chronoPress)" opacity="0"/>
+      <text x="105" y="65" text-anchor="middle" font-size="9" style="fill:var(--obs-ivory)" font-weight="bold">START</text>
       <!-- Cần đẩy xuống column wheel -->
-      <line x1="105" y1="72" x2="105" y2="110" stroke="#B8893C" stroke-width="3"/>
+      <line x1="105" y1="72" x2="105" y2="110" stroke="url(#chronoBrass)" stroke-width="2"/>
       <!-- Ngón đẩy (trigger finger) -->
-      <path d="M 105 110 L 125 122 L 118 130 L 98 118 Z" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+      <path d="M 105 110 L 125 122 L 118 130 L 98 118 Z" fill="url(#chronoBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
     </g>
 
     <g id="reset-button" data-part="reset-button" data-name-vi="Nút RESET" data-name-en="Reset pusher">
-      <rect x="470" y="50" width="50" height="22" rx="4" fill="#9B2C2C" stroke="#7B2424" stroke-width="1.5"/>
-      <text x="495" y="65" text-anchor="middle" font-size="9" fill="#FAF7F2" font-weight="bold">RESET</text>
-      <line x1="495" y1="72" x2="495" y2="100" stroke="#9B2C2C" stroke-width="3"/>
+      <rect x="470" y="50" width="50" height="22" rx="4" fill="url(#chronoRuby)" style="stroke:var(--obs-ruby-deep)" stroke-width="2"/>
+      <!-- Vùng nhấn pha reset -->
+      <rect id="chrono-reset-cap" x="471" y="51" width="48" height="10" rx="3" fill="url(#chronoPress)" opacity="0"/>
+      <text x="495" y="65" text-anchor="middle" font-size="9" style="fill:var(--obs-ivory)" font-weight="bold">RESET</text>
+      <line x1="495" y1="72" x2="495" y2="100" stroke="url(#chronoRuby)" stroke-width="2"/>
     </g>
 
     <!-- ====== COLUMN WHEEL (bánh răng cột) - trung tâm trái ====== -->
     <g id="column-wheel-group" transform="translate(180, 200)">
       <g id="column-wheel" data-part="column-wheel" data-name-vi="Bánh răng cột" data-name-en="Column wheel">
         <!-- Đế bánh (răng dưới - để ngón đẩy đẩy) -->
-        <g fill="#4A5568" stroke="#2D3748" stroke-width="1">
+        <g fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 9 }).map((_, i) => {
             const angle = (i * 360) / 9;
             return (
@@ -57,9 +89,9 @@ import MechanismAnimation from '../MechanismAnimation.astro';
           })}
         </g>
         <!-- Thân bánh -->
-        <circle r="30" fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
-        <!-- Các CỘT dọc (columns) — đặc trưng của column wheel -->
-        <g fill="#3182CE" stroke="#2C5282" stroke-width="0.8">
+        <circle r="30" fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="2"/>
+        <!-- Các CỘT dọc (columns) — thép SÁNG nổi khỏi thân, nét chi tiết 1px -->
+        <g style="fill:var(--obs-steel-soft);stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 9 }).map((_, i) => {
             const angle = (i * 360) / 9;
             const rad = (angle * Math.PI) / 180;
@@ -68,9 +100,9 @@ import MechanismAnimation from '../MechanismAnimation.astro';
             return <rect x={cx - 4} y={cy - 6} width="8" height="12" rx="1.5" transform={`rotate(${angle} ${cx} ${cy})`}/>;
           })}
         </g>
-        <!-- Trục giữa -->
-        <circle r="6" fill="#2D3748"/>
-        <circle r="2.5" fill="#B8893C"/>
+        <!-- Trục giữa + chấm brass -->
+        <circle r="6" style="fill:var(--obs-steel-deep)"/>
+        <circle r="2.5" fill="url(#chronoBrass)"/>
       </g>
     </g>
 
@@ -79,85 +111,86 @@ import MechanismAnimation from '../MechanismAnimation.astro';
       <g id="clutch-lever" data-part="clutch-lever" data-name-vi="Đòn ly hợp" data-name-en="Clutch lever">
         <!-- Đòn dài nối từ cột đến ly hợp -->
         <path d="M -60 25 L 80 0 L 95 8 L 95 18 L 80 22 L -60 35 Z"
-              fill="#B8893C" stroke="#9B6E2C" stroke-width="1.2"/>
+              fill="url(#chronoBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
         <!-- Mỏ tì lên cột (rider) -->
-        <circle cx="-60" cy="30" r="5" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
+        <circle cx="-60" cy="30" r="5" fill="url(#chronoBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
         <!-- Trục pivot -->
-        <circle cx="90" cy="13" r="4" fill="#2D3748"/>
+        <circle cx="90" cy="13" r="4" style="fill:var(--obs-steel-deep)"/>
       </g>
     </g>
 
-    <!-- ====== LY HỢP (clutch / coupling wheel) + BÁNH GIÂY CHRONOGRAPH ====== -->
+    <!-- ====== LY HỢP (clutch) + BÁNH GIÂY CHRONOGRAPH ====== -->
     <g id="chronograph-train-group" transform="translate(0, 0)">
-      <!-- Bánh dẫn động (driving wheel - luôn quay khi máy chạy) -->
+      <!-- Bánh dẫn động (luôn quay khi máy chạy) — thép chải -->
       <g id="driving-wheel" data-part="driving-wheel" data-name-vi="Bánh dẫn động" data-name-en="Driving wheel" transform="translate(380, 188)">
-        <g fill="#5A6878" stroke="#2D3748" stroke-width="1">
+        <g fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 12 }).map((_, i) => {
             const angle = (i * 360) / 12;
             return <g transform={`rotate(${angle})`}><path d="M -2.5 -24 L 2.5 -24 L 2 -30 L -2 -30 Z"/></g>;
           })}
         </g>
-        <circle r="22" fill="#5A6878" stroke="#2D3748" stroke-width="1.5"/>
-        <circle r="4" fill="#2D3748"/>
+        <circle r="22" fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="2"/>
+        <circle r="4" style="fill:var(--obs-steel-deep)"/>
       </g>
 
-      <!-- Ly hợp (clutch - trượt ngang để đóng/mở) -->
+      <!-- Ly hợp (trượt ngang để đóng/mở) — thép chải sáng hơn -->
       <g id="clutch-wheel" data-part="clutch-wheel" data-name-vi="Bánh ly hợp" data-name-en="Clutch wheel (slides)" transform="translate(420, 188)">
-        <g fill="#3182CE" stroke="#2C5282" stroke-width="1">
+        <g fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 10 }).map((_, i) => {
             const angle = (i * 360) / 10;
             return <g transform={`rotate(${angle})`}><rect x="-2" y="-22" width="4" height="6"/></g>;
           })}
         </g>
-        <circle r="18" fill="#3182CE" stroke="#2C5282" stroke-width="1.5" opacity="0.85"/>
-        <circle r="3" fill="#2C5282"/>
+        <circle r="18" fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1" opacity="0.85"/>
+        <circle r="3" style="fill:var(--obs-steel-deep)"/>
       </g>
 
-      <!-- Bánh giây chronograph (chronograph seconds wheel) -->
+      <!-- Bánh giây chronograph — thép, kim giây đỏ rubi -->
       <g id="chrono-seconds-wheel" data-part="chrono-seconds" data-name-vi="Bánh giây chronograph" data-name-en="Chronograph seconds wheel" transform="translate(470, 188)">
-        <g fill="#9B2C2C" stroke="#7B2424" stroke-width="1">
+        <g fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 14 }).map((_, i) => {
             const angle = (i * 360) / 14;
             return <g transform={`rotate(${angle})`}><path d="M -2 -28 L 2 -28 L 1.5 -34 L -1.5 -34 Z"/></g>;
           })}
         </g>
-        <circle r="26" fill="#9B2C2C" stroke="#7B2424" stroke-width="1.5"/>
-        <!-- Heart cam (cam hình tim - cho reset) -->
+        <circle r="26" fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="2"/>
+        <!-- Heart cam (cam hình tim — đồng thau) -->
         <path d="M 0 -10 C -8 -18, -20 -12, 0 8 C 20 -12, 8 -18, 0 -10 Z"
-              fill="#B8893C" opacity="0.9" id="heart-cam"/>
-        <circle r="4" fill="#7B2424"/>
-        <!-- Kim giây chronograph (đỏ) -->
-        <line x1="0" y1="0" x2="0" y2="-32" stroke="#9B2C2C" stroke-width="2.5" stroke-linecap="round"/>
+              fill="url(#chronoBrass)" opacity="0.9" style="stroke:var(--obs-brass-deep)" stroke-width="1" id="heart-cam"/>
+        <!-- Chân kính rubi tại trục ma sát chính của bánh giây -->
+        <circle r="4" fill="url(#chronoRuby)" style="stroke:var(--obs-ruby-deep)" stroke-width="1"/>
+        <!-- Kim giây chronograph (đỏ rubi) -->
+        <line x1="0" y1="0" x2="0" y2="-32" stroke="url(#chronoRuby)" stroke-width="2" stroke-linecap="round"/>
       </g>
     </g>
 
-    <!-- ====== BÚA RESET (hammer) ====== -->
+    <!-- ====== BÚA RESET (hammer) — thép chải ====== -->
     <g id="hammer-group" transform="translate(470, 280)">
       <g id="hammer" data-part="hammer" data-name-vi="Búa reset" data-name-en="Reset hammer">
-        <path d="M 0 0 L 60 -40 L 68 -32 L 8 8 Z" fill="#4A5568" stroke="#2D3748" stroke-width="1.2"/>
-        <rect x="-3" y="-5" width="10" height="14" rx="2" fill="#2D3748"/>
-        <circle cx="0" cy="0" r="4" fill="#9B6E2C"/>
+        <path d="M 0 0 L 60 -40 L 68 -32 L 8 8 Z" fill="url(#chronoSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <rect x="-3" y="-5" width="10" height="14" rx="2" style="fill:var(--obs-steel-deep)"/>
+        <circle cx="0" cy="0" r="4" fill="url(#chronoBrass)"/>
       </g>
     </g>
 
     <!-- ====== TRẠNG THÁI (status indicator) ====== -->
     <g id="status-display">
-      <rect x="200" y="360" width="200" height="36" rx="6" fill="#1F2D3D"/>
-      <text id="status-text" x="300" y="383" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">
+      <rect x="200" y="360" width="200" height="36" rx="6" style="fill:var(--obs-graphite)"/>
+      <text id="status-text" x="300" y="383" text-anchor="middle" font-size="14" style="fill:var(--obs-brass-soft)" font-weight="bold">
         ⏸ DỪNG — Ly hợp mở
       </text>
     </g>
 
     <!-- ====== MŨI TÊN CHỈ SỰ TRUYỀN LỰC (chỉ hiện khi chạy) ====== -->
     <g id="power-flow" opacity="0">
-      <text x="448" y="180" font-size="16" fill="#3182CE" font-weight="bold">→</text>
+      <text x="448" y="180" font-size="16" style="fill:var(--obs-brass)" font-weight="bold">→</text>
     </g>
 
     <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="170" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="85" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="85" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="170" height="40" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="85" y="17" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="85" y="32" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)"></text>
     </g>
   </svg>
 
@@ -177,6 +210,8 @@ import MechanismAnimation from '../MechanismAnimation.astro';
       const hammer = svg.querySelector('#hammer-group');
       const statusText = svg.querySelector('#status-text');
       const powerFlow = svg.querySelector('#power-flow');
+      const startCap = svg.querySelector('#chrono-start-cap');
+      const resetCap = svg.querySelector('#chrono-reset-cap');
       if (!columnWheel || !clutchWheel || !chronoWheel || !statusText) return;
 
       // Chu kỳ 12 giây chia 3 pha: DỪNG(3s) → CHẠY(6s) → RESET(3s)
@@ -261,6 +296,11 @@ import MechanismAnimation from '../MechanismAnimation.astro';
       if (t < 1000) svg.dataset.cycleUpdated = '';
 
       statusText.textContent = status;
+      // Vùng nhấn nút theo pha — nhận biết trạng thái bằng chiều sâu, không chỉ màu
+      const startPressed = (t >= 2000 && t < 2300) || (t >= 8000 && t < 8300);
+      const resetPressed = t >= 9000 && t < 9400;
+      if (startCap) startCap.setAttribute('opacity', startPressed ? '1' : '0');
+      if (resetCap) resetCap.setAttribute('opacity', resetPressed ? '1' : '0');
       // Ly hợp đóng → hiện mũi tên truyền lực
       if (powerFlow) powerFlow.setAttribute('opacity', chronoSpin ? '0.9' : '0');
     };
@@ -362,36 +402,3 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     </p>
   </div>
 </div>
-
-<style>
-  [data-explanation] [data-anim] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-explanation] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function initExplanation() {
-    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cards.forEach((c) => c.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    cards.forEach((c) => obs.observe(c));
-    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
-  }
-  initExplanation();
-</script>

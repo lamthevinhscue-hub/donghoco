@@ -16,130 +16,152 @@ import MechanismAnimation from '../MechanismAnimation.astro';
 
 <MechanismAnimation label="Tourbillon — Lồng xoay bù sai số trọng lực" data-mech-step-id="tourbillon">
   <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="tourbillon-svg" aria-hidden="true" focusable="false">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <!-- ====== VẬT LIỆU (token --obs-*/--ig-* — tự đổi theo .dark) ====== -->
+    <defs>
+      <!-- Thép sáng: lồng tourbillon, bánh thoát — NHẸ, không bóng nặng (lồng quay liên tục) -->
+      <linearGradient id="tbSteel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+      <!-- Đồng thau: ngựa, trục lồng -->
+      <linearGradient id="tbBrass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+        <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+      <!-- Rubi/Glucydur: bánh lắc + chân kính pallet -->
+      <radialGradient id="tbRuby" cx="0.35" cy="0.3" r="0.9">
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-ruby)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
+      </radialGradient>
+    </defs>
+
+    <text style="fill:var(--ig-text)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
       Lồng tourbillon xoay 360° → sai số trọng lực trung bình = 0
     </text>
 
     <!-- ====== VÒNG NGOÀI: hướng trọng lực (mũi tên xuống) ====== -->
     <g id="gravity-arrow">
-      <line x1="300" y1="50" x2="300" y2="80" stroke="#9B2C2C" stroke-width="2"/>
-      <polygon points="300,86 294,76 306,76" fill="#9B2C2C"/>
-      <text x="320" y="68" font-size="10" fill="#9B2C2C" font-weight="bold">Trọng lực ↓</text>
+      <line x1="300" y1="50" x2="300" y2="80" stroke="url(#tbRuby)" stroke-width="2"/>
+      <polygon points="300,86 294,76 306,76" style="fill:var(--obs-ruby)"/>
+      <text x="320" y="68" font-size="10" style="fill:var(--obs-ruby-deep)" font-weight="bold">Trọng lực ↓</text>
     </g>
 
-    <!-- ====== LỒNG TOURBILLON (cage) - xoay liên tục ====== -->
+    <!-- ====== LỒNG TOURBILLON (cage) - xoay liên tục, THÉP SÁNG không bóng ====== -->
     <g id="cage-group" transform="translate(300, 210) rotate(0)">
       <!-- Vòng lồng ngoài -->
       <g id="cage-outer" data-part="cage" data-name-vi="Lồng tourbillon (cage)" data-name-en="Tourbillon cage">
-        <circle r="95" fill="none" stroke="#B8893C" stroke-width="3"/>
-        <circle r="95" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4" transform="scale(1.04)"/>
+        <circle r="95" fill="none" stroke="url(#tbSteel)" stroke-width="2"/>
+        <circle r="95" fill="none" style="stroke:var(--obs-steel)" stroke-width="0.5" opacity="0.4" transform="scale(1.04)"/>
         <!-- 3 chốt nối (cage bridges) -->
-        <g stroke="#B8893C" stroke-width="2.5" stroke-linecap="round">
+        <g stroke="url(#tbSteel)" stroke-width="1" stroke-linecap="round">
           <line x1="0" y1="-95" x2="0" y2="95"/>
           <line x1="-82" y1="-47" x2="82" y2="47"/>
           <line x1="-82" y1="47" x2="82" y2="-47"/>
         </g>
-        <!-- Trục trên -->
-        <circle cx="0" cy="-95" r="6" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
-        <!-- Trục dưới -->
-        <circle cx="0" cy="95" r="6" fill="#9B6E2C" stroke="#2D3748" stroke-width="1"/>
-        <!-- Cột thứ 4 chỉ vị trí (để nhìn rõ lồng đang xoay) -->
-        <circle cx="0" cy="-70" r="5" fill="#3182CE"/>
+        <!-- Trục trên + dưới — đồng thau -->
+        <circle cx="0" cy="-95" r="6" fill="url(#tbBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
+        <circle cx="0" cy="95" r="6" fill="url(#tbBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
+        <!-- Cột thứ 4 chỉ vị trí (để nhìn rõ lồng đang xoay) — điểm nhấn brass -->
+        <circle cx="0" cy="-70" r="5" fill="url(#tbBrass)" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
       </g>
 
       <!-- ====== BỘ THOÁT + BÁNH LẮC bên trong lồng ====== -->
-      <!-- Bánh thoát (escape wheel) - góc trên trái -->
+      <!-- Bánh thoát (escape wheel) - góc trên trái — thép chải -->
       <g id="tb-escape" data-part="tb-escape" data-name-vi="Bánh thoát (trong lồng)" data-name-en="Escape wheel (inside cage)" transform="translate(-40, -25)">
-        <g fill="#4A5568" stroke="#2D3748" stroke-width="0.8">
+        <g fill="url(#tbSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
           {Array.from({ length: 15 }).map((_, i) => {
             const a = (i * 360) / 15;
             return <g transform={`rotate(${a})`}><path d="M 0 -22 L 2 -18 L 3.2 -15 L -3.2 -15 L -2 -18 Z"/></g>;
           })}
         </g>
-        <circle r="15" fill="#4A5568" stroke="#2D3748" stroke-width="1"/>
-        <circle r="3" fill="#2D3748"/>
+        <circle r="15" fill="url(#tbSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
+        <circle r="3" style="fill:var(--obs-steel-deep)"/>
       </g>
 
-      <!-- Ngựa (pallet fork) -->
+      <!-- Ngựa (pallet fork) — đồng thau + 2 chân kính rubi -->
       <g id="tb-pallet" data-part="tb-pallet" data-name-vi="Ngựa" data-name-en="Pallet fork" transform="translate(-10, 10)">
         <path d="M 0 0 L -8 -12 L -10 -15 M 0 0 L 8 -12 L 10 -15 M 0 0 L 0 14"
-              fill="none" stroke="#B8893C" stroke-width="2" stroke-linecap="round"/>
-        <rect x="-11" y="-17" width="3" height="2.5" fill="#3182CE" transform="rotate(-15 -10 -16)"/>
-        <rect x="8" y="-17" width="3" height="2.5" fill="#3182CE" transform="rotate(15 10 -16)"/>
-        <circle cx="0" cy="14" r="2.5" fill="#9B6E2C"/>
+              fill="none" stroke="url(#tbBrass)" stroke-width="1" stroke-linecap="round"/>
+        <rect x="-11" y="-17" width="3" height="2.5" fill="url(#tbRuby)" transform="rotate(-15 -10 -16)"/>
+        <rect x="8" y="-17" width="3" height="2.5" fill="url(#tbRuby)" transform="rotate(15 10 -16)"/>
+        <circle cx="0" cy="14" r="2.5" fill="url(#tbBrass)"/>
       </g>
 
-      <!-- Bánh lắc - trung tâm, dao động -->
+      <!-- Bánh lắc - trung tâm, dao động — Glucydur đỏ rubi -->
       <g id="tb-balance-group" transform="translate(30, 0)">
         <g id="tb-balance" data-part="tb-balance" data-name-vi="Bánh lắc (trong lồng)" data-name-en="Balance wheel (in cage)">
-          <circle r="35" fill="none" stroke="#9B2C2C" stroke-width="3.5"/>
-          <line x1="0" y1="-35" x2="0" y2="35" stroke="#9B2C2C" stroke-width="2"/>
-          <line x1="-35" y1="0" x2="35" y2="0" stroke="#9B2C2C" stroke-width="2"/>
-          <circle r="5" fill="#9B2C2C"/>
-          <circle cx="0" cy="-35" r="3" fill="#2D3748"/>
-          <circle cx="0" cy="35" r="3" fill="#2D3748"/>
-          <circle cx="-35" cy="0" r="3" fill="#2D3748"/>
-          <circle cx="35" cy="0" r="3" fill="#2D3748"/>
+          <circle r="35" fill="none" stroke="url(#tbRuby)" stroke-width="2"/>
+          <line x1="0" y1="-35" x2="0" y2="35" stroke="url(#tbRuby)" stroke-width="1"/>
+          <line x1="-35" y1="0" x2="35" y2="0" stroke="url(#tbRuby)" stroke-width="1"/>
+          <circle r="5" fill="url(#tbRuby)"/>
+          <circle cx="0" cy="-35" r="3" style="fill:var(--obs-steel-deep)"/>
+          <circle cx="0" cy="35" r="3" style="fill:var(--obs-steel-deep)"/>
+          <circle cx="-35" cy="0" r="3" style="fill:var(--obs-steel-deep)"/>
+          <circle cx="35" cy="0" r="3" style="fill:var(--obs-steel-deep)"/>
         </g>
-        <!-- Dây tóc -->
+        <!-- Dây tóc — thép mảnh, khác rõ với bánh lắc đỏ -->
         <g opacity="0.6">
           <path d="M 0 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
-                fill="none" stroke="#3182CE" stroke-width="1.2"/>
+                fill="none" style="stroke:var(--obs-steel-deep)" stroke-width="1"/>
         </g>
       </g>
     </g>
 
-    <!-- ====== BÁNH RĂNG BẢN NGỮ ĐẠI (chỉ lồng xoay) - bên ngoài ====== -->
+    <!-- ====== BÁNH RĂNG GIÂY ĐẠI (chỉ vạch tham chiếu) - bên ngoài ====== -->
     <g id="seconds-wheel" transform="translate(300, 210)" opacity="0.4">
-      <g fill="none" stroke="#4A5568" stroke-width="0.8">
+      <g fill="none" style="stroke:var(--obs-steel-deep)" stroke-width="0.5">
         {Array.from({ length: 60 }).map((_, i) => {
           const a = (i * 360) / 60;
           const rad = (a * Math.PI) / 180;
           const isMajor = i % 5 === 0;
           const r1 = isMajor ? 105 : 110;
-          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 115} y2={Math.sin(rad) * 115} stroke-width={isMajor ? 1.5 : 0.8}/>;
+          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 115} y2={Math.sin(rad) * 115} stroke-width={isMajor ? 1 : 0.5}/>;
         })}
       </g>
-      <text x="0" y="-125" text-anchor="middle" font-size="8" fill="#4A5568">60</text>
-      <text x="125" y="3" text-anchor="middle" font-size="8" fill="#4A5568">15</text>
-      <text x="0" y="132" text-anchor="middle" font-size="8" fill="#4A5568">30</text>
-      <text x="-125" y="3" text-anchor="middle" font-size="8" fill="#4A5568">45</text>
+      <text x="0" y="-125" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)">60</text>
+      <text x="125" y="3" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)">15</text>
+      <text x="0" y="132" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)">30</text>
+      <text x="-125" y="3" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)">45</text>
     </g>
 
     <!-- ====== HIỂN THỊ GÓC XOAY + SAI SỐ ====== -->
     <g id="readout">
-      <rect x="420" y="100" width="170" height="100" rx="6" fill="#1F2D3D"/>
-      <text x="505" y="120" text-anchor="middle" font-size="9" fill="#B8893C">LỒNG ĐANG Ở VỊ TRÍ</text>
-      <text id="cage-angle" x="505" y="142" text-anchor="middle" font-size="20" fill="#FAF7F2" font-weight="bold">0°</text>
-      <text id="cage-position" x="505" y="162" text-anchor="middle" font-size="11" fill="#3182CE">Bánh lắc nằm ngang</text>
-      <text x="505" y="183" text-anchor="middle" font-size="9" fill="#B8893C">Sai số bù: <tspan id="error-comp" fill="#2D7A55" font-weight="bold">0</tspan></text>
+      <rect x="420" y="100" width="170" height="100" rx="6" style="fill:var(--obs-graphite)"/>
+      <text x="505" y="120" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)">LỒNG ĐANG Ở VỊ TRÍ</text>
+      <text id="cage-angle" x="505" y="142" text-anchor="middle" font-size="20" style="fill:var(--obs-ivory)" font-weight="bold">0°</text>
+      <text id="cage-position" x="505" y="162" text-anchor="middle" font-size="11" style="fill:var(--obs-steel-soft)">Bánh lắc nằm ngang</text>
+      <text x="505" y="183" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)">Sai số bù: <tspan id="error-comp" style="fill:var(--ig-rubi)" font-weight="bold">0</tspan></text>
     </g>
 
     <!-- ====== ĐỒNG HỒ SAI SỐ (so sánh có/không tourbillon) ====== -->
     <g id="error-compare" transform="translate(20, 100)">
-      <rect x="0" y="0" width="160" height="100" rx="6" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="1.5"/>
-      <text x="80" y="20" text-anchor="middle" font-size="9" fill="#1F2D3D" font-weight="bold">SAI SỐ 6 VỊ TRÍ</text>
+      <rect x="0" y="0" width="160" height="100" rx="6" style="fill:var(--ig-bg);stroke:var(--obs-steel)" stroke-width="1"/>
+      <text x="80" y="20" text-anchor="middle" font-size="9" style="fill:var(--ig-text)" font-weight="bold">SAI SỐ 6 VỊ TRÍ</text>
       <!-- Không tourbillon -->
-      <text x="10" y="40" font-size="8" fill="#9B2C2C">Không TB:</text>
+      <text x="10" y="40" font-size="8" style="fill:var(--ig-rubi)">Không TB:</text>
       <g id="err-no-tb">
-        <line x1="60" y1="36" x2="148" y2="36" stroke="#9B2C2C" stroke-width="2.5" stroke-dasharray="2 1"/>
+        <line x1="60" y1="36" x2="148" y2="36" style="stroke:var(--ig-rubi)" stroke-width="1" stroke-dasharray="2 1"/>
       </g>
-      <text x="152" y="40" font-size="8" fill="#9B2C2C" text-anchor="end" id="err-no-tb-val">±8s</text>
+      <text x="152" y="40" font-size="8" style="fill:var(--ig-rubi)" text-anchor="end" id="err-no-tb-val">±8s</text>
       <!-- Có tourbillon -->
-      <text x="10" y="58" font-size="8" fill="#2D7A55">Có TB:</text>
+      <text x="10" y="58" font-size="8" style="fill:var(--obs-ruby-deep)">Có TB:</text>
       <g id="err-with-tb">
-        <line x1="60" y1="54" x2="148" y2="54" stroke="#2D7A55" stroke-width="2.5"/>
+        <line x1="60" y1="54" x2="148" y2="54" style="stroke:var(--obs-ruby-deep)" stroke-width="2"/>
       </g>
-      <text x="152" y="58" font-size="8" fill="#2D7A55" text-anchor="end" id="err-with-tb-val">±2s</text>
-      <text x="80" y="80" text-anchor="middle" font-size="8" fill="#4A5568">(Mỗi vị trí đo 30 giây)</text>
-      <text x="80" y="92" text-anchor="middle" font-size="7" fill="#B8893C">Tourbillon giảm 4x sai số</text>
+      <text x="152" y="58" font-size="8" style="fill:var(--obs-ruby-deep)" text-anchor="end" id="err-with-tb-val">±2s</text>
+      <text x="80" y="80" text-anchor="middle" font-size="8" style="fill:var(--ig-label)">(Mỗi vị trí đo 30 giây)</text>
+      <text x="80" y="92" text-anchor="middle" font-size="7" style="fill:var(--obs-brass-deep)">Tourbillon giảm 4x sai số</text>
     </g>
 
     <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)"></text>
     </g>
   </svg>
 
@@ -274,36 +296,3 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     </p>
   </div>
 </div>
-
-<style>
-  [data-explanation] [data-anim] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-explanation] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function initExplanation() {
-    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cards.forEach((c) => c.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    cards.forEach((c) => obs.observe(c));
-    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
-  }
-  initExplanation();
-</script>

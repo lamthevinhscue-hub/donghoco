@@ -41,117 +41,138 @@ const cities = [
 
 <MechanismAnimation label="GMT — Hiển thị múi giờ thứ hai (24h hand)" data-mech-step-id="gmt">
   <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="gmt-svg" aria-hidden="true" focusable="false">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <!-- ====== VẬT LIỆU (token --obs-*/--ig-* — tự đổi theo .dark) ====== -->
+    <defs>
+      <!-- Mặt số: radial rất nhẹ tạo chiều sâu — đọc giờ vẫn là ưu tiên, không kim loại hóa kim -->
+      <radialGradient id="gmtDial" cx="0.5" cy="0.42" r="0.8">
+        <stop offset="0" style="stop-color:var(--ig-bg)" />
+        <stop offset="1" style="stop-color:var(--ig-bg-soft)" />
+      </radialGradient>
+      <!-- Thép: vạch giờ, khung -->
+      <linearGradient id="gmtSteel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
+      </linearGradient>
+      <!-- Rubi: kim giây (màu đỏ nghĩa đã có) -->
+      <radialGradient id="gmtRuby" cx="0.35" cy="0.3" r="0.9">
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-ruby)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
+      </radialGradient>
+    </defs>
+
+    <text style="fill:var(--ig-text)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
       3 thời gian cùng lúc: Giờ địa phương • Giờ nhà (kim 24h) • Giờ thứ 3 (bezel)
     </text>
 
     <!-- ====== ĐỒNG HỒ GMT (mặt chính) ====== -->
     <g id="gmt-watch" transform="translate(300, 230)">
-      <!-- Vòng bezel 24 giờ (xoay được) -->
+      <!-- Vòng bezel 24 giờ (xoay được) — graphite, viền brass là bao chính -->
       <g id="bezel-group" data-part="bezel" data-name-vi="Vòng bezel 24 giờ" data-name-en="24h rotating bezel" transform="rotate(0)">
-        <circle r="155" fill="#1F2D3D" stroke="#B8893C" stroke-width="2"/>
-        <!-- Vạch 24 giờ trên bezel -->
-        <g stroke="#B8893C" stroke-width="1">
+        <circle r="155" style="fill:var(--obs-graphite);stroke:var(--obs-brass)" stroke-width="2"/>
+        <!-- Vạch 24 giờ trên bezel — chi tiết 1 / vạch phụ 0.5 -->
+        <g style="stroke:var(--obs-brass)" stroke-width="1">
           {Array.from({ length: 24 }).map((_, i) => {
             const a = (i * 360) / 24;
             const rad = (a * Math.PI) / 180;
             const r1 = 145, r2 = 155;
             const isMajor = i % 6 === 0;
-            return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * r2} y2={Math.sin(rad) * r2} stroke-width={isMajor ? 2 : 0.8}/>;
+            return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * r2} y2={Math.sin(rad) * r2} stroke-width={isMajor ? 1 : 0.5}/>;
           })}
         </g>
-        <!-- Số 24h (đỏ cho ban đêm, xanh cho ban ngày) -->
+        <!-- Số 24h (đỏ cho ban đêm, xanh cho ban ngày — màu nghĩa giữ nguyên) -->
         {Array.from({ length: 24 }).map((_, i) => {
           const a = (i * 360) / 24;
           const rad = (a * Math.PI) / 180;
           const isNight = i >= 18 || i < 6;
-          const color = isNight ? '#9B2C2C' : '#3182CE';
+          const fill = isNight ? 'var(--ig-rubi)' : 'var(--obs-steel-soft)';
           const num = i === 0 ? '24' : String(i);
-          return <text x={Math.cos(rad) * 135} y={Math.sin(rad) * 135 + 4} text-anchor="middle" font-size="11" fill={color} font-weight={i % 6 === 0 ? 'bold' : 'normal'}>{num}</text>;
+          return <text x={Math.cos(rad) * 135} y={Math.sin(rad) * 135 + 4} text-anchor="middle" font-size="11" style={`fill:${fill}`} font-weight={i % 6 === 0 ? 'bold' : 'normal'}>{num}</text>;
         })}
       </g>
 
-      <!-- Mặt đồng hồ chính -->
-      <circle r="125" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="3" data-part="dial" data-name-vi="Mặt đồng hồ" data-name-en="Watch dial"/>
-      <!-- Vạch 12 giờ -->
-      <g stroke="#1F2D3D" stroke-width="1.5">
+      <!-- Mặt đồng hồ chính — radial nhẹ, nét bao 2px -->
+      <circle r="125" fill="url(#gmtDial)" style="stroke:var(--obs-steel-deep)" stroke-width="2" data-part="dial" data-name-vi="Mặt đồng hồ" data-name-en="Watch dial"/>
+      <!-- Vạch 12 giờ — chi tiết 1 / vạch phụ 0.5 -->
+      <g style="stroke:var(--ig-text)" stroke-width="1">
         {Array.from({ length: 60 }).map((_, i) => {
           const a = (i * 360) / 60 - 90;
           const rad = (a * Math.PI) / 180;
           const isMajor = i % 5 === 0;
           const r1 = isMajor ? 110 : 115;
-          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 122} y2={Math.sin(rad) * 122} stroke-width={isMajor ? 2.5 : 1}/>;
+          return <line x1={Math.cos(rad) * r1} y1={Math.sin(rad) * r1} x2={Math.cos(rad) * 122} y2={Math.sin(rad) * 122} stroke-width={isMajor ? 1 : 0.5}/>;
         })}
       </g>
       <!-- Số 12 giờ -->
       {[12, 3, 6, 9].map((n, i) => {
         const a = (i * 90) - 90;
         const rad = (a * Math.PI) / 180;
-        return <text x={Math.cos(rad) * 95} y={Math.sin(rad) * 95 + 6} text-anchor="middle" font-size="18" fill="#1F2D3D" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
+        return <text x={Math.cos(rad) * 95} y={Math.sin(rad) * 95 + 6} text-anchor="middle" font-size="18" style="fill:var(--ig-text)" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
       })}
 
-      <!-- ====== KIM ====== -->
+      <!-- ====== KIM (giữ phẳng tối ưu để đọc giờ — không kim loại hóa) ====== -->
       <!-- Kim giờ (12h, ngắn, dày) -->
       <g id="hour-hand" data-part="hour-hand" data-name-vi="Kim giờ (giờ địa phương)" data-name-en="Hour hand (local time)">
-        <line x1="0" y1="10" x2="0" y2="-60" stroke="#1F2D3D" stroke-width="5" stroke-linecap="round"/>
+        <line x1="0" y1="10" x2="0" y2="-60" style="stroke:var(--ig-text)" stroke-width="5" stroke-linecap="round"/>
       </g>
       <!-- Kim phút (dài, mỏng hơn) -->
       <g id="minute-hand" data-part="minute-hand" data-name-vi="Kim phút" data-name-en="Minute hand">
-        <line x1="0" y1="15" x2="0" y2="-90" stroke="#1F2D3D" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="15" x2="0" y2="-90" style="stroke:var(--ig-text)" stroke-width="3" stroke-linecap="round"/>
       </g>
-      <!-- Kim giây (mỏng nhất, đỏ) -->
+      <!-- Kim giây (mỏng nhất, đỏ rubi) -->
       <g id="second-hand">
-        <line x1="0" y1="20" x2="0" y2="-105" stroke="#9B2C2C" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="0" cy="-95" r="3" fill="#9B2C2C"/>
+        <line x1="0" y1="20" x2="0" y2="-105" stroke="url(#gmtRuby)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="0" cy="-95" r="3" fill="url(#gmtRuby)"/>
       </g>
-      <!-- KIM GMT (24h, màu xanh/lục, có mũi tên tam giác) -->
+      <!-- KIM GMT (24h) — điểm nhấn brass VỪA ĐỦ, phẳng không gradient kim loại -->
       <g id="gmt-hand" data-part="gmt-hand" data-name-vi="Kim GMT (giờ nhà, 24h)" data-name-en="GMT hand (home time, 24h)">
-        <line x1="0" y1="15" x2="0" y2="-110" stroke="#B8893C" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="0,-115 -5,-105 5,-105" fill="#B8893C"/>
-        <circle cx="0" cy="-50" r="6" fill="#B8893C"/>
-        <text x="0" y="-47" text-anchor="middle" font-size="7" fill="#FAF7F2" font-weight="bold">24</text>
+        <line x1="0" y1="15" x2="0" y2="-110" style="stroke:var(--obs-brass)" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="0,-115 -5,-105 5,-105" style="fill:var(--obs-brass)"/>
+        <circle cx="0" cy="-50" r="6" style="fill:var(--obs-brass)"/>
+        <text x="0" y="-47" text-anchor="middle" font-size="7" style="fill:var(--obs-graphite)" font-weight="bold">24</text>
       </g>
 
       <!-- Tâm -->
-      <circle r="6" fill="#1F2D3D"/>
-      <circle r="2.5" fill="#B8893C"/>
+      <circle r="6" style="fill:var(--ig-text)"/>
+      <circle r="2.5" style="fill:var(--obs-brass)"/>
     </g>
 
     <!-- ====== MŨI TÊN CHỈ HƯỚNG TRỜI (ngày/đêm) ====== -->
     <g transform="translate(300, 230)">
       <!-- Nửa trên (ban ngày) - xanh nhạt -->
-      <path d="M -125 0 A 125 125 0 0 1 125 0" fill="#3182CE" opacity="0.05"/>
+      <path d="M -125 0 A 125 125 0 0 1 125 0" style="fill:var(--obs-steel)" opacity="0.05"/>
       <!-- Nửa dưới (ban đêm) - đỏ nhạt -->
-      <path d="M -125 0 A 125 125 0 0 0 125 0" fill="#9B2C2C" opacity="0.05"/>
+      <path d="M -125 0 A 125 125 0 0 0 125 0" style="fill:var(--obs-ruby)" opacity="0.05"/>
     </g>
 
     <!-- ====== HIỂN THỊ 3 THỜI GIAN ====== -->
     <g id="time-readout" transform="translate(0, 410)">
       <!-- Giờ địa phương -->
       <g transform="translate(80, 0)">
-        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
-        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ ĐỊA PHƯƠNG</text>
-        <text id="local-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="bold">10:30</text>
+        <rect x="-65" y="0" width="130" height="44" rx="6" style="fill:var(--obs-graphite)"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-soft)">GIỜ ĐỊA PHƯƠNG</text>
+        <text id="local-time" x="0" y="35" text-anchor="middle" font-size="14" style="fill:var(--obs-ivory)" font-weight="bold">10:30</text>
       </g>
       <!-- Giờ nhà (kim 24h) -->
       <g transform="translate(300, 0)">
-        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
-        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ NHÀ (KIM 24H)</text>
-        <text id="home-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">15:30</text>
+        <rect x="-65" y="0" width="130" height="44" rx="6" style="fill:var(--obs-graphite)"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-soft)">GIỜ NHÀ (KIM 24H)</text>
+        <text id="home-time" x="0" y="35" text-anchor="middle" font-size="14" style="fill:var(--obs-brass-soft)" font-weight="bold">15:30</text>
       </g>
       <!-- Giờ thứ 3 (bezel) -->
       <g transform="translate(520, 0)">
-        <rect x="-65" y="0" width="130" height="44" rx="6" fill="#1F2D3D"/>
-        <text x="0" y="15" text-anchor="middle" font-size="8" fill="#B8893C">GIỜ THỨ 3 (BEZEL)</text>
-        <text id="third-time" x="0" y="35" text-anchor="middle" font-size="14" fill="#3182CE" font-weight="bold">--:--</text>
+        <rect x="-65" y="0" width="130" height="44" rx="6" style="fill:var(--obs-graphite)"/>
+        <text x="0" y="15" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-soft)">GIỜ THỨ 3 (BEZEL)</text>
+        <text id="third-time" x="0" y="35" text-anchor="middle" font-size="14" style="fill:var(--obs-steel-soft)" font-weight="bold">--:--</text>
       </g>
     </g>
 
     <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="200" height="40" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="100" y="17" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="100" y="32" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)"></text>
     </g>
   </svg>
 
@@ -321,36 +342,3 @@ const cities = [
     </p>
   </div>
 </div>
-
-<style>
-  [data-explanation] [data-anim] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-explanation] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function initExplanation() {
-    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cards.forEach((c) => c.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    cards.forEach((c) => obs.observe(c));
-    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
-  }
-  initExplanation();
-</script>

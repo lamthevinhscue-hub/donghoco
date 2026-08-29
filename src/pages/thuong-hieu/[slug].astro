@@ -7,6 +7,7 @@
 // - Khối 5: tự động kéo các mẫu iconic có `brand` khớp từ collection mauIconic.
 // =============================================================================
 import BrandLayout from '../../layouts/BrandLayout.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
@@ -78,6 +79,23 @@ const sameTierBrands = entries
     founded: (e.data as any).founded,
     logo: (e.data as any).logo,
   }));
+
+// ====== Liên kết biên tập — khối "Kết nối cùng chủ đề" ======
+// Nguồn: relatedMechanisms trong frontmatter thương hiệu (do biên tập chọn).
+// Bài cơ chế không tồn tại ở ngôn ngữ này thì bỏ qua.
+const coCheEntries = await getEntriesByLang('coChe', lang);
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedMechanisms ?? []) {
+  const mech = coCheEntries.find((x) => getSlug(x) === rm.slug);
+  if (mech) {
+    editorialLinks.push({
+      href: `/co-che/${rm.slug}`,
+      title: (mech.data as any).title,
+      kind: 'Cơ chế',
+      relation: rm.relation,
+    });
+  }
+}
 ---
 
 <BrandLayout
@@ -90,4 +108,5 @@ const sameTierBrands = entries
   sameTierBrands={sameTierBrands}
 >
   <Content />
+  <RelatedEditorial links={editorialLinks} />
 </BrandLayout>

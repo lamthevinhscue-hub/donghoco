@@ -2,6 +2,7 @@
 // Trang chi tiết: MẪU ICONIC
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import SpecTable from '../../components/SpecTable.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
@@ -119,6 +120,24 @@ if (thirdCandidate) {
     featureYear: ed.year ? String(ed.year) : undefined,
   });
 }
+
+// ====== Liên kết biên tập — khối "Kết nối cùng chủ đề" ======
+// Nguồn: relatedModels / relatedMechanisms trong frontmatter (do biên tập chọn,
+// mỗi liên kết kèm nhãn quan hệ). Bài đích không tồn tại ở ngôn ngữ này thì bỏ qua.
+const coCheEntries = await getEntriesByLang('coChe', lang);
+const resolveTitle = (collection: any[], targetSlug: string) => {
+  const e = collection.find((x) => getSlug(x) === targetSlug);
+  return e ? (e.data as any).title : null;
+};
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedModels ?? []) {
+  const t = resolveTitle(entries, rm.slug);
+  if (t) editorialLinks.push({ href: `/mau-iconic/${rm.slug}`, title: t, kind: 'Mẫu iconic', relation: rm.relation });
+}
+for (const rm of (data as any).relatedMechanisms ?? []) {
+  const t = resolveTitle(coCheEntries, rm.slug);
+  if (t) editorialLinks.push({ href: `/co-che/${rm.slug}`, title: t, kind: 'Cơ chế', relation: rm.relation });
+}
 ---
 
 <ArticleLayout
@@ -136,4 +155,5 @@ if (thirdCandidate) {
 >
   <SpecTable slot="spec" rows={specRows} />
   <Content />
+  <RelatedEditorial links={editorialLinks} />
 </ArticleLayout>

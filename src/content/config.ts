@@ -34,6 +34,14 @@ const baseFields = {
   updated: z.string().or(z.date()).optional(),
 };
 
+// Liên kết biên tập: một bài dẫn tới bài khác kèm nhãn giải thích mối quan hệ
+// (VD: "Cùng thiết kế bởi Gérald Genta"). Khác với gợi ý tự động theo category —
+// đây là liên kết do biên tập chọn, hiển thị trong khối "Kết nối cùng chủ đề".
+const relatedLink = z.object({
+  slug: z.string(),     // Slug của bài đích (theo collection tương ứng)
+  relation: z.string(), // Nhãn quan hệ — một câu ngắn tiếng Việt giải thích lý do
+});
+
 // --- Trụ cột 1: Thương hiệu ---
 const thuongHieu = defineCollection({
   type: 'content',
@@ -81,6 +89,8 @@ const thuongHieu = defineCollection({
       philosophy_label: z.string().optional(),      // Nhãn tùy chỉnh cho dòng "Triết lý" (VD: "Vật liệu đặc trưng" của Chanel)
       collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
       featured_rank: z.number().optional(),         // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
+      // Liên kết biên tập (tùy chọn): dẫn tới các bài cơ chế liên quan chuyên môn của hãng.
+      relatedMechanisms: z.array(relatedLink).default([]),
     }),
 });
 
@@ -107,6 +117,10 @@ const mauIconic = defineCollection({
     power_reserve: z.string().optional(),           // Trữ cót (VD: "70 giờ")
     water_resistance: z.string().optional(),        // Chống nước (VD: "300m")
     featured_rank: z.number().optional(),           // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
+    // Liên kết biên tập (tùy chọn): dẫn tới mẫu iconic / cơ chế liên quan kèm nhãn quan hệ.
+    // Trống = bài không có liên kết biên tập, khối "Kết nối cùng chủ đề" không hiện.
+    relatedModels: z.array(relatedLink).default([]),      // → các bài mẫu iconic khác
+    relatedMechanisms: z.array(relatedLink).default([]),  // → các bài cơ chế (/co-che)
   }),
 });
 

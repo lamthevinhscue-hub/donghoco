@@ -1,0 +1,59 @@
+---
+// =============================================================================
+// RELATED EDITORIAL — khối "Kết nối cùng chủ đề"
+// =============================================================================
+// Hiển thị các liên kết biên tập do người viết chọn trong frontmatter
+// (relatedModels / relatedMechanisms), mỗi liên kết kèm nhãn giải thích
+// mối quan hệ — khác với khối "Bài liên quan" gợi ý tự động theo category.
+//
+// Thiết kế: gọn, trắng–đen với nhấn kim loại (viền brass khi hover);
+// tương thích dark mode; mỗi liên kết là một <a> có vùng chạm ≥44px và
+// vòng focus rõ; không có animation tự chạy.
+// =============================================================================
+
+export interface EditorialLink {
+  href: string;     // Đường dẫn bài đích
+  title: string;    // Tên bài đích
+  kind: string;     // Loại bài: "Mẫu iconic" | "Cơ chế"
+  relation: string; // Nhãn quan hệ do biên tập viết
+}
+
+interface Props {
+  links: EditorialLink[];
+}
+
+const { links } = Astro.props;
+---
+
+{links.length > 0 && (
+  <section class="mt-10 not-prose" aria-labelledby="related-editorial-heading">
+    <h2
+      id="related-editorial-heading"
+      class="font-serif text-xl text-navy dark:text-dark-text"
+    >
+      Kết nối cùng chủ đề
+    </h2>
+    <p class="mt-1 text-xs text-ink-soft dark:text-dark-text-soft">
+      Liên kết do biên tập chọn — mỗi dòng ghi rõ lý do hai bài gặp nhau.
+    </p>
+
+    <ul class="mt-4 space-y-2">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="flex min-h-11 flex-wrap items-baseline gap-x-2 gap-y-0.5 rounded-md border border-cream-dark bg-white px-4 py-2.5 transition-colors hover:border-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass"
+          >
+            <span class="font-medium text-navy dark:text-dark-text">{link.title}</span>
+            <span class="text-xs uppercase tracking-wider text-ink-soft/80 dark:text-dark-text-soft/70">
+              {link.kind}
+            </span>
+            <span class="w-full text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+              {link.relation}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

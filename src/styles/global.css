@@ -74,6 +74,42 @@
     --ig-rubi: #E08383;        /* = token rubi tối — cùng tông đỏ, sáng hơn */
   }
 
+  /* =====================================================================
+     BỘ BIẾN "HOROLOGICAL OBSERVATORY" — hệ thiết kế infographic Giai đoạn 1
+     =====================================================================
+     Phong cách Đài quan sát cơ khí: graphite/trắng ngà, thép xước, đồng
+     (brass), chân kính ruby. Dùng cho các infographic hướng dẫn từng bước
+     (bắt đầu từ Bộ thoát Swiss lever) — không thay thế --ig-* ở trên.
+     Quy ước: mỗi chất liệu có ba nấc (mặc định / -soft sáng / -deep đậm)
+     để dựng chuyển sắc; --obs-lume CHỈ dùng khi có ý nghĩa dạ quang thật.
+     Chế tối nâng độ sáng theo cùng họ màu, không đổi sắc.
+     ===================================================================== */
+  :root {
+    --obs-graphite: #111418;   /* nền mực, bóng đổ, tooltip */
+    --obs-ivory: #F4F2ED;      /* trắng ngà — vùng sáng kính lúp */
+    --obs-steel: #7D8791;      /* thép xước — bánh răng, dây tóc */
+    --obs-steel-soft: #9AA5AF; /* thép bắt sáng mép trên */
+    --obs-steel-deep: #4A545F; /* thép tối mép dưới */
+    --obs-brass: #B89254;      /* đồng — đường truyền năng lượng, nhấn */
+    --obs-brass-soft: #D9BC8B; /* đồng phản chiếu */
+    --obs-brass-deep: #8A6A35; /* đồng tối */
+    --obs-ruby: #A33B3B;       /* chân kính ruby — màu nghĩa */
+    --obs-ruby-soft: #C85858;  /* ruby bắt sáng */
+    --obs-ruby-deep: #741F1F;  /* ruby tối rìa */
+    --obs-lume: #B8E8CE;       /* dạ quang — chỉ khi đúng ý nghĩa */
+  }
+  .dark {
+    --obs-steel: #A6B1BD;
+    --obs-steel-soft: #C2CBD4;
+    --obs-steel-deep: #717D89;
+    --obs-brass: #D9BC8B;
+    --obs-brass-soft: #E6D0A5;
+    --obs-brass-deep: #B08F55;
+    --obs-ruby: #C86A6A;
+    --obs-ruby-soft: #F0AFAF;
+    --obs-ruby-deep: #9C3A3A;
+  }
+
 
   /* Thiết lập font chữ mặc định cho toàn trang */
   html {

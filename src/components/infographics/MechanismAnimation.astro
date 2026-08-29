@@ -1,120 +1,215 @@
 ---
 // =============================================================================
-// COMPONENT MechanismAnimation — wrapper điều khiển cho hoạt ảnh cơ chế
+// COMPONENT MechanismAnimation — khung hướng dẫn + điều khiển hoạt ảnh cơ chế
 // =============================================================================
-// Cung cấp: nút Play/Pause, thanh trượt tốc độ, nút "từng bước một" và nút
-// "Đặt lại". Phần SVG cụ thể (escape wheel, pallet fork, balance wheel...)
-// được truyền vào qua slot, kèm một hàm JS điều khiển chuyển động.
+// HAI CHẾ ĐỘ (tự chọn theo props, không cần config):
+//   1) CŨ (mặc định — 17 infographic hiện có): label + slot SVG + slot script.
+//      Markup và API giữ nguyên để không làm hỏng component cũ.
+//   2) ENHANCED (khi truyền prop `steps`): bố cục hướng dẫn gồm tiêu đề + mô tả,
+//      vùng minh họa, hàng nút (Bước trước / Phát-Tạm dừng / Bước sau / Đặt lại),
+//      đếm "Bước x/n" + thanh tiến trình, khu giải thích bước aria-live và
+//      slot name="panel" cho bảng tra bộ phận của component con.
 //
-// Vòng đời hoạt ảnh (nguyên tắc):
+// Component con (chế enhanced) đăng ký QUA slot script:
+//   window.__mechGuided[id] = { apply(stepIndex) }  — đặt tư thế SVG cho bước i
+//   guided.pause do khung gán — component con gọi để dừng phát khi người dùng
+//   chọn bộ phận. Chế cũ vẫn dùng window.__mechSteps[id] / __mechResets[id].
+//
+// Vòng đời hoạt ảnh (nguyên tắc chung hai chế độ):
 //   - KHÔNG tự phát — chờ người dùng bấm Phát.
-//   - Khi component ra khỏi viewport hoặc tab bị ẩn → hủy requestAnimationFrame.
-//   - Khi quay lại viewport / tab hiện → chỉ chạy tiếp nếu người dùng đang
-//     ở trạng thái "phát" (đã chủ động bấm Phát trước đó).
-//   - "Từng bước" luôn dừng hoạt ảnh trước khi tiến một nhịp.
-//   - "Đặt lại" dừng hoạt ảnh rồi đưa hình về trạng thái ban đầu.
+//   - Ra khỏi viewport hoặc tab ẩn → hủy requestAnimationFrame; quay lại chỉ
+//     chạy tiếp nếu người dùng vẫn ở trạng thái "phát".
+//   - Chỉ MỘT vòng lặp rAF duy nhất cho mỗi component.
 //
-// Trên mobile, tên các bộ phận (data-part / data-name-vi) được xuất ra
-// legend chip bên dưới SVG — không phụ thuộc hover chuột.
-//
-// Cách dùng (trong các component cụ thể như Escapement.astro):
-//   <MechanismAnimation>
-//     <!-- SVG với các id cụ thể -->
-//     <svg aria-hidden="true" focusable="false">...<g id="escape-wheel">...</g></svg>
-//     <div slot="script">
-//       // Hàm animate mỗi frame
-//       function step(elapsed) { ... }
-//     </div>
-//   </MechanismAnimation>
-//
-// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.2 — đây là template tái sử dụng.
+// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.2 + Giai đoạn 1 (Horological Observatory).
 // =============================================================================
 
-interface Props {
-  label?: string;  // Nhãn mô tả (VD: "Bộ thoát Swiss lever")
-  'data-mech-step-id'?: string;  // ID đăng ký hàm step (VD: "tourbillon") — phải chuyển lên div gốc
+interface Step {
+  t: string;   // tiêu đề bước (tiếng Việt)
+  e?: string;  // tên tiếng Anh (ngắn, hiển thị phụ)
+  d: string;   // mô tả bước
 }
 
-const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = Astro.props;
+interface Props {
+  label?: string;                       // Nhãn mô tả (VD: "Bộ thoát Swiss lever")
+  desc?: string;                        // Mô tả ngắn dưới tiêu đề (chế enhanced)
+  steps?: Step[];                       // Có steps → bật chế enhanced
+  'data-mech-step-id'?: string;         // ID đăng ký hàm (VD: "escapement")
+}
+
+const {
+  label = 'Hoạt ảnh cơ chế',
+  desc = '',
+  steps = [],
+  'data-mech-step-id': mechStepId,
+} = Astro.props;
+
+const enhanced = steps.length > 0;
+const stepsJson = JSON.stringify(steps);
 ---
 
-<div class="mechanism-animation my-8" data-mechanism data-mech-step-id={mechStepId}>
-  <!-- Tiêu đề + điều khiển -->
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-4">
-    <span class="text-sm font-medium text-navy dark:text-dark-text">{label}</span>
-
-    <div class="flex flex-wrap items-center gap-2">
-      <!-- Nút Play/Pause -->
-      <button
-        type="button"
-        class="play-btn flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
-        aria-label="Phát hoạt ảnh"
-        aria-pressed="false"
-      >
-        <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </button>
-
-      <!-- Nút từng bước -->
-      <button
-        type="button"
-        class="step-btn flex min-h-11 items-center gap-1 rounded-full border border-navy px-4 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:text-dark-text"
-        aria-label="Từng bước một"
-      >
-        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
-        Từng bước
-      </button>
-
-      <!-- Nút đặt lại -->
-      <button
-        type="button"
-        class="reset-btn flex min-h-11 items-center gap-1 rounded-full border border-cream-dark dark:border-dark-border px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
-        aria-label="Đặt lại hoạt ảnh về trạng thái đầu"
-      >
-        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/></svg>
-        Đặt lại
-      </button>
-
-      <!-- Thanh trượt tốc độ -->
-      <div class="flex min-h-11 items-center gap-2">
-        <span class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Tốc độ</span>
-        <input
-          type="range"
-          min="0.1"
-          max="1"
-          step="0.05"
-          value="0.2"
-          class="speed-slider w-24 cursor-pointer appearance-none bg-transparent"
-          aria-label="Tốc độ hoạt ảnh"
-        />
-        <span class="speed-label w-8 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">0.2x</span>
+<div
+  class="mechanism-animation my-8"
+  data-mechanism
+  data-mech-step-id={mechStepId}
+  data-enhanced={enhanced ? 'true' : undefined}
+  data-steps={enhanced ? stepsJson : undefined}
+>
+  {enhanced ? (
+    <>
+      <!-- Tiêu đề + mô tả ngắn -->
+      <div class="mb-4">
+        <p class="font-semibold text-navy dark:text-dark-text">{label}</p>
+        {desc && <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">{desc}</p>}
       </div>
-    </div>
-  </div>
 
-  <!-- Khu vực SVG (slot) -->
-  <div class="svg-stage rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-6">
-    <slot />
-  </div>
+      <!-- Vùng minh họa chính -->
+      <div class="svg-stage rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-6">
+        <slot />
+      </div>
 
-  <!-- Legend tên bộ phận — JS sinh từ data-part. Hiện thị giác trên mobile (thay tooltip
-       hover); trên desktop thu thành sr-only để trình đọc màn hình vẫn đọc được tên
-       (SVG chính đánh dấu aria-hidden nên đây là nguồn text thay thế). -->
-  <div class="mech-legend mt-3 hidden flex-wrap gap-2 md:sr-only"></div>
+      <!-- Điều khiển: Bước trước / Phát / Bước sau / Đặt lại + đếm bước -->
+      <div class="mt-4 flex flex-wrap items-center gap-2 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-3">
+        <button
+          type="button"
+          class="prev-btn flex h-11 w-11 items-center justify-center rounded-full border border-navy text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          aria-label="Bước trước"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
+        </button>
+
+        <button
+          type="button"
+          class="play-btn flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:hover:bg-dark-brass"
+          aria-label="Phát hoạt ảnh"
+          aria-pressed="false"
+        >
+          <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+
+        <button
+          type="button"
+          class="next-btn flex h-11 w-11 items-center justify-center rounded-full border border-navy text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          aria-label="Bước tiếp theo"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+        </button>
+
+        <button
+          type="button"
+          class="reset-btn flex min-h-11 items-center gap-1 rounded-full border border-cream-dark px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          aria-label="Đặt lại về bước đầu"
+        >
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/></svg>
+          Đặt lại
+        </button>
+
+        <!-- Đếm bước + thanh tiến trình (thanh chỉ là hình ảnh, số bước đã là chữ) -->
+        <div class="ml-auto flex min-h-11 flex-col justify-center">
+          <span class="step-counter text-xs font-medium text-navy dark:text-dark-text">Bước 1/{steps.length}</span>
+          <div class="mt-1 h-1.5 w-28 overflow-hidden rounded-full bg-cream-dark dark:bg-dark-border" aria-hidden="true">
+            <div class="step-bar h-full rounded-full bg-brass transition-[width] duration-300" style={`width:${100 / steps.length}%`}></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khu giải thích bước hiện tại + bảng tra bộ phận (component con) -->
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <div class="step-live min-w-0 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" aria-live="polite">
+          <p class="step-title text-sm font-semibold text-navy dark:text-dark-text">{steps[0].t}
+            <span class="step-en text-xs font-normal text-ink-soft dark:text-dark-text-soft">{steps[0].e ? `· ${steps[0].e}` : ''}</span>
+          </p>
+          <p class="step-desc mt-1 text-sm text-ink-soft dark:text-dark-text-soft">{steps[0].d}</p>
+        </div>
+        <slot name="panel" />
+      </div>
+
+      <!-- Danh sách chọn bộ phận — NÚT HTML THẬT, luôn hiện, là phương thức
+           bàn phím chính (SVG tổng thể là hình minh họa, không chứa control) -->
+      <div class="mech-legend mt-3 flex flex-wrap gap-2"></div>
+    </>
+  ) : (
+    <>
+      <!-- Tiêu đề + điều khiển (chế cũ — giữ nguyên) -->
+      <div class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-4">
+        <span class="text-sm font-medium text-navy dark:text-dark-text">{label}</span>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Nút Play/Pause -->
+          <button
+            type="button"
+            class="play-btn flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass dark:hover:bg-dark-brass"
+            aria-label="Phát hoạt ảnh"
+            aria-pressed="false"
+          >
+            <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+
+          <!-- Nút từng bước -->
+          <button
+            type="button"
+            class="step-btn flex min-h-11 items-center gap-1 rounded-full border border-navy px-4 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:text-dark-text"
+            aria-label="Từng bước một"
+          >
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+            Từng bước
+          </button>
+
+          <!-- Nút đặt lại -->
+          <button
+            type="button"
+            class="reset-btn flex min-h-11 items-center gap-1 rounded-full border border-cream-dark dark:border-dark-border px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+            aria-label="Đặt lại hoạt ảnh về trạng thái đầu"
+          >
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/></svg>
+            Đặt lại
+          </button>
+
+          <!-- Thanh trượt tốc độ -->
+          <div class="flex min-h-11 items-center gap-2">
+            <span class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Tốc độ</span>
+            <input
+              type="range"
+              min="0.1"
+              max="1"
+              step="0.05"
+              value="0.2"
+              class="speed-slider w-24 cursor-pointer appearance-none bg-transparent"
+              aria-label="Tốc độ hoạt ảnh"
+            />
+            <span class="speed-label w-8 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">0.2x</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khu vực SVG (slot) -->
+      <div class="svg-stage rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-6">
+        <slot />
+      </div>
+    </>
+  )}
+
+  <!-- Legend tên bộ phận (chế cũ) — JS sinh từ data-part: hiện dưới md,
+       sr-only trên desktop (text thay thế cho trình đọc màn hình) -->
+  {enhanced ? null : <div class="mech-legend mt-3 hidden flex-wrap gap-2 md:sr-only"></div>}
 
   <!-- Khu vực script điều khiển (slot ẩn) -->
   <slot name="script" />
 
   <!-- Gợi ý tương tác -->
   <p class="mt-3 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-    Chạm hoặc rê chuột vào từng bộ phận để xem tên • Bấm Phát để xem hoạt ảnh
+    {enhanced
+      ? 'Chọn bộ phận bằng nút tên bên dưới hình hoặc chạm trực tiếp vào hình • Bấm Phát để xem chu trình từng bước'
+      : 'Chạm hoặc rê chuột vào từng bộ phận để xem tên • Bấm Phát để xem hoạt ảnh'}
   </p>
 </div>
 
 <style>
   /*
-    Thanh trượt tốc độ: input cao 44px (vùng bấm chuẩn), track mảnh 6px màu
-    token --c-line (tự đổi theo dark mode), núm tròn 20px màu alloy.
+    Thanh trượt tốc độ (chế cũ): input cao 44px (vùng bấm chuẩn), track mảnh
+    6px màu token --c-line (tự đổi theo dark mode), núm tròn 20px màu alloy.
   */
   .speed-slider {
     height: 2.75rem;
@@ -149,53 +244,60 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
     cursor: pointer;
     border: 2px solid rgb(var(--c-surface-raised));
   }
+
+  /* Giảm chuyển động: thanh tiến trình đổi tức thì, không trượt */
+  @media (prefers-reduced-motion: reduce) {
+    .step-bar {
+      transition: none !important;
+    }
+  }
 </style>
 
 <script>
   // =============================================================================
-  // BỘ ĐIỀU KHIỂN HOẠT ẢNH — dùng chung cho mọi MechanismAnimation trên trang
+  // BỘ ĐIỀU KHIỂN — dùng chung mọi MechanismAnimation trên trang
   // =============================================================================
-  // Cung cấp API chung (play/pause/tốc độ/từng bước/đặt lại) cho các SVG cụ thể.
-  // Mỗi instance tìm phần tử [data-mechanism], rồi gọi callback
-  // step(deltaMs, accumulatedMs) mà component con cung cấp qua window.__mechSteps.
-  // Component con có thể đăng ký thêm window.__mechResets[id] để nút "Đặt lại"
-  // hồi phục cả trạng thái riêng (VD: thanh trữ cót về 0%).
+  // Chế cũ (không có data-enhanced): play/pause/tốc độ/từng bước/đặt lại gọi
+  // window.__mechSteps[id](delta, accumulated) — giữ nguyên như trước.
+  // Chế enhanced (data-enhanced="true"): prev/next/play/reset điều khiển bước
+  // hiện tại, gọi window.__mechGuided[id].apply(i); phát tự động = mỗi bước
+  // dừng STEP_MS rồi sang bước kế (một vòng rAF duy nhất, hủy khi ẩn).
   // =============================================================================
 
   document.querySelectorAll<HTMLElement>('[data-mechanism]').forEach((root) => {
     const playBtn = root.querySelector<HTMLButtonElement>('.play-btn');
-    const stepBtn = root.querySelector<HTMLButtonElement>('.step-btn');
     const resetBtn = root.querySelector<HTMLButtonElement>('.reset-btn');
-    const slider = root.querySelector<HTMLInputElement>('.speed-slider');
-    const speedLabel = root.querySelector<HTMLElement>('.speed-label');
     const playIcon = root.querySelector('.play-icon');
     const pauseIcon = root.querySelector('.pause-icon');
     const legend = root.querySelector<HTMLElement>('.mech-legend');
-
-    let rafId: number | null = null;
-    let lastTime = 0;
-    let accumulated = 0;
-    let isPlaying = false;  // người dùng có đang ở trạng thái "phát" không
-    let inView = true;      // component có nằm trong viewport không
-    let speed = 0.2;
-
-    // Lấy hàm step từ registry (component con đăng ký qua data-mech-step-id)
     const stepId = root.dataset.mechStepId;
-    const stepFn = stepId && (window as any).__mechSteps?.[stepId];
 
-    if (!stepFn) return; // không có animation cụ thể thì thôi
-
-    // ---- Legend tên bộ phận (mobile) — nguồn cùng data-part với tooltip ----
+    // ---- Legend tên bộ phận — nguồn cùng data-part ----
+    // Chế enhanced: NÚT HTML thật (chọn bộ phận bằng bàn phím chính).
+    // Chế cũ: span thường (sr-only trên desktop — text thay thế).
     if (legend) {
+      const enhancedLegend = root.dataset.enhanced === 'true';
       const seen = new Set<string>();
       root.querySelectorAll<SVGElement>('[data-part][data-name-vi]').forEach((el) => {
         const vi = el.getAttribute('data-name-vi') || '';
         if (!vi || seen.has(vi)) return;
         seen.add(vi);
         const en = el.getAttribute('data-name-en') || '';
-        const chip = document.createElement('span');
-        chip.className =
-          'rounded-full border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1 text-sm text-ink dark:text-dark-text';
+        const key = el.getAttribute('data-part') || '';
+        let chip: HTMLElement;
+        if (enhancedLegend) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.partTarget = key;
+          btn.setAttribute('aria-pressed', 'false');
+          btn.className =
+            'min-h-11 rounded-full border border-cream-dark bg-white px-3 py-1 text-sm text-ink transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass';
+          chip = btn;
+        } else {
+          chip = document.createElement('span');
+          chip.className =
+            'rounded-full border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1 text-sm text-ink dark:text-dark-text';
+        }
         chip.textContent = en ? `${vi} · ${en}` : vi;
         legend.appendChild(chip);
       });
@@ -206,6 +308,170 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
         legend.classList.add('flex');
       }
     }
+
+    // ============================ CHẾ ENHANCED ==============================
+    if (root.dataset.enhanced === 'true') {
+      const prevBtn = root.querySelector<HTMLButtonElement>('.prev-btn');
+      const nextBtn = root.querySelector<HTMLButtonElement>('.next-btn');
+      const counter = root.querySelector<HTMLElement>('.step-counter');
+      const bar = root.querySelector<HTMLElement>('.step-bar');
+      const titleEl = root.querySelector<HTMLElement>('.step-title');
+      const enEl = root.querySelector<HTMLElement>('.step-en');
+      const descEl = root.querySelector<HTMLElement>('.step-desc');
+
+      let stepList: Array<{ t: string; e?: string; d: string }> = [];
+      try {
+        stepList = JSON.parse(root.dataset.steps || '[]');
+      } catch {
+        stepList = [];
+      }
+      const n = stepList.length;
+      if (!n) return; // không có dữ liệu bước → không điều khiển gì thêm
+
+      const guided = stepId
+        ? ((window as any).__mechGuided?.[stepId] as
+            | {
+                apply?: (i: number) => void;
+                pause?: () => void;
+                select?: (key: string) => void;
+                legendSync?: (key: string | null) => void;
+              }
+            | undefined)
+        : undefined;
+
+      let idx = 0;
+      let isPlaying = false; // người dùng có đang ở trạng thái "phát" không
+      let inView = true;     // component có nằm trong viewport không
+      let rafId: number | null = null;
+      let lastTime = 0;
+      let holdMs = 0;        // thời gian đã trôi trong bước hiện tại
+      const STEP_MS = 2600;  // mỗi bước dừng 2,6 giây khi phát tự động
+
+      const canRun = () => isPlaying && inView && !document.hidden;
+
+      function applyStep(i: number) {
+        idx = ((i % n) + n) % n; // vòng lặp: bước cuối → quay về bước 1
+        const s = stepList[idx];
+        if (counter) counter.textContent = `Bước ${idx + 1}/${n}`;
+        if (bar) bar.style.width = `${((idx + 1) / n) * 100}%`;
+        if (titleEl) titleEl.textContent = s.t;
+        if (enEl) enEl.textContent = s.e ? `· ${s.e}` : '';
+        if (descEl) descEl.textContent = s.d;
+        guided?.apply?.(idx);
+      }
+
+      function loop() {
+        const now = performance.now();
+        holdMs += now - lastTime;
+        lastTime = now;
+        if (holdMs >= STEP_MS) {
+          holdMs = 0;
+          applyStep(idx + 1);
+        }
+        if (canRun()) {
+          rafId = requestAnimationFrame(loop);
+        } else {
+          rafId = null;
+        }
+      }
+
+      function syncLoop() {
+        if (canRun()) {
+          if (rafId === null) {
+            lastTime = performance.now();
+            rafId = requestAnimationFrame(loop);
+          }
+        } else if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      }
+
+      function setPlaying(playing: boolean) {
+        isPlaying = playing;
+        playIcon?.classList.toggle('hidden', playing);
+        pauseIcon?.classList.toggle('hidden', !playing);
+        playBtn?.setAttribute('aria-pressed', String(playing));
+        playBtn?.setAttribute('aria-label', playing ? 'Tạm dừng hoạt ảnh' : 'Phát hoạt ảnh');
+        syncLoop();
+      }
+
+      playBtn?.addEventListener('click', () => setPlaying(!isPlaying));
+      prevBtn?.addEventListener('click', () => {
+        setPlaying(false);
+        applyStep(idx - 1);
+      });
+      nextBtn?.addEventListener('click', () => {
+        setPlaying(false);
+        applyStep(idx + 1);
+      });
+      resetBtn?.addEventListener('click', () => {
+        setPlaying(false);
+        holdMs = 0;
+        const resetFn = stepId && (window as any).__mechResets?.[stepId];
+        if (resetFn) resetFn();
+        applyStep(0);
+      });
+
+      // Component con gọi guided.pause() khi người dùng chọn bộ phận
+      if (guided) guided.pause = () => setPlaying(false);
+
+      // Nút chọn bộ phận (HTML thật) — phương thức bàn phím chính; chọn trực
+      // tiếp trên SVG sẽ gọi ngược guided.legendSync để đồng bộ aria-pressed
+      const legendBtns = Array.from(
+        root.querySelectorAll<HTMLButtonElement>('.mech-legend button')
+      );
+      const LEGEND_ON = ['border-brass', 'bg-brass/10', 'text-brass', 'dark:border-dark-brass', 'dark:text-dark-brass'];
+      const LEGEND_OFF = ['border-cream-dark', 'bg-white', 'text-ink', 'dark:border-dark-border', 'dark:bg-dark-surface', 'dark:text-dark-text'];
+      function setLegendSel(key: string | null) {
+        legendBtns.forEach((b) => {
+          const on = b.dataset.partTarget === key;
+          b.setAttribute('aria-pressed', String(on));
+          LEGEND_ON.forEach((c) => b.classList.toggle(c, on));
+          LEGEND_OFF.forEach((c) => b.classList.toggle(c, !on));
+        });
+      }
+      legendBtns.forEach((b) =>
+        b.addEventListener('click', () => {
+          setPlaying(false);
+          guided?.select?.(b.dataset.partTarget || '');
+          setLegendSel(b.dataset.partTarget || '');
+        })
+      );
+      if (guided) guided.legendSync = (key: string | null) => setLegendSel(key);
+
+      // Ra vào viewport / ẩn tab: chỉ giữ rAF khi đang phát và nhìn thấy
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            inView = entry.isIntersecting;
+            syncLoop();
+          });
+        },
+        { threshold: 0 }
+      ).observe(root);
+      document.addEventListener('visibilitychange', syncLoop);
+
+      applyStep(0);
+      return;
+    }
+
+    // ============================== CHẾ CŨ ==================================
+    const stepBtn = root.querySelector<HTMLButtonElement>('.step-btn');
+    const slider = root.querySelector<HTMLInputElement>('.speed-slider');
+    const speedLabel = root.querySelector<HTMLElement>('.speed-label');
+
+    let rafId: number | null = null;
+    let lastTime = 0;
+    let accumulated = 0;
+    let isPlaying = false;  // người dùng có đang ở trạng thái "phát" không
+    let inView = true;      // component có nằm trong viewport không
+    let speed = 0.2;
+
+    // Lấy hàm step từ registry (component con đăng ký qua data-mech-step-id)
+    const stepFn = stepId && (window as any).__mechSteps?.[stepId];
+
+    if (!stepFn) return; // không có animation cụ thể thì thôi
 
     // Chỉ chạy rAF khi: người dùng đã bấm Phát + đang trong viewport + tab hiện
     const canRun = () => isPlaying && inView && !document.hidden;
@@ -240,8 +506,8 @@ const { label = 'Hoạt ảnh cơ chế', 'data-mech-step-id': mechStepId } = As
       isPlaying = playing;
       playIcon?.classList.toggle('hidden', playing);
       pauseIcon?.classList.toggle('hidden', !playing);
-      playBtn?.setAttribute('aria-label', playing ? 'Tạm dừng hoạt ảnh' : 'Phát hoạt ảnh');
       playBtn?.setAttribute('aria-pressed', String(playing));
+      playBtn?.setAttribute('aria-label', playing ? 'Tạm dừng hoạt ảnh' : 'Phát hoạt ảnh');
       syncLoop();
     }
 

@@ -1,68 +1,125 @@
 ---
 // =============================================================================
-// ESCAPEMENT — SVG bộ thoát Swiss lever với animation nhịp tíc-tắc
+// ESCAPEMENT — infographic hướng dẫn Bộ thoát Swiss lever theo 5 bước
 // =============================================================================
-// Mô phỏng chu kỳ: bánh lắc dao động → pallet fork nhả → escape wheel tiến 1 răng → khóa lại
-// Dùng MechanismAnimation wrapper cho điều khiển play/pause/tốc độ.
+// Giai đoạn 1 (Horological Observatory):
+//   - Chất liệu: thép xước / đồng / chân kính ruby qua token dùng chung --obs-*
+//   - Hai chế đọc: CHU TRÌNH (5 bước nhân quả, điều khiển từ MechanismAnimation
+//     chế enhanced) và KHÁM PHÁ (chọn bộ phận → bảng HTML bên ngoài SVG).
+//   - Kính lúp (vùng sáng mềm) làm nổi bộ phận đang được giải thích; bộ phận
+//     không liên quan giảm opacity nhưng vẫn thấy cấu trúc tổng thể.
+//   - Đường năng lượng màu đồng (brass) chỉ hướng truyền lực ở bước xung lực.
 //
-// Chu kỳ 1 nhịp (beat):
-//   1. Bánh lắc dao động qua một bên → đẩy pallet fork
-//   2. Pallet fork nhả escape wheel → escape wheel tiến 1 răng (và phát tiếng "tíc")
-//   3. Bánh lắc dao động qua bên kia → đẩy pallet fork bên kia
-//   4. Pallet fork nhả escape wheel → tiến 1 răng nữa (phát tiếng "tắc")
+// Vật lý (giữ từ vòng sửa trước): bánh lắc MỘT NỬA dao động mỗi nhịp; ngựa
+// đổi chiều mỗi nhịp; bánh thoát tiến 24°/nhịp, easeOutCubic, đồng bộ cửa sổ
+// búng 10-20% chu kỳ — hàm liên tục chạy __mechSteps['escapement'].
 //
-// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.2.
+// WCAG: SVG tổng thể role="img" + aria-label + <desc> (không chứa control);
+// chọn bộ phận bằng NÚT HTML thật (legend nút, aria-pressed, Enter/Space tự
+// nhiên) hoặc chạm trực tiếp — hai đường đồng bộ trạng thái với nhau; tooltip
+// theo chuột đóng bằng Escape; reduced-motion → đổi bước tức thì.
 // =============================================================================
 
 import MechanismAnimation from './MechanismAnimation.astro';
+
+const steps = [
+  {
+    t: 'Bánh lắc trớn sang một phía',
+    e: 'Balance swings out',
+    d: 'Từ biên trái, bánh lắc quay về phía giữa nhờ năng lượng do dây tóc nhả ra từ nhịp trước.',
+  },
+  {
+    t: 'Ngựa mở khóa bánh thoát',
+    e: 'Unlock',
+    d: 'Đá pallet đẩy nhẹ vào răng đang bị khóa, nhả cho bánh thoát bắt đầu quay tự do.',
+  },
+  {
+    t: 'Bánh thoát tiến một răng và truyền xung lực',
+    e: 'Impulse',
+    d: 'Bánh thoát xoay đúng một răng; lực cót đi qua đá pallet thành xung lực đẩy bánh lắc đi tiếp — đường màu đồng chỉ hướng truyền năng lượng.',
+  },
+  {
+    t: 'Ngựa khóa răng kế tiếp',
+    e: 'Lock',
+    d: 'Đá pallet kia hạ xuống chặn răng tiếp theo; bánh thoát dừng hẳn và phát tiếng "tíc".',
+  },
+  {
+    t: 'Bánh lắc đảo chiều, chu trình lặp',
+    e: 'Reversal',
+    d: 'Bánh lắc trớn tới biên phải, dây tóc lên dây và kéo nó quay ngược lại — nửa "tắc" bắt đầu, cả năm bước lặp lại theo chiều ngược.',
+  },
+];
 ---
 
-<MechanismAnimation label="Bộ thoát Swiss lever (Escapement)" data-mech-step-id="escapement">
-  <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="escapement-svg" role="img" aria-label="Sơ đồ hoạt ảnh bộ thoát Swiss lever: bánh thoát, ngựa, bánh lắc và dây tóc">
-    <!-- ====== CHẤT LIỆU: 4 chuyển sắc + bóng đổ (điểm dừng bằng biến CSS — tự đổi theo .dark) ====== -->
+<MechanismAnimation
+  label="Bộ thoát Swiss lever (Escapement)"
+  desc="Năm bước nhân quả tạo ra nhịp tíc-tắc. Bấm Phát để xem tự động, dùng nút trước/sau để đọc từng bước, chạm vào bộ phận để tra vai trò."
+  steps={steps}
+  data-mech-step-id="escapement"
+>
+  <svg
+    viewBox="0 0 600 400"
+    xmlns="http://www.w3.org/2000/svg"
+    class="mx-auto w-full max-w-2xl"
+    id="escapement-svg"
+    role="img"
+    aria-label="Sơ đồ hướng dẫn bộ thoát Swiss lever theo năm bước: bánh thoát, ngựa, chân kính pallet, bánh lắc và dây tóc"
+    aria-describedby="esc-desc"
+  >
+    <desc id="esc-desc">
+      Sơ đồ tương tác: bánh thoát bên trái, ngựa với hai đá pallet ở giữa, bánh lắc và dây tóc bên phải. Mỗi bước làm nổi đúng bộ phận liên quan; đường màu đồng chỉ hướng truyền năng lượng.
+    </desc>
+
+    <!-- ====== CHẤT LIỆU: chuyển sắc từ token --obs-* (tự đổi theo .dark) ====== -->
     <defs>
       <!-- Thép chải: sáng mép trên → tối mép dưới -->
       <linearGradient id="escSteel" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" style="stop-color:var(--g-steel-hi)" />
-        <stop offset="0.5" style="stop-color:var(--ig-steel)" />
-        <stop offset="1" style="stop-color:var(--g-steel-dk)" />
+        <stop offset="0" style="stop-color:var(--obs-steel-soft)" />
+        <stop offset="0.5" style="stop-color:var(--obs-steel)" />
+        <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
       </linearGradient>
-      <!-- Đồng thau: ấm, một dải phản chiếu hẹp ở ~1/3 chiều dài -->
+      <!-- Đồng thau: dải phản chiếu hẹp ở ~1/3 chiều dài -->
       <linearGradient id="escBrass" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" style="stop-color:var(--g-brass-dk)" />
-        <stop offset="0.3" style="stop-color:var(--g-brass-hi)" />
-        <stop offset="0.42" style="stop-color:var(--ig-alloy)" />
-        <stop offset="1" style="stop-color:var(--g-brass-dk)" />
+        <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
+        <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.42" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
       </linearGradient>
-      <!-- Rubi chân kính: toả tròn, tâm lệch trên-trái, sáng tâm đậm rìa -->
+      <!-- Chân kính ruby: toả tròn, tâm lệch trên-trái, chấm sáng lệch tâm -->
       <radialGradient id="escRuby" cx="0.35" cy="0.3" r="0.9">
-        <stop offset="0" style="stop-color:var(--g-ruby-hi)" />
-        <stop offset="0.55" style="stop-color:var(--ig-rubi)" />
-        <stop offset="1" style="stop-color:var(--g-ruby-dk)" />
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="0.55" style="stop-color:var(--obs-ruby)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
       </radialGradient>
-      <!-- Bánh lắc Glucydur: hợp kim đỏ sáng, chuyển sắc nhẹ hơn thép -->
+      <!-- Bánh lắc Glucydur: hợp kim đỏ, chuyển sắc nhẹ -->
       <linearGradient id="escBalance" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" style="stop-color:var(--g-bal-hi)" />
-        <stop offset="1" style="stop-color:var(--g-bal-dk)" />
+        <stop offset="0" style="stop-color:var(--obs-ruby-soft)" />
+        <stop offset="1" style="stop-color:var(--obs-ruby-deep)" />
       </linearGradient>
+      <!-- Kính lúp: vùng sáng trắng ngà mềm, mờ dần ra rìa -->
+      <radialGradient id="escLoupe" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" style="stop-color:var(--obs-ivory)" stop-opacity="0.4" />
+        <stop offset="0.75" style="stop-color:var(--obs-ivory)" stop-opacity="0.12" />
+        <stop offset="1" style="stop-color:var(--obs-ivory)" stop-opacity="0" />
+      </radialGradient>
+      <!-- Đầu mũi tên cho đường truyền năng lượng -->
+      <marker id="escArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" style="fill:var(--obs-brass)" />
+      </marker>
       <!-- Bóng đổ rất nhẹ, tách ba bộ phận khỏi nền (bản nhạt hơn cho chế tối) -->
       <filter id="escShadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="#1F2D3D" flood-opacity="0.22" />
+        <feDropShadow dx="2" dy="3" stdDeviation="2.5" style="flood-color:var(--obs-graphite)" flood-opacity="0.22" />
       </filter>
       <filter id="escShadowDim" x="-20%" y="-20%" width="140%" height="140%">
         <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.14" />
       </filter>
     </defs>
 
-    <!-- ====== BACKGROUND: các nhãn vùng ====== -->
-    <text style="fill:var(--ig-stroke)" x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" class="svg-label">
-      Chu kỳ: bánh lắc dao động → ngựa nhả → bánh thoát tiến 1 răng → khóa (tíc-tắc)
-    </text>
-
     <!-- ====== ESCAPE WHEEL (bánh thoát) - bên trái, 15 răng ====== -->
     <g id="escape-wheel-group" transform="translate(180, 220)" class="esc-shadow">
       <g id="escape-wheel" data-part="escape-wheel" data-name-vi="Bánh thoát" data-name-en="Escape wheel">
-        <!-- Vẽ 15 răng hình mỏ neo -->
+        <!-- Vùng chạm toàn đĩa răng (vô hình, phủ kín cả đầu răng) -->
+        <circle r="58" fill="none" pointer-events="all"/>
         <g style="fill:url(#escSteel);stroke:var(--ig-edge)" stroke-width="1">
           {Array.from({ length: 15 }).map((_, i) => {
             const angle = (i * 360) / 15;
@@ -73,11 +130,8 @@ import MechanismAnimation from './MechanismAnimation.astro';
             );
           })}
         </g>
-        <!-- Vòng tròn thân -->
         <circle style="fill:url(#escSteel);stroke:var(--ig-edge)" r="38" stroke-width="2"/>
-        <!-- Trục giữa -->
         <circle style="fill:var(--ig-edge)" r="5"/>
-        <!-- Các chấm trang trí -->
         {Array.from({ length: 5 }).map((_, i) => {
           const a = (i * 360) / 5;
           return <circle style="fill:var(--ig-edge)" cx={Math.cos((a * Math.PI) / 180) * 22} cy={Math.sin((a * Math.PI) / 180) * 22} r="3"/>;
@@ -91,75 +145,115 @@ import MechanismAnimation from './MechanismAnimation.astro';
         <!-- Thân ngựa (hình chữ Y ngược) -->
         <path d="M 0 0 L -20 -30 L -25 -38 M 0 0 L 20 -30 L 25 -38 M 0 0 L 0 35"
               fill="none" style="stroke:url(#escBrass)" stroke-width="2" stroke-linecap="round"/>
-        <!-- Đá trên (entry pallet) -->
+        <!-- Trục -->
+        <circle cx="0" cy="35" r="5" style="fill:var(--obs-brass-deep)"/>
+        <!-- Mỏ ngựa (horns) -->
+        <path d="M -8 -2 L -14 5 M 8 -2 L 14 5" fill="none" style="stroke:url(#escBrass)" stroke-width="1" stroke-linecap="round"/>
+        <!-- Vùng bấm rộng (vô hình) — thân ngựa là nét mảnh nên tự nó khó trúng;
+             phóng tối đa mà không ăn sang vùng bánh thoát/bánh lắc bên cạnh -->
+        <g fill="none" pointer-events="all">
+          <circle cx="0" cy="0" r="30"/>
+          <circle cx="-22" cy="-33" r="18"/>
+          <circle cx="22" cy="-33" r="18"/>
+          <circle cx="0" cy="35" r="12"/>
+        </g>
+      </g>
+      <!-- Hai đá pallet — chọn được riêng như một bộ phận -->
+      <g data-part="pallet-stones" data-name-vi="Chân kính pallet" data-name-en="Pallet jewels">
+        <!-- Vùng chạm quanh mỗi viên đá (vô hình, nằm TRÊN vùng ngựa) -->
+        <g fill="none" pointer-events="all">
+          <circle cx="-24" cy="-39" r="18"/>
+          <circle cx="24" cy="-39" r="18"/>
+        </g>
         <g transform="rotate(-15 -24 -39)">
           <rect x="-28" y="-42" width="8" height="6" rx="1" style="fill:url(#escRuby)" />
           <ellipse cx="-25.8" cy="-40.4" rx="1.4" ry="1" fill="#FFFFFF" opacity="0.75" />
         </g>
-        <!-- Đá dưới (exit pallet) -->
         <g transform="rotate(15 24 -39)">
           <rect x="20" y="-42" width="8" height="6" rx="1" style="fill:url(#escRuby)" />
           <ellipse cx="22.4" cy="-40.4" rx="1.4" ry="1" fill="#FFFFFF" opacity="0.75" />
         </g>
-        <!-- Trục -->
-        <circle cx="0" cy="35" r="5" fill="#9B6E2C"/>
-        <!-- Mỏ ngựa (horns) -->
-        <path d="M -8 -2 L -14 5 M 8 -2 L 14 5" fill="none" style="stroke:url(#escBrass)" stroke-width="1" stroke-linecap="round"/>
       </g>
     </g>
 
-    <!-- ====== BALANCE WHEEL (bánh lắc) - bên phải ====== -->
+    <!-- ====== BALANCE WHEEL (bánh lắc) + dây tóc - bên phải ====== -->
     <g id="balance-group" transform="translate(450, 150)" class="esc-shadow">
       <g id="balance-wheel" data-part="balance-wheel" data-name-vi="Bánh lắc" data-name-en="Balance wheel">
-        <!-- Vòng ngoài -->
+        <!-- Vùng bấm toàn mặt đĩa (r53 ≈ 44px CSS ở màn 320px) -->
+        <circle r="53" fill="none" pointer-events="all"/>
         <circle style="stroke:url(#escBalance)" r="45" fill="none" stroke-width="2"/>
-        <!-- 3 chân (spokes) -->
         <line style="stroke:url(#escBalance)" x1="0" y1="-45" x2="0" y2="45" stroke-width="1"/>
         <line style="stroke:url(#escBalance)" x1="-39" y1="-22.5" x2="39" y2="22.5" stroke-width="1"/>
         <line style="stroke:url(#escBalance)" x1="-39" y1="22.5" x2="39" y2="-22.5" stroke-width="1"/>
-        <!-- Trục -->
-        <circle style="fill:var(--ig-rubi)" r="6"/>
-        <!-- Trọng lượng cố định (timing screws) -->
+        <circle style="fill:var(--obs-ruby)" r="6"/>
         <circle style="fill:var(--ig-edge)" cx="0" cy="-45" r="4"/>
         <circle style="fill:var(--ig-edge)" cx="0" cy="45" r="4"/>
         <circle style="fill:var(--ig-edge)" cx="-45" cy="0" r="4"/>
         <circle style="fill:var(--ig-edge)" cx="45" cy="0" r="4"/>
       </g>
-      <!-- Dây tóc (hairspring) - xoắn ốc mờ -->
       <g id="hairspring" opacity="0.5" data-part="hairspring" data-name-vi="Dây tóc" data-name-en="Hairspring">
+        <!-- Vùng chạm quanh xoắn ốc (nét 1px quá mảnh; r30 = tối đa không
+             ăn mất vùng vành bánh lắc bên ngoài) -->
+        <circle r="30" fill="none" pointer-events="all"/>
         <path d="M 0 0
                  m -8 0 a 8 8 0 1 1 16 0
                  a 12 12 0 1 1 -24 0
                  a 16 16 0 1 1 32 0
                  a 20 20 0 1 1 -40 0"
-              fill="none" stroke="#3182CE" stroke-width="1"/>
+              fill="none" style="stroke:var(--obs-steel)" stroke-width="1"/>
       </g>
     </g>
 
-    <!-- ====== MŨI TÊN CHỈ SỰ TRUYỀN LỰC ====== -->
-    <g id="power-arrows" opacity="0.6">
-      <!-- Escape wheel → pallet fork -->
-      <text x="245" y="180" font-size="20" fill="#B8893C">→</text>
-      <!-- Pallet fork → balance wheel -->
-      <text x="370" y="180" font-size="20" fill="#B8893C">→</text>
+    <!-- ====== ĐƯỜNG TRUYỀN NĂNG LƯỢNG (màu đồng — hiện ở bước xung lực) ====== -->
+    <g id="esc-energy" style="opacity:0" pointer-events="none">
+      <path
+        id="esc-energy-path"
+        d="M 214 232 Q 262 250 300 226 Q 362 196 414 162"
+        fill="none"
+        style="stroke:var(--obs-brass)"
+        stroke-width="2.5"
+        stroke-dasharray="7 6"
+        stroke-linecap="round"
+        marker-end="url(#escArrow)"
+      />
     </g>
 
-    <!-- ====== CHÚ THÍCH KHI HOVER (tooltip động — desktop) ====== -->
+    <!-- ====== KÍNH LÙP: vùng sáng làm nổi bộ phận đang giải thích ====== -->
+    <g id="esc-loupe" style="opacity:0" pointer-events="none">
+      <circle r="88" fill="url(#escLoupe)" />
+      <circle r="88" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" stroke-dasharray="3 5" opacity="0.7" />
+    </g>
+
+    <!-- ====== CHÚ THÍCH KHI HOVER (tooltip động — không tràn khung) ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="160" height="42" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="80" y="18" text-anchor="middle" font-size="13" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="80" y="34" text-anchor="middle" font-size="10" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="160" height="42" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="80" y="18" text-anchor="middle" font-size="13" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="80" y="34" text-anchor="middle" font-size="10" style="fill:var(--obs-brass-soft)"></text>
     </g>
 
-    <!-- ====== TRẠNG THÁI (đang "tíc" hay "tắc") ====== -->
-    <text id="beat-indicator" x="300" y="380" text-anchor="middle" font-size="14" fill="#B8893C" font-weight="bold">
-      ●
+    <!-- ====== TRẠNG THÁI (đang "tíc" hay "tắc") — chữ dẫn dắt, không nhấp nháy ====== -->
+    <text id="beat-indicator" x="300" y="380" text-anchor="middle" font-size="14" style="fill:var(--obs-brass)" font-weight="bold">
+      ● TÍC
     </text>
   </svg>
 
-  <script is:inline define:vars={{}} slot="script">
+  <!-- ====== BẢNG TRA BỘ PHẬN (HTML ngoài SVG — chế khám phá) ====== -->
+  <div
+    slot="panel"
+    id="esc-part-panel"
+    class="min-w-0 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4"
+    aria-live="polite"
+  >
+    <p class="text-xs font-medium uppercase tracking-wide text-ink-soft dark:text-dark-text-soft">Bộ phận</p>
+    <p id="esc-part-name" class="mt-1 text-sm font-semibold text-navy dark:text-dark-text">Bấm nút tên bộ phận bên dưới hình hoặc chạm trực tiếp vào hình</p>
+    <p id="esc-part-en" class="text-xs text-ink-soft dark:text-dark-text-soft"></p>
+    <p id="esc-part-role" class="mt-2 text-sm text-ink-soft dark:text-dark-text-soft">Tên tiếng Việt, tiếng Anh và vai trò của bộ phận sẽ hiện ở đây.</p>
+  </div>
+
+  <script is:inline slot="script">
     // =============================================================================
-    // Đăng ký hàm animate cho escapement
+    // (1) HOẠT ẢNH LIÊN TỤC — vật lý đã sửa: ngựa đổi chiều mỗi nhịp, bánh lắc
+    //     nửa dao động mỗi nhịp. Giữ cho tương thích; chế enhanced dùng (2).
     // =============================================================================
     (window.__mechSteps = window.__mechSteps || {})['escapement'] = function(delta, elapsed) {
       const svg = document.getElementById('escapement-svg');
@@ -173,13 +267,15 @@ import MechanismAnimation from './MechanismAnimation.astro';
       if (!escapeWheel || !palletFork || !balanceWheel) return;
 
       // Chu kỳ: 1 beat = 6000ms ở speed 1x (chậm để nhìn rõ)
-      // Dao động của bánh lắc: qua lại trong 1 beat
+      // Dao động của bánh lắc: một nửa dao động trong 1 beat (một nhịp tíc/tắc)
       const beatPeriod = 6000;
       const phase = (elapsed % beatPeriod) / beatPeriod; // 0 → 1
       const beatNum = Math.floor(elapsed / beatPeriod);
 
-      // Bánh lắc dao động: -35° đến +35° (hình sin)
-      const balanceAngle = Math.sin(phase * Math.PI * 2) * 35;
+      // Bánh lắc: một nhịp chỉ là MỘT NỬA dao động — đi hết từ biên -35° sang
+      // biên +35° đúng trong 1 beat, nhịp kế đảo chiều. Dùng cos theo thời gian
+      // toàn cục (beatNum + phase) để góc liên tục qua ranh giới nhịp.
+      const balanceAngle = -35 * Math.cos(Math.PI * (beatNum + phase));
       balanceWheel.setAttribute('transform', `translate(450, 150) rotate(${balanceAngle})`);
 
       // Pallet fork: KHÔNG đung đưa — nằm yên ở chốt chặn, búng sang vị trí đối
@@ -189,7 +285,10 @@ import MechanismAnimation from './MechanismAnimation.astro';
       const FLIP_WINDOW = 0.1;
       const flipT = phase < FLIP_START ? 0 : phase < FLIP_START + FLIP_WINDOW ? (phase - FLIP_START) / FLIP_WINDOW : 1;
       const snapT = flipT < 0.5 ? 4 * flipT * flipT * flipT : 1 - Math.pow(-2 * flipT + 2, 3) / 2;
-      const palletAngle = -10 + 20 * snapT;
+      // Ngựa đổi chiều mỗi nhịp: nhịp chẵn búng -10° → +10°, nhịp lẻ búng ngược
+      // lại +10° → -10° — cuối nhịp trước trùng góc đầu nhịp sau, không nhảy bậc.
+      const dir = beatNum % 2 === 0 ? 1 : -1;
+      const palletAngle = dir * (-10 + 20 * snapT);
       palletFork.setAttribute('transform', `translate(310, 220) rotate(${palletAngle})`);
 
       // Escape wheel: bị khoá phần lớn chu kỳ, nhả đúng lúc ngựa búng — xoay 24°
@@ -201,26 +300,118 @@ import MechanismAnimation from './MechanismAnimation.astro';
       // Chỉ báo tíc-tắc
       if (beatIndicator) {
         beatIndicator.textContent = beatNum % 2 === 0 ? '● TÍC' : '● TẮC';
-        beatIndicator.setAttribute('fill', beatNum % 2 === 0 ? '#3182CE' : '#9B2C2C');
       }
     };
 
     // =============================================================================
-    // HOVER TOOLTIP — rê chuột vào bộ phận để hiện tên
+    // (2) CHẾ HƯỚNG DẪN 5 BƯỚC + KHÁM PHÁ BỘ PHẬN — Giai đoạn 1
     // =============================================================================
-    document.addEventListener('DOMContentLoaded', () => {
+    (function () {
       const svg = document.getElementById('escapement-svg');
       if (!svg) return;
+      const wheel = document.getElementById('escape-wheel-group');
+      const fork = document.getElementById('pallet-fork-group');
+      const balance = document.getElementById('balance-group');
+      const loupe = document.getElementById('esc-loupe');
+      const energy = document.getElementById('esc-energy');
+      const beat = document.getElementById('beat-indicator');
+      const parts = svg.querySelectorAll('[data-part]');
+      const panelName = document.getElementById('esc-part-name');
+      const panelEn = document.getElementById('esc-part-en');
+      const panelRole = document.getElementById('esc-part-role');
+      if (!wheel || !fork || !balance || !loupe || !energy) return;
+
+      // Tư thế từng bước: góc (bánh lắc / ngựa / bánh thoát), bộ phận làm nổi,
+      // tâm kính lúp, độ hiện của đường năng lượng, nhịp tíc/tắc.
+      const POSES = [
+        { b: -24, p: -10, w: 0,   hi: ['balance-wheel', 'hairspring'],                    loupe: [450, 150], energy: 0,    beat: 'TÍC' },
+        { b: -10, p: -4,  w: -8,  hi: ['pallet-fork', 'pallet-stones'],                   loupe: [310, 220], energy: 0.12, beat: 'TÍC' },
+        { b: -1,  p: 0,   w: -21, hi: ['escape-wheel', 'pallet-fork', 'pallet-stones'],   loupe: [255, 210], energy: 1,    beat: 'TÍC' },
+        { b: 9,   p: 10,  w: -24, hi: ['pallet-fork', 'pallet-stones'],                   loupe: [310, 220], energy: 0,    beat: 'TÍC' },
+        { b: 32,  p: 10,  w: -24, hi: ['balance-wheel', 'hairspring'],                    loupe: [450, 150], energy: 0,    beat: 'TẮC' },
+      ];
+
+      // Thông tin tra cứu cho chế khám phá (bảng HTML ngoài SVG)
+      const PART_INFO = {
+        'escape-wheel': { vi: 'Bánh thoát', en: 'Escape wheel', role: 'Khoá và nhả từng răng để năng lượng cót thoát ra đúng nhịp, từng chút một.' },
+        'pallet-fork': { vi: 'Ngựa (pallet fork)', en: 'Pallet fork', role: 'Đòn bẩy nhận lực từ bánh thoát, truyền xung lực cho bánh lắc rồi khóa bánh thoát lại.' },
+        'pallet-stones': { vi: 'Chân kính pallet', en: 'Pallet jewels', role: 'Hai đá rubi chạm vào răng bánh thoát: trượt với ma sát rất thấp và truyền xung lực chính xác.' },
+        'balance-wheel': { vi: 'Bánh lắc', en: 'Balance wheel', role: 'Quay qua lại đều đặn như con lắc; tần số dao động của nó quyết định độ chính xác của đồng hồ.' },
+        'hairspring': { vi: 'Dây tóc', en: 'Hairspring', role: 'Lò xo mảnh cuốn xoắn: tích và nhả năng lượng, kéo bánh lắc đảo chiều ở mỗi biên.' },
+      };
+
+      // Tâm kính lúp cho từng bộ phận khi khám phá
+      const LOUPE_AT = {
+        'escape-wheel': [180, 220],
+        'pallet-fork': [310, 220],
+        'pallet-stones': [288, 181],
+        'balance-wheel': [450, 150],
+        'hairspring': [450, 150],
+      };
+
+      // Ngựa và chân kính là một cụm: nổi cái này thì cái kia cũng nổi để
+      // bộ phận con không bị mờ đè bởi opacity của bộ phận cha.
+      function isHi(key, hiKeys) {
+        if (hiKeys.indexOf(key) !== -1) return true;
+        if (key === 'pallet-stones' && hiKeys.indexOf('pallet-fork') !== -1) return true;
+        if (key === 'pallet-fork' && hiKeys.indexOf('pallet-stones') !== -1) return true;
+        return false;
+      }
+
+      function applyFocus(hiKeys, loupeAt, energyOn, beatText) {
+        svg.classList.add('esc-focus');
+        parts.forEach(function (p) {
+          p.classList.toggle('esc-hi', isHi(p.getAttribute('data-part'), hiKeys));
+        });
+        loupe.style.transform = 'translate(' + loupeAt[0] + 'px,' + loupeAt[1] + 'px)';
+        loupe.style.opacity = '1';
+        energy.style.opacity = energyOn ? String(energyOn) : '0';
+        svg.classList.toggle('esc-energy-on', energyOn >= 1);
+        if (beatText && beat) beat.textContent = '\u25CF ' + beatText;
+      }
+
+      // Khung điều khiển (MechanismAnimation chế enhanced) gọi apply(stepIndex);
+      // select(key) do NÚT TÊN BỘ PHẬN (HTML) gọi — phương thức bàn phím chính.
+      // [data-part] trong SVG KHÔNG nhận tabindex/role: SVG tổng thể là hình
+      // minh họa (role="img"), chọn bộ phận bằng nút HTML hoặc chạm trực tiếp.
+      const guidedApi = (window.__mechGuided = window.__mechGuided || {})['escapement'] = {
+        apply: function (i) {
+          const pose = POSES[i];
+          if (!pose) return;
+          svg.classList.add('esc-guided');
+          balance.style.transform = 'translate(450px, 150px) rotate(' + pose.b + 'deg)';
+          fork.style.transform = 'translate(310px, 220px) rotate(' + pose.p + 'deg)';
+          wheel.style.transform = 'translate(180px, 220px) rotate(' + pose.w + 'deg)';
+          applyFocus(pose.hi, pose.loupe, pose.energy, pose.beat);
+        },
+        select: function (key) { selectByKey(key); },
+      };
+
+      function selectByKey(key) {
+        const info = PART_INFO[key];
+        if (!info) return;
+        if (guidedApi.pause) guidedApi.pause();
+        applyFocus([key], LOUPE_AT[key] || [310, 220], 0, null);
+        if (panelName) panelName.textContent = info.vi;
+        if (panelEn) panelEn.textContent = info.en;
+        if (panelRole) panelRole.textContent = info.role;
+        // Đồng bộ nút HTML tương ứng (aria-pressed) khi chọn trực tiếp trên SVG
+        if (guidedApi.legendSync) guidedApi.legendSync(key);
+      }
+
+      // =============================================================================
+      // (3) TOOLTIP THEO CHUỘT + CHỌN BỘ PHẬN BẰNG CHẠM TRỰC TIẾP
+      //     Bàn phím dùng nút HTML (mech-legend) — SVG không chứa control.
+      // =============================================================================
       const tooltip = svg.querySelector('#tooltip');
       const tooltipBg = svg.querySelector('#tooltip-bg');
       const tooltipVi = svg.querySelector('#tooltip-vi');
       const tooltipEn = svg.querySelector('#tooltip-en');
       if (!tooltip || !tooltipBg || !tooltipVi || !tooltipEn) return;
 
-      const parts = svg.querySelectorAll('[data-part]');
-      parts.forEach((part) => {
+      parts.forEach(function (part) {
         part.style.cursor = 'pointer';
-        const highlight = () => {
+        const highlight = function () {
           part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
           const vi = part.getAttribute('data-name-vi') || '';
           const en = part.getAttribute('data-name-en') || '';
@@ -229,80 +420,48 @@ import MechanismAnimation from './MechanismAnimation.astro';
           tooltipBg.setAttribute('width', Math.max(vi.length, en.length) * 7.5 + 20);
           tooltip.setAttribute('opacity', '1');
         };
-        const unhighlight = () => {
+        const unhighlight = function () {
           part.style.filter = '';
           tooltip.setAttribute('opacity', '0');
         };
         part.addEventListener('mouseenter', highlight);
         part.addEventListener('mouseleave', unhighlight);
-        // Thiết bị cảm ứng: chỉ highlight — tên bộ phận đã có legend mobile
-        part.addEventListener('touchstart', (e) => {
-          e.preventDefault();
-          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
-          setTimeout(() => { part.style.filter = ''; }, 2000);
+        // Chuột/cảm ứng: chạm trực tiếp bộ phận để chọn (bàn phím dùng nút HTML)
+        part.addEventListener('click', function () {
+          selectByKey(part.getAttribute('data-part'));
         });
-      // Bàn phím + cảm ứng (WCAG 1.4.13): bộ phận nhận focus được, chú thích
-      // mở khi focus vào và đóng khi rời focus — không phụ thuộc rê chuột.
-      part.setAttribute('tabindex', '0');
-      part.setAttribute('role', 'img'); // g SVG: đọc aria-label rồi dừng — bộ phận không phải nút bấm
-      part.setAttribute('aria-label', part.getAttribute('data-name-vi') || part.getAttribute('data-name-en') || '');
-      part.addEventListener('focusin', highlight);
-      part.addEventListener('focusout', unhighlight);
-
       });
 
-      // Tooltip theo chuột
-      svg.addEventListener('mousemove', (e) => {
+      // Tooltip theo chuột — kẹp trong khung, không tràn
+      svg.addEventListener('mousemove', function (e) {
         const rect = svg.getBoundingClientRect();
         const viewBox = svg.viewBox.baseVal;
         const scaleX = viewBox.width / rect.width;
         const scaleY = viewBox.height / rect.height;
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
-        // Đặt tooltip cạnh chuột
         tooltip.setAttribute('transform', `translate(${Math.min(x, viewBox.width - 170)}, ${Math.max(y - 45, 0)})`);
       });
-    });
 
-  // Escape đóng chú thích mà không rời focus (WCAG 1.4.13) — self-contained,
-  // query trực tiếp theo id, không phụ thuộc closure vòng lặp phía trên.
-  (() => {
-    const svgEl = document.getElementById('escapement-svg');
-    const tipEl = document.getElementById('tooltip');
-    if (!svgEl || !tipEl) return;
-    svgEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') tipEl.setAttribute('opacity', '0');
-    });
-  })();
-</script>
+      // Tư thế mở đầu: bước 1 (khung điều khiển cũng sẽ apply(0) khi sẵn sàng)
+      (window.__mechGuided['escapement']).apply(0);
+    })();
+
+    // Escape đóng chú thích mà không rời focus (WCAG 1.4.13) — self-contained,
+    // query trực tiếp theo id, không phụ thuộc closure vòng lặp phía trên.
+    (function () {
+      const svgEl = document.getElementById('escapement-svg');
+      const tipEl = document.getElementById('tooltip');
+      if (!svgEl || !tipEl) return;
+      svgEl.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') tipEl.setAttribute('opacity', '0');
+      });
+    })();
+  </script>
 </MechanismAnimation>
 
 <style>
-  /*
-    Điểm dừng chuyển sắc cho <defs> phía trên — dẫn xuất từ token --ig-* nên
-    tự đổi theo .dark (chuyển sắc không bao giờ hỏng ở chế tối).
-    Bóng đổ: bản đủ đậm cho chế sáng, bản nhạt hơn cho chế tối để không bẩn.
-  */
-  #escapement-svg {
-    --g-steel-hi: #94A0B2;
-    --g-steel-dk: #333D4B;
-    --g-brass-hi: #EBD8AF;
-    --g-brass-dk: #8A6A35;
-    --g-ruby-hi: #C85858;
-    --g-ruby-dk: #741F1F;
-    --g-bal-hi: #C05353;
-    --g-bal-dk: #6B1D1D;
-  }
-  :global(.dark) #escapement-svg {
-    --g-steel-hi: #A6B1BD;
-    --g-steel-dk: #717D89;
-    --g-brass-hi: #E6D0A5;
-    --g-brass-dk: #B08F55;
-    --g-ruby-hi: #F0AFAF;
-    --g-ruby-dk: #9C3A3A;
-    --g-bal-hi: #E59696;
-    --g-bal-dk: #A85A5A;
-  }
+  /* Bóng nhẹ tách ba bộ phận khỏi nền (bản nhạt hơn ở chế tối) */
   #escapement-svg .esc-shadow {
     filter: url(#escShadow);
   }
@@ -310,19 +469,52 @@ import MechanismAnimation from './MechanismAnimation.astro';
     filter: url(#escShadowDim);
   }
 
+  /* Chế hướng dẫn: đổi tư thế mượt 300ms, easing tự nhiên (không tuyến tính) */
+  #escapement-svg.esc-guided #escape-wheel-group,
+  #escapement-svg.esc-guided #pallet-fork-group,
+  #escapement-svg.esc-guided #balance-group {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #escapement-svg.esc-guided [data-part] {
+    transition: opacity 300ms ease;
+  }
+  #escapement-svg.esc-guided #esc-loupe,
+  #escapement-svg.esc-guided #esc-energy {
+    transition: opacity 250ms ease;
+  }
+
+  /* Kính lúp: bộ phận không liên quan giảm opacity nhưng vẫn thấy cấu trúc */
+  #escapement-svg.esc-focus [data-part] {
+    opacity: 0.35;
+  }
+  #escapement-svg.esc-focus [data-part].esc-hi {
+    opacity: 1;
+  }
+
+  /* Đường năng lượng trượt nhẹ theo hướng truyền lực (chỉ ở bước xung lực) */
+  #escapement-svg.esc-energy-on #esc-energy-path {
+    animation: esc-flow 900ms linear infinite;
+  }
+  @keyframes esc-flow {
+    to { stroke-dashoffset: -26; }
+  }
+
+  /* Giảm chuyển động: đổi tư thế tức thì, không trượt, không chạy dòng năng lượng */
+  @media (prefers-reduced-motion: reduce) {
+    #escapement-svg *,
+    #escapement-svg.esc-energy-on #esc-energy-path {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
   /*
-    Mobile: nhãn mô tả chu kỳ trong SVG bị thu nhỏ tới ~7px khi viewBox 600
-    co về 320-375px — ẩn đi (tên bộ phận đã có trong legend chip và phần
-    chữ của bài). Chỉ báo tíc/tắc là feedback của hoạt ảnh nên tăng cỡ
-    thay vì ẩn, để người dùng vẫn đọc được trạng thái.
+    Mobile: chỉ báo tíc/tắc là trạng thái của hoạt ảnh nên TĂNG cỡ thay vì
+    ẩn — người dùng vẫn đọc được; mọi chữ giải thích dài đã nằm ngoài SVG.
   */
   @media (max-width: 767px) {
-    .svg-label {
-      display: none;
-    }
     #beat-indicator {
       font-size: 30px;
     }
   }
 </style>
-

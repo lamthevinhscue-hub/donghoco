@@ -1,240 +1,402 @@
 ---
 // =============================================================================
-// TachymeterTool — Thành phần tương tác: đo tốc độ bằng thang tachymeter
+// TachymeterTool — Công cụ học: đo tốc độ trung bình bằng thang tachymeter
 // =============================================================================
-// Người đọc nhập quãng đường, bấm bắt đầu khi vật qua vạch xuất phát, dừng khi
-// qua hết quãng đường, đọc tốc độ trung bình. Dùng cho /huong-dan/dung-tachymeter.
+// Tốc độ = quãng đường / thời gian × 3600 (km → km/h, dặm → mph). Thang trên
+// vành chỉ đọc trực tiếp khi đo đúng MỘT đơn vị quãng đường — giao diện nói rõ
+// điều này. Dùng cho /huong-dan/dung-tachymeter.
+//
+// Ngôn ngữ "Horological Observatory": vòng tachymeter sáng/trung tính, mặt số
+// graphite, kim chronograph brass. Vạch và số sinh tĩnh bằng Astro. Không mã
+// màu trực tiếp, không autoplay; kim chỉ chạy sau khi bấm, dừng khi rời
+// viewport/tab ẩn; prefers-reduced-motion chuyển sang tiến 5 giây mỗi lần bấm.
 // =============================================================================
 
 interface Props {
   'data-mech-step-id'?: string;
 }
 const { 'data-mech-step-id': _mechStepId } = Astro.props;
+
+// Thang tachymeter: số = 3600 / thời_giây; vị trí theo thời gian đo (9s → 60s)
+const tachoSpeeds = [400, 300, 240, 200, 180, 160, 140, 120, 100, 90, 80, 75, 70, 65, 60].map((sp) => {
+  const sec = 3600 / sp;
+  const angle = ((sec / 60) * 360 - 90) * (Math.PI / 180);
+  const isMajor = [60, 120, 180, 240, 300, 400].includes(sp);
+  return {
+    sp,
+    isMajor,
+    x1: 150 + 140 * Math.cos(angle),
+    y1: 150 + 140 * Math.sin(angle),
+    x2: 150 + 133 * Math.cos(angle),
+    y2: 150 + 133 * Math.sin(angle),
+    tx: 150 + 124 * Math.cos(angle),
+    ty: 150 + 124 * Math.sin(angle) + 3.5,
+  };
+});
+
+// Vạch giờ trên mặt số graphite: chính mỗi 3 giờ, phụ mỗi giờ
+const dialMarks = Array.from({ length: 12 }, (_, i) => {
+  const a = ((i * 30 - 90) * Math.PI) / 180;
+  const isMain = i % 3 === 0;
+  const rOut = 104;
+  const rIn = isMain ? 92 : 98;
+  return {
+    x1: 150 + rOut * Math.cos(a),
+    y1: 150 + rOut * Math.sin(a),
+    x2: 150 + rIn * Math.cos(a),
+    y2: 150 + rIn * Math.sin(a),
+    w: isMain ? 2 : 1,
+    o: isMain ? '1' : '0.4',
+  };
+});
 ---
 
 <section
   class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
   data-tool="tachymeter"
 >
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — thang tachymeter</span>
-  </div>
+  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 04 · Tachymeter</p>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Đo tốc độ trung bình trên một quãng đường đã biết</h3>
+  <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
+    Phải biết quãng đường trước khi bấm giờ — thang tachymeter chỉ đọc trực tiếp khi đo đúng một đơn vị quãng đường.
+  </p>
 
-  <div class="tacho-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface lg:flex-row lg:justify-center">
-    <!-- SVG đồng hồ chronograph với thang tachymeter -->
+  <div class="tacho-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface lg:flex-row lg:justify-center">
     <svg
       class="tacho-svg"
       viewBox="0 0 300 300"
       width="260"
       height="260"
       role="img"
-      aria-label="Mô phỏng thang tachymeter"
+      aria-label="Thang tachymeter: số trên vành cho biết tốc độ trung bình khi đo đúng một đơn vị quãng đường, ví dụ 1 km; kim brass chỉ giá trị theo thời gian đo."
       focusable="false">
-      <!-- Thang tachymeter (vòng ngoài cùng) -->
-      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="142" stroke-width="1.5" />
-      <g class="tacho-scale"></g>
-      <!-- Mặt số -->
-      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="110" />
-      <g class="tacho-hour-marks"></g>
-      <!-- Kim giây chronograph (đỏ) -->
-      <g class="tacho-sec-hand" style="transform-origin: 150px 150px;">
-        <line x1="150" y1="165" x2="150" y2="40" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Vòng tachymeter sáng/trung tính -->
+      <circle cx="150" cy="150" r="142" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
+      <g class="tacho-scale">
+        {tachoSpeeds.map((t) => (
+          <line
+            x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2}
+            style="stroke:var(--ig-text)" stroke-width={t.isMajor ? 1.5 : 1} opacity={t.isMajor ? 1 : 0.55}
+          />
+        ))}
+        {tachoSpeeds.map((t) => (
+          <text
+            x={t.tx} y={t.ty} text-anchor="middle"
+            style="fill:var(--ig-text)"
+            font-family="Be Vietnam Pro, sans-serif" font-size={t.isMajor ? 10 : 8.5} font-weight={t.isMajor ? 700 : 600}
+          >{t.sp}</text>
+        ))}
       </g>
-      <circle style="fill:var(--ig-bg)" cx="150" cy="150" r="5" />
+
+      <!-- Mặt số graphite -->
+      <circle cx="150" cy="150" r="110" style="fill:var(--obs-graphite);stroke:var(--ig-edge)" stroke-width="1.5" />
+      {dialMarks.map((m) => (
+        <line
+          x1={m.x1} y1={m.y1} x2={m.x2} y2={m.y2}
+          style="stroke:var(--obs-ivory)" stroke-width={m.w} opacity={m.o}
+        />
+      ))}
+
+      <!-- Kim chronograph — điểm nhấn brass -->
+      <g class="tacho-sec-hand" style="transform-origin: 150px 150px;">
+        <line x1="150" y1="165" x2="150" y2="45" style="stroke:var(--obs-brass)" stroke-width="2.5" stroke-linecap="round" />
+      </g>
+      <circle cx="150" cy="150" r="5" style="fill:var(--obs-ivory)" />
+      <circle cx="150" cy="150" r="2" style="fill:var(--obs-brass)" />
     </svg>
 
-    <!-- Bảng điều khiển -->
     <div class="tacho-controls w-full max-w-xs space-y-4 lg:w-72">
-      <!-- Nhập quãng đường -->
-      <div>
-        <label for="tacho-distance" class="block text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
-          Quãng đường (1 đơn vị)
-        </label>
-        <div class="mt-1 flex items-center gap-2">
+      <!-- Quãng đường + đơn vị — label bao trực tiếp input/select, không ID cố định -->
+      <div class="flex items-end gap-3">
+        <label class="block flex-1">
+          <span class="mb-1 block text-xs font-medium uppercase tracking-wider text-ink-soft dark:text-dark-text-soft">Quãng đường đã đo</span>
           <input
-            id="tacho-distance"
             type="number"
             min="0.1"
             step="0.1"
             value="1"
-            class="tacho-distance w-24 rounded border border-cream-dark bg-white px-2 py-1.5 text-sm dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            class="tacho-distance w-full rounded border border-cream-dark bg-white px-2 py-2 text-sm dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            aria-label="Quãng đường đã đo (số)"
           />
-          <span class="text-sm text-ink-soft dark:text-dark-text-soft">km (hoặc dặm)</span>
-        </div>
+        </label>
+        <label class="block w-24">
+          <span class="mb-1 block text-xs font-medium uppercase tracking-wider text-ink-soft dark:text-dark-text-soft">Đơn vị</span>
+          <select
+            class="tacho-unit w-full rounded border border-cream-dark bg-white px-2 py-2 text-sm dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            aria-label="Đơn vị quãng đường"
+          >
+            <option value="km" selected>km</option>
+            <option value="mi">dặm</option>
+          </select>
+        </label>
       </div>
 
-      <!-- Bộ đếm thời gian -->
+      <!-- Ô thời gian lớn -->
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 text-center dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Thời gian trôi qua</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Thời gian đo</p>
         <p class="tacho-elapsed font-serif text-3xl text-navy dark:text-dark-text">0.0 giây</p>
       </div>
 
-      <!-- Nút bấm -->
-      <div class="flex gap-2">
-        <button type="button" class="tacho-start flex-1 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass">
-          Bắt đầu
-        </button>
-        <button type="button" class="tacho-stop flex-1 rounded-full border border-navy px-4 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text">
-          Dừng
-        </button>
-        <button type="button" class="tacho-reset rounded-full border border-cream-dark px-3 py-2 text-sm text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft" aria-label="Đặt lại">
-          ↺
-        </button>
-      </div>
-
-      <!-- Kết quả -->
+      <!-- Kết quả — chỉ hiện sau phép đo hợp lệ -->
       <div class="tacho-result hidden rounded-lg border-l-4 border-brass bg-brass/5 p-3">
         <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Tốc độ trung bình</p>
         <p class="tacho-speed font-serif text-3xl text-navy dark:text-dark-text">—</p>
-        <p class="tacho-note text-xs text-ink-soft dark:text-dark-text-soft"></p>
+        <p class="tacho-note text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft"></p>
       </div>
 
-      <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-        Bấm <strong>Bắt đầu</strong> khi vật qua vạch, <strong>Dừng</strong> khi đi hết quãng đường. Tốc độ = kim giây chỉ số trên thang.
+      <!-- Điều khiển -->
+      <div class="flex flex-wrap gap-2">
+        <button
+          type="button"
+          class="tacho-start min-h-[44px] flex-1 rounded-full bg-navy px-4 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-text dark:text-dark-surface"
+        >
+          Bắt đầu đo
+        </button>
+        <button
+          type="button"
+          class="tacho-stop min-h-[44px] flex-1 rounded-full border border-navy px-4 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text dark:hover:bg-dark-text dark:hover:text-dark-surface"
+        >
+          Dừng và tính tốc độ
+        </button>
+        <button
+          type="button"
+          class="tacho-reset min-h-[44px] w-full rounded-full border border-cream-dark bg-white px-4 py-2.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft"
+        >
+          Đặt lại phép đo
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <button
+          type="button"
+          class="tacho-example min-h-[44px] rounded-full border border-brass px-4 py-2.5 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-cream dark:border-dark-brass dark:text-dark-brass"
+        >
+          Xem ví dụ 30 giây trên 1 km
+        </button>
+      </div>
+
+      <!-- Vùng trạng thái -->
+      <p class="tacho-live rounded-lg border-l-4 border-brass bg-brass/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
+        Sẵn sàng đo. Nhập quãng đường, bấm Bắt đầu đo khi vật qua vạch xuất phát.
       </p>
     </div>
   </div>
+
+  <p class="mt-3 text-center text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+    Bấm <strong>Bắt đầu đo</strong> khi vật qua vạch xuất phát, <strong>Dừng và tính tốc độ</strong> khi hết quãng đường. Thang được minh họa chạy từ 60 đến 400, tương ứng 9–60 giây, và chỉ đọc trực tiếp khi đo một đơn vị quãng đường — tachymeter ngoài thực tế có thể có khoảng số khác.
+  </p>
 </section>
 
 <script>
-  // Vạch thang tachymeter (không chia đều) + vạch giờ
-  (function () {
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const scale = document.querySelector('.tacho-svg .tacho-scale');
-    if (scale && scale.children.length === 0) {
-      // Thang tachymeter: số = 3600/thời_giây. Vị trí góc = (thời_giây/60)*360 từ đỉnh.
-      // Sinh các số từ 60 (tại 60s) đến ~400 (tại 9s). Mỗi số ứng với một góc.
-      const speeds = [400, 300, 240, 200, 180, 160, 140, 120, 100, 90, 80, 75, 70, 65, 60];
-      speeds.forEach((sp) => {
-        const sec = 3600 / sp; // thời gian giây ứng với tốc độ này
-        if (sec > 60 || sec < 7) return;
-        const angle = (sec / 60) * 360 - 90; // -90 để 0 = đỉnh
-        const rad = angle * Math.PI / 180;
-        const r = 142;
-        const r2 = 132;
-        const x1 = 150 + r * Math.cos(rad);
-        const y1 = 150 + r * Math.sin(rad);
-        const x2 = 150 + r2 * Math.cos(rad);
-        const y2 = 150 + r2 * Math.sin(rad);
-        const line = document.createElementNS(svgNS, 'line');
-        line.setAttribute('x1', String(x1));
-        line.setAttribute('y1', String(y1));
-        line.setAttribute('x2', String(x2));
-        line.setAttribute('y2', String(y2));
-        line.setAttribute('stroke', '#1F2D3D');
-        line.setAttribute('stroke-width', '1');
-        scale.appendChild(line);
-        const tx = 150 + 122 * Math.cos(rad);
-        const ty = 150 + 122 * Math.sin(rad) + 3;
-        const t = document.createElementNS(svgNS, 'text');
-        t.setAttribute('x', String(tx));
-        t.setAttribute('y', String(ty));
-        t.setAttribute('text-anchor', 'middle');
-        t.setAttribute('fill', '#1F2D3D');
-        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
-        t.setAttribute('font-size', '9');
-        t.setAttribute('font-weight', '600');
-        t.textContent = String(sp);
-        scale.appendChild(t);
-      });
-    }
-    // Vạch giờ 12h trên mặt tối
-    const hm = document.querySelector('.tacho-svg .tacho-hour-marks');
-    if (hm && hm.children.length === 0) {
-      for (let i = 0; i < 12; i++) {
-        const angle = (i * 30 - 90) * Math.PI / 180;
-        const x = 150 + 95 * Math.cos(angle);
-        const y = 150 + 95 * Math.sin(angle);
-        const t = document.createElementNS(svgNS, 'text');
-        t.setAttribute('x', String(x));
-        t.setAttribute('y', String(y + 4));
-        t.setAttribute('text-anchor', 'middle');
-        t.setAttribute('fill', '#FAF7F2');
-        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
-        t.setAttribute('font-size', '13');
-        t.setAttribute('font-weight', '600');
-        t.textContent = i === 0 ? '12' : String(i);
-        hm.appendChild(t);
-      }
-    }
-  })();
-
-  (function () {
-    const secHand = document.querySelector('[data-tool="tachymeter"] .tacho-sec-hand') as SVGGElement | null;
-    const elapsedEl = document.querySelector('.tacho-elapsed') as HTMLElement | null;
-    const startBtn = document.querySelector('.tacho-start') as HTMLButtonElement | null;
-    const stopBtn = document.querySelector('.tacho-stop') as HTMLButtonElement | null;
-    const resetBtn = document.querySelector('.tacho-reset') as HTMLButtonElement | null;
-    const distInput = document.querySelector('.tacho-distance') as HTMLInputElement | null;
-    const resultBox = document.querySelector('.tacho-result') as HTMLElement | null;
-    const speedEl = document.querySelector('.tacho-speed') as HTMLElement | null;
-    const noteEl = document.querySelector('.tacho-note') as HTMLElement | null;
+  document.querySelectorAll<HTMLElement>('[data-tool="tachymeter"]').forEach((root) => {
+    const secHand = root.querySelector('.tacho-sec-hand') as SVGGElement | null;
+    const elapsedEl = root.querySelector('.tacho-elapsed') as HTMLElement | null;
+    const startBtn = root.querySelector('.tacho-start') as HTMLButtonElement | null;
+    const stopBtn = root.querySelector('.tacho-stop') as HTMLButtonElement | null;
+    const resetBtn = root.querySelector('.tacho-reset') as HTMLButtonElement | null;
+    const distInput = root.querySelector('.tacho-distance') as HTMLInputElement | null;
+    const unitSelect = root.querySelector('.tacho-unit') as HTMLSelectElement | null;
+    const resultBox = root.querySelector('.tacho-result') as HTMLElement | null;
+    const speedEl = root.querySelector('.tacho-speed') as HTMLElement | null;
+    const noteEl = root.querySelector('.tacho-note') as HTMLElement | null;
+    const liveEl = root.querySelector('.tacho-live') as HTMLElement | null;
     if (!secHand || !startBtn || !stopBtn) return;
 
-    let running = false;
-    let startTime = 0;
+    // Thang được minh họa: vạch từ 400 (9 giây) đến 60 (60 giây) — ngoài khoảng
+    // này thang không còn số để đọc trực tiếp.
+    const MIN_DIRECT_SECONDS = 9;
+    const MAX_DIRECT_SECONDS = 60;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let running = false;   // kim đang chạy liên tục (không RM)
+    let stepping = false;  // chế độ RM: phép đo đang tiến theo bước
+    let hitMax = false;    // đã vượt 60 giây — thang không còn đọc trực tiếp
+    let startTs = 0;
+    let elapsedSec = 0;
     let rafId: number | null = null;
+    let lastWholeSec = -1;
+
+    function unitLabel(): string {
+      return unitSelect?.value === 'mi' ? 'mph' : 'km/h';
+    }
+    function distance(): number {
+      const v = distInput ? parseFloat(distInput.value) : 1;
+      return v > 0 ? v : 1;
+    }
+
+    function setLive(text: string) {
+      if (liveEl) liveEl.textContent = text;
+    }
 
     function render(sec: number) {
-      // Kim giây quay: 60 giây = 1 vòng (360°)
-      const angle = (sec / 60) * 360;
-      secHand.style.transform = `rotate(${angle}deg)`;
+      secHand.style.transform = `rotate(${(sec / 60) * 360}deg)`;
       if (elapsedEl) elapsedEl.textContent = `${sec.toFixed(1)} giây`;
+    }
+
+    function showResult(sec: number) {
+      const dist = distance();
+      const speed = (dist / sec) * 3600; // Tốc độ = quãng đường / thời gian × 3600
+      const base = 3600 / sec;           // số đọc trực tiếp trên thang (quãng 1 đơn vị)
+      if (resultBox && speedEl && noteEl) {
+        speedEl.textContent = `${Math.round(speed)} ${unitLabel()}`;
+        noteEl.textContent =
+          Math.abs(dist - 1) < 1e-9
+            ? `Kim chỉ đúng ${Math.round(base)} trên thang — phép đo một đơn vị.`
+            : `Thang chỉ đọc trực tiếp cho 1 đơn vị (kim chỉ ${Math.round(base)}); quãng ${dist} đơn vị → ${Math.round(speed)} ${unitLabel()}.`;
+        resultBox.classList.remove('hidden');
+      }
+      setLive(`Đã dừng. ${sec.toFixed(1)} giây trên ${dist} ${unitLabel() === 'km/h' ? 'km' : 'dặm'} — ${Math.round(speed)} ${unitLabel()}.`);
+    }
+
+    function setStartLabel() {
+      if (!startBtn) return;
+      if (reduceMotion) {
+        startBtn.textContent = 'Tiến 5 giây';
+        startBtn.setAttribute('aria-label', 'Tiến mô phỏng thêm 5 giây');
+        startBtn.disabled = false;
+      } else {
+        startBtn.textContent = running ? 'Đang đo…' : 'Bắt đầu đo';
+        startBtn.setAttribute('aria-label', running ? 'Phép đo đang chạy' : 'Bắt đầu đo');
+        startBtn.disabled = running;
+      }
+    }
+
+    function stopRun(interrupted: boolean) {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      setStartLabel();
+      if (interrupted) {
+        setLive('Phép đo bị gián đoạn khi rời màn hình — bấm Bắt đầu đo để đo lại.');
+      }
+    }
+
+    function stopAndCompute() {
+      if (!running && !stepping && !hitMax) {
+        // Chưa bắt đầu: không sinh kết quả sai
+        setLive('Chưa có phép đo nào đang chạy. Bấm Bắt đầu đo trước.');
+        return;
+      }
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      setStartLabel();
+      stepping = false;
+      if (resultBox) resultBox.classList.add('hidden');
+      if (hitMax || elapsedSec > MAX_DIRECT_SECONDS) {
+        setLive('Quá 60 giây — thang tachymeter tiêu chuẩn không còn đọc trực tiếp được trong tình huống này. Đặt lại để đo lại.');
+        return;
+      }
+      const sec = elapsedSec;
+      if (sec >= MIN_DIRECT_SECONDS && sec <= MAX_DIRECT_SECONDS) {
+        showResult(sec);
+      } else {
+        // Dưới 9 giây: giữ thời gian và vị trí kim, chưa đọc tốc độ được
+        setLive(`Mới đo ${sec.toFixed(1)} giây. Mô phỏng này chỉ có vạch từ 9 đến 60 giây, nên chưa thể đọc tốc độ trực tiếp trên thang. Tiếp tục đo hoặc đặt lại.`);
+      }
+    }
+
+    function reset() {
+      running = false;
+      stepping = false;
+      hitMax = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      elapsedSec = 0;
+      render(0);
+      if (resultBox) resultBox.classList.add('hidden');
+      setStartLabel();
+      setLive('Đã đặt lại. Sẵn sàng đo.');
     }
 
     function loop(ts: number) {
       if (!running) return;
-      const sec = (ts - startTime) / 1000;
-      if (sec <= 60) {
-        render(sec);
+      if (!startTs) startTs = ts;
+      elapsedSec = (ts - startTs) / 1000;
+      if (elapsedSec <= 60) {
+        render(elapsedSec);
+        const whole = Math.floor(elapsedSec);
+        if (whole !== lastWholeSec) {
+          lastWholeSec = whole;
+          setLive(`Đang đo… ${whole} giây.`);
+        }
+        rafId = requestAnimationFrame(loop);
       } else {
-        // Quá 60 giây: dừng, thang chỉ đo tới 60s
-        stop();
-        if (noteEl) noteEl.textContent = 'Quá 60 giây — thang tachymeter không đo được (quá chậm).';
+        // Quá 60 giây: tự dừng — thang không còn đọc trực tiếp; xóa kết quả cũ nếu còn
+        elapsedSec = 60;
+        render(60);
+        if (resultBox) resultBox.classList.add('hidden');
+        hitMax = true;
+        stopRun(false);
+        setLive('Quá 60 giây — thang tachymeter tiêu chuẩn không còn đọc trực tiếp được trong tình huống này. Đặt lại để đo lại.');
       }
-      if (running) rafId = requestAnimationFrame(loop);
     }
 
-    function start() {
+    startBtn?.addEventListener('click', () => {
+      if (reduceMotion) {
+        // Giảm chuyển động: mỗi lần bấm tiến 5 giây, không chạy kim liên tục
+        if (hitMax) {
+          setLive('Quá 60 giây — thang tachymeter tiêu chuẩn không còn đọc trực tiếp được. Bấm Đặt lại phép đo để đo lại.');
+          return;
+        }
+        stepping = true;
+        if (resultBox) resultBox.classList.add('hidden');
+        const next = elapsedSec + 5;
+        elapsedSec = Math.min(next, MAX_DIRECT_SECONDS);
+        render(elapsedSec);
+        if (next > MAX_DIRECT_SECONDS) {
+          hitMax = true;
+          setLive('Đã vượt 60 giây — thang tachymeter tiêu chuẩn không còn đọc trực tiếp được. Bấm Đặt lại phép đo để đo lại.');
+        } else {
+          setLive(`Tiến 5 giây — đang ở ${elapsedSec.toFixed(1)} giây. Bấm Dừng và tính tốc độ để tính kết quả.`);
+        }
+        return;
+      }
+      if (running) return; // đang chạy: không bấm bắt đầu lần nữa
+      stepping = false;
+      hitMax = false;
       running = true;
-      startTime = performance.now();
-      startBtn.textContent = 'Đang chạy...';
-      startBtn.disabled = true;
+      startTs = 0;
+      lastWholeSec = -1;
+      elapsedSec = 0;
       if (resultBox) resultBox.classList.add('hidden');
+      setStartLabel();
+      setLive('Đang đo… bắt đầu tính thời gian từ vạch xuất phát.');
       rafId = requestAnimationFrame(loop);
-    }
-    function stop() {
-      running = false;
-      startBtn.textContent = 'Bắt đầu';
-      startBtn.disabled = false;
-      if (rafId) cancelAnimationFrame(rafId);
-      // Tính kết quả
-      const sec = (performance.now() - startTime) / 1000;
-      const dist = distInput ? parseFloat(distInput.value) || 1 : 1;
-      if (sec > 0 && sec <= 60 && resultBox && speedEl && noteEl) {
-        // Tốc độ = 3600/sec × (quãng đường) — nhưng thang tachymeter mặc định quãng = 1 đơn vị.
-        // Nếu quãng đường = d, tốc độ thực = (3600/sec) nhân tỉ lệ.
-        const baseSpeed = 3600 / sec; // tốc độ trên thang (ứng quãng 1)
-        const realSpeed = baseSpeed * dist;
-        const unit = distInput ? 'km/h' : 'km/h';
-        speedEl.textContent = `${Math.round(realSpeed)} ${unit}`;
-        noteEl.textContent = `Thang cơ sở chỉ ${Math.round(baseSpeed)} (quãng = 1); quãng ${dist} → ${Math.round(realSpeed)}.`;
-        resultBox.classList.remove('hidden');
-      }
-    }
-    function reset() {
-      running = false;
-      startBtn.textContent = 'Bắt đầu';
-      startBtn.disabled = false;
-      if (rafId) cancelAnimationFrame(rafId);
-      render(0);
-      if (resultBox) resultBox.classList.add('hidden');
-    }
+    });
 
-    startBtn.addEventListener('click', start);
-    stopBtn.addEventListener('click', stop);
+    stopBtn?.addEventListener('click', stopAndCompute);
     resetBtn?.addEventListener('click', reset);
 
+    // Ví dụ tức thì: 30 giây trên 1 km → 120 km/h, đọc số 120 trên thang
+    root.querySelector('.tacho-example')?.addEventListener('click', () => {
+      running = false;
+      stepping = false;
+      hitMax = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      elapsedSec = 30;
+      render(30);
+      if (distInput) distInput.value = '1';
+      if (unitSelect) unitSelect.value = 'km';
+      showResult(30);
+      setLive('Ví dụ minh họa (không đo thật): 30 giây trên 1 km → 120 km/h. Trên thang, kim chỉ đúng số 120.');
+      setStartLabel();
+    });
+
+    // Rời viewport hoặc tab ẩn → dừng kim, không tự chạy lại
+    if (!reduceMotion) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && running) stopRun(true);
+        });
+      }, { threshold: 0 });
+      io.observe(root);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && running) stopRun(true);
+      });
+    }
+
+    setStartLabel();
     render(0);
-  })();
+  });
 </script>

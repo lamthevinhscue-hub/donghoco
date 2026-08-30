@@ -1,41 +1,79 @@
 ---
 // =============================================================================
-// GmtReader — Thành phần tương tác: đọc và chỉnh đồng hồ GMT
+// GmtReader — Công cụ học: đọc ba múi giờ trên đồng hồ GMT
 // =============================================================================
-// Ba múi giờ cùng lúc: giờ địa phương (kim giờ), giờ nhà (kim GMT), và giờ
-// thứ ba (vành 24 giờ). Người đọc chỉnh kim giờ và kim GMT từng nấc, xoay
-// vành 24 giờ. Dùng cho /huong-dan/doc-va-chinh-gmt.
+// Ba cách đọc: giờ địa phương (kim giờ 12 giờ), giờ nhà (kim GMT trên thang
+// 24 giờ), và múi giờ thứ ba = giờ mà kim GMT đang chỉ trên vành 24 giờ đã
+// xoay. Công thức múi thứ ba: (gmtHour24 − bezelAngle/15) mod 24 — phản ánh
+// đồng thời kim GMT và vị trí vành. Dùng cho /huong-dan/doc-va-chinh-gmt.
+//
+// Ngôn ngữ "Horological Observatory": vành graphite/thép chuyển sắc, kim GMT
+// brass là điểm nhấn duy nhất, chỉ báo brass cố định ở đỉnh. Vạch và số sinh
+// tĩnh bằng Astro. Không mã màu trực tiếp, không autoplay, script scope theo
+// [data-tool].
 // =============================================================================
 
 interface Props {
   'data-mech-step-id'?: string;
 }
 const { 'data-mech-step-id': _mechStepId } = Astro.props;
+
+// Vành 24 giờ: chính mỗi 6 giờ (00/06/12/18), phụ mỗi giờ
+const bezelMarks = Array.from({ length: 24 }, (_, i) => {
+  const a = ((i * 15 - 90) * Math.PI) / 180;
+  const isMain = i % 6 === 0;
+  const rOut = 138;
+  const rIn = isMain ? 122 : 129;
+  return {
+    x1: 150 + rOut * Math.cos(a),
+    y1: 150 + rOut * Math.sin(a),
+    x2: 150 + rIn * Math.cos(a),
+    y2: 150 + rIn * Math.sin(a),
+    w: isMain ? 2.5 : 1,
+    o: isMain ? '1' : '0.45',
+  };
+});
+const bezelNumerals = [
+  { label: '00', x: 150, y: 150 - 107 + 4 },
+  { label: '06', x: 150 + 107, y: 154 },
+  { label: '12', x: 150, y: 150 + 107 + 4 },
+  { label: '18', x: 150 - 107, y: 154 },
+];
+
+// Mặt số 12 giờ: vạch chính mỗi 3 giờ + phụ, số ở 12/3/6/9
+const dialMarks = Array.from({ length: 12 }, (_, i) => {
+  const a = ((i * 30 - 90) * Math.PI) / 180;
+  const isMain = i % 3 === 0;
+  const rOut = 96;
+  const rIn = isMain ? 86 : 91;
+  return {
+    x1: 150 + rOut * Math.cos(a),
+    y1: 150 + rOut * Math.sin(a),
+    x2: 150 + rIn * Math.cos(a),
+    y2: 150 + rIn * Math.sin(a),
+    w: isMain ? 2 : 1,
+    o: isMain ? '0.9' : '0.45',
+  };
+});
+const dialNumerals = [
+  { label: '12', x: 150, y: 150 - 74 + 4 },
+  { label: '3', x: 150 + 74, y: 154 },
+  { label: '6', x: 150, y: 150 + 74 + 4 },
+  { label: '9', x: 150 - 74, y: 154 },
+];
 ---
 
 <section
   class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
   data-tool="gmt-reader"
 >
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — đồng hồ GMT</span>
-    <div class="flex flex-wrap items-center gap-2">
-      <button type="button" class="gmt-hour-up rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text">
-        Kim giờ +1h
-      </button>
-      <button type="button" class="gmt-gmt-up rounded-full border border-brass px-3 py-1.5 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-white">
-        Kim GMT +1h
-      </button>
-      <button type="button" class="gmt-bezel-ccw rounded-full border border-cream-dark bg-white px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
-        ⟲ Vành 24h
-      </button>
-      <button type="button" class="gmt-bezel-cw rounded-full border border-cream-dark bg-white px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
-        Vành 24h ⟳
-      </button>
-    </div>
-  </div>
+  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 03 · Ba múi giờ</p>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Đọc giờ địa phương, giờ nhà và múi giờ thứ ba</h3>
+  <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
+    Kim GMT đọc giờ nhà; xoay vành 24 giờ để đọc thêm một múi giờ.
+  </p>
 
-  <div class="gmt-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
+  <div class="gmt-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
     <svg
       class="gmt-svg"
       viewBox="0 0 300 300"
@@ -43,52 +81,128 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       height="280"
       style="touch-action: none;"
       role="img"
-      aria-label="Mô phỏng đồng hồ GMT: bấm nút để chỉnh kim"
+      aria-label="Đồng hồ GMT: kim giờ đọc giờ địa phương, kim brass đọc giờ nhà trên thang 24 giờ; xoay vành 24 giờ để đưa múi giờ thứ ba tới đầu kim GMT."
       focusable="false">
+      <defs>
+        <linearGradient id="gm-steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--ig-steel-soft)" />
+          <stop offset="0.5" style="stop-color:var(--ig-steel)" />
+          <stop offset="1" style="stop-color:var(--ig-edge)" />
+        </linearGradient>
+        <pattern id="gm-brush" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+          <line x1="2" y1="0" x2="2" y2="4" style="stroke:var(--ig-stroke-soft)" stroke-width="1" opacity="0.16" />
+        </pattern>
+      </defs>
+
+      <!-- Chỉ báo brass cố định ở đỉnh — nơi đọc vành -->
+      <polygon points="150,2 142,15 158,15" style="fill:var(--obs-brass)" />
+
       <!-- Vành 24 giờ (xoay được) -->
       <g class="gmt-bezel-ring" style="cursor: grab; transform-origin: 150px 150px;">
-        <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="140" stroke="#0f1620" stroke-width="2" />
-        <g class="gmt-bezel-marks"></g>
-        <text x="150" y="22" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="13" font-weight="700">24</text>
-        <text x="150" y="288" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="13" font-weight="700">12</text>
-        <text x="282" y="155" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="13" font-weight="700">06</text>
-        <text x="18" y="155" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="13" font-weight="700">18</text>
+        <circle cx="150" cy="150" r="140" fill="url(#gm-steel)" style="stroke:var(--ig-edge)" stroke-width="1.5" />
+        <circle cx="150" cy="150" r="140" fill="url(#gm-brush)" />
+        <g class="gmt-bezel-marks">
+          {bezelMarks.map((m) => (
+            <line
+              x1={m.x1} y1={m.y1} x2={m.x2} y2={m.y2}
+              style="stroke:var(--obs-ivory)" stroke-width={m.w} opacity={m.o}
+            />
+          ))}
+        </g>
+        {bezelNumerals.map((n) => (
+          <text
+            x={n.x} y={n.y} text-anchor="middle"
+            style="fill:var(--obs-ivory)"
+            font-family="Be Vietnam Pro, sans-serif" font-size="11" font-weight="600"
+          >{n.label}</text>
+        ))}
       </g>
-      <!-- Mặt số 12 giờ -->
-      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="112" stroke-width="2" />
-      <g class="hour-marks"></g>
-      <!-- Kim giờ (local) -->
+
+      <!-- Mặt số 12 giờ cho kim giờ địa phương -->
+      <circle cx="150" cy="150" r="100" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
+      <g class="hour-marks">
+        {dialMarks.map((m) => (
+          <line
+            x1={m.x1} y1={m.y1} x2={m.x2} y2={m.y2}
+            style="stroke:var(--ig-stroke)" stroke-width={m.w} opacity={m.o}
+          />
+        ))}
+      </g>
+      {dialNumerals.map((n) => (
+        <text
+          x={n.x} y={n.y} text-anchor="middle"
+          style="fill:var(--ig-text)"
+          font-family="Be Vietnam Pro, sans-serif" font-size="11" font-weight="600"
+        >{n.label}</text>
+      ))}
+
+      <!-- Kim giờ địa phương -->
       <g class="hour-hand" style="transform-origin: 150px 150px;">
-        <line style="stroke:var(--ig-stroke)" x1="150" y1="160" x2="150" y2="85" stroke-width="5" stroke-linecap="round" />
+        <line x1="150" y1="158" x2="150" y2="80" style="stroke:var(--ig-stroke)" stroke-width="5" stroke-linecap="round" />
       </g>
-      <!-- Kim phút (cố định chỉ 12 cho rõ) -->
-      <line style="stroke:var(--ig-stroke)" x1="150" y1="160" x2="150" y2="55" stroke-width="3" stroke-linecap="round" />
-      <!-- Kim GMT (màu brass, ngắn hơn, một vòng/24h) -->
+      <!-- Kim phút tĩnh ở mốc 12 cho ví dụ luôn tròn giờ -->
+      <line x1="150" y1="158" x2="150" y2="55" style="stroke:var(--ig-steel)" stroke-width="3" stroke-linecap="round" />
+      <!-- Kim GMT — điểm nhấn brass, một vòng/24 giờ -->
       <g class="gmt-hand" style="transform-origin: 150px 150px;">
-        <polygon points="146,150 154,150 152,70 150,60 148,70" fill="#B8893C" />
+        <polygon points="146,150 154,150 152,72 150,62 148,72" style="fill:var(--obs-brass)" />
       </g>
-      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="6" />
-      <polygon points="150,2 145,14 155,14" fill="#B8893C" />
+      <circle cx="150" cy="150" r="5.5" style="fill:var(--ig-stroke)" />
+      <circle cx="150" cy="150" r="2" style="fill:var(--obs-brass)" />
     </svg>
 
-    <!-- Bảng 3 múi giờ -->
     <div class="gmt-readout w-full max-w-xs space-y-3 sm:w-60">
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Giờ địa phương (kim giờ)</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Giờ địa phương</p>
         <p class="gmt-local font-serif text-2xl text-navy dark:text-dark-text">12:00</p>
       </div>
       <div class="rounded-lg border-l-4 border-brass bg-brass/5 p-3">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Giờ nhà (kim GMT)</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Giờ nhà · kim GMT</p>
         <p class="gmt-home font-serif text-2xl text-navy dark:text-dark-text">12:00</p>
       </div>
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ ba (theo vành 24h)</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ ba · kim GMT trên vành</p>
         <p class="gmt-third font-serif text-2xl text-navy dark:text-dark-text">12:00</p>
       </div>
-      <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-        Bấm nút để chỉnh kim. Kim giờ quay một vòng/12h, kim GMT một vòng/24h.
+      <p class="gmt-status rounded-lg border-l-4 border-brass bg-brass/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
+        Địa phương 12:00 · Giờ nhà 12:00 · Múi thứ ba 12:00.
       </p>
     </div>
+  </div>
+
+  <!-- Điều khiển — đặt dưới mô phỏng -->
+  <div class="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+    <button
+      type="button"
+      class="gmt-hour-up min-h-[44px] rounded-full border border-navy px-4 py-2.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text dark:hover:bg-dark-text dark:hover:text-dark-surface"
+    >
+      Tăng giờ địa phương 1 giờ
+    </button>
+    <button
+      type="button"
+      class="gmt-gmt-up min-h-[44px] rounded-full border border-brass px-4 py-2.5 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-cream dark:border-dark-brass dark:text-dark-brass"
+    >
+      Tăng giờ nhà 1 giờ
+    </button>
+    <button
+      type="button"
+      class="gmt-bezel-ccw min-h-[44px] rounded-full border border-cream-dark bg-white px-4 py-2.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft"
+    >
+      Xoay vành lùi 1 giờ
+    </button>
+    <button
+      type="button"
+      class="gmt-bezel-cw min-h-[44px] rounded-full border border-cream-dark bg-white px-4 py-2.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft"
+    >
+      Xoay vành tiến 1 giờ
+    </button>
+  </div>
+  <div class="mt-2 flex justify-center">
+    <button
+      type="button"
+      class="gmt-example min-h-[44px] rounded-full bg-navy px-4 py-2.5 text-xs font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-text dark:text-dark-surface"
+    >
+      Ví dụ: bay qua 7 múi giờ
+    </button>
   </div>
 </section>
 
@@ -98,118 +212,100 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
 </style>
 
 <script>
-  // Vạch giờ 1-12 trên mặt số + vạch 24h trên vành
-  (function () {
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const hourMarks = document.querySelector('.gmt-svg .hour-marks');
-    if (hourMarks && hourMarks.children.length === 0) {
-      for (let i = 0; i < 12; i++) {
-        const angle = (i * 30 - 90) * Math.PI / 180;
-        const x = 150 + 100 * Math.cos(angle);
-        const y = 150 + 100 * Math.sin(angle);
-        const t = document.createElementNS(svgNS, 'text');
-        t.setAttribute('x', String(x));
-        t.setAttribute('y', String(y + 5));
-        t.setAttribute('text-anchor', 'middle');
-        t.style.fill = 'var(--ig-stroke)';
-        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
-        t.setAttribute('font-size', '14');
-        t.setAttribute('font-weight', '600');
-        t.textContent = i === 0 ? '12' : String(i);
-        hourMarks.appendChild(t);
-      }
-    }
-    // Vạch phụ 24h trên vành
-    const bezelMarks = document.querySelector('.gmt-svg .gmt-bezel-marks');
-    if (bezelMarks && bezelMarks.children.length === 0) {
-      for (let i = 0; i < 24; i++) {
-        const angle = (i * 15 - 90) * Math.PI / 180;
-        const isMajor = i % 6 === 0;
-        const x1 = 150 + 140 * Math.cos(angle);
-        const y1 = 150 + 140 * Math.sin(angle);
-        const x2 = 150 + (isMajor ? 124 : 130) * Math.cos(angle);
-        const y2 = 150 + (isMajor ? 124 : 130) * Math.sin(angle);
-        const line = document.createElementNS(svgNS, 'line');
-        line.setAttribute('x1', String(x1));
-        line.setAttribute('y1', String(y1));
-        line.setAttribute('x2', String(x2));
-        line.setAttribute('y2', String(y2));
-        line.setAttribute('stroke', '#FAF7F2');
-        line.setAttribute('stroke-width', isMajor ? '2' : '1');
-        line.setAttribute('opacity', isMajor ? '1' : '0.4');
-        bezelMarks.appendChild(line);
-      }
-    }
-  })();
+  document.querySelectorAll<HTMLElement>('[data-tool="gmt-reader"]').forEach((root) => {
+    const svg = root.querySelector('.gmt-svg') as SVGSVGElement | null;
+    const hourHand = root.querySelector('.hour-hand') as SVGGElement | null;
+    const gmtHand = root.querySelector('.gmt-hand') as SVGGElement | null;
+    const bezelRing = root.querySelector('.gmt-bezel-ring') as SVGGElement | null;
+    const localEl = root.querySelector('.gmt-local') as HTMLElement | null;
+    const homeEl = root.querySelector('.gmt-home') as HTMLElement | null;
+    const thirdEl = root.querySelector('.gmt-third') as HTMLElement | null;
+    const statusEl = root.querySelector('.gmt-status') as HTMLElement | null;
+    const hourUp = root.querySelector('.gmt-hour-up') as HTMLButtonElement | null;
+    const gmtUp = root.querySelector('.gmt-gmt-up') as HTMLButtonElement | null;
+    const bezelCcw = root.querySelector('.gmt-bezel-ccw') as HTMLButtonElement | null;
+    const bezelCw = root.querySelector('.gmt-bezel-cw') as HTMLButtonElement | null;
+    if (!svg || !hourHand || !gmtHand || !bezelRing) return;
 
-  (function () {
-    const svg = document.querySelector('[data-tool="gmt-reader"] .gmt-svg') as SVGSVGElement | null;
-    if (!svg) return;
-    const hourHand = svg.querySelector('.hour-hand') as SVGGElement | null;
-    const gmtHand = svg.querySelector('.gmt-hand') as SVGGElement | null;
-    const bezelRing = svg.querySelector('.gmt-bezel-ring') as SVGGElement | null;
-    const localEl = document.querySelector('.gmt-local') as HTMLElement | null;
-    const homeEl = document.querySelector('.gmt-home') as HTMLElement | null;
-    const thirdEl = document.querySelector('.gmt-third') as HTMLElement | null;
-    const hourUp = document.querySelector('.gmt-hour-up') as HTMLButtonElement | null;
-    const gmtUp = document.querySelector('.gmt-gmt-up') as HTMLButtonElement | null;
-    const bezelCcw = document.querySelector('.gmt-bezel-ccw') as HTMLButtonElement | null;
-    const bezelCw = document.querySelector('.gmt-bezel-cw') as HTMLButtonElement | null;
-    if (!hourHand || !gmtHand || !bezelRing) return;
-
-    let localHour = 12; // 1-12 (giờ địa phương)
-    let gmtHour24 = 12; // 0-23 (giờ nhà trên thang 24h)
-    let bezelAngle = 0; // độ xoay vành
+    let localHour = 12;   // 1–12, đọc bằng kim giờ (một vòng/12 giờ)
+    let gmtHour24 = 12;   // 0–23, giờ nhà — kim GMT (một vòng/24 giờ)
+    let bezelAngle = 0;   // độ xoay của vành 24 giờ
+    let lastNote = '';    // mô tả thay đổi vừa diễn ra
 
     function pad(n: number) { return n < 10 ? '0' + n : '' + n; }
 
+    // Múi giờ thứ ba = giờ mà kim GMT đang chỉ trên vành ĐÃ XOAY:
+    // đầu kim GMT ở góc gmtHour24×15 theo vành gốc; vành xoay bezelAngle
+    // đưa vạch (gmtHour24 − bezelAngle/15) tới đầu kim.
+    function thirdHour(): number {
+      let t = (gmtHour24 - bezelAngle / 15) % 24;
+      if (t < 0) t += 24;
+      return Math.round(t) % 24;
+    }
+
     function render() {
-      // Kim giờ: 12h = 0°, mỗi giờ = 30° (một vòng/12h)
-      const hourAngle = ((localHour % 12) * 30);
-      hourHand.style.transform = `rotate(${hourAngle}deg)`;
-      // Kim GMT: một vòng/24h, mỗi giờ = 15°. 0h/24h ở đỉnh.
-      const gmtAngle = (gmtHour24 % 24) * 15;
-      gmtHand.style.transform = `rotate(${gmtAngle}deg)`;
+      hourHand.style.transform = `rotate(${(localHour % 12) * 30}deg)`;
+      gmtHand.style.transform = `rotate(${(gmtHour24 % 24) * 15}deg)`;
       bezelRing.style.transform = `rotate(${bezelAngle}deg)`;
 
-      // Giờ địa phương
-      if (localEl) localEl.textContent = `${pad(localHour % 12 === 0 ? 12 : localHour % 12)}:00`;
-      // Giờ nhà = gmtHour24
-      const h24 = gmtHour24 % 24;
-      if (homeEl) homeEl.textContent = `${pad(h24)}:00`;
-      // Múi giờ thứ ba: đọc trên vành 24h tại mốc đỉnh cố định.
-      // Vành xoay angle° → số giờ tại đỉnh thay đổi. Mỗi giờ = 15°.
-      // Giờ tại đỉnh = (24 - bezelAngle/15) mod 24... nhưng trực giác hơn:
-      // mốc đỉnh cố định chỉ vào vạch (24 - bezelAngle/15) trên vành.
-      let third = (24 - bezelAngle / 15) % 24;
-      if (third < 0) third += 24;
-      if (thirdEl) thirdEl.textContent = `${pad(Math.floor(thickThird(third)))}:00`;
+      const localLabel = `${pad(localHour === 12 ? 12 : localHour % 12)}:00`;
+      const homeLabel = `${pad(gmtHour24)}:00`;
+      const thirdLabel = `${pad(thirdHour())}:00`;
+      if (localEl) localEl.textContent = localLabel;
+      if (homeEl) homeEl.textContent = homeLabel;
+      if (thirdEl) thirdEl.textContent = thirdLabel;
+      if (statusEl) {
+        statusEl.textContent = `Địa phương ${localLabel} · Giờ nhà ${homeLabel} · Múi thứ ba ${thirdLabel}.${lastNote ? ' ' + lastNote : ''}`;
+      }
     }
-    // Làm tròn giờ thứ ba về số nguyên gần nhất (mỗi nấc vành = 1h)
-    function thickThird(v: number) { return Math.round(v); }
 
     hourUp?.addEventListener('click', () => {
-      localHour = (localHour % 12) + 1; // 1..12
+      localHour = (localHour % 12) + 1;
+      lastNote = 'Kim giờ tăng 1 giờ — chỉ giờ địa phương thay đổi.';
       render();
     });
+
     gmtUp?.addEventListener('click', () => {
       gmtHour24 = (gmtHour24 + 1) % 24;
+      lastNote = 'Kim GMT tăng 1 giờ — giờ nhà và múi thứ ba tăng cùng nhau.';
       render();
     });
-    // Vành 24h xoay mỗi nấc = 15° (1 giờ)
-    bezelCw?.addEventListener('click', () => { bezelAngle = (bezelAngle + 15) % 360; render(); });
-    bezelCcw?.addEventListener('click', () => { bezelAngle = (bezelAngle - 15 + 360) % 360; render(); });
 
-    // Kéo vành bằng ngón tay/chuột
+    bezelCw?.addEventListener('click', () => {
+      bezelAngle = (bezelAngle + 15) % 360;
+      lastNote = 'Vành tiến 1 giờ — chỉ múi thứ ba thay đổi.';
+      render();
+    });
+
+    bezelCcw?.addEventListener('click', () => {
+      bezelAngle = (bezelAngle - 15 + 360) % 360;
+      lastNote = 'Vành lùi 1 giờ — chỉ múi thứ ba thay đổi.';
+      render();
+    });
+
+    // Ví dụ học nhanh: nơi đến 09:00, giờ nhà 16:00, vành xoay để múi thứ ba 18:00
+    root.querySelector('.gmt-example')?.addEventListener('click', () => {
+      localHour = 9;
+      gmtHour24 = 16;
+      bezelAngle = 330; // 16:00 − 22 = −6 → 18:00 tại đầu kim GMT
+      lastNote = 'Ví dụ quan sát ba cách đọc (không phải thời gian thực): nơi đến 09:00, giờ nhà 16:00, vành đã xoay đọc múi thứ ba 18:00.';
+      render();
+    });
+
+    // Kéo vành bằng chuột/cảm ứng
     let dragging = false;
     let lastAngle = 0;
     function getPoint(e: PointerEvent) {
       const rect = svg.getBoundingClientRect();
-      return { x: ((e.clientX - rect.left) / rect.width) * 300, y: ((e.clientY - rect.top) / rect.height) * 300 };
+      return {
+        x: ((e.clientX - rect.left) / rect.width) * 300,
+        y: ((e.clientY - rect.top) / rect.height) * 300,
+      };
     }
     function angleFromCenter(p: { x: number; y: number }) {
-      const dx = p.x - 150, dy = p.y - 150;
-      let d = Math.atan2(dx, -dy) * 180 / Math.PI;
+      const dx = p.x - 150;
+      const dy = p.y - 150;
+      let d = (Math.atan2(dx, -dy) * 180) / Math.PI;
       if (d < 0) d += 360;
       return d;
     }
@@ -227,16 +323,22 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       let delta = cur - lastAngle;
       if (delta > 180) delta -= 360;
       if (delta < -180) delta += 360;
-      bezelAngle = (bezelAngle + delta + 360) % 360;
+      if (delta !== 0) {
+        bezelAngle = (bezelAngle + delta + 360) % 360;
+        lastNote = 'Kéo vành tay — múi thứ ba thay đổi theo vạch tại đầu kim GMT.';
+        render();
+      }
       lastAngle = cur;
-      render();
     }
-    function onUp(e: PointerEvent) { dragging = false; (e.target as Element).releasePointerCapture?.(e.pointerId); }
+    function onUp(e: PointerEvent) {
+      dragging = false;
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    }
     bezelRing.addEventListener('pointerdown', onDown);
     svg.addEventListener('pointermove', onMove);
     svg.addEventListener('pointerup', onUp);
     svg.addEventListener('pointercancel', onUp);
 
     render();
-  })();
+  });
 </script>

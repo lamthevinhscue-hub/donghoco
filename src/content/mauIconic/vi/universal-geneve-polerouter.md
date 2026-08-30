@@ -7,6 +7,11 @@ category: "dress"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "royal-oak"
+    relation: "Một thiết kế lớn đầu sự nghiệp Gérald Genta (1954) — trước Royal Oak năm 1972"
+updated: "2026-08-30"
+
 sources:
   - label: "Universal Genève — Bộ sưu tập Polerouter"
     url: "https://www.universalgeneve.com/icons/polerouter"

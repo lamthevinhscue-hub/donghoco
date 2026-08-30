@@ -8,6 +8,11 @@ power_reserve: "3 ngày"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "fifty-fathoms"
+    relation: "Cùng nguồn gốc quân sự — người nhái quân sự Ý và người nhái chiến đấu Pháp"
+updated: "2026-08-30"
+
 sources:
   - label: "Panerai — Bộ sưu tập Luminor"
     url: "https://www.panerai.com/us/en/focus/luminor-collection.html"

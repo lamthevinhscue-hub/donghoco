@@ -15,6 +15,11 @@ relatedModels:
   - slug: "breitling-navitimer"
     relation: "Hai chronograph công cụ — một mẫu gắn với không gian, một mẫu gắn với tính toán hàng không"
 
+relatedMechanisms:
+  - slug: "bo-thoat-dong-truc"
+    relation: "Calibre 3861 của Moonwatch hiện đại dùng bộ thoát Co-Axial — xem nguyên lý hoạt động"
+updated: "2026-08-30"
+
 sources:
   - label: "Omega — Speedmaster Moonwatch Professional"
     url: "https://www.omegawatches.com/en-us/watches/speedmaster/moonwatch-professional/catalog"
@@ -22,6 +27,8 @@ sources:
     url: "https://www.omegawatches.com/en-us/watches/speedmaster"
   - label: "Omega — Chronicle, biên niên sử chính hãng"
     url: "https://www.omegawatches.com/chronicle"
+  - label: "Omega — Hướng dẫn Moonwatch Calibre 3861 và bộ thoát Co-Axial"
+    url: "https://media.omegawatches.com/documents/manuals/31032425004001_User_Manual_EN.pdf"
 
 ---
 

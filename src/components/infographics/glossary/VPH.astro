@@ -2,6 +2,7 @@
 // =============================================================================
 // INFOGRAPHIC TỪ ĐIỂN: VPH (Tần số dao động)
 // SVG bánh lắc dao động + thang tần số. Quy đổi Hz ↔ vph.
+// Chất liệu: bánh lắc rubi trên nền mặt số gradient, mực độ tần số 4 nấc token.
 // =============================================================================
 const freqLevels = [
   { vph: '18.000', hz: '2,5 Hz', label: 'Cổ điển', note: 'Kim giây giật rõ', tone: 'low' },
@@ -10,33 +11,41 @@ const freqLevels = [
   { vph: '36.000', hz: '5 Hz', label: 'Rất cao', note: 'Zenith El Primero', tone: 'top' },
 ];
 const toneColors = {
-  low: '#9B2C2C', mid: '#B8893C', high: '#2D7A55', top: '#15435C',
+  low: 'var(--ig-rubi)', mid: 'var(--obs-brass)', high: 'var(--ig-steel)', top: 'var(--ig-stroke)',
 };
 ---
 
 <section class="my-8" data-infographic="glossary-vph">
   <div class="my-6 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-6">
     <svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" aria-hidden="true" focusable="false">
-      <text x="180" y="25" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="title" opacity="0">
+      <defs>
+        <!-- Mặt bánh lắc: trắng ngà, rìa nổi một nấc -->
+        <radialGradient id="vph-balance" cx="0.4" cy="0.35" r="0.95">
+          <stop offset="0" style="stop-color:var(--ig-bg)" />
+          <stop offset="0.78" style="stop-color:var(--ig-bg)" />
+          <stop offset="1" style="stop-color:var(--ig-bg-soft)" />
+        </radialGradient>
+      </defs>
+      <text x="180" y="25" text-anchor="middle" font-size="11" style="fill:var(--ig-text)" font-weight="bold" data-anim="title">
         Bánh lắc dao động qua lại liên tục
       </text>
       <!-- Quỹ đạo dao động -->
-      <path d="M 100 90 A 80 80 0 0 1 260 90" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4" data-anim="arc" opacity="0"/>
+      <path d="M 100 90 A 80 80 0 0 1 260 90" fill="none" style="stroke:var(--ig-rubi)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4" data-anim="arc"/>
       <!-- Bánh lắc 3 vị trí -->
-      <g data-anim="balance-positions" opacity="0">
-        <circle cx="120" cy="90" r="20" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
-        <circle cx="240" cy="90" r="20" fill="none" stroke="#9B2C2C" stroke-width="2" opacity="0.3"/>
-        <circle cx="180" cy="90" r="20" fill="#FAF7F2" stroke="#9B2C2C" stroke-width="2.5"/>
-        <line x1="180" y1="70" x2="180" y2="110" stroke="#9B2C2C" stroke-width="2"/>
-        <line x1="160" y1="76" x2="200" y2="104" stroke="#9B2C2C" stroke-width="2"/>
-        <line x1="160" y1="104" x2="200" y2="76" stroke="#9B2C2C" stroke-width="2"/>
-        <circle cx="180" cy="90" r="3" fill="#9B2C2C"/>
+      <g data-anim="balance-positions">
+        <circle cx="120" cy="90" r="20" fill="none" style="stroke:var(--ig-rubi)" stroke-width="2" opacity="0.3"/>
+        <circle cx="240" cy="90" r="20" fill="none" style="stroke:var(--ig-rubi)" stroke-width="2" opacity="0.3"/>
+        <circle cx="180" cy="90" r="20" fill="url(#vph-balance)" style="stroke:var(--ig-rubi)" stroke-width="2.5"/>
+        <line x1="180" y1="70" x2="180" y2="110" style="stroke:var(--ig-rubi)" stroke-width="2"/>
+        <line x1="160" y1="76" x2="200" y2="104" style="stroke:var(--ig-rubi)" stroke-width="2"/>
+        <line x1="160" y1="104" x2="200" y2="76" style="stroke:var(--ig-rubi)" stroke-width="2"/>
+        <circle cx="180" cy="90" r="3" style="fill:var(--ig-rubi)"/>
       </g>
       <!-- Mũi tên 2 chiều -->
-      <g data-anim="arrows" opacity="0">
-        <text x="130" y="135" font-size="20" fill="#9B2C2C">←</text>
-        <text x="215" y="135" font-size="20" fill="#9B2C2C">→</text>
-        <text x="180" y="145" text-anchor="middle" font-size="9" fill="#4A5568">Mỗi qua-lại = 2 dao động</text>
+      <g data-anim="arrows">
+        <text x="130" y="135" font-size="20" style="fill:var(--ig-rubi)">←</text>
+        <text x="215" y="135" font-size="20" style="fill:var(--ig-rubi)">→</text>
+        <text x="180" y="145" text-anchor="middle" font-size="9" style="fill:var(--ig-label)">Mỗi qua-lại = 2 dao động</text>
       </g>
     </svg>
   </div>
@@ -62,38 +71,3 @@ const toneColors = {
     (vì 1 Hz = 2 dao động, 1 giờ = 3.600 giây → 2 × 3.600 = 7.200)
   </div>
 </section>
-
-<style>
-  [data-infographic] [data-anim] {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-infographic] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function init() {
-    const root = document.querySelector('[data-infographic="glossary-vph"]');
-    if (!root) return;
-    const targets = root.querySelectorAll('[data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach((el) => el.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    targets.forEach((el) => obs.observe(el));
-    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
-  }
-  init();
-</script>

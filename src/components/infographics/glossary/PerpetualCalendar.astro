@@ -19,9 +19,9 @@ const calendarTypes = [
   { name: 'Perpetual Calendar', desc: 'Đúng mãi đến năm 2100 (1 lần/400 năm!)', tone: 'great' },
 ];
 const toneColors = {
-  bad: { bg: '#9B2C2C', text: '#9B2C2C' },
-  ok: { bg: '#B8893C', text: '#9B6E2C' },
-  great: { bg: '#2D7A55', text: '#2D7A55' },
+  bad: { bg: 'var(--ig-rubi)', text: 'var(--ig-rubi)' },
+  ok: { bg: 'var(--obs-brass)', text: 'var(--obs-brass-deep)' },
+  great: { bg: 'var(--ig-steel)', text: 'var(--ig-steel)' },
 };
 
 // Số ngày mỗi tháng (năm thường và năm nhuận)
@@ -30,16 +30,30 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
 
 <MechanismAnimation label="Lịch vạn niên (Perpetual Calendar) — Bánh cam 4 năm" data-mech-step-id="perpetual">
   <svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="perp-svg" aria-hidden="true" focusable="false">
-    <text x="300" y="28" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <defs>
+      <!-- Mặt số phụ: trắng ngà dịu, rìa nổi một nấc -->
+      <radialGradient id="pc-dial" cx="0.4" cy="0.35" r="0.95">
+        <stop offset="0" style="stop-color:var(--ig-bg)" />
+        <stop offset="0.8" style="stop-color:var(--ig-bg)" />
+        <stop offset="1" style="stop-color:var(--ig-bg-soft)" />
+      </radialGradient>
+      <!-- Đồng thau: bánh cam nhuận, kim năm -->
+      <linearGradient id="pc-brass" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.45" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+    </defs>
+    <text x="300" y="28" text-anchor="middle" font-size="13" style="fill:var(--ig-text)" font-weight="bold">
       Lịch tự nhảy ngày/tháng/năm — tự biết tháng Hai năm nhuận có 29 ngày
     </text>
 
     <!-- ====== ĐỒNG HỒ NGÀY/THÁNG/NĂM (subdials) ====== -->
     <!-- Subdial ngày (trái) -->
     <g id="date-dial" transform="translate(110, 150)">
-      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="date-wheel" data-name-vi="Bánh ngày" data-name-en="Date wheel"/>
+      <circle r="55" fill="url(#pc-dial)" style="stroke:var(--ig-stroke)" stroke-width="2" data-part="date-wheel" data-name-vi="Bánh ngày" data-name-en="Date wheel"/>
       <!-- 31 vạch ngày -->
-      <g stroke="#4A5568" stroke-width="1">
+      <g style="stroke:var(--ig-steel)" stroke-width="1">
         {Array.from({ length: 31 }).map((_, i) => {
           const a = (i * 360) / 31 - 90;
           const rad = (a * Math.PI) / 180;
@@ -53,20 +67,20 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
         const i = [0, 4, 9, 14, 19, 24, 29][idx];
         const a = (i * 360) / 31 - 90;
         const rad = (a * Math.PI) / 180;
-        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="9" fill="#1F2D3D">{i + 1}</text>;
+        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="9" style="fill:var(--ig-text)">{i + 1}</text>;
       })}
-      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">NGÀY</text>
+      <text x="0" y="-65" text-anchor="middle" font-size="10" style="fill:var(--ig-text)" font-weight="bold">NGÀY</text>
       <!-- Kim ngày (sẽ quay) -->
       <g id="date-hand">
-        <line x1="0" y1="0" x2="0" y2="-42" stroke="#9B2C2C" stroke-width="2.5" stroke-linecap="round"/>
-        <circle r="4" fill="#9B2C2C"/>
+        <line x1="0" y1="0" x2="0" y2="-42" style="stroke:var(--ig-rubi)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" style="fill:var(--ig-rubi)"/>
       </g>
     </g>
 
     <!-- Subdial tháng (giữa) -->
     <g id="month-dial" transform="translate(300, 150)">
-      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="month-wheel" data-name-vi="Bánh tháng" data-name-en="Month wheel"/>
-      <g stroke="#4A5568" stroke-width="1">
+      <circle r="55" fill="url(#pc-dial)" style="stroke:var(--ig-stroke)" stroke-width="2" data-part="month-wheel" data-name-vi="Bánh tháng" data-name-en="Month wheel"/>
+      <g style="stroke:var(--ig-steel)" stroke-width="1">
         {Array.from({ length: 12 }).map((_, i) => {
           const a = (i * 360) / 12 - 90;
           const rad = (a * Math.PI) / 180;
@@ -78,42 +92,42 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
       {monthsVi.map((m, i) => {
         const a = (i * 360) / 12 - 90;
         const rad = (a * Math.PI) / 180;
-        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight={m === 'T2' ? 'bold' : 'normal'}>{m}</text>;
+        return <text x={Math.cos(rad) * 36} y={Math.sin(rad) * 36 + 3} text-anchor="middle" font-size="10" style="fill:var(--ig-text)" font-weight={m === 'T2' ? 'bold' : 'normal'}>{m}</text>;
       })}
-      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">THÁNG</text>
+      <text x="0" y="-65" text-anchor="middle" font-size="10" style="fill:var(--ig-text)" font-weight="bold">THÁNG</text>
       <g id="month-hand">
-        <line x1="0" y1="0" x2="0" y2="-42" stroke="#3182CE" stroke-width="2.5" stroke-linecap="round"/>
-        <circle r="4" fill="#3182CE"/>
+        <line x1="0" y1="0" x2="0" y2="-42" style="stroke:var(--ig-steel)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" style="fill:var(--ig-steel)"/>
       </g>
     </g>
 
     <!-- Subdial năm + bánh cam nhuận (phải) -->
     <g id="year-dial" transform="translate(490, 150)">
-      <circle r="55" fill="#FAF7F2" stroke="#1F2D3D" stroke-width="2" data-part="year-wheel" data-name-vi="Bánh năm + cam nhuận" data-name-en="Year wheel + leap cam"/>
+      <circle r="55" fill="url(#pc-dial)" style="stroke:var(--ig-stroke)" stroke-width="2" data-part="year-wheel" data-name-vi="Bánh năm + cam nhuận" data-name-en="Year wheel + leap cam"/>
       <!-- 4 vùng năm -->
       <g>
-        <path d="M 0 0 L 0 -50 A 50 50 0 0 1 50 0 Z" fill="#FAF7F2" opacity="0.5"/>
-        <path d="M 0 0 L 50 0 A 50 50 0 0 1 0 50 Z" fill="#E8E2D6" opacity="0.5"/>
-        <path d="M 0 0 L 0 50 A 50 50 0 0 1 -50 0 Z" fill="#FAF7F2" opacity="0.5"/>
-        <path d="M 0 0 L -50 0 A 50 50 0 0 1 0 -50 Z" fill="#B8893C" opacity="0.25"/>
+        <path d="M 0 0 L 0 -50 A 50 50 0 0 1 50 0 Z" style="fill:var(--ig-bg)" opacity="0.5"/>
+        <path d="M 0 0 L 50 0 A 50 50 0 0 1 0 50 Z" style="fill:var(--ig-bg-soft)" opacity="0.5"/>
+        <path d="M 0 0 L 0 50 A 50 50 0 0 1 -50 0 Z" style="fill:var(--ig-bg)" opacity="0.5"/>
+        <path d="M 0 0 L -50 0 A 50 50 0 0 1 0 -50 Z" style="fill:var(--obs-brass)" opacity="0.25"/>
       </g>
-      <circle r="50" fill="none" stroke="#1F2D3D" stroke-width="2"/>
+      <circle r="50" fill="none" style="stroke:var(--ig-stroke)" stroke-width="2"/>
       <!-- Nhãn năm -->
-      <text x="22" y="-25" text-anchor="middle" font-size="11" fill="#1F2D3D">Y1</text>
-      <text x="25" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D">Y2</text>
-      <text x="-22" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D">Y3</text>
-      <text x="-25" y="-25" text-anchor="middle" font-size="11" fill="#B8893C" font-weight="bold">Y4★</text>
-      <text x="0" y="-65" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">NĂM / NHUẬN</text>
-      <text x="0" y="75" text-anchor="middle" font-size="8" fill="#B8893C">★ = Năm nhuận</text>
+      <text x="22" y="-25" text-anchor="middle" font-size="11" style="fill:var(--ig-text)">Y1</text>
+      <text x="25" y="30" text-anchor="middle" font-size="11" style="fill:var(--ig-text)">Y2</text>
+      <text x="-22" y="30" text-anchor="middle" font-size="11" style="fill:var(--ig-text)">Y3</text>
+      <text x="-25" y="-25" text-anchor="middle" font-size="11" style="fill:var(--obs-brass-deep)" font-weight="bold">Y4★</text>
+      <text x="0" y="-65" text-anchor="middle" font-size="10" style="fill:var(--ig-text)" font-weight="bold">NĂM / NHUẬN</text>
+      <text x="0" y="75" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-deep)">★ = Năm nhuận</text>
       <g id="year-hand">
-        <line x1="0" y1="0" x2="0" y2="-42" stroke="#B8893C" stroke-width="2.5" stroke-linecap="round"/>
-        <circle r="4" fill="#B8893C"/>
+        <line x1="0" y1="0" x2="0" y2="-42" stroke="url(#pc-brass)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle r="4" style="fill:var(--obs-brass-deep)"/>
       </g>
     </g>
 
     <!-- ====== BÁNH CAM NHUẬN (leap year cam) - bên dưới, chi tiết kỹ thuật ====== -->
     <g id="leap-cam-group" transform="translate(150, 340)">
-      <text x="0" y="-55" text-anchor="middle" font-size="10" fill="#1F2D3D" font-weight="bold">
+      <text x="0" y="-55" text-anchor="middle" font-size="10" style="fill:var(--ig-text)" font-weight="bold">
         Bánh cam nhuận (snail cam)
       </text>
       <g id="leap-cam" data-part="leap-cam" data-name-vi="Bánh cam 4 năm" data-name-en="4-year leap snail cam">
@@ -131,38 +145,38 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
                  L 10 0
                  A 10 10 0 0 0 0 -10
                  Z"
-              fill="#B8893C" stroke="#9B6E2C" stroke-width="1.5" opacity="0.85"/>
+              fill="url(#pc-brass)" style="stroke:var(--obs-brass-deep)" stroke-width="1.5" opacity="0.85"/>
         <!-- Trục -->
-        <circle r="4" fill="#2D3748"/>
+        <circle r="4" style="fill:var(--ig-edge)"/>
       </g>
       <!-- Kim cảm biến (feeler) -->
       <g id="cam-feeler">
-        <line x1="35" y1="0" x2="55" y2="0" stroke="#3182CE" stroke-width="2"/>
-        <circle cx="55" cy="0" r="3" fill="#3182CE"/>
+        <line x1="35" y1="0" x2="55" y2="0" style="stroke:var(--ig-steel)" stroke-width="2"/>
+        <circle cx="55" cy="0" r="3" style="fill:var(--ig-steel)"/>
       </g>
-      <text x="0" y="55" text-anchor="middle" font-size="8" fill="#4A5568">
+      <text x="0" y="78" text-anchor="middle" font-size="8" style="fill:var(--ig-label)">
         Kim cảm biến chạm bậc khác mỗi năm → tự biết tháng 2 có 28 hay 29 ngày
       </text>
     </g>
 
     <!-- ====== TRẠNG THÁI HIỆN TẠI (ngày/tháng/năm) ====== -->
     <g id="readout">
-      <rect x="260" y="320" width="240" height="80" rx="6" fill="#1F2D3D"/>
-      <text x="380" y="338" text-anchor="middle" font-size="9" fill="#B8893C">NGÀY ĐANG HIỂN THỊ</text>
-      <text id="readout-date" x="380" y="368" text-anchor="middle" font-size="22" fill="#FAF7F2" font-weight="bold">15</text>
-      <text id="readout-month" x="380" y="388" text-anchor="middle" font-size="12" fill="#B8893C">Tháng 6 / Năm 3</text>
+      <rect x="260" y="320" width="240" height="80" rx="6" style="fill:var(--obs-graphite)"/>
+      <text x="380" y="338" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)">NGÀY ĐANG HIỂN THỊ</text>
+      <text id="readout-date" x="380" y="368" text-anchor="middle" font-size="22" style="fill:var(--obs-ivory)" font-weight="bold">15</text>
+      <text id="readout-month" x="380" y="388" text-anchor="middle" font-size="12" style="fill:var(--obs-brass-soft)">Tháng 6 / Năm 3</text>
     </g>
 
     <!-- ====== CẢNH BÁO tháng 2 nhuận ====== -->
-    <text id="leap-alert" x="300" y="100" text-anchor="middle" font-size="11" fill="#2D7A55" font-weight="bold" opacity="0">
+    <text id="leap-alert" x="300" y="100" text-anchor="middle" font-size="11" style="fill:var(--ig-steel)" font-weight="bold" opacity="0">
       ★ Tháng 2 NHUẬN: 29 ngày! ★
     </text>
 
     <!-- ====== CHÚ THÍCH KHI HOVER ====== -->
     <g id="tooltip" opacity="0" style="pointer-events: none;">
-      <rect id="tooltip-bg" x="0" y="0" width="180" height="40" rx="6" fill="#1F2D3D" opacity="0.95"/>
-      <text id="tooltip-vi" x="90" y="17" text-anchor="middle" font-size="11" fill="#FAF7F2" font-weight="bold"></text>
-      <text id="tooltip-en" x="90" y="32" text-anchor="middle" font-size="9" fill="#B8893C"></text>
+      <rect id="tooltip-bg" x="0" y="0" width="180" height="40" rx="6" style="fill:var(--obs-graphite)" opacity="0.95"/>
+      <text id="tooltip-vi" x="90" y="17" text-anchor="middle" font-size="11" style="fill:var(--obs-ivory)" font-weight="bold"></text>
+      <text id="tooltip-en" x="90" y="32" text-anchor="middle" font-size="9" style="fill:var(--obs-brass-soft)"></text>
     </g>
   </svg>
 
@@ -259,7 +273,7 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
       parts.forEach((part) => {
         part.style.cursor = 'pointer';
         const highlight = () => {
-          part.style.filter = 'drop-shadow(0 0 6px #B8893C)';
+          part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
           const vi = part.getAttribute('data-name-vi') || '';
           const en = part.getAttribute('data-name-en') || '';
           tooltipVi.textContent = vi;
@@ -304,36 +318,3 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
     Năm 2100 perpetual calendar sẽ sai → cần chỉnh. Đó là vì sao Patek Philippe quảng cáo máy của họ "đúng đến 2100".
   </div>
 </div>
-
-<style>
-  [data-explanation] [data-anim] {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-explanation] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-explanation] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function initExplanation() {
-    const cards = document.querySelectorAll('[data-explanation] [data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cards.forEach((c) => c.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    cards.forEach((c) => obs.observe(c));
-    setTimeout(() => cards.forEach((c) => c.classList.add('reveal-visible')), 3000);
-  }
-  initExplanation();
-</script>

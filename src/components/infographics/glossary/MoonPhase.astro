@@ -5,6 +5,8 @@
 // Người đọc tua qua một chu kỳ trăng (29,5 ngày) bằng thanh trượt hoặc tự chạy.
 // Đĩa có hai mặt trăng ở hai phía; cửa sổ vòm trên mặt số khoe đúng pha hiện tại.
 // Dùng MechanAnimation wrapper.
+// Chất liệu: nền trời đêm graphite cố định (--obs-graphite/--obs-ivory không
+// đổi theo dark mode), viền đồng gradient --obs-brass-*.
 // =============================================================================
 
 import MechanismAnimation from '../MechanismAnimation.astro';
@@ -12,12 +14,26 @@ import MechanismAnimation from '../MechanismAnimation.astro';
 
 <MechanismAnimation label="Pha trăng (Moon Phase)" data-mech-step-id="moon-phase">
   <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="moonphase-svg" aria-hidden="true" focusable="false">
-    <text x="250" y="26" text-anchor="middle" font-size="13" fill="#1F2D3D" font-weight="bold">
+    <defs>
+      <!-- Viền đồng: vành mặt số + vành đĩa trăng -->
+      <linearGradient id="mph-brass" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--obs-brass-soft)" />
+        <stop offset="0.5" style="stop-color:var(--obs-brass)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+      </linearGradient>
+      <!-- Mặt trăng: trắng ngà bắt sáng, rìa ấm -->
+      <radialGradient id="mph-moon" cx="0.38" cy="0.32" r="0.95">
+        <stop offset="0" style="stop-color:var(--obs-ivory)" />
+        <stop offset="0.75" style="stop-color:var(--obs-ivory)" />
+        <stop offset="1" style="stop-color:var(--obs-brass-soft)" />
+      </radialGradient>
+    </defs>
+    <text x="250" y="26" text-anchor="middle" font-size="13" style="fill:var(--ig-text)" font-weight="bold">
       Đĩa hai mặt trăng xoay — cửa sổ vòm khoe pha hiện tại
     </text>
 
     <!-- ====== MẶT SỐ (nền tối) ====== -->
-    <circle cx="250" cy="190" r="130" fill="#1F2D3D"/>
+    <circle cx="250" cy="190" r="130" style="fill:var(--obs-graphite)"/>
 
     <!-- ====== CỬA SỔ VÒM (path cắt) — vòm trên ====== -->
     <!-- Cửa sổ hình bán nguyệt ở trên, giữa mặt số -->
@@ -31,43 +47,45 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     <!-- ====== ĐĨA TRĂNG (xoay) — hai mặt trăng đối diện ====== -->
     <g id="moon-disk" style="transform-origin: 250px 190px;" data-part="moon-disk" data-name-vi="Đĩa pha trăng (59 răng, 2 mặt trăng)" data-name-en="Moon phase disk">
       <!-- Đĩa nền (xanh đêm) -->
-      <circle cx="250" cy="190" r="110" fill="#0f1620" stroke="#B8893C" stroke-width="1" opacity="0.6"/>
+      <circle cx="250" cy="190" r="110" style="fill:var(--obs-graphite);stroke:url(#mph-brass)" stroke-width="1" opacity="0.6"/>
       <!-- Vạch sao trang trí -->
-      <circle cx="270" cy="200" r="1" fill="#FAF7F2" opacity="0.6"/>
-      <circle cx="235" cy="215" r="0.8" fill="#FAF7F2" opacity="0.5"/>
-      <circle cx="260" cy="180" r="0.6" fill="#FAF7F2" opacity="0.4"/>
+      <circle cx="270" cy="200" r="1" style="fill:var(--obs-ivory)" opacity="0.6"/>
+      <circle cx="235" cy="215" r="0.8" style="fill:var(--obs-ivory)" opacity="0.5"/>
+      <circle cx="260" cy="180" r="0.6" style="fill:var(--obs-ivory)" opacity="0.4"/>
 
       <!-- Mặt trăng 1 (trên cùng, ở cửa sổ khi góc 0) -->
       <g transform="translate(250, 150)">
-        <circle r="22" fill="#FAF7F2"/>
+        <circle r="22" fill="url(#mph-moon)"/>
         <!-- Hố trăng trang trí -->
-        <circle cx="-5" cy="-4" r="3" fill="#E2DDD0"/>
-        <circle cx="6" cy="2" r="2.5" fill="#E2DDD0"/>
-        <circle cx="-2" cy="7" r="2" fill="#E2DDD0"/>
+        <circle cx="-5" cy="-4" r="3" style="fill:var(--ig-bg-soft)"/>
+        <circle cx="6" cy="2" r="2.5" style="fill:var(--ig-bg-soft)"/>
+        <circle cx="-2" cy="7" r="2" style="fill:var(--ig-bg-soft)"/>
       </g>
 
       <!-- Mặt trăng 2 (đối diện, dưới) -->
       <g transform="translate(250, 230)">
-        <circle r="22" fill="#FAF7F2"/>
-        <circle cx="4" cy="-5" r="3" fill="#E2DDD0"/>
-        <circle cx="-6" cy="3" r="2.5" fill="#E2DDD0"/>
-        <circle cx="2" cy="6" r="2" fill="#E2DDD0"/>
+        <circle r="22" fill="url(#mph-moon)"/>
+        <circle cx="4" cy="-5" r="3" style="fill:var(--ig-bg-soft)"/>
+        <circle cx="-6" cy="3" r="2.5" style="fill:var(--ig-bg-soft)"/>
+        <circle cx="2" cy="6" r="2" style="fill:var(--ig-bg-soft)"/>
       </g>
     </g>
 
-    <!-- ====== LỚP CHE (mask cửa sổ) — che phần đĩa ngoài cửa sổ vòm ====== -->
-    <!-- Mặt số nền tối đè lên, chỉ để hở cửa sổ vòm -->
-    <path d="M 120 190 A 130 130 0 0 1 380 190 L 380 190 L 120 190 Z" fill="#1F2D3D" opacity="0"/>
-    <!-- Che phần trên mặt số ngoại trừ cửa sổ vòm -->
-    <path d="M 120 60 A 130 130 0 0 0 380 60 L 380 130 L 285 130 A 35 35 0 0 1 215 130 L 120 130 Z" fill="#1F2D3D"/>
+    <!-- ====== LỚP CHE (mask cửa sổ) — che toàn bộ đĩa, chỉ hở vòm trên mặt trăng ====== -->
+    <!-- Vòng mặt số trừ cửa vòm (fill-rule evenodd): vòm có dây cung tại y=172,
+         ôm trọn mặt trăng trên ở (250,150); mọi phần tràn ngoài vòng mặt số đều bị cắt -->
+    <path d="M 120 190 A 130 130 0 1 1 380 190 A 130 130 0 1 1 120 190 Z M 215 172 A 35 35 0 0 1 285 172 Z"
+          fill-rule="evenodd" style="fill:var(--obs-graphite)"/>
+    <!-- Nét vòm cửa sổ (nét phụ) làm nổi khung cửa sổ pha trăng -->
+    <path d="M 215 172 A 35 35 0 0 1 285 172" fill="none" style="stroke:var(--obs-brass-soft)" stroke-width="1" opacity="0.5"/>
 
     <!-- ====== BÓNG TỰ NHIÊN — mặt số đè lên đĩa, chỉ hở vòm ====== -->
     <!-- Vẽ lại vòng mặt số + che quanh vòm -->
-    <circle cx="250" cy="190" r="130" fill="none" stroke="#B8893C" stroke-width="2"/>
+    <circle cx="250" cy="190" r="130" fill="none" stroke="url(#mph-brass)" stroke-width="2"/>
 
     <!-- ====== PHA TRĂNG HIỆN TẠI (text) ====== -->
-    <text id="moonphase-label" x="250" y="250" text-anchor="middle" font-size="14" fill="#FAF7F2" font-weight="600">Trăng tròn</text>
-    <text id="moonphase-day" x="250" y="270" text-anchor="middle" font-size="11" fill="#B8893C">Ngày 14,8 / 29,5</text>
+    <text id="moonphase-label" x="250" y="250" text-anchor="middle" font-size="14" style="fill:var(--obs-ivory)" font-weight="600">Trăng tròn</text>
+    <text id="moonphase-day" x="250" y="270" text-anchor="middle" font-size="11" style="fill:var(--obs-brass-soft)">Ngày 14,8 / 29,5</text>
   </svg>
 
   <script is:inline define:vars={{}} slot="script">

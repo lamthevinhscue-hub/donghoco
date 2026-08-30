@@ -2,41 +2,58 @@
 // =============================================================================
 // INFOGRAPHIC TỪ ĐIỂN: MINUTE REPEATER (Cơ chế điểm chuông)
 // SVG chuông + búa gõ. Minh họa quy ước gõ giờ-phút.
+// Chất liệu: gradient --obs-* (ống chuông thép / đồng thau, búa đậm nét).
 // =============================================================================
 const beatRules = [
-  { sound: 'Ting', count: '3 tiếng', meaning: 'Giờ (vd: 3 giờ)', color: '#2E86AB' },
-  { sound: 'Ding-dong', count: '2 tổ', meaning: 'Mỗi tổ = 15 phút (vd: 2 tổ = 30 phút)', color: '#B8893C' },
-  { sound: 'Ting', count: '7 tiếng', meaning: 'Phút lẻ (vd: 7 phút)', color: '#9B2C2C' },
+  { sound: 'Ting', count: '3 tiếng', meaning: 'Giờ (vd: 3 giờ)', color: 'var(--ig-steel)' },
+  { sound: 'Ding-dong', count: '2 tổ', meaning: 'Mỗi tổ = 15 phút (vd: 2 tổ = 30 phút)', color: 'var(--obs-brass)' },
+  { sound: 'Ting', count: '7 tiếng', meaning: 'Phút lẻ (vd: 7 phút)', color: 'var(--ig-rubi)' },
 ];
 ---
 
 <section class="my-8" data-infographic="glossary-minute-repeater">
   <div class="my-6 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-6">
     <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- Thép: ống chuông trầm -->
+        <linearGradient id="mrp-steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--ig-steel-soft)" />
+          <stop offset="0.5" style="stop-color:var(--ig-steel)" />
+          <stop offset="1" style="stop-color:var(--ig-edge)" />
+        </linearGradient>
+        <!-- Đồng thau: ống chuông bổng -->
+        <linearGradient id="mrp-brass" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--obs-brass-soft)" />
+          <stop offset="0.5" style="stop-color:var(--obs-brass)" />
+          <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
+        </linearGradient>
+      </defs>
       <!-- 2 chuông (gongs) - ống thép uốn -->
-      <g data-anim="gong-bass" opacity="0">
-        <path d="M 70 130 Q 70 80 120 80 Q 170 80 170 110" fill="none" stroke="#4A5568" stroke-width="6" stroke-linecap="round"/>
-        <text x="90" y="155" font-size="9" fill="#1F2D3D" font-weight="bold">Chuông trầm</text>
+      <g data-anim="gong-bass">
+        <path d="M 70 130 Q 70 80 120 80 Q 170 80 170 110" fill="none" stroke="url(#mrp-steel)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 70 130 Q 70 80 120 80 Q 170 80 170 110" fill="none" style="stroke:var(--obs-ivory)" stroke-width="1.2" opacity="0.35"/>
+        <text x="90" y="155" font-size="9" style="fill:var(--ig-text)" font-weight="bold">Chuông trầm</text>
       </g>
-      <g data-anim="gong-treble" opacity="0">
-        <path d="M 230 130 Q 230 80 180 80" fill="none" stroke="#B8893C" stroke-width="5" stroke-linecap="round"/>
-        <text x="195" y="155" font-size="9" fill="#1F2D3D" font-weight="bold">Chuông cao</text>
+      <g data-anim="gong-treble">
+        <path d="M 230 130 Q 230 80 180 80" fill="none" stroke="url(#mrp-brass)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 230 130 Q 230 80 180 80" fill="none" style="stroke:var(--obs-ivory)" stroke-width="1" opacity="0.35"/>
+        <text x="195" y="155" font-size="9" style="fill:var(--ig-text)" font-weight="bold">Chuông cao</text>
       </g>
       <!-- 2 búa (hammers) -->
-      <g data-anim="hammers" opacity="0">
-        <circle cx="75" cy="135" r="8" fill="#2D3748"/>
-        <line x1="75" y1="135" x2="100" y2="165" stroke="#2D3748" stroke-width="3"/>
-        <circle cx="225" cy="135" r="7" fill="#9B6E2C"/>
-        <line x1="225" y1="135" x2="205" y2="165" stroke="#9B6E2C" stroke-width="2.5"/>
+      <g data-anim="hammers">
+        <circle cx="75" cy="135" r="8" style="fill:var(--ig-edge)"/>
+        <line x1="75" y1="135" x2="100" y2="165" style="stroke:var(--ig-edge)" stroke-width="3"/>
+        <circle cx="225" cy="135" r="7" style="fill:var(--obs-brass-deep)"/>
+        <line x1="225" y1="135" x2="205" y2="165" style="stroke:var(--obs-brass-deep)" stroke-width="2.5"/>
       </g>
       <!-- Movement nền -->
-      <rect x="110" y="160" width="80" height="50" rx="6" fill="#FAF7F2" stroke="#2D3748" stroke-width="1.5" data-anim="movement-box" opacity="0"/>
-      <text x="150" y="190" text-anchor="middle" font-size="9" fill="#4A5568" data-anim="movement-box" opacity="0">Máy</text>
+      <rect x="110" y="160" width="80" height="50" rx="6" style="fill:var(--ig-bg);stroke:var(--ig-edge)" stroke-width="1.5" data-anim="movement-box"/>
+      <text x="150" y="190" text-anchor="middle" font-size="9" style="fill:var(--ig-label)" data-anim="movement-box">Máy</text>
       <!-- Chú thích -->
-      <text x="150" y="230" text-anchor="middle" font-size="10" fill="#1F2D3D" data-anim="caption" opacity="0">
+      <text x="150" y="230" text-anchor="middle" font-size="10" style="fill:var(--ig-text)" data-anim="caption">
         Bấm cần gạt → búa gõ chuông báo giờ
       </text>
-      <text x="150" y="30" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="caption" opacity="0">
+      <text x="150" y="30" text-anchor="middle" font-size="11" style="fill:var(--ig-text)" font-weight="bold" data-anim="caption">
         2 chuông + 2 búa
       </text>
     </svg>
@@ -61,38 +78,3 @@ const beatRules = [
     </p>
   </div>
 </section>
-
-<style>
-  [data-infographic] [data-anim] {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-infographic] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function init() {
-    const root = document.querySelector('[data-infographic="glossary-minute-repeater"]');
-    if (!root) return;
-    const targets = root.querySelectorAll('[data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach((el) => el.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    targets.forEach((el) => obs.observe(el));
-    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
-  }
-  init();
-</script>

@@ -2,6 +2,7 @@
 // =============================================================================
 // INFOGRAPHIC TỪ ĐIỂN: ROTOR (Quả nặng xoay của automatic)
 // SVG rotor bán nguyệt + 2 kiểu bố trí (center vs micro-rotor).
+// Chất liệu: rotor thép gradient 3 nấc, nền movement trắng ngà chuyển sắc.
 // =============================================================================
 const layouts = [
   {
@@ -24,35 +25,50 @@ const materials = [
   { name: 'Thép', note: 'Nhẹ hơn, rẻ hơn', tone: 'mid' },
   { name: 'Tungsten / Bronze', note: 'Siêu nặng, hiệu quả cao', tone: 'high' },
 ];
-const toneColors = { common: '#2E86AB', rare: '#9B2C2C', high: '#2D7A55', mid: '#B8893C' };
+const toneColors = { common: 'var(--ig-steel)', rare: 'var(--ig-rubi)', high: 'var(--ig-steel-soft)', mid: 'var(--obs-brass)' };
 ---
 
 <section class="my-8" data-infographic="glossary-rotor">
   <div class="my-6 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-6">
     <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs" aria-hidden="true" focusable="false">
-      <text x="160" y="25" text-anchor="middle" font-size="11" fill="#1F2D3D" font-weight="bold" data-anim="title" opacity="0">
+      <defs>
+        <!-- Thép rotor: bán nguyệt bắt sáng trên, đậm dần xuống dưới -->
+        <linearGradient id="rot-steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--ig-steel-soft)" />
+          <stop offset="0.5" style="stop-color:var(--ig-steel)" />
+          <stop offset="1" style="stop-color:var(--ig-edge)" />
+        </linearGradient>
+        <!-- Nền movement: mặt số trắng ngà, rìa nổi một nấc -->
+        <radialGradient id="rot-movement" cx="0.42" cy="0.38" r="0.95">
+          <stop offset="0" style="stop-color:var(--ig-bg)" />
+          <stop offset="0.78" style="stop-color:var(--ig-bg)" />
+          <stop offset="1" style="stop-color:var(--ig-bg-soft)" />
+        </radialGradient>
+      </defs>
+      <text x="160" y="25" text-anchor="middle" font-size="11" style="fill:var(--ig-text)" font-weight="bold" data-anim="title">
         Rotor — quả nặng bán nguyệt
       </text>
       <!-- Movement nền -->
-      <circle cx="160" cy="115" r="75" fill="#FAF7F2" stroke="#2D3748" stroke-width="1.5" data-anim="movement-bg" opacity="0"/>
+      <circle cx="160" cy="115" r="75" fill="url(#rot-movement)" style="stroke:var(--ig-edge)" stroke-width="1.5" data-anim="movement-bg"/>
       <!-- Chi tiết movement -->
-      <g data-anim="movement-details" opacity="0">
-        <circle cx="140" cy="100" r="12" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4"/>
-        <circle cx="180" cy="130" r="10" fill="none" stroke="#B8893C" stroke-width="1" opacity="0.4"/>
-        <circle cx="160" cy="115" r="6" fill="#B8893C" opacity="0.4"/>
+      <g data-anim="movement-details">
+        <circle cx="140" cy="100" r="12" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" opacity="0.4"/>
+        <circle cx="180" cy="130" r="10" fill="none" style="stroke:var(--obs-brass)" stroke-width="1" opacity="0.4"/>
+        <circle cx="160" cy="115" r="6" style="fill:var(--obs-brass)" opacity="0.4"/>
       </g>
       <!-- Rotor bán nguyệt (vị trí trên) -->
-      <g data-anim="rotor" opacity="0">
-        <path d="M 160 115 L 160 50 A 65 65 0 0 1 225 115 Z" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
-        <text x="195" y="80" font-size="9" fill="#FAF7F2" font-weight="bold">Rotor</text>
+      <g data-anim="rotor">
+        <path d="M 160 115 L 160 50 A 65 65 0 0 1 225 115 Z" fill="url(#rot-steel)" style="stroke:var(--ig-edge)" stroke-width="2"/>
+        <path d="M 166 108 L 166 58 A 59 59 0 0 1 218 108" fill="none" style="stroke:var(--obs-ivory)" stroke-width="1" opacity="0.35"/>
+        <text x="195" y="80" font-size="9" style="fill:var(--ig-bg)" font-weight="bold">Rotor</text>
       </g>
       <!-- Trục rotor -->
-      <circle cx="160" cy="115" r="5" fill="#2D3748" data-anim="pivot" opacity="0"/>
+      <circle cx="160" cy="115" r="5" style="fill:var(--ig-edge)" data-anim="pivot"/>
       <!-- Mũi tên cong chỉ xoay -->
-      <g data-anim="rotation" opacity="0">
-        <path d="M 225 115 A 65 65 0 0 1 95 115" fill="none" stroke="#B8893C" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <polygon points="95,115 103,109 103,121" fill="#B8893C"/>
-        <text x="160" y="200" text-anchor="middle" font-size="9" fill="#4A5568">
+      <g data-anim="rotation">
+        <path d="M 225 115 A 65 65 0 0 1 95 115" fill="none" style="stroke:var(--obs-brass)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <polygon points="95,115 103,109 103,121" style="fill:var(--obs-brass)"/>
+        <text x="160" y="200" text-anchor="middle" font-size="9" style="fill:var(--ig-label)">
           Quay tự do 360° theo trọng lực
         </text>
       </g>
@@ -85,38 +101,3 @@ const toneColors = { common: '#2E86AB', rare: '#9B2C2C', high: '#2D7A55', mid: '
     </div>
   </div>
 </section>
-
-<style>
-  [data-infographic] [data-anim] {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  [data-infographic] [data-anim].reveal-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    [data-infographic] [data-anim] { opacity: 1; transform: none; transition: none; }
-  }
-</style>
-
-<script>
-  function init() {
-    const root = document.querySelector('[data-infographic="glossary-rotor"]');
-    if (!root) return;
-    const targets = root.querySelectorAll('[data-anim]');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach((el) => el.classList.add('reveal-visible'));
-      return;
-    }
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('reveal-visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    targets.forEach((el) => obs.observe(el));
-    setTimeout(() => targets.forEach((el) => el.classList.add('reveal-visible')), 3000);
-  }
-  init();
-</script>

@@ -19,11 +19,11 @@ Ghi chú tương thích tên cũ: các mục ghi `ĐÃ XỬ LÝ BẰNG CÁCH G�
 
 ### Số lượng sau khi rà
 
-**45 mục nội dung** được phân loại theo ba trạng thái xử lý:
+**48 mục nội dung** được phân loại theo ba trạng thái xử lý:
 
 | Trạng thái xử lý | Số mục | Các mục |
 |---|---:|---|
-| ĐÃ GIẢI QUYẾT | **12** | 1, 8, 9, 10, 12, 13, 14, 16, 19, 20, 23, 40 |
+| ĐÃ GIẢI QUYẾT | **15** | 1, 8, 9, 10, 12, 13, 14, 16, 19, 20, 23, 40, 48, 49, 50 |
 | ĐÃ XỬ LÝ AN TOÀN | **30** | 2, 3, 4, 5, 6, 7, 11, 15, 17, 18, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42, 43, 45, 47 |
 | CHỜ NGUỒN | **3** | 22, 44, 46 |
 
@@ -35,9 +35,9 @@ Ghi chú tương thích tên cũ: các mục ghi `ĐÃ XỬ LÝ BẰNG CÁCH G�
 2. **COSC — /chronometer-certified:** `https://www.cosc.swiss/chronometer-certified` — 404, đang hiển thị trên 4 trang: `chronometer`, `metas`, `vph` (từ điển) và `do-sai-so` (hướng dẫn) (mục 40).
 3. **Kurono Tokyo — trang kỷ niệm 5 năm:** `https://kuronotokyo.com/pages/5th-anniversary` — 404, đang hiển thị trong nguồn trang `hajime-asaoka` (mục 39).
 
-Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm. *(Đoạn này xét các mục 1–47 có sẵn; các mục bổ sung sau đợt rà — xem ghi chú dưới.)*
+Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm. *(Đoạn này xét các mục 1–50 — ba mục 48–50 đã được diễn đạt lại an toàn ngày 30/08/2026, xem ghi chú dưới.)*
 
-**Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50. Ba mục này **chưa được xử lý gì** nên nằm ngoài ba trạng thái xử lý ở trên (chưa tính vào bảng số lượng); từng dữ kiện mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG` và chờ anh Vinh quyết định (giữ + bổ sung nguồn, diễn đạt lại, hoặc gỡ). Không tự sửa bài.
+**Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50 (lúc đó mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`, chưa tính vào bảng số lượng). **Cùng ngày 30/08/2026, cả ba mục đã ĐÃ GIẢI QUYẾT:** bài được diễn đạt lại theo nguồn, frontmatter bổ sung 3 nguồn tham khảo (Hodinkee Reference Points, Monochrome Part 1, Part 2) kèm `updated: "2026-08-30"`. Ba mục nay được tính vào bảng số lượng ở trên; cờ `CẦN ƯU TIÊN KIỂM CHỨNG` đã gỡ khỏi ba mục này. **Phần cờ ưu tiên còn lại duy nhất ba liên kết nguồn chết ở trên (Patek Philippe, COSC, Kurono Tokyo) — chưa xử lý.**
 
 ---
 
@@ -1112,7 +1112,9 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Câu/ý đang hiển thị:** "Rolex phản hồi bằng **Submariner** — mẫu đồng hồ lặn đầu tiên được sản xuất hàng loạt, ra mắt công chúng năm 1954."
 - **Lý do cần kiểm chứng:** Rolex chính thức chỉ khẳng định mức hẹp hơn — đồng hồ lặn đầu tiên đạt 100m (trang mẫu + Newsroom Rolex, truy cập 30/08/2026). Hai nguồn chuyên ngành (Monochrome, Bob's Watches) ghi Fifty Fathoms của Blancpain ra mắt **vài tháng trước** trong cùng năm 1953. Cụm "sản xuất hàng loạt" không có trong nguồn nào. Riêng "ra mắt công chúng năm 1954" khớp nguồn (Monochrome: ra mắt hội chợ Basel 1954; Hodinkee: 1954 là thời điểm Rolex chính thức công bố và bán ra).
 - **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — phần 5 "Rủi ro nội dung đang xuất bản".
-- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị trên trang, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định (giữ + nói đúng cách Rolex khẳng định, diễn đạt lại, hoặc gỡ). Chưa tự sửa bài.
+- **Hành động đã làm (30/08/2026):** thay câu cũ bằng: "Rolex đáp lại bằng **Submariner** — theo Rolex, đây là đồng hồ lặn đầu tiên đạt mức chống nước 100m. Những chiếc reference 6204 sớm nhất được định ngày cuối năm 1953; Rolex công bố mẫu này tại Basel năm 1954." — chỉ khẳng định đúng phạm vi Rolex xác nhận (đồng hồ lặn đầu tiên đạt 100m), bỏ cụm "sản xuất hàng loạt", giữ mốc công bố Basel 1954.
+- **Nguồn căn cứ khi sửa:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (nguồn S1 Rolex chính thức, S3 Monochrome, S7 Hodinkee, S8 Bob's Watches); frontmatter bài bổ sung Hodinkee Reference Points + Monochrome Part 1 + Part 2, kèm `updated: "2026-08-30"`.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (30/08/2026). Đã diễn đạt lại theo nguồn, cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gỡ khỏi mục này. Lịch sử lý do ban đầu giữ nguyên ở trên.
 
 ---
 
@@ -1122,7 +1124,9 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Câu/ý đang hiển thị:** "**6204** (1953) — thế hệ đầu tiên, dấu chấm gốc của mọi Submariner sau này."
 - **Lý do cần kiểm chứng:** hai nguồn chuyên ngành ủng hộ câu này (Monochrome và Hodinkee Reference Points: 6204 là reference đầu tiên có chữ "Submariner" trên mặt số; mẫu sớm nhất định ngày cuối 1953 bằng số serial và tem nắp sau). Nhưng có nguồn thị trường/đấu giá (Rolex Passion Market) gọi **6200** là "chiếc Submariner đầu tiên" ra 1953, và năm sản xuất của 6200 còn ba dải khác nhau giữa các nguồn (1953 / 1954 / 1955–1956) — chưa chốt được vai trò "ai ra trước".
 - **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — bảng 1 (6204), bảng 2 (6200) và phần 5.
-- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định. Chưa tự sửa bài.
+- **Hành động đã làm (30/08/2026):** thay dòng cũ bằng: "**6204** (1953) — reference đầu tiên mang chữ "Submariner" trên mặt số; những mẫu sớm nhất được định ngày cuối năm 1953." — chỉ khẳng định điều đã kiểm chứng được cho 6204 (chữ trên mặt số + định ngày cuối 1953); bỏ các cụm "thế hệ đầu tiên" và "dấu chấm gốc của mọi Submariner" do nguồn còn khác biệt về vai trò và năm của reference 6200 (bảng 2 hồ sơ).
+- **Nguồn căn cứ khi sửa:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (S3 Monochrome, S7 Hodinkee); frontmatter bài bổ sung Hodinkee Reference Points + Monochrome Part 1 + Part 2, kèm `updated: "2026-08-30"`.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (30/08/2026). Đã diễn đạt lại theo nguồn, cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gỡ khỏi mục này. Lịch sử lý do ban đầu giữ nguyên ở trên.
 
 ---
 
@@ -1132,6 +1136,8 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Câu/ý đang hiển thị:** "**5513** (1962–1989) — thế hệ cổ điển được sưu tầm nhiều nhất."
 - **Lý do cần kiểm chứng:** niên đại 1962–1989 đã khớp nguồn (Monochrome và Hodinkee đều ghi 5513 ra 1962, sản xuất liền 27 năm). Nhưng cụm "được sưu tầm nhiều nhất" là siêu tuyệt đối **không tìm thấy trong bất kỳ nguồn nào đã xem** — nguồn chuyên ngành chỉ mô tả 5513 là reference quan trọng và được chú ý cao của giới sưu tầm, không có bảng xếp hạng nào để căn cứ.
 - **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — bảng 1 (5513) và phần 5.
-- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định. Chưa tự sửa bài.
+- **Hành động đã làm (30/08/2026):** thay dòng cũ bằng: "**5513** (1962–1989) — bản không lịch, không chứng nhận chronometer, sản xuất liền 27 năm." — giữ đúng các dữ kiện có nguồn trực tiếp; bỏ cụm xếp hạng "được sưu tầm nhiều nhất" vì không tìm thấy trong bất kỳ nguồn nào đã xem.
+- **Nguồn căn cứ khi sửa:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (S4 Monochrome, S7 Hodinkee — cùng ghi 5513 ra 1962, sản xuất liền 27 năm); frontmatter bài bổ sung Hodinkee Reference Points + Monochrome Part 1 + Part 2, kèm `updated: "2026-08-30"`.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (30/08/2026). Đã diễn đạt lại theo nguồn, cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gỡ khỏi mục này. Lịch sử lý do ban đầu giữ nguyên ở trên.
 
 

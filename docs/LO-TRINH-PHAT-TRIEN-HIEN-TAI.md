@@ -83,7 +83,7 @@ Tóm tắt đúng tình trạng tại HEAD `9915a58`:
 
 ### Ưu tiên 2
 
-- **Xử lý các thông tin kiểm chứng có ảnh hưởng tới nội dung đang hiển thị** — trước mắt là các liên kết nguồn đã chết đang hiển thị trên trang (xem bảng tổng hợp đầu `CAN-KIEM-CHUNG.md`).
+- **Xử lý các thông tin kiểm chứng có ảnh hưởng tới nội dung đang hiển thị** — trước mắt là các liên kết nguồn đã chết đang hiển thị trên trang (xem bảng tổng hợp đầu `CAN-KIEM-CHUNG.md`). (Ngày 30/08/2026: ba dữ kiện rủi ro mục 48–50 của bài Rolex Submariner **đã được diễn đạt lại theo nguồn** — xem mục 48–50 trong tracker. Ưu tiên kế tiếp trong nhóm này vẫn là **ba liên kết nguồn chết: Patek Philippe, COSC, Kurono Tokyo** — chưa xử lý; tracker chưa hoàn tất.)
 - **Nghiệm thu production trên mobile, desktop, sáng/tối, zoom 200% và bàn phím** — kiểm tra thủ công trên bản đã triển khai thật, không chỉ bản xem trước trên máy.
 - **Theo dõi Search Console, Analytics và Core Web Vitals** — lập nhịp rà định kỳ khi có số liệu thực.
 - **Phát triển các cụm nội dung SEO** — nhóm bài chủ đề quanh từ khóa thực tế.

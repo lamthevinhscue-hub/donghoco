@@ -9,6 +9,7 @@ movement: "Calibre 3230 / 3235"
 power_reserve: "70 giờ"
 water_resistance: "300m"
 date: "2026-07-31"
+updated: "2026-08-30"
 draft: false
 
 sources:
@@ -18,12 +19,18 @@ sources:
     url: "https://www.rolex.com/about-rolex/history/1905-1919"
   - label: "Rolex Newsroom — Submariner, calibre 3230 và 3235"
     url: "https://newsroom.rolex.com/watches/oyster-collection/submariner"
+  - label: "Hodinkee — Rolex Submariner Reference Points"
+    url: "https://www.hodinkee.com/articles/rolex-submariner-reference-points"
+  - label: "Monochrome Watches — History of the Rolex Submariner, Part 1"
+    url: "https://monochrome-watches.com/rolex-submariner-history-part-1-the-early-references/"
+  - label: "Monochrome Watches — History of the Rolex Submariner, Part 2"
+    url: "https://monochrome-watches.com/rolex-submariner-history-part-2-the-55xx-1680references/"
 
 ---
 
 ## Bối cảnh ra đời
 
-Năm 1953, khi lặn bình khí (scuba diving) đang phát triển mạnh, thế giới cần những chiếc đồng hồ có thể chịu được áp suất nước sâu. Rolex phản hồi bằng **Submariner** — mẫu đồng hồ lặn đầu tiên được sản xuất hàng loạt, ra mắt công chúng năm 1954.
+Năm 1953, khi lặn bình khí (scuba diving) đang phát triển mạnh, thế giới cần những chiếc đồng hồ có thể chịu được áp suất nước sâu. Rolex đáp lại bằng **Submariner** — theo Rolex, đây là đồng hồ lặn đầu tiên đạt mức chống nước 100m. Những chiếc reference 6204 sớm nhất được định ngày cuối năm 1953; Rolex công bố mẫu này tại Basel năm 1954.
 
 Submariner không phải là đồng hồ lặn đầu tiên, nhưng nó đã đặt ra **chuẩn mực** cho toàn thể loại: vỏ xoay một chiều, độ chống nước 100m trở lên, mặt số dễ đọc trong bóng tối.
 
@@ -36,8 +43,8 @@ Submariner không phải là đồng hồ lặn đầu tiên, nhưng nó đã đ
 
 ## Các thế hệ tham chiếu (reference)
 
-- **6204** (1953) — thế hệ đầu tiên, dấu chấm gốc của mọi Submariner sau này.
-- **5513** (1962–1989) — thế hệ cổ điển được sưu tầm nhiều nhất.
+- **6204** (1953) — reference đầu tiên mang chữ "Submariner" trên mặt số; những mẫu sớm nhất được định ngày cuối năm 1953.
+- **5513** (1962–1989) — bản không lịch, không chứng nhận chronometer, sản xuất liền 27 năm.
 - **14060 và 14060M** — thế hệ "No Date" (không lịch), được yêu thích vì thiết kế đối xứng.
 - **114060** (2012–2020) — thế hệ vỏ siêu lớn (super case).
 - **126610LV "Starbucks"** (2020–nay) — thế hệ hiện tại, bezel xanh-lục.

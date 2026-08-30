@@ -2,11 +2,12 @@
 title: "Zenith"
 excerpt: "Cha đẻ của El Primero (1969) — bộ máy chronograph tự động tích hợp đầu tiên thế giới, tần số 36.000 vph."
 country: "Thụy Sĩ"
-tier: "mid-range luxury"
+tier: "high-end luxury"
 founded: 1865
 parent_company: "LVMH"
 signature_calibres: ["El Primero 3600", "Elite 670", "El Primero 21"]
 date: "2026-07-31"
+updated: "2026-08-30"
 draft: false
 lineHistory:
   - year: 1865
@@ -54,25 +55,25 @@ collections:
     positioning: "Tuyến thanh lịch, ít phô trương."
     iconic_ref: "Elite"
 segmentComparison:
-  - brand: "TAG Heuer"
-    slug: "tag-heuer"
-    strength: "Di sản đo giờ thể thao và đua xe; bằng sáng chế bánh răng dao động 1887 cả ngành vẫn dùng."
-    movement: "Heuer 02 in-house, trữ cót 80 giờ."
-    value_retention: "Trung bình; ngoại lệ là Monaco và Carrera vintage."
-    philosophy: "Avant-garde, tốc độ, tiếp cận rộng."
-  - brand: "Tudor"
-    slug: "tudor"
-    strength: "Thẩm mỹ công cụ chắc chắn, giá dễ tiếp cận trên nền hậu thuẫn kỹ thuật của Rolex."
-    movement: "Họ máy MT56xx in-house, chuẩn COSC."
-    value_retention: "Khá — Black Bay giữ giá tốt trong tầm."
-    philosophy: "Công cụ thực dụng, đúng giá trị đồng tiền."
+  - brand: "IWC Schaffhausen"
+    slug: "iwc"
+    strength: "Đồng hồ công cụ và di sản kỹ thuật thực dụng — Pilot, Ingenieur và Portugieser."
+    movement: "Các họ calibre 52000, 8900 và 32000; IWC dùng cả máy tự phát triển lẫn máy nền được cải biên tùy dòng."
+    value_retention: "Trung bình khá; thay đổi theo dòng và reference."
+    philosophy: "Kỹ thuật phục vụ chức năng, dễ đọc và ít trang trí thừa."
+  - brand: "Grand Seiko"
+    slug: "grand-seiko"
+    strength: "Độ hoàn thiện Zaratsu, mặt số và ba hướng kỹ thuật: cơ khí, quartz cao cấp và Spring Drive."
+    movement: "9S cơ khí, 9F quartz cao cấp và 9R Spring Drive."
+    value_retention: "Trung bình khá; thay đổi theo dòng và thị trường."
+    philosophy: "Theo đuổi độ chính xác, khả năng đọc và thẩm mỹ Nhật Bản."
   - brand: "Omega"
     slug: "omega"
     strength: "Công nghệ bộ thoát Co-Axial, chuẩn Master Chronometer chống từ trên 15.000 gauss."
     movement: "Master Chronometer đạt cả COSC và tám bài kiểm METAS."
     value_retention: "Khá; Speedmaster là trụ giữ giá."
     philosophy: "Chinh phục giới hạn bằng công nghệ."
-collectorNote: "Chọn Zenith khi bạn mua bằng con mắt kỹ thuật. Ở tầm giá này, không hãng nào cho bạn một bộ máy chronograph có tiểu sử dày như El Primero — nó từng tốt tới mức Rolex phải mượn về lắp vào Daytona suốt mười hai năm, và câu chuyện Charles Vermot giấu máy móc trên gác mái là một trong những giai thoại đẹp nhất ngành. Chọn TAG Heuer nếu bạn yêu văn hóa đua xe và muốn thiết kế dễ nhận ra hơn. Chọn Tudor nếu ưu tiên độ bền công cụ và khả năng bán lại. Chọn Omega nếu sẵn sàng chi thêm cho công nghệ chống từ và di sản không gian. Nói thẳng điểm yếu: Zenith không có sức nhận diện đại chúng — người ngoài ngành nhìn vào cổ tay bạn sẽ không biết đó là gì, và khả năng giữ giá chỉ ở mức trung bình. Đây là chiếc đồng hồ mua cho chính mình."
+collectorNote: "Chọn Zenith khi bạn mua bằng con mắt kỹ thuật. El Primero là một trong những bộ máy chronograph tự động tích hợp có tiểu sử dày nhất ngành; Rolex từng dùng nền máy này cho Daytona, còn câu chuyện Charles Vermot cất giữ máy móc và bản vẽ trong giai đoạn Khủng hoảng Quartz là một phần quan trọng của di sản Zenith. Zenith phù hợp với người muốn một chronograph manufacture tần số cao có bản sắc riêng, thay vì chọn một biểu tượng dễ nhận ra từ xa. Nếu ưu tiên đồng hồ công cụ thực dụng và di sản phi công, hãy đặt cạnh IWC. Nếu quan tâm đến độ chính xác, hoàn thiện bề mặt và một cách tiếp cận khác ngoài Thụy Sĩ, hãy xem Grand Seiko. Nếu muốn công nghệ chống từ cùng di sản không gian, Omega là đối chiếu tự nhiên. Nói thẳng: Zenith vẫn kém nhận diện đại chúng hơn các hãng lớn và thị trường thứ cấp không có sức bền đồng đều như Rolex. Đây là chiếc đồng hồ nên mua vì bộ máy, thiết kế và câu chuyện kỹ thuật của chính nó."
 sources:
   - label: "Wikipedia — Zenith (watchmaker)"
     url: "https://en.wikipedia.org/wiki/Zenith_(watchmaker)"
@@ -108,4 +109,4 @@ El Primero thậm chí được Rolex dùng cho Daytona (1988–2000) trước k
 
 ## Phân khúc
 
-Zenith ở phân khúc **mid-range luxury** — Chronomaster (El Primero), Defy (thể thao), Pilot, Elite (dress watch).
+Zenith ở phân khúc **high-end luxury** — Chronomaster (El Primero), Defy (thể thao), Pilot, Elite (dress watch).

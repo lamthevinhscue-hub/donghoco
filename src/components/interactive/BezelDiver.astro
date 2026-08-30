@@ -1,46 +1,61 @@
 ---
 // =============================================================================
-// BezelDiver — Thành phần tương tác: vành lặn xoay được, kim phút chạy
+// BezelDiver — Công cụ học: vành lặn xoay được, kim phút chạy
 // =============================================================================
-// Người đọc điều khiển: kéo/vặn vành (chuột hoặc ngón tay), quan sát kim phút
-// chạy, đọc số phút đã trôi giữa mốc 0 và kim phút. Dùng cho bài
-// /huong-dan/dung-vanh-lan.
+// Nhiệm vụ duy nhất: hiểu cách đặt mốc 0 trùng kim phút, rồi đọc thời gian
+// đã trôi trên vành. Dùng cho /huong-dan/dung-vanh-lan.
 //
-// Tương tác: pointer events (chuột + cảm ứng), nút "Đặt mốc", nút tua thời gian.
+// Ngôn ngữ thị giác "Horological Observatory": vành thép/graphite chuyển sắc,
+// vạch chia chính–trung–phụ, chấm dạ quang duy nhất ở mốc 0, chỉ báo brass.
+// Màu chỉ qua token --obs-*/--ig-* — không mã màu trực tiếp.
+// Tương tác: kéo vành (một chiều theo cơ cấu an toàn) hoặc dùng nút thay thế;
+// nút chạy/dừng mô phỏng; prefers-reduced-motion chuyển sang tiến từng bước.
 // =============================================================================
 
 interface Props {
   'data-mech-step-id'?: string;
 }
 const { 'data-mech-step-id': _mechStepId } = Astro.props;
+
+// Vạch chia ba cấp: chính mỗi 10 phút, trung mỗi 5 phút, phụ mỗi phút
+const bezelMarks = Array.from({ length: 60 }, (_, i) => {
+  const a = ((i * 6 - 90) * Math.PI) / 180;
+  const isMajor = i % 10 === 0;
+  const isMid = i % 5 === 0 && !isMajor;
+  const rOut = 138;
+  const rIn = isMajor ? 122 : isMid ? 127 : 131;
+  return {
+    x1: 150 + rOut * Math.cos(a),
+    y1: 150 + rOut * Math.sin(a),
+    x2: 150 + rIn * Math.cos(a),
+    y2: 150 + rIn * Math.sin(a),
+    w: isMajor ? 2.5 : isMid ? 1.5 : 1,
+    o: isMajor ? '1' : isMid ? '0.85' : '0.5',
+  };
+});
+
+// Số phút trên vành: 10 → 50, và mốc 0 ở đỉnh — nằm ngoài bán kính mặt số (100)
+const bezelNumerals = [0, 10, 20, 30, 40, 50].map((p) => {
+  const a = ((p * 6 - 90) * Math.PI) / 180;
+  return {
+    label: String(p),
+    x: 150 + 109 * Math.cos(a),
+    y: 150 + 109 * Math.sin(a) + 4,
+  };
+});
 ---
 
 <section
   class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
   data-tool="bezel-diver"
 >
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — vành lặn</span>
-    <div class="flex flex-wrap items-center gap-2">
-      <button
-        type="button"
-        class="bezel-set rounded-full bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-colors hover:bg-brass"
-      >
-        Đặt mốc 0 vào kim phút
-      </button>
-      <button
-        type="button"
-        class="bezel-play rounded-full border border-navy px-3 py-1.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text"
-        aria-label="Chạy / dừng kim phút"
-      >
-        ▶ Chạy kim
-      </button>
-    </div>
-  </div>
+  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 01 · Vành lặn</p>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Đặt mốc, rồi đọc thời gian đã trôi</h3>
+  <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
+    Đặt mốc 0 trùng kim phút trước khi xuống nước; sau đó đọc số phút nằm giữa mốc 0 và kim phút.
+  </p>
 
-  <!-- Sân khấu SVG -->
-  <div class="bezel-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
-    <!-- SVG: vành lặn + mặt số -->
+  <div class="bezel-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
     <svg
       class="bezel-svg"
       viewBox="0 0 300 300"
@@ -48,47 +63,105 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       height="280"
       style="touch-action: none;"
       role="img"
-      aria-label="Mô phỏng vành lặn: kéo để xoay vành"
+      aria-label="Vành lặn: mốc 0 có chấm dạ quang, vạch chia mỗi phút và số mỗi 10 phút. Kéo vành để xoay, hoặc dùng các nút bên dưới."
       focusable="false">
+      <defs>
+        <!-- Thép/graphite: ba nấc sáng tối kín đáo -->
+        <linearGradient id="bd-steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--ig-steel-soft)" />
+          <stop offset="0.5" style="stop-color:var(--ig-steel)" />
+          <stop offset="1" style="stop-color:var(--ig-edge)" />
+        </linearGradient>
+        <!-- Vết xước mảnh trên vành — không che chữ -->
+        <pattern id="bd-brush" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+          <line x1="2" y1="0" x2="2" y2="4" style="stroke:var(--ig-stroke-soft)" stroke-width="1" opacity="0.16" />
+        </pattern>
+      </defs>
+
+      <!-- Chỉ báo brass cố định ở đỉnh — mốc đọc -->
+      <polygon points="150,2 142,15 158,15" style="fill:var(--obs-brass)" />
+
       <!-- Vành lặn (xoay được) -->
       <g class="bezel-ring" style="cursor: grab; transform-origin: 150px 150px;">
-        <!-- Vành ngoài tối -->
-        <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="138" stroke="#0f1620" stroke-width="2" />
-        <!-- Vạch phút 0-60 trên vành -->
-        <g class="bezel-marks"></g>
-        <!-- Số 0 lớn -->
-        <text x="150" y="32" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="16" font-weight="700">0</text>
+        <circle cx="150" cy="150" r="140" fill="url(#bd-steel)" style="stroke:var(--ig-edge)" stroke-width="1.5" />
+        <circle cx="150" cy="150" r="140" fill="url(#bd-brush)" />
+        <g class="bezel-marks">
+          {bezelMarks.map((m) => (
+            <line
+              x1={m.x1} y1={m.y1} x2={m.x2} y2={m.y2}
+              style="stroke:var(--obs-ivory)" stroke-width={m.w} opacity={m.o}
+            />
+          ))}
+        </g>
+        {bezelNumerals.map((n) => (
+          <text
+            x={n.x} y={n.y} text-anchor="middle"
+            style="fill:var(--obs-ivory)"
+            font-family="Be Vietnam Pro, sans-serif" font-size="11" font-weight="600"
+          >{n.label}</text>
+        ))}
+        <!-- Chấm dạ quang — duy nhất, tại mốc 0 -->
+        <circle cx="150" cy="130" r="4.5" style="fill:var(--obs-lume);stroke:var(--ig-edge)" stroke-width="1" />
       </g>
-      <!-- Mặt số -->
-      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="112" stroke-width="2" />
-      <!-- Kim giờ (tĩnh cho ví dụ, chỉ vị trí 10:10) -->
-      <line style="stroke:var(--ig-stroke)" x1="150" y1="150" x2="120" y2="100" stroke-width="5" stroke-linecap="round" />
-      <!-- Kim phút (xoay được) -->
+
+      <!-- Mặt số trong: sáng, thoáng — bán kính nhỏ hơn dải số trên vành -->
+      <circle cx="150" cy="150" r="100" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
+      <!-- Kim giờ ở tư thế tham chiếu -->
+      <line x1="150" y1="150" x2="118" y2="98" style="stroke:var(--ig-steel)" stroke-width="3" stroke-linecap="round" opacity="0.85" />
+      <!-- Kim phút — điểm tập trung -->
       <g class="minute-hand" style="transform-origin: 150px 150px;">
-        <line style="stroke:var(--ig-stroke)" x1="150" y1="150" x2="150" y2="55" stroke-width="3" stroke-linecap="round" />
+        <line x1="150" y1="162" x2="150" y2="58" style="stroke:var(--ig-stroke)" stroke-width="4" stroke-linecap="round" />
       </g>
-      <!-- Tâm -->
-      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="5" />
-      <!-- Chỉ mục mốc 0 cố định ở đỉnh -->
-      <polygon points="150,4 142,18 158,18" fill="#B8893C" />
+      <circle cx="150" cy="150" r="5" style="fill:var(--ig-stroke)" />
+      <circle cx="150" cy="150" r="1.8" style="fill:var(--obs-brass)" />
     </svg>
 
-    <!-- Bảng đọc kết quả -->
     <div class="bezel-readout w-full max-w-xs space-y-3 sm:w-56">
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
         <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Số phút đã trôi</p>
         <p class="bezel-elapsed font-serif text-3xl text-navy dark:text-dark-text">0</p>
-        <p class="text-xs text-ink-soft dark:text-dark-text-soft">phút (theo vành)</p>
+        <p class="text-xs text-ink-soft dark:text-dark-text-soft">phút (đọc trên vành)</p>
       </div>
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Vành đã xoay</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Vành đang lệch</p>
         <p class="bezel-rotation font-serif text-lg text-navy dark:text-dark-text">0°</p>
       </div>
+      <p class="bezel-status rounded-lg border-l-4 border-brass bg-brass/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
+        Đã trôi: 0 phút. Vành đang lệch: 0 độ.
+      </p>
       <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-        🖱 <strong>Kéo vành tối</strong> để xoay. Vành chỉ xoay được theo chiều kim đồng hồ (giống vành lặn thật).
+        <strong>Kéo vành tối</strong> để xoay, hoặc dùng hàng nút bên dưới.
       </p>
     </div>
   </div>
+
+  <!-- Hàng điều khiển — thay thế thao tác kéo -->
+  <div class="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+    <button
+      type="button"
+      class="bezel-step min-h-[44px] rounded-full border border-navy px-4 py-2.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text dark:hover:bg-dark-text dark:hover:text-dark-surface"
+    >
+      Giả lập va chạm: xoay vành 5 phút
+    </button>
+    <button
+      type="button"
+      class="bezel-set min-h-[44px] rounded-full bg-navy px-4 py-2.5 text-xs font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-text dark:text-dark-surface"
+    >
+      Đặt mốc 0 vào kim phút
+    </button>
+    <button
+      type="button"
+      class="bezel-run min-h-[44px] rounded-full border border-brass px-4 py-2.5 text-xs font-medium text-brass transition-colors hover:bg-brass hover:text-cream dark:border-dark-brass dark:text-dark-brass"
+      aria-pressed="false"
+      aria-label="Chạy mô phỏng"
+    >
+      Chạy mô phỏng
+    </button>
+  </div>
+
+  <p class="mt-3 text-center text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+    Vành lặn chỉ xoay được một chiều theo cơ cấu an toàn — để một cú va chạm không thể làm thời gian còn lại trông dài hơn.
+  </p>
 </section>
 
 <style>
@@ -98,62 +171,41 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
 </style>
 
 <script>
-  // Vạch phút 0-60 trên vành — sinh tĩnh (tránh 60 dòng lặp trong SVG)
-  (function () {
-    const marksGroup = document.querySelector('.bezel-svg .bezel-marks');
-    if (!marksGroup || marksGroup.children.length > 0) return;
-    const svgNS = 'http://www.w3.org/2000/svg';
-    for (let i = 0; i < 60; i++) {
-      const angle = (i * 6 - 90) * Math.PI / 180;
-      const isMajor = i % 5 === 0;
-      const rOuter = 138;
-      const rInner = isMajor ? 122 : 128;
-      const x1 = 150 + rOuter * Math.cos(angle);
-      const y1 = 150 + rOuter * Math.sin(angle);
-      const x2 = 150 + rInner * Math.cos(angle);
-      const y2 = 150 + rInner * Math.sin(angle);
-      const line = document.createElementNS(svgNS, 'line');
-      line.setAttribute('x1', String(x1));
-      line.setAttribute('y1', String(y1));
-      line.setAttribute('x2', String(x2));
-      line.setAttribute('y2', String(y2));
-      line.setAttribute('stroke', '#FAF7F2');
-      line.setAttribute('stroke-width', isMajor ? '2' : '1');
-      line.setAttribute('opacity', isMajor ? '1' : '0.5');
-      marksGroup.appendChild(line);
-    }
-  })();
+  document.querySelectorAll<HTMLElement>('[data-tool="bezel-diver"]').forEach((root) => {
+    const svg = root.querySelector('.bezel-svg') as SVGSVGElement | null;
+    const ring = root.querySelector('.bezel-ring') as SVGGElement | null;
+    const minuteHand = root.querySelector('.minute-hand') as SVGGElement | null;
+    const elapsedEl = root.querySelector('.bezel-elapsed') as HTMLElement | null;
+    const rotationEl = root.querySelector('.bezel-rotation') as HTMLElement | null;
+    const statusEl = root.querySelector('.bezel-status') as HTMLElement | null;
+    const stepBtn = root.querySelector('.bezel-step') as HTMLButtonElement | null;
+    const setBtn = root.querySelector('.bezel-set') as HTMLButtonElement | null;
+    const runBtn = root.querySelector('.bezel-run') as HTMLButtonElement | null;
+    if (!svg || !ring || !minuteHand) return;
 
-  (function () {
-    const svg = document.querySelector('[data-tool="bezel-diver"] .bezel-svg') as SVGSVGElement | null;
-    if (!svg) return;
-    const ring = svg.querySelector('.bezel-ring') as SVGGElement | null;
-    const minuteHand = svg.querySelector('.minute-hand') as SVGGElement | null;
-    const elapsedEl = document.querySelector('.bezel-elapsed') as HTMLElement | null;
-    const rotationEl = document.querySelector('.bezel-rotation') as HTMLElement | null;
-    const setBtn = document.querySelector('.bezel-set') as HTMLButtonElement | null;
-    const playBtn = document.querySelector('.bezel-play') as HTMLButtonElement | null;
-    if (!ring || !minuteHand) return;
-
-    let bezelAngle = 0; // độ xoay của vành (chỉ cho phép >= 0, chiều kim đồng hồ)
-    let minuteAngle = 0; // góc kim phút so với đỉnh (0 = 12 giờ), chiều kim đồng hồ
+    let bezelAngle = 0;  // góc vành — chỉ tăng (một chiều theo cơ cấu an toàn)
+    let minuteAngle = 0; // góc kim phút, 0 = đỉnh
     let isPlaying = false;
     let rafId: number | null = null;
     let lastTs = 0;
+    let lastStatusKey = '';
+    // Thao tác gần nhất: 'impact' = vừa giả lập va chạm; 'normal' = kéo, đặt mốc, chạy mô phỏng
+    let lastAction = 'normal';
 
-    function getPoint(evt: PointerEvent | MouseEvent | Touch): { x: number; y: number } {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function getPoint(evt: PointerEvent): { x: number; y: number } {
       const rect = svg.getBoundingClientRect();
-      const cx = evt.clientX - rect.left;
-      const cy = evt.clientY - rect.top;
-      // Chuyển sang hệ toạ độ viewBox 300x300
-      return { x: (cx / rect.width) * 300, y: (cy / rect.height) * 300 };
+      return {
+        x: ((evt.clientX - rect.left) / rect.width) * 300,
+        y: ((evt.clientY - rect.top) / rect.height) * 300,
+      };
     }
 
     function angleFromCenter(p: { x: number; y: number }): number {
-      // Trả về góc (độ) từ đỉnh (12 giờ) theo chiều kim đồng hồ
       const dx = p.x - 150;
       const dy = p.y - 150;
-      let deg = Math.atan2(dx, -dy) * 180 / Math.PI; // 0 = lên, 90 = phải
+      let deg = (Math.atan2(dx, -dy) * 180) / Math.PI;
       if (deg < 0) deg += 360;
       return deg;
     }
@@ -161,26 +213,30 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
     function render() {
       ring.style.transform = `rotate(${bezelAngle}deg)`;
       minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
-      // Số phút đã trôi = chênh lệch góc vành so với kim phút, quy sang phút (1 phút = 6°)
-      // Vì ta đặt mốc 0 vành vào kim phút ban đầu, phút trôi = (minuteAngle - bezelAngle) quy ước an toàn
-      // Nhưng trực giác hơn: phút trôi = số phút kim phút đã đi kể từ khi đặt mốc.
-      // Ở đây: elapsed = (minuteAngle - bezelAngle) / 6, lấy dương
       let diff = minuteAngle - bezelAngle;
       if (diff < 0) diff += 360;
       const mins = Math.round(diff / 6);
       if (elapsedEl) elapsedEl.textContent = String(mins);
-      if (rotationEl) rotationEl.textContent = `${Math.round(bezelAngle)}°`;
+      const deg = Math.round(bezelAngle);
+      if (rotationEl) rotationEl.textContent = `${deg}°`;
+      // Vùng trạng thái: câu theo thao tác gần nhất; chỉ cập nhật khi giá trị đổi để không đọc lại mỗi khung hình
+      const statusKey = `${mins}|${lastAction}|${deg}`;
+      if (statusEl && statusKey !== lastStatusKey) {
+        lastStatusKey = statusKey;
+        statusEl.textContent =
+          lastAction === 'impact'
+            ? `Vành bị xoay theo chiều an toàn 5 phút. Số đọc hiện là ${mins} phút để nghiêng về phía thận trọng.`
+            : `Đã trôi: ${mins} phút. Vành đang lệch: ${deg} độ.`;
+      }
     }
 
-    // --- Kéo vành (pointer events: chuột + cảm ứng) ---
+    // --- Kéo vành: ratchet một chiều ---
     let dragging = false;
     let lastPointerAngle = 0;
 
     function onPointerDown(e: PointerEvent) {
-      // Chỉ bắt đầu kéo khi chạm vào vành (ring) chứ không phải mặt số trong
       const target = e.target as Element;
       if (!ring.contains(target) && target !== ring) return;
-      // Cho phép kéo từ cả vành tối
       dragging = true;
       (e.target as Element).setPointerCapture?.(e.pointerId);
       lastPointerAngle = angleFromCenter(getPoint(e));
@@ -192,11 +248,9 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       let delta = cur - lastPointerAngle;
       if (delta > 180) delta -= 360;
       if (delta < -180) delta += 360;
-      // Vành lặn chỉ xoay một chiều (chiều kim đồng hồ = delta dương).
-      // Nếu kéo ngược (delta âm), ta kẹt — không giảm bezelAngle, mô phỏng cơ cấu ratchet.
       if (delta > 0) {
-        bezelAngle += delta;
-        bezelAngle = bezelAngle % 360;
+        lastAction = 'normal';
+        bezelAngle = (bezelAngle + delta) % 360;
         render();
       }
       lastPointerAngle = cur;
@@ -210,36 +264,81 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
     svg.addEventListener('pointerup', onPointerUp);
     svg.addEventListener('pointercancel', onPointerUp);
 
-    // --- Nút đặt mốc 0 vào kim phút ---
+    // --- Nút thay thế thao tác kéo ---
+    stepBtn?.addEventListener('click', () => {
+      // Giả lập va chạm: vành bị xoay một chiều theo cơ cấu an toàn → số đọc nghiêng về thận trọng
+      lastAction = 'impact';
+      bezelAngle = (bezelAngle + 30) % 360; // 5 phút = 30°
+      render();
+    });
+
     setBtn?.addEventListener('click', () => {
+      lastAction = 'normal';
       bezelAngle = minuteAngle;
       render();
     });
 
-    // --- Nút chạy kim phút ---
+    function setRunLabel(playing: boolean) {
+      if (!runBtn) return;
+      runBtn.textContent = playing ? 'Dừng mô phỏng' : 'Chạy mô phỏng';
+      runBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+      runBtn.setAttribute('aria-label', playing ? 'Dừng mô phỏng' : 'Chạy mô phỏng');
+    }
+
+    function stopRun() {
+      isPlaying = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+      lastTs = 0;
+      setRunLabel(false);
+    }
+
     function loop(ts: number) {
       if (!isPlaying) return;
       if (!lastTs) lastTs = ts;
       const dt = ts - lastTs;
       lastTs = ts;
-      // 1 phút thật = kim phút xoay 6°. Tua nhanh: 1 giây thật = 1 phút mô phỏng.
-      minuteAngle += (dt / 1000) * 6;
-      minuteAngle = minuteAngle % 360;
+      minuteAngle = (minuteAngle + (dt / 1000) * 6) % 360; // 1 giây = 1 phút mô phỏng
       render();
-      if (isPlaying) rafId = requestAnimationFrame(loop);
+      rafId = requestAnimationFrame(loop);
     }
-    playBtn?.addEventListener('click', () => {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        playBtn.textContent = '⏸ Dừng kim';
-        lastTs = 0;
-        rafId = requestAnimationFrame(loop);
-      } else {
-        playBtn.textContent = '▶ Chạy kim';
-        if (rafId) cancelAnimationFrame(rafId);
+
+    if (reduceMotion) {
+      // Giảm chuyển động: không chạy kim liên tục — mỗi lần chọn tiến đúng 5 phút
+      if (runBtn) {
+        runBtn.textContent = 'Tiến 5 phút';
+        runBtn.setAttribute('aria-label', 'Tiến mô phỏng thêm 5 phút');
       }
-    });
+      runBtn?.addEventListener('click', () => {
+        lastAction = 'normal';
+        minuteAngle = (minuteAngle + 30) % 360;
+        render();
+      });
+    } else {
+      runBtn?.addEventListener('click', () => {
+        if (isPlaying) {
+          stopRun();
+          return;
+        }
+        isPlaying = true;
+        lastTs = 0;
+        lastAction = 'normal';
+        setRunLabel(true);
+        rafId = requestAnimationFrame(loop);
+      });
+
+      // Rời viewport hoặc tab ẩn → dừng hẳn; quay lại không tự chạy tiếp
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) stopRun();
+        });
+      }, { threshold: 0 });
+      io.observe(root);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopRun();
+      });
+    }
 
     render();
-  })();
+  });
 </script>

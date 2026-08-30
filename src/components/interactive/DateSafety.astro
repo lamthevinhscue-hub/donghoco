@@ -1,32 +1,65 @@
 ---
 // =============================================================================
-// DateSafety — Thành phần tương tác: khung giờ nguy hiểm khi chỉnh lịch
+// DateSafety — Công cụ học: khung giờ nên tránh khi chỉnh lịch
 // =============================================================================
-// Người đọc kéo kim giờ quanh mặt số. Khi kim vào vùng 20h-4h (vùng cơ cấu
-// lịch bắt đầu ăn khớp), vùng tô đỏ và cảnh báo hiện ra. Dùng cho
+// Nhiệm vụ duy nhất: cho người đọc thấy vì sao khung 20:00–04:00 là khoảng
+// thận trọng khi chỉnh lịch — cơ cấu lịch có thể đang ăn khớp. Dùng cho
 // /huong-dan/chinh-lich-an-toan.
+//
+// Thể hiện theo vòng 24 giờ (00:00 ở đỉnh, mỗi giờ 15°) để không còn mơ hồ
+// 08:00/20:00 như mặt số 12 giờ. Cung ruby có hatch mảnh = vùng cơ cấu đang
+// hoạt động; phần còn lại trung tính steel — không dùng xanh lá.
+// Màu chỉ qua token --obs-*/--ig-* và token giao diện — không mã màu trực tiếp.
+// Không có hoạt ảnh tự chạy; kéo kim chỉ là một phương án, còn có thanh trượt
+// và nút chuẩn. prefers-reduced-motion không ảnh hưởng thao tác điều khiển.
 // =============================================================================
 
 interface Props {
   'data-mech-step-id'?: string;
 }
 const { 'data-mech-step-id': _mechStepId } = Astro.props;
+
+// Vòng 24 giờ: 24 vạch giờ, mốc chính mỗi 4 giờ
+const hourMarks = Array.from({ length: 24 }, (_, h) => {
+  const a = ((h * 15 - 90) * Math.PI) / 180;
+  const isMain = h % 4 === 0;
+  const rOut = 134;
+  const rIn = isMain ? 116 : 125;
+  return {
+    x1: 150 + rOut * Math.cos(a),
+    y1: 150 + rOut * Math.sin(a),
+    x2: 150 + rIn * Math.cos(a),
+    y2: 150 + rIn * Math.sin(a),
+    w: isMain ? 2 : 1,
+    o: isMain ? '1' : '0.45',
+  };
+});
+
+// Nhãn mốc chính dạng 24 giờ
+const hourLabels = [0, 4, 8, 12, 16, 20].map((h) => {
+  const a = ((h * 15 - 90) * Math.PI) / 180;
+  return {
+    label: String(h).padStart(2, '0'),
+    x: 150 + 102 * Math.cos(a),
+    y: 150 + 102 * Math.sin(a) + 3.5,
+  };
+});
+
+// Cung ăn khớp 20:00 → 04:00 (qua 00:00): điểm đầu/cuối trên vòng r=128
+const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
 ---
 
 <section
   class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
   data-tool="date-safety"
 >
-  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-    <span class="text-sm font-medium text-navy dark:text-dark-text">Dụng cụ tương tác — khung giờ nguy hiểm</span>
-    <div class="flex items-center gap-2">
-      <button type="button" class="date-safe-pos rounded-full bg-navy px-3 py-1.5 text-xs font-medium text-cream transition-colors hover:bg-brass">
-        Đưa kim về 6 giờ (an toàn)
-      </button>
-    </div>
-  </div>
+  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 02 · Chỉnh lịch</p>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Xem cơ cấu lịch đang an toàn hay đang ăn khớp</h3>
+  <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
+    Chọn một giờ trong ngày: nếu rơi vào khung cơ cấu lịch đang ăn khớp, hãy chờ qua khung đó rồi chỉnh.
+  </p>
 
-  <div class="date-stage flex flex-col items-center gap-4 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
+  <div class="date-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
     <svg
       class="date-svg"
       viewBox="0 0 300 300"
@@ -34,58 +67,121 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       height="270"
       style="touch-action: none;"
       role="img"
-      aria-label="Mặt số: kéo kim giờ để xem vùng nguy hiểm"
+      aria-label="Vòng 24 giờ: cung ruby từ 20:00 đến 04:00 là khung cơ cấu lịch có thể đang ăn khớp. Kéo kim giờ hoặc dùng thanh trượt để chọn giờ."
       focusable="false">
-      <!-- Vùng nguy hiểm 20h-4h (tô đỏ mờ) -->
-      <!-- 20h ở vị trí số 8, 4h ở vị trí số 4. Vùng từ số 8 qua 12 xuống số 4 (nửa trên-phải). -->
-      <path style="fill:var(--ig-rubi)"
-        class="danger-zone"
-        d="M 150 150 L 150 20 A 130 130 0 0 1 280 150 Z"
-        opacity="0.12"
-      />
-      <text style="fill:var(--ig-rubi)" x="215" y="60" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="10" font-weight="600" opacity="0.7">Vùng nguy hiểm</text>
-      <text style="fill:var(--ig-rubi)" x="215" y="73" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="9" opacity="0.6">20:00 — 04:00</text>
+      <defs>
+        <!-- Hatch mảnh cho cung ăn khớp: vạch chéo ruby, không phải biển báo đỏ -->
+        <pattern id="ds-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="3" y1="0" x2="3" y2="6" style="stroke:var(--obs-ruby-soft)" stroke-width="1.6" opacity="0.75" />
+        </pattern>
+      </defs>
 
-      <!-- Mặt số -->
-      <circle style="fill:var(--ig-bg);stroke:var(--ig-stroke)" cx="150" cy="150" r="130" stroke-width="2" />
-      <g class="date-hour-marks"></g>
-      <!-- Vạch ngày ở số 3 -->
-      <rect style="fill:var(--ig-stroke)" x="142" y="30" width="16" height="22" rx="2" />
-      <text x="150" y="46" text-anchor="middle" fill="#FAF7F2" font-family="Be Vietnam Pro, sans-serif" font-size="11" font-weight="700">15</text>
-      <!-- Kim giờ (kéo được) -->
-      <g class="date-hour-hand" style="cursor: grab; transform-origin: 150px 150px;">
-        <line style="stroke:var(--ig-stroke)" x1="150" y1="160" x2="150" y2="60" stroke-width="6" stroke-linecap="round" />
+      <!-- Nền vòng 24 giờ: trung tính steel -->
+      <circle cx="150" cy="150" r="128" fill="none" style="stroke:var(--ig-stroke-soft)" stroke-width="12" opacity="0.5" />
+      <!-- Cung "cơ cấu lịch đang ăn khớp": 20:00 → 04:00 -->
+      <path
+        class="date-mesh-arc"
+        d={`M ${arc.x1} ${arc.y1} A ${arc.r} ${arc.r} 0 0 1 ${arc.x2} ${arc.y2}`}
+        fill="none" style="stroke:var(--obs-ruby)" stroke-width="12" opacity="0.16" />
+      <path
+        class="date-mesh-arc-hatch"
+        d={`M ${arc.x1} ${arc.y1} A ${arc.r} ${arc.r} 0 0 1 ${arc.x2} ${arc.y2}`}
+        fill="none" stroke="url(#ds-hatch)" stroke-width="12" />
+
+      <!-- Vạch giờ -->
+      <g class="date-hour-marks">
+        {hourMarks.map((m) => (
+          <line
+            x1={m.x1} y1={m.y1} x2={m.x2} y2={m.y2}
+            style="stroke:var(--ig-stroke)" stroke-width={m.w} opacity={m.o}
+          />
+        ))}
       </g>
-      <circle style="fill:var(--ig-stroke)" cx="150" cy="150" r="6" />
+      {hourLabels.map((n) => (
+        <text
+          x={n.x} y={n.y} text-anchor="middle"
+          style="fill:var(--ig-text)"
+          font-family="Be Vietnam Pro, sans-serif" font-size="10.5" font-weight="600"
+        >{n.label}</text>
+      ))}
+      <text x="96" y="58" text-anchor="middle" style="fill:var(--ig-rubi)" font-family="Be Vietnam Pro, sans-serif" font-size="8.5" opacity="0.85">20:00–04:00</text>
+
+      <!-- Mặt số trong -->
+      <circle cx="150" cy="150" r="105" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
+
+      <!-- Cửa sổ lịch có chiều sâu nhẹ -->
+      <rect x="221" y="140" width="18" height="24" rx="2" style="fill:var(--ig-bg-soft)" />
+      <rect x="221" y="138" width="18" height="24" rx="2" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
+      <text x="230" y="154.5" text-anchor="middle" style="fill:var(--ig-text)" font-family="Be Vietnam Pro, sans-serif" font-size="10" font-weight="700">15</text>
+
+      <!-- Kim giờ trên thang 24 giờ (0° = 00:00, mỗi giờ 15°) -->
+      <g class="date-hour-hand" style="cursor: grab; transform-origin: 150px 150px;">
+        <line x1="150" y1="164" x2="150" y2="60" style="stroke:var(--ig-stroke)" stroke-width="5" stroke-linecap="round" />
+      </g>
+      <circle cx="150" cy="150" r="5.5" style="fill:var(--ig-stroke)" />
+      <circle cx="150" cy="150" r="2" style="fill:var(--obs-brass)" />
     </svg>
 
     <div class="date-readout w-full max-w-xs space-y-3 sm:w-56">
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
         <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Kim giờ đang ở</p>
-        <p class="date-current font-serif text-2xl text-navy dark:text-dark-text">6:00</p>
+        <p class="date-current font-serif text-2xl text-navy dark:text-dark-text">06:00</p>
       </div>
-      <!-- Cảnh báo -->
-      <div class="date-warning hidden rounded-lg border-l-4 border-[#9B2C2C] bg-[#9B2C2C]/10 p-3">
-        <p class="flex items-center gap-2 text-sm font-semibold text-[#9B2C2C]">
-          ⚠ NGUY HIỂM
-        </p>
+      <div class="date-safe-box rounded-lg border-l-4 border-brass bg-brass/10 p-3">
+        <p class="text-sm font-semibold text-navy dark:text-dark-text">Có thể chỉnh lịch</p>
         <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Đang trong vùng 20:00–04:00. Cơ cấu lịch đã bắt đầu ăn khớp — <strong>đừng chỉnh ngày</strong> lúc này, có thể làm hỏng bánh răng.
+          Ngoài khung thận trọng phổ biến 20:00–04:00.
         </p>
       </div>
-      <div class="date-safe-msg rounded-lg border-l-4 border-green-700 bg-green-700/10 p-3">
-        <p class="flex items-center gap-2 text-sm font-semibold text-green-700 dark:text-green-600">
-          ✓ AN TOÀN
-        </p>
+      <div class="date-warn-box hidden rounded-lg border-l-4 border-ruby bg-ruby/10 p-3">
+        <p class="text-sm font-semibold text-ruby dark:text-dark-brass">Không chỉnh lịch lúc này</p>
         <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Ngoài vùng nguy hiểm — có thể chỉnh ngày an toàn.
+          Cơ cấu lịch có thể đang ăn khớp — chỉnh ngày trong khung này có thể làm hỏng bánh răng.
         </p>
       </div>
-      <p class="text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-        🖐 <strong>Kéo kim giờ</strong> quanh mặt số bằng chuột hoặc ngón tay. Vùng đỏ là khu vực cấm chỉnh lịch.
+      <p class="date-live rounded-lg border-l-4 border-steel bg-steel/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
+        06:00. Ngoài khung thận trọng phổ biến.
       </p>
     </div>
   </div>
+
+  <!-- Điều khiển chuẩn — label bọc trực tiếp input để không cần ID cố định (component có thể lặp nhiều lần) -->
+  <div class="mt-4 space-y-3">
+    <label class="block">
+      <span class="mb-1 block text-xs font-medium uppercase tracking-wider text-ink-soft dark:text-dark-text-soft">Chọn giờ mô phỏng (24 giờ)</span>
+      <span class="flex items-center gap-3">
+        <input
+          type="range"
+          min="0"
+          max="23"
+          step="1"
+          value="6"
+          class="ds-range w-full flex-1"
+          style="accent-color: var(--obs-brass);"
+          aria-label="Chọn giờ mô phỏng (24 giờ)"
+        />
+        <output class="ds-time w-16 shrink-0 text-center font-serif text-lg text-navy dark:text-dark-text">06:00</output>
+      </span>
+    </label>
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+      <button
+        type="button"
+        class="date-safe-btn min-h-[44px] rounded-full border border-navy px-4 py-2.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text dark:hover:bg-dark-text dark:hover:text-dark-surface"
+      >
+        Đưa về 06:00
+      </button>
+      <button
+        type="button"
+        class="date-danger-btn min-h-[44px] rounded-full border border-ruby px-4 py-2.5 text-xs font-medium text-ruby transition-colors hover:bg-ruby hover:text-cream dark:border-dark-brass dark:text-dark-brass"
+      >
+        Xem ví dụ nguy hiểm 22:00
+      </button>
+    </div>
+  </div>
+
+  <p class="mt-3 text-center text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
+    Khung 20:00–04:00 là quy tắc thận trọng phổ biến. Cấu tạo mỗi bộ máy có thể khác; luôn xem hướng dẫn của mẫu đồng hồ cụ thể.
+  </p>
 </section>
 
 <style>
@@ -94,95 +190,58 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
 </style>
 
 <script>
-  (function () {
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const hm = document.querySelector('.date-svg .date-hour-marks');
-    if (hm && hm.children.length === 0) {
-      for (let i = 0; i < 12; i++) {
-        const angle = (i * 30 - 90) * Math.PI / 180;
-        // Bỏ qua số 3 (chỗ ô ngày)
-        if (i === 3) {
-          const dot = document.createElementNS(svgNS, 'circle');
-          dot.setAttribute('cx', String(150 + 95 * Math.cos(angle)));
-          dot.setAttribute('cy', String(150 + 95 * Math.sin(angle)));
-          dot.setAttribute('r', '2');
-          dot.style.fill = 'var(--ig-stroke)';
-          dot.setAttribute('opacity', '0.3');
-          hm.appendChild(dot);
-          continue;
-        }
-        const x = 150 + 95 * Math.cos(angle);
-        const y = 150 + 95 * Math.sin(angle);
-        const t = document.createElementNS(svgNS, 'text');
-        t.setAttribute('x', String(x));
-        t.setAttribute('y', String(y + 5));
-        t.setAttribute('text-anchor', 'middle');
-        t.style.fill = 'var(--ig-stroke)';
-        t.setAttribute('font-family', 'Be Vietnam Pro, sans-serif');
-        t.setAttribute('font-size', '16');
-        t.setAttribute('font-weight', '600');
-        t.textContent = i === 0 ? '12' : String(i);
-        hm.appendChild(t);
-      }
-    }
-  })();
+  document.querySelectorAll<HTMLElement>('[data-tool="date-safety"]').forEach((root) => {
+    const svg = root.querySelector('.date-svg') as SVGSVGElement | null;
+    const hand = root.querySelector('.date-hour-hand') as SVGGElement | null;
+    const currentEl = root.querySelector('.date-current') as HTMLElement | null;
+    const timeOut = root.querySelector('.ds-time') as HTMLOutputElement | null;
+    const range = root.querySelector('.ds-range') as HTMLInputElement | null;
+    const safeBtn = root.querySelector('.date-safe-btn') as HTMLButtonElement | null;
+    const dangerBtn = root.querySelector('.date-danger-btn') as HTMLButtonElement | null;
+    const safeBox = root.querySelector('.date-safe-box') as HTMLElement | null;
+    const warnBox = root.querySelector('.date-warn-box') as HTMLElement | null;
+    const liveEl = root.querySelector('.date-live') as HTMLElement | null;
+    if (!svg || !hand) return;
 
-  (function () {
-    const svg = document.querySelector('[data-tool="date-safety"] .date-svg') as SVGSVGElement | null;
-    if (!svg) return;
-    const hand = svg.querySelector('.date-hour-hand') as SVGGElement | null;
-    const currentEl = document.querySelector('.date-current') as HTMLElement | null;
-    const warningEl = document.querySelector('.date-warning') as HTMLElement | null;
-    const safeEl = document.querySelector('.date-safe-msg') as HTMLElement | null;
-    const safeBtn = document.querySelector('.date-safe-pos') as HTMLButtonElement | null;
-    if (!hand) return;
-
-    // Trạng thái: giờ hiện tại dạng 24h (0-24, cho phép lẻ để kéo mượt)
-    // Khởi đầu 6:00 (an toàn)
-    let hourAngle = 180; // 6:00 = 180° (kim chỉ xuống)
-
-    // Góc kim → giờ 24h. 0° = 12 (đỉnh). 12h mặt số = vòng 360° = 12 giờ thật (nửa ngày).
-    // Ta dùng thang 12h nhưng theo dõi cả sáng/chiều qua vòng quay: 1 vòng = 12h.
-    // Vùng nguy hiểm 20-04 tức là vị trí số 8 (20h/8h tối) qua 12 xuống số 4 (4h).
-    // Vì mặt số 12h lặp: số 8 ứng cả 8h sáng và 20h; số 4 ứng cả 4h sáng và 16h.
-    // Vùng đỏ ta vẽ từ số 8 (trên-phải) qua 12 xuống 4 — đó là vùng "trên-phải" của mặt số.
-
-    function angleToHour12(angle: number): number {
-      // angle: 0 = đỉnh (12), chiều kim đồng hồ. → số 12h (0-12)
-      let h = (angle / 30) % 12;
-      return h;
+    // Giờ mô phỏng 0–23 (24 giờ). Khung thận trọng: 20:00 đến 04:00.
+    function isEngaging(h: number): boolean {
+      return h >= 20 || h <= 4;
     }
 
-    function render() {
-      hand.style.transform = `rotate(${hourAngle}deg)`;
-      const h12 = angleToHour12(hourAngle);
-      const displayHour = h12 === 0 ? 12 : Math.floor(h12);
-      // Quy ước hiển thị: ta theo dõi 12h, nhưng vùng nguy hiểm xét theo vị trí góc
-      if (currentEl) currentEl.textContent = `${displayHour}:00`;
+    function label(h: number): string {
+      return `${String(h).padStart(2, '0')}:00`;
+    }
 
-      // Vùng nguy hiểm: số 8 (20h) đến số 4 (04h), tức góc từ 240° đến 120° (qua đỉnh 0°)
-      // Tức góc 240° → 360°/0° → 120°. Normalize: hourAngle 240-360 và 0-120.
-      const a = ((hourAngle % 360) + 360) % 360;
-      const inDanger = a >= 240 || a <= 120;
-      if (inDanger) {
-        warningEl?.classList.remove('hidden');
-        safeEl?.classList.add('hidden');
-      } else {
-        warningEl?.classList.add('hidden');
-        safeEl?.classList.remove('hidden');
+    function setHour(h: number) {
+      const hour = ((Math.round(h) % 24) + 24) % 24;
+      hand.style.transform = `rotate(${hour * 15}deg)`;
+      if (currentEl) currentEl.textContent = label(hour);
+      if (timeOut) timeOut.textContent = label(hour);
+      if (range && range.value !== String(hour)) range.value = String(hour);
+      const engaging = isEngaging(hour);
+      safeBox?.classList.toggle('hidden', engaging);
+      warnBox?.classList.toggle('hidden', !engaging);
+      if (liveEl) {
+        liveEl.textContent = engaging
+          ? `${label(hour)}. Cơ cấu lịch có thể đang ăn khớp. Không chỉnh lịch lúc này.`
+          : `${label(hour)}. Ngoài khung thận trọng phổ biến.`;
       }
     }
 
-    // Kéo kim bằng chuột/ngón tay
+    // Kéo kim (một trong hai phương án)
     let dragging = false;
     let lastAngle = 0;
     function getPoint(e: PointerEvent) {
       const rect = svg.getBoundingClientRect();
-      return { x: ((e.clientX - rect.left) / rect.width) * 300, y: ((e.clientY - rect.top) / rect.height) * 300 };
+      return {
+        x: ((e.clientX - rect.left) / rect.width) * 300,
+        y: ((e.clientY - rect.top) / rect.height) * 300,
+      };
     }
     function angleFromCenter(p: { x: number; y: number }) {
-      const dx = p.x - 150, dy = p.y - 150;
-      let d = Math.atan2(dx, -dy) * 180 / Math.PI;
+      const dx = p.x - 150;
+      const dy = p.y - 150;
+      let d = (Math.atan2(dx, -dy) * 180) / Math.PI;
       if (d < 0) d += 360;
       return d;
     }
@@ -200,18 +259,43 @@ const { 'data-mech-step-id': _mechStepId } = Astro.props;
       let delta = cur - lastAngle;
       if (delta > 180) delta -= 360;
       if (delta < -180) delta += 360;
-      hourAngle = (hourAngle + delta + 720) % 360;
       lastAngle = cur;
-      render();
+      const handAngle = (((parseFloat(hand.dataset.angle || '0') + delta) % 360) + 360) % 360;
+      hand.dataset.angle = String(handAngle);
+      setHour(Math.round(handAngle / 15));
     }
-    function onUp(e: PointerEvent) { dragging = false; (e.target as Element).releasePointerCapture?.(e.pointerId); }
-    hand.addEventListener('pointerdown', onDown);
-    svg.addEventListener('pointermove', onMove);
-    svg.addEventListener('pointerup', onUp);
-    svg.addEventListener('pointercancel', onUp);
+    function onUp(e: PointerEvent) {
+      dragging = false;
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    }
+    hand.addEventListener('pointerdown', (e) => {
+      const ev = e as PointerEvent;
+      // Đồng bộ góc dữ liệu với giờ hiện tại trước khi kéo
+      const startAngle = angleFromCenter(getPoint(ev));
+      hand.dataset.angle = String(Math.round(startAngle / 15) * 15 % 360);
+      onDown(ev);
+      setHour(Math.round(startAngle / 15));
+    });
+    svg.addEventListener('pointermove', (e) => onMove(e as PointerEvent));
+    svg.addEventListener('pointerup', (e) => onUp(e as PointerEvent));
+    svg.addEventListener('pointercancel', (e) => onUp(e as PointerEvent));
 
-    safeBtn?.addEventListener('click', () => { hourAngle = 180; render(); }); // 6:00
+    // Thanh trượt 24 giờ (phương án chuẩn)
+    range?.addEventListener('input', () => {
+      hand.dataset.angle = String(Number(range.value) * 15);
+      setHour(Number(range.value));
+    });
 
-    render();
-  })();
+    // Nút nhanh
+    safeBtn?.addEventListener('click', () => {
+      hand.dataset.angle = '90'; // 06:00 = 6 × 15°
+      setHour(6);
+    });
+    dangerBtn?.addEventListener('click', () => {
+      hand.dataset.angle = '330'; // 22:00 = 22 × 15°
+      setHour(22);
+    });
+
+    setHour(6);
+  });
 </script>

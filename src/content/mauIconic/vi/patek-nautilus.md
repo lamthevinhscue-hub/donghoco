@@ -1,6 +1,6 @@
 ---
-title: "Patek Philippe Nautilus — Thể thao sang trọng nguyên bản"
-excerpt: "Mẫu thiết kế bởi Gérald Genta đã định nghĩa cả phân khúc 'thể thao sang trọng' — và trở thành giấc mơ của giới sưu tầm."
+title: "Patek Philippe Nautilus — Biểu tượng thể thao sang trọng"
+excerpt: "Thiết kế Gérald Genta ra mắt năm 1976, tiếp nối làn sóng sport-luxury do Royal Oak năm 1972 khơi mào — và trở thành giấc mơ của giới sưu tầm."
 brand: "Patek Philippe"
 year: 1976
 references: ["3700/1A", "3800/1A", "5711/1A", "5811/1G"]
@@ -25,7 +25,7 @@ Năm 1976, Patek Philippe — vốn chỉ nổi tiếng với dress watch thanh 
 
 ## Đặc điểm thiết kế nhận diện
 
-- **Vỏ hình bán đạt (porthole)** — lấy cảm hứng từ cửa sổ tàu biển, với viền tai gắn ốc vặn đặc trưng.
+- **Vỏ hình bán nguyệt (porthole)** — lấy cảm hứng từ cửa sổ tàu biển, với viền tai gắn ốc vặn đặc trưng.
 - **Vành (bezel) nằm ngang** — không bo tròn, tạo hình dáng gần như chữ nhật bo góc.
 - **Mặt số nâu-xanh ngọc** với vân ngang đặc trưng — thay đổi màu tùy góc nhìn.
 - **Dây đeo tích hợp** — liền khối với vỏ, dấu ấn của Gérald Genta.

@@ -11,6 +11,10 @@ water_resistance: "300m"
 date: "2026-08-01"
 draft: false
 
+relatedModels:
+  - slug: "rolex-submariner"
+    relation: "Ra đời cùng năm 1953 — hai cột mốc quan trọng của đồng hồ lặn hiện đại"
+
 sources:
   - label: "Blancpain — Bộ sưu tập Fifty Fathoms"
     url: "https://www.blancpain.com/en/collections/fifty-fathoms-collection"

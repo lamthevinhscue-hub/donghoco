@@ -11,6 +11,10 @@ water_resistance: "50m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "patek-nautilus"
+    relation: "Cùng thiết kế bởi Gérald Genta — Royal Oak (1972) và Nautilus (1976)"
+
 sources:
   - label: "Audemars Piguet — Bộ sưu tập Royal Oak"
     url: "https://www.audemarspiguet.com/en/collections/royal-oak-collection"

@@ -11,6 +11,10 @@ water_resistance: "100m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "monaco"
+    relation: "Hai cột mốc thường được nhắc đến trong cuộc đua chronograph tự động năm 1969"
+
 sources:
   - label: "Zenith — Dòng thời gian chính hãng"
     url: "https://www.zenith-watches.com/en_us/brand/timeline"

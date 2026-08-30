@@ -11,6 +11,10 @@ water_resistance: "50m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "breitling-navitimer"
+    relation: "Hai chronograph công cụ — một mẫu gắn với không gian, một mẫu gắn với tính toán hàng không"
+
 sources:
   - label: "Omega — Speedmaster Moonwatch Professional"
     url: "https://www.omegawatches.com/en-us/watches/speedmaster/moonwatch-professional/catalog"

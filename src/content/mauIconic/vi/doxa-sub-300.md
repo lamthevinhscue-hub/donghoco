@@ -9,6 +9,10 @@ water_resistance: "300m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "seiko-62mas"
+    relation: "Hai mốc diver nổi bật của thập niên 1960"
+
 sources:
   - label: "Doxa — Lịch sử thương hiệu"
     url: "https://doxawatches.com/pages/history"

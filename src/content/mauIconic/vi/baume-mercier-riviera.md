@@ -8,6 +8,10 @@ category: "sport-luxury"
 date: "2026-08-28"
 draft: false
 
+relatedModels:
+  - slug: "royal-oak"
+    relation: "Hai thiết kế thép thể thao đáng chú ý đầu thập niên 1970"
+
 sources:
   - label: "Baume & Mercier — Heritage: Riviera 1973"
     url: "https://www.baume-et-mercier.com/en/the-maison/history.html"

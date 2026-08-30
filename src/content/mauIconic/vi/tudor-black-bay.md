@@ -11,6 +11,10 @@ water_resistance: "200m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "rolex-submariner"
+    relation: "Diễn giải hiện đại của ngôn ngữ diver lịch sử Tudor — trong hệ sinh thái Rolex/Tudor"
+
 sources:
   - label: "Tudor — Bộ sưu tập Black Bay"
     url: "https://www.tudorwatch.com/en/watches/black-bay"

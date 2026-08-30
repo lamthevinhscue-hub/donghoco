@@ -11,6 +11,10 @@ water_resistance: "120m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "royal-oak"
+    relation: "Cùng bút pháp Gérald Genta — Nautilus ra đời bốn năm sau Royal Oak"
+
 sources:
   - label: "Patek Philippe — Bộ sưu tập Nautilus"
     url: "https://www.patek.com/en/collection/nautilus"

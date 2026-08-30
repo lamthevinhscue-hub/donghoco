@@ -10,6 +10,10 @@ water_resistance: "100m"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "breitling-navitimer"
+    relation: "Hai chuẩn mực chronograph hàng không thập niên 1950 — Type XX gắn với yêu cầu quân sự Pháp, Navitimer gắn với việc tính toán cho phi công"
+
 sources:
   - label: "Breguet — Dòng Type XX"
     url: "https://www.breguet.com/en/watches/type-xx"

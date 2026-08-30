@@ -11,6 +11,10 @@ water_resistance: "100m"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "patek-nautilus"
+    relation: "Cùng gợi lại ngôn ngữ vỏ và dây tích hợp phổ biến trong thập niên 1970 — PRX là cách tiếp cận dễ tiếp cận hơn về giá"
+
 sources:
   - label: "Tissot — Bộ sưu tập PRX"
     url: "https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html"

@@ -20,6 +20,7 @@ Nơi lưu các biên bản nghiệm thu do Claude lập, sau mỗi đợt bàn g
 | 06/08/2026 | [2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md](2026-08-06_danh-gia-tong-the-va-lo-trinh-tiep.md) | Toàn site tại commit `d7ad690` | **Giai đoạn xây dựng đã xong.** 26/26 hãng đủ 5 khối, 28/28 minh họa, 0 link hỏng, 0 ký tự lạ. Còn lại: kiểm thử trên máy thật, ảnh chụp, dứt điểm CAN-KIEM-CHUNG | Lộ trình mới |
 | 08/08/2026 | [2026-08-08_ra-soat-toan-dien.md](2026-08-08_ra-soat-toan-dien.md) | Toàn site tại commit `a3a62a3`, **127 trang** | Xong cả 7 gói mở rộng: 26 iconic, 18 cơ chế, 32 từ điển, 12 hướng dẫn. **Nội dung mới sạch.** 4 lỗi cần sửa, 3 nằm ở nội dung cũ: 1 ký tự Hán, 1 link 404, 16 file còn giá USD, từ tiếng Anh đơn lẻ | GLM đã sửa xong |
 | 09/08/2026 | [2026-08-09_danh-gia-toan-dien.md](2026-08-09_danh-gia-toan-dien.md) | Commit `b4adf05`, 127 trang | **Sạch nhất từ trước tới nay.** 0 link hỏng, 0 ký tự lạ, 0 giá USD, 18/18 hoạt ảnh, nền bảo mật gần trọn. 3 lỗi nhẹ: file rác 2,5MB, `in-house` dọn sót, chưa đổi font | Chờ GLM sửa 3 việc |
+| 30/08/2026 | [2026-08-30_nghiem-thu-cong-cu-tuong-tac.md](2026-08-30_nghiem-thu-cong-cu-tuong-tac.md) | Bốn công cụ tương tác (`BezelDiver`, `DateSafety`, `GmtReader`, `TachymeterTool`) tại commit `9915a58` — 4 route × 375/1440 × sáng/tối, bàn phím, reduced motion, console | **GO ở mức preview.** Chức năng, hiển thị, bàn phím, RM, console đều PASS; không phát hiện lỗi hồi quy. Vẫn cần nghiệm thu production, thiết bị cảm ứng thật và screen reader thật | Đã cập nhật `docs/LO-TRINH-PHAT-TRIEN-HIEN-TAI.md` |
 
 ---
 

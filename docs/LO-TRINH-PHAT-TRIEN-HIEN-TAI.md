@@ -12,10 +12,11 @@ Số liệu trong tài liệu được đếm trực tiếp từ mã nguồn t�
 
 ## 2. Mốc kiểm tra
 
-- **Ngày thực hiện:** 30/08/2026.
-- **Commit HEAD đang kiểm tra:** `25b5df3` — "feat(infographic): hoàn thiện sáu minh họa thuật ngữ".
+- **Ngày thực hiện:** 30/08/2026 (cập nhật lần 2 — nghiệm thu nhóm bốn công cụ tương tác).
+- **Commit HEAD đang kiểm tra:** `9915a58` — "feat(interactive): nâng cấp công cụ GMT và tachymeter" (trước đó: `9c39352` hoàn thiện mô phỏng vành và lịch, `98fc626` kích hoạt liên kết biên tập đợt một).
 - **Nhánh hiện tại:** `main`.
 - **Kết quả `npm run check`:** ĐẠT — toàn bộ kiểm tra nội dung tĩnh (bao gồm nhóm kiểm WCAG tự động) không có lỗi.
+- **Nghiệm thu trình duyệt bốn công cụ tương tác:** ĐẠT trên bản preview sau build — biên bản tại `docs/nghiem-thu/2026-08-30_nghiem-thu-cong-cu-tuong-tac.md`.
 
 **Lưu ý quan trọng:** các kiểm tra tự động chỉ rà được phần tĩnh của mã nguồn. Chúng **không chứng minh toàn bộ trải nghiệm trên website đã triển khai** — tốc độ thật trên máy người dùng, hoạt động trên điện thoại thật, màn hình thật, bàn phím thật, trình đọc màn hình thật vẫn phải nghiệm thu thủ công (xem phần 6 và phần 8).
 
@@ -43,7 +44,7 @@ Nguồn tham khảo: 73/73 thương hiệu, 66/66 mẫu iconic, 18/18 cơ chế,
 
 ## 4. Những phần đã hoàn thành
 
-Tóm tắt đúng tình trạng tại HEAD `25b5df3`:
+Tóm tắt đúng tình trạng tại HEAD `9915a58`:
 
 - **Nền tảng Astro và hệ thống nội dung** — website tĩnh Astro + Tailwind, nội dung Markdown theo bộ sưu tập có kiểm tra schema; xây bài mới không cần đụng mã nguồn.
 - **Giao diện sáng/tối** — toàn trang có hai chế độ, màu quản bằng token (`--ig-*`, `--obs-*` cho hình vẽ; token Tailwind cho giao diện).
@@ -52,7 +53,7 @@ Tóm tắt đúng tình trạng tại HEAD `25b5df3`:
 - **SEO kỹ thuật cơ bản** — sitemap tự sinh khi build, dữ liệu có cấu trúc (structured data), ảnh chia sẻ mạng xã hội (OG) tự sinh.
 - **WCAG 2.2 AA ở mức nền tảng** — bộ kiểm tra tự động (gồm `check-motion-accessibility` và phần WCAG trong `npm run check`) đạt; trang công bố `/kha-nang-tiep-can` khớp thực tế tại thời điểm rà. **Không phải "đạt WCAG toàn diện tuyệt đối"**: tương phản, reflow, zoom 200%, bàn phím, trình đọc màn hình trên **trình duyệt và thiết bị thật** vẫn cần nghiệm thu thủ công định kỳ.
 - **Giải phẫu 2D/3D** — trang `/giai-phau` có sơ đồ tách lớp 2D và mô hình 3D xoay/zoom/tách lớp tải theo yêu cầu, có bản 2D dự phòng khi 3D không tải được.
-- **Hệ thống infographic đã nâng cấp** — Tổng bộ được rà: **28 thành phần đồ họa/công cụ**; **24 đã qua đợt đồng bộ chất liệu**: 12 infographic cơ chế, 10 minh họa thuật ngữ, 2 bản giải phẫu (2D và 3D). **Bốn công cụ tương tác chưa đồng bộ chất liệu** (chưa qua đợt nâng cấp, phần 6 — Ưu tiên 1): `BezelDiver` (vành lặn), `DateSafety` (vùng chỉnh lịch an toàn), `GmtReader` (đọc giờ GMT), `TachymeterTool` (thước tốc độ). **AntiMagnetic và Crystal đã được nâng cấp**. **`MechanismAnimation` là khung điều khiển dùng chung** (nút bấm, đếm bước, hỗ trợ giảm chuyển động) — **không phải một infographic độc lập còn thiếu**. Ghi chú trung thực: trong 24 thành phần đã nâng vẫn còn một số ít mã màu trực tiếp chưa chuyển hết sang token — 6 chỗ trong `Escapement`, 17 chỗ trong bản 2D giải phẫu (`WatchExplodedView`), và 4 điểm nhấn nhỏ (viền thẻ giải thích/bóng đổ JS) ở mỗi một trong bốn minh họa thuật ngữ làm trước (`Chronograph`, `GMT`, `Hairspring`, `Tourbillon`).
+- **Hệ thống infographic đã nâng cấp** — Tổng bộ được rà: **28 thành phần đồ họa/công cụ, đủ 28 đã qua đợt đồng bộ chất liệu**: 12 infographic cơ chế, 10 minh họa thuật ngữ, 2 bản giải phẫu (2D và 3D), và **4 công cụ tương tác — `BezelDiver`, `DateSafety`, `GmtReader`, `TachymeterTool` — đã hoàn tất nâng cấp và nghiệm thu nhóm ngày 30/08/2026** (biên bản: `docs/nghiem-thu/2026-08-30_nghiem-thu-cong-cu-tuong-tac.md`). **AntiMagnetic và Crystal đã được nâng cấp**. **`MechanismAnimation` là khung điều khiển dùng chung** (nút bấm, đếm bước, hỗ trợ giảm chuyển động) — **không phải một infographic độc lập còn thiếu**. Ghi chú trung thực: vẫn còn một số ít mã màu trực tiếp chưa chuyển hết sang token — 6 chỗ trong `Escapement`, 17 chỗ trong bản 2D giải phẫu (`WatchExplodedView`), và 4 điểm nhấn nhỏ (viền thẻ giải thích/bóng đổ JS) ở mỗi một trong bốn minh họa thuật ngữ làm trước (`Chronograph`, `GMT`, `Hairspring`, `Tourbillon`).
 - **Dòng thời gian lịch sử** — trang `/lich-su` với 28 mốc từ `timeline.json`.
 - **Bài hoàn thiện thủ công** — `hoan-thien-thu-cong-dong-ho` đã xuất bản (commit `f5e1ecf`): bài dài nhất trang, 7 mục, 6 nguồn chuyên ngành (Poinçon de Genève, AHCI, Grand Seiko, Breguet, SVMA, Anglage), liên kết nội bộ dày nhất trang.
 - **Hạ tầng liên kết biên tập** — schema `relatedModels` / `relatedMechanisms` và khối hiển thị "Kết nối cùng chủ đề" trên trang mẫu iconic và thương hiệu đã hoạt động; tài liệu đề xuất 15 nhóm quan hệ tại `docs/de-xuat-lien-ket-bien-tap-v1.md` chờ duyệt và áp (chi tiết ở phần 5).
@@ -61,7 +62,7 @@ Tóm tắt đúng tình trạng tại HEAD `25b5df3`:
 
 ## 5. Những phần đã có hạ tầng nhưng chưa tạo giá trị đầy đủ
 
-- **Liên kết biên tập (`relatedModels` / `relatedMechanisms`):** schema liên kết hiện có trên **mẫu iconic và thương hiệu**; hạ tầng hiển thị ("Kết nối cùng chủ đề") đã xong nhưng **chưa bài nào điền dữ liệu** — 0/66 bài mẫu iconic và 0/73 trang thương hiệu. Collection `coChe` hiện **chưa có** trường `relatedModels` hoặc `relatedMechanisms`; nếu sau này cần liên kết từ bài cơ chế sang mẫu đồng hồ thì phải mở rộng schema bằng một gói riêng (không làm trong gói tài liệu này). Đề xuất 15 nhóm quan hệ ở `docs/de-xuat-lien-ket-bien-tap-v1.md` chờ người phụ trách biên tập duyệt rồi mới điền vào frontmatter.
+- **Liên kết biên tập (`relatedModels` / `relatedMechanisms`):** hạ tầng đã bắt đầu tạo giá trị nhưng phần lớn dữ liệu vẫn chưa điền. Hiện trạng đếm từ mã nguồn: trường `relatedModels` có dữ liệu trong **10/66 bài mẫu iconic** (đợt một), **0/73 trang thương hiệu**; `relatedMechanisms` **chưa bài nào dùng**; collection `coChe` vẫn **chưa có** trường liên kết — nếu sau này cần liên kết từ bài cơ chế sang mẫu đồng hồ thì phải mở rộng schema bằng một gói riêng (không làm trong gói tài liệu). Đề xuất 15 nhóm quan hệ ở `docs/de-xuat-lien-ket-bien-tap-v1.md` là căn cứ để tiếp tục điền theo đợt.
 - **Analytics:** đã tích hợp (Vercel Web Analytics) nhưng chưa xem xét số liệu thực tế — chưa có đánh giá hành vi người đọc dựa trên dữ liệu.
 - **Giao diện đa ngôn ngữ:** cấu trúc thư mục `en/` và bộ chuyển ngữ giao diện đã sẵn sàng, nhưng **chưa có kho bài tiếng Anh thực chất** (0 bài trong các bộ sưu tập `en/`).
 - **Newsletter:** mới ở trạng thái **chuẩn bị** — chỉ có trong kế hoạch (Giai đoạn 4, "Newsletter hoạt động thật"); chưa có gì trong mã nguồn và chưa hoạt động thực tế. Form liên hệ hiện dùng Formspree gói miễn phí (giới hạn 50 lượt/tháng — ghi ở `CAN-KIEM-CHUNG.md` mục 24).
@@ -76,8 +77,7 @@ Tóm tắt đúng tình trạng tại HEAD `25b5df3`:
 
 ### Ưu tiên 1
 
-- **Kiểm chứng và áp dụng liên kết biên tập** — duyệt 15 nhóm đề xuất, điền dữ liệu vào frontmatter theo đợt nhỏ, kiểm tra hiển thị cả sáng/tối và mobile.
-- **Nâng cấp bốn công cụ tương tác** — `BezelDiver` (vành lặn), `DateSafety` (vùng chỉnh lịch an toàn), `GmtReader` (đọc giờ GMT), `TachymeterTool` (thước tốc độ). Đây là bốn công cụ người dùng **thao tác trực tiếp**, vẫn còn mã màu trực tiếp và chưa đồng bộ chất liệu với phần còn lại.
+- **Kiểm chứng và áp dụng liên kết biên tập** — duyệt 15 nhóm đề xuất, điền dữ liệu vào frontmatter theo đợt nhỏ, kiểm tra hiển thị cả sáng/tối và mobile. (Đã áp đợt một: 10 bài mẫu iconic có `relatedModels` — xem số liệu ở phần 5; còn thương hiệu, các nhóm còn lại và chiều `relatedMechanisms` chưa điền.)
 - **Chuẩn bị dữ liệu reference có nguồn** — cho sơ đồ tiến hóa dòng sản phẩm: chốt dòng nào làm trước, thu thập mốc năm/reference có kiểm chứng; nguyên tắc "thà thiếu còn hơn sai", ghi mục chưa chắc vào `CAN-KIEM-CHUNG.md`.
 - **Làm thử một sơ đồ tiến hóa reference** — thí điểm một dòng (một sơ đồ khái niệm, ghi rõ là khái niệm nếu không chắc tỷ lệ/mốc), đánh giá rồi mới nhân rộng.
 

@@ -35,10 +35,14 @@ Lý do: tachymeter tính **tốc độ = 3600 / thời gian (giây)**. Vì đây
 
 Đó là vì sao bạn thấy thang **thưa ở vùng tốc độ thấp** (số nhỏ) và **dày ở vùng tốc độ cao** (số lớn). Đây không phải lỗi — đó là toán học.
 
-## Giới hạn của thang tachymeter chỉ đo được trong khoảng thời gian **từ khoảng 7 giây tới 60 giây**:
+## Giới hạn của thang trong mô phỏng: từ 60 đến 400, tương ứng 9–60 giây
 
-- **Dưới 7 giây** — tốc độ quá cao, vượt khỏi thang (trên 500 đơn vị/giờ), hầu như không gặp ngoài thực tế.
-- **Trên 60 giây** — kim giây quay hết một vòng, số lặp lại — thang vô dụng. Tức là tachymeter chỉ đo tốc độ **tương đối cao**; vật chậm quá thì không đo được.
+Công cụ ở trên dùng một thang minh họa chạy từ số **60** đến số **400**, ứng với thời gian đo từ **9 đến 60 giây**:
+
+- **Dưới 9 giây** — thời gian ngắn hơn mốc số cao nhất của thang minh họa, nên công cụ không trả kết quả trực tiếp.
+- **Trên 60 giây** — kim giây quay hết một vòng rồi lặp lại vị trí, không còn đọc trực tiếp trên thang này.
+
+Thang tachymeter trên đồng hồ thật có thể có dải số khác — khoảng 9–60 giây chỉ là giới hạn của thang được minh họa trong trang này.
 
 Vì vậy thang tachymeter thích hợp cho **đo xe, đo sản xuất** — không phải đo người đi bộ.
 

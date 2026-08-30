@@ -35,7 +35,9 @@ Ghi chú tương thích tên cũ: các mục ghi `ĐÃ XỬ LÝ BẰNG CÁCH G�
 2. **COSC — /chronometer-certified:** `https://www.cosc.swiss/chronometer-certified` — 404, đang hiển thị trên 4 trang: `chronometer`, `metas`, `vph` (từ điển) và `do-sai-so` (hướng dẫn) (mục 40).
 3. **Kurono Tokyo — trang kỷ niệm 5 năm:** `https://kuronotokyo.com/pages/5th-anniversary` — 404, đang hiển thị trong nguồn trang `hajime-asaoka` (mục 39).
 
-Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm.
+Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm. *(Đoạn này xét các mục 1–47 có sẵn; các mục bổ sung sau đợt rà — xem ghi chú dưới.)*
+
+**Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50. Ba mục này **chưa được xử lý gì** nên nằm ngoài ba trạng thái xử lý ở trên (chưa tính vào bảng số lượng); từng dữ kiện mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG` và chờ anh Vinh quyết định (giữ + bổ sung nguồn, diễn đạt lại, hoặc gỡ). Không tự sửa bài.
 
 ---
 
@@ -1101,5 +1103,35 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Hành động đã làm (16/08/2026):** theo nguyên tắc bỏ số liệu không chắc chắn, đã bỏ hẳn khoảng năm trong ngoặc. Dòng mới: `**14060 và 14060M** — thế hệ "No Date" (không lịch), được yêu thích vì thiết kế đối xứng.`
 - **Cần kiểm chứng:** mốc năm sản xuất chính xác của từng reference 14060 và 14060M.
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ dữ kiện kiểm chứng được thì bổ sung lại từng reference.
+
+---
+
+## 48. Câu "mẫu đồng hồ lặn đầu tiên được sản xuất hàng loạt" trong bài Rolex Submariner
+
+- **Vị trí:** `src/content/mauIconic/vi/rolex-submariner.md` — phần "Bối cảnh ra đời"
+- **Câu/ý đang hiển thị:** "Rolex phản hồi bằng **Submariner** — mẫu đồng hồ lặn đầu tiên được sản xuất hàng loạt, ra mắt công chúng năm 1954."
+- **Lý do cần kiểm chứng:** Rolex chính thức chỉ khẳng định mức hẹp hơn — đồng hồ lặn đầu tiên đạt 100m (trang mẫu + Newsroom Rolex, truy cập 30/08/2026). Hai nguồn chuyên ngành (Monochrome, Bob's Watches) ghi Fifty Fathoms của Blancpain ra mắt **vài tháng trước** trong cùng năm 1953. Cụm "sản xuất hàng loạt" không có trong nguồn nào. Riêng "ra mắt công chúng năm 1954" khớp nguồn (Monochrome: ra mắt hội chợ Basel 1954; Hodinkee: 1954 là thời điểm Rolex chính thức công bố và bán ra).
+- **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — phần 5 "Rủi ro nội dung đang xuất bản".
+- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị trên trang, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định (giữ + nói đúng cách Rolex khẳng định, diễn đạt lại, hoặc gỡ). Chưa tự sửa bài.
+
+---
+
+## 49. Dòng "6204 (1953) — thế hệ đầu tiên" trong bài Rolex Submariner
+
+- **Vị trí:** `src/content/mauIconic/vi/rolex-submariner.md` — mục "Các thế hệ tham chiếu (reference)"
+- **Câu/ý đang hiển thị:** "**6204** (1953) — thế hệ đầu tiên, dấu chấm gốc của mọi Submariner sau này."
+- **Lý do cần kiểm chứng:** hai nguồn chuyên ngành ủng hộ câu này (Monochrome và Hodinkee Reference Points: 6204 là reference đầu tiên có chữ "Submariner" trên mặt số; mẫu sớm nhất định ngày cuối 1953 bằng số serial và tem nắp sau). Nhưng có nguồn thị trường/đấu giá (Rolex Passion Market) gọi **6200** là "chiếc Submariner đầu tiên" ra 1953, và năm sản xuất của 6200 còn ba dải khác nhau giữa các nguồn (1953 / 1954 / 1955–1956) — chưa chốt được vai trò "ai ra trước".
+- **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — bảng 1 (6204), bảng 2 (6200) và phần 5.
+- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định. Chưa tự sửa bài.
+
+---
+
+## 50. Cụm "thế hệ cổ điển được sưu tầm nhiều nhất" trong bài Rolex Submariner
+
+- **Vị trí:** `src/content/mauIconic/vi/rolex-submariner.md` — mục "Các thế hệ tham chiếu (reference)", dòng 5513
+- **Câu/ý đang hiển thị:** "**5513** (1962–1989) — thế hệ cổ điển được sưu tầm nhiều nhất."
+- **Lý do cần kiểm chứng:** niên đại 1962–1989 đã khớp nguồn (Monochrome và Hodinkee đều ghi 5513 ra 1962, sản xuất liền 27 năm). Nhưng cụm "được sưu tầm nhiều nhất" là siêu tuyệt đối **không tìm thấy trong bất kỳ nguồn nào đã xem** — nguồn chuyên ngành chỉ mô tả 5513 là reference quan trọng và được chú ý cao của giới sưu tầm, không có bảng xếp hạng nào để căn cứ.
+- **Dữ liệu đối chiếu:** `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (30/08/2026) — bảng 1 (5513) và phần 5.
+- **Trạng thái:** CẦN KIỂM CHỨNG (30/08/2026) — dữ kiện còn hiển thị, mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`; chờ anh Vinh quyết định. Chưa tự sửa bài.
 
 

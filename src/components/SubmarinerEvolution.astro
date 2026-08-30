@@ -1,0 +1,184 @@
+---
+// =============================================================================
+// SUBMARINER EVOLUTION — sơ đồ tiến hóa thí điểm (chỉ trang rolex-submariner)
+// =============================================================================
+// Bản thí điểm đầu tiên của sơ đồ tiến hóa mẫu iconic. Hiển thị ĐÚNG 8 mốc
+// đã kiểm chứng, lấy DUY NHẤT từ src/data/submarinerEvolution.ts (hồ sơ
+// docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md, ngày rà 30/08/2026).
+//
+// Trải nghiệm:
+//   - ≥768px: 8 mốc trên một đường thời gian kiểu bezel (vạch chia SVG chỉ
+//     trang trí, aria-hidden); chọn mốc → thẻ chi tiết trải rộng dưới đường ray.
+//   - <768px: danh sách dọc đầy đủ 8 mốc (thẻ chi tiết luôn mở) — không yêu cầu
+//     vuốt ngang.
+//   - Không ảnh đồng hồ, không 3D, không carousel tự chạy, không animation lặp.
+//   - prefers-reduced-motion: chuyển trạng thái tức thời (không transition).
+//   - Nút thật (Tab/Enter/Space), aria-pressed cho mốc đang chọn, thẻ chi tiết
+//     có nhãn role="group" + aria-label, không tự cướp focus.
+//   - Chỉ dùng token ngữ nghĩa (steel/alloy/line/primary/secondary/surface-raised)
+//     tự đổi theo .dark — không có mã hex, không cần cặp dark:.
+// =============================================================================
+
+import { submarinerEvolution } from '../data/submarinerEvolution';
+
+const milestones = submarinerEvolution;
+
+// Vạch chia kiểu bezel cho đường ray — chỉ trang trí: 61 vạch, vạch dài mỗi 5 vạch
+const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 === 0 }));
+---
+
+<section
+  class="evol not-prose mb-12 mt-8"
+  data-evolution
+  data-selected="0"
+  aria-labelledby="submariner-evolution-title"
+>
+  <h2 id="submariner-evolution-title" class="font-serif text-xl text-steel">
+    Tiến hóa Rolex Submariner
+  </h2>
+  <p class="mt-1 text-sm leading-relaxed text-secondary">
+    Tám mốc được chọn từ hồ sơ kiểm chứng. Đây là lược đồ thay đổi thiết kế, không phải danh mục đầy đủ mọi reference.
+  </p>
+
+  <div class="relative mt-6">
+    <!-- Đường ray + vạch chia kiểu bezel — thuần trang trí -->
+    <div class="evol-rail absolute left-2 right-2 top-0 hidden md:block" aria-hidden="true">
+      <svg class="h-3 w-full" viewBox="0 0 720 12" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+        <line class="evol-rail-base" x1="0" y1="5.5" x2="720" y2="5.5" />
+        {ticks.map((t) => (
+          <line class="evol-rail-tick" x1={t.x} y1={t.long ? 0 : 3} x2={t.x} y2="12" />
+        ))}
+      </svg>
+    </div>
+
+    <ol class="evol-list m-0 list-none p-0">
+      {milestones.map((m, i) => (
+        <li class="evol-item border-b border-line/60 py-4 last:border-b-0">
+          <button
+            type="button"
+            class="evol-btn flex min-h-11 w-full flex-wrap items-baseline gap-x-2 gap-y-0.5 rounded-lg border border-transparent px-3 pb-3 text-left hover:border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel md:flex-col md:flex-nowrap md:items-center md:gap-y-1 md:px-1.5 md:pt-0 md:text-center"
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            data-index={i}
+          >
+            <span class="evol-dot hidden h-3 w-3 shrink-0 rounded-full bg-secondary/60 md:block" aria-hidden="true"></span>
+            <span class="evol-year font-semibold text-primary">{m.year}</span>
+            <span class="evol-ref font-mono text-sm text-steel">{m.reference}</span>
+            <span class="evol-label w-full text-sm leading-snug text-secondary md:w-auto">{m.label}</span>
+          </button>
+
+          <div
+            class="evol-detail mt-3 rounded-lg border border-line/60 bg-surface-raised px-4 py-3"
+            role="group"
+            aria-label={`Chi tiết mốc ${m.year} — Submariner ${m.reference}`}
+            data-index={i}
+          >
+            <p class="font-mono text-sm text-steel">{m.year} · {m.reference}</p>
+            <p class="mt-1.5 font-medium leading-relaxed text-primary">{m.change}</p>
+            <p class="mt-1 text-sm leading-relaxed text-secondary">{m.note}</p>
+            <a
+              class="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-steel underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel"
+              href={m.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Xem nguồn: {m.sourceName}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  /* ===== Mobile trước: danh sách dọc, thẻ chi tiết của cả 8 mốc luôn mở ===== */
+
+  /* ===== ≥768px: đường thời gian ngang, một thẻ chi tiết cho mốc đang chọn ===== */
+  @media (min-width: 768px) {
+    .evol-list {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      column-gap: 0.5rem;
+    }
+
+    /* li chỉ là bố cục — button và thẻ chi tiết thành item trực tiếp của lưới */
+    .evol-item {
+      display: contents;
+    }
+
+    .evol-detail {
+      display: none;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin-top: 1.25rem;
+    }
+
+    .evol[data-selected='0'] .evol-detail[data-index='0'],
+    .evol[data-selected='1'] .evol-detail[data-index='1'],
+    .evol[data-selected='2'] .evol-detail[data-index='2'],
+    .evol[data-selected='3'] .evol-detail[data-index='3'],
+    .evol[data-selected='4'] .evol-detail[data-index='4'],
+    .evol[data-selected='5'] .evol-detail[data-index='5'],
+    .evol[data-selected='6'] .evol-detail[data-index='6'],
+    .evol[data-selected='7'] .evol-detail[data-index='7'] {
+      display: block;
+    }
+  }
+
+  /* Nút bấm bên dưới không đè lên đường ray */
+  .evol-btn {
+    position: relative;
+  }
+
+  /* Mốc đang chọn: nhận biết bằng viền + màu + chấm phóng to (không chỉ màu) */
+  .evol-btn[aria-pressed='true'] {
+    @apply border-alloy bg-surface-raised;
+  }
+  .evol-btn[aria-pressed='true'] .evol-year {
+    @apply text-alloy;
+  }
+  .evol-btn[aria-pressed='true'] .evol-label {
+    @apply font-semibold;
+  }
+  .evol-btn[aria-pressed='true'] .evol-dot {
+    @apply bg-alloy ring-2 ring-alloy/30;
+  }
+
+  /* Vạch bezel — dùng token ngữ nghĩa, tự đổi theo .dark */
+  .evol-rail line {
+    stroke: rgb(var(--c-line) / 0.55);
+    stroke-width: 1;
+  }
+  .evol-rail .evol-rail-base {
+    stroke: rgb(var(--c-line) / 0.9);
+    stroke-width: 1.5;
+  }
+
+  /* Chuyển trạng thái rất nhẹ; reduced-motion thì tức thời */
+  @media (prefers-reduced-motion: no-preference) {
+    .evol-btn,
+    .evol-btn .evol-dot,
+    .evol-btn .evol-year {
+      transition:
+        border-color 120ms ease,
+        background-color 120ms ease,
+        color 120ms ease,
+        box-shadow 120ms ease;
+    }
+  }
+</style>
+
+<script>
+  // Chọn mốc: cập nhật data-selected (CSS đổi thẻ chi tiết) + aria-pressed.
+  // Scope theo từng root — không dùng document.querySelector toàn cục.
+  document.querySelectorAll<HTMLElement>('[data-evolution]').forEach((root) => {
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('.evol-btn'));
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        root.dataset.selected = String(i);
+        buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
+      });
+    });
+  });
+</script>

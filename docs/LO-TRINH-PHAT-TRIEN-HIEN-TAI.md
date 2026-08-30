@@ -78,8 +78,8 @@ Tóm tắt đúng tình trạng tại HEAD `9915a58`:
 ### Ưu tiên 1
 
 - **Kiểm chứng và áp dụng liên kết biên tập** — duyệt 15 nhóm đề xuất, điền dữ liệu vào frontmatter theo đợt nhỏ, kiểm tra hiển thị cả sáng/tối và mobile. (Đã áp đợt một: 10 bài mẫu iconic có `relatedModels` — xem số liệu ở phần 5; còn thương hiệu, các nhóm còn lại và chiều `relatedMechanisms` chưa điền.)
-- **Chuẩn bị dữ liệu reference có nguồn** — cho sơ đồ tiến hóa dòng sản phẩm: chốt dòng nào làm trước, thu thập mốc năm/reference có kiểm chứng; nguyên tắc "thà thiếu còn hơn sai", ghi mục chưa chắc vào `CAN-KIEM-CHUNG.md`.
-- **Làm thử một sơ đồ tiến hóa reference** — thí điểm một dòng (một sơ đồ khái niệm, ghi rõ là khái niệm nếu không chắc tỷ lệ/mốc), đánh giá rồi mới nhân rộng.
+- **Chuẩn bị dữ liệu reference có nguồn** — cho sơ đồ tiến hóa dòng sản phẩm: chốt dòng nào làm trước, thu thập mốc năm/reference có kiểm chứng; nguyên tắc "thà thiếu còn hơn sai", ghi mục chưa chắc vào `CAN-KIEM-CHUNG.md`. (Đã xong cho dòng thí điểm Rolex Submariner: `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` ngày rà 30/08/2026 — 8 mốc đủ nguồn, 5 điểm còn treo ở bảng "Cần kiểm chứng".)
+- **Làm thử một sơ đồ tiến hóa reference** — thí điểm một dòng (một sơ đồ khái niệm, ghi rõ là khái niệm nếu không chắc tỷ lệ/mốc), đánh giá rồi mới nhân rộng. **(Đã thí điểm xong 30/08/2026: sơ đồ tiến hóa Rolex Submariner với 8 mốc đủ nguồn, hiển thị tại `https://www.kienthucdonghoco.vn/mau-iconic/rolex-submariner/` — chỉ trang này; dữ kiện duy nhất ở `src/data/submarinerEvolution.ts`; biên bản `docs/nghiem-thu/2026-08-30_nghiem-thu-so-do-tien-hoa-submariner.md`. Chờ đánh giá rồi mới nhân rộng sang dòng khác.)**
 
 ### Ưu tiên 2
 

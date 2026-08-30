@@ -3,6 +3,7 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import SpecTable from '../../components/SpecTable.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
+import SubmarinerEvolution from '../../components/SubmarinerEvolution.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
@@ -154,6 +155,9 @@ for (const rm of (data as any).relatedMechanisms ?? []) {
   sources={data.sources}
 >
   <SpecTable slot="spec" rows={specRows} />
+  <!-- Sơ đồ tiến hóa thí điểm — CHỈ trang Submariner tiếng Việt (ngay sau bảng
+       thông số, trước nội dung bài). Dữ kiện duy nhất từ src/data/submarinerEvolution.ts -->
+  {lang === 'vi' && slug === 'rolex-submariner' && <SubmarinerEvolution />}
   <Content />
   <RelatedEditorial links={editorialLinks} />
 </ArticleLayout>

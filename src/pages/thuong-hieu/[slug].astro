@@ -48,6 +48,8 @@ const meta = [
 ].filter(Boolean).join(' • ');
 
 // ====== Khối 5: Tự động kéo mẫu iconic có `brand` khớp ======
+// Sắp A–Z theo tên mẫu hiển thị (Intl.Collator như trang danh sách thương hiệu).
+const collator = new Intl.Collator(lang === 'vi' ? 'vi' : 'en', { sensitivity: 'accent', numeric: true });
 const iconicEntries = await getEntriesByLang('mauIconic', lang);
 const iconicModels = iconicEntries
   .filter((e) => {
@@ -64,12 +66,16 @@ const iconicModels = iconicEntries
     category: (e.data as any).category,
     year: (e.data as any).year,
     cover_image: (e.data as any).cover_image,
-  }));
+  }))
+  .sort((a, b) => collator.compare(a.title, b.title));
 
 // ====== Khối 5 thay thế (khi chưa có mẫu iconic): các hãng cùng phân hạng ======
-// Lấy tối đa 3 hãng cùng tier, loại hãng hiện tại.
+// Lấy tối đa 3 hãng cùng tier, loại hãng hiện tại — sắp A–Z TRƯỚC khi cắt 3 mục
+// để phần "cùng phân khúc" luôn bắt đầu từ hãng đứng đầu alphabet.
+// filter() trả về mảng mới nên sort không đụng mảng cache gốc.
 const sameTierBrands = entries
   .filter((e) => getSlug(e) !== slug && (e.data as any).tier === data.tier)
+  .sort((a, b) => collator.compare(a.data.title, b.data.title))
   .slice(0, 3)
   .map((e) => ({
     title: (e.data as any).title,

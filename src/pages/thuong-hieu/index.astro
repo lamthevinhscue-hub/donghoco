@@ -28,14 +28,24 @@ const foundedLabel: Record<string, string> = {
 // Slug hóa tier cho hash (haute horlogerie -> haute-horlogerie) — ổn định, chia sẻ được
 const tierSlug = (tier: string) => tier.replace(/\s+/g, '-');
 
-// Nhóm thương hiệu theo hạng — mỗi nhóm kèm mã màu nhấn (tier accent)
+// Sắp xếp thương hiệu A–Z theo tên hiển thị trong từng nhóm phân khúc.
+// Intl.Collator: so sánh theo ngôn ngữ (vi), không phân biệt hoa/thường
+// (sensitivity 'accent' vẫn giữ phân biệt dấu tiếng Việt), hỗ trợ số trong tên
+// (numeric — VD "Seagull 1963" đứng trước "Seagull 1963M" kiểu tự nhiên).
+const collator = new Intl.Collator(lang === 'vi' ? 'vi' : 'en', { sensitivity: 'accent', numeric: true });
+const byTitle = (a: { data: { title: string } }, b: { data: { title: string } }) =>
+  collator.compare(a.data.title, b.data.title);
+
+// Nhóm thương hiệu theo hạng — mỗi nhóm kèm mã màu nhấn (tier accent).
+// items: filter() đã trả về MẢNG MỚI nên sort trên đó không đụng mảng cache
+// gốc từ getEntriesByLang — thứ tự nhóm phân khúc vẫn theo TIER_ORDER.
 const groups = TIER_ORDER.map((tier) => ({
   tier,
   slug: tierSlug(tier),
   label: getTierLabel(tier, lang),
   desc: getTierDesc(tier, lang),
   accent: getTierAccent(tier),
-  items: entries.filter((e) => e.data.tier === tier),
+  items: entries.filter((e) => e.data.tier === tier).sort(byTitle),
 })).filter((g) => g.items.length > 0); // bỏ các hạng không có thương hiệu
 ---
 

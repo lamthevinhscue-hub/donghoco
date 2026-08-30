@@ -1,5 +1,7 @@
 # PROJECT.md — Bản kế hoạch website "Đồng Hồ Cơ"
 
+> **GHI CHÚ TRẠNG THÁI (30/08/2026):** Tài liệu này là **bản kiến trúc và kế hoạch khởi đầu** của dự án — dùng để hiểu định vị, cấu trúc và hướng đi ban đầu. **Không dùng các checkbox và mốc giai đoạn trong tài liệu này để xác định tiến độ hiện tại** (chúng phản ánh thời điểm viết, không phản ánh hiện trạng). Trạng thái hiện hành — những gì đã hoàn thành, đang chờ, chưa làm — được quản lý tại [`docs/LO-TRINH-PHAT-TRIEN-HIEN-TAI.md`](./docs/LO-TRINH-PHAT-TRIEN-HIEN-TAI.md).
+
 > **Tài liệu này là gì?**
 > Đây là bản kế hoạch tổng thể (chưa có mã nguồn hoàn chỉnh). Nó cho biết website sẽ làm gì, gồm những gì, dùng công nghệ gì, đặt tên tệp ra sao và trông như thế nào. Khi bắt tay vào làm, mọi người cùng đọc tệp này để cùng hiểu một hướng đi.
 >

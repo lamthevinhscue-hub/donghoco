@@ -1,7 +1,41 @@
-# CAN-KIEM-CHUNG.md — Số liệu chưa kiểm chứng được
+# CAN-KIEM-CHUNG.md — Tracker kiểm chứng số liệu nội dung
 
-Danh sách các con số/ghi nhận trong nội dung chưa đối chiếu được nguồn chính thức.
-Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
+Tracker các con số/ghi nhận trong nội dung từng được ghi lại để kiểm chứng. Mỗi mục nội dung mang **một trong ba trạng thái xử lý**; ngoài ra một **cờ ưu tiên** có thể gắn vào một dữ kiện hoặc liên kết cụ thể **bên trong** một mục khi chi tiết đó còn hiển thị trên trang và có nguy cơ sai. Nguồn, ngày tháng và lịch sử xử lý của mọi mục giữ nguyên. Tài liệu này được rà lại và thống nhất ngày 30/08/2026 (commit `25b5df3`).
+
+---
+
+## BẢNG TỔNG HỢP TRẠNG THÁI (rà 30/08/2026)
+
+### Ý nghĩa: ba trạng thái xử lý + một cờ ưu tiên
+
+| Loại | Tên | Ý nghĩa |
+|---|---|---|
+| Trạng thái xử lý (cấp mục) | `ĐÃ GIẢI QUYẾT` | Đã kiểm chứng được, dữ liệu đúng đã lên trang. |
+| Trạng thái xử lý (cấp mục) | `ĐÃ XỬ LÝ AN TOÀN` | Chi tiết chưa chắc chắn **đã bị ẩn hoặc đã bỏ khỏi phần hiển thị** (hoặc diễn đạt lại an toàn không kèm con số). Phần lớn mục này vẫn chờ nguồn để sau này bổ sung dữ liệu đầy đủ hơn. |
+| Trạng thái xử lý (cấp mục) | `CHỜ NGUỒN` | Chưa có nguồn nhưng **không gây sai cho nội dung đang hiển thị** (ví dụ: trường thông số để trống, bảng tự ẩn dòng trống). |
+| Cờ ưu tiên (gắn vào dữ kiện/liên kết bên trong mục) | `CẦN ƯU TIÊN KIỂM CHỨNG` | Chi tiết đó **còn hiển thị trên trang** và có nguy cơ sai hoặc hỏng — hiện tại: các liên kết nguồn đã chết đang hiện trong khối "Nguồn tham khảo". Một mục giữ nguyên trạng thái xử lý của nó; cờ chỉ gắn cho chi tiết bên trong. |
+
+Ghi chú tương thích tên cũ: các mục ghi `ĐÃ XỬ LÝ BẰNG CÁCH GỠ KHỎI HIỂN THỊ` tương ứng trạng thái xử lý `ĐÃ XỬ LÝ AN TOÀN`; các mục ghi `VẪN TREO` đã được rà lại và xếp vào `ĐÃ XỬ LÝ AN TOÀN` hoặc `CHỜ NGUỒN` theo bản chất từng mục — dòng "VẪN TREO (ngày...)" giữ nguyên trong từng mục như một phần lịch sử.
+
+### Số lượng sau khi rà
+
+**45 mục nội dung** được phân loại theo ba trạng thái xử lý:
+
+| Trạng thái xử lý | Số mục | Các mục |
+|---|---:|---|
+| ĐÃ GIẢI QUYẾT | **12** | 1, 8, 9, 10, 12, 13, 14, 16, 19, 20, 23, 40 |
+| ĐÃ XỬ LÝ AN TOÀN | **30** | 2, 3, 4, 5, 6, 7, 11, 15, 17, 18, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42, 43, 45, 47 |
+| CHỜ NGUỒN | **3** | 22, 44, 46 |
+
+**2 mục không thuộc nhóm nội dung cần phân loại:** mục 21 (dự phòng, trống) và mục 24 (giới hạn vận hành Formspree — ghi chú vận hành, không phải số liệu nội dung).
+
+**3 liên kết đang hiển thị cần ưu tiên kiểm chứng** — đây là **cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gắn vào từng liên kết bên trong** các mục 23, 39 và 40 (không tính như ba mục độc lập; trạng thái xử lý của ba mục này không đổi):
+
+1. **Patek Philippe — trang lịch sử:** `https://www.patek.com/en/company/history` — 404, đang hiển thị trên trang `patek-philippe` (mục 23).
+2. **COSC — /chronometer-certified:** `https://www.cosc.swiss/chronometer-certified` — 404, đang hiển thị trên 4 trang: `chronometer`, `metas`, `vph` (từ điển) và `do-sai-so` (hướng dẫn) (mục 40).
+3. **Kurono Tokyo — trang kỷ niệm 5 năm:** `https://kuronotokyo.com/pages/5th-anniversary` — 404, đang hiển thị trong nguồn trang `hajime-asaoka` (mục 39).
+
+Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm.
 
 ---
 
@@ -82,6 +116,7 @@ Cần Fable 5 hoặc anh rà trước khi giữ lại lâu dài.
 - **Vị trí:** `src/content/thuongHieu/vi/tudor.md`
 - **Tình trạng:** không xác nhận được mốc 2015. Mốc kiểm chứng được là **2016** (lập Kenissi và ra mắt MT5602).
 - **Hành động tạm:** dùng mốc 2016. Ghi mục 2015 vào đây để anh Vinh rà.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (rà lại 30/08/2026). Bài đã dùng mốc 2016 kiểm chứng được; mốc 2015 sai không còn xuất hiện trên trang.
 
 ---
 
@@ -324,7 +359,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Patek Philippe — /en/company/history (LIÊN KẾT CHẾT 404):** địa chỉ `https://www.patek.com/en/company/history` do anh Vinh cấp trả về **HTTP 404** (trang không tồn tại) khi kiểm chứng bằng cả HEAD lẫn GET. Đã chép nguyên văn theo quy tắc, **không tự thay địa chỉ**. Chờ anh Vinh cấp địa chỉ đúng cho trang lịch sử Patek Philippe (hai nguồn còn lại của hãng — `/the-founders` và `/the-stern-family` — đều trả về 200, hoạt động bình thường).
 
-- **Trạng thái:** 10 trang thương hiệu ĐÃ GIẢI QUYẾT (12/08/2026) — nay toàn bộ 26 trang thương hiệu đều có nguồn. Phần 23 trang mẫu iconic dưới đây VẪN TREO, chờ anh Vinh soạn nguồn bổ sung.
+- **Trạng thái mục (rà 30/08/2026):** ĐÃ GIẢI QUYẾT cho phần nguồn — 10 trang thương hiệu (12/08/2026) và 23 trang mẫu iconic (16/08/2026, Gói D) đều đã có nguồn; tính đến ngày rà, toàn bộ **73/73 trang thương hiệu** và **66/66 bài mẫu iconic** đều có khối "Nguồn tham khảo". Câu "Phần 23 trang mẫu iconic dưới đây VẪN TREO" ghi trước Gói D đã lỗi thời và được sửa trong đợt rà này. **Vẫn treo duy nhất:** địa chỉ Patek Philippe 404 ở trên — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (xem bảng tổng hợp).
 
 ---
 
@@ -851,6 +886,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Kurono Tokyo — Năm năm thành lập:** địa chỉ `https://kuronotokyo.com/pages/5th-anniversary` do anh Vinh cấp trả về **HTTP 404** (trang không tồn tại). Đã chép nguyên văn theo quy tắc, **không tự thay địa chỉ**. Trang chủ kuronotokyo.com hiện chỉ liên kết tới `/pages/kurono-anniversary-malachite` — có thể là trang kỷ niệm đã đổi đường dẫn. Chờ anh Vinh cấp lại địa chỉ đúng.
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
+- **Trạng thái mục (rà 30/08/2026):** phần số liệu ĐÃ XỬ LÝ AN TOÀN (các dữ kiện chưa chắc đã bị bỏ khỏi bài). Riêng liên kết Kurono Tokyo 404 **đang hiển thị trong khối nguồn trang `hajime-asaoka`** — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (trạng thái xử lý của mục không đổi; xem bảng tổng hợp).
 
 ---
 
@@ -870,6 +906,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - 17 URL FHH/journal bị chặn công cụ tự động nhưng xác nhận **đang sống** qua webReader (đại diện: trang tourbillon và trang journal decoration tải đầy đủ nội dung khớp).
 
 - **Trạng thái:** ĐÃ LÀM (16/08/2026), một liên kết chết chờ anh Vinh xử lý.
+- **Trạng thái mục (rà 30/08/2026):** ĐÃ GIẢI QUYẾT cho phần nguồn — 33/33 mục từ điển đã có nguồn, các URL còn lại xác nhận đang sống. Riêng liên kết COSC 404 **đang hiển thị trong khối nguồn của 4 trang** — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (trạng thái xử lý của mục không đổi; xem bảng tổng hợp).
 
 ---
 

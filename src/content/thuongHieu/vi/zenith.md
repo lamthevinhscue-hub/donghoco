@@ -9,6 +9,11 @@ signature_calibres: ["El Primero 3600", "Elite 670", "El Primero 21"]
 date: "2026-07-31"
 updated: "2026-08-30"
 draft: false
+
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "El Primero là chronograph tự động tích hợp tần số cao — xem cấu trúc cơ chế bấm giờ"
+
 lineHistory:
   - year: 1865
     title: "Georges Favre-Jacot lập xưởng tại Le Locle"

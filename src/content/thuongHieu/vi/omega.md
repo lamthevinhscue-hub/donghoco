@@ -8,6 +8,12 @@ parent_company: "Swatch Group"
 signature_calibres: ["8800", "8900", "3861", "9900"]
 date: "2026-07-31"
 draft: false
+
+relatedMechanisms:
+  - slug: "bo-thoat-dong-truc"
+    relation: "Omega thương mại hóa biến thể Co-Axial của George Daniels từ năm 1999 — xem nguyên lý hoạt động"
+updated: "2026-08-30"
+
 # --- Bước 2.1: 5 khối dữ liệu ---
 lineHistory:
   - year: 1848

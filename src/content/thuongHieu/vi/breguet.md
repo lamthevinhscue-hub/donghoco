@@ -8,6 +8,12 @@ parent_company: "Swatch Group"
 signature_calibres: ["581", "777", "5335"]
 date: "2026-07-31"
 draft: false
+
+relatedMechanisms:
+  - slug: "tourbillon"
+    relation: "Tourbillon được Abraham-Louis Breguet cấp bằng sáng chế năm 1801 — xem nguyên lý lồng xoay"
+updated: "2026-08-30"
+
 lineHistory:
   - year: 1775
     title: "Abraham-Louis Breguet mở xưởng tại Paris"
@@ -98,6 +104,8 @@ sources:
     url: "https://www.watchtime.com/featured/gold-meets-ceramic-in-breguets-new-iterations-of-the-type-xx-chronograph-2067-showing-at-watchtime-new-york-2024/"
   - label: "Monochrome — Tradition 2026"
     url: "https://monochrome-watches.com/breguet-tradition-collection-2026-new-5-new-references-7037-7038-7097-7067-enamel-dials-video-review-price/"
+  - label: "Breguet — Tourbillon và bằng sáng chế năm 1801"
+    url: "https://www.breguet.com/en/tourbillon"
 ---
 
 ## Tổng quan

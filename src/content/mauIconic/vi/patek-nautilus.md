@@ -9,11 +9,14 @@ movement: "Calibre 26-330 S C"
 power_reserve: "45 giờ"
 water_resistance: "120m"
 date: "2026-07-31"
+updated: "2026-08-31"
 draft: false
 
 relatedModels:
   - slug: "royal-oak"
     relation: "Cùng bút pháp Gérald Genta — Nautilus ra đời bốn năm sau Royal Oak"
+  - slug: "tissot-prx"
+    relation: "PRX (1978) đưa ngôn ngữ vỏ và dây tích hợp thập niên 1970 tới mức giá dễ tiếp cận hơn"
 
 sources:
   - label: "Patek Philippe — Bộ sưu tập Nautilus"

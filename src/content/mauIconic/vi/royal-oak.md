@@ -9,11 +9,16 @@ movement: "Calibre 7121"
 power_reserve: "52 giờ"
 water_resistance: "50m"
 date: "2026-07-31"
+updated: "2026-08-31"
 draft: false
 
 relatedModels:
   - slug: "patek-nautilus"
     relation: "Cùng thiết kế bởi Gérald Genta — Royal Oak (1972) và Nautilus (1976)"
+  - slug: "universal-geneve-polerouter"
+    relation: "Polerouter (1954) là một thiết kế lớn đầu sự nghiệp Gérald Genta, trước Royal Oak năm 1972"
+  - slug: "baume-mercier-riviera"
+    relation: "Riviera (1973) là một hướng thể thao-thanh lịch bằng thép song hành cùng Royal Oak đầu thập niên 1970"
 
 sources:
   - label: "Audemars Piguet — Bộ sưu tập Royal Oak"

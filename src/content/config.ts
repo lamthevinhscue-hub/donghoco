@@ -133,6 +133,8 @@ const coChe = defineCollection({
     difficulty: z.enum(['thấp', 'trung bình', 'cao', 'rất cao']),       // Độ khó
     has_infographic: z.boolean().default(false),    // Có infographic động chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
+    // Liên kết biên tập (tùy chọn): bài cơ chế dẫn tới mẫu iconic ứng dụng nguyên lý này.
+    relatedModels: z.array(relatedLink).default([]),
   }),
 });
 

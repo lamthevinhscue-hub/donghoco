@@ -25,6 +25,7 @@ import { render } from 'astro:content';
 import { t } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
 
 export async function getStaticPaths() {
   const langs: Lang[] = ['vi', 'en'];
@@ -137,6 +138,22 @@ if (matchingTerm) {
     meta: md.term_en ? `EN: ${md.term_en}` : md.category,
   });
 }
+
+// ====== Liên kết biên tập — khối "Kết nối cùng chủ đề" ======
+// Nguồn: relatedModels trong frontmatter (bài cơ chế dẫn sang mẫu iconic ứng dụng
+// nguyên lý). Bài đích không tồn tại ở ngôn ngữ này thì bỏ qua an toàn.
+const mauIconicEntries = await getEntriesByLang('mauIconic', lang);
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedModels ?? []) {
+  const target = mauIconicEntries.find((e) => getSlug(e) === rm.slug);
+  if (!target) continue;
+  editorialLinks.push({
+    href: `/mau-iconic/${rm.slug}`,
+    title: (target.data as any).title,
+    kind: 'Mẫu iconic',
+    relation: rm.relation,
+  });
+}
 ---
 
 <ArticleLayout
@@ -168,4 +185,7 @@ if (matchingTerm) {
   <div class={data.has_infographic ? 'mt-16 border-t border-cream-dark pt-12' : ''}>
     <Content />
   </div>
+
+  <!-- Liên kết biên tập: bài cơ chế → mẫu iconic (khối "Kết nối cùng chủ đề") -->
+  <RelatedEditorial links={editorialLinks} />
 </ArticleLayout>

@@ -8,11 +8,18 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "omega-speedmaster"
+    relation: "Calibre 3861 của Moonwatch hiện đại dùng bộ thoát Co-Axial — xem một ứng dụng thực tế"
+updated: "2026-08-31"
+
 sources:
   - label: "Omega — Lịch sử thương hiệu và bộ thoát Co-Axial"
     url: "https://www.omegawatches.com/world-of-omega/history"
   - label: "Omega — Chronicle, biên niên sử chính hãng"
     url: "https://www.omegawatches.com/chronicle"
+  - label: "Omega — Hướng dẫn Moonwatch Calibre 3861 và bộ thoát Co-Axial"
+    url: "https://media.omegawatches.com/documents/manuals/31032425004001_User_Manual_EN.pdf"
 
 ---
 

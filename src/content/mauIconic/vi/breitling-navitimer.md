@@ -10,6 +10,17 @@ water_resistance: "30m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "breguet-type-xx"
+    relation: "Hai chuẩn mực chronograph hàng không thập niên 1950 — Type XX gắn với yêu cầu quân sự Pháp, Navitimer gắn với việc tính toán cho phi công"
+  - slug: "omega-speedmaster"
+    relation: "Hai chronograph công cụ — Navitimer gắn với tính toán hàng không, Speedmaster gắn với không gian"
+
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "Xem nguyên lý chạy, dừng và đặt lại của cơ chế bấm giờ trên đồng hồ cơ"
+updated: "2026-08-31"
+
 sources:
   - label: "Breitling — Navitimer, dụng cụ của phi công"
     url: "https://www.breitling.com/us-en/about/icons/navitimer/"

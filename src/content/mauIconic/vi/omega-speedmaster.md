@@ -18,7 +18,9 @@ relatedModels:
 relatedMechanisms:
   - slug: "bo-thoat-dong-truc"
     relation: "Calibre 3861 của Moonwatch hiện đại dùng bộ thoát Co-Axial — xem nguyên lý hoạt động"
-updated: "2026-08-30"
+  - slug: "chronograph"
+    relation: "Speedmaster khởi đầu là chronograph cho đua xe — xem nguyên lý chạy, dừng và đặt lại của cơ chế bấm giờ"
+updated: "2026-08-31"
 
 sources:
   - label: "Omega — Speedmaster Moonwatch Professional"

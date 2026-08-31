@@ -8,6 +8,15 @@ interactive: true
 date: "2026-08-02"
 draft: false
 
+relatedModels:
+  - slug: "breguet-type-xx"
+    relation: "Ứng dụng chronograph flyback trong di sản hàng không quân sự Pháp"
+  - slug: "breitling-navitimer"
+    relation: "Chronograph kết hợp thước tính để phi công thực hiện các phép tính bay"
+  - slug: "omega-speedmaster"
+    relation: "Chronograph từ đường đua trở thành dụng cụ đạt chuẩn NASA trong hành trình không gian"
+updated: "2026-08-31"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"

@@ -14,6 +14,11 @@ relatedModels:
   - slug: "breitling-navitimer"
     relation: "Hai chuẩn mực chronograph hàng không thập niên 1950 — Type XX gắn với yêu cầu quân sự Pháp, Navitimer gắn với việc tính toán cho phi công"
 
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "Xem nguyên lý chạy, dừng và đặt lại của chronograph — nền tảng của chức năng bấm giờ trên Type XX"
+updated: "2026-08-31"
+
 sources:
   - label: "Breguet — Dòng Type XX"
     url: "https://www.breguet.com/en/watches/type-xx"

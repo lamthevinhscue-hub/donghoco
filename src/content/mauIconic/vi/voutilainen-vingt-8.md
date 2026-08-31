@@ -7,6 +7,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "dufour-simplicity"
+    relation: "Hai chuẩn tham chiếu của chế tác độc lập: Simplicity đặt trọng tâm ở hoàn thiện thủ công truyền thống, Vingt-8 kết hợp hoàn thiện với bộ thoát do xưởng phát triển"
+  - slug: "laurent-ferrier-galet-classic"
+    relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo, nhưng khác hướng kỹ thuật: Vingt-8 nổi bật bởi bộ máy và bộ thoát của xưởng, Galet Classic bởi cấu trúc tourbillon và dây tóc kép"
+updated: "2026-08-31"
+
 sources:
   - label: "Voutilainen — Bộ máy Vingt-8 phiên bản 28MPR"
     url: "https://www.voutilainen.ch/the-ultimate-vingt-8-28mpr/"

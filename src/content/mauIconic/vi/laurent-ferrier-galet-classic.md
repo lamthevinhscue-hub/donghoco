@@ -7,6 +7,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "dufour-simplicity"
+    relation: "Hai hướng chế tác độc lập kín đáo: Simplicity tôn vinh sự giản dị ba kim, Galet Classic đưa kỹ thuật phức tạp hơn vào vỏ tròn cổ điển"
+  - slug: "voutilainen-vingt-8"
+    relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo, nhưng khác hướng kỹ thuật: Vingt-8 nổi bật bởi bộ máy và bộ thoát của xưởng, Galet Classic bởi cấu trúc tourbillon và dây tóc kép"
+updated: "2026-08-31"
+
 sources:
   - label: "Laurent Ferrier — Mười năm và mẫu Classic Origin"
     url: "https://laurentferrier.ch/blogs/news/celebrating-10-years"

@@ -8,6 +8,13 @@ category: "dress"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "voutilainen-vingt-8"
+    relation: "Hai chuẩn tham chiếu của chế tác độc lập: Simplicity đặt trọng tâm ở hoàn thiện thủ công truyền thống, Vingt-8 kết hợp hoàn thiện với bộ thoát do xưởng phát triển"
+  - slug: "laurent-ferrier-galet-classic"
+    relation: "Hai hướng chế tác độc lập kín đáo: Simplicity tôn vinh sự giản dị ba kim, Galet Classic đưa kỹ thuật phức tạp hơn vào vỏ tròn cổ điển"
+updated: "2026-08-31"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Philippe Dufour"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/philippe-dufour"

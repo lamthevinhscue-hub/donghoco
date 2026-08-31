@@ -6,6 +6,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "freak"
+    relation: "Hai cách đọc giờ ngoài kim truyền thống: Freak dùng bộ máy quay như mặt số, UR-105 dùng các vệ tinh mang chữ số giờ"
+  - slug: "mbf-horological-machine-1"
+    relation: "Hai cách biến đồng hồ thành vật thể ba chiều: UR-105 đặt trọng tâm vào cách hiển thị giờ vệ tinh, HM1 vào bố cục cỗ máy điêu khắc"
+updated: "2026-08-31"
+
 sources:
   - label: "Urwerk — Lịch sử hãng"
     url: "https://www.urwerk.com/story"

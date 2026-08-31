@@ -7,6 +7,13 @@ category: "pilot"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "iwc-mark-xi"
+    relation: "Hai cách tiếp cận đồng hồ phi công công cụ: Mark XI phục vụ RAF sau chiến tranh, Flieger Stowa giữ ngôn ngữ mặt số dễ đọc từ năm 1940"
+  - slug: "longines-lindbergh"
+    relation: "Hai dụng cụ hàng không thiên về chức năng: Flieger ưu tiên đọc giờ tức thì, Lindbergh Hour Angle là một phần của hệ thống tính vị trí"
+updated: "2026-08-31"
+
 sources:
   - label: "Stowa — Lịch sử từ 1927"
     url: "https://www.stowa.de/history-since-1927"

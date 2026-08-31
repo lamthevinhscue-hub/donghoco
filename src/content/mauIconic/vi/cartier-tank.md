@@ -11,6 +11,11 @@ water_resistance: "30m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "reverso"
+    relation: "Hai biểu tượng vỏ chữ nhật với hai điểm xuất phát khác nhau: Tank lấy cảm hứng từ xe tăng năm 1917, Reverso sinh ra để bảo vệ mặt số khi chơi polo"
+updated: "2026-08-31"
+
 sources:
   - label: "Cartier — Bộ sưu tập Tank"
     url: "https://www.cartier.com/en-us/watches/collections/tank/"

@@ -11,6 +11,13 @@ water_resistance: "60m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "stowa-flieger"
+    relation: "Hai cách tiếp cận đồng hồ phi công công cụ: Mark XI phục vụ RAF sau chiến tranh, Flieger Stowa giữ ngôn ngữ mặt số dễ đọc từ năm 1940"
+  - slug: "longines-lindbergh"
+    relation: "Hai dụng cụ hàng không với mục đích khác nhau: Mark XI ưu tiên độ bền và khả năng đọc trong buồng lái, Lindbergh Hour Angle hỗ trợ tính vị trí thiên văn"
+updated: "2026-08-31"
+
 sources:
   - label: "Wikipedia — IWC Schaffhausen"
     url: "https://en.wikipedia.org/wiki/IWC_Schaffhausen"

@@ -9,6 +9,11 @@ power_reserve: "60 giờ"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "piaget-altiplano"
+    relation: "Hai cách theo đuổi đồng hồ siêu mỏng: Altiplano nối tiếp truyền thống calibre mỏng của Piaget, Octo Finissimo đẩy giới hạn bằng kiến trúc vỏ và bộ máy hiện đại"
+updated: "2026-08-31"
+
 sources:
   - label: "Bvlgari — Bộ sưu tập Octo"
     url: "https://www.bulgari.com/en-us/watches/octo"

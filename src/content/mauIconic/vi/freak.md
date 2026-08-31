@@ -11,6 +11,13 @@ water_resistance: "30m"
 date: "2026-08-01"
 draft: false
 
+relatedModels:
+  - slug: "urwerk-ur-105"
+    relation: "Hai cách đọc giờ ngoài kim truyền thống: Freak dùng bộ máy quay như mặt số, UR-105 dùng các vệ tinh mang chữ số giờ"
+  - slug: "mbf-horological-machine-1"
+    relation: "Hai tác phẩm đưa bộ máy thành trải nghiệm thị giác ba chiều, thay vì giấu cơ khí dưới một mặt số quen thuộc"
+updated: "2026-08-31"
+
 sources:
   - label: "Ulysse Nardin — Di sản chính hãng"
     url: "https://www.ulysse-nardin.com/about-us/heritage"

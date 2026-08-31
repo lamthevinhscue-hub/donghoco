@@ -9,6 +9,13 @@ water_resistance: "30m"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "iwc-mark-xi"
+    relation: "Hai dụng cụ hàng không với mục đích khác nhau: Mark XI ưu tiên độ bền và khả năng đọc trong buồng lái, Lindbergh Hour Angle hỗ trợ tính vị trí thiên văn"
+  - slug: "stowa-flieger"
+    relation: "Hai dụng cụ hàng không thiên về chức năng: Flieger ưu tiên đọc giờ tức thì, Lindbergh Hour Angle là một phần của hệ thống tính vị trí"
+updated: "2026-08-31"
+
 sources:
   - label: "Longines — Lịch sử chính hãng"
     url: "https://www.longines.com/en-us/universe/history/"

@@ -7,6 +7,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "freak"
+    relation: "Hai tác phẩm đưa bộ máy thành trải nghiệm thị giác ba chiều, thay vì giấu cơ khí dưới một mặt số quen thuộc"
+  - slug: "urwerk-ur-105"
+    relation: "Hai cách biến đồng hồ thành vật thể ba chiều: UR-105 đặt trọng tâm vào cách hiển thị giờ vệ tinh, HM1 vào bố cục cỗ máy điêu khắc"
+updated: "2026-08-31"
+
 sources:
   - label: "MB&F — Horological Machine N°1"
     url: "https://www.mbandf.com/machines/mbf-machines/past-machines/hm1"

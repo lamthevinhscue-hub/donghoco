@@ -10,6 +10,13 @@ water_resistance: "200m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "rado-diastar"
+    relation: "Hai hướng dùng vật liệu để định hình bản sắc: DiaStar lấy khả năng chống xước làm trọng tâm, J12 dùng vỏ và dây gốm làm dấu hiệu nhận diện"
+  - slug: "hublot-big-bang"
+    relation: "Hai triết lý vật liệu đương đại: J12 tạo bản sắc từ gốm đơn sắc, Big Bang từ tinh thần kết hợp vật liệu của Art of Fusion"
+updated: "2026-08-31"
+
 sources:
   - label: "Chanel — Đồng hồ J12"
     url: "https://www.chanel.com/us/watches/the-j12-watch/"

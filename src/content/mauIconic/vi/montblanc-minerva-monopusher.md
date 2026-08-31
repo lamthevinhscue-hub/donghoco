@@ -6,6 +6,13 @@ category: "chronograph"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "monaco"
+    relation: "Hai cách tiếp cận chronograph có cá tính riêng: Monaco chọn vỏ vuông gắn với cuộc đua chronograph tự động năm 1969, Minerva Monopusher giữ trải nghiệm bấm giờ bằng một nút theo truyền thống Minerva"
+  - slug: "seagull-1963"
+    relation: "Hai lối đọc chronograph qua di sản: Minerva Monopusher đặt trọng tâm vào thao tác một nút bấm, Seagull 1963 vào câu chuyện calibre và đồng hồ hàng không"
+updated: "2026-08-31"
+
 sources:
   - label: "Montblanc — Di sản Minerva và Haute Horlogerie"
     url: "https://www.montblanc.com/en-gb/discover/learn/haute-horlogerie.html"

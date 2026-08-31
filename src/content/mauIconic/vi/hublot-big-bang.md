@@ -10,6 +10,13 @@ water_resistance: "100m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "rado-diastar"
+    relation: "Hai cách đặt vật liệu ở trung tâm câu chuyện: DiaStar theo đuổi bề mặt bền với thời gian, Big Bang xây dựng cá tính từ việc ghép nhiều vật liệu trong một kết cấu"
+  - slug: "chanel-j12"
+    relation: "Hai triết lý vật liệu đương đại: J12 tạo bản sắc từ gốm đơn sắc, Big Bang từ tinh thần kết hợp vật liệu của Art of Fusion"
+updated: "2026-08-31"
+
 sources:
   - label: "Hublot — Big Bang Original Unico"
     url: "https://www.hublot.com/en-us/news/big-bang-original-unico-twenty-years-making"

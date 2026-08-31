@@ -8,6 +8,13 @@ movement: "ST19 / ST1901"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "monaco"
+    relation: "Hai chronograph gắn với những bối cảnh khác nhau của thập niên 1960: Monaco là một phần của cuộc đua chronograph tự động năm 1969, Seagull 1963 nối từ câu chuyện đồng hồ hàng không Trung Quốc"
+  - slug: "montblanc-minerva-monopusher"
+    relation: "Hai lối đọc chronograph qua di sản: Minerva Monopusher đặt trọng tâm vào thao tác một nút bấm, Seagull 1963 vào câu chuyện calibre và đồng hồ hàng không"
+updated: "2026-08-31"
+
 sources:
   - label: "Grail Watch Reference — Dòng Tianjin TY2900 và ST19"
     url: "https://reference.grail-watch.com/family/sea-gull-st19-family/"

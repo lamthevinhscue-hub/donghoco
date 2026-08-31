@@ -7,6 +7,13 @@ category: "dress"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "de-bethune-db28"
+    relation: "Hai cách đưa nghiên cứu kỹ thuật vào đồng hồ độc lập: DB28 tập trung vào vật liệu và cấu trúc càng nối, Double Tourbillon 30° vào kiến trúc tourbillon lồng nhau"
+  - slug: "hajime-asaoka-project-t"
+    relation: "Hai cách tiếp cận tourbillon trong chế tác độc lập: Double Tourbillon 30° dùng hai lồng tourbillon lồng nhau, Project T là tác phẩm tourbillon in-house của Hajime Asaoka"
+updated: "2026-08-31"
+
 sources:
   - label: "Wikipedia — Greubel Forsey"
     url: "https://en.wikipedia.org/wiki/Greubel_Forsey"

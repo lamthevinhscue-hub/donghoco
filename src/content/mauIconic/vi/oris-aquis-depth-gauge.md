@@ -9,6 +9,13 @@ water_resistance: "500m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "mido-multifort"
+    relation: "Hai lời giải kỹ thuật cho đồng hồ công cụ: Multifort chú trọng độ bền trong sử dụng thường ngày, Aquis Depth Gauge biến nước biển thành phương tiện đọc độ sâu"
+  - slug: "vostok-amphibia"
+    relation: "Hai cách dùng nguyên lý vật lý trong đồng hồ lặn: Amphibia để áp lực nước tăng độ kín, Aquis Depth Gauge để nước đi vào rãnh và tạo số đọc độ sâu"
+updated: "2026-08-31"
+
 sources:
   - label: "Oris — Lịch sử thương hiệu"
     url: "https://www.oris.ch/en-US/worldoforis/about-us/where-joy-mechanics-comes-life"

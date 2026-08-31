@@ -11,6 +11,11 @@ draft: false
 relatedModels:
   - slug: "royal-oak"
     relation: "Hai thiết kế thép thể thao đáng chú ý đầu thập niên 1970"
+  - slug: "vc-overseas"
+    relation: "Hai câu chuyện sport-luxury có xuất phát điểm riêng: Riviera xuất hiện năm 1973 với viền 12 cạnh, Overseas phát triển từ di sản Reference 222 của Vacheron Constantin"
+  - slug: "h-moser-streamliner"
+    relation: "Hai cách đọc sport-luxury ngoài các biểu tượng quen thuộc: Riviera dùng hình học 12 cạnh từ năm 1973, Streamliner dùng vỏ và dây liền mạch với cảm hứng khí động học"
+updated: "2026-08-31"
 
 sources:
   - label: "Baume & Mercier — Heritage: Riviera 1973"

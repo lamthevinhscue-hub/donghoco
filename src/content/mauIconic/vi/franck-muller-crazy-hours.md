@@ -8,6 +8,13 @@ category: "dress"
 date: "2026-08-28"
 draft: false
 
+relatedModels:
+  - slug: "bell-ross-br-01"
+    relation: "Hai cách tạo nhận diện bằng việc đảo quy ước: BR 01 đặt mặt tròn trong vỏ vuông, Crazy Hours để các chữ số xuất hiện theo trật tự không tuần tự"
+  - slug: "hamilton-ventura"
+    relation: "Hai cách đưa tính bất đối xứng vào trải nghiệm: Ventura phá vỡ tỷ lệ vỏ quen thuộc, Crazy Hours phá vỡ thứ tự đọc số trên mặt số"
+updated: "2026-08-31"
+
 sources:
   - label: "Franck Muller — World Premieres: Crazy Hours"
     url: "https://www.franckmuller.com/ar/story/world-premieres"

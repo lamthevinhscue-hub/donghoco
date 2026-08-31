@@ -9,6 +9,14 @@ power_reserve: "40 giờ"
 water_resistance: "30m"
 date: "2026-08-08"
 draft: false
+
+relatedModels:
+  - slug: "timex-marlin"
+    relation: "Hai điểm khởi đầu dễ hiểu với đồng hồ cơ: Bambino kết hợp dáng dress watch với bộ máy Orient, Marlin giữ ngôn ngữ tối giản của đồng hồ cơ Timex từ thập niên 1960"
+  - slug: "swatch-sistem51"
+    relation: "Hai cách giúp đồng hồ cơ dễ tiếp cận hơn: Bambino dùng bộ máy tự động theo cấu trúc quen thuộc, Sistem51 dùng bộ máy 51 chi tiết được lắp ráp tự động"
+updated: "2026-08-31"
+
 sources:
   - label: "Monochrome — Orient Bambino 38 No-Date"
     url: "https://monochrome-watches.com/introducing-orient-bambino-38-no-date-and-new-colours-2026-bambino-classic-date-specs-price/"

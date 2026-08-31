@@ -7,6 +7,13 @@ category: "pilot"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "hamilton-ventura"
+    relation: "Hai thiết kế vỏ phá vỡ khuôn tròn cổ điển: BR 01 mượn bố cục thiết bị buồng lái, Ventura dùng dáng khiên phi đối xứng"
+  - slug: "franck-muller-crazy-hours"
+    relation: "Hai cách tạo nhận diện bằng việc đảo quy ước: BR 01 đặt mặt tròn trong vỏ vuông, Crazy Hours để các chữ số xuất hiện theo trật tự không tuần tự"
+updated: "2026-08-31"
+
 sources:
   - label: "Bell & Ross — Bộ sưu tập BR-01"
     url: "https://bellross.com/en/collections/br-01"

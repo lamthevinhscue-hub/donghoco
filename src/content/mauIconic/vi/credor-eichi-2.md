@@ -7,6 +7,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "grand-seiko-snowflake"
+    relation: "Hai cách kể thẩm mỹ Nhật Bản trên mặt số: Eichi II đặt trọng tâm vào chữ và vạch giờ vẽ tay trên sứ, Snowflake lấy cảm hứng từ bề mặt tuyết ở Nagano"
+  - slug: "minase-horizon"
+    relation: "Hai hướng theo đuổi sự trọn vẹn trong chế tác Nhật Bản: Eichi II tập trung vào mặt số thủ công, Horizon vào việc hoàn thiện cả những bề mặt khuất của vỏ"
+updated: "2026-08-31"
+
 sources:
   - label: "Credor — Bộ sưu tập Masterpiece"
     url: "https://www.credor.com/en/lineup/masterpieces/"

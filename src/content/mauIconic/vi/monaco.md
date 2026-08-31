@@ -11,6 +11,13 @@ water_resistance: "100m"
 date: "2026-08-01"
 draft: false
 
+relatedModels:
+  - slug: "montblanc-minerva-monopusher"
+    relation: "Hai cách tiếp cận chronograph có cá tính riêng: Monaco chọn vỏ vuông gắn với cuộc đua chronograph tự động năm 1969, Minerva Monopusher giữ trải nghiệm bấm giờ bằng một nút theo truyền thống Minerva"
+  - slug: "seagull-1963"
+    relation: "Hai chronograph gắn với những bối cảnh khác nhau của thập niên 1960: Monaco là một phần của cuộc đua chronograph tự động năm 1969, Seagull 1963 nối từ câu chuyện đồng hồ hàng không Trung Quốc"
+updated: "2026-08-31"
+
 sources:
   - label: "TAG Heuer — Bộ sưu tập Monaco"
     url: "https://www.tagheuer.com/us/en/collection-monaco/collection-monaco.html"

@@ -10,6 +10,13 @@ water_resistance: "30 m (tham chiếu 00.10917.08.33.01)"
 date: "2026-08-28"
 draft: false
 
+relatedModels:
+  - slug: "eterna-matic-1948"
+    relation: "Hai cách sắp xếp rotor tự động: Eterna-Matic nổi bật với rotor đặt trên vòng bi, Manero Peripheral đặt khối văng ở vành ngoài bộ máy"
+  - slug: "universal-geneve-polerouter"
+    relation: "Hai giải pháp thay đổi bố cục rotor tự động: Polerouter dùng micro-rotor trong kiến trúc bộ máy mảnh, Manero Peripheral dùng rotor ngoại vi để mở góc nhìn vào trung tâm calibre"
+updated: "2026-08-31"
+
 sources:
   - label: "Carl F. Bucherer — Manero Peripheral 00.10917.08.33.01"
     url: "https://www.carl-f-bucherer.com/en/watches/manero-peripheral-00-10917-08-33-01"

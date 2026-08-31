@@ -6,6 +6,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "greubel-double-tourbillon"
+    relation: "Hai cách đưa nghiên cứu kỹ thuật vào đồng hồ độc lập: DB28 tập trung vào vật liệu và cấu trúc càng nối, Double Tourbillon 30° vào kiến trúc tourbillon lồng nhau"
+  - slug: "hajime-asaoka-project-t"
+    relation: "Hai hành trình độc lập lấy kỹ thuật làm nền tảng: DB28 kết tinh từ nghiên cứu của De Bethune, Project T từ bộ máy tourbillon do Hajime Asaoka tự phát triển"
+updated: "2026-08-31"
+
 sources:
   - label: "De Bethune — DB28"
     url: "https://www.debethune.ch/en/collections/db28-collection/db28-1"

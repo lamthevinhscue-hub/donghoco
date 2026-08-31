@@ -6,6 +6,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "de-bethune-db28"
+    relation: "Hai hành trình độc lập lấy kỹ thuật làm nền tảng: DB28 kết tinh từ nghiên cứu của De Bethune, Project T từ bộ máy tourbillon do Hajime Asaoka tự phát triển"
+  - slug: "greubel-double-tourbillon"
+    relation: "Hai cách tiếp cận tourbillon trong chế tác độc lập: Double Tourbillon 30° dùng hai lồng tourbillon lồng nhau, Project T là tác phẩm tourbillon in-house của Hajime Asaoka"
+updated: "2026-08-31"
+
 sources:
   - label: "AHCI — Hồ sơ thành viên Hajime Asaoka"
     url: "https://www.ahci.ch/members/hajime-asaoka/"

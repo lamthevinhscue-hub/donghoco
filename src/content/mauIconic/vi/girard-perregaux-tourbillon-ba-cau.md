@@ -7,6 +7,13 @@ category: "phức tạp cao cấp"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "corum-golden-bridge"
+    relation: "Hai cách đưa kết cấu bộ máy ra phía trước người xem: Golden Bridge biến calibre thành trục thẳng trong vỏ, Ba Cầu Vàng biến cầu máy thành bố cục mặt số"
+  - slug: "fc-heart-beat"
+    relation: "Hai cách để cơ khí góp phần tạo nên mặt số: Ba Cầu Vàng dùng kết cấu làm hình ảnh chủ đạo, Heart Beat dùng một ô lộ máy làm điểm nhấn"
+updated: "2026-08-31"
+
 sources:
   - label: "Girard-Perregaux — Tourbillon với Ba Cầu Bay"
     url: "https://www.girard-perregaux.com/watches/grand-complications/99296-52-3434-5cc"

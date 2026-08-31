@@ -7,6 +7,14 @@ references: ["Classics Heart Beat", "Classics Heart Beat Manufacture"]
 category: "dress"
 date: "2026-08-08"
 draft: false
+
+relatedModels:
+  - slug: "corum-golden-bridge"
+    relation: "Hai mức độ phô diễn cơ khí: Golden Bridge đặt bộ máy vào trung tâm thị giác, Heart Beat mở một ô nhỏ để người đeo thấy nhịp chuyển động bên trong"
+  - slug: "girard-perregaux-tourbillon-ba-cau"
+    relation: "Hai cách để cơ khí góp phần tạo nên mặt số: Ba Cầu Vàng dùng kết cấu làm hình ảnh chủ đạo, Heart Beat dùng một ô lộ máy làm điểm nhấn"
+updated: "2026-08-31"
+
 sources:
   - label: "Frédérique Constant — Men's Heart Beat chính hãng"
     url: "https://us.frederiqueconstant.com/collection/mens-heart-beat/"

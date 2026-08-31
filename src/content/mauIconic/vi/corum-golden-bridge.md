@@ -10,6 +10,13 @@ power_reserve: "40 giờ"
 date: "2026-08-28"
 draft: false
 
+relatedModels:
+  - slug: "girard-perregaux-tourbillon-ba-cau"
+    relation: "Hai cách đưa kết cấu bộ máy ra phía trước người xem: Golden Bridge biến calibre thành trục thẳng trong vỏ, Ba Cầu Vàng biến cầu máy thành bố cục mặt số"
+  - slug: "fc-heart-beat"
+    relation: "Hai mức độ phô diễn cơ khí: Golden Bridge đặt bộ máy vào trung tâm thị giác, Heart Beat mở một ô nhỏ để người đeo thấy nhịp chuyển động bên trong"
+updated: "2026-08-31"
+
 sources:
   - label: "Corum — Golden Bridge: bộ sưu tập chính hãng"
     url: "https://www.corum.ch/en/collections/golden-bridge/"

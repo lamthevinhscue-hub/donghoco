@@ -10,7 +10,11 @@ draft: false
 relatedModels:
   - slug: "royal-oak"
     relation: "Một thiết kế lớn đầu sự nghiệp Gérald Genta (1954) — trước Royal Oak năm 1972"
-updated: "2026-08-30"
+  - slug: "eterna-matic-1948"
+    relation: "Hai cột mốc kiến trúc lên cót tự động: Eterna-Matic đặt rotor trên vòng bi, Polerouter dùng micro-rotor để tạo một bộ máy tự động mảnh hơn"
+  - slug: "carl-f-bucherer-manero-peripheral"
+    relation: "Hai giải pháp thay đổi bố cục rotor tự động: Polerouter dùng micro-rotor trong kiến trúc bộ máy mảnh, Manero Peripheral dùng rotor ngoại vi để mở góc nhìn vào trung tâm calibre"
+updated: "2026-08-31"
 
 sources:
   - label: "Universal Genève — Bộ sưu tập Polerouter"

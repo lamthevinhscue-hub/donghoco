@@ -7,6 +7,13 @@ category: "sport-luxury"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "vc-overseas"
+    relation: "Hai diễn giải sport-luxury hiện đại: Overseas dùng ngôn ngữ Maltese cùng dây liền khối, Streamliner theo đuổi đường cong liền mạch gợi thiết kế khí động học"
+  - slug: "baume-mercier-riviera"
+    relation: "Hai cách đọc sport-luxury ngoài các biểu tượng quen thuộc: Riviera dùng hình học 12 cạnh từ năm 1973, Streamliner dùng vỏ và dây liền mạch với cảm hứng khí động học"
+updated: "2026-08-31"
+
 sources:
   - label: "H. Moser & Cie — Dòng Streamliner"
     url: "https://h-moser.com/collections/streamliner/"

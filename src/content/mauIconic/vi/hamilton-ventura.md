@@ -10,6 +10,13 @@ water_resistance: "50m"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "bell-ross-br-01"
+    relation: "Hai thiết kế vỏ phá vỡ khuôn tròn cổ điển: BR 01 mượn bố cục thiết bị buồng lái, Ventura dùng dáng khiên phi đối xứng"
+  - slug: "franck-muller-crazy-hours"
+    relation: "Hai cách đưa tính bất đối xứng vào trải nghiệm: Ventura phá vỡ tỷ lệ vỏ quen thuộc, Crazy Hours phá vỡ thứ tự đọc số trên mặt số"
+updated: "2026-08-31"
+
 sources:
   - label: "Wikipedia — Hamilton Watch Company"
     url: "https://en.wikipedia.org/wiki/Hamilton_Watch_Company"

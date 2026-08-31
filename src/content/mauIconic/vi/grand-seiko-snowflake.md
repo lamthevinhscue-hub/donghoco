@@ -11,6 +11,13 @@ water_resistance: "100m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "credor-eichi-2"
+    relation: "Hai cách kể thẩm mỹ Nhật Bản trên mặt số: Eichi II đặt trọng tâm vào chữ và vạch giờ vẽ tay trên sứ, Snowflake lấy cảm hứng từ bề mặt tuyết ở Nagano"
+  - slug: "minase-horizon"
+    relation: "Hai cách đưa tay nghề Nhật Bản vào trải nghiệm đeo: Snowflake dùng mặt số và kim Spring Drive, Horizon dùng kỹ thuật đánh bóng Sallaz trên toàn bộ kết cấu vỏ"
+updated: "2026-08-31"
+
 sources:
   - label: "Grand Seiko — SBGA211"
     url: "https://www.grand-seiko.com/us-en/collections/sbga211g"

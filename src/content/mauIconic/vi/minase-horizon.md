@@ -6,6 +6,13 @@ category: "chế tác độc lập"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "credor-eichi-2"
+    relation: "Hai hướng theo đuổi sự trọn vẹn trong chế tác Nhật Bản: Eichi II tập trung vào mặt số thủ công, Horizon vào việc hoàn thiện cả những bề mặt khuất của vỏ"
+  - slug: "grand-seiko-snowflake"
+    relation: "Hai cách đưa tay nghề Nhật Bản vào trải nghiệm đeo: Snowflake dùng mặt số và kim Spring Drive, Horizon dùng kỹ thuật đánh bóng Sallaz trên toàn bộ kết cấu vỏ"
+updated: "2026-08-31"
+
 sources:
   - label: "Minase — Dòng Horizon"
     url: "https://minase-watches.com/world/horizon"

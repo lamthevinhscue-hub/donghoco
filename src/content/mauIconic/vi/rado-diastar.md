@@ -10,6 +10,13 @@ water_resistance: "100m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "chanel-j12"
+    relation: "Hai hướng dùng vật liệu để định hình bản sắc: DiaStar lấy khả năng chống xước làm trọng tâm, J12 dùng vỏ và dây gốm làm dấu hiệu nhận diện"
+  - slug: "hublot-big-bang"
+    relation: "Hai cách đặt vật liệu ở trung tâm câu chuyện: DiaStar theo đuổi bề mặt bền với thời gian, Big Bang xây dựng cá tính từ việc ghép nhiều vật liệu trong một kết cấu"
+updated: "2026-08-31"
+
 sources:
   - label: "Rado — Lịch sử thương hiệu"
     url: "https://www.rado.com/history-of-the-future.html"

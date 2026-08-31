@@ -11,6 +11,13 @@ water_resistance: "150m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "h-moser-streamliner"
+    relation: "Hai diễn giải sport-luxury hiện đại: Overseas dùng ngôn ngữ Maltese cùng dây liền khối, Streamliner theo đuổi đường cong liền mạch gợi thiết kế khí động học"
+  - slug: "baume-mercier-riviera"
+    relation: "Hai câu chuyện sport-luxury có xuất phát điểm riêng: Riviera xuất hiện năm 1973 với viền 12 cạnh, Overseas phát triển từ di sản Reference 222 của Vacheron Constantin"
+updated: "2026-08-31"
+
 sources:
   - label: "Vacheron Constantin — Bộ sưu tập Overseas"
     url: "https://www.vacheron-constantin.com/ww/en/watches/all-collections/overseas.html"

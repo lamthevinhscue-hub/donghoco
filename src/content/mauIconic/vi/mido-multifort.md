@@ -6,6 +6,13 @@ category: "dress"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "vostok-amphibia"
+    relation: "Hai cách theo đuổi độ bền thực dụng: Multifort kết hợp các yêu cầu chống nước, chống từ và chống sốc, Amphibia dùng áp lực nước để hỗ trợ việc làm kín vỏ"
+  - slug: "oris-aquis-depth-gauge"
+    relation: "Hai lời giải kỹ thuật cho đồng hồ công cụ: Multifort chú trọng độ bền trong sử dụng thường ngày, Aquis Depth Gauge biến nước biển thành phương tiện đọc độ sâu"
+updated: "2026-08-31"
+
 sources:
   - label: "Mido — Bộ sưu tập Multifort"
     url: "https://www.midowatches.com/en/watches/collections/multifort.html"

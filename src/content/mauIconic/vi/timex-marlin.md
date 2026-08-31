@@ -8,6 +8,13 @@ water_resistance: "50m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "orient-bambino"
+    relation: "Hai điểm khởi đầu dễ hiểu với đồng hồ cơ: Bambino kết hợp dáng dress watch với bộ máy Orient, Marlin giữ ngôn ngữ tối giản của đồng hồ cơ Timex từ thập niên 1960"
+  - slug: "swatch-sistem51"
+    relation: "Hai hướng đưa đồng hồ cơ tới số đông: Marlin dựa vào tỷ lệ cổ điển dễ đeo, Sistem51 dựa vào cách giản lược và tự động hóa bộ máy"
+updated: "2026-08-31"
+
 sources:
   - label: "Timex — Bộ sưu tập Marlin"
     url: "https://timex.com/collections/marlin-watches"

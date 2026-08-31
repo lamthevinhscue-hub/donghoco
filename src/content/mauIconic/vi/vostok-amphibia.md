@@ -9,6 +9,13 @@ water_resistance: "200m"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "mido-multifort"
+    relation: "Hai cách theo đuổi độ bền thực dụng: Multifort kết hợp các yêu cầu chống nước, chống từ và chống sốc, Amphibia dùng áp lực nước để hỗ trợ việc làm kín vỏ"
+  - slug: "oris-aquis-depth-gauge"
+    relation: "Hai cách dùng nguyên lý vật lý trong đồng hồ lặn: Amphibia để áp lực nước tăng độ kín, Aquis Depth Gauge để nước đi vào rãnh và tạo số đọc độ sâu"
+updated: "2026-08-31"
+
 sources:
   - label: "Vostok — Giới thiệu và lịch sử nhà máy Chistopol"
     url: "https://vostok.watch/about-us/"

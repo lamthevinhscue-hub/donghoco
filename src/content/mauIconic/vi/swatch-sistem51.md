@@ -8,6 +8,13 @@ power_reserve: "90 giờ"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "orient-bambino"
+    relation: "Hai cách giúp đồng hồ cơ dễ tiếp cận hơn: Bambino dùng bộ máy tự động theo cấu trúc quen thuộc, Sistem51 dùng bộ máy 51 chi tiết được lắp ráp tự động"
+  - slug: "timex-marlin"
+    relation: "Hai hướng đưa đồng hồ cơ tới số đông: Marlin dựa vào tỷ lệ cổ điển dễ đeo, Sistem51 dựa vào cách giản lược và tự động hóa bộ máy"
+updated: "2026-08-31"
+
 sources:
   - label: "Swatch — Sistem51"
     url: "https://www.swatch.com/en-us/our-icons/sistem51/"

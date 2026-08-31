@@ -14,6 +14,8 @@ relatedModels:
     relation: "Hai cách theo đuổi độ bền thực dụng: Multifort kết hợp các yêu cầu chống nước, chống từ và chống sốc, Amphibia dùng áp lực nước để hỗ trợ việc làm kín vỏ"
   - slug: "oris-aquis-depth-gauge"
     relation: "Hai cách dùng nguyên lý vật lý trong đồng hồ lặn: Amphibia để áp lực nước tăng độ kín, Aquis Depth Gauge để nước đi vào rãnh và tạo số đọc độ sâu"
+  - slug: "glashuette-seaq"
+    relation: "Hai câu chuyện đồng hồ lặn gắn với di sản nhà máy thời quốc doanh: SeaQ nhìn lại GUB Đông Đức năm 1969, Amphibia sinh ra từ môi trường làm đồng hồ công cụ của Vostok Liên Xô"
 updated: "2026-08-31"
 
 sources:

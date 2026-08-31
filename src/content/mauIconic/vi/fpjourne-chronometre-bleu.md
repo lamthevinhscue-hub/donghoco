@@ -9,6 +9,15 @@ power_reserve: "56 giờ"
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "dufour-simplicity"
+    relation: "Hai cách diễn giải chế tác độc lập kín đáo: Chronomètre Bleu kết hợp vỏ tantalum với bộ máy vàng hồng, Simplicity đặt trọng tâm vào ba kim và hoàn thiện thủ công truyền thống"
+  - slug: "voutilainen-vingt-8"
+    relation: "Hai hướng phát triển bộ máy độc lập: Chronomètre Bleu dùng calibre vàng hồng do F.P. Journe chế tạo, Vingt-8 nổi bật với bộ máy và bộ thoát do xưởng Voutilainen phát triển"
+  - slug: "laurent-ferrier-galet-classic"
+    relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo theo hai cách: Chronomètre Bleu dùng bố cục lệch và vật liệu khác thường, Galet Classic đặt kỹ thuật tourbillon trong vỏ tròn tiết chế"
+updated: "2026-08-31"
+
 sources:
   - label: "The 1916 Company — F.P. Journe Guide"
     url: "https://www.the1916company.com/blog/f-p-journe-guide.html"

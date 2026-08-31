@@ -6,6 +6,11 @@ category: "sport-luxury"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "girard-perregaux-tourbillon-ba-cau"
+    relation: "Hai cách để cơ khí tạo thành ngôn ngữ thị giác: Excalibur phô bày kiến trúc lộ máy mạnh mẽ, Tourbillon Ba Cầu Vàng biến cầu máy thành bố cục nhận diện"
+updated: "2026-08-31"
+
 sources:
   - label: "Roger Dubuis — Chứng nhận Poinçon de Genève"
     url: "https://www.rogerdubuis.com/en/roger-dubuis-the-poincon-de-geneve"

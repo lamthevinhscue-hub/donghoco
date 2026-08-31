@@ -12,6 +12,8 @@ relatedModels:
     relation: "Hai chuẩn tham chiếu của chế tác độc lập: Simplicity đặt trọng tâm ở hoàn thiện thủ công truyền thống, Vingt-8 kết hợp hoàn thiện với bộ thoát do xưởng phát triển"
   - slug: "laurent-ferrier-galet-classic"
     relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo, nhưng khác hướng kỹ thuật: Vingt-8 nổi bật bởi bộ máy và bộ thoát của xưởng, Galet Classic bởi cấu trúc tourbillon và dây tóc kép"
+  - slug: "fpjourne-chronometre-bleu"
+    relation: "Hai hướng phát triển bộ máy độc lập: Chronomètre Bleu dùng calibre vàng hồng do F.P. Journe chế tạo, Vingt-8 nổi bật với bộ máy và bộ thoát do xưởng Voutilainen phát triển"
 updated: "2026-08-31"
 
 sources:

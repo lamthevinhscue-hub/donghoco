@@ -13,6 +13,8 @@ relatedModels:
     relation: "Hai chuẩn tham chiếu của chế tác độc lập: Simplicity đặt trọng tâm ở hoàn thiện thủ công truyền thống, Vingt-8 kết hợp hoàn thiện với bộ thoát do xưởng phát triển"
   - slug: "laurent-ferrier-galet-classic"
     relation: "Hai hướng chế tác độc lập kín đáo: Simplicity tôn vinh sự giản dị ba kim, Galet Classic đưa kỹ thuật phức tạp hơn vào vỏ tròn cổ điển"
+  - slug: "fpjourne-chronometre-bleu"
+    relation: "Hai cách diễn giải chế tác độc lập kín đáo: Chronomètre Bleu kết hợp vỏ tantalum với bộ máy vàng hồng, Simplicity đặt trọng tâm vào ba kim và hoàn thiện thủ công truyền thống"
 updated: "2026-08-31"
 
 sources:

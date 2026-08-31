@@ -9,6 +9,11 @@ power_reserve: "90 giờ"
 date: "2026-08-28"
 draft: false
 
+relatedModels:
+  - slug: "de-bethune-db28"
+    relation: "Hai cách đưa thiên văn vào đồng hồ độc lập: Perpetual Moon đặt lịch tuần trăng ở trung tâm mặt số, De Bethune đưa nghiên cứu pha mặt trăng dạng cầu vào thế giới kỹ thuật của mình"
+updated: "2026-08-31"
+
 sources:
   - label: "Arnold & Son — Bộ sưu tập Perpetual Moon"
     url: "https://www.arnoldandson.com/collections/perpetual-moon/"

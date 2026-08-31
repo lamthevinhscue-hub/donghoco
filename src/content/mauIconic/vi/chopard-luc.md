@@ -6,6 +6,11 @@ category: "dress"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "parmigiani-toric"
+    relation: "Hai cách xây dựng bản sắc chế tác từ di sản: L.U.C phát triển xưởng bộ máy riêng để tri ân người sáng lập, Toric mở đầu thương hiệu từ con mắt của một nhà phục chế"
+updated: "2026-08-31"
+
 sources:
   - label: "Chopard — Bộ sưu tập L.U.C"
     url: "https://www.chopard.com/en-us/watches-luc"

@@ -10,6 +10,12 @@ power_reserve: "40 giờ"
 water_resistance: "200m"
 date: "2026-08-08"
 draft: false
+
+relatedModels:
+  - slug: "vostok-amphibia"
+    relation: "Hai câu chuyện đồng hồ lặn gắn với di sản nhà máy thời quốc doanh: SeaQ nhìn lại GUB Đông Đức năm 1969, Amphibia sinh ra từ môi trường làm đồng hồ công cụ của Vostok Liên Xô"
+updated: "2026-08-31"
+
 sources:
   - label: "Monochrome — Glashütte Original SeaQ 39.5mm Review"
     url: "https://monochrome-watches.com/glashutte-original-seaq-39-5mm-review-price/"

@@ -12,6 +12,8 @@ relatedModels:
     relation: "Hai cách đưa kết cấu bộ máy ra phía trước người xem: Golden Bridge biến calibre thành trục thẳng trong vỏ, Ba Cầu Vàng biến cầu máy thành bố cục mặt số"
   - slug: "fc-heart-beat"
     relation: "Hai cách để cơ khí góp phần tạo nên mặt số: Ba Cầu Vàng dùng kết cấu làm hình ảnh chủ đạo, Heart Beat dùng một ô lộ máy làm điểm nhấn"
+  - slug: "roger-dubuis-excalibur"
+    relation: "Hai cách để cơ khí tạo thành ngôn ngữ thị giác: Excalibur phô bày kiến trúc lộ máy mạnh mẽ, Tourbillon Ba Cầu Vàng biến cầu máy thành bố cục nhận diện"
 updated: "2026-08-31"
 
 sources:

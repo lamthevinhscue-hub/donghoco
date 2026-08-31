@@ -15,6 +15,8 @@ relatedModels:
     relation: "Hai cách đặt vật liệu ở trung tâm câu chuyện: DiaStar theo đuổi bề mặt bền với thời gian, Big Bang xây dựng cá tính từ việc ghép nhiều vật liệu trong một kết cấu"
   - slug: "chanel-j12"
     relation: "Hai triết lý vật liệu đương đại: J12 tạo bản sắc từ gốm đơn sắc, Big Bang từ tinh thần kết hợp vật liệu của Art of Fusion"
+  - slug: "richard-mille-rm-001"
+    relation: "Hai cách đưa vật liệu và kiến trúc hiện đại vào đồng hồ thể thao cao cấp: RM 001 xuất phát từ tư duy kỹ thuật của Richard Mille, Big Bang từ triết lý ghép vật liệu Art of Fusion"
 updated: "2026-08-31"
 
 sources:

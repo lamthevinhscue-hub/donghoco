@@ -7,6 +7,11 @@ category: "phức tạp cao cấp"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "hublot-big-bang"
+    relation: "Hai cách đưa vật liệu và kiến trúc hiện đại vào đồng hồ thể thao cao cấp: RM 001 xuất phát từ tư duy kỹ thuật của Richard Mille, Big Bang từ triết lý ghép vật liệu Art of Fusion"
+updated: "2026-08-31"
+
 sources:
   - label: "Richard Mille — RM 001 Tourbillon"
     url: "https://www.richardmille.com/historical-models/rm-001-tourbillon"

@@ -11,6 +11,8 @@ relatedModels:
     relation: "Hai cách đưa nghiên cứu kỹ thuật vào đồng hồ độc lập: DB28 tập trung vào vật liệu và cấu trúc càng nối, Double Tourbillon 30° vào kiến trúc tourbillon lồng nhau"
   - slug: "hajime-asaoka-project-t"
     relation: "Hai hành trình độc lập lấy kỹ thuật làm nền tảng: DB28 kết tinh từ nghiên cứu của De Bethune, Project T từ bộ máy tourbillon do Hajime Asaoka tự phát triển"
+  - slug: "arnold-and-son-perpetual-moon"
+    relation: "Hai cách đưa thiên văn vào đồng hồ độc lập: Perpetual Moon đặt lịch tuần trăng ở trung tâm mặt số, De Bethune đưa nghiên cứu pha mặt trăng dạng cầu vào thế giới kỹ thuật của mình"
 updated: "2026-08-31"
 
 sources:

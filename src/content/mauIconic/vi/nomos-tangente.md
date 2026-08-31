@@ -8,6 +8,13 @@ power_reserve: "53 giờ"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "junghans-max-bill"
+    relation: "Hai cách tiếp nối tinh thần Bauhaus trong đồng hồ Đức: max bill giữ ngôn ngữ thiết kế năm 1956, Tangente diễn giải sự tối giản ấy theo bản sắc NOMOS"
+  - slug: "lange-1"
+    relation: "Hai bản sắc khác nhau của đồng hồ Đức đương đại: Tangente đặt trọng tâm ở đường nét Bauhaus tối giản, Lange 1 ở bố cục bất đối xứng và cơ cấu ngày lớn"
+updated: "2026-08-31"
+
 sources:
   - label: "NOMOS Glashütte — Dòng Tangente"
     url: "https://nomos-glashuette.com/en-us/watches/families/tangente"

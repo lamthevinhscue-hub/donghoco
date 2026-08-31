@@ -7,6 +7,11 @@ category: "dress"
 date: "2026-08-11"
 draft: false
 
+relatedModels:
+  - slug: "chopard-luc"
+    relation: "Hai cách xây dựng bản sắc chế tác từ di sản: L.U.C phát triển xưởng bộ máy riêng để tri ân người sáng lập, Toric mở đầu thương hiệu từ con mắt của một nhà phục chế"
+updated: "2026-08-31"
+
 sources:
   - label: "Parmigiani Fleurier — Lịch sử thương hiệu"
     url: "https://www.parmigiani.com/en/the-house/history/"

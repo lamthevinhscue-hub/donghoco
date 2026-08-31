@@ -12,6 +12,8 @@ relatedModels:
     relation: "Hai hướng chế tác độc lập kín đáo: Simplicity tôn vinh sự giản dị ba kim, Galet Classic đưa kỹ thuật phức tạp hơn vào vỏ tròn cổ điển"
   - slug: "voutilainen-vingt-8"
     relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo, nhưng khác hướng kỹ thuật: Vingt-8 nổi bật bởi bộ máy và bộ thoát của xưởng, Galet Classic bởi cấu trúc tourbillon và dây tóc kép"
+  - slug: "fpjourne-chronometre-bleu"
+    relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo theo hai cách: Chronomètre Bleu dùng bố cục lệch và vật liệu khác thường, Galet Classic đặt kỹ thuật tourbillon trong vỏ tròn tiết chế"
 updated: "2026-08-31"
 
 sources:

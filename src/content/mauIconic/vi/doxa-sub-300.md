@@ -11,7 +11,8 @@ draft: false
 
 relatedModels:
   - slug: "seiko-62mas"
-    relation: "Hai mốc diver nổi bật của thập niên 1960"
+    relation: "Hai hướng tiếp cận diver đáng chú ý của thập niên 1960 — 62MAS mở đầu di sản Seiko diver, SUB 300 nhấn vào khả năng đọc sâu và thang lặn"
+updated: "2026-08-31"
 
 sources:
   - label: "Doxa — Lịch sử thương hiệu"

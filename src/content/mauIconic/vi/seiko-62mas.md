@@ -11,6 +11,13 @@ water_resistance: "150m"
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "rolex-submariner"
+    relation: "Submariner (1953) là một cột mốc sớm của diver hiện đại; 62MAS (1965) mở đầu hành trình đồng hồ lặn của Seiko"
+  - slug: "doxa-sub-300"
+    relation: "Hai hướng tiếp cận diver đáng chú ý của thập niên 1960 — 62MAS mở đầu di sản Seiko diver, SUB 300 nhấn vào khả năng đọc sâu và thang lặn"
+updated: "2026-08-31"
+
 sources:
   - label: "Seiko — Prospex, bản dựng lại mẫu lặn 1965"
     url: "https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index"

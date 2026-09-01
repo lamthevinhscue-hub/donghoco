@@ -22,7 +22,8 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const DATA_DIR = 'src/data';
-const SKIP_FILES = new Set(['modelEvolution.ts']); // tệp hạ tầng, không phải dataset
+// Tệp hạ tầng và dataset thuộc script kiểm khác — không phải dataset sơ đồ tiến hóa
+const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts']);
 
 const REQUIRED_STRINGS = ['reference', 'label', 'change', 'note', 'sourceUrl', 'sourceName'];
 const MILESTONE_MIN = 3;

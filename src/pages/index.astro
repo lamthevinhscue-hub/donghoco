@@ -197,6 +197,19 @@ const brandGroups = TIER_ORDER.map((tier) => {
         </div>
       ))}
     </div>
+
+    <!-- CTA phụ: bản đồ đọc đầy đủ — dẫn tới trang hub lộ trình học -->
+    <a
+      href={localizedPath('/lo-trinh-hoc-dong-ho', lang)}
+      class="mt-6 flex min-h-11 items-center justify-between gap-3 rounded-xl border border-line bg-surface-raised px-5 py-4 transition-colors hover:border-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel dark:border-dark-border dark:bg-dark-surface"
+    >
+      <span class="text-sm leading-snug text-ink-soft dark:text-dark-text-soft">
+        Muốn bản đồ đầy đủ?
+        <span class="font-medium text-ink dark:text-dark-text">Lộ trình học đồng hồ cơ</span>
+        gom ba hướng đọc — người mới, bộ máy, người sưu tầm — thành từng bước nối nhau.
+      </span>
+      <span class="shrink-0 text-lg text-steel dark:text-steel" aria-hidden="true">→</span>
+    </a>
   </section>
 
   <!-- ===== 4. HỒ SƠ ĐƯỢC BIÊN TẬP CHỌN — slug cố định, đúng thứ tự ===== -->

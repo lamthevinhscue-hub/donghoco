@@ -235,32 +235,28 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 
 ## 22. Dữ liệu kỹ thuật còn thiếu trong frontmatter các bài mẫu iconic (mauIconic)
 
-- **Vị trí:** `src/content/mauIconic/vi/` (26 bài)
+- **Vị trí:** `src/content/mauIconic/vi/` (29 bài)
 - **Bối cảnh:** Từ đợt bổ sung khối "Thông số kỹ thuật" trên trang chi tiết mẫu iconic (SpecTable.astro), các trường `year`, `movement`, `power_reserve`, `water_resistance`, `references` được hiển thị trực tiếp lên trang. SpecTable tự bỏ dòng không có dữ liệu — không hiện dấu gạch ngang. Danh sách dưới đây ghi rõ bài nào thiếu trường nào, để anh Vinh kiểm chứng và điền sau.
 - **Nguyên tắc:** **Tuyệt đối không tự điền.** Không tra cứu, không suy đoán, không lấy từ phần chữ bài viết ra. Việc điền số liệu chỉ do anh Vinh thực hiện sau khi kiểm chứng.
 
 ### Tổng hợp theo trường
 
-- **Thiếu `year` (2 bài):**
+- **Thiếu `year` (4 bài):**
+  - `audemars-piguet-royal-oak-perpetual-calendar`
   - `breguet-type-xx`
   - `orient-bambino`
-- **Thiếu `movement` (6 bài):**
+  - `patek-philippe-grandmaster-chime`
+- **Thiếu `movement` (8 bài):**
+  - `audemars-piguet-royal-oak-perpetual-calendar`
   - `breguet-type-xx`
   - `fc-heart-beat`
   - `greubel-double-tourbillon`
   - `hamilton-ventura`
   - `longines-lindbergh`
+  - `rolex-gmt-master`
   - `tissot-prx`
-- **Thiếu `power_reserve` (8 bài):**
-  - `breguet-type-xx`
-  - `dufour-simplicity`
-  - `fc-heart-beat`
-  - `fpjourne-chronometre-bleu`
-  - `greubel-double-tourbillon`
-  - `hamilton-ventura`
-  - `longines-lindbergh`
-  - `tissot-prx`
-- **Thiếu `water_resistance` (8 bài):**
+- **Thiếu `power_reserve` (11 bài):**
+  - `audemars-piguet-royal-oak-perpetual-calendar`
   - `breguet-type-xx`
   - `dufour-simplicity`
   - `fc-heart-beat`
@@ -268,16 +264,34 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
   - `greubel-double-tourbillon`
   - `hamilton-ventura`
   - `longines-lindbergh`
+  - `patek-philippe-grandmaster-chime`
+  - `rolex-gmt-master`
   - `tissot-prx`
-- **Thiếu `references` (5 bài):**
+- **Thiếu `water_resistance` (11 bài):**
+  - `audemars-piguet-royal-oak-perpetual-calendar`
+  - `breguet-type-xx`
+  - `dufour-simplicity`
+  - `fc-heart-beat`
+  - `fpjourne-chronometre-bleu`
+  - `greubel-double-tourbillon`
+  - `hamilton-ventura`
+  - `longines-lindbergh`
+  - `patek-philippe-grandmaster-chime`
+  - `rolex-gmt-master`
+  - `tissot-prx`
+- **Thiếu `references` (8 bài):**
+  - `audemars-piguet-royal-oak-perpetual-calendar`
   - `dufour-simplicity`
   - `fpjourne-chronometre-bleu`
   - `greubel-double-tourbillon`
   - `hamilton-ventura`
   - `longines-lindbergh`
+  - `patek-philippe-grandmaster-chime`
+  - `rolex-gmt-master`
 
 ### Chi tiết theo bài
 
+- `audemars-piguet-royal-oak-perpetual-calendar` — thiếu: `year`, `movement`, `power_reserve`, `water_resistance`, `references`
 - `breguet-type-xx` — thiếu: `year`, `movement`, `power_reserve`, `water_resistance`
 - `cartier-tank` — đủ dữ liệu
 - `dufour-simplicity` — thiếu: `power_reserve`, `water_resistance`, `references`
@@ -296,7 +310,9 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 - `omega-speedmaster` — đủ dữ liệu
 - `orient-bambino` — thiếu: `year`
 - `patek-nautilus` — đủ dữ liệu
+- `patek-philippe-grandmaster-chime` — thiếu: `year`, `power_reserve`, `water_resistance`, `references`
 - `reverso` — đủ dữ liệu
+- `rolex-gmt-master` — thiếu: `movement`, `power_reserve`, `water_resistance`, `references`
 - `rolex-submariner` — đủ dữ liệu
 - `royal-oak` — đủ dữ liệu
 - `seiko-62mas` — đủ dữ liệu
@@ -305,7 +321,7 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 - `vc-overseas` — đủ dữ liệu
 - `zenith-el-primero` — đủ dữ liệu
 
-- **Trạng thái:** VẪN TREO (10/08/2026). Chờ anh Vinh kiểm chứng và điền.
+- **Trạng thái:** VẪN TREO (01/09/2026). Chờ anh Vinh kiểm chứng và điền. Ba bài mới của đợt 01/09/2026 (`audemars-piguet-royal-oak-perpetual-calendar`, `patek-philippe-grandmaster-chime`, `rolex-gmt-master`) được để trống thông số ngay từ đầu theo nguyên tắc trên — các trường này thay đổi theo phiên bản và chưa được kiểm chứng.
 
 ---
 

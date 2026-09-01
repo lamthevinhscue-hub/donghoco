@@ -9,7 +9,7 @@ movement: "Calibre 7121"
 power_reserve: "52 giờ"
 water_resistance: "50m"
 date: "2026-07-31"
-updated: "2026-08-31"
+updated: "2026-09-01"
 draft: false
 
 relatedModels:
@@ -19,6 +19,8 @@ relatedModels:
     relation: "Polerouter (1954) là một thiết kế lớn đầu sự nghiệp Gérald Genta, trước Royal Oak năm 1972"
   - slug: "baume-mercier-riviera"
     relation: "Riviera (1973) là một hướng thể thao-thanh lịch bằng thép song hành cùng Royal Oak đầu thập niên 1970"
+  - slug: "audemars-piguet-royal-oak-perpetual-calendar"
+    relation: "Nhánh phức tạp mọc từ chính ngôn ngữ thiết kế Royal Oak — lịch vạn niên trên nền bát giác Tapisserie"
 
 sources:
   - label: "Audemars Piguet — Bộ sưu tập Royal Oak"

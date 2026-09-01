@@ -8,6 +8,12 @@ interactive: true
 date: "2026-08-02"
 draft: false
 
+relatedModels:
+  - slug: "freak"
+    relation: "Ulysse Nardin Freak (2001) mang bộ thoát silic tiên phong — một hướng đi khác hẳn bộ thoát bánh ác truyền thống"
+
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"

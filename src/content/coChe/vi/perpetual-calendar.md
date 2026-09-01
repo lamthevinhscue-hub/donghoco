@@ -8,6 +8,14 @@ interactive: true
 date: "2026-08-02"
 draft: false
 
+relatedModels:
+  - slug: "audemars-piguet-royal-oak-perpetual-calendar"
+    relation: "Royal Oak Perpetual Calendar đưa lịch vạn niên lên nền thiết kế thể thao sang trọng — minh họa bố cục bốn ô phụ kinh điển"
+  - slug: "patek-philippe-grandmaster-chime"
+    relation: "Grandmaster Chime ghép lịch vạn niên nhảy tức thời với năm chức năng âm thanh trong một bộ máy"
+
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Lịch vạn niên"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"

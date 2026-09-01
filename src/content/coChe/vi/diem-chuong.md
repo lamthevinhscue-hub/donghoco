@@ -8,9 +8,17 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "patek-philippe-grandmaster-chime"
+    relation: "Grandmaster Chime gom trọn grande sonnerie, petite sonnerie và minute repeater — bộ máy gõ giờ ba gong năm chế độ của Patek Philippe"
+
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "Patek Philippe — The Patek Philippe Sound"
+    url: "https://www.patek.com/en/manufacture/quality-and-fine-workmanship/the-patek-philippe-sound"
 
 ---
 
@@ -24,7 +32,7 @@ Bạn bấm một nút, và chiếc đồng hồ trên cổ tay **kêu** — nh�
 
 Cơ cấu điểm chuông dùng **một hoặc nhiều búa nhỏ** (hammer), đập vào **một hoặc nhiều thanh kim loại dài** (gong) — thanh này **cuộn quanh bộ máy** thành vòng tròn để vừa vỏ. Khi búa đập, thanh cộng hưởng **rung**, phát ra âm thanh.
 
-Số thanh quyết định số nốt: hai thanh cho tiếng cao-thấp (giờ và quý), ba thanh cho tiếng cao-trung-thấp (giờ, quý, phút) — đây là cấu hình của **minute repeater** đầy đủ.
+Số thanh quyết định số nốt. **Minute repeater truyền thống thường dùng hai gong**: âm trầm cho giờ, cặp âm cao – trầm cho quý, âm cao cho phút lẻ. Một số hệ thống đặc biệt dùng ba gong — [Grandmaster Chime](/mau-iconic/patek-philippe-grandmaster-chime) của Patek Philippe là một ví dụ riêng, không phải cấu hình chung của mọi minute repeater.
 
 ### Cách đọc giờ qua âm thanh
 
@@ -44,7 +52,12 @@ Bạn **phải bấm nút** (hoặc gạt đòn) mới có tiếng. Bộ máy c�
 
 ### Điểm chuông tự động (grande / petite sonnerie)
 
-Đồng hồ **tự gõ** theo giờ — cứ qua giờ, qua quý, nó tự kêu mà không cần bấm. Đây là cơ cấu phức tạp hơn nhiều (vì phải tự canh giờ, tự quyết định gõ gì), và cũng phiền hơn: nó kêu cả đêm khi bạn ngủ. Vì vậy phần lớn đồng hồ có điểm chuông tự động cũng có **công tắc tắt tiếng** (silence mode).
+Đồng hồ **tự gõ** theo giờ — cứ qua giờ, qua quý, nó tự kêu mà không cần bấm. Hai biến thể khác nhau ở việc gõ gì khi qua quý:
+
+- **Grande sonnerie** — tự động điểm **giờ và quý**: qua mỗi quý, cơ cấu **lặp lại số giờ rồi điểm số quý** (ví dụ lúc 3 giờ 15 phút: 3 tiếng giờ + 1 quý).
+- **Petite sonnerie** — cũng tự động hoạt động theo giờ và quý, nhưng **tại các quý chỉ điểm phần quý, không lặp lại số giờ** (lúc 3 giờ 15 phút: chỉ 1 tiếng quý); số giờ được điểm khi qua giờ đúng.
+
+Đây là cơ cấu phức tạp hơn nhiều (vì phải tự canh giờ, tự quyết định gõ gì), và cũng phiền hơn: chúng kêu cả đêm khi bạn ngủ. Vì vậy phần lớn đồng hồ có điểm chuông tự động cũng có **công tắc tắt tiếng** (silence mode).
 
 > Xem mục từ điển: [Minute Repeater](/tu-dien/minute-repeater).
 

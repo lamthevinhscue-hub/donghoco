@@ -16,7 +16,12 @@ relatedModels:
     relation: "Hai cách đọc giờ ngoài kim truyền thống: Freak dùng bộ máy quay như mặt số, UR-105 dùng các vệ tinh mang chữ số giờ"
   - slug: "mbf-horological-machine-1"
     relation: "Hai tác phẩm đưa bộ máy thành trải nghiệm thị giác ba chiều, thay vì giấu cơ khí dưới một mặt số quen thuộc"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "bo-thoat"
+    relation: "Freak (2001) là một trong những đồng hồ thương mại đầu tiên dùng bộ thoát silic — một hướng đi khác hẳn bộ thoát bánh ác truyền thống"
+
+updated: "2026-09-01"
 
 sources:
   - label: "Ulysse Nardin — Di sản chính hãng"

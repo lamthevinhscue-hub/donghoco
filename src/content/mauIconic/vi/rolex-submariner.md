@@ -17,6 +17,8 @@ relatedModels:
     relation: "Ra đời cùng năm 1953 — hai cột mốc quan trọng của đồng hồ lặn hiện đại"
   - slug: "seiko-62mas"
     relation: "62MAS (1965) mở rộng lịch sử đồng hồ lặn cơ sang Nhật Bản, hơn một thập niên sau Submariner"
+  - slug: "rolex-gmt-master"
+    relation: "Hai mẫu Rolex Oyster chuyên nghiệp sinh cách nhau hai năm — Submariner (1953) cho thợ lặn, GMT-Master (1955) cho phi công"
 
 relatedMechanisms:
   - slug: "chong-nuoc"

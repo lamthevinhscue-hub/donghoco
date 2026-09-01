@@ -12,12 +12,12 @@ Số liệu trong tài liệu được đếm trực tiếp từ mã nguồn t�
 
 ## 2. Mốc kiểm tra
 
-- **Ngày thực hiện:** 01/09/2026 (cập nhật lần 4 — hoàn thiện mạng liên kết cơ chế ↔ mẫu iconic và thêm kiểm tra tự động liên kết biên tập).
-- **Commit nền của gói:** `7e4e1fc` — "feat(content): mở rộng liên kết cơ chế" (trước đó: `f00b4fc` thay nguồn tham khảo bị chết, `5a597a1` hoàn thiện liên kết iconic). Đây là commit nền khi bắt đầu gói; chi tiết thay đổi và kết quả kiểm tra được ghi tại biên bản nghiệm thu Prompt 23.
+- **Ngày thực hiện:** 01/09/2026 (cập nhật lần 5 — bổ sung 3 mẫu iconic trụ cột và hoàn thiện 4 cơ chế còn trống liên kết).
+- **Commit nền của gói:** `2cee119` — "feat(content): hoàn thiện liên kết cơ chế" (trước đó: `7e4e1fc` mở rộng liên kết cơ chế, `f00b4fc` thay nguồn tham khảo bị chết, `5a597a1` hoàn thiện liên kết iconic). Đây là commit nền khi bắt đầu gói; chi tiết thay đổi và kết quả kiểm tra được ghi tại biên bản nghiệm thu Prompt 24.
 - **Nhánh hiện tại:** `main`.
-- **Kết quả `npm run check`:** ĐẠT — toàn bộ kiểm tra nội dung tĩnh, nhóm kiểm WCAG tự động và **kiểm tra liên kết biên tập mới (`scripts/check-editorial-links.mjs`)** không có lỗi.
-- **Kết quả build ngày 01/09/2026 (kết quả build thật, đếm từ `dist/` sau build):** **218 trang**, **14.403 liên kết nội bộ hợp lệ**, không có liên kết nội bộ hỏng.
-- **Số liệu đếm từ mã nguồn (frontmatter, ngày 01/09/2026):** `relatedModels` mẫu ↔ mẫu **125 mục / 66 bài**; `relatedModels` từ bài cơ chế **24 mục / 14 bài**; `relatedMechanisms` trên bài iconic **24 mục / 21 bài** (chi tiết ở phần 5).
+- **Kết quả `npm run check`:** ĐẠT — toàn bộ kiểm tra nội dung tĩnh, nhóm kiểm WCAG tự động và **kiểm tra liên kết biên tập (`scripts/check-editorial-links.mjs`)** không có lỗi.
+- **Kết quả build ngày 01/09/2026 (kết quả build thật, đếm từ `dist/` sau build):** **221 trang**, **14.659 liên kết nội bộ hợp lệ**, không có liên kết nội bộ hỏng.
+- **Số liệu đếm từ mã nguồn (frontmatter, ngày 01/09/2026):** `relatedModels` mẫu ↔ mẫu **131 mục / 69 bài**; `relatedModels` từ bài cơ chế **29 mục / 18 bài**; `relatedMechanisms` trên bài iconic **29 mục / 24 bài** (chi tiết ở phần 5).
 - **Nghiệm thu trình duyệt bốn công cụ tương tác:** ĐẠT trên bản preview sau build — biên bản tại `docs/nghiem-thu/2026-08-30_nghiem-thu-cong-cu-tuong-tac.md`.
 
 **Lưu ý quan trọng:** các kiểm tra tự động chỉ rà được phần tĩnh của mã nguồn. Chúng **không chứng minh toàn bộ trải nghiệm trên website đã triển khai** — tốc độ thật trên máy người dùng, hoạt động trên điện thoại thật, màn hình thật, bàn phím thật, trình đọc màn hình thật vẫn phải nghiệm thu thủ công (xem phần 6 và phần 8).
@@ -26,21 +26,21 @@ Số liệu trong tài liệu được đếm trực tiếp từ mã nguồn t�
 
 ## 3. Quy mô nội dung hiện tại
 
-Số liệu đếm trực tiếp từ `src/content/*/vi/` và `src/data/` ngày 30/08/2026:
+Số liệu đếm trực tiếp từ `src/content/*/vi/` và `src/data/` ngày 01/09/2026:
 
 | Mảng | Số bài tiếng Việt |
 |---|---:|
 | Thương hiệu (`thuongHieu`) | **73** |
-| Mẫu iconic (`mauIconic`) | **66** |
+| Mẫu iconic (`mauIconic`) | **69** |
 | Cơ chế (`coChe`) | **18** |
 | Thuật ngữ (`tuDien`) | **33** |
 | Hướng dẫn (`huongDan`) | **14** |
-| **Tổng bài nội dung** | **204** |
+| **Tổng bài nội dung** | **207** |
 
 - **Mốc lịch sử:** 28 mốc trong `src/data/timeline.json`, hiển thị trên trang `/lich-su`.
 - **Hình minh họa lịch sử:** có **28 hình SVG minh họa cho 28 mốc** trong `public/images/timeline/` (mỗi mốc một SVG cùng slug). Trang `/lich-su` ưu tiên dùng ảnh JPG của mốc nếu tồn tại, nếu không sẽ dùng SVG cùng slug — hiện chưa có JPG tương ứng nên **28 SVG đang là minh họa hiển thị của 28 mốc**.
 
-Nguồn tham khảo: 73/73 thương hiệu, 66/66 mẫu iconic, 18/18 cơ chế, 33/33 thuật ngữ đều có khối nguồn; 9/14 bài hướng dẫn có nguồn (5 bài để trống theo chủ ý từ đầu).
+Nguồn tham khảo: 73/73 thương hiệu, 69/69 mẫu iconic, 18/18 cơ chế, 33/33 thuật ngữ đều có khối nguồn; 9/14 bài hướng dẫn có nguồn (5 bài để trống theo chủ ý từ đầu).
 
 ---
 
@@ -64,7 +64,7 @@ Tóm tắt tình trạng tại mốc rà soát ngày 01/09/2026:
 
 ## 5. Những phần đã có hạ tầng nhưng chưa tạo giá trị đầy đủ
 
-- **Liên kết biên tập (`relatedModels` / `relatedMechanisms`):** mạng liên kết giữa các mẫu iconic **đã hoàn tất ở phạm vi hiện tại** — đếm trực tiếp từ frontmatter ngày 01/09/2026: **66/66 bài mẫu iconic** có dữ liệu `relatedModels` với tổng **125 mục liên kết** (giữa các mẫu trong cùng cụm/tuyến chủ đề). **Chiều cơ chế ↔ mẫu iconic: 24 cặp quan hệ hai chiều** (script `check-editorial-links.mjs` đếm) — gồm `relatedModels` từ bài cơ chế **24 mục trong 14 bài** và `relatedMechanisms` trên **24 mục trong 21 bài iconic**; 4 cơ chế hiện chưa có quan hệ phù hợp trong kho nội dung: `bo-thoat`, `gmt`, `perpetual-calendar`, `diem-chuong` (lý do chi tiết ở biên bản `docs/nghiem-thu/2026-09-01_nghiem-thu-hoan-thien-lien-ket-co-che-mau-va-kiem-tra-tu-dong.md`). **Các trang thương hiệu tự động lấy mẫu iconic tương ứng qua việc đối chiếu tên thương hiệu** (khối "Mẫu iconic của…" trên trang hãng) — **không cần thêm thủ công `relatedModels` vào 73 bài thương hiệu**. Gói thương hiệu → mẫu iconic (thêm `relatedModels` vào 66 trang hãng) đã dừng vì cần mở hạ tầng trước (schema `thuongHieu` hiện chưa có trường này; template thương hiệu chưa render nó) — chờ quyết định.
+- **Liên kết biên tập (`relatedModels` / `relatedMechanisms`):** mạng liên kết giữa các mẫu iconic **đã hoàn tất ở phạm vi hiện tại** — đếm trực tiếp từ frontmatter ngày 01/09/2026: **69/69 bài mẫu iconic** có dữ liệu `relatedModels` với tổng **131 mục liên kết** (giữa các mẫu trong cùng cụm/tuyến chủ đề). **Chiều cơ chế ↔ mẫu iconic: 29 cặp quan hệ hai chiều** (script `check-editorial-links.mjs` đếm) — gồm `relatedModels` từ bài cơ chế **29 mục trong 18 bài** và `relatedMechanisms` trên **29 mục trong 24 bài iconic**; **không còn bài cơ chế nào thiếu quan hệ**: bốn cơ chế còn trống trước đó đã được nối ở gói này — `gmt` ⇄ `rolex-gmt-master`, `perpetual-calendar` ⇄ `audemars-piguet-royal-oak-perpetual-calendar` và `patek-philippe-grandmaster-chime`, `diem-chuong` ⇄ `patek-philippe-grandmaster-chime`, `bo-thoat` ⇄ `freak` (chi tiết ở biên bản `docs/nghiem-thu/2026-09-01_nghiem-thu-ba-mau-iconic-complication.md`). **Các trang thương hiệu tự động lấy mẫu iconic tương ứng qua việc đối chiếu tên thương hiệu** (khối "Mẫu iconic của…" trên trang hãng) — **không cần thêm thủ công `relatedModels` vào 73 bài thương hiệu**. Gói thương hiệu → mẫu iconic (thêm `relatedModels` vào 66 trang hãng) đã dừng vì cần mở hạ tầng trước (schema `thuongHieu` hiện chưa có trường này; template thương hiệu chưa render nó) — chờ quyết định.
 - **Analytics:** đã tích hợp (Vercel Web Analytics) nhưng chưa xem xét số liệu thực tế — chưa có đánh giá hành vi người đọc dựa trên dữ liệu.
 - **Giao diện đa ngôn ngữ:** cấu trúc thư mục `en/` và bộ chuyển ngữ giao diện đã sẵn sàng, nhưng **chưa có kho bài tiếng Anh thực chất** (0 bài trong các bộ sưu tập `en/`).
 - **Newsletter:** mới ở trạng thái **chuẩn bị** — chỉ có trong kế hoạch (Giai đoạn 4, "Newsletter hoạt động thật"); chưa có gì trong mã nguồn và chưa hoạt động thực tế. Form liên hệ hiện dùng Formspree gói miễn phí (giới hạn 50 lượt/tháng — ghi ở `CAN-KIEM-CHUNG.md` mục 24).
@@ -79,7 +79,7 @@ Tóm tắt tình trạng tại mốc rà soát ngày 01/09/2026:
 
 ### Ưu tiên 1
 
-- **Kiểm chứng và áp dụng liên kết biên tập** — duyệt 15 nhóm đề xuất, điền dữ liệu vào frontmatter theo đợt nhỏ, kiểm tra hiển thị cả sáng/tối và mobile. **(Hoàn tất ở phạm vi hiện tại cho chiều mẫu ↔ mẫu: 66/66 bài iconic có `relatedModels` — 125 mục. Chiều cơ chế ↔ mẫu: 24 cặp hai chiều theo năm cụm chronograph, tourbillon, pha trăng, lên dây tự động, dạ quang cộng các cặp chống nước, trữ cót, chống từ, chuỗi truyền động, dây tóc, chống sốc, hiển thị ngày, kính; 4 cơ chế chưa có quan hệ phù hợp — xem phần 5. Script kiểm tự động hai chiều đã vào `npm run check`.)**
+- **Kiểm chứng và áp dụng liên kết biên tập** — duyệt 15 nhóm đề xuất, điền dữ liệu vào frontmatter theo đợt nhỏ, kiểm tra hiển thị cả sáng/tối và mobile. **(Hoàn tất ở phạm vi hiện tại cho chiều mẫu ↔ mẫu: 69/69 bài iconic có `relatedModels` — 131 mục. Chiều cơ chế ↔ mẫu: 29 cặp hai chiều theo các cụm chronograph, tourbillon, pha trăng, lên dây tự động, dạ quang, chống nước, trữ cót, chống từ, chuỗi truyền động, dây tóc, chống sốc, hiển thị ngày, kính, GMT, lịch vạn niên, điểm chuông và bộ thoát–silic; mọi bài cơ chế đều có ít nhất một quan hệ. Script kiểm tự động hai chiều đã vào `npm run check`.)**
 - **Chuẩn bị dữ liệu reference có nguồn** — cho sơ đồ tiến hóa dòng sản phẩm: chốt dòng nào làm trước, thu thập mốc năm/reference có kiểm chứng; nguyên tắc "thà thiếu còn hơn sai", ghi mục chưa chắc vào `CAN-KIEM-CHUNG.md`. (Đã xong cho dòng thí điểm Rolex Submariner: `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` ngày rà 30/08/2026 — 8 mốc đủ nguồn, 5 điểm còn treo ở bảng "Cần kiểm chứng".)
 - **Làm thử một sơ đồ tiến hóa reference** — thí điểm một dòng (một sơ đồ khái niệm, ghi rõ là khái niệm nếu không chắc tỷ lệ/mốc), đánh giá rồi mới nhân rộng. **(Đã thí điểm xong 30/08/2026: sơ đồ tiến hóa Rolex Submariner với 8 mốc đủ nguồn, hiển thị tại `https://www.kienthucdonghoco.vn/mau-iconic/rolex-submariner/` — chỉ trang này; dữ kiện duy nhất ở `src/data/submarinerEvolution.ts`; biên bản `docs/nghiem-thu/2026-08-30_nghiem-thu-so-do-tien-hoa-submariner.md`. Chờ đánh giá rồi mới nhân rộng sang dòng khác.)**
 

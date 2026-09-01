@@ -1,27 +1,34 @@
 ---
 // =============================================================================
-// SUBMARINER EVOLUTION — sơ đồ tiến hóa thí điểm (chỉ trang rolex-submariner)
+// MODEL EVOLUTION — sơ đồ tiến hóa mẫu iconic (tổng quát, dùng cho nhiều mẫu)
 // =============================================================================
-// Bản thí điểm đầu tiên của sơ đồ tiến hóa mẫu iconic. Hiển thị ĐÚNG 8 mốc
-// đã kiểm chứng, lấy DUY NHẤT từ src/data/submarinerEvolution.ts (hồ sơ
-// docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md, ngày rà 30/08/2026).
+// Trước đây là SubmarinerEvolution.astro (thí điểm, chỉ Submariner). Giờ nhận
+// dataset tổng quát từ src/data/modelEvolution.ts; dữ kiện nằm hoàn toàn ở các
+// tệp dataset — component không chứa mốc nào.
 //
-// Trải nghiệm:
-//   - ≥768px: 8 mốc trên một đường thời gian kiểu bezel (vạch chia SVG chỉ
-//     trang trí, aria-hidden); chọn mốc → thẻ chi tiết trải rộng dưới đường ray.
-//   - <768px: danh sách dọc đầy đủ 8 mốc (thẻ chi tiết luôn mở) — không yêu cầu
-//     vuốt ngang.
-//   - Không ảnh đồng hồ, không 3D, không carousel tự chạy, không animation lặp.
+// Trải nghiệm (giữ nguyên hành vi bản thí điểm Submariner):
+//   - ≥768px CÓ JS: các mốc trên một đường thời gian kiểu bezel (vạch chia SVG
+//     chỉ trang trí, aria-hidden); chọn mốc → thẻ chi tiết trải rộng dưới ray.
+//   - <768px, hoặc KHÔNG JS: danh sách dọc đầy đủ, thẻ chi tiết của mọi mốc
+//     luôn mở — toàn bộ năm/reference/thay đổi/ghi chú/nguồn đọc được mà không
+//     phụ thuộc JavaScript.
+//   - Không ảnh đồng hồ, không carousel tự chạy, không animation lặp.
 //   - prefers-reduced-motion: chuyển trạng thái tức thời (không transition).
 //   - Nút thật (Tab/Enter/Space), aria-pressed cho mốc đang chọn, thẻ chi tiết
 //     có nhãn role="group" + aria-label, không tự cướp focus.
+//   - Số cột lưới theo số mốc của dataset (var --evol-cols) — không cố định 8.
 //   - Chỉ dùng token ngữ nghĩa (steel/alloy/line/primary/secondary/surface-raised)
 //     tự đổi theo .dark — không có mã hex, không cần cặp dark:.
 // =============================================================================
 
-import { submarinerEvolution } from '../data/submarinerEvolution';
+import type { ModelEvolutionDataset } from '../data/modelEvolution';
 
-const milestones = submarinerEvolution;
+interface Props {
+  dataset: ModelEvolutionDataset;
+}
+
+const { dataset } = Astro.props;
+const { milestones } = dataset;
 
 // Vạch chia kiểu bezel cho đường ray — chỉ trang trí: 61 vạch, vạch dài mỗi 5 vạch
 const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 === 0 }));
@@ -31,18 +38,18 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
   class="evol not-prose mb-12 mt-8"
   data-evolution
   data-selected="0"
-  aria-labelledby="submariner-evolution-title"
+  aria-labelledby={`${dataset.slug}-evolution-title`}
 >
-  <h2 id="submariner-evolution-title" class="font-serif text-xl text-steel">
-    Tiến hóa Rolex Submariner
+  <h2 id={`${dataset.slug}-evolution-title`} class="font-serif text-xl text-steel">
+    {dataset.title}
   </h2>
   <p class="mt-1 text-sm leading-relaxed text-secondary">
-    Tám mốc được chọn từ hồ sơ kiểm chứng. Đây là lược đồ thay đổi thiết kế, không phải danh mục đầy đủ mọi reference.
+    {dataset.intro}
   </p>
 
   <div class="relative mt-6">
-    <!-- Đường ray + vạch chia kiểu bezel — thuần trang trí -->
-    <div class="evol-rail absolute left-2 right-2 top-0 hidden md:block" aria-hidden="true">
+    <!-- Đường ray + vạch chia kiểu bezel — thuần trang trí, chỉ hiện khi có JS (chế độ grid) -->
+    <div class="evol-rail absolute left-2 right-2 top-0 hidden" aria-hidden="true">
       <svg class="h-3 w-full" viewBox="0 0 720 12" preserveAspectRatio="none" focusable="false" aria-hidden="true">
         <line class="evol-rail-base" x1="0" y1="5.5" x2="720" y2="5.5" />
         {ticks.map((t) => (
@@ -51,7 +58,7 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
       </svg>
     </div>
 
-    <ol class="evol-list m-0 list-none p-0">
+    <ol class="evol-list m-0 list-none p-0" style={`--evol-cols: ${milestones.length}`}>
       {milestones.map((m, i) => (
         <li class="evol-item border-b border-line/60 py-4 last:border-b-0">
           <button
@@ -69,7 +76,7 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
           <div
             class="evol-detail mt-3 rounded-lg border border-line/60 bg-surface-raised px-4 py-3"
             role="group"
-            aria-label={`Chi tiết mốc ${m.year} — Submariner ${m.reference}`}
+            aria-label={`Chi tiết mốc ${m.year} — ${dataset.name} ${m.reference}`}
             data-index={i}
           >
             <p class="font-mono text-sm text-steel">{m.year} · {m.reference}</p>
@@ -92,36 +99,35 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
 </section>
 
 <style>
-  /* ===== Mobile trước: danh sách dọc, thẻ chi tiết của cả 8 mốc luôn mở ===== */
+  /* ===== Mặc định + <768px: danh sách dọc, mọi thẻ chi tiết luôn mở ===== */
+  /* Không cần JS để đọc nội dung: năm, reference, thay đổi, ghi chú và nguồn
+     đều nằm trong luồng tài liệu. Đường ray trang trí chỉ hiện khi có JS. */
 
-  /* ===== ≥768px: đường thời gian ngang, một thẻ chi tiết cho mốc đang chọn ===== */
+  /* ===== ≥768px CÓ JS: đường thời gian ngang, một thẻ chi tiết cho mốc đang chọn ===== */
   @media (min-width: 768px) {
-    .evol-list {
+    .evol[data-js] .evol-rail {
+      display: block;
+    }
+
+    .evol[data-js] .evol-list {
       display: grid;
-      grid-template-columns: repeat(8, minmax(0, 1fr));
+      grid-template-columns: repeat(var(--evol-cols, 8), minmax(0, 1fr));
       column-gap: 0.5rem;
     }
 
     /* li chỉ là bố cục — button và thẻ chi tiết thành item trực tiếp của lưới */
-    .evol-item {
+    .evol[data-js] .evol-item {
       display: contents;
     }
 
-    .evol-detail {
+    .evol[data-js] .evol-detail {
       display: none;
       grid-column: 1 / -1;
       grid-row: 2;
       margin-top: 1.25rem;
     }
 
-    .evol[data-selected='0'] .evol-detail[data-index='0'],
-    .evol[data-selected='1'] .evol-detail[data-index='1'],
-    .evol[data-selected='2'] .evol-detail[data-index='2'],
-    .evol[data-selected='3'] .evol-detail[data-index='3'],
-    .evol[data-selected='4'] .evol-detail[data-index='4'],
-    .evol[data-selected='5'] .evol-detail[data-index='5'],
-    .evol[data-selected='6'] .evol-detail[data-index='6'],
-    .evol[data-selected='7'] .evol-detail[data-index='7'] {
+    .evol[data-js] .evol-detail[data-current='true'] {
       display: block;
     }
   }
@@ -169,16 +175,32 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
   }
 </style>
 
-<script>
-  // Chọn mốc: cập nhật data-selected (CSS đổi thẻ chi tiết) + aria-pressed.
+<script is:inline>
+  // Bật chế độ tương tác: gắn data-js (CSS chuyển sang lưới ngang + một chi tiết)
+  // rồi điều khiển mốc đang chọn qua data-selected / data-current / aria-pressed.
+  // Không có script này: trang hiển thị danh sách dọc đầy đủ — nội dung vẫn đọc được.
   // Scope theo từng root — không dùng document.querySelector toàn cục.
-  document.querySelectorAll<HTMLElement>('[data-evolution]').forEach((root) => {
-    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('.evol-btn'));
-    buttons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        root.dataset.selected = String(i);
-        buttons.forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
+  document.querySelectorAll('[data-evolution]').forEach(function (root) {
+    root.setAttribute('data-js', '1');
+    var buttons = Array.prototype.slice.call(root.querySelectorAll('.evol-btn'));
+    var details = Array.prototype.slice.call(root.querySelectorAll('.evol-detail'));
+
+    function select(i) {
+      root.setAttribute('data-selected', String(i));
+      buttons.forEach(function (b, j) {
+        b.setAttribute('aria-pressed', String(i === j));
+      });
+      details.forEach(function (d, j) {
+        if (i === j) d.setAttribute('data-current', 'true');
+        else d.removeAttribute('data-current');
+      });
+    }
+
+    buttons.forEach(function (btn, i) {
+      btn.addEventListener('click', function () {
+        select(i);
       });
     });
+    select(0);
   });
 </script>

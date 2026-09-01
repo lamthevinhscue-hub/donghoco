@@ -3,7 +3,8 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import SpecTable from '../../components/SpecTable.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
-import SubmarinerEvolution from '../../components/SubmarinerEvolution.astro';
+import ModelEvolution from '../../components/ModelEvolution.astro';
+import { getEvolutionDataset } from '../../data/modelEvolution';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
@@ -26,6 +27,7 @@ export async function getStaticPaths() {
 }
 
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+const evolutionDataset = getEvolutionDataset(slug, lang);
 const entries = await getEntriesByLang('mauIconic', lang);
 const entry = entries.find((e) => getSlug(e) === slug);
 
@@ -155,9 +157,11 @@ for (const rm of (data as any).relatedMechanisms ?? []) {
   sources={data.sources}
 >
   <SpecTable slot="spec" rows={specRows} />
-  <!-- Sơ đồ tiến hóa thí điểm — CHỈ trang Submariner tiếng Việt (ngay sau bảng
-       thông số, trước nội dung bài). Dữ kiện duy nhất từ src/data/submarinerEvolution.ts -->
-  {lang === 'vi' && slug === 'rolex-submariner' && <SubmarinerEvolution />}
+  <!-- Sơ đồ tiến hóa — CHỈ tiếng Việt, CHỈ slug có dataset đăng ký trong
+       src/data/modelEvolution.ts (hiện: rolex-gmt-master, rolex-submariner),
+       ngay sau bảng thông số, trước nội dung bài. Dữ kiện duy nhất nằm ở các
+       tệp dataset src/data/*Evolution.ts (hồ sơ nguồn trong docs/). -->
+  {lang === 'vi' && evolutionDataset && <ModelEvolution dataset={evolutionDataset} />}
   <Content />
   <RelatedEditorial links={editorialLinks} />
 </ArticleLayout>

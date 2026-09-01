@@ -8,6 +8,15 @@ interactive: true
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "rolex-submariner"
+    relation: "Submariner được nhắc trong bài làm ví dụ chuẩn ISO 6425 — đọc hiểu đúng mức chống nước trên vỏ"
+  - slug: "vostok-amphibia"
+    relation: "Amphibia minh họa cách dùng chính áp lực nước để làm kín vỏ — hướng ngược của tư duy chống nước thông thường"
+  - slug: "oris-aquis-depth-gauge"
+    relation: "Aquis Depth Gauge dùng áp suất nước để tạo số đọc độ sâu — ứng dụng trực tiếp của nguyên lý trong bài"
+updated: "2026-09-01"
+
 sources:
   - label: "ISO 22810:2010 — Chuẩn quốc tế về đồng hồ chống nước"
     url: "https://www.iso.org/standard/45334.html"

@@ -15,6 +15,8 @@ relatedModels:
 relatedMechanisms:
   - slug: "da-quang"
     relation: "Xem nguyên lý vật liệu phát quang phía sau tên gọi Luminor và khả năng đọc giờ trong bóng tối"
+  - slug: "chong-soc"
+    relation: "Xem hệ chống sốc Incabloc bảo vệ trục bánh lắc khi va đập"
 updated: "2026-09-01"
 
 sources:

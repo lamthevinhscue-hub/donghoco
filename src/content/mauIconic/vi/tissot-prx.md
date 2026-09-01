@@ -15,6 +15,11 @@ relatedModels:
   - slug: "patek-nautilus"
     relation: "Cùng gợi lại ngôn ngữ vỏ và dây tích hợp phổ biến trong thập niên 1970 — PRX là cách tiếp cận dễ tiếp cận hơn về giá"
 
+relatedMechanisms:
+  - slug: "tru-cot"
+    relation: "Xem dây cót và thùng cót đứng sau trữ cót 80 giờ của Powermatic trên PRX"
+updated: "2026-09-01"
+
 sources:
   - label: "Tissot — Bộ sưu tập PRX"
     url: "https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html"

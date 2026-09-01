@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-01"
 draft: false
 
+relatedModels:
+  - slug: "iwc-mark-xi"
+    relation: "Mark XI là đại diện kinh điển của cách chống từ lồng sắt mềm được bài nêu"
+updated: "2026-09-01"
+
 sources:
   - label: "METAS — Chứng nhận Master Chronometer, chuẩn chống từ 15.000 gauss"
     url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"

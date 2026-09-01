@@ -8,6 +8,11 @@ interactive: true
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "corum-golden-bridge"
+    relation: "Golden Bridge cho thấy nguyên chuỗi dây cót → bánh răng → bộ thoát nằm thẳng hàng ngay trên mặt số"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Movement"
     url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/movement/"

@@ -16,7 +16,11 @@ relatedModels:
     relation: "Hai cách dùng nguyên lý vật lý trong đồng hồ lặn: Amphibia để áp lực nước tăng độ kín, Aquis Depth Gauge để nước đi vào rãnh và tạo số đọc độ sâu"
   - slug: "glashuette-seaq"
     relation: "Hai câu chuyện đồng hồ lặn gắn với di sản nhà máy thời quốc doanh: SeaQ nhìn lại GUB Đông Đức năm 1969, Amphibia sinh ra từ môi trường làm đồng hồ công cụ của Vostok Liên Xô"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "chong-nuoc"
+    relation: "Xem nguyên lý áp suất tĩnh và động để hiểu vì sao Amphibia càng sâu càng kín"
+updated: "2026-09-01"
 
 sources:
   - label: "Vostok — Giới thiệu và lịch sử nhà máy Chistopol"

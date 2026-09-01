@@ -8,6 +8,13 @@ interactive: true
 date: "2026-08-01"
 draft: false
 
+relatedModels:
+  - slug: "rolex-submariner"
+    relation: "Submariner dùng trữ cót 'weekend' 70 giờ — mức được bài nêu như chuẩn mới của Rolex"
+  - slug: "tissot-prx"
+    relation: "PRX chạy Powermatic 80 — mức 80 giờ được bài nêu trong bảng trữ cót"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"

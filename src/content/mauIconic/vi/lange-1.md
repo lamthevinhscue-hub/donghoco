@@ -16,7 +16,11 @@ relatedModels:
     relation: "Hai lời giải trái ngược cho đồng hồ Đức: max bill giữ bố cục tối giản tiết chế, Lange 1 dùng mặt số lệch và cửa sổ ngày lớn làm dấu hiệu nhận diện"
   - slug: "nomos-tangente"
     relation: "Hai bản sắc khác nhau của đồng hồ Đức đương đại: Tangente đặt trọng tâm ở đường nét Bauhaus tối giản, Lange 1 ở bố cục bất đối xứng và cơ cấu ngày lớn"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "hien-thi-ngay"
+    relation: "Xem đĩa ngày 31 vị trí đứng sau cửa sổ ngày lớn của Lange 1"
+updated: "2026-09-01"
 
 sources:
   - label: "A. Lange & Söhne — Dòng LANGE 1"

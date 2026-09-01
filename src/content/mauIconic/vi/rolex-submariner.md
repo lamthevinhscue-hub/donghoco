@@ -9,7 +9,7 @@ movement: "Calibre 3230 / 3235"
 power_reserve: "70 giờ"
 water_resistance: "300m"
 date: "2026-07-31"
-updated: "2026-08-31"
+updated: "2026-09-01"
 draft: false
 
 relatedModels:
@@ -17,6 +17,12 @@ relatedModels:
     relation: "Ra đời cùng năm 1953 — hai cột mốc quan trọng của đồng hồ lặn hiện đại"
   - slug: "seiko-62mas"
     relation: "62MAS (1965) mở rộng lịch sử đồng hồ lặn cơ sang Nhật Bản, hơn một thập niên sau Submariner"
+
+relatedMechanisms:
+  - slug: "chong-nuoc"
+    relation: "Hiểu đúng mức chống nước 300m và chuẩn ISO 6425 dành cho đồng hồ lặn"
+  - slug: "tru-cot"
+    relation: "Xem dây cót và thùng cót quyết định trữ cót 70 giờ của Submariner"
 
 sources:
   - label: "Rolex — Submariner"

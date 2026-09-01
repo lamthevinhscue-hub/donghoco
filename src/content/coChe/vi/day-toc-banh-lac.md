@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-02"
 draft: false
 
+relatedModels:
+  - slug: "laurent-ferrier-galet-classic"
+    relation: "Galet Classic dùng dây tóc kép — một hướng phát triển trực tiếp của hệ dao động dây tóc và bánh lắc"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Dây tóc, bộ phận thiết yếu của đồng hồ cơ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"

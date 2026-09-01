@@ -14,7 +14,11 @@ relatedModels:
     relation: "Hai lời giải kỹ thuật cho đồng hồ công cụ: Multifort chú trọng độ bền trong sử dụng thường ngày, Aquis Depth Gauge biến nước biển thành phương tiện đọc độ sâu"
   - slug: "vostok-amphibia"
     relation: "Hai cách dùng nguyên lý vật lý trong đồng hồ lặn: Amphibia để áp lực nước tăng độ kín, Aquis Depth Gauge để nước đi vào rãnh và tạo số đọc độ sâu"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "chong-nuoc"
+    relation: "Xem cách áp suất nước hoạt động và được Oris tận dụng làm thước đo độ sâu"
+updated: "2026-09-01"
 
 sources:
   - label: "Oris — Lịch sử thương hiệu"

@@ -15,7 +15,11 @@ relatedModels:
     relation: "Hai cách đưa kết cấu bộ máy ra phía trước người xem: Golden Bridge biến calibre thành trục thẳng trong vỏ, Ba Cầu Vàng biến cầu máy thành bố cục mặt số"
   - slug: "fc-heart-beat"
     relation: "Hai mức độ phô diễn cơ khí: Golden Bridge đặt bộ máy vào trung tâm thị giác, Heart Beat mở một ô nhỏ để người đeo thấy nhịp chuyển động bên trong"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "chuyen-dong-co"
+    relation: "Xem bốn bộ phận của chuỗi truyền động — thứ Golden Bridge biến thành toàn bộ mặt số"
+updated: "2026-09-01"
 
 sources:
   - label: "Corum — Golden Bridge: bộ sưu tập chính hãng"

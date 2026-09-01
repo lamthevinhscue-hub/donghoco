@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "omega-speedmaster"
+    relation: "Speedmaster giữ kính Hesalite acrylic — ví dụ thực tế cho ưu điểm không vỡ vụn của kính acrylic"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Vật liệu trong chế tác đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watchmaking-s-material-world"

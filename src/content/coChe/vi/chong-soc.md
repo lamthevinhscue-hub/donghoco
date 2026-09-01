@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "panerai-luminor"
+    relation: "Luminor dùng hệ chống sốc Incabloc — hệ được bài phân tích nguyên lý"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"

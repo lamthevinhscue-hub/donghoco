@@ -14,7 +14,11 @@ relatedModels:
     relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo, nhưng khác hướng kỹ thuật: Vingt-8 nổi bật bởi bộ máy và bộ thoát của xưởng, Galet Classic bởi cấu trúc tourbillon và dây tóc kép"
   - slug: "fpjourne-chronometre-bleu"
     relation: "Hai nhà chế tác độc lập theo đuổi vẻ ngoài cổ điển kín đáo theo hai cách: Chronomètre Bleu dùng bố cục lệch và vật liệu khác thường, Galet Classic đặt kỹ thuật tourbillon trong vỏ tròn tiết chế"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "day-toc-banh-lac"
+    relation: "Xem hệ dây tóc và bánh lắc — nền của giải pháp dây tóc kép trên Galet Classic"
+updated: "2026-09-01"
 
 sources:
   - label: "Laurent Ferrier — Mười năm và mẫu Classic Origin"

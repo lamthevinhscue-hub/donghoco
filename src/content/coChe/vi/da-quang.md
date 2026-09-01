@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "panerai-luminor"
+    relation: "Luminor cho thấy cách một vật liệu phát quang lịch sử trở thành tên gọi nhận diện của cả một dòng đồng hồ"
+updated: "2026-09-01"
+
 sources:
   - label: "Panerai — Lịch sử thương hiệu, nguồn gốc vật liệu phát quang Radiomir và Luminor"
     url: "https://www.panerai.com/en/world-of-panerai/history.html"

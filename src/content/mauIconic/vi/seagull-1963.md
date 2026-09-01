@@ -13,7 +13,11 @@ relatedModels:
     relation: "Hai chronograph gắn với những bối cảnh khác nhau của thập niên 1960: Monaco là một phần của cuộc đua chronograph tự động năm 1969, Seagull 1963 nối từ câu chuyện đồng hồ hàng không Trung Quốc"
   - slug: "montblanc-minerva-monopusher"
     relation: "Hai lối đọc chronograph qua di sản: Minerva Monopusher đặt trọng tâm vào thao tác một nút bấm, Seagull 1963 vào câu chuyện calibre và đồng hồ hàng không"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "Xem nguyên lý cơ chế bấm giờ và vai trò bánh xe cột trong Seagull 1963"
+updated: "2026-09-01"
 
 sources:
   - label: "Grail Watch Reference — Dòng Tianjin TY2900 và ST19"

@@ -12,7 +12,11 @@ relatedModels:
     relation: "Hai cột mốc kiến trúc lên cót tự động: Eterna-Matic đặt rotor trên vòng bi, Polerouter dùng micro-rotor để tạo một bộ máy tự động mảnh hơn"
   - slug: "carl-f-bucherer-manero-peripheral"
     relation: "Hai cách sắp xếp rotor tự động: Eterna-Matic nổi bật với rotor đặt trên vòng bi, Manero Peripheral đặt khối văng ở vành ngoài bộ máy"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "len-day-tu-dong"
+    relation: "Xem rotor và hệ lên dây tự động phía sau cải tiến vòng bi của Eterna-Matic"
+updated: "2026-09-01"
 
 sources:
   - label: "Eterna — Giới thiệu thương hiệu và các cột mốc"

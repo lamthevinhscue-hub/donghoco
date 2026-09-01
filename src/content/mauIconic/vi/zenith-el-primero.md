@@ -15,6 +15,11 @@ relatedModels:
   - slug: "monaco"
     relation: "Hai cột mốc thường được nhắc đến trong cuộc đua chronograph tự động năm 1969"
 
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "Xem nguyên lý chronograph và cấu trúc chronograph tích hợp của El Primero"
+updated: "2026-09-01"
+
 sources:
   - label: "Zenith — Dòng thời gian chính hãng"
     url: "https://www.zenith-watches.com/en_us/brand/timeline"

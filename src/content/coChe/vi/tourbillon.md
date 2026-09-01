@@ -8,6 +8,15 @@ interactive: true
 date: "2026-08-02"
 draft: false
 
+relatedModels:
+  - slug: "girard-perregaux-tourbillon-ba-cau"
+    relation: "Tourbillon với Ba Cầu Vàng đưa lồng xoay và kết cấu bộ máy thành trung tâm của mặt số"
+  - slug: "greubel-double-tourbillon"
+    relation: "Double Tourbillon 30° phát triển ý tưởng tourbillon bằng hai lồng xoay lồng nhau"
+  - slug: "hajime-asaoka-project-t"
+    relation: "Project T là một ứng dụng tourbillon in-house trong chế tác độc lập Nhật Bản"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Tourbillon"
     url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/tourbillon-1/"

@@ -8,6 +8,11 @@ interactive: true
 date: "2026-07-31"
 draft: false
 
+relatedModels:
+  - slug: "eterna-matic-1948"
+    relation: "Eterna-Matic 1948 là ví dụ lịch sử về rotor đặt trên vòng bi trong cơ chế lên dây tự động"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Rotor và hệ lên dây tự động"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/rotor"

@@ -15,7 +15,13 @@ relatedModels:
     relation: "Chronograph kết hợp thước tính để phi công thực hiện các phép tính bay"
   - slug: "omega-speedmaster"
     relation: "Chronograph từ đường đua trở thành dụng cụ đạt chuẩn NASA trong hành trình không gian"
-updated: "2026-08-31"
+  - slug: "monaco"
+    relation: "Chronograph tự động Calibre 11 đưa Monaco năm 1969 thành một biểu tượng khác biệt bằng vỏ vuông"
+  - slug: "zenith-el-primero"
+    relation: "El Primero là ví dụ chronograph tự động tích hợp tần số cao 36.000 vph"
+  - slug: "seagull-1963"
+    relation: "ST19 cho thấy chronograph cơ bánh xe cột ở một điểm tiếp cận dễ hơn với người mới chơi"
+updated: "2026-09-01"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"

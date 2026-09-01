@@ -16,7 +16,11 @@ relatedModels:
     relation: "Hai cách tiếp cận chronograph có cá tính riêng: Monaco chọn vỏ vuông gắn với cuộc đua chronograph tự động năm 1969, Minerva Monopusher giữ trải nghiệm bấm giờ bằng một nút theo truyền thống Minerva"
   - slug: "seagull-1963"
     relation: "Hai chronograph gắn với những bối cảnh khác nhau của thập niên 1960: Monaco là một phần của cuộc đua chronograph tự động năm 1969, Seagull 1963 nối từ câu chuyện đồng hồ hàng không Trung Quốc"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "chronograph"
+    relation: "Xem cơ chế chạy, dừng và đặt lại đằng sau chronograph tự động của Monaco"
+updated: "2026-09-01"
 
 sources:
   - label: "TAG Heuer — Bộ sưu tập Monaco"

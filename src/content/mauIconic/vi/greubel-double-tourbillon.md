@@ -12,7 +12,11 @@ relatedModels:
     relation: "Hai cách đưa nghiên cứu kỹ thuật vào đồng hồ độc lập: DB28 tập trung vào vật liệu và cấu trúc càng nối, Double Tourbillon 30° vào kiến trúc tourbillon lồng nhau"
   - slug: "hajime-asaoka-project-t"
     relation: "Hai cách tiếp cận tourbillon trong chế tác độc lập: Double Tourbillon 30° dùng hai lồng tourbillon lồng nhau, Project T là tác phẩm tourbillon in-house của Hajime Asaoka"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "tourbillon"
+    relation: "Xem nguyên lý lồng xoay gốc mà Double Tourbillon 30° phát triển thành hai lồng xoay lồng nhau"
+updated: "2026-09-01"
 
 sources:
   - label: "Wikipedia — Greubel Forsey"

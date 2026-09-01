@@ -11,7 +11,11 @@ draft: false
 relatedModels:
   - slug: "fifty-fathoms"
     relation: "Cùng nguồn gốc quân sự — người nhái quân sự Ý và người nhái chiến đấu Pháp"
-updated: "2026-08-30"
+
+relatedMechanisms:
+  - slug: "da-quang"
+    relation: "Xem nguyên lý vật liệu phát quang phía sau tên gọi Luminor và khả năng đọc giờ trong bóng tối"
+updated: "2026-09-01"
 
 sources:
   - label: "Panerai — Bộ sưu tập Luminor"

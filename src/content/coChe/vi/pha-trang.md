@@ -8,6 +8,11 @@ interactive: true
 date: "2026-08-08"
 draft: false
 
+relatedModels:
+  - slug: "arnold-and-son-perpetual-moon"
+    relation: "Perpetual Moon là ví dụ trực tiếp về cơ cấu hiển thị tuần trăng với độ chính xác được hãng công bố một ngày sau 122 năm"
+updated: "2026-09-01"
+
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"

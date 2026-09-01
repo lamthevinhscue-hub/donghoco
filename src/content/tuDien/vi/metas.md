@@ -5,13 +5,14 @@ term_en: "Master Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
+updated: "2026-09-01"
 sources:
   - label: "METAS — Chứng nhận Master Chronometer"
     url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
   - label: "METAS — Cơ quan chứng nhận METAS-Cert"
     url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert.html"
   - label: "COSC — Chứng nhận Chronometer, điều kiện tiên quyết của Master Chronometer"
-    url: "https://www.cosc.swiss/chronometer-certified"
+    url: "https://www.cosc.swiss/certified-chronometer"
 
 ---
 

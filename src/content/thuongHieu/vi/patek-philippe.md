@@ -8,6 +8,7 @@ parent_company: "Độc lập (gia đình Stern)"
 signature_calibres: ["26-330", "30-255", "CH 28-520", "R 27 PS"]
 date: "2026-07-31"
 draft: false
+updated: "2026-09-01"
 # --- Bước 2.1: 5 khối dữ liệu ---
 lineHistory:
   - year: 1839
@@ -90,8 +91,8 @@ segmentComparison:
     philosophy: "Deutsche Wertarbeit (chế tác Đức) — không bắt chước Thụy Sĩ, hoàn thiện Đức lạnh lùng, exactitud."
 collectorNote: "Chọn Patek Philippe khi bạn tìm kiếm **đỉnh cao tuyệt đối của haute horlogerie** — một thương hiệu 3 thế hệ gia đình Stern sở hữu, slogan 'bạn chỉ giữ cho thế hệ sau' nói lên tất cả. Patek là **món gia sản truyền đời**, không phải 'đồng hồ để đeo' đơn thuần — Nautilus/Aquanaut săn đón nhất ngành, Calatrava là dress watch chuẩn mực, Grand Complications là tác phẩm nghệ thuật. Hợp với người đã có mọi thứ và muốn một mảnh 'vĩnh cửu' — không hợp với người mua để 'khoe' (Patek ít nổi tiếng với công chúng hơn Rolex). Nếu ưu tiên **sport-luxury thép táo bạo**, chọn AP Royal Oak (đẹp hơn Nautilus ở 'attitude'). Nếu yêu **nhà chế tác lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne (LANGE 1). Patek Philippe hợp với nhà sưu tập dạn dày, người trân trọng **di sản gia đình** và 'đầu tư an toàn' — giá trị tăng đều 50 năm qua."
 sources:
-  - label: "Patek Philippe — Lịch sử chính hãng"
-    url: "https://www.patek.com/en/company/history"
+  - label: "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ"
+    url: "https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland"
   - label: "Patek Philippe — Câu chuyện những người sáng lập"
     url: "https://www.patek.com/en/manufacture/a-story-of-independence/the-founders"
   - label: "Patek Philippe — Di sản gia đình Stern"

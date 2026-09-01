@@ -6,6 +6,7 @@ tier: "haute horlogerie"
 parent_company: "Độc lập"
 date: "2026-08-11"
 draft: false
+updated: "2026-09-01"
 strength_label: "Con đường vào nghề"
 movement_label: "Thế mạnh"
 value_retention_label: "Quy mô"
@@ -59,8 +60,8 @@ sources:
     url: "https://www.ahci.ch/members/hajime-asaoka/"
   - label: "Kurono Tokyo — Trang chính hãng"
     url: "https://kuronotokyo.com/"
-  - label: "Kurono Tokyo — Năm năm thành lập"
-    url: "https://kuronotokyo.com/pages/5th-anniversary"
+  - label: "Kurono Tokyo — Kỷ niệm 5 năm, 2024 Anniversary Reiwa"
+    url: "https://kuronotokyo.com/pages/2024-anniversary-reiwa"
 ---
 
 ## Tổng quan

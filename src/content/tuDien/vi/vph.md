@@ -6,11 +6,12 @@ category: "bộ máy"
 has_infographic: true
 date: "2026-07-31"
 draft: false
+updated: "2026-09-01"
 sources:
   - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
   - label: "COSC — Tiêu chí chứng nhận Chronometer"
-    url: "https://www.cosc.swiss/chronometer-certified"
+    url: "https://www.cosc.swiss/certified-chronometer"
 
 ---
 

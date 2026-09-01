@@ -5,9 +5,10 @@ term_en: "Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
+updated: "2026-09-01"
 sources:
   - label: "COSC — Chứng nhận Chronometer"
-    url: "https://www.cosc.swiss/chronometer-certified"
+    url: "https://www.cosc.swiss/certified-chronometer"
   - label: "COSC — Chronograph hay Chronometer"
     url: "https://www.cosc.swiss/cosc-chronograph-chronometer"
   - label: "COSC — Các loại chứng nhận"

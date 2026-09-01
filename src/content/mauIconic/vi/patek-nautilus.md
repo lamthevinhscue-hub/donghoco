@@ -9,7 +9,7 @@ movement: "Calibre 26-330 S C"
 power_reserve: "45 giờ"
 water_resistance: "120m"
 date: "2026-07-31"
-updated: "2026-08-31"
+updated: "2026-09-01"
 draft: false
 
 relatedModels:
@@ -21,8 +21,8 @@ relatedModels:
 sources:
   - label: "Patek Philippe — Bộ sưu tập Nautilus"
     url: "https://www.patek.com/en/collection/nautilus"
-  - label: "Patek Philippe — Lịch sử thương hiệu"
-    url: "https://www.patek.com/en/company/history"
+  - label: "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ"
+    url: "https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland"
 
 ---
 

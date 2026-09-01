@@ -1,10 +1,10 @@
 # CAN-KIEM-CHUNG.md — Tracker kiểm chứng số liệu nội dung
 
-Tracker các con số/ghi nhận trong nội dung từng được ghi lại để kiểm chứng. Mỗi mục nội dung mang **một trong ba trạng thái xử lý**; ngoài ra một **cờ ưu tiên** có thể gắn vào một dữ kiện hoặc liên kết cụ thể **bên trong** một mục khi chi tiết đó còn hiển thị trên trang và có nguy cơ sai. Nguồn, ngày tháng và lịch sử xử lý của mọi mục giữ nguyên. Tài liệu này được rà lại và thống nhất ngày 30/08/2026 (commit `25b5df3`).
+Tracker các con số/ghi nhận trong nội dung từng được ghi lại để kiểm chứng. Mỗi mục nội dung mang **một trong ba trạng thái xử lý**; ngoài ra một **cờ ưu tiên** có thể gắn vào một dữ kiện hoặc liên kết cụ thể **bên trong** một mục khi chi tiết đó còn hiển thị trên trang và có nguy cơ sai. Nguồn, ngày tháng và lịch sử xử lý của mọi mục giữ nguyên. Tài liệu này được rà lại và thống nhất ngày 30/08/2026 (commit `25b5df3`); **rà bổ sung ngày 01/09/2026** (xử lý ba liên kết nguồn chết — phần cờ ưu tiên gỡ hết; xem bảng lịch sử xử lý ở Bảng tổng hợp; mã commit của đợt này chưa có vì chưa commit).
 
 ---
 
-## BẢNG TỔNG HỢP TRẠNG THÁI (rà 30/08/2026)
+## BẢNG TỔNG HỢP TRẠNG THÁI (rà 30/08/2026; rà bổ sung 01/09/2026)
 
 ### Ý nghĩa: ba trạng thái xử lý + một cờ ưu tiên
 
@@ -29,15 +29,19 @@ Ghi chú tương thích tên cũ: các mục ghi `ĐÃ XỬ LÝ BẰNG CÁCH G�
 
 **2 mục không thuộc nhóm nội dung cần phân loại:** mục 21 (dự phòng, trống) và mục 24 (giới hạn vận hành Formspree — ghi chú vận hành, không phải số liệu nội dung).
 
-**3 liên kết đang hiển thị cần ưu tiên kiểm chứng** — đây là **cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gắn vào từng liên kết bên trong** các mục 23, 39 và 40 (không tính như ba mục độc lập; trạng thái xử lý của ba mục này không đổi):
+**Lịch sử: 3 liên kết từng mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — đây là **cờ `CẦN ƯU TIÊN KIỂM CHỨNG` từng gắn vào từng liên kết bên trong** các mục 23, 39 và 40 (không tính như ba mục độc lập; trạng thái xử lý của ba mục này không đổi). **Cả ba liên kết đã được thay bằng URL chính hãng hoạt động ngày 01/09/2026 và cờ ưu tiên đã gỡ — hiện tại không còn liên kết nguồn chết nào trong ba trường hợp đã biết đang được xuất bản:**
 
-1. **Patek Philippe — trang lịch sử:** `https://www.patek.com/en/company/history` — 404, đang hiển thị trên trang `patek-philippe` (mục 23).
-2. **COSC — /chronometer-certified:** `https://www.cosc.swiss/chronometer-certified` — 404, đang hiển thị trên 4 trang: `chronometer`, `metas`, `vph` (từ điển) và `do-sai-so` (hướng dẫn) (mục 40).
-3. **Kurono Tokyo — trang kỷ niệm 5 năm:** `https://kuronotokyo.com/pages/5th-anniversary` — 404, đang hiển thị trong nguồn trang `hajime-asaoka` (mục 39).
+| Trang bị ảnh hưởng | URL 404 cũ (lịch sử phát hiện, giữ nguyên) | URL chính hãng mới (đã thay ngày 01/09/2026) | Ngày xử lý | Kết luận |
+|---|---|---|---|---|
+| `patek-philippe` và `patek-nautilus` (mục 23) | `https://www.patek.com/en/company/history` | `https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland` | 01/09/2026 | Đã gỡ cờ `CẦN ƯU TIÊN KIỂM CHỨNG` |
+| `chronometer`, `metas`, `vph` (từ điển) và `do-sai-so` (hướng dẫn) — 4 trang (mục 40) | `https://www.cosc.swiss/chronometer-certified` | `https://www.cosc.swiss/certified-chronometer` | 01/09/2026 | Đã gỡ cờ `CẦN ƯU TIÊN KIỂM CHỨNG` |
+| `hajime-asaoka` (mục 39) | `https://kuronotokyo.com/pages/5th-anniversary` | `https://kuronotokyo.com/pages/2024-anniversary-reiwa` | 01/09/2026 | Đã gỡ cờ `CẦN ƯU TIÊN KIỂM CHỨNG` |
+
+Lịch sử phát hiện từng ghi theo dạng danh sách ba liên kết (trước 01/09/2026) được giữ lại trong từng mục 23, 39, 40 bên dưới; **bổ sung 01/09/2026: sau lần rà toàn bộ `src/content/`, phát hiện URL Patek cũ cũng xuất hiện ở bài `patek-nautilus.md` (mẫu iconic) — đã thay cùng ngày bằng URL chính hãng mới, do đó URL Patek cũ hiện không còn ở bất kỳ bài xuất bản nào trong `src/content/`; ba URL cũ chỉ còn trong hồ sơ này và biên bản nghiệm thu với vai trò lịch sử.**
 
 Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác đủ điều kiện gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG`** — các mục còn lại đều đã ẩn, đã bỏ hoặc diễn đạt an toàn; không tự đoán thêm. *(Đoạn này xét các mục 1–50 — ba mục 48–50 đã được diễn đạt lại an toàn ngày 30/08/2026, xem ghi chú dưới.)*
 
-**Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50 (lúc đó mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`, chưa tính vào bảng số lượng). **Cùng ngày 30/08/2026, cả ba mục đã ĐÃ GIẢI QUYẾT:** bài được diễn đạt lại theo nguồn, frontmatter bổ sung 3 nguồn tham khảo (Hodinkee Reference Points, Monochrome Part 1, Part 2) kèm `updated: "2026-08-30"`. Ba mục nay được tính vào bảng số lượng ở trên; cờ `CẦN ƯU TIÊN KIỂM CHỨNG` đã gỡ khỏi ba mục này. **Phần cờ ưu tiên còn lại duy nhất ba liên kết nguồn chết ở trên (Patek Philippe, COSC, Kurono Tokyo) — chưa xử lý.**
+**Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50 (lúc đó mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`, chưa tính vào bảng số lượng). **Cùng ngày 30/08/2026, cả ba mục đã ĐÃ GIẢI QUYẾT:** bài được diễn đạt lại theo nguồn, frontmatter bổ sung 3 nguồn tham khảo (Hodinkee Reference Points, Monochrome Part 1, Part 2) kèm `updated: "2026-08-30"`. Ba mục nay được tính vào bảng số lượng ở trên; cờ `CẦN ƯU TIÊN KIỂM CHỨNG` đã gỡ khỏi ba mục này. **Cập nhật 01/09/2026: ba liên kết nguồn chết (Patek Philippe, COSC, Kurono Tokyo) trước đó từng ghi là "chưa xử lý" đã được thay bằng URL chính hãng hoạt động và cờ ưu tiên đã gỡ hết — hiện không còn cờ ưu tiên mở nào trong toàn tracker.**
 
 ---
 
@@ -362,6 +366,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Patek Philippe — /en/company/history (LIÊN KẾT CHẾT 404):** địa chỉ `https://www.patek.com/en/company/history` do anh Vinh cấp trả về **HTTP 404** (trang không tồn tại) khi kiểm chứng bằng cả HEAD lẫn GET. Đã chép nguyên văn theo quy tắc, **không tự thay địa chỉ**. Chờ anh Vinh cấp địa chỉ đúng cho trang lịch sử Patek Philippe (hai nguồn còn lại của hãng — `/the-founders` và `/the-stern-family` — đều trả về 200, hoạt động bình thường).
 
 - **Trạng thái mục (rà 30/08/2026):** ĐÃ GIẢI QUYẾT cho phần nguồn — 10 trang thương hiệu (12/08/2026) và 23 trang mẫu iconic (16/08/2026, Gói D) đều đã có nguồn; tính đến ngày rà, toàn bộ **73/73 trang thương hiệu** và **66/66 bài mẫu iconic** đều có khối "Nguồn tham khảo". Câu "Phần 23 trang mẫu iconic dưới đây VẪN TREO" ghi trước Gói D đã lỗi thời và được sửa trong đợt rà này. **Vẫn treo duy nhất:** địa chỉ Patek Philippe 404 ở trên — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (xem bảng tổng hợp).
+- **Cập nhật 01/09/2026 (xử lý liên kết Patek 404):** đã thay URL ngày 01/09/2026 trong `patek-philippe.md` — nhãn mới "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ", URL mới là trang chính hãng về lịch sử Patek Philippe tại Genève và Thụy Sĩ (`/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland`, HTTP 200 khi kiểm trước khi thay). Liên kết mới đã được đưa lên trang `patek-philippe`; cờ ưu tiên của liên kết đã được gỡ. Hai nguồn còn lại (`/the-founders`, `/the-stern-family`) giữ nguyên. Lưu ý phạm vi: Prompt 21 **chỉ xử lý URL nguồn chết** — không phải đợt kiểm chứng lại toàn bộ dữ kiện trong bài Patek. **Bổ sung cùng ngày (rà toàn bộ `src/content/`):** phát hiện URL Patek cũ cũng xuất hiện ở bài mẫu iconic `patek-nautilus.md` — **đã thay cùng ngày 01/09/2026** bằng cùng URL chính hãng mới (nhãn "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ", kèm `updated: "2026-09-01"`; `relatedModels`, thân bài, thông số giữ nguyên). URL Patek cũ hiện không còn ở bất kỳ bài xuất bản nào trong `src/content/`.
 
 ---
 
@@ -889,6 +894,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** VẪN TREO (16/08/2026). Chờ anh Vinh kiểm chứng thêm.
 - **Trạng thái mục (rà 30/08/2026):** phần số liệu ĐÃ XỬ LÝ AN TOÀN (các dữ kiện chưa chắc đã bị bỏ khỏi bài). Riêng liên kết Kurono Tokyo 404 **đang hiển thị trong khối nguồn trang `hajime-asaoka`** — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (trạng thái xử lý của mục không đổi; xem bảng tổng hợp).
+- **Cập nhật 01/09/2026 (xử lý liên kết Kurono 404):** đã thay URL ngày 01/09/2026 trong `hajime-asaoka.md` — nhãn mới "Kurono Tokyo — Kỷ niệm 5 năm, 2024 Anniversary Reiwa", URL mới là trang chính hãng `https://kuronotokyo.com/pages/2024-anniversary-reiwa` (HTTP 200 khi kiểm trước khi thay). Trang mới xác nhận mốc thành lập Kurono Tokyo năm 2019 và kỷ niệm 5 năm vào năm 2024. Cờ ưu tiên của liên kết đã được gỡ ngày 01/09/2026. **Trạng thái mục vẫn là `ĐÃ XỬ LÝ AN TOÀN`** do các dữ kiện khác trong mục (mục 1–6 ở trên) vẫn được chủ động bỏ khỏi bài.
 
 ---
 
@@ -909,6 +915,7 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 - **Trạng thái:** ĐÃ LÀM (16/08/2026), một liên kết chết chờ anh Vinh xử lý.
 - **Trạng thái mục (rà 30/08/2026):** ĐÃ GIẢI QUYẾT cho phần nguồn — 33/33 mục từ điển đã có nguồn, các URL còn lại xác nhận đang sống. Riêng liên kết COSC 404 **đang hiển thị trong khối nguồn của 4 trang** — **gắn cờ `CẦN ƯU TIÊN KIỂM CHỨNG` cho liên kết này bên trong mục** (trạng thái xử lý của mục không đổi; xem bảng tổng hợp).
+- **Cập nhật 01/09/2026 (xử lý liên kết COSC 404):** đã thay đúng đường dẫn chính hãng `/certified-chronometer` (khả năng từ bị đảo thứ tự như ghi chú lịch sử ở trên đã chính xác) trong **đủ bốn bài bị ảnh hưởng** — `chronometer.md`, `metas.md`, `vph.md`, `do-sai-so.md`; nhãn nguồn giữ nguyên vì vẫn mô tả đúng nội dung. Cờ ưu tiên đã được gỡ ngày 01/09/2026. Không thay đổi nội dung chuyên môn của bốn bài trong đợt này; các URL COSC khác (`/cosc-chronograph-chronometer`, `/cosc-certifications`, `/cosc-faq`) không đụng tới.
 
 ---
 

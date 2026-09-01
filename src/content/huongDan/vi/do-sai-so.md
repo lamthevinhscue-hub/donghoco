@@ -4,10 +4,11 @@ excerpt: "Cách đo độ chính xác đồng hồ cơ tại nhà, dùng app mi�
 difficulty: "trung cấp"
 date: "2026-07-31"
 draft: false
+updated: "2026-09-01"
 
 sources:
   - label: "COSC — Tiêu chí chứng nhận Chronometer"
-    url: "https://www.cosc.swiss/chronometer-certified"
+    url: "https://www.cosc.swiss/certified-chronometer"
   - label: "COSC — Giải đáp thắc mắc"
     url: "https://www.cosc.swiss/cosc-faq"
   - label: "METAS — Chứng nhận Master Chronometer"

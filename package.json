@@ -13,7 +13,7 @@
     "check:wcag": "npm run check:contrast && npm run check:a11y-keyboard && npm run check:a11y-semantics && npm run check:a11y-motion && npm run check:a11y-content",
     "check:a11y-keyboard": "node scripts/check-keyboard-accessibility.mjs",
     "check:contrast": "node scripts/check-color-contrast.mjs",
-    "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-links.mjs",
+    "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-3d-loading-budget.mjs && node scripts/check-links.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate:og": "node scripts/generate-og-default.mjs"

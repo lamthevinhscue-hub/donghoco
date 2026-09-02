@@ -248,6 +248,9 @@ import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
     }
     if (loading3d) return;
     loading3d = true;
+    // Báo trạng thái bận ngay trên tab — AT đọc được rằng thao tác đang xử lý,
+    // tab không tạo cảm giác "bấm không phản hồi" trong lúc tải engine.
+    tab3d?.setAttribute('aria-busy', 'true');
     try {
       // Dynamic import: chunk chứa Three.js chỉ được tải ở đây
       const mod = await import('../scripts/exploded3d');
@@ -262,6 +265,7 @@ import WatchExplodedView3D from '../components/WatchExplodedView3D.astro';
       showError(true);
     } finally {
       loading3d = false;
+      tab3d?.removeAttribute('aria-busy');
     }
   }
 

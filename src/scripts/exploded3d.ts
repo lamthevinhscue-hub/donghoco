@@ -5,6 +5,10 @@
 // người dùng chủ động mở tab 3D — nhờ vậy chunk chứa Three.js không tải
 // trên luồng đọc thông thường (2D mặc định).
 //
+// Import three là NAMED imports (không namespace) — chỉ kéo đúng các class
+// được dùng; các kiểu dữ liệu dùng import type (không tạo dependency runtime).
+// OrbitControls là dynamic import riêng — chunk tách khỏi chunk engine.
+//
 // Mô hình dựng hoàn toàn bằng primitive shapes (cylinder, torus, box):
 // mô hình khái niệm minh họa cấu trúc, không mô phỏng một calibre cụ thể.
 //
@@ -15,8 +19,26 @@
 //   tab trình duyệt ẩn, hoặc không còn gì chuyển động.
 // =============================================================================
 
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import {
+  AmbientLight,
+  Box3,
+  BoxGeometry,
+  CylinderGeometry,
+  DirectionalLight,
+  Group,
+  MathUtils,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  Raycaster,
+  Scene,
+  Spherical,
+  TorusGeometry,
+  Vector2,
+  Vector3,
+  WebGLRenderer,
+} from 'three';
+import type { BufferGeometry, Material, MeshStandardMaterialParameters } from 'three';
 
 export interface Exploded3DHandle {
   /** Dừng render loop (khi người dùng chuyển về sơ đồ 2D) */
@@ -35,7 +57,7 @@ interface PartInfo {
   icon: string;
 }
 
-const CAM_DIR = new THREE.Vector3(60, 40, 80).normalize(); // hướng nhìn chuẩn lúc mở/đặt lại
+const CAM_DIR = new Vector3(60, 40, 80).normalize(); // hướng nhìn chuẩn lúc mở/đặt lại
 const FRAME_PADDING = 1.25; // khoảng đệm quanh mô hình khi tự lấy khung
 
 export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHandle> {
@@ -61,9 +83,9 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- Renderer (thử tạo — lỗi WebGL thì ném ra cho trang xử lý) ----
-  let renderer: THREE.WebGLRenderer;
+  let renderer: WebGLRenderer;
   try {
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer = new WebGLRenderer({ antialias: true, alpha: true });
   } catch {
     throw new Error('Trình duyệt hoặc thiết bị không hỗ trợ WebGL.');
   }
@@ -81,20 +103,23 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   container.appendChild(renderer.domElement);
 
   // ---- Scene + camera + ánh sáng ----
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, w / h, 0.1, 1000);
+  const scene = new Scene();
+  const camera = new PerspectiveCamera(35, w / h, 0.1, 1000);
   camera.position.copy(CAM_DIR).multiplyScalar(120); // tạm — frameModel() sẽ chỉnh đúng sau khi dựng mô hình
 
   // ---- Ánh sáng: 1 chính + 1 bù ấm + ambient vừa đủ (không post-processing) ----
-  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-  const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+  scene.add(new AmbientLight(0xffffff, 0.55));
+  const keyLight = new DirectionalLight(0xffffff, 2.0);
   keyLight.position.set(50, 80, 50);
   scene.add(keyLight);
-  const fillLight = new THREE.DirectionalLight(0xb89254, 0.7);
+  const fillLight = new DirectionalLight(0xb89254, 0.7);
   fillLight.position.set(-50, 30, -50);
   scene.add(fillLight);
 
   // ---- Điều khiển xoay/zoom ----
+  // OrbitControls là module tải riêng (dynamic import) — chunk tách khỏi chunk
+  // engine: cache độc lập, và không nằm trong luồng tải ban đầu của website.
+  const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
@@ -107,19 +132,19 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   // Đồng thau: sắc ấm, phản chiếu có kiểm soát. Rubi: đỏ sâu, không neon.
   // Mặt số: gần như không phản chiếu — nhường kịch tính cho kim và vỏ.
   function matSteel(color = 0x7d8791) {
-    return new THREE.MeshStandardMaterial({ color, metalness: 0.8, roughness: 0.42 });
+    return new MeshStandardMaterial({ color, metalness: 0.8, roughness: 0.42 });
   }
   function matBrass() {
-    return new THREE.MeshStandardMaterial({ color: 0xb89254, metalness: 0.85, roughness: 0.32 });
+    return new MeshStandardMaterial({ color: 0xb89254, metalness: 0.85, roughness: 0.32 });
   }
   function matRuby() {
-    return new THREE.MeshStandardMaterial({ color: 0xa33b3b, metalness: 0.15, roughness: 0.25 });
+    return new MeshStandardMaterial({ color: 0xa33b3b, metalness: 0.15, roughness: 0.25 });
   }
   function matDial(color = 0xf4f2ed) {
-    return new THREE.MeshStandardMaterial({ color, metalness: 0.05, roughness: 0.9 });
+    return new MeshStandardMaterial({ color, metalness: 0.05, roughness: 0.9 });
   }
   function matCrystal() {
-    return new THREE.MeshStandardMaterial({
+    return new MeshStandardMaterial({
       color: 0xdfe8f0,
       transparent: true,
       opacity: 0.18,
@@ -129,88 +154,88 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     });
   }
   function mat(color: number, opacity?: number) {
-    const opts: THREE.MeshStandardMaterialParameters = { color };
+    const opts: MeshStandardMaterialParameters = { color };
     if (opacity !== undefined) {
       opts.transparent = true;
       opts.opacity = opacity;
     }
-    return new THREE.MeshStandardMaterial(opts);
+    return new MeshStandardMaterial(opts);
   }
 
   // ---- Mô hình: 7 lớp xếp dọc, mỗi lớp có vị trí "ghép" và "tách" ----
   interface LayerDef {
-    group: THREE.Group;
-    meshes: THREE.Mesh[]; // các mesh có partId — dùng cho raycast + highlight
+    group: Group;
+    meshes: Mesh[]; // các mesh có partId — dùng cho raycast + highlight
     assembledY: number;
     explodedY: number;
   }
   const layers: LayerDef[] = [];
 
-  function partMesh(geo: THREE.BufferGeometry, material: THREE.Material, partId: string) {
-    const m = new THREE.Mesh(geo, material);
+  function partMesh(geo: BufferGeometry, material: Material, partId: string) {
+    const m = new Mesh(geo, material);
     m.userData.partId = partId;
     return m;
   }
 
   // Lớp 0: kính sapphire (gần trong suốt + viền thép xanh-xám mỏng)
   {
-    const g = new THREE.Group();
-    const crystal = partMesh(new THREE.CylinderGeometry(22, 22, 3, 64), matCrystal(), 'crystal');
-    const rim = new THREE.Mesh(new THREE.TorusGeometry(22, 0.45, 8, 64), matSteel(0x7d8791));
+    const g = new Group();
+    const crystal = partMesh(new CylinderGeometry(22, 22, 3, 64), matCrystal(), 'crystal');
+    const rim = new Mesh(new TorusGeometry(22, 0.45, 8, 64), matSteel(0x7d8791));
     rim.rotation.x = Math.PI / 2;
     g.add(crystal, rim);
     layers.push({ group: g, meshes: [crystal], assembledY: 8, explodedY: 40 });
   }
   // Lớp 1: kim giờ/phút/giây — thép, kim giây ruby
   {
-    const g = new THREE.Group();
-    const hour = partMesh(new THREE.BoxGeometry(1.5, 0.3, 9), matSteel(0xcfd6dd), 'hour-hand');
+    const g = new Group();
+    const hour = partMesh(new BoxGeometry(1.5, 0.3, 9), matSteel(0xcfd6dd), 'hour-hand');
     hour.position.set(0, 5, 4.5);
-    const minute = partMesh(new THREE.BoxGeometry(1, 0.3, 13), matSteel(0xcfd6dd), 'minute-hand');
+    const minute = partMesh(new BoxGeometry(1, 0.3, 13), matSteel(0xcfd6dd), 'minute-hand');
     minute.position.set(3, 5, 6.5);
     minute.rotation.y = -0.4;
-    const second = partMesh(new THREE.BoxGeometry(0.6, 0.2, 15), matRuby(), 'second-hand');
+    const second = partMesh(new BoxGeometry(0.6, 0.2, 15), matRuby(), 'second-hand');
     second.position.set(-2, 5.5, 7.5);
     second.rotation.y = 0.3;
-    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 1, 16), matSteel(0xcfd6dd));
+    const pin = new Mesh(new CylinderGeometry(0.8, 0.8, 1, 16), matSteel(0xcfd6dd));
     pin.position.y = 5.5;
     g.add(hour, minute, second, pin);
     layers.push({ group: g, meshes: [hour, minute, second], assembledY: 5, explodedY: 20 });
   }
   // Lớp 2: mặt số + mặt số phụ — bề mặt lì, ít phản chiếu hơn kim/vỏ
   {
-    const g = new THREE.Group();
-    const dial = partMesh(new THREE.CylinderGeometry(20, 20, 1.5, 64), matDial(), 'dial');
+    const g = new Group();
+    const dial = partMesh(new CylinderGeometry(20, 20, 1.5, 64), matDial(), 'dial');
     dial.position.y = 3;
-    const subdial = partMesh(new THREE.CylinderGeometry(5, 5, 0.5, 32), matDial(0xe8e2d6), 'subdial');
+    const subdial = partMesh(new CylinderGeometry(5, 5, 0.5, 32), matDial(0xe8e2d6), 'subdial');
     subdial.position.set(5, 3.8, 5);
     g.add(dial, subdial);
     layers.push({ group: g, meshes: [dial, subdial], assembledY: 3, explodedY: 0 });
   }
   // Lớp 3: đế máy + thùng cót (đồng thau) + bánh răng (thép)
   {
-    const g = new THREE.Group();
-    const plate = new THREE.Mesh(new THREE.CylinderGeometry(19, 19, 2, 64), matSteel(0x6b6555));
-    const barrel = partMesh(new THREE.CylinderGeometry(7, 7, 4, 32), matBrass(), 'mainspring-barrel');
+    const g = new Group();
+    const plate = new Mesh(new CylinderGeometry(19, 19, 2, 64), matSteel(0x6b6555));
+    const barrel = partMesh(new CylinderGeometry(7, 7, 4, 32), matBrass(), 'mainspring-barrel');
     barrel.position.set(-8, 1, 0);
-    const gear1 = partMesh(new THREE.CylinderGeometry(4, 4, 3, 20), matSteel(0x4a545f), 'gear-train');
+    const gear1 = partMesh(new CylinderGeometry(4, 4, 3, 20), matSteel(0x4a545f), 'gear-train');
     gear1.position.set(2, 0.5, 0);
-    const gear2 = partMesh(new THREE.CylinderGeometry(3, 3, 3, 16), matSteel(0x5a6878), 'gear-train');
+    const gear2 = partMesh(new CylinderGeometry(3, 3, 3, 16), matSteel(0x5a6878), 'gear-train');
     gear2.position.set(8, 0.5, -3);
-    const gear3 = partMesh(new THREE.CylinderGeometry(2.5, 2.5, 3, 14), matSteel(0x5a6878), 'gear-train');
+    const gear3 = partMesh(new CylinderGeometry(2.5, 2.5, 3, 14), matSteel(0x5a6878), 'gear-train');
     gear3.position.set(8, 0.5, 4);
     g.add(plate, barrel, gear1, gear2, gear3);
     layers.push({ group: g, meshes: [barrel, gear1, gear2, gear3], assembledY: 0, explodedY: -20 });
   }
   // Lớp 4: bộ thoát (thép) + bánh lắc (rubi)
-  let balance: THREE.Mesh;
+  let balance: Mesh;
   {
-    const g = new THREE.Group();
-    const escPlate = new THREE.Mesh(new THREE.CylinderGeometry(17, 17, 1.5, 48), matSteel(0x4a545f));
+    const g = new Group();
+    const escPlate = new Mesh(new CylinderGeometry(17, 17, 1.5, 48), matSteel(0x4a545f));
     escPlate.position.y = -3;
-    const escWheel = partMesh(new THREE.CylinderGeometry(3, 3, 2, 15), matSteel(0x9aa5af), 'escapement');
+    const escWheel = partMesh(new CylinderGeometry(3, 3, 2, 15), matSteel(0x9aa5af), 'escapement');
     escWheel.position.set(-4, -3, 2);
-    balance = partMesh(new THREE.TorusGeometry(5, 0.8, 12, 32), matRuby(), 'balance');
+    balance = partMesh(new TorusGeometry(5, 0.8, 12, 32), matRuby(), 'balance');
     balance.rotation.x = Math.PI / 2;
     balance.position.set(5, -3, -2);
     g.add(escPlate, escWheel, balance);
@@ -218,27 +243,27 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   }
   // Lớp 5: rotor — thép chải, trục đồng thau
   {
-    const g = new THREE.Group();
+    const g = new Group();
     const rotor = partMesh(
-      new THREE.CylinderGeometry(14, 14, 2.5, 32, 1, false, 0, Math.PI),
+      new CylinderGeometry(14, 14, 2.5, 32, 1, false, 0, Math.PI),
       matSteel(0x7d8791),
       'rotor',
     );
     rotor.rotation.z = Math.PI / 2;
     rotor.rotation.y = Math.PI / 2;
     rotor.position.y = -6;
-    const rotorPin = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 3, 16), matBrass());
+    const rotorPin = new Mesh(new CylinderGeometry(1.5, 1.5, 3, 16), matBrass());
     rotorPin.position.y = -6;
     g.add(rotor, rotorPin);
     layers.push({ group: g, meshes: [rotor], assembledY: -6, explodedY: -60 });
   }
   // Lớp 6: thân vỏ + đáy vỏ — thép đậm
   {
-    const g = new THREE.Group();
-    const caseback = partMesh(new THREE.CylinderGeometry(21, 21, 3, 64), matSteel(0x4a545f), 'caseback');
+    const g = new Group();
+    const caseback = partMesh(new CylinderGeometry(21, 21, 3, 64), matSteel(0x4a545f), 'caseback');
     caseback.position.y = -9;
-    const caseWall = new THREE.Mesh(
-      new THREE.CylinderGeometry(21, 21, 18, 64, 1, true),
+    const caseWall = new Mesh(
+      new CylinderGeometry(21, 21, 18, 64, 1, true),
       mat(0x3a3a3a, 0.3),
     );
     g.add(caseback, caseWall);
@@ -300,10 +325,10 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   // nằm trọn trong khung theo cả chiều dọc (fov dọc) và chiều ngang (fov ngang
   // suy từ aspect canvas). Không hard-code khoảng cách cho một khổ màn hình.
   interface CamTween {
-    fromPos: THREE.Vector3;
-    toPos: THREE.Vector3;
-    fromTarget: THREE.Vector3;
-    toTarget: THREE.Vector3;
+    fromPos: Vector3;
+    toPos: Vector3;
+    fromTarget: Vector3;
+    toTarget: Vector3;
     start: number;
     dur: number;
   }
@@ -319,8 +344,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     return true; // đang chuyển động — giữ render loop chạy
   }
 
-  function modelBounds(targetYs: number[]): THREE.Box3 {
-    const box = new THREE.Box3();
+  function modelBounds(targetYs: number[]): Box3 {
+    const box = new Box3();
     const savedY = layers.map((l) => l.group.position.y);
     layers.forEach((l, i) => {
       l.group.position.y = targetYs[i];
@@ -336,17 +361,17 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     const targetYs = layers.map((l) => (isExploded ? l.explodedY : l.assembledY));
     const box = modelBounds(targetYs);
     if (box.isEmpty()) return;
-    const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new Vector3());
+    const size = box.getSize(new Vector3());
 
     const cw = container.clientWidth || 1;
     const ch = container.clientHeight || 1;
-    const fovV = THREE.MathUtils.degToRad(camera.fov);
+    const fovV = MathUtils.degToRad(camera.fov);
     const fovH = 2 * Math.atan(Math.tan(fovV / 2) * (cw / ch));
     const distV = (size.y / 2) / Math.tan(fovV / 2);
     const spanH = Math.max(size.x, size.z) / 2;
     const distH = spanH / Math.tan(fovH / 2);
-    const dist = THREE.MathUtils.clamp(
+    const dist = MathUtils.clamp(
       Math.max(distV, distH) * FRAME_PADDING,
       controls.minDistance,
       controls.maxDistance,
@@ -488,8 +513,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   // Xoay camera quanh trục thẳng đứng (độ) — dùng cho nút xoay trái/phải
   function rotateBy(deg: number) {
     const offset = camera.position.clone().sub(controls.target);
-    const sph = new THREE.Spherical().setFromVector3(offset);
-    sph.theta += THREE.MathUtils.degToRad(deg);
+    const sph = new Spherical().setFromVector3(offset);
+    sph.theta += MathUtils.degToRad(deg);
     offset.setFromSpherical(sph);
     camera.position.copy(controls.target).add(offset);
     controls.update();
@@ -498,7 +523,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   // Thu/phóng theo hệ số (0.85 = phóng to, 1.18 = thu nhỏ) — tôn trọng min/maxDistance
   function zoomBy(factor: number) {
     const offset = camera.position.clone().sub(controls.target);
-    offset.setLength(THREE.MathUtils.clamp(offset.length() * factor, controls.minDistance, controls.maxDistance));
+    offset.setLength(MathUtils.clamp(offset.length() * factor, controls.minDistance, controls.maxDistance));
     camera.position.copy(controls.target).add(offset);
     controls.update();
     wake();
@@ -524,7 +549,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
       l.meshes.forEach((m) => {
         const ud = m.userData as { partId?: string; origEmissive?: number };
         if (ud.origEmissive !== undefined) {
-          (m.material as THREE.MeshStandardMaterial).emissive.setHex(ud.origEmissive);
+          (m.material as MeshStandardMaterial).emissive.setHex(ud.origEmissive);
           delete ud.origEmissive;
         }
       }),
@@ -545,7 +570,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     layers.forEach((l) =>
       l.meshes.forEach((m) => {
         if ((m.userData as { partId?: string }).partId === id) {
-          const material = m.material as THREE.MeshStandardMaterial;
+          const material = m.material as MeshStandardMaterial;
           const ud = m.userData as { origEmissive?: number };
           if (ud.origEmissive === undefined) ud.origEmissive = material.emissive.getHex();
           material.emissive.setHex(0xb8893c);
@@ -603,8 +628,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   root.querySelector('#zoom-out-3d')?.addEventListener('click', () => zoomBy(1.18));
 
   // Click/chạm chọn bộ phận — chỉ tính là click khi không phải thao tác kéo xoay
-  const raycaster = new THREE.Raycaster();
-  const pointer = new THREE.Vector2();
+  const raycaster = new Raycaster();
+  const pointer = new Vector2();
   let downX = 0;
   let downY = 0;
   renderer.domElement.addEventListener('pointerdown', (e) => {
@@ -619,7 +644,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    const allMeshes: THREE.Mesh[] = [];
+    const allMeshes: Mesh[] = [];
     layers.forEach((l) => l.meshes.forEach((m) => allMeshes.push(m)));
     const hits = raycaster.intersectObjects(allMeshes, false);
     const hitId = hits.length > 0 ? ((hits[0].object.userData as { partId?: string }).partId ?? null) : null;
@@ -657,9 +682,9 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     root.removeEventListener('keydown', onKeyDown);
     controls.dispose();
     scene.traverse((obj) => {
-      const mesh = obj as THREE.Mesh;
+      const mesh = obj as Mesh;
       if (mesh.geometry) mesh.geometry.dispose();
-      const material = mesh.material as THREE.Material | THREE.Material[] | undefined;
+      const material = mesh.material as Material | Material[] | undefined;
       if (material) {
         (Array.isArray(material) ? material : [material]).forEach((m) => m.dispose());
       }

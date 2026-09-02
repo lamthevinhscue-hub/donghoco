@@ -1,0 +1,40 @@
+---
+// Trang EN: ACCESSIBILITY — /en/accessibility/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Accessibility" description="How Mechanical Watch Knowledge approaches accessibility: WCAG 2.2 AA targets, keyboard support, dark mode and honest limits.">
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">Accessibility</h1>
+
+    <div class="prose-content mt-8">
+      <p>
+        This site aims to be readable and usable by as many people as possible. Here is what that
+        means in practice — and where the honest limits are.
+      </p>
+
+      <h2>What we build for</h2>
+      <ul>
+        <li><strong>WCAG 2.2 AA as the working target.</strong> Automated checks run on every build: colour contrast, hidden text, keyboard operability, semantics and motion. Automated checks cover the static layer only — they do not prove every real-world experience.</li>
+        <li><strong>Full keyboard support.</strong> Menus, search, tables and interactive diagrams are operable without a mouse. Wide data tables sit in scrollable regions that respond to arrow keys.</li>
+        <li><strong>Zoom and reflow.</strong> The layout reflows at narrow widths and 200% zoom without horizontal page scroll.</li>
+        <li><strong>Dark mode</strong> as a full first-class theme, with palettes checked for contrast.</li>
+        <li><strong>Reduced motion respected.</strong> Animations honour the operating system's reduced-motion setting, and interactive diagrams expose explicit pause controls.</li>
+        <li><strong>Search without JavaScript</strong> degrades gracefully: content pages remain fully readable with scripts disabled.</li>
+      </ul>
+
+      <h2>Honest limits</h2>
+      <ul>
+        <li>Screen-reader testing on real devices is done periodically, not continuously — some gaps may remain.</li>
+        <li>Some animated infographics and interactive tools currently exist only in the Vietnamese edition with Vietnamese labels; they are hidden rather than half-translated in the English edition.</li>
+        <li>Third-party embeds, if any are added in future, may not meet the same standard.</li>
+      </ul>
+
+      <h2>Found a barrier?</h2>
+      <p>
+        If something on this site blocks you, please tell us via the Contact page. Accessibility issues
+        are treated as bugs and fixed in the regular build cycle.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

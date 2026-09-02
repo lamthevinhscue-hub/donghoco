@@ -51,13 +51,19 @@ const tr = t(lang);
 const { title, excerpt, date, updated, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [], schemaOverride } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
-// Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che")
+// Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che").
+// Gồm cả đường dẫn tiếng Anh (/en/...) — tr đã theo ngôn ngữ trang.
 const sectionLabels: Record<string, string> = {
   '/thuong-hieu': tr.nav_brands,
   '/mau-iconic': tr.nav_iconic,
   '/co-che': tr.nav_mechanisms,
   '/tu-dien': tr.nav_glossary,
   '/huong-dan': tr.nav_guides,
+  '/en/brands': tr.nav_brands,
+  '/en/iconic-watches': tr.nav_iconic,
+  '/en/mechanisms': tr.nav_mechanisms,
+  '/en/glossary': tr.nav_glossary,
+  '/en/guides': tr.nav_guides,
 };
 const breadcrumbData = backHref ? [
   { name: tr.siteName, path: '/' },
@@ -88,7 +94,7 @@ if (schemaOverride) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
-    inLanguage: 'vi-VN',
+    inLanguage: lang === 'vi' ? 'vi-VN' : 'en',
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     author: SITE_AUTHOR,
     publisher: SITE_PUBLISHER,
@@ -99,13 +105,14 @@ if (schemaOverride) {
   if (updatedStr ?? date) articleData.dateModified = updatedStr ?? date;
 }
 
-// Định dạng ngày thân thiện với tiếng Việt
-const fmtVi = (d?: string) =>
-  d ? new Date(d).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
-const formattedDate = fmtVi(date);
+// Định dạng ngày thân thiện theo ngôn ngữ trang
+const localeTag = lang === 'vi' ? 'vi-VN' : 'en-US';
+const fmtDate = (d?: string) =>
+  d ? new Date(d).toLocaleDateString(localeTag, { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+const formattedDate = fmtDate(date);
 // Chỉ coi là "đã cập nhật" khi updated khác ngày đăng — chưa bài nào có nên
 // dòng này hiện không xuất hiện ở bất kỳ trang nào
-const formattedUpdated = updatedStr && updatedStr !== date ? fmtVi(updatedStr) : null;
+const formattedUpdated = updatedStr && updatedStr !== date ? fmtDate(updatedStr) : null;
 ---
 
 <BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={date}>
@@ -177,9 +184,10 @@ const formattedUpdated = updatedStr && updatedStr !== date ? fmtVi(updatedStr) :
           </a>
         )}
 
-        <!-- Nút "Quay lại danh sách" — dưới cùng, sau mọi nội dung phụ -->
+        <!-- Nút "Quay lại danh sách" — dưới cùng, sau mọi nội dung phụ.
+             backHref tiếng Anh đã là đường dẫn cuối (/en/...) — không cộng tiền tố nữa. -->
         {backHref && (
-          <a href={localizedPath(backHref, lang)} data-pagefind-ignore class="mt-12 inline-flex min-h-11 items-center text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
+          <a href={backHref.startsWith('/en') ? backHref : localizedPath(backHref, lang)} data-pagefind-ignore class="mt-12 inline-flex min-h-11 items-center text-sm text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass">
             {tr.back_to_list}
           </a>
         )}

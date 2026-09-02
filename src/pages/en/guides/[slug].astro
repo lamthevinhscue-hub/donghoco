@@ -1,0 +1,20 @@
+---
+// EN wrapper — Hướng dẫn: /en/guides/[slug]
+// Thân trang dùng chung với bản tiếng Việt (GuideArticle).
+import GuideArticle from '../../../components/templates/GuideArticle.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import type { Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const lang: Lang = 'en';
+  const entries = await getEntriesByLang('huongDan', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+---
+
+<GuideArticle slug={slug} lang={lang} />

@@ -1,0 +1,23 @@
+---
+// EN index — Mechanisms: /en/mechanisms/
+import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getCoCheCategoryLabel, getMechanismDifficultyLabel } from '../../../i18n/ui';
+
+const entries = await getEntriesByLang('coChe', 'en');
+const items = entries.map((e) => ({
+  href: `/en/mechanisms/${getSlug(e)}/`,
+  title: e.data.title,
+  excerpt: e.data.excerpt,
+  meta: [getCoCheCategoryLabel(e.data.category, 'en'), getMechanismDifficultyLabel(e.data.difficulty, 'en')]
+    .filter(Boolean)
+    .join(' · '),
+}));
+---
+
+<EnCollectionIndex
+  title="Mechanisms"
+  description="How a mechanical watch works — the energy flow, the escapement and the power reserve, explained from first principles."
+  intro="Go deep into how mechanical watches run: where the energy comes from, how it is divided into beats, and what keeps the whole machine honest."
+  items={items}
+/>

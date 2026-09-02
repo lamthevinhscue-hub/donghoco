@@ -1,0 +1,20 @@
+---
+// EN wrapper — Cơ chế: /en/mechanisms/[slug]
+// Thân trang dùng chung với bản tiếng Việt (MechanismArticle).
+import MechanismArticle from '../../../components/templates/MechanismArticle.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import type { Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const lang: Lang = 'en';
+  const entries = await getEntriesByLang('coChe', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+---
+
+<MechanismArticle slug={slug} lang={lang} />

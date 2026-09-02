@@ -1,0 +1,21 @@
+---
+// EN index — Glossary: /en/glossary/
+import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getCategoryLabel } from '../../../i18n/ui';
+
+const entries = await getEntriesByLang('tuDien', 'en');
+const items = entries.map((e) => ({
+  href: `/en/glossary/${getSlug(e)}/`,
+  title: e.data.title,
+  excerpt: e.data.excerpt,
+  meta: getCategoryLabel(e.data.category, 'en'),
+}));
+---
+
+<EnCollectionIndex
+  title="Glossary"
+  description="Watchmaking terms in plain English — movement, calibre, escapement, hairspring, rotor, power reserve."
+  intro="The vocabulary of mechanical watchmaking, each term explained in a few paragraphs with sources — no jargon walls."
+  items={items}
+/>

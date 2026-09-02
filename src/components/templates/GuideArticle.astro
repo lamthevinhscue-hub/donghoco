@@ -1,0 +1,105 @@
+---
+// =============================================================================
+// GUIDE ARTICLE — template trang HƯỚNG DẪN dùng chung vi/en
+// =============================================================================
+// Wrappers: vi = /huong-dan/[slug], en = /en/guides/[slug].
+// Bản tiếng Anh: ẩn phần tương tác (nhãn hướng dẫn chưa dịch hoàn toàn);
+// DecisionMap chỉ đăng ký cho tiếng Việt nên tự ẩn qua getDecisionMap().
+// =============================================================================
+
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import BezelDiver from '../../components/interactive/BezelDiver.astro';
+import GmtReader from '../../components/interactive/GmtReader.astro';
+import TachymeterTool from '../../components/interactive/TachymeterTool.astro';
+import DateSafety from '../../components/interactive/DateSafety.astro';
+import DecisionMap from '../../components/DecisionMap.astro';
+import { getDecisionMap } from '../../data/decisionMaps';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import { collectionHref } from '../../i18n/contentRoutes';
+import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
+
+interface Props {
+  slug: string;
+  lang: Lang;
+}
+
+// Map slug → thành phần tương tác (chỉ các bài có thao tác cầm tay).
+// Nhãn/hướng dẫn của các thành phần này chưa dịch sang tiếng Anh — chỉ render vi.
+const interactive: Record<string, any> = {
+  'dung-vanh-lan': BezelDiver,
+  'doc-va-chinh-gmt': GmtReader,
+  'dung-tachymeter': TachymeterTool,
+  'chinh-lich-an-toan': DateSafety,
+};
+
+const { slug, lang } = Astro.props;
+const entries = await getEntriesByLang('huongDan', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content, headings } = await render(entry);
+const decisionMapData = getDecisionMap(slug, lang);
+const { data } = entry;
+
+const diffLabel: Record<string, { vi: string; en: string }> = {
+  'người mới': { vi: 'Dành cho người mới', en: 'For beginners' },
+  'trung cấp': { vi: 'Trung cấp', en: 'Intermediate' },
+  'nâng cao': { vi: 'Nâng cao', en: 'Advanced' },
+};
+const diff = diffLabel[(data as any).difficulty] ?? diffLabel['người mới'];
+const meta = lang === 'vi' ? diff.vi : diff.en;
+
+// ====== Gợi ý "Đọc tiếp" (tối đa 3) ======
+const diffOrder = ['người mới', 'trung cấp', 'nâng cao'];
+const curIdx = diffOrder.indexOf((data as any).difficulty);
+
+const related: RelatedItem[] = [];
+
+const nextDiff = entries
+  .filter((e) => getSlug(e) !== slug)
+  .filter((e) => diffOrder.indexOf((e.data as any).difficulty) === curIdx + 1)
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+const sameDiff = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).difficulty === (data as any).difficulty)
+  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+
+for (const e of [...nextDiff, ...sameDiff]) {
+  if (related.length >= 3) break;
+  const ed = e.data as any;
+  if (related.some((r) => r.title === ed.title)) continue;
+  const d = diffLabel[ed.difficulty] ?? diffLabel['người mới'];
+  related.push({
+    href: collectionHref('huongDan', getSlug(e), lang),
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: lang === 'vi' ? d.vi : d.en,
+  });
+}
+
+const Interactive = lang === 'vi' ? interactive[slug] : null;
+const backHref = lang === 'vi' ? '/huong-dan' : '/en/guides';
+---
+
+<ArticleLayout
+  headings={headings}
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  updated={data.updated}
+  cover_image={data.cover_image}
+  backHref={backHref}
+  meta={meta}
+  relatedArticles={related}
+  sources={data.sources}
+>
+  {Interactive && (() => { const Ic = Interactive; return <Ic />; })()}
+
+  {decisionMapData && <DecisionMap map={decisionMapData} />}
+
+  <Content />
+</ArticleLayout>

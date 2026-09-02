@@ -37,9 +37,13 @@ export type SearchListener = (state: SearchState) => void;
 
 // ----- Nhãn nhóm nội dung (truyền từ component qua init để giữ i18n) --------
 let sectionLabels: Record<string, string> = {};
+// Ngôn ngữ của trang đang chạy (vi | en) — dùng lọc kết quả Pagefind theo
+// bộ lọc "language" gắn ở BaseLayout (data-pagefind-filter="language").
+let currentLang: string = 'vi';
 
-export function initSearchCore(labels: Record<string, string>) {
+export function initSearchCore(labels: Record<string, string>, lang?: string) {
   sectionLabels = labels;
+  if (lang) currentLang = lang;
 }
 
 function sectionOf(url: string): string {
@@ -50,6 +54,12 @@ function sectionOf(url: string): string {
   if (url.includes('/huong-dan')) return sectionLabels.guide ?? 'Hướng dẫn';
   if (url.includes('/lich-su')) return sectionLabels.history ?? 'Lịch sử';
   if (url.includes('/giai-phau')) return sectionLabels.anatomy ?? 'Giải phẫu';
+  // Các đường dẫn tiếng Anh của English launch pack
+  if (url.includes('/en/glossary')) return sectionLabels.glossary ?? 'Glossary';
+  if (url.includes('/en/mechanisms')) return sectionLabels.mechanism ?? 'Mechanisms';
+  if (url.includes('/en/brands')) return sectionLabels.brand ?? 'Brands';
+  if (url.includes('/en/iconic-watches')) return sectionLabels.iconic ?? 'Iconic watch';
+  if (url.includes('/en/guides')) return sectionLabels.guide ?? 'Guides';
   return sectionLabels.article ?? 'Bài viết';
 }
 
@@ -149,7 +159,12 @@ async function runSearch(q: string) {
   }
 
   try {
-    const search = await pagefindInstance.search(q);
+    // Lọc kết quả theo ngôn ngữ trang hiện tại (bộ lọc "language" được gắn
+    // trên mọi trang qua BaseLayout) — tìm kiếm tiếng Anh không trả trang
+    // tiếng Việt và ngược lại.
+    const search = await pagefindInstance.search(q, {
+      filters: { language: currentLang },
+    });
     const top = search.results.slice(0, 8);
     const rendered = await Promise.all(top.map((r: any) => r.data()));
     if (seq !== searchSeq) return;

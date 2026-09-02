@@ -120,7 +120,8 @@ const isHero = variant === 'hero';
 
     const msg = (key: string) => root.getAttribute('data-msg-' + key) ?? '';
 
-    // Đăng ký nhãn nhóm nội dung cho core (idempotent — mọi ô ghi đè cùng bộ nhãn)
+    // Đăng ký nhãn nhóm nội dung cho core (idempotent — mọi ô ghi đè cùng bộ nhãn).
+    // Ngôn ngữ trang lấy từ <html lang> — dùng lọc kết quả Pagefind theo ngôn ngữ.
     initSearchCore({
       glossary: root.getAttribute('data-section-glossary') ?? '',
       mechanism: root.getAttribute('data-section-mechanism') ?? '',
@@ -130,7 +131,7 @@ const isHero = variant === 'hero';
       history: root.getAttribute('data-section-history') ?? '',
       anatomy: root.getAttribute('data-section-anatomy') ?? '',
       article: root.getAttribute('data-section-article') ?? '',
-    });
+    }, document.documentElement.lang || 'vi');
 
     let selectedIndex = -1;
     let optionEls: HTMLAnchorElement[] = [];

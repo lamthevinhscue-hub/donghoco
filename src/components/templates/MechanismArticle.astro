@@ -1,0 +1,164 @@
+---
+// =============================================================================
+// MECHANISM ARTICLE — template trang bài CƠ CHẾ dùng chung vi/en
+// =============================================================================
+// Wrappers mỏng gọi component này: vi = /co-che/[slug], en = /en/mechanisms/[slug].
+// Bản tiếng Anh: ẩn infographic (nhãn hướng dẫn chưa dịch hoàn toàn), mọi
+// đường dẫn nội bộ trỏ về route tiếng Anh đang tồn tại.
+// =============================================================================
+
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import WaterResistance from '../../components/infographics/WaterResistance.astro';
+import PowerReserve from '../../components/infographics/PowerReserve.astro';
+import AntiMagnetic from '../../components/infographics/AntiMagnetic.astro';
+import GearTrain from '../../components/infographics/GearTrain.astro';
+import AutomaticWinding from '../../components/infographics/AutomaticWinding.astro';
+import Escapement from '../../components/infographics/Escapement.astro';
+import Chronograph from '../../components/infographics/glossary/Chronograph.astro';
+import Tourbillon from '../../components/infographics/glossary/Tourbillon.astro';
+import Hairspring from '../../components/infographics/glossary/Hairspring.astro';
+import GMT from '../../components/infographics/glossary/GMT.astro';
+import PerpetualCalendar from '../../components/infographics/glossary/PerpetualCalendar.astro';
+import ShockProtection from '../../components/infographics/ShockProtection.astro';
+import CoAxial from '../../components/infographics/CoAxial.astro';
+import MoonPhase from '../../components/infographics/glossary/MoonPhase.astro';
+import DateDisplay from '../../components/infographics/DateDisplay.astro';
+import Lume from '../../components/infographics/Lume.astro';
+import Crystal from '../../components/infographics/Crystal.astro';
+import MinuteRepeaterAnim from '../../components/infographics/MinuteRepeaterAnim.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import { t, getCoCheCategoryLabel, getMechanismDifficultyLabel } from '../../i18n/ui';
+import { collectionHref } from '../../i18n/contentRoutes';
+import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
+
+interface Props {
+  slug: string;
+  lang: Lang;
+}
+
+const { slug, lang } = Astro.props;
+const tr = t(lang);
+const entries = await getEntriesByLang('coChe', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content, headings } = await render(entry);
+const { data } = entry;
+const categoryLabel = getCoCheCategoryLabel((data as any).category, lang);
+const difficultyLabel = getMechanismDifficultyLabel((data as any).difficulty, lang);
+const meta = [(data as any).category ? categoryLabel : null, difficultyLabel]
+  .filter(Boolean)
+  .join(' • ');
+
+// Map slug vi -> component infographic. Bản EN ẩn (nhãn chưa dịch hoàn toàn).
+const infographics: Record<string, any> = {
+  'chong-nuoc': WaterResistance,
+  'tru-cot': PowerReserve,
+  'chong-tu': AntiMagnetic,
+  'chuyen-dong-co': GearTrain,
+  'len-day-tu-dong': AutomaticWinding,
+  'bo-thoat': Escapement,
+  'chronograph': Chronograph,
+  'tourbillon': Tourbillon,
+  'day-toc-banh-lac': Hairspring,
+  'gmt': GMT,
+  'perpetual-calendar': PerpetualCalendar,
+  'chong-soc': ShockProtection,
+  'bo-thoat-dong-truc': CoAxial,
+  'pha-trang': MoonPhase,
+  'hien-thi-ngay': DateDisplay,
+  'da-quang': Lume,
+  'kinh-dong-ho': Crystal,
+  'diem-chuong': MinuteRepeaterAnim,
+};
+const Infographic =
+  lang === 'vi' && (data as any).has_infographic ? infographics[slug] : null;
+
+// ====== Gợi ý "Đọc tiếp" (tối đa 3) — theo lộ trình đọc ======
+const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
+const stageOrder = ['nền tảng', 'phức tạp', 'bổ trợ'];
+const roadmap = stageOrder.flatMap((cat) =>
+  entries
+    .filter((e) => (e.data as any).category === cat)
+    .sort((a, b) => {
+      const da = diffOrder.indexOf((a.data as any).difficulty);
+      const db = diffOrder.indexOf((b.data as any).difficulty);
+      return (da === -1 ? 99 : da) - (db === -1 ? 99 : db);
+    })
+);
+const curRoadmapIdx = roadmap.findIndex((e) => getSlug(e) === slug);
+const nextInRoadmap = curRoadmapIdx >= 0 ? roadmap.slice(curRoadmapIdx + 1) : [];
+
+const related: RelatedItem[] = [];
+for (const e of nextInRoadmap.slice(0, 2)) {
+  const ed = e.data as any;
+  related.push({
+    href: collectionHref('coChe', getSlug(e), lang),
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: `${getCoCheCategoryLabel(ed.category, lang)} • ${getMechanismDifficultyLabel(ed.difficulty, lang)}`,
+  });
+}
+
+// Thuật ngữ tương ứng (cùng slug trong cùng ngôn ngữ)
+const tuDienEntries = await getEntriesByLang('tuDien', lang);
+const matchingTerm = tuDienEntries.find((e) => getSlug(e) === slug);
+if (matchingTerm) {
+  const md = matchingTerm.data as any;
+  related.push({
+    href: collectionHref('tuDien', getSlug(matchingTerm), lang),
+    title: md.title,
+    excerpt: md.excerpt,
+    meta: md.term_en ? `EN: ${md.term_en}` : md.category,
+  });
+}
+
+// Liên kết biên tập — bài đích phải tồn tại ở cùng ngôn ngữ
+const mauIconicEntries = await getEntriesByLang('mauIconic', lang);
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedModels ?? []) {
+  const target = mauIconicEntries.find((e) => getSlug(e) === rm.slug);
+  if (!target) continue;
+  editorialLinks.push({
+    href: collectionHref('mauIconic', rm.slug, lang),
+    title: (target.data as any).title,
+    kind: lang === 'vi' ? 'Mẫu iconic' : 'Iconic watch',
+    relation: rm.relation,
+  });
+}
+
+const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
+---
+
+<ArticleLayout
+  headings={headings}
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  updated={data.updated}
+  cover_image={data.cover_image}
+  backHref={backHref}
+  meta={meta}
+  relatedArticles={related}
+  sources={data.sources}
+>
+  {data.has_infographic && Infographic && <Infographic />}
+
+  {(data as any).has_infographic === false && lang === 'vi' && (
+    <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">
+      <strong class="text-brass">ℹ︎</strong>
+      {' '}Infographic động cho chủ đề này chưa có. Tạm thời chỉ có phần giải thích bằng chữ.
+    </div>
+  )}
+
+  <div class={(data as any).has_infographic && Infographic ? 'mt-16 border-t border-cream-dark pt-12' : ''}>
+    <Content />
+  </div>
+
+  {editorialLinks.length > 0 && <RelatedEditorial links={editorialLinks} />}
+</ArticleLayout>

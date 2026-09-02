@@ -1,0 +1,21 @@
+---
+// EN index — Guides: /en/guides/
+import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getGuideDifficultyLabel } from '../../../i18n/ui';
+
+const entries = await getEntriesByLang('huongDan', 'en');
+const items = entries.map((e) => ({
+  href: `/en/guides/${getSlug(e)}/`,
+  title: e.data.title,
+  excerpt: e.data.excerpt,
+  meta: getGuideDifficultyLabel(e.data.difficulty, 'en'),
+}));
+---
+
+<EnCollectionIndex
+  title="Guides"
+  description="Practical guides from Mechanical Watch Knowledge — decision frameworks, not shopping lists."
+  intro="Reader-first guides: frameworks of questions to work out what you need — no 'best of' lists, no investment advice."
+  items={items}
+/>

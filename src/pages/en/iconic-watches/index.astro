@@ -1,0 +1,23 @@
+---
+// EN index — Iconic Watches: /en/iconic-watches/
+import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getIconicCategoryLabel } from '../../../i18n/ui';
+
+const entries = await getEntriesByLang('mauIconic', 'en');
+const items = entries.map((e) => ({
+  href: `/en/iconic-watches/${getSlug(e)}/`,
+  title: e.data.title,
+  excerpt: e.data.excerpt,
+  meta: [e.data.brand, e.data.year ? String(e.data.year) : null, e.data.category ? getIconicCategoryLabel(e.data.category, 'en') : null]
+    .filter(Boolean)
+    .join(' · '),
+}));
+---
+
+<EnCollectionIndex
+  title="Iconic Watches"
+  description="Profiles of the watches that defined entire categories — divers, chronographs and dress watches worth knowing."
+  intro="The stories of watches that set the template for their category — sourced, dated, and told without hype."
+  items={items}
+/>

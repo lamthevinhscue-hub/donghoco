@@ -1,118 +1,21 @@
 ---
-// Trang chi tiết: THƯƠNG HIỆU (template thế hệ mới — 5 khối)
-// =============================================================================
-// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 2.1.
-// - Dùng BrandLayout (5 khối: hồ sơ nhanh, mini-timeline, collections,
-//   segment comparison, mẫu iconic liên quan).
-// - Khối 5: tự động kéo các mẫu iconic có `brand` khớp từ collection mauIconic.
-// =============================================================================
-import BrandLayout from '../../layouts/BrandLayout.astro';
-import RelatedEditorial from '../../components/RelatedEditorial.astro';
+// Trang chi tiết: THƯƠNG HIỆU (tiếng Việt — /thuong-hieu/[slug])
+// Thân trang nằm ở template dùng chung src/components/templates/BrandArticle.astro
+// (wrapper tiếng Anh: /en/brands/[slug]). Route này chỉ sinh bản tiếng Việt.
+import BrandArticle from '../../components/templates/BrandArticle.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
-import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
-import { getTierLabel } from '../../i18n/ui';
 
-// Tạo các đường dẫn: một trang cho mỗi thương hiệu, cho mỗi ngôn ngữ
 export async function getStaticPaths() {
-  const langs: Lang[] = ['vi', 'en'];
-  const paths = [];
-  for (const lang of langs) {
-    const entries = await getEntriesByLang('thuongHieu', lang);
-    for (const entry of entries) {
-      paths.push({
-        params: { slug: getSlug(entry) },
-        props: { slug: getSlug(entry), lang },
-      });
-    }
-  }
-  return paths;
+  const lang: Lang = 'vi';
+  const entries = await getEntriesByLang('thuongHieu', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
 }
 
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
-const entries = await getEntriesByLang('thuongHieu', lang);
-const entry = entries.find((e) => getSlug(e) === slug);
-
-if (!entry) {
-  return Astro.redirect('/404');
-}
-
-const { Content } = await render(entry);
-const { data } = entry;
-
-// Meta hiển thị dưới tiêu đề
-const meta = [
-  data.country,
-  data.founded ? `${data.founded}` : null,
-  getTierLabel(data.tier, lang),
-].filter(Boolean).join(' • ');
-
-// ====== Khối 5: Tự động kéo mẫu iconic có `brand` khớp ======
-// Sắp A–Z theo tên mẫu hiển thị (Intl.Collator như trang danh sách thương hiệu).
-const collator = new Intl.Collator(lang === 'vi' ? 'vi' : 'en', { sensitivity: 'accent', numeric: true });
-const iconicEntries = await getEntriesByLang('mauIconic', lang);
-const iconicModels = iconicEntries
-  .filter((e) => {
-    const brand = (e.data as any).brand;
-    if (!brand) return false;
-    // So khớp không phân biệt hoa thường, bỏ dấu khoảng trắng
-    const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
-    return norm(brand) === norm(data.title);
-  })
-  .map((e) => ({
-    title: (e.data as any).title,
-    slug: getSlug(e),
-    excerpt: (e.data as any).excerpt,
-    category: (e.data as any).category,
-    year: (e.data as any).year,
-    cover_image: (e.data as any).cover_image,
-  }))
-  .sort((a, b) => collator.compare(a.title, b.title));
-
-// ====== Khối 5 thay thế (khi chưa có mẫu iconic): các hãng cùng phân hạng ======
-// Lấy tối đa 3 hãng cùng tier, loại hãng hiện tại — sắp A–Z TRƯỚC khi cắt 3 mục
-// để phần "cùng phân khúc" luôn bắt đầu từ hãng đứng đầu alphabet.
-// filter() trả về mảng mới nên sort không đụng mảng cache gốc.
-const sameTierBrands = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).tier === data.tier)
-  .sort((a, b) => collator.compare(a.data.title, b.data.title))
-  .slice(0, 3)
-  .map((e) => ({
-    title: (e.data as any).title,
-    slug: getSlug(e),
-    excerpt: (e.data as any).excerpt,
-    country: (e.data as any).country,
-    founded: (e.data as any).founded,
-    logo: (e.data as any).logo,
-  }));
-
-// ====== Liên kết biên tập — khối "Kết nối cùng chủ đề" ======
-// Nguồn: relatedMechanisms trong frontmatter thương hiệu (do biên tập chọn).
-// Bài cơ chế không tồn tại ở ngôn ngữ này thì bỏ qua.
-const coCheEntries = await getEntriesByLang('coChe', lang);
-const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
-for (const rm of (data as any).relatedMechanisms ?? []) {
-  const mech = coCheEntries.find((x) => getSlug(x) === rm.slug);
-  if (mech) {
-    editorialLinks.push({
-      href: `/co-che/${rm.slug}`,
-      title: (mech.data as any).title,
-      kind: 'Cơ chế',
-      relation: rm.relation,
-    });
-  }
-}
 ---
 
-<BrandLayout
-  title={data.title}
-  excerpt={data.excerpt}
-  meta={meta}
-  slug={slug}
-  data={data}
-  iconicModels={iconicModels}
-  sameTierBrands={sameTierBrands}
->
-  <Content />
-  <RelatedEditorial links={editorialLinks} />
-</BrandLayout>
+<BrandArticle slug={slug} lang={lang} />

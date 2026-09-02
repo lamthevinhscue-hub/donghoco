@@ -1,0 +1,154 @@
+---
+// =============================================================================
+// ICONIC ARTICLE — template trang MẪU ICONIC dùng chung vi/en
+// =============================================================================
+// Wrappers: vi = /mau-iconic/[slug], en = /en/iconic-watches/[slug].
+// Bản tiếng Anh: sơ đồ tiến hóa chỉ render vi (điều kiện lang đã có sẵn),
+// link so sánh ẩn (chưa có /en/so-sanh), bảng thông số chỉ gồm trường có dữ
+// liệu tiếng Anh (frontmatter EN không điền các trường giá trị tiếng Việt).
+// =============================================================================
+
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import SpecTable from '../../components/SpecTable.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
+import ModelEvolution from '../../components/ModelEvolution.astro';
+import { getEvolutionDataset } from '../../data/modelEvolution';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
+import { collectionHref } from '../../i18n/contentRoutes';
+import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
+
+interface Props {
+  slug: string;
+  lang: Lang;
+}
+
+const { slug, lang } = Astro.props;
+const evolutionDataset = getEvolutionDataset(slug, lang);
+const entries = await getEntriesByLang('mauIconic', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content, headings } = await render(entry);
+const { data } = entry;
+const meta = [
+  (data as any).brand,
+  (data as any).year ? `${(data as any).year}` : null,
+  (data as any).references && (data as any).references.length > 0 ? `${(data as any).references.length} ref` : null,
+].filter(Boolean).join(' • ');
+
+// ====== Khối "Thông số kỹ thuật" — SpecTable tự bỏ dòng rỗng ======
+const tr = t(lang);
+const specRows = [
+  { label: tr.spec_brand, value: (data as any).brand || '' },
+  { label: tr.spec_year, value: (data as any).year ? String((data as any).year) : '' },
+  { label: tr.spec_category, value: (data as any).category ? getIconicCategoryLabel((data as any).category, lang) : '' },
+  { label: tr.spec_movement, value: (data as any).movement || '' },
+  { label: tr.spec_power_reserve, value: (data as any).power_reserve || '' },
+  { label: tr.spec_water_resistance, value: (data as any).water_resistance || '' },
+  { label: tr.spec_references, value: (data as any).references && (data as any).references.length > 0 ? (data as any).references.join(', ') : '' },
+];
+
+// ====== Gợi ý "Đọc tiếp" (tối đa 3) ======
+const decade = (data as any).year ? Math.floor((data as any).year / 10) * 10 : null;
+const sameCategory = entries
+  .filter((e) => getSlug(e) !== slug && (e.data as any).category === (data as any).category)
+  .sort((a, b) => {
+    const ya = (a.data as any).year ?? 9999;
+    const yb = (b.data as any).year ?? 9999;
+    if ((data as any).year) {
+      return Math.abs(ya - (data as any).year) - Math.abs(yb - (data as any).year);
+    }
+    return ya - yb;
+  });
+
+const related: RelatedItem[] = [];
+
+if (sameCategory[0]) {
+  const e = sameCategory[0];
+  const ed = e.data as any;
+  related.push({
+    href: collectionHref('mauIconic', getSlug(e), lang),
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: ed.brand,
+    featureYear: ed.year ? String(ed.year) : undefined,
+  });
+}
+
+if ((data as any).brand) {
+  const brandEntries = await getEntriesByLang('thuongHieu', lang);
+  const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
+  const brandEntry = brandEntries.find((e) => {
+    const b = (e.data as any).title;
+    return b && norm(b) === norm((data as any).brand);
+  });
+  if (brandEntry) {
+    related.push({
+      href: collectionHref('thuongHieu', getSlug(brandEntry), lang),
+      title: (brandEntry.data as any).title,
+      excerpt: (brandEntry.data as any).excerpt,
+      meta: (brandEntry.data as any).country,
+    });
+  }
+}
+
+const thirdCandidate = sameCategory.find((e) => {
+  const ed = e.data as any;
+  return !related.some((r) => r.title === ed.title);
+});
+if (thirdCandidate) {
+  const ed = thirdCandidate.data as any;
+  related.push({
+    href: collectionHref('mauIconic', getSlug(thirdCandidate), lang),
+    title: ed.title,
+    excerpt: ed.excerpt,
+    meta: ed.brand,
+    featureYear: ed.year ? String(ed.year) : undefined,
+  });
+}
+
+// ====== Liên kết biên tập ======
+const coCheEntries = await getEntriesByLang('coChe', lang);
+const resolveTitle = (collection: any[], targetSlug: string) => {
+  const e = collection.find((x) => getSlug(x) === targetSlug);
+  return e ? (e.data as any).title : null;
+};
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedModels ?? []) {
+  const title = resolveTitle(entries, rm.slug);
+  if (title) editorialLinks.push({ href: collectionHref('mauIconic', rm.slug, lang), title, kind: lang === 'vi' ? 'Mẫu iconic' : 'Iconic watch', relation: rm.relation });
+}
+for (const rm of (data as any).relatedMechanisms ?? []) {
+  const title = resolveTitle(coCheEntries, rm.slug);
+  if (title) editorialLinks.push({ href: collectionHref('coChe', rm.slug, lang), title, kind: lang === 'vi' ? 'Cơ chế' : 'Mechanism', relation: rm.relation });
+}
+
+const backHref = lang === 'vi' ? '/mau-iconic' : '/en/iconic-watches';
+// Link so sánh chỉ cho tiếng Việt (/so-sanh chưa có bản tiếng Anh)
+const compareHref = lang === 'vi' ? localizedPath(`/so-sanh?m=${slug}`, lang) : undefined;
+---
+
+<ArticleLayout
+  headings={headings}
+  title={data.title}
+  excerpt={data.excerpt}
+  date={data.date}
+  updated={data.updated}
+  cover_image={data.cover_image}
+  backHref={backHref}
+  meta={meta}
+  relatedArticles={related}
+  compareHref={compareHref}
+  sources={data.sources}
+>
+  <SpecTable slot="spec" rows={specRows} />
+  <!-- Sơ đồ tiến hóa — chỉ tiếng Việt (nhãn mốc trong dataset là tiếng Việt) -->
+  {lang === 'vi' && evolutionDataset && <ModelEvolution dataset={evolutionDataset} />}
+  <Content />
+  <RelatedEditorial links={editorialLinks} />
+</ArticleLayout>

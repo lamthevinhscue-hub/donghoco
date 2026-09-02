@@ -1,0 +1,226 @@
+---
+// Trang EN: CONTACT — /en/contact/
+// Form gửi thật qua Formspree (cùng endpoint với bản tiếng Việt).
+// Nhãn, lỗi, trạng thái gửi đều là tiếng Anh — truyền qua data-attrs cho script.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/ui';
+
+const tr = t('en');
+
+const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID ?? '';
+const hasEndpoint = formspreeId.trim() !== '';
+const formAction = `https://formspree.io/f/${formspreeId}`;
+---
+
+<BaseLayout title="Contact" description="Questions, corrections or topic ideas for Mechanical Watch Knowledge — send them over.">
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">Contact</h1>
+    <p class="mt-4 text-ink-soft dark:text-dark-text-soft">
+      Got a question, feedback, or a topic idea? Send it over — I read everything.
+    </p>
+
+    {hasEndpoint ? (
+      <form
+        class="mt-10 space-y-5"
+        method="POST"
+        action={formAction}
+        data-form="contact"
+        novalidate
+        data-sending-text={tr.contact_sending}
+        data-success-text={tr.contact_success}
+        data-error-text={tr.contact_error}
+        data-msg-fill-name="Please enter your name."
+        data-msg-fill-email="Please enter your email address."
+        data-msg-email-invalid="That email address does not look valid — please check again."
+        data-msg-fill-message="Please write your message."
+      >
+        <div class="hidden" aria-hidden="true">
+          <label for="gotcha">Leave this field empty</label>
+          <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" name="_subject" value="Contact from Mechanical Watch Knowledge" />
+
+        <div>
+          <label for="name" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
+            {tr.contact_name} <span class="sr-only">(required)</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            aria-describedby="name-error"
+            maxlength="100"
+            class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-input-border dark:bg-dark-surface dark:text-dark-text"
+          />
+          <p id="name-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
+        </div>
+
+        <div>
+          <label for="email" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
+            {tr.contact_email} <span class="sr-only">(required)</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            aria-describedby="email-error"
+            maxlength="100"
+            class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-input-border dark:bg-dark-surface dark:text-dark-text"
+          />
+          <p id="email-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
+        </div>
+
+        <div>
+          <label for="message" class="mb-1.5 block text-sm font-medium text-navy dark:text-dark-text">
+            {tr.contact_message} <span class="sr-only">(required)</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            aria-describedby="message-error"
+            maxlength="2000"
+            class="w-full rounded-lg border border-ink-soft/70 bg-white px-4 py-2.5 text-ink focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass dark:border-dark-input-border dark:bg-dark-surface dark:text-dark-text"
+            data-message
+          ></textarea>
+          <p id="message-error" aria-live="polite" class="mt-1 hidden text-sm text-red-700 dark:text-red-300"></p>
+          <p class="mt-1 text-right text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
+            <span data-char-count>2000</span> {tr.contact_chars_remaining}
+          </p>
+        </div>
+
+        <button
+          type="submit"
+          data-submit-btn
+          class="rounded-lg bg-navy px-6 py-3 font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border"
+        >
+          {tr.contact_button}
+        </button>
+
+        <p
+          id="form-status"
+          aria-live="polite"
+          role="status"
+          class="hidden text-sm"
+        >
+        </p>
+      </form>
+    ) : (
+      <p class="mt-10 rounded-lg border border-cream-dark bg-cream-dark/20 px-5 py-4 text-sm text-ink-soft dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
+        {tr.contact_disabled_notice}
+      </p>
+    )}
+  </section>
+</BaseLayout>
+
+<script>
+  // Same controller as the Vietnamese contact page — labels arrive via
+  // data attributes rendered server-side in the page language.
+  const form = document.querySelector('[data-form="contact"]') as HTMLFormElement | null;
+  if (form) {
+    const status = document.getElementById('form-status');
+    const btn = form.querySelector('[data-submit-btn]') as HTMLButtonElement | null;
+    const btnOriginalText = btn ? btn.textContent : '';
+    const sendingText = form.dataset.sendingText ?? 'Sending…';
+    const successText = form.dataset.successText ?? 'Sent.';
+    const errorText = form.dataset.errorText ?? 'Error.';
+    const msg = (key: string) => (form.dataset as Record<string, string>)[key] ?? '';
+
+    interface FieldRule {
+      el: HTMLInputElement | HTMLTextAreaElement | null;
+      emptyMsg: string;
+      invalidMsg?: string;
+    }
+    const fields: FieldRule[] = [
+      { el: form.querySelector('#name'), emptyMsg: msg('msgFillName') },
+      { el: form.querySelector('#email'), emptyMsg: msg('msgFillEmail'), invalidMsg: msg('msgEmailInvalid') },
+      { el: form.querySelector('#message'), emptyMsg: msg('msgFillMessage') },
+    ];
+
+    function setFieldError(rule: FieldRule, text: string) {
+      if (!rule.el) return;
+      const errEl = document.getElementById(rule.el.id + '-error');
+      if (text) {
+        rule.el.setAttribute('aria-invalid', 'true');
+        if (errEl) {
+          errEl.textContent = text;
+          errEl.classList.remove('hidden');
+        }
+      } else {
+        rule.el.setAttribute('aria-invalid', 'false');
+        if (errEl) {
+          errEl.textContent = '';
+          errEl.classList.add('hidden');
+        }
+      }
+    }
+
+    function validateField(rule: FieldRule): boolean {
+      if (!rule.el) return true;
+      const v = rule.el.validity;
+      if (v.valid) {
+        setFieldError(rule, '');
+        return true;
+      }
+      setFieldError(rule, v.valueMissing ? rule.emptyMsg : rule.invalidMsg ?? rule.emptyMsg);
+      return false;
+    }
+
+    fields.forEach((rule) => {
+      rule.el?.addEventListener('input', () => {
+        if (rule.el?.getAttribute('aria-invalid') === 'true') validateField(rule);
+      });
+    });
+
+    const textarea = form.querySelector('[data-message]') as HTMLTextAreaElement | null;
+    const charCount = form.querySelector('[data-char-count]');
+    if (textarea && charCount) {
+      const max = textarea.getAttribute('maxlength') || '2000';
+      const update = () => {
+        const remaining = Number(max) - textarea.value.length;
+        charCount.textContent = String(remaining);
+      };
+      textarea.addEventListener('input', update);
+      update();
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!status || !btn) return;
+      const results = fields.map(validateField);
+      if (results.includes(false)) {
+        const firstBad = fields[results.indexOf(false)];
+        firstBad?.el?.focus();
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = sendingText;
+      status.textContent = '';
+      status.classList.add('hidden');
+      try {
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (resp.ok) {
+          form.reset();
+          if (charCount) charCount.textContent = '2000';
+          status.textContent = successText;
+        } else {
+          status.textContent = errorText;
+        }
+      } catch {
+        status.textContent = errorText;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = btnOriginalText;
+        status.classList.remove('hidden');
+      }
+    });
+  }
+</script>

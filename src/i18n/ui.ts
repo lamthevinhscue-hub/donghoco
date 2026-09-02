@@ -187,6 +187,17 @@ export const translations = {
     spec_references: 'Các thế hệ tham chiếu',
     // Khối "Nguồn tham khảo" cuối bài (SourceList.astro)
     sources_title: 'Nguồn tham khảo',
+    // Footer — ghi chú bản tin + link điều khoản bản quyền (trước đây hard-code)
+    footer_newsletter_note:
+      '✉ Tính năng nhận bài mới qua thư đang được chuẩn bị. Bạn có thể lưu trang và quay lại, hoặc theo dõi qua trang Liên hệ để nhận thông báo khi sẵn sàng.',
+    footer_terms: 'Điều khoản bản quyền',
+    // Language switcher — aria-label khi trang chưa có bản dịch (về trang chủ đích)
+    switch_lang_untranslated:
+      'Chuyển sang tiếng Anh — trang này chưa có bản dịch; bạn sẽ tới trang chủ tiếng Anh.',
+    // Homepage CTA phụ (trước đây hard-code tiếng Việt)
+    home_map_cta_prefix: 'Muốn bản đồ đầy đủ?',
+    home_map_cta_link: 'Lộ trình học đồng hồ cơ',
+    home_map_cta_suffix: 'gom ba hướng đọc — người mới, bộ máy, người sưu tầm — thành từng bước nối nhau.',
     // ===== Trang chủ — hồ sơ calibre (Gói 3) =====
     hero_title: 'Học đồng hồ cơ từ nguyên lý bộ máy',
     hero_lead: 'Kiến thức nền → cơ chế vận hành → thương hiệu và những mẫu định hình cả thể loại. Mỗi dữ kiện đều dẫn nguồn.',
@@ -233,11 +244,11 @@ export const translations = {
     filter_no_results: 'Không có bài viết nào phù hợp với bộ lọc.',
   },
   en: {
-    siteName: 'Đồng Hồ Cơ',
-    siteTagline: 'An in-depth Vietnamese platform about mechanical watches',
+    siteName: 'Mechanical Watch Knowledge',
+    siteTagline: 'A practical, source-led guide to mechanical watches — from first principles to collecting.',
     nav_home: 'Home',
     nav_brands: 'Brands',
-    nav_iconic: 'Iconic',
+    nav_iconic: 'Iconic Watches',
     nav_mechanisms: 'Mechanisms',
     nav_history: 'History',
     nav_glossary: 'Glossary',
@@ -371,6 +382,20 @@ export const translations = {
     spec_references: 'References',
     // "Sources" block at end of article (SourceList.astro)
     sources_title: 'Sources',
+    // Footer — newsletter note + copyright terms link (trước đây hard-code tiếng Việt)
+    footer_newsletter_note:
+      '✉ Email updates are being prepared. You can bookmark this page and come back later, or use the Contact page to reach out.',
+    footer_terms: 'Copyright terms',
+    // Language switcher — aria-label cho trường hợp trang chưa có bản dịch
+    // (nút lúc đó về trang chủ của ngôn ngữ đích, không dẫn tới URL rỗng)
+    switch_lang_untranslated: 'Switch to English — this page is not translated yet; you will land on the English home page.',
+    search_section_brand_en: 'Brand (English)',
+    // Homepage extra CTA (trước đây hard-code tiếng Việt)
+    home_map_cta_prefix: 'Want the full map?',
+    home_map_cta_link: 'The learning path',
+    home_map_cta_suffix: 'puts three reading routes — beginner, movement, collector — into connected steps.',
+    // 404-lite / misc
+    not_found_title: 'Page not found',
   },
 } as const;
 
@@ -603,4 +628,55 @@ export function getLanguageSwitcherUrl(url: URL, targetLang: Lang): string {
   const rest = path.replace(`/${currentLang}`, '') || '/';
   if (targetLang === defaultLang) return rest;
   return `/${targetLang}${rest === '/' ? '' : rest}`;
+}
+
+// =============================================================================
+// NHÃN GIÁ TRỊ ENUM TIẾNG VIỆT (difficulty/category trong frontmatter)
+// =============================================================================
+// Schema content collections dùng giá trị tiếng Việt ('thấp', 'nền tảng'...).
+// Bản tiếng Anh hiển thị nhãn dịch qua các bảng dưới — dữ liệu frontmatter
+// giữ nguyên để schema không đổi.
+// =============================================================================
+
+const difficultyCoCheLabels: Record<string, { vi: string; en: string }> = {
+  'thấp': { vi: 'Thấp', en: 'Introductory' },
+  'trung bình': { vi: 'Trung bình', en: 'Intermediate' },
+  'cao': { vi: 'Cao', en: 'Advanced' },
+  'rất cao': { vi: 'Rất cao', en: 'Very advanced' },
+};
+
+const difficultyGuideLabels: Record<string, { vi: string; en: string }> = {
+  'người mới': { vi: 'Người mới', en: 'Beginner' },
+  'trung cấp': { vi: 'Trung cấp', en: 'Intermediate' },
+  'nâng cao': { vi: 'Nâng cao', en: 'Advanced' },
+};
+
+const coCheCategoryLabels: Record<string, { vi: string; en: string }> = {
+  'nền tảng': { vi: 'Nền tảng', en: 'Foundations' },
+  'phức tạp': { vi: 'Phức tạp', en: 'Complications' },
+  'bổ trợ': { vi: 'Bổ trợ', en: 'Supplementary' },
+};
+
+const defaultCategoryLabels: Record<string, { vi: string; en: string }> = {
+  'chung': { vi: 'Chung', en: 'General' },
+};
+
+/** Nhãn hiển thị cho difficulty của bài cơ chế / từ điển */
+export function getMechanismDifficultyLabel(value: string, lang: Lang): string {
+  return difficultyCoCheLabels[value]?.[lang] ?? value;
+}
+
+/** Nhãn hiển thị cho difficulty của bài hướng dẫn */
+export function getGuideDifficultyLabel(value: string, lang: Lang): string {
+  return difficultyGuideLabels[value]?.[lang] ?? value;
+}
+
+/** Nhãn hiển thị cho category của bài cơ chế */
+export function getCoCheCategoryLabel(value: string, lang: Lang): string {
+  return coCheCategoryLabels[value]?.[lang] ?? value;
+}
+
+/** Nhãn hiển thị cho category chung (từ điển khi ngoài danh sách chính) */
+export function getGeneralCategoryLabel(value: string, lang: Lang): string {
+  return defaultCategoryLabels[value]?.[lang] ?? getCategoryLabel(value, lang);
 }

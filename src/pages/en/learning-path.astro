@@ -1,0 +1,106 @@
+---
+// Trang EN: LEARNING PATH — /en/learning-path/
+// Bản tiếng Anh của trang hub /lo-trinh-hoc-dong-ho. Giai đoạn launch này chỉ
+// dẫn tới các route tiếng Anh đang tồn tại — không link chết về bài tiếng Việt
+// chưa dịch, và không tạo trải nghiệm rỗng.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Learning path" description="Three reading routes through mechanical watch knowledge — beginner, movement, and the stories that defined categories. Every step is a real, published page.">
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">Learning path</h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft">
+      Three routes through what this site teaches. Each step is a page that exists right now —
+      the English edition is young, so the routes are short but every link is worth the click.
+    </p>
+
+    <div class="mt-12 space-y-10">
+      <!-- Route 1 -->
+      <section aria-labelledby="lp-beginner">
+        <h2 id="lp-beginner" class="font-serif text-2xl text-navy dark:text-dark-text">Route 1 — New to mechanical watches</h2>
+        <p class="mt-2 text-ink-soft dark:text-dark-text-soft">Start with the decision, then understand the machine behind the dial.</p>
+        <ol class="mt-5 space-y-2">
+          <li>
+            <a href="/en/guides/first-mechanical-watch/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">1</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Choose your first mechanical watch — the decision framework</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/mechanisms/how-a-mechanical-watch-works/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">2</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">How a mechanical watch works — mainspring to hands</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/glossary/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">3</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Keep the glossary open — terms as you meet them</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Route 2 -->
+      <section aria-labelledby="lp-movement">
+        <h2 id="lp-movement" class="font-serif text-2xl text-navy dark:text-dark-text">Route 2 — Understand the movement</h2>
+        <p class="mt-2 text-ink-soft dark:text-dark-text-soft">Follow the energy: storage, release, and the oscillator that keeps time.</p>
+        <ol class="mt-5 space-y-2">
+          <li>
+            <a href="/en/mechanisms/power-reserve/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">1</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Power reserve — where the energy lives</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/mechanisms/escapement/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">2</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">The escapement — how energy becomes beats</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/glossary/hairspring/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">3</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Hairspring &amp; balance — the oscillator that keeps time</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Route 3 -->
+      <section aria-labelledby="lp-stories">
+        <h2 id="lp-stories" class="font-serif text-2xl text-navy dark:text-dark-text">Route 3 — The watches that defined categories</h2>
+        <p class="mt-2 text-ink-soft dark:text-dark-text-soft">Three profiles, three archetypes: diver, chronograph, dress watch.</p>
+        <ol class="mt-5 space-y-2">
+          <li>
+            <a href="/en/iconic-watches/rolex-submariner/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">1</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Rolex Submariner — the archetypal diver</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/iconic-watches/omega-speedmaster/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">2</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Omega Speedmaster — the Moonwatch</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="/en/iconic-watches/cartier-tank/" class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel" style="font-variant-numeric: lining-nums;">3</span>
+              <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">Cartier Tank — the dress watch that broke the round mold</span>
+              <span class="ml-auto text-alloy group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

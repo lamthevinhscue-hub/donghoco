@@ -1,167 +1,21 @@
 ---
-// Trang chi tiết: MẪU ICONIC
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import SpecTable from '../../components/SpecTable.astro';
-import RelatedEditorial from '../../components/RelatedEditorial.astro';
-import ModelEvolution from '../../components/ModelEvolution.astro';
-import { getEvolutionDataset } from '../../data/modelEvolution';
+// Trang chi tiết: MẪU ICONIC (tiếng Việt — /mau-iconic/[slug])
+// Thân trang nằm ở template dùng chung src/components/templates/IconicArticle.astro
+// (wrapper tiếng Anh: /en/iconic-watches/[slug]). Route này chỉ sinh bản tiếng Việt.
+import IconicArticle from '../../components/templates/IconicArticle.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
-import { render } from 'astro:content';
-import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
-import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
-  const langs: Lang[] = ['vi', 'en'];
-  const paths = [];
-  for (const lang of langs) {
-    const entries = await getEntriesByLang('mauIconic', lang);
-    for (const entry of entries) {
-      paths.push({
-        params: { slug: getSlug(entry) },
-        props: { slug: getSlug(entry), lang },
-      });
-    }
-  }
-  return paths;
+  const lang: Lang = 'vi';
+  const entries = await getEntriesByLang('mauIconic', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
 }
 
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
-const evolutionDataset = getEvolutionDataset(slug, lang);
-const entries = await getEntriesByLang('mauIconic', lang);
-const entry = entries.find((e) => getSlug(e) === slug);
-
-if (!entry) {
-  return Astro.redirect('/404');
-}
-
-const { Content, headings } = await render(entry);
-const { data } = entry;
-const meta = [
-  data.brand,
-  data.year ? `${data.year}` : null,
-  data.references && data.references.length > 0 ? `${data.references.length} ref` : null,
-].filter(Boolean).join(' • ');
-
-// ====== Khối "Thông số kỹ thuật" — 7 dòng theo thứ tự cố định ======
-// Nhãn lấy từ i18n/ui.ts (không viết cứng). SpecTable tự bỏ dòng không có
-// dữ liệu; nếu rỗng hết thì không hiện khối.
-const tr = t(lang);
-const specRows = [
-  { label: tr.spec_brand, value: data.brand || '' },
-  { label: tr.spec_year, value: data.year ? String(data.year) : '' },
-  { label: tr.spec_category, value: data.category ? getIconicCategoryLabel(data.category, lang) : '' },
-  { label: tr.spec_movement, value: data.movement || '' },
-  { label: tr.spec_power_reserve, value: data.power_reserve || '' },
-  { label: tr.spec_water_resistance, value: data.water_resistance || '' },
-  { label: tr.spec_references, value: data.references && data.references.length > 0 ? data.references.join(', ') : '' },
-];
-
-// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
-// 1. Mẫu cùng category (ưu tiên cùng thập niên)
-// 2. Trang thương hiệu của mẫu này
-// 3. Một mẫu cùng thể loại khác (nếu còn)
-const decade = data.year ? Math.floor(data.year / 10) * 10 : null;
-const sameCategory = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).category === data.category)
-  .sort((a, b) => {
-    // Ưu tiên cùng thập niên (khoảng cách năm nhỏ hơn)
-    const ya = (a.data as any).year ?? 9999;
-    const yb = (b.data as any).year ?? 9999;
-    if (data.year) {
-      return Math.abs(ya - data.year) - Math.abs(yb - data.year);
-    }
-    return ya - yb;
-  });
-
-const related: RelatedItem[] = [];
-
-// (1) Mẫu cùng category, ưu tiên cùng thập niên
-if (sameCategory[0]) {
-  const e = sameCategory[0];
-  const ed = e.data as any;
-  related.push({
-    href: `/mau-iconic/${getSlug(e)}`,
-    title: ed.title,
-    excerpt: ed.excerpt,
-    meta: ed.brand,
-    featureYear: ed.year ? String(ed.year) : undefined,
-  });
-}
-
-// (2) Trang thương hiệu của mẫu này (nếu có brand khớp)
-if (data.brand) {
-  const brandEntries = await getEntriesByLang('thuongHieu', lang);
-  // So khớp không phân biệt hoa thường, bỏ dấu khoảng trắng (giống logic Khối 5)
-  const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
-  const brandEntry = brandEntries.find((e) => {
-    const b = (e.data as any).title;
-    return b && norm(b) === norm(data.brand);
-  });
-  if (brandEntry) {
-    related.push({
-      href: `/thuong-hieu/${getSlug(brandEntry)}`,
-      title: (brandEntry.data as any).title,
-      excerpt: (brandEntry.data as any).excerpt,
-      meta: (brandEntry.data as any).country,
-    });
-  }
-}
-
-// (3) Một mẫu cùng thể loại khác (mẫu thứ 2 cùng category, tránh trùng số 1)
-const thirdCandidate = sameCategory.find((e) => {
-  const ed = e.data as any;
-  return !related.some((r) => r.title === ed.title);
-});
-if (thirdCandidate) {
-  const ed = thirdCandidate.data as any;
-  related.push({
-    href: `/mau-iconic/${getSlug(thirdCandidate)}`,
-    title: ed.title,
-    excerpt: ed.excerpt,
-    meta: ed.brand,
-    featureYear: ed.year ? String(ed.year) : undefined,
-  });
-}
-
-// ====== Liên kết biên tập — khối "Kết nối cùng chủ đề" ======
-// Nguồn: relatedModels / relatedMechanisms trong frontmatter (do biên tập chọn,
-// mỗi liên kết kèm nhãn quan hệ). Bài đích không tồn tại ở ngôn ngữ này thì bỏ qua.
-const coCheEntries = await getEntriesByLang('coChe', lang);
-const resolveTitle = (collection: any[], targetSlug: string) => {
-  const e = collection.find((x) => getSlug(x) === targetSlug);
-  return e ? (e.data as any).title : null;
-};
-const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
-for (const rm of (data as any).relatedModels ?? []) {
-  const t = resolveTitle(entries, rm.slug);
-  if (t) editorialLinks.push({ href: `/mau-iconic/${rm.slug}`, title: t, kind: 'Mẫu iconic', relation: rm.relation });
-}
-for (const rm of (data as any).relatedMechanisms ?? []) {
-  const t = resolveTitle(coCheEntries, rm.slug);
-  if (t) editorialLinks.push({ href: `/co-che/${rm.slug}`, title: t, kind: 'Cơ chế', relation: rm.relation });
-}
 ---
 
-<ArticleLayout
-  headings={headings}
-  title={data.title}
-  excerpt={data.excerpt}
-  date={data.date}
-  updated={data.updated}
-  cover_image={data.cover_image}
-  backHref="/mau-iconic"
-  meta={meta}
-  relatedArticles={related}
-  compareHref={localizedPath(`/so-sanh?m=${slug}`, lang)}
-  sources={data.sources}
->
-  <SpecTable slot="spec" rows={specRows} />
-  <!-- Sơ đồ tiến hóa — CHỈ tiếng Việt, CHỈ slug có dataset đăng ký trong
-       src/data/modelEvolution.ts (hiện: rolex-gmt-master, rolex-submariner),
-       ngay sau bảng thông số, trước nội dung bài. Dữ kiện duy nhất nằm ở các
-       tệp dataset src/data/*Evolution.ts (hồ sơ nguồn trong docs/). -->
-  {lang === 'vi' && evolutionDataset && <ModelEvolution dataset={evolutionDataset} />}
-  <Content />
-  <RelatedEditorial links={editorialLinks} />
-</ArticleLayout>
+<IconicArticle slug={slug} lang={lang} />

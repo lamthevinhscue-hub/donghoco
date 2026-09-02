@@ -150,9 +150,11 @@ const FILENAME_ALT = /\.(jpe?g|png|webp|svg|gif|avif)$/i;
 
 // ----- 6. Vùng cuộn bảng phải dùng được bằng bàn phím (WCAG 2.1.1) -----
 {
-  // Plugin bọc bảng tại build: wrapper phải đủ tabIndex + role region + ariaLabel
+  // Plugin bọc bảng tại build: wrapper phải đủ tabIndex + role region + ariaLabel.
+  // ariaLabel giờ là biến chọn nhãn theo ngôn ngữ file (vi/en) — chấp nhận cả
+  // dạng literal ('...') lẫn shorthand (ariaLabel,) nhưng vẫn BẮT BUỘC có thuộc tính.
   const plugin = read('src/plugins/rehype-wrap-tables.mjs');
-  const need = [/tabIndex:\s*0/, /role:\s*'region'/, /ariaLabel:\s*'/];
+  const need = [/tabIndex:\s*0/, /role:\s*'region'/, /ariaLabel\s*[:,]/];
   const names = ['tabIndex: 0', "role: 'region'", 'ariaLabel'];
   const missingP = names.filter((n, i) => !need[i].test(plugin));
   if (missingP.length === 0) ok('rehype-wrap-tables: wrapper có tabIndex 0 + role region + ariaLabel');

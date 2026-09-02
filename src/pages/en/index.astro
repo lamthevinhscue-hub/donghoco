@@ -1,0 +1,195 @@
+---
+// =============================================================================
+// ENGLISH HOMEPAGE — /en/
+// =============================================================================
+// Nội dung tiếng Anh thật, mọi CTA/link trỏ tới route /en/ đang tồn tại.
+// Dùng chung các component với trang chủ tiếng Việt (SearchInline, SectionHeading);
+// các khối dữ liệu biên tập tiếng Việt (timeline, brand groups) không lặp lại ở đây.
+// =============================================================================
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import SearchInline from '../../components/SearchInline.astro';
+import { t } from '../../i18n/ui';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+
+const lang = 'en' as const;
+const tr = t(lang);
+const allIconics = await getEntriesByLang('mauIconic', lang);
+
+// Featured profiles — same editorial picks as the Vietnamese homepage
+const FEATURED_SLUGS = ['rolex-submariner', 'omega-speedmaster', 'cartier-tank'] as const;
+const featured = FEATURED_SLUGS.map((slug) => allIconics.find((e) => getSlug(e) === slug))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
+const [featuredLead, ...featuredRest] = featured;
+
+const pathNew = {
+  title: 'New to watches',
+  desc: 'Not sure what you need — start with choosing your first watch, then learn to read a movement.',
+  cta: 'Read the first-watch guide',
+  ctaHref: '/en/guides/first-mechanical-watch/',
+  steps: [
+    { href: '/en/guides/first-mechanical-watch/', label: 'Choose your first mechanical watch' },
+    { href: '/en/mechanisms/how-a-mechanical-watch-works/', label: 'Read how the movement works' },
+    { href: '/en/glossary/', label: 'Look up terms along the way' },
+  ],
+};
+const pathDeep = {
+  title: 'Go deep into the movement',
+  desc: 'Want to know why a mechanical watch runs — follow the energy through each stage.',
+  cta: 'Start with power reserve',
+  ctaHref: '/en/mechanisms/power-reserve/',
+  steps: [
+    { href: '/en/mechanisms/power-reserve/', label: 'Power reserve — where energy lives' },
+    { href: '/en/mechanisms/how-a-mechanical-watch-works/', label: 'The gear train distributes' },
+    { href: '/en/mechanisms/escapement/', label: 'The escapement releases each beat' },
+    { href: '/en/glossary/hairspring/', label: 'Balance and hairspring keep time' },
+  ],
+};
+---
+
+<BaseLayout>
+  <!-- ===== 1. HERO ===== -->
+  <section class="border-b border-line bg-surface-tech/50 dark:bg-dark-surface/30">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-3xl leading-tight text-navy dark:text-dark-text sm:text-5xl">
+          {tr.hero_title}
+        </h1>
+        <p class="mt-5 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft sm:text-lg">
+          {tr.hero_lead}
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="/en/guides/first-mechanical-watch/"
+            class="inline-flex min-h-11 items-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-steel dark:bg-steel dark:text-ink dark:hover:bg-steel/80"
+          >
+            {tr.cta_start}
+          </a>
+          <a
+            href="/en/mechanisms/how-a-mechanical-watch-works/"
+            class="inline-flex min-h-11 items-center rounded-lg border-2 border-navy px-5 py-2 text-sm font-semibold text-navy transition-colors hover:border-brass hover:text-brass dark:border-steel dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+          >
+            {tr.cta_mechanism}
+          </a>
+          <a
+            href="/en/glossary/"
+            class="ml-1 inline-flex min-h-11 items-center px-2 text-sm font-medium text-steel underline-offset-4 transition-colors hover:text-brass hover:underline dark:text-steel dark:hover:text-dark-brass"
+          >
+            {tr.cta_glossary} →
+          </a>
+        </div>
+        <SearchInline
+          inputId="hero-search-input-en"
+          variant="hero"
+          suggestions={['escapement', 'power reserve', 'Submariner', 'movement']}
+        />
+        <p class="mt-8 text-base leading-relaxed text-ink-soft/90 dark:text-dark-text-soft/70">
+          {tr.hero_counts.replace('{brands}', '3').replace('{iconics}', String(allIconics.length)).replace('{mechanisms}', '3').replace('{glossary}', '6')}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. READING PATHS ===== -->
+  <section class="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="en-paths-title">
+    <h2 id="en-paths-title" class="font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
+      {tr.paths_title}
+    </h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      {[pathNew, pathDeep].map((path) => (
+        <div class="rounded-xl border border-line bg-surface-raised p-6 dark:border-dark-border dark:bg-dark-surface">
+          <h3 class="font-serif text-xl text-navy dark:text-dark-text">{path.title}</h3>
+          <p class="mt-2 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{path.desc}</p>
+          <ol class="mt-5 space-y-2">
+            {path.steps.map((step, i) => (
+              <li>
+                <a
+                  href={step.href}
+                  class="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-brass/10 dark:hover:bg-dark-brass/15"
+                >
+                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-xs font-semibold text-steel dark:border-steel" style="font-variant-numeric: lining-nums;">{i + 1}</span>
+                  <span class="text-base font-medium text-ink group-hover:text-brass dark:text-dark-text dark:group-hover:text-dark-brass">{step.label}</span>
+                  <span class="ml-auto text-alloy transition-transform group-hover:translate-x-1 dark:text-dark-brass" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <a
+            href={path.ctaHref}
+            class="mt-4 inline-flex min-h-11 items-center rounded-lg bg-navy px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-steel dark:bg-steel dark:hover:bg-steel/80"
+          >
+            {path.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <a
+      href="/en/learning-path/"
+      class="mt-6 flex min-h-11 items-center justify-between gap-3 rounded-xl border border-line bg-surface-raised px-5 py-4 transition-colors hover:border-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel dark:border-dark-border dark:bg-dark-surface"
+    >
+      <span class="text-sm leading-snug text-ink-soft dark:text-dark-text-soft">
+        {tr.home_map_cta_prefix}
+        <span class="font-medium text-ink dark:text-dark-text">{tr.home_map_cta_link}</span>
+        {tr.home_map_cta_suffix}
+      </span>
+      <span class="shrink-0 text-lg text-steel dark:text-steel" aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <!-- ===== 3. EDITOR-SELECTED PROFILES ===== -->
+  {featured.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="en-featured-title">
+      <SectionHeading title={tr.featured_title} subtitle={tr.featured_desc} />
+      <div class="grid gap-6 lg:grid-cols-3">
+        {featuredLead && (
+          <article class="flex flex-col rounded-xl border-2 border-brass/40 bg-surface-raised p-7 dark:border-dark-brass/40 dark:bg-dark-surface lg:col-span-2">
+            {featuredLead.data.year && (
+              <span class="font-mono text-sm font-semibold text-ruby" style="font-variant-numeric: lining-nums;">{featuredLead.data.year}</span>
+            )}
+            <h3 class="mt-1 font-serif text-2xl leading-tight text-navy dark:text-dark-text sm:text-3xl">
+              <a href={`/en/iconic-watches/${getSlug(featuredLead)}/`} class="transition-colors hover:text-brass dark:hover:text-dark-brass">
+                {featuredLead.data.title}
+              </a>
+            </h3>
+            <p class="mt-1 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{featuredLead.data.brand}</p>
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{featuredLead.data.excerpt}</p>
+            <a
+              href={`/en/iconic-watches/${getSlug(featuredLead)}/`}
+              class="mt-auto inline-flex min-h-11 items-center self-start pt-4 text-sm font-semibold text-steel transition-colors hover:text-brass dark:hover:text-dark-brass"
+            >
+              {tr.read_more} →
+            </a>
+          </article>
+        )}
+        {featuredRest.map((entry) => (
+          <article class="flex flex-col rounded-xl border border-line bg-surface-raised p-6 dark:border-dark-border dark:bg-dark-surface">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-serif text-lg leading-tight text-navy dark:text-dark-text">
+                <a href={`/en/iconic-watches/${getSlug(entry)}/`} class="transition-colors hover:text-brass dark:hover:text-dark-brass">
+                  {entry.data.title}
+                </a>
+              </h3>
+              {entry.data.year && (
+                <span class="shrink-0 font-mono text-xs font-semibold text-ruby" style="font-variant-numeric: lining-nums;">{entry.data.year}</span>
+              )}
+            </div>
+            <p class="mt-1 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{entry.data.brand}</p>
+            <p class="mt-3 line-clamp-3 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{entry.data.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- ===== 4. TRUST ===== -->
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <div class="rounded-xl border border-line bg-surface-raised p-8 dark:border-dark-border dark:bg-dark-surface">
+      <h2 class="font-serif text-2xl text-navy dark:text-dark-text">{tr.trust_title}</h2>
+      <p class="mt-3 max-w-3xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.trust_body}</p>
+      <a href="/en/about/" class="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-steel transition-colors hover:text-brass dark:hover:text-dark-brass">
+        {tr.trust_link} →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

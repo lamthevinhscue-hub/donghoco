@@ -30,7 +30,8 @@ const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
 const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent, featureYear, compareSlug, compact = false } = Astro.props;
-const fullHref = localizedPath(href, lang);
+// Path tiếng Anh (/en/...) đã là địa chỉ cuối — chỉ cộng tiền tố cho path tiếng Việt
+const fullHref = href.startsWith('/en') ? href : localizedPath(href, lang);
 const compareHref = compareSlug ? localizedPath(`/so-sanh?m=${compareSlug}`, lang) : null;
 
 // Lớp màu cho nhãn phân hạng: nền nhạt + chữ đậm theo màu tier.

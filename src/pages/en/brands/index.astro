@@ -1,0 +1,20 @@
+---
+// EN index — Brands: /en/brands/
+import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+
+const entries = await getEntriesByLang('thuongHieu', 'en');
+const items = entries.map((e) => ({
+  href: `/en/brands/${getSlug(e)}/`,
+  title: e.data.title,
+  excerpt: e.data.excerpt,
+  meta: [e.data.country, e.data.founded ? `since ${e.data.founded}` : null].filter(Boolean).join(' · '),
+}));
+---
+
+<EnCollectionIndex
+  title="Brands"
+  description="Brand profiles from Mechanical Watch Knowledge — history, watchmaking philosophy and the calibres that matter."
+  intro="Editorial profiles of the manufacturers worth knowing — how they think, what they make, and the milestones that shaped them."
+  items={items}
+/>

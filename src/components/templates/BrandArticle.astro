@@ -1,0 +1,133 @@
+---
+// =============================================================================
+// BRAND ARTICLE — template trang THƯƠNG HIỆU dùng chung vi/en
+// =============================================================================
+// Wrappers: vi = /thuong-hieu/[slug], en = /en/brands/[slug].
+// - vi: BrandLayout 5 khối (hồ sơ nhanh, mini-timeline, collections, đối chiếu,
+//   mẫu iconic liên quan) — dữ liệu biên tập tiếng Việt trong frontmatter.
+// - en: ArticleLayout đơn giản (nội dung + nguồn) vì dữ liệu 5 khối chưa có
+//   bản tiếng Anh; gợi ý đọc tiếp chỉ gồm route tiếng Anh đang tồn tại.
+// =============================================================================
+
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import BrandLayout from '../../layouts/BrandLayout.astro';
+import RelatedEditorial from '../../components/RelatedEditorial.astro';
+import { getEntriesByLang, getSlug } from '../../lib/content';
+import { render } from 'astro:content';
+import { getTierLabel } from '../../i18n/ui';
+import { collectionHref } from '../../i18n/contentRoutes';
+import type { Lang } from '../../i18n/ui';
+import type { RelatedItem } from '../../components/RelatedArticles.astro';
+
+interface Props {
+  slug: string;
+  lang: Lang;
+}
+
+const { slug, lang } = Astro.props;
+const entries = await getEntriesByLang('thuongHieu', lang);
+const entry = entries.find((e) => getSlug(e) === slug);
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(entry);
+const { data } = entry;
+
+const meta = [
+  (data as any).country,
+  (data as any).founded ? `${(data as any).founded}` : null,
+  getTierLabel((data as any).tier, lang),
+].filter(Boolean).join(' • ');
+
+// ====== Mẫu iconic liên quan (brand khớp) — dùng cho cả hai ngôn ngữ ======
+const collator = new Intl.Collator(lang === 'vi' ? 'vi' : 'en', { sensitivity: 'accent', numeric: true });
+const iconicEntries = await getEntriesByLang('mauIconic', lang);
+const iconicModels = iconicEntries
+  .filter((e) => {
+    const brand = (e.data as any).brand;
+    if (!brand) return false;
+    const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
+    return norm(brand) === norm(data.title);
+  })
+  .map((e) => ({
+    title: (e.data as any).title,
+    slug: getSlug(e),
+    excerpt: (e.data as any).excerpt,
+    category: (e.data as any).category,
+    year: (e.data as any).year,
+    cover_image: (e.data as any).cover_image,
+  }))
+  .sort((a, b) => collator.compare(a.title, b.title));
+
+// ====== Nhánh EN: gợi ý đọc tiếp = mẫu iconic EN khớp brand (tối đa 3) ======
+const relatedEn: RelatedItem[] = iconicModels.slice(0, 3).map((m) => ({
+  href: collectionHref('mauIconic', m.slug, lang),
+  title: m.title,
+  excerpt: m.excerpt,
+  meta: m.year ? String(m.year) : undefined,
+}));
+
+// ====== Liên kết biên tập (relatedMechanisms) — chỉ mục có bài đích cùng ngôn ngữ ======
+const coCheEntries = await getEntriesByLang('coChe', lang);
+const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
+for (const rm of (data as any).relatedMechanisms ?? []) {
+  const mech = coCheEntries.find((x) => getSlug(x) === rm.slug);
+  if (mech) {
+    editorialLinks.push({
+      href: collectionHref('coChe', rm.slug, lang),
+      title: (mech.data as any).title,
+      kind: lang === 'vi' ? 'Cơ chế' : 'Mechanism',
+      relation: rm.relation,
+    });
+  }
+}
+
+// ====== Nhánh VI: khối 5 thay thế — các hãng cùng phân hạng ======
+const sameTierBrands =
+  lang === 'vi'
+    ? entries
+        .filter((e) => getSlug(e) !== slug && (e.data as any).tier === (data as any).tier)
+        .sort((a, b) => collator.compare(a.data.title, b.data.title))
+        .slice(0, 3)
+        .map((e) => ({
+          title: (e.data as any).title,
+          slug: getSlug(e),
+          excerpt: (e.data as any).excerpt,
+          country: (e.data as any).country,
+          founded: (e.data as any).founded,
+          logo: (e.data as any).logo,
+        }))
+    : [];
+---
+
+{lang === 'vi' ? (
+  <BrandLayout
+    title={data.title}
+    excerpt={data.excerpt}
+    meta={meta}
+    slug={slug}
+    data={data}
+    iconicModels={iconicModels}
+    sameTierBrands={sameTierBrands}
+  >
+    <Content />
+    <RelatedEditorial links={editorialLinks} />
+  </BrandLayout>
+) : (
+  <ArticleLayout
+    headings={[]}
+    title={data.title}
+    excerpt={data.excerpt}
+    date={data.date}
+    updated={data.updated}
+    cover_image={data.cover_image}
+    backHref="/en/brands"
+    meta={meta}
+    relatedArticles={relatedEn}
+    sources={data.sources}
+  >
+    <Content />
+    {editorialLinks.length > 0 && <RelatedEditorial links={editorialLinks} />}
+  </ArticleLayout>
+)}

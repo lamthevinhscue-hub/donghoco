@@ -1,0 +1,20 @@
+---
+// EN wrapper — Mẫu iconic: /en/iconic-watches/[slug]
+// Thân trang dùng chung với bản tiếng Việt (IconicArticle).
+import IconicArticle from '../../../components/templates/IconicArticle.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import type { Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const lang: Lang = 'en';
+  const entries = await getEntriesByLang('mauIconic', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+---
+
+<IconicArticle slug={slug} lang={lang} />

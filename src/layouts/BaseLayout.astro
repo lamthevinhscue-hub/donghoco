@@ -12,6 +12,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage } from '../i18n/ui';
+import { getAlternates } from '../i18n/contentRoutes';
 import Analytics from '@vercel/analytics/astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
@@ -58,6 +59,21 @@ const metaDescription = description ? truncateMeta(description) : undefined;
 const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
+// Các bản ngôn ngữ thay thế (hreflang) — chỉ sinh khi cặp thật sự tồn tại
+// (bảng trung tâm contentRoutes.ts). x-default luôn trỏ về bản tiếng Việt.
+const alternates = getAlternates(Astro.url.pathname);
+const hreflangUrls = alternates.en
+  ? [
+      { lang: 'vi', href: new URL(alternates.vi, siteUrl).href },
+      { lang: 'en', href: new URL(alternates.en, siteUrl).href },
+      { lang: 'x-default', href: new URL(alternates.vi, siteUrl).href },
+    ]
+  : [];
+
+// og:locale + JSON-LD inLanguage theo ngôn ngữ trang
+const ogLocale = lang === 'vi' ? 'vi_VN' : 'en_US';
+const schemaLanguage = lang === 'vi' ? 'vi-VN' : 'en';
+
 // OG image: ưu tiên cover_image > ảnh theo khu vực > ảnh mặc định
 const ogImage = getOgImage(Astro.url.pathname, cover_image);
 const ogImageUrl = new URL(ogImage, siteUrl).href;
@@ -87,6 +103,11 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
 
+    <!-- Các bản ngôn ngữ thay thế — chỉ khi cặp dịch thật sự tồn tại -->
+    {hreflangUrls.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+
     <!-- Open Graph (Facebook, Zalo, LinkedIn...) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={tr.siteName} />
@@ -98,7 +119,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content={ogImage.endsWith('.png') ? 'image/png' : 'image/jpeg'} />
     <meta property="og:image:alt" content={tr.og_image_alt} />
-    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -112,9 +133,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: tr.siteName,
-      url: siteUrl.href,
+      url: canonicalUrl,
       description: tr.siteTagline,
-      inLanguage: 'vi-VN',
+      inLanguage: schemaLanguage,
       author: SITE_AUTHOR,
       publisher: SITE_PUBLISHER,
       copyrightHolder: SITE_PUBLISHER,
@@ -151,6 +172,8 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     />
   </head>
   <body class="flex min-h-screen flex-col bg-cream text-ink dark:bg-dark-bg dark:text-dark-text">
+    <!-- Pagefind: bộ lọc ngôn ngữ của trang — client search lọc kết quả theo giá trị này -->
+    <div data-pagefind-filter="language" class="hidden" aria-hidden="true">{lang}</div>
     <!-- Skip link — người dùng bàn phím nhảy thẳng tới nội dung chính (ẩn cho chuột/mắt) -->
     <a href="#main-content" class="skip-link">
       {tr.skip_to_content}
@@ -174,7 +197,14 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
         if (!wrap.hasAttribute('tabindex')) wrap.setAttribute('tabindex', '0');
         if (!wrap.hasAttribute('role')) wrap.setAttribute('role', 'region');
         if (!wrap.hasAttribute('aria-label')) {
-          wrap.setAttribute('aria-label', 'Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột');
+          // Nhãn theo ngôn ngữ trang (trước đây hard-code tiếng Việt)
+          const isVi = (document.documentElement.lang || 'vi') === 'vi';
+          wrap.setAttribute(
+            'aria-label',
+            isVi
+              ? 'Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột'
+              : 'Data table — use the left and right arrow keys to see more columns'
+          );
         }
       }
 
@@ -197,7 +227,8 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
           const hint = document.createElement('p');
           hint.className = 'table-scroll-hint';
           hint.setAttribute('aria-hidden', 'true');
-          hint.textContent = '← Kéo ngang để xem hết bảng →';
+          const isVi = (document.documentElement.lang || 'vi') === 'vi';
+          hint.textContent = isVi ? '← Kéo ngang để xem hết bảng →' : '← Scroll sideways to see the full table →';
           wrap.insertAdjacentElement('afterend', hint);
         });
       }

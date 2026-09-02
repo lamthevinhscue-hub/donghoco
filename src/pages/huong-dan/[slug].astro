@@ -1,113 +1,21 @@
 ---
-// Trang chi tiết: HƯỚNG DẪN THỰC HÀNH
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import BezelDiver from '../../components/interactive/BezelDiver.astro';
-import GmtReader from '../../components/interactive/GmtReader.astro';
-import TachymeterTool from '../../components/interactive/TachymeterTool.astro';
-import DateSafety from '../../components/interactive/DateSafety.astro';
-import DecisionMap from '../../components/DecisionMap.astro';
-import { getDecisionMap } from '../../data/decisionMaps';
+// Trang chi tiết: HƯỚNG DẪN THỰC HÀNH (tiếng Việt — /huong-dan/[slug])
+// Thân trang nằm ở template dùng chung src/components/templates/GuideArticle.astro
+// (wrapper tiếng Anh: /en/guides/[slug]). Route này chỉ sinh bản tiếng Việt.
+import GuideArticle from '../../components/templates/GuideArticle.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
-import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
-import type { RelatedItem } from '../../components/RelatedArticles.astro';
-
-// Map slug → thành phần tương tác (chỉ các bài có thao tác cầm tay)
-const interactive: Record<string, any> = {
-  'dung-vanh-lan': BezelDiver,
-  'doc-va-chinh-gmt': GmtReader,
-  'dung-tachymeter': TachymeterTool,
-  'chinh-lich-an-toan': DateSafety,
-};
 
 export async function getStaticPaths() {
-  const langs: Lang[] = ['vi', 'en'];
-  const paths = [];
-  for (const lang of langs) {
-    const entries = await getEntriesByLang('huongDan', lang);
-    for (const entry of entries) {
-      paths.push({
-        params: { slug: getSlug(entry) },
-        props: { slug: getSlug(entry), lang },
-      });
-    }
-  }
-  return paths;
+  const lang: Lang = 'vi';
+  const entries = await getEntriesByLang('huongDan', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
 }
 
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
-const entries = await getEntriesByLang('huongDan', lang);
-const entry = entries.find((e) => getSlug(e) === slug);
-
-if (!entry) {
-  return Astro.redirect('/404');
-}
-
-const { Content, headings } = await render(entry);
-// Bàn quyết định đầu bài (chỉ vi, chỉ slug đăng ký trong decisionMaps.ts)
-const decisionMapData = getDecisionMap(slug, lang);
-const { data } = entry;
-
-const diffLabel: Record<string, { vi: string; en: string }> = {
-  'người mới': { vi: 'Dành cho người mới', en: 'For beginners' },
-  'trung cấp': { vi: 'Trung cấp', en: 'Intermediate' },
-  'nâng cao': { vi: 'Nâng cao', en: 'Advanced' },
-};
-const diff = diffLabel[data.difficulty] ?? diffLabel['người mới'];
-const meta = lang === 'vi' ? diff.vi : diff.en;
-
-// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
-// Quy tắc: hướng dẫn kế tiếp theo difficulty (từ thấp lên cao), rồi các bài cùng difficulty.
-const diffOrder = ['người mới', 'trung cấp', 'nâng cao'];
-const curIdx = diffOrder.indexOf(data.difficulty);
-
-const related: RelatedItem[] = [];
-
-// Bài kế tiếp đúng 1 bậc difficulty
-const nextDiff = entries
-  .filter((e) => getSlug(e) !== slug)
-  .filter((e) => diffOrder.indexOf((e.data as any).difficulty) === curIdx + 1)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
-
-// Bài cùng difficulty (bổ sung nếu chưa đủ 3)
-const sameDiff = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).difficulty === data.difficulty)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
-
-// Ghép: kế tiếp difficulty trước, rồi cùng difficulty
-for (const e of [...nextDiff, ...sameDiff]) {
-  if (related.length >= 3) break;
-  const ed = e.data as any;
-  // Tránh trùng lặp
-  if (related.some((r) => r.title === ed.title)) continue;
-  const d = diffLabel[ed.difficulty] ?? diffLabel['người mới'];
-  related.push({
-    href: `/huong-dan/${getSlug(e)}`,
-    title: ed.title,
-    excerpt: ed.excerpt,
-    meta: lang === 'vi' ? d.vi : d.en,
-  });
-}
 ---
 
-<ArticleLayout
-  headings={headings}
-  title={data.title}
-  excerpt={data.excerpt}
-  date={data.date}
-  updated={data.updated}
-  cover_image={data.cover_image}
-  backHref="/huong-dan"
-  meta={meta}
-  relatedArticles={related}
-  sources={data.sources}
->
-  {interactive[slug] && (() => { const Ic = interactive[slug]; return <Ic />; })()}
-
-  <!-- Bàn quyết định (DecisionMap) — chỉ bài có map đăng ký trong
-       src/data/decisionMaps.ts (hiện: chon-dong-ho-dau-tien). Bản đồ điều
-       hướng theo nhu cầu, HTML tĩnh — không script, dữ liệu từ tệp data. -->
-  {decisionMapData && <DecisionMap map={decisionMapData} />}
-
-  <Content />
-</ArticleLayout>
+<GuideArticle slug={slug} lang={lang} />

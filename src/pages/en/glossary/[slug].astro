@@ -1,0 +1,20 @@
+---
+// EN wrapper — Từ điển: /en/glossary/[slug]
+// Thân trang dùng chung với bản tiếng Việt (TermArticle).
+import TermArticle from '../../../components/templates/TermArticle.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import type { Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const lang: Lang = 'en';
+  const entries = await getEntriesByLang('tuDien', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+---
+
+<TermArticle slug={slug} lang={lang} />

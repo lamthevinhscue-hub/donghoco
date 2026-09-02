@@ -70,9 +70,15 @@ export async function getEntriesByLang(
   return sorted;
 }
 
-// Trích xuất slug (địa chỉ web) từ một entry
-// id = "vi/rolex.md" -> slug = "rolex"
+// Trích xuất slug (địa chỉ web) từ một entry.
+// ƯU TIÊN frontmatter `custom_slug` khi có; không có thì dùng tên file.
+// (Quy ước hiện tại: các file tiếng Việt KHÔNG đặt custom_slug — slug vi vẫn
+// là tên file, URL tiếng Việt không đổi. custom_slug phục vụ slug tiếng Anh
+// tự nhiên, ví dụ first-mechanical-watch.)
+// id = "vi/rolex.md" -> "rolex"; frontmatter custom_slug: "x" -> "x"
 export function getSlug(entry: CollectionEntry<ContentCollectionName>): string {
+  const custom = (entry.data as { custom_slug?: string }).custom_slug?.trim();
+  if (custom) return custom.replace(/^\//, '').replace(/\/$/, '');
   return entry.id.split('/').pop()?.replace(/\.(md|mdx)$/, '') ?? entry.id;
 }
 

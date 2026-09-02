@@ -1,131 +1,21 @@
 ---
-// Trang chi tiết: TỪ ĐIỂN THUẬT NGỮ
-// Hiển thị infographic minh họa (nếu có) + nội dung chữ giải thích
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import Tourbillon from '../../components/infographics/glossary/Tourbillon.astro';
-import MinuteRepeater from '../../components/infographics/glossary/MinuteRepeater.astro';
-import PerpetualCalendar from '../../components/infographics/glossary/PerpetualCalendar.astro';
-import VPH from '../../components/infographics/glossary/VPH.astro';
-import Incabloc from '../../components/infographics/glossary/Incabloc.astro';
-import Rotor from '../../components/infographics/glossary/Rotor.astro';
-import Chronograph from '../../components/infographics/glossary/Chronograph.astro';
-import Hairspring from '../../components/infographics/glossary/Hairspring.astro';
-import GMT from '../../components/infographics/glossary/GMT.astro';
+// Trang chi tiết: TỪ ĐIỂN THUẬT NGỮ (tiếng Việt — /tu-dien/[slug])
+// Thân trang nằm ở template dùng chung src/components/templates/TermArticle.astro
+// (wrapper tiếng Anh: /en/glossary/[slug]). Route này chỉ sinh bản tiếng Việt.
+import TermArticle from '../../components/templates/TermArticle.astro';
 import { getEntriesByLang, getSlug } from '../../lib/content';
-import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
-import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
 export async function getStaticPaths() {
-  const langs: Lang[] = ['vi', 'en'];
-  const paths = [];
-  for (const lang of langs) {
-    const entries = await getEntriesByLang('tuDien', lang);
-    for (const entry of entries) {
-      paths.push({
-        params: { slug: getSlug(entry) },
-        props: { slug: getSlug(entry), lang },
-      });
-    }
-  }
-  return paths;
+  const lang: Lang = 'vi';
+  const entries = await getEntriesByLang('tuDien', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
 }
 
 const { slug, lang } = Astro.props as { slug: string; lang: Lang };
-const entries = await getEntriesByLang('tuDien', lang);
-const entry = entries.find((e) => getSlug(e) === slug);
-
-if (!entry) {
-  return Astro.redirect('/404');
-}
-
-const { Content, headings } = await render(entry);
-const { data } = entry;
-const meta = data.term_en ? `EN: ${data.term_en}` : data.category;
-
-// Map slug -> component infographic từ điển
-const infographics: Record<string, any> = {
-  tourbillon: Tourbillon,
-  'minute-repeater': MinuteRepeater,
-  'perpetual-calendar': PerpetualCalendar,
-  vph: VPH,
-  incabloc: Incabloc,
-  rotor: Rotor,
-  chronograph: Chronograph,
-  gmt: GMT,
-  'day-toc-banh-lac': Hairspring,
-};
-const Infographic = data.has_infographic ? infographics[slug] : null;
-
-// ====== Tính gợi ý "Đọc tiếp" (tối đa 3) ======
-// 1. Bài cơ chế cùng chủ đề (đối chiếu slug)
-// 2. Thuật ngữ cùng category
-// 3. Thuật ngữ cùng category tiếp theo (nếu còn)
-const coCheEntries = await getEntriesByLang('coChe', lang);
-const matchingMechanism = coCheEntries.find((e) => getSlug(e) === slug);
-const sameCategory = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).category === data.category)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
-
-const related: RelatedItem[] = [];
-
-// (1) Bài cơ chế cùng slug
-if (matchingMechanism) {
-  const md = matchingMechanism.data as any;
-  related.push({
-    href: `/co-che/${getSlug(matchingMechanism)}`,
-    title: md.title,
-    excerpt: md.excerpt,
-    meta: `${md.category} • ${md.difficulty}`,
-  });
-}
-
-// (2) + (3) Thuật ngữ cùng category
-for (const e of sameCategory) {
-  if (related.length >= 3) break;
-  const ed = e.data as any;
-  related.push({
-    href: `/tu-dien/${getSlug(e)}`,
-    title: ed.title,
-    excerpt: ed.excerpt,
-    meta: ed.term_en ? `EN: ${ed.term_en}` : ed.category,
-  });
-}
-
-// ====== Schema DefinedTerm (Prompt 4 — SEO) ======
-// Trang thuật ngữ KHÔNG dùng Article: mỗi thuật ngữ là một DefinedTerm thuộc
-// DefinedTermSet của trang /tu-dien. URL tuyệt đối từ Astro.site.
-const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
-const termSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'DefinedTerm',
-  name: data.title,
-  description: data.excerpt,
-  url: new URL(Astro.url.pathname, siteUrl).href,
-  inDefinedTermSet: new URL('/tu-dien', siteUrl).href,
-};
 ---
 
-<ArticleLayout
-  headings={headings}
-  title={data.title}
-  excerpt={data.excerpt}
-  date={data.date}
-  updated={data.updated}
-  backHref="/tu-dien"
-  meta={meta}
-  relatedArticles={related}
-  sources={data.sources}
-  schemaOverride={termSchema}
->
-  {Infographic && (
-    <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-3 text-center text-xs font-medium text-brass">
-      ✅ Infographic minh họa {data.interactive ? 'tương tác (Play/Pause/Speed/Step)' : ''}
-    </div>
-  )}
-  {Infographic && <Infographic />}
-
-  <!-- Phần chữ giải thích (Markdown) -->
-  {Infographic && <div class="mt-12 border-t border-cream-dark pt-10"></div>}
-  <Content />
-</ArticleLayout>
+<TermArticle slug={slug} lang={lang} />

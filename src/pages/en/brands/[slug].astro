@@ -1,0 +1,21 @@
+---
+// EN wrapper — Thương hiệu: /en/brands/[slug]
+// Thân trang dùng chung với bản tiếng Việt (BrandArticle — nhánh EN dùng
+// ArticleLayout đơn giản vì dữ liệu 5 khối biên tập chưa có bản tiếng Anh).
+import BrandArticle from '../../../components/templates/BrandArticle.astro';
+import { getEntriesByLang, getSlug } from '../../../lib/content';
+import type { Lang } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const lang: Lang = 'en';
+  const entries = await getEntriesByLang('thuongHieu', lang);
+  return entries.map((entry) => ({
+    params: { slug: getSlug(entry) },
+    props: { slug: getSlug(entry), lang },
+  }));
+}
+
+const { slug, lang } = Astro.props as { slug: string; lang: Lang };
+---
+
+<BrandArticle slug={slug} lang={lang} />

@@ -1,0 +1,63 @@
+---
+// =============================================================================
+// EN COLLECTION INDEX — trang danh sách dùng chung cho 5 khu vực tiếng Anh
+// =============================================================================
+// Wrappers truyền vào danh sách bài EN đã xuất bản; component render card grid
+// nhất quán (markup cùng ngôn với card trang chủ EN).
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface IndexItem {
+  href: string;
+  title: string;
+  excerpt: string;
+  meta?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  intro: string;
+  items: IndexItem[];
+}
+
+const { title, description, intro, items } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">{title}</h1>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft">{intro}</p>
+
+    {items.length > 0 ? (
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <article class="flex flex-col rounded-xl border border-line bg-surface-raised p-6 transition-colors hover:border-brass/40 dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass/40">
+            <h2 class="font-serif text-xl leading-tight text-navy dark:text-dark-text">
+              <a href={item.href} class="transition-colors hover:text-brass dark:hover:text-dark-brass">
+                {item.title}
+              </a>
+            </h2>
+            {item.meta && (
+              <p class="mt-1 text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{item.meta}</p>
+            )}
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{item.excerpt}</p>
+            <a
+              href={item.href}
+              class="mt-4 inline-flex min-h-11 items-center self-start text-sm font-semibold text-steel transition-colors hover:text-brass dark:hover:text-dark-brass"
+              aria-label={`Read more: ${item.title}`}
+            >
+              Read more →
+            </a>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <p class="mt-10 rounded-lg border border-line bg-surface-raised p-6 text-ink-soft dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
+        Articles for this section are being prepared. The Vietnamese edition already covers this area in depth — use the language switch in the header to explore it.
+      </p>
+    )}
+  </section>
+</BaseLayout>

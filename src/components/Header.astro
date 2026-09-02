@@ -9,6 +9,7 @@
 // =============================================================================
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { localizedHref, switcherTarget } from '../i18n/contentRoutes';
 import SearchBox from './SearchBox.astro';
 import SearchInline from './SearchInline.astro';
 import ThemeToggle from './ThemeToggle.astro';
@@ -43,17 +44,32 @@ const exploreGroup = {
   ],
 };
 
+// Địa chỉ thật của từng mục trong ngôn ngữ hiện tại. Chỉ hiện mục CÓ bản dịch
+// (bảng trung tâm contentRoutes.ts) — không tạo link chết khi bản EN chưa có.
+const withHref = (item: { key: string; path: string }) => ({ ...item, href: localizedHref(item.path, lang) });
+const topNav = topItems.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
+const knowledgeNav = knowledgeGroup.items.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
+const exploreNav = exploreGroup.items.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
+
+// Bộ chuyển ngôn ngữ: trang hiện tại có bản dịch thì tới đúng trang đó;
+// chưa có thì về trang chủ ngôn ngữ đích và nói rõ bằng aria-label.
+const sw = switcherTarget(Astro.url.pathname);
+const switcherLabel = sw.translated
+  ? tr.switch_lang
+  : tr.switch_lang_untranslated;
+
 // Trang hiện tại active? Home chỉ khớp chính xác; mục khác khớp cả trang con.
 const currentPath = Astro.url.pathname;
 function isActive(path: string): boolean {
-  return path === '/' ? currentPath === '/' : currentPath.startsWith(path);
+  if (currentPath === path) return true;
+  return currentPath.startsWith(path.endsWith('/') ? path : path + '/');
 }
 // Trạng thái active: màu brass + gạch chân (không chỉ dựa vào màu) + aria-current do nơi gọi gắn.
 const activeLink = 'text-brass dark:text-dark-brass border-b-2 border-brass dark:border-dark-brass';
 // Nhóm menu cha active khi đang xem bất kỳ trang con nào trong nhóm (chỉ trạng thái thị giác —
 // button nhóm không mang aria-current vì đó là vai trò của link trang con).
-const knowledgeActive = knowledgeGroup.items.some((i) => isActive(i.path));
-const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
+const knowledgeActive = knowledgeNav.some((i) => isActive(i.href));
+const exploreActive = exploreNav.some((i) => isActive(i.href));
 ---
 
 <header data-pagefind-ignore class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur dark:border-dark-border dark:bg-dark-bg/95">
@@ -76,11 +92,11 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10" />
         </svg>
       </a>
-      {topItems.map((item) => (
+      {topNav.map((item) => (
         <a
-          href={localizedPath(item.path, lang)}
-          class={`inline-flex items-center border-b-2 py-3 text-sm transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${isActive(item.path) ? activeLink : 'border-transparent font-medium text-ink-soft'}`}
-          aria-current={isActive(item.path) ? 'page' : undefined}
+          href={item.href}
+          class={`inline-flex items-center border-b-2 py-3 text-sm transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${isActive(item.href) ? activeLink : 'border-transparent font-medium text-ink-soft'}`}
+          aria-current={isActive(item.href) ? 'page' : undefined}
         >
           {tr[item.key]}
         </a>
@@ -100,11 +116,11 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
           <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </button>
         <div id="nav-dropdown-knowledge" class="nav-dropdown-menu invisible absolute left-0 top-full z-50 min-w-[180px] translate-y-1 rounded-lg border border-cream-dark bg-white py-2 opacity-0 shadow-lg transition-all duration-150 dark:border-dark-border dark:bg-dark-surface">
-          {knowledgeGroup.items.map((item) => (
+          {knowledgeNav.map((item) => (
             <a
-              href={localizedPath(item.path, lang)}
-              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.path) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
-              aria-current={isActive(item.path) ? 'page' : undefined}
+              href={item.href}
+              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
+              aria-current={isActive(item.href) ? 'page' : undefined}
             >
               {tr[item.key]}
             </a>
@@ -112,7 +128,8 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
         </div>
       </div>
 
-      <!-- Mục xổ: Khám phá — vùng bấm 44px, hover/focus/:active rõ, gạch chân khi nhóm active -->
+      <!-- Mục xổ: Khám phá — chỉ hiện khi nhóm CÓ mục đã dịch (bản EN giai đoạn này ẩn cụm) -->
+      {exploreNav.length > 0 && (
       <div class="nav-dropdown relative">
         <button
           type="button"
@@ -126,23 +143,35 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
           <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </button>
         <div id="nav-dropdown-explore" class="nav-dropdown-menu invisible absolute left-0 top-full z-50 min-w-[180px] translate-y-1 rounded-lg border border-cream-dark bg-white py-2 opacity-0 shadow-lg transition-all duration-150 dark:border-dark-border dark:bg-dark-surface">
-          {exploreGroup.items.map((item) => (
+          {exploreNav.map((item) => (
             <a
-              href={localizedPath(item.path, lang)}
-              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.path) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
-              aria-current={isActive(item.path) ? 'page' : undefined}
+              href={item.href}
+              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
+              aria-current={isActive(item.href) ? 'page' : undefined}
             >
               {tr[item.key]}
             </a>
           ))}
         </div>
       </div>
+      )}
     </nav>
 
-    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + dark mode -->
+    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + ngôn ngữ + dark mode -->
     <div class="flex items-center gap-3">
       <SearchInline inputId="header-search-input" variant="header" />
       <SearchBox />
+      <!-- Bộ chuyển ngôn ngữ: link thật, bàn phím dùng được. Trang chưa có bản
+           dịch thì về trang chủ ngôn ngữ đích — aria-label nói rõ điều đó. -->
+      <a
+        href={sw.href}
+        data-pagefind-ignore
+        class="inline-flex min-h-11 items-center rounded-full border border-cream-dark px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
+        aria-label={switcherLabel}
+        hreflang={lang === 'vi' ? 'en' : 'vi'}
+      >
+        {tr.switch_lang}
+      </a>
       <ThemeToggle />
       <button
         type="button"
@@ -177,11 +206,11 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
         </svg>
         {tr.nav_home}
       </a>
-      {topItems.map((item) => (
+      {topNav.map((item) => (
         <a
-          href={localizedPath(item.path, lang)}
-          class={`block border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.path) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-          aria-current={isActive(item.path) ? 'page' : undefined}
+          href={item.href}
+          class={`block border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
+          aria-current={isActive(item.href) ? 'page' : undefined}
         >
           {tr[item.key]}
         </a>
@@ -189,27 +218,46 @@ const exploreActive = exploreGroup.items.some((i) => isActive(i.path));
 
       {/* Cụm Kiến thức */}
       <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[knowledgeGroup.key]}</p>
-      {knowledgeGroup.items.map((item) => (
+      {knowledgeNav.map((item) => (
         <a
-          href={localizedPath(item.path, lang)}
-          class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.path) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-          aria-current={isActive(item.path) ? 'page' : undefined}
+          href={item.href}
+          class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
+          aria-current={isActive(item.href) ? 'page' : undefined}
         >
           {tr[item.key]}
         </a>
       ))}
 
-      {/* Cụm Khám phá */}
-      <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[exploreGroup.key]}</p>
-      {exploreGroup.items.map((item) => (
-        <a
-          href={localizedPath(item.path, lang)}
-          class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors last:border-0 dark:border-dark-border/60 ${isActive(item.path) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-          aria-current={isActive(item.path) ? 'page' : undefined}
-        >
-          {tr[item.key]}
-        </a>
-      ))}
+      {/* Cụm Khám phá — chỉ khi có mục đã dịch */}
+      {exploreNav.length > 0 && (
+        <>
+          <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[exploreGroup.key]}</p>
+          {exploreNav.map((item) => (
+            <a
+              href={item.href}
+              class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {tr[item.key]}
+            </a>
+          ))}
+        </>
+      )}
+
+      {/* Bộ chuyển ngôn ngữ — mục cuối của menu mobile */}
+      <a
+        href={sw.href}
+        data-pagefind-ignore
+        class="mt-4 flex min-h-11 items-center gap-2 rounded-lg border border-cream-dark px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
+        aria-label={switcherLabel}
+        hreflang={lang === 'vi' ? 'en' : 'vi'}
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path stroke-linecap="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 000 18M12 3a15 15 0 010 18" />
+        </svg>
+        {tr.switch_lang}
+      </a>
     </div>
   </nav>
 </header>

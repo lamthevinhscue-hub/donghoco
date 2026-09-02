@@ -29,7 +29,9 @@ const current = items[items.length - 1];
       {links.map((item, i) => (
         <li class="flex items-center gap-1">
           <a
-            href={localizedPath(item.path, lang)}
+            // Đường dẫn nhận vào đã đúng ngôn ngữ của trang (path vi không
+            // tiền tố, path /en/... giữ nguyên) — không cộng tiền tố hai lần.
+            href={item.path.startsWith('/en') ? item.path : localizedPath(item.path, lang)}
             class="transition-colors hover:text-brass dark:hover:text-dark-brass"
           >
             {item.name}

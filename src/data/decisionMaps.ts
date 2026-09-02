@@ -61,14 +61,50 @@ const firstWatchMap: DecisionMapData = {
       title: 'Tôi đang cân nhắc đồng hồ đã qua sử dụng',
       description: 'Tình trạng và giấy tờ quan trọng hơn giá — và biết giới hạn tự kiểm.',
       links: [
-        { href: '/huong-dan/nhan-biet-dong-ho-gia', label: 'Nhận biết dấu hiệu đồng hồ giả' },
-        { href: '/huong-dan/bao-duong-dong-ho', label: 'Bảo dưỡng: chi phí sở hữu lâu dài' },
+        { href: '/huong-dan/nhan-biet-dong-ho-gia', label: 'Giới hạn tự kiểm khi mua đã qua sử dụng' },
+        { href: '/huong-dan/bao-duong-dong-ho', label: 'Làm việc với nơi sửa chữa đồng hồ' },
       ],
     },
   ],
 };
 
-const MAPS: DecisionMapData[] = [firstWatchMap];
+// Bản quyết định cho bài "Bảo dưỡng đồng hồ cơ": người đọc đến bài này với
+// ba tình huống khác nhau — đang thấy dấu hiệu lạ, muốn chăm sóc đúng cách,
+// hoặc chuẩn bị mua/nhận lại chiếc đã qua sử dụng.
+const careMap: DecisionMapData = {
+  slug: 'bao-duong-dong-ho',
+  heading: 'Bạn đang gặp tình huống nào?',
+  intro: 'Chọn nhánh gần nhất — mỗi nhánh dẫn tới những bài phục vụ đúng tình huống của bạn.',
+  branches: [
+    {
+      title: 'Đồng hồ đang có dấu hiệu bất thường',
+      description: 'Chạy lệch hơn trước, có hơi ẩm, kêu lạ — bắt đầu bằng quan sát có phương pháp.',
+      links: [
+        { href: '/huong-dan/do-sai-so', label: 'Đo sai số để mô tả dấu hiệu chính xác' },
+        { href: '/huong-dan/muc-chong-nuoc', label: 'Đọc mức chống nước khi nghi có ẩm' },
+      ],
+    },
+    {
+      title: 'Tôi muốn chăm sóc đúng cách hằng ngày',
+      description: 'Những gì bạn tự làm được — và những cơ chế đằng sau mỗi lưu ý.',
+      links: [
+        { href: '/huong-dan/len-day-dong-ho', label: 'Tìm hiểu thao tác lên dây theo đúng mẫu' },
+        { href: '/co-che/chong-tu', label: 'Vì sao từ trường ảnh hưởng độ chính xác' },
+        { href: '/co-che/chong-soc', label: 'Cơ chế chống sốc bảo vệ bộ máy ra sao' },
+      ],
+    },
+    {
+      title: 'Tôi chuẩn bị mua hoặc nhận lại đồng hồ đã qua sử dụng',
+      description: 'Đánh giá tình trạng trước, làm việc với nơi có chuyên môn sau.',
+      links: [
+        { href: '/huong-dan/nhan-biet-dong-ho-gia', label: 'Giới hạn tự kiểm khi mua đã qua sử dụng' },
+        { href: '/huong-dan/hop-xoay-dong-ho', label: 'Hộp xoay: xác định gì trước khi dùng' },
+      ],
+    },
+  ],
+};
+
+const MAPS: DecisionMapData[] = [firstWatchMap, careMap];
 
 /** Lấy bàn quyết định cho một slug bài hướng dẫn. Chỉ tiếng Việt. */
 export function getDecisionMap(slug: string, lang: string): DecisionMapData | undefined {

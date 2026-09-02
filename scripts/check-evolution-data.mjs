@@ -23,7 +23,7 @@ import { join } from 'node:path';
 
 const DATA_DIR = 'src/data';
 // Tệp hạ tầng và dataset thuộc script kiểm khác — không phải dataset sơ đồ tiến hóa
-const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts']);
+const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts', 'decisionMaps.ts']);
 
 const REQUIRED_STRINGS = ['reference', 'label', 'change', 'note', 'sourceUrl', 'sourceName'];
 const MILESTONE_MIN = 3;

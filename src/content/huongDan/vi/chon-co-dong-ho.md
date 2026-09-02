@@ -59,3 +59,7 @@ Cổ tay người châu Á trung bình nhỏ hơn người phương Tây. Đừn
 
 **Đồng hồ vuông/chữ nhật tính thế nào?**
 Đồng hồ vuông nhìn to hơn đồng hồ tròn cùng diện tích, vì góc nhô ra. Một chiếc chữ nhật 30×40mm có thể nhìn to ngang một chiếc tròn 38mm. Khi mua online, ưu tiên thử ở tiệm.
+
+---
+
+Đã đo được kích thước phù hợp với cổ tay mình? Bước tiếp theo trong khung chọn chiếc đồng hồ cơ đầu tiên là xác định vai trò và trải nghiệm vận hành — xem [khung quyết định chọn đồng hồ cơ đầu tiên](/huong-dan/chon-dong-ho-dau-tien).

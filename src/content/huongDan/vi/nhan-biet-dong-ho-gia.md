@@ -80,3 +80,7 @@ Là loại giả tinh vi, khó phân biệt bằng mắt thường — chỉ th�
 
 **Mua đồng hồ trên mạng an toàn không?**
 Chỉ khi mua từ đại lý chính hãng có website, hoặc nền tảng bán lại uy tín có chính sách bảo vệ người mua. Tránh mua từ người bán cá nhân không có đánh giá, đặc biệt giá rẻ bất thường.
+
+---
+
+Nếu đây là lần đầu bạn mua đồng hồ cơ, hãy đọc [khung quyết định chọn đồng hồ cơ đầu tiên](/huong-dan/chon-dong-ho-dau-tien) để biết giới hạn tự kiểm và các câu hỏi nên hỏi người bán trước khi xuống tiền.

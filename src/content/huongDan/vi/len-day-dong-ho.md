@@ -105,3 +105,7 @@ KHÔNG. Núm vặn ở vị trí **đóng (đẩy vào hết cỡ)** là vị tr
 
 **Đồng hồ automatic có cần vặn tay không?**
 Có — khi mới mua, khi đã dừng, hoặc khi đeo ít. Vặn tay là cách an toàn để khởi động.
+
+---
+
+Lên dây là thao tác bạn sẽ lặp lại mỗi ngày — vì vậy đáng cân nhắc trước cả khi mua. Xem [khung quyết định chọn đồng hồ cơ đầu tiên](/huong-dan/chon-dong-ho-dau-tien) để chuẩn bị đầy đủ hơn.

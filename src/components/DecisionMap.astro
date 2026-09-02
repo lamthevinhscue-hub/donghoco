@@ -1,0 +1,89 @@
+---
+// =============================================================================
+// DECISION MAP — "Bàn quyết định" đầu bài hướng dẫn (không JavaScript)
+// =============================================================================
+// Bản đồ điều hướng theo nhu cầu: ba nhánh như ba càng của một cầu máy — một
+// trục gốc trên, đường ngang chia lực, ba đường dẫn xuống từng nhánh. Toàn bộ
+// là HTML/CSS tĩnh: mọi nhánh là link thật, hoạt động khi tắt JavaScript.
+// Không quiz, không chấm điểm, không gợi ý sản phẩm, không animation.
+//
+// Dữ liệu nằm ở src/data/decisionMaps.ts (đăng ký theo slug bài); component
+// không chứa dữ kiện. Xác thực: script check-first-watch-cluster.mjs kiểm
+// mọi link trong map tồn tại.
+// =============================================================================
+
+import type { DecisionMapData } from '../data/decisionMaps';
+
+interface Props {
+  map: DecisionMapData;
+}
+
+const { map } = Astro.props;
+---
+
+<section
+  class="dm not-prose my-8"
+  data-decision-map
+  aria-labelledby={`dm-${map.slug}-title`}
+>
+  <!-- Trục gốc của "cầu máy" — tiêu đề H2 của khối (thứ bậc: H1 bài → H2 này → H3 nhánh) -->
+  <h2 id={`dm-${map.slug}-title`} class="dm-root text-center text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">
+    {map.heading}
+  </h2>
+  <div class="dm-trunk mx-auto mt-1 hidden sm:block" aria-hidden="true"></div>
+
+  <p class="mt-2 text-sm leading-relaxed text-ink-soft sm:mt-3 dark:text-dark-text-soft">{map.intro}</p>
+
+  <div class="dm-branches relative mt-0 grid gap-4 sm:grid-cols-3 sm:gap-5">
+    <div class="dm-crossbar absolute top-0 hidden sm:block" aria-hidden="true"></div>
+    {map.branches.map((branch) => (
+      <div class="dm-branch relative pt-4 sm:pt-6">
+        <span class="dm-stem absolute top-0 hidden sm:block" aria-hidden="true"></span>
+        <div class="flex h-full flex-col rounded-xl border border-line bg-surface-raised p-5 dark:border-dark-border dark:bg-dark-surface">
+          <h3 class="font-serif text-lg leading-snug text-navy dark:text-dark-text">{branch.title}</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{branch.description}</p>
+          <ul class="mt-4 space-y-1.5">
+            {branch.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="group flex min-h-11 items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm font-medium text-steel transition-colors hover:bg-brass/10 hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel dark:text-steel dark:hover:bg-dark-brass/15 dark:hover:text-dark-brass"
+                >
+                  <span>{link.label}</span>
+                  <span class="text-alloy transition-none group-hover:translate-x-0.5 dark:text-dark-brass" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* ===== Cây ba càng: trục gốc → thanh ngang → ba càng rơi xuống từng nhánh =====
+     Chỉ hiện ở ≥sm (ba nhánh ngang); mobile xếp dọc, ẩn các đường nối. */
+
+  .dm-trunk {
+    width: 1px;
+    height: 22px;
+    background: rgb(var(--c-line) / 0.9);
+  }
+
+  /* Thanh ngang nối tâm cột 1 → tâm cột 3 */
+  .dm-crossbar {
+    left: 16.666%;
+    right: 16.666%;
+    height: 1px;
+    background: rgb(var(--c-line) / 0.9);
+  }
+
+  /* Càng dọc rơi từ thanh ngang xuống từng nhánh */
+  .dm-stem {
+    left: 50%;
+    width: 1px;
+    height: 24px; /* = pt-6 của nhánh */
+    background: rgb(var(--c-line) / 0.9);
+  }
+</style>

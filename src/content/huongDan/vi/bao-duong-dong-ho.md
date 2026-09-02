@@ -110,3 +110,7 @@ Nếu thợ thay linh kiện không chính hãng hoặc làm trầy → có th�
 
 **Quá lâu không service có sao không?**
 Dầu khô → ma sát → mạt kim loại → hỏng bánh răng → chi phí sửa gấp 3–5 lần service. **Một bánh răng hỏng có thể tốn bằng cả service.**
+
+---
+
+Chi phí bảo dưỡng là một phần của việc sở hữu — đáng cân nhắc ngay từ trước khi mua. Xem [khung quyết định chọn đồng hồ cơ đầu tiên](/huong-dan/chon-dong-ho-dau-tien) để chuẩn bị đầy đủ hơn.

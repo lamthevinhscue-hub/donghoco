@@ -5,6 +5,8 @@ import BezelDiver from '../../components/interactive/BezelDiver.astro';
 import GmtReader from '../../components/interactive/GmtReader.astro';
 import TachymeterTool from '../../components/interactive/TachymeterTool.astro';
 import DateSafety from '../../components/interactive/DateSafety.astro';
+import DecisionMap from '../../components/DecisionMap.astro';
+import { getDecisionMap } from '../../data/decisionMaps';
 import { getEntriesByLang, getSlug } from '../../lib/content';
 import { render } from 'astro:content';
 import type { Lang } from '../../i18n/ui';
@@ -42,6 +44,8 @@ if (!entry) {
 }
 
 const { Content, headings } = await render(entry);
+// Bàn quyết định đầu bài (chỉ vi, chỉ slug đăng ký trong decisionMaps.ts)
+const decisionMapData = getDecisionMap(slug, lang);
 const { data } = entry;
 
 const diffLabel: Record<string, { vi: string; en: string }> = {
@@ -99,6 +103,11 @@ for (const e of [...nextDiff, ...sameDiff]) {
   sources={data.sources}
 >
   {interactive[slug] && (() => { const Ic = interactive[slug]; return <Ic />; })()}
+
+  <!-- Bàn quyết định (DecisionMap) — chỉ bài có map đăng ký trong
+       src/data/decisionMaps.ts (hiện: chon-dong-ho-dau-tien). Bản đồ điều
+       hướng theo nhu cầu, HTML tĩnh — không script, dữ liệu từ tệp data. -->
+  {decisionMapData && <DecisionMap map={decisionMapData} />}
 
   <Content />
 </ArticleLayout>

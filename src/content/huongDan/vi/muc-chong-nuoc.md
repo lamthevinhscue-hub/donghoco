@@ -74,3 +74,7 @@ Nếu bạn thường xuyên đeo gần nước (bơi, đi biển), kiểm tra h
 
 **Đồng hồ vintage thì sao?**
 Đồng hồ cũ thường gioăng đã lão hóa — mặc dù ghi chống nước 100m, thực tế có thể không chịu được rửa tay. Coi như **không chống nước** cho tới khi thợ kiểm tra và thay gioăng.
+
+---
+
+Hiểu mức chống nước là một trong năm câu hỏi nên trả lời trước khi mua chiếc đồng hồ cơ đầu tiên — xem trọn [khung quyết định cho người mới](/huong-dan/chon-dong-ho-dau-tien).

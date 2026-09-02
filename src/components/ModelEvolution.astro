@@ -1,10 +1,16 @@
 ---
 // =============================================================================
-// MODEL EVOLUTION — sơ đồ tiến hóa mẫu iconic (tổng quát, dùng cho nhiều mẫu)
+// MODEL EVOLUTION — sơ đồ tiến hóa mẫu iconic (tổng quát, dùng chung vi/en)
 // =============================================================================
 // Trước đây là SubmarinerEvolution.astro (thí điểm, chỉ Submariner). Giờ nhận
-// dataset tổng quát từ src/data/modelEvolution.ts; dữ kiện nằm hoàn toàn ở các
-// tệp dataset — component không chứa mốc nào.
+// dataset tổng quát từ src/data/modelEvolution.ts kèm ngôn ngữ trang; dữ kiện
+// và chữ hiển thị nằm hoàn toàn ở các tệp dataset (DisplayText vi/en) —
+// component không chứa mốc hay chuỗi ngôn ngữ nào.
+//
+// Song ngữ (Prompt 31): props { dataset, lang } — lang do template truyền theo
+// URL trang; mọi text người đọc (tiêu đề, dẫn nhập, nhãn, mô tả, ghi chú,
+// nhãn nguồn, aria-label) qua tText()/ui.ts nên bản vi thuần Việt và bản en
+// thuần tiếng Anh.
 //
 // Trải nghiệm (giữ nguyên hành vi bản thí điểm Submariner):
 //   - ≥768px CÓ JS: các mốc trên một đường thời gian kiểu bezel (vạch chia SVG
@@ -15,20 +21,27 @@
 //   - Không ảnh đồng hồ, không carousel tự chạy, không animation lặp.
 //   - prefers-reduced-motion: chuyển trạng thái tức thời (không transition).
 //   - Nút thật (Tab/Enter/Space), aria-pressed cho mốc đang chọn, thẻ chi tiết
-//     có nhãn role="group" + aria-label, không tự cướp focus.
+//     có nhãn role="group" + aria-label, không tự cướp focus, không trap focus.
 //   - Số cột lưới theo số mốc của dataset (var --evol-cols) — không cố định 8.
 //   - Chỉ dùng token ngữ nghĩa (steel/alloy/line/primary/secondary/surface-raised)
 //     tự đổi theo .dark — không có mã hex, không cần cặp dark:.
 // =============================================================================
 
 import type { ModelEvolutionDataset } from '../data/modelEvolution';
+import { tText, type DisplayText } from '../data/modelEvolution';
+import { t, type Lang } from '../i18n/ui';
 
 interface Props {
   dataset: ModelEvolutionDataset;
+  lang: Lang;
 }
 
-const { dataset } = Astro.props;
+const { dataset, lang } = Astro.props;
+const tr = t(lang);
 const { milestones } = dataset;
+const text = (value: DisplayText) => tText(value, lang);
+const detailAria = (year: number, reference: string) =>
+  tr.evolution_detail_aria.replace('{year}', String(year)).replace('{name}', dataset.name).replace('{reference}', reference);
 
 // Vạch chia kiểu bezel cho đường ray — chỉ trang trí: 61 vạch, vạch dài mỗi 5 vạch
 const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 === 0 }));
@@ -41,10 +54,10 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
   aria-labelledby={`${dataset.slug}-evolution-title`}
 >
   <h2 id={`${dataset.slug}-evolution-title`} class="font-serif text-xl text-steel">
-    {dataset.title}
+    {text(dataset.title)}
   </h2>
   <p class="mt-1 text-sm leading-relaxed text-secondary">
-    {dataset.intro}
+    {text(dataset.intro)}
   </p>
 
   <div class="relative mt-6">
@@ -70,25 +83,25 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
             <span class="evol-dot hidden h-3 w-3 shrink-0 rounded-full bg-secondary/60 md:block" aria-hidden="true"></span>
             <span class="evol-year font-semibold text-primary">{m.year}</span>
             <span class="evol-ref font-mono text-sm text-steel">{m.reference}</span>
-            <span class="evol-label w-full text-sm leading-snug text-secondary md:w-auto">{m.label}</span>
+            <span class="evol-label w-full text-sm leading-snug text-secondary md:w-auto">{text(m.label)}</span>
           </button>
 
           <div
             class="evol-detail mt-3 rounded-lg border border-line/60 bg-surface-raised px-4 py-3"
             role="group"
-            aria-label={`Chi tiết mốc ${m.year} — ${dataset.name} ${m.reference}`}
+            aria-label={detailAria(m.year, m.reference)}
             data-index={i}
           >
             <p class="font-mono text-sm text-steel">{m.year} · {m.reference}</p>
-            <p class="mt-1.5 font-medium leading-relaxed text-primary">{m.change}</p>
-            <p class="mt-1 text-sm leading-relaxed text-secondary">{m.note}</p>
+            <p class="mt-1.5 font-medium leading-relaxed text-primary">{text(m.change)}</p>
+            <p class="mt-1 text-sm leading-relaxed text-secondary">{text(m.note)}</p>
             <a
               class="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-steel underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel"
               href={m.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Xem nguồn: {m.sourceName}
+              {tr.evolution_view_source} {m.sourceName}
               <span aria-hidden="true">↗</span>
             </a>
           </div>

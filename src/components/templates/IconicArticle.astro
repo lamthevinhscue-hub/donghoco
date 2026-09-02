@@ -147,8 +147,10 @@ const compareHref = lang === 'vi' ? localizedPath(`/so-sanh?m=${slug}`, lang) : 
   sources={data.sources}
 >
   <SpecTable slot="spec" rows={specRows} />
-  <!-- Sơ đồ tiến hóa — chỉ tiếng Việt (nhãn mốc trong dataset là tiếng Việt) -->
-  {lang === 'vi' && evolutionDataset && <ModelEvolution dataset={evolutionDataset} />}
+  <!-- Sơ đồ tiến hóa — hiển thị ở ngôn ngữ dataset công bố (publishedLangs
+       trong src/data/*Evolution.ts). Hiện: Submariner song ngữ vi+en;
+       GMT-Master chỉ vi (bài English chưa có). -->
+  {evolutionDataset && <ModelEvolution dataset={evolutionDataset} lang={lang} />}
   <Content />
   <RelatedEditorial links={editorialLinks} />
 </ArticleLayout>

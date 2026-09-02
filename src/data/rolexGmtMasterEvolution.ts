@@ -20,6 +20,9 @@ import type { ModelEvolutionDataset } from './modelEvolution';
 export const rolexGmtMasterEvolution: ModelEvolutionDataset = {
   slug: 'rolex-gmt-master',
   name: 'Rolex GMT-Master',
+  // Chỉ tiếng Việt: bản English của bài GMT-Master chưa có — dataset chưa được
+  // dịch đầy đủ nên không render ở trang English (Prompt 31: chưa dịch thì ẩn).
+  publishedLangs: ['vi'],
   title: 'Tiến hóa Rolex GMT-Master',
   intro:
     'Tám mốc được chọn từ hồ sơ kiểm chứng. Đây là lược đồ thay đổi thiết kế, không phải danh mục đầy đủ mọi reference.',

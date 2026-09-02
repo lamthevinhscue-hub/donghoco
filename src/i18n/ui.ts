@@ -198,6 +198,9 @@ export const translations = {
     home_map_cta_prefix: 'Muốn bản đồ đầy đủ?',
     home_map_cta_link: 'Lộ trình học đồng hồ cơ',
     home_map_cta_suffix: 'gom ba hướng đọc — người mới, bộ máy, người sưu tầm — thành từng bước nối nhau.',
+    // Sơ đồ tiến hóa (ModelEvolution) — nhãn giao diện dùng chung vi/en
+    evolution_detail_aria: 'Chi tiết mốc {year} — {name} {reference}',
+    evolution_view_source: 'Xem nguồn:',
     // ===== Trang chủ — hồ sơ calibre (Gói 3) =====
     hero_title: 'Học đồng hồ cơ từ nguyên lý bộ máy',
     hero_lead: 'Kiến thức nền → cơ chế vận hành → thương hiệu và những mẫu định hình cả thể loại. Mỗi dữ kiện đều dẫn nguồn.',
@@ -396,6 +399,9 @@ export const translations = {
     home_map_cta_suffix: 'puts three reading routes — beginner, movement, collector — into connected steps.',
     // 404-lite / misc
     not_found_title: 'Page not found',
+    // Evolution timeline (ModelEvolution) — shared labels, vi/en
+    evolution_detail_aria: 'Milestone details: {year} — {name} {reference}',
+    evolution_view_source: 'View source:',
   },
 } as const;
 

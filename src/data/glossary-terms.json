@@ -117,7 +117,7 @@
   {
     "title": "Thang tachymeter",
     "slug": "tachymeter",
-    "excerpt": "Thang trên vành dùng cùng chronograph để đo tốc độ. Thang không chia đều, thưa dần về cuối.",
+    "excerpt": "Thang trên vành dùng cùng chronograph để đọc tốc độ trung bình trên một quãng đường cố định. Thang không chia đều, thưa dần về cuối.",
     "aliases": [
       "Thang tachymeter",
       "Tachymeter"
@@ -126,7 +126,7 @@
   {
     "title": "Chronograph",
     "slug": "chronograph",
-    "excerpt": "Đồng hồ có chức năng bấm giờ độc lập — một trong những phức tạp hữu ích nhất.",
+    "excerpt": "Đồng hồ có chức năng bấm giờ độc lập — một trong những phức tạp phổ biến và có ứng dụng trực tiếp.",
     "aliases": [
       "Chronograph"
     ]

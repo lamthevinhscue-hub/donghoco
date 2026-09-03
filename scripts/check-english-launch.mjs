@@ -77,6 +77,7 @@ const REQUIRED_EN = [
   '/en/mechanisms/power-reserve/',
   '/en/mechanisms/escapement/',
   '/en/mechanisms/gmt/',
+  '/en/mechanisms/chronograph/',
   '/en/glossary/movement/',
   '/en/glossary/calibre/',
   '/en/glossary/escapement/',
@@ -84,8 +85,11 @@ const REQUIRED_EN = [
   '/en/glossary/rotor/',
   '/en/glossary/power-reserve/',
   '/en/glossary/gmt/',
+  '/en/glossary/chronograph/',
+  '/en/glossary/tachymeter/',
   '/en/guides/first-mechanical-watch/',
   '/en/guides/reading-and-setting-gmt/',
+  '/en/guides/using-a-tachymeter/',
 ];
 const missing = REQUIRED_EN.filter((r) => !routeExistsInDist(r));
 if (missing.length > 0) errors.push(`Thiếu route English launch pack trong dist: ${missing.join(', ')}`);

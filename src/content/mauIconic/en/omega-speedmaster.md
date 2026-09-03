@@ -64,3 +64,5 @@ The Speedmaster proved a watch can be both a professional tool and a cultural sy
 - [Omega](/en/brands/omega/) — the brand and its milestones
 - [The escapement](/en/mechanisms/escapement/) — the mechanism the Co-Axial design reimagined
 - [Calibre](/en/glossary/calibre/) — what a calibre name actually tells you
+- [The chronograph mechanism](/en/mechanisms/chronograph/) — how start, stop and reset actually work
+- [Using a tachymeter scale](/en/guides/using-a-tachymeter/) — how to read the Speedmaster's signature bezel

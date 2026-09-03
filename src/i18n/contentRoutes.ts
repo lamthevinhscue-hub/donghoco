@@ -65,6 +65,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/mau-iconic/rolex-submariner', en: '/en/iconic-watches/rolex-submariner/' },
   { vi: '/mau-iconic/omega-speedmaster', en: '/en/iconic-watches/omega-speedmaster/' },
   { vi: '/mau-iconic/cartier-tank', en: '/en/iconic-watches/cartier-tank/' },
+  { vi: '/mau-iconic/rolex-gmt-master', en: '/en/iconic-watches/rolex-gmt-master/' },
 ];
 
 export const ALL_PAIRS: RoutePair[] = [...STATIC_PAIRS, ...INDEX_PAIRS, ...ARTICLE_PAIRS];

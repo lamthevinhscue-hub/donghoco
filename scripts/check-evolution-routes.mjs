@@ -1,69 +1,122 @@
 // =============================================================================
-// check-evolution-routes.mjs — Kiểm route Submariner render sơ đồ tiến hóa
+// check-evolution-routes.mjs — Kiểm route sơ đồ tiến hóa trong dist (song ngữ)
 // =============================================================================
-// Tiêu chí 9 của Prompt 31, tách khỏi check-evolution-data.mjs vì phải chạy
-// SAU build (npm run check chạy trước astro build — nhìn dist cũ sẽ báo sai).
+// Tiêu chí route của Prompt 31/32, chạy SAU build (npm run check chạy trước
+// astro build — nhìn dist cũ sẽ báo sai). Script nằm trong chuỗi npm run build
+// và có thể chạy lại riêng.
 //
-// Kiểm trên dist/:
-//   - /mau-iconic/rolex-submariner/ và /en/iconic-watches/rolex-submariner/
-//     đều tồn tại và render sơ đồ tiến hóa (data-evolution);
-//   - bản VI có nhãn "Xem nguồn", bản EN có nhãn "View source";
-//   - bản EN timeline không còn chữ tiếng Việt; bản VI có đủ 8 mốc.
-// Exit 1 nếu có lỗi.
+// Nguyên tắc kiến trúc i18n (Prompt 32 — sửa nghiệm thu):
+//   - Một bài English có thể tồn tại đầy đủ dù timeline của nó chưa được dịch.
+//   - Dataset `publishedLangs: ['vi']` là TRẠNG THÁI HỢP LỆ: component ẩn
+//     timeline ở route English — script chỉ ghi rõ "chỉ VI, bỏ qua kiểm
+//     English" và KHÔNG kiểm sự tồn tại/không tồn tại của route English trong
+//     trường hợp này (bài English tồn tại hay không đều không phải lỗi của
+//     sơ đồ).
+//   - Dataset có 'en' trong publishedLangs: bắt buộc đủ route VI + EN, render
+//     data-evolution, nhãn nguồn theo ngôn ngữ, không rò tiếng Việt ở khối
+//     timeline EN, số nút mốc hai ngôn ngữ bằng nhau và đúng dataset.
+//
+// Nguồn sự thật: quét src/data/*.Evolution.ts (bỏ tệp hạ tầng), đọc slug +
+// publishedLangs + số mốc của từng dataset. Exit 1 nếu có lỗi.
 // =============================================================================
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const VI_ROUTE = join('dist', 'mau-iconic', 'rolex-submariner', 'index.html');
-const EN_ROUTE = join('dist', 'en', 'iconic-watches', 'rolex-submariner', 'index.html');
+const DATA_DIR = 'src/data';
+const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts', 'decisionMaps.ts']);
+// Toàn bộ dataset sơ đồ tiến hóa hiện gắn với bài mẫu iconic (collection mauIconic)
+const VI_PREFIX = join('dist', 'mau-iconic');
+const EN_PREFIX = join('dist', 'en', 'iconic-watches');
 
 const errors = [];
 const report = [];
 
-if (!existsSync(VI_ROUTE)) {
-  errors.push('dist thiếu /mau-iconic/rolex-submariner/ — hãy chạy npm run build trước');
-} else if (!existsSync(EN_ROUTE)) {
-  errors.push('dist thiếu /en/iconic-watches/rolex-submariner/ — hãy chạy npm run build trước');
-} else {
-  const vi = readFileSync(VI_ROUTE, 'utf8');
-  const en = readFileSync(EN_ROUTE, 'utf8');
+function parseDataset(source) {
+  const slug = source.match(/slug:\s*['"]([^'"]+)['"]/)?.[1];
+  const langs = source.match(/publishedLangs:\s*\[([^\]]*)\]/)?.[1]
+    ?? '';
+  const publishedLangs = langs.split(',').map((s) => s.trim().replace(/['"]/g, '')).filter(Boolean);
+  const milestoneCount = (source.match(/year:\s*\d+/g) ?? []).length;
+  return { slug, publishedLangs, milestoneCount };
+}
 
-  for (const [name, html] of [['VI', vi], ['EN', en]]) {
-    if (!html.includes('data-evolution')) errors.push(`Route ${name} Submariner không render sơ đồ tiến hóa`);
+if (!existsSync('dist')) {
+  console.log('KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA: dist chưa tồn tại — hãy chạy npm run build trước.');
+  process.exit(1);
+}
+
+const datasets = readdirSync(DATA_DIR)
+  .filter((f) => f.endsWith('.ts') && !SKIP_FILES.has(f))
+  .sort();
+
+for (const file of datasets) {
+  const source = readFileSync(join(DATA_DIR, file), 'utf8');
+  const { slug, publishedLangs, milestoneCount } = parseDataset(source);
+  if (!slug || milestoneCount === 0) continue; // không phải dataset sơ đồ
+
+  const viPath = join(VI_PREFIX, slug, 'index.html');
+  const enPath = join(EN_PREFIX, slug, 'index.html');
+  const label = `${slug} (${publishedLangs.join('+')}, ${milestoneCount} mốc)`;
+
+  if (!publishedLangs.includes('en')) {
+    // Trạng thái hợp lệ: timeline chỉ tiếng Việt — component tự ẩn ở route
+    // English. KHÔNG kiểm sự tồn tại/không tồn tại của route English ở đây:
+    // bài English có thể tồn tại đầy đủ mà timeline chưa dịch.
+    report.push(`- ${label}: chỉ VI — bỏ qua kiểm timeline English`);
+    if (!existsSync(viPath)) {
+      errors.push(`${slug}: dist thiếu route Việt ${viPath}`);
+    } else if (!readFileSync(viPath, 'utf8').includes('data-evolution')) {
+      errors.push(`${slug}: route VI không render sơ đồ tiến hóa`);
+    }
+    continue;
   }
 
-  if (!/Xem nguồn/.test(vi)) errors.push('Route VI timeline thiếu nhãn "Xem nguồn"');
-  else report.push('Route VI: timeline render, nhãn "Xem nguồn" có mặt');
+  // ===== Route VI + EN tồn tại =====
+  if (!existsSync(viPath)) {
+    errors.push(`${slug}: dist thiếu route Việt ${viPath}`);
+    continue;
+  }
+  if (!existsSync(enPath)) {
+    errors.push(`${slug}: dist thiếu route English ${enPath}`);
+    continue;
+  }
+  const vi = readFileSync(viPath, 'utf8');
+  const en = readFileSync(enPath, 'utf8');
 
-  if (!/View source/.test(en)) errors.push('Route EN timeline thiếu nhãn "View source"');
-  else report.push('Route EN: timeline render, nhãn "View source" có mặt');
+  // ===== Cả hai render timeline =====
+  for (const [name, html] of [['VI', vi], ['EN', en]]) {
+    if (!html.includes('data-evolution')) errors.push(`${slug}: route ${name} không render sơ đồ tiến hóa`);
+  }
 
-  // Bản EN timeline không còn chữ tiếng Việt: trích khối data-evolution rồi
-  // tìm ký tự tiếng Việt có dấu (nhãn mốc EN là tiếng Anh thuần).
+  // ===== Nhãn nguồn theo ngôn ngữ =====
+  if (!/Xem nguồn/.test(vi)) errors.push(`${slug}: timeline VI thiếu nhãn "Xem nguồn"`);
+  if (!/View source/.test(en)) errors.push(`${slug}: timeline EN thiếu nhãn "View source"`);
+
+  // ===== Timeline EN không còn văn bản tiếng Việt =====
   const enBlock = en.match(/<section[^>]*data-evolution[\s\S]*?<\/section>/)?.[0] ?? '';
   const viCharRe = /[ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ]/;
   if (enBlock && viCharRe.test(enBlock.replace(/<[^>]*>/g, ' '))) {
     const sample = (enBlock.match(/[^\s<>]*[ăâđêôơưáàảãạéèẻẽẹíìỉĩịóòỏõọúùủũụ][^\s<>]*/i) ?? ['?'])[0];
-    errors.push(`Route EN timeline còn văn bản tiếng Việt (từ mẫu: "${sample}")`);
-  } else if (enBlock) {
-    report.push('Route EN: khối timeline không còn văn bản tiếng Việt');
+    errors.push(`${slug}: timeline EN còn văn bản tiếng Việt (từ mẫu: "${sample}")`);
   }
 
-  // Đủ 8 mốc trên mỗi bản (nút mốc)
-  const viMilestones = (vi.match(/class="evol-btn/g) ?? []).length;
-  const enMilestones = (en.match(/class="evol-btn/g) ?? []).length;
-  if (viMilestones !== 8) errors.push(`Route VI timeline có ${viMilestones} mốc (kỳ vọng 8)`);
-  if (enMilestones !== 8) errors.push(`Route EN timeline có ${enMilestones} mốc (kỳ vọng 8)`);
-  if (viMilestones === 8 && enMilestones === 8) report.push('Cả hai bản: đủ 8 mốc');
+  // ===== Số nút mốc hai ngôn ngữ bằng nhau và đúng dataset =====
+  const viBtns = (vi.match(/class="evol-btn/g) ?? []).length;
+  const enBtns = (en.match(/class="evol-btn/g) ?? []).length;
+  if (viBtns !== milestoneCount) errors.push(`${slug}: timeline VI có ${viBtns} mốc (dataset: ${milestoneCount})`);
+  if (enBtns !== milestoneCount) errors.push(`${slug}: timeline EN có ${enBtns} mốc (dataset: ${milestoneCount})`);
+  if (viBtns !== enBtns) errors.push(`${slug}: số mốc VI (${viBtns}) ≠ EN (${enBtns})`);
+
+  report.push(`- ${label}: VI ${viBtns} mốc · EN ${enBtns} mốc — khớp dataset`);
 }
 
 if (errors.length > 0) {
-  console.log('KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA SUBMARINER — CÓ LỖI:');
+  console.log('KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA — CÓ LỖI:');
   for (const e of errors) console.log(`  LỖI  ${e}`);
   process.exit(1);
 }
 
-console.log('KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA SUBMARINER:');
+console.log('KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA (theo publishedLangs):');
 for (const line of report) console.log(`  ${line}`);
-console.log('  KẾT LUẬN: ĐẠT — cả hai route render đúng timeline theo ngôn ngữ.');
+console.log('  KẾT LUẬN: ĐẠT — mọi dataset song ngữ render đúng route, ngôn ngữ và số mốc.');

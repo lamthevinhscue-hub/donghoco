@@ -57,6 +57,7 @@ const enHtml = allHtml.filter((f) => f.replace(/\\/g, '/').includes('/en/'));
 const viHtml = allHtml.filter((f) => !f.replace(/\\/g, '/').includes('/en/'));
 
 // ===== 1. Các URL EN launch pack được sinh ra =====
+// Danh sách khai báo tập trung — số kỳ vọng tự đếm từ mảng, không magic number.
 const REQUIRED_EN = [
   '/en/',
   '/en/about/',
@@ -71,6 +72,7 @@ const REQUIRED_EN = [
   '/en/iconic-watches/rolex-submariner/',
   '/en/iconic-watches/omega-speedmaster/',
   '/en/iconic-watches/cartier-tank/',
+  '/en/iconic-watches/rolex-gmt-master/',
   '/en/mechanisms/how-a-mechanical-watch-works/',
   '/en/mechanisms/power-reserve/',
   '/en/mechanisms/escapement/',

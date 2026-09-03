@@ -38,8 +38,9 @@ export function tText(value: DisplayText, lang: 'vi' | 'en'): string {
 export interface ModelEvolutionMilestone {
   /** Năm hiển thị — đã kiểm chứng trong hồ sơ dữ liệu */
   year: number;
-  /** Reference hoặc tên thế hệ — ghi rõ khi chưa có số reference được kiểm chứng. Không dịch. */
-  reference: string;
+  /** Reference hoặc tên thế hệ — ghi rõ khi chưa có số reference được kiểm chứng.
+   *  Số reference không dịch; tên thế hệ mô tả (vd "kỷ niệm 50 năm") là DisplayText. */
+  reference: DisplayText;
   /** Nhãn ngắn trên đường thời gian */
   label: DisplayText;
   /** Thay đổi chính — một câu, đúng hồ sơ dữ liệu */

@@ -77,7 +77,7 @@ function parseMilestones(source) {
     milestones.push({
       year: getY ? Number(getY[1]) : undefined,
       rawYear: getY ? getY[1] : undefined,
-      reference: getStr('reference'),
+      reference: getDisplay('reference'),
       label: getDisplay('label'),
       change: getDisplay('change'),
       note: getDisplay('note'),
@@ -184,7 +184,15 @@ for (const file of readdirSync(DATA_DIR).sort()) {
     for (const key of REQUIRED_STRINGS) {
       const v = m[key];
       if (v === undefined) errors.push(`${at}: thiếu trường ${key}`);
-      else if (String(v).trim() === '') errors.push(`${at}: trường ${key} rỗng`);
+      else if (typeof v === 'object') {
+        // DisplayText (reference mô tả thế hệ): đủ vi + en
+        if (!v.vi?.trim()) errors.push(`${at}: ${key}.vi rỗng`);
+        if (!v.en?.trim()) errors.push(`${at}: ${key}.en rỗng`);
+        if (bilingual && VI_CHAR_RE.test(v.en ?? '')) {
+          const sample = (v.en.match(/[^\s]*[ăâđêôơưáàảãạéèẻẽẹíìỉĩịóòỏõọúùủũụ][^\s]*/i) ?? ['?'])[0];
+          errors.push(`${at}: ${key}.en còn văn bản tiếng Việt (từ mẫu: "${sample}")`);
+        }
+      } else if (String(v).trim() === '') errors.push(`${at}: trường ${key} rỗng`);
     }
     // ===== Tiêu chí 2: dataset song ngữ — hiển thị đủ vi + en =====
     for (const key of REQUIRED_DISPLAY) {
@@ -208,11 +216,21 @@ for (const file of readdirSync(DATA_DIR).sort()) {
     if (m.sourceUrl !== undefined && !/^https:\/\//.test(m.sourceUrl)) {
       errors.push(`${at}: sourceUrl phải dùng HTTPS (đang: ${m.sourceUrl})`);
     }
-    const combo = `${m.year}|${m.reference}`;
-    if (m.reference !== undefined && seen.has(combo)) {
+    // Khóa trùng reference ổn định cho cả hai dạng:
+    //   string           -> chính string đó;
+    //   { vi, en }       -> "vi:<giá trị vi>|en:<giá trị en>" (không phụ thuộc
+    //                       thứ tự thuộc tính, không JSON.stringify).
+    const refKey =
+      m.reference === undefined
+        ? undefined
+        : typeof m.reference === 'object'
+          ? `vi:${m.reference.vi ?? ''}|en:${m.reference.en ?? ''}`
+          : m.reference;
+    const combo = `${m.year}|${refKey}`;
+    if (refKey !== undefined && seen.has(combo)) {
       errors.push(`${at}: trùng tổ hợp năm + reference (${combo})`);
     }
-    if (m.reference !== undefined) seen.add(combo);
+    if (refKey !== undefined) seen.add(combo);
   });
 
   // ===== Tiêu chí 5: link nội bộ trong dataset phải là route thật =====

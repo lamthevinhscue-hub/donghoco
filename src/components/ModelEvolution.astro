@@ -82,17 +82,17 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
           >
             <span class="evol-dot hidden h-3 w-3 shrink-0 rounded-full bg-secondary/60 md:block" aria-hidden="true"></span>
             <span class="evol-year font-semibold text-primary">{m.year}</span>
-            <span class="evol-ref font-mono text-sm text-steel">{m.reference}</span>
+            <span class="evol-ref font-mono text-sm text-steel">{text(m.reference)}</span>
             <span class="evol-label w-full text-sm leading-snug text-secondary md:w-auto">{text(m.label)}</span>
           </button>
 
           <div
             class="evol-detail mt-3 rounded-lg border border-line/60 bg-surface-raised px-4 py-3"
             role="group"
-            aria-label={detailAria(m.year, m.reference)}
+            aria-label={detailAria(m.year, text(m.reference))}
             data-index={i}
           >
-            <p class="font-mono text-sm text-steel">{m.year} · {m.reference}</p>
+            <p class="font-mono text-sm text-steel">{m.year} · {text(m.reference)}</p>
             <p class="mt-1.5 font-medium leading-relaxed text-primary">{text(m.change)}</p>
             <p class="mt-1 text-sm leading-relaxed text-secondary">{text(m.note)}</p>
             <a

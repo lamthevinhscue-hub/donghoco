@@ -1,78 +1,64 @@
 ---
-title: "Cách chỉnh lịch và khung giờ nguy hiểm"
-excerpt: "Cơ cấu lịch bắt đầu ăn khớp từ khoảng 20 giờ tối tới 4 giờ sáng. Chỉnh ngày trong khoảng đó có thể làm hỏng bánh răng — lỗi tốn tiền mà rất nhiều người mắc."
+title: "Cách chỉnh lịch an toàn — nguyên tắc và vùng nên tránh"
+excerpt: "Khung giờ nên tránh khi chỉnh ngày do từng hãng công bố trong manual của từng calibre — không tồn tại khung giờ cấm dùng chung. Khi chưa có manual: tìm manual của hãng hoặc nhờ dịch vụ có chuyên môn."
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
+updated: "2026-09-03"
 
 sources:
+  - label: "SEIKO — Hướng dẫn chỉnh giờ/ngày Caliber 6L37 (nguyên tắc an toàn chỉnh ngày)"
+    url: "https://www.seikowatches.com/instructions/html/SEIKO_6L37_D_EN/BONDSYcuynbssw"
   - label: "Fondation de la Haute Horlogerie — Lịch vạn niên và cơ cấu lịch"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"
+  - label: "OMEGA — FAQ Using your OMEGA watch"
+    url: "https://www.omegawatches.com/en-us/customer-service/faq/using-your-omega-watch"
 
 ---
 
-> Đây là lỗi tốn tiền phổ biến nhất mà người mới mắc phải — và dễ tránh nhất nếu biết. Dụng cụ bên dưới cho bạn kéo kim giờ vào vùng nguy hiểm và thấy cảnh báo.
+> Chỉnh ngày sai thời điểm có thể ảnh hưởng cơ cấu lịch. Khung giờ nên tránh **không giống nhau giữa các đồng hồ** — và không có cách suy ra khung đó từ một bài hướng dẫn chung.
 
-## Khung giờ nguy hiểm là gì?
+## Vì sao có "vùng nên tránh"?
 
-Đồng hồ có chức năng lịch (ngày/tháng/tuần lễ) có một cơ cấu nhỏ: các bánh răng lịch **bắt đầu ăn khớp dần** vào khoảng **20 giờ tối** để chuẩn bị đổi ngày lúc nửa đêm, và **nhả ra** khoảng **4 giờ sáng**. Trong khoảng thời gian đó, bánh răng lịch đang **dính vào nhau**.
+Đồng hồ có chức năng lịch đổi ngày **quanh nửa đêm** — Seiko mô tả: "The date changes around **12 o'clock midnight**". Để đổi ngày, cơ cấu lịch bước vào chu trình ăn khớp của nó trong một khoảng thời gian quanh nửa đêm. Chỉnh ngày trực tiếp khi cơ cấu đang trong chu trình này có thể gây hư hại — hướng dẫn của Seiko cho **calibre 6L37** cảnh báo nguyên văn:
 
-Nếu bạn chỉnh ngày bằng [núm vặn](/tu-dien/num-van) trong lúc bánh răng đang dính — bạn **đẩy ngược chiều** cơ cấu đang ăn khớp. Hệ quả: răng có thể **gãy hoặc mẻ**, và sửa chữa thì tốn tiền (thay bánh răng lịch, tháo máy).
+> "**CAUTION: Do not set the date between 9:00 p.m. and 1:00 a.m.** Amending the date during this time period may cause problems such as the date failing to change the next day." và "**Avoid amending the date when the watch is displaying between 9 PM and 1 AM. Doing so may cause damage.**"
 
-> 💡 Trong dụng cụ: kéo kim giờ vào vùng đỏ (20:00–04:00). Cảnh báo hiện ra. Đó chính xác là khoảng thời gian không được chỉnh lịch.
+Điều cần nhớ: **21:00–01:00 là khung mà Seiko ghi trong manual của calibre 6L37** — một calibre cụ thể. Các calibre khác — kể cả của chính Seiko — có thể nêu khoảng khác. **Không tồn tại một khung giờ cấm áp dụng cho mọi đồng hồ.**
 
-## Cách an toàn — quy tắc 6 giờ
+> 💡 Dụng cụ bên dưới là **mô phỏng nguyên lý**: vùng tô 20:00–04:00 chỉ là ví dụ trực quan, không xác định khung giờ cho đồng hồ của bạn.
 
-Quy tắc đơn giản tránh 100% lỗi này:
+## Nguyên tắc duy nhất: manual của đúng calibre
 
-**Trước khi chỉnh ngày, luôn đưa kim giờ về khoảng 6 giờ.**
+Khi muốn chỉnh ngày:
 
-Tại sao 6 giờ? Vì ở vị trí đó, bánh răng lịch **đã nhả hoàn toàn** — cách xa vùng ăn khớp. Bạn có chỉnh ngày thoải mái mà không chạm vào cơ cấu đang dính.
+1. **Xác định đúng mẫu và calibre** của đồng hồ (in trên vỏ/mặt số hoặc giấy tờ).
+2. **Tìm manual của hãng** cho calibre đó — nhiều hãng đăng công khai trên trang hỗ trợ; nếu manual nêu khung giờ nên tránh, tuân theo đúng khung đó.
+3. **Không tìm được manual?** Nhờ **dịch vụ có chuyên môn** (đại lý/thợ chính hãng) — không suy ra vùng an toàn từ một bài hướng dẫn chung, kể cả bài này.
 
-### Thao tác từng bước
+Một điểm đã có nguồn từ hướng dẫn hãng: sau khi thao tác, đóng kín [núm vặn](/tu-dien/num-van) — Seiko (6L37): "Return the **screw down crown** fully to its original position"; Omega: với núm vặn ren, "**always screw it in after handling it**".
 
-1. **Rút [núm vặn](/tu-dien/num-van) ra nấc chỉnh giờ** (thường là nấc cuối cùng).
-2. **Xoay núm để đưa kim giờ về 6 giờ** (sáng hoặc chiều đều an toàn).
-3. **Đẩy núm vào, rút ra nấc chỉnh ngày** (nấc giữa).
-4. **Xoay núm để chỉnh ngày/tháng/tuần lễ** về đúng ngày hôm nay.
-5. **Đẩy núm vào, rút ra nấc chỉnh giờ**, xoay để đưa kim giờ về giờ hiện tại.
-6. **Đẩy núm về vị trí đóng** — xong.
+## Về cơ cấu "chỉnh bất cứ lúc nào"
 
-> Lưu ý: với [núm vặn ren](/tu-dien/num-van) (loại vặn ren chống nước), nhớ vặn ren lại chặt sau khi xong.
-
-## Dấu hiệu đã lỡ chỉnh sai
-
-Nếu bạn lỡ chỉnh lịch trong khung nguy hiểm và bánh răng bị ảnh hưởng, dấu hiệu thường gặp:
-
-- **Lịch đổi ngày chậm** — không phải đúng nửa đêm mà lệch 1-2 giờ.
-- **Lịch đổi ngày không hoàn toàn** — số kẹt nửa này nửa kia.
-- **Tiếng lách cách lạ** khi chỉnh giờ quanh nửa đêm.
-- **Lịch không đổi nữa** — bánh răng đã gãy, đồng hồ vẫn chạy nhưng lịch đứng.
-
-Nếu thấy một trong các dấu hiệu trên, **dừng chỉnh lịch ngay và mang tới thợ**. Càng cố chỉnh càng hỏng thêm.
-
-## Ngoại lệ: đồng hồ có cơ cấu "an toàn"
-
-Một số đồng hồ hiện đại có cơ cấu **decoupling** — tự ngắt kết nối cơ cấu lịch khi bạn rút núm chỉnh, nên chỉnh lúc nào cũng an toàn. Tuy nhiên:
-
-- **Không phải đồng hồ nào cũng có** — đa số đồng hồ tầm trung và cũ không có.
-- **Bạn khó biết chắc** mẫu của mình có hay không, trừ khi sách hướng dẫn ghi rõ.
-
-Vì vậy, **luôn áp dụng quy tắc 6 giờ** cho mọi đồng hồ — có cơ cấu an toàn thì quy tắc thừa nhưng không hại, không có thì quy tắc cứu bạn khỏi hỏng hóc.
+Một số bộ máy có cơ cấu ngắt lịch khi chỉnh — chỉnh lúc nào cũng được. **Bạn chỉ biết chắc qua manual của mẫu mình.** Không có manual trong tay thì nhờ dịch vụ có chuyên môn — đừng thử để kiểm tra.
 
 ## Câu hỏi thường gặp
 
-**Tôi lỡ chỉnh rồi, có sao không?**
-Một lần chưa chắc đã hỏng — cơ cấu có dung sai nhất định. Nhưng đừng lập lại. Nếu đồng hồ vẫn đổi ngày đúng nửa đêm, có thể không sao; nếu lệch, mang đi thợ.
+**Tôi lỡ chỉnh lịch rồi, có sao không?**
+Nếu lịch vẫn hoạt động bình thường theo như bạn quan sát, không cần can thiệp. Nếu thấy bất kỳ dấu hiệu bất thường nào ở chức năng lịch, ngừng chỉnh và mang tới dịch vụ có chuyên môn.
 
-**Khung giờ nguy hiểm chính xác là mấy giờ?**
-Tùy đồng hồ, thường 20:00–04:00. Một số mẫu hẹp hơn (22:00–02:00), một số rộng hơn. Nếu không chắc, coi cả khoảng 20:00–04:00 là cấm.
+**Vùng nên tránh chính xác là mấy giờ?**
+Tùy calibre — không có con số dùng chung. Ví dụ duy nhất có nguồn trong cụm này: Seiko (calibre 6L37) ghi **21:00–01:00** trong manual của calibre đó; các hướng dẫn khác có thể nêu khoảng khác. Chuẩn duy nhất: manual của mẫu bạn; không có manual thì nhờ dịch vụ có chuyên môn.
 
 **Lịch tự đổi sai ngày thì sao?**
-Nếu lịch tự đổi đêm qua nhầm ngày (ví dụ sang ngày 16 thay vì 15), đừng vội chỉnh ngay — chờ qua vùng nguy hiểm (sau 4 giờ sáng) rồi chỉnh bằng quy tắc 6 giờ.
+Cách xử lý theo manual của mẫu. Không có manual: nhờ dịch vụ có chuyên môn.
 
-**Đồng hồ quartz có khung giờ nguy hiểm không?**
-Có — cơ cấu lịch quartz cũng dùng bánh răng cơ học, cùng nguyên lý. Tuy nhiên nhiều đồng hồ quartz có cơ cấu an toàn hơn. Vẫn nên áp dụng quy tắc 6 giờ cho chắc.
+**Đồng hồ quartz có cần lưu ý như thế nào?**
+Theo manual của sản phẩm. Cơ cấu lịch ở cả đồng hồ cơ lẫn quartz đều có chu trình đổi ngày riêng của từng bộ máy.
 
-**Lịch tuần (day-of-week) cũng cấm chỉnh trong khung này chứ?**
-Có — lịch tuần và lịch ngày thường dùng chung cơ cấu. Cả hai đều cấm chỉnh trong vùng nguy hiểm.
+**Lịch tuần (thứ trong tuần) thì sao?**
+Thường chia sẻ cơ cấu với lịch ngày — cách chỉnh theo manual của mẫu.
+
+---
+
+Chỉnh lịch và lên dây là hai thao tác thường làm nhất — xem thêm [cách lên dây an toàn](/huong-dan/len-day-dong-ho).

@@ -63,5 +63,6 @@ A pre-owned watch can be a fine first watch, but it changes the questions you as
 
 - Understand the machine you are buying → [how a mechanical watch works](/en/mechanisms/how-a-mechanical-watch-works/)
 - The beat you will hear on your wrist → [the escapement](/en/mechanisms/escapement/)
+- The two operations you will do daily → [winding](/en/guides/winding-a-mechanical-watch/) and [reading water resistance](/en/guides/water-resistance/)
 - Terms along the way → [glossary](/en/glossary/)
 - The stories worth knowing → [Submariner](/en/iconic-watches/rolex-submariner/), [Speedmaster](/en/iconic-watches/omega-speedmaster/), [Tank](/en/iconic-watches/cartier-tank/)

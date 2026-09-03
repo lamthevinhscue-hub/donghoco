@@ -48,12 +48,16 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/huong-dan/chon-dong-ho-dau-tien', en: '/en/guides/first-mechanical-watch/' },
   { vi: '/huong-dan/doc-va-chinh-gmt', en: '/en/guides/reading-and-setting-gmt/' },
   { vi: '/huong-dan/dung-tachymeter', en: '/en/guides/using-a-tachymeter/' },
+  { vi: '/huong-dan/len-day-dong-ho', en: '/en/guides/winding-a-mechanical-watch/' },
+  { vi: '/huong-dan/muc-chong-nuoc', en: '/en/guides/water-resistance/' },
+  { vi: '/huong-dan/chinh-lich-an-toan', en: '/en/guides/setting-the-date-safely/' },
   // Cơ chế
   { vi: '/co-che/chuyen-dong-co', en: '/en/mechanisms/how-a-mechanical-watch-works/' },
   { vi: '/co-che/tru-cot', en: '/en/mechanisms/power-reserve/' },
   { vi: '/co-che/bo-thoat', en: '/en/mechanisms/escapement/' },
   { vi: '/co-che/gmt', en: '/en/mechanisms/gmt/' },
   { vi: '/co-che/chronograph', en: '/en/mechanisms/chronograph/' },
+  { vi: '/co-che/chong-nuoc', en: '/en/mechanisms/water-resistance/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
@@ -64,6 +68,8 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/gmt', en: '/en/glossary/gmt/' },
   { vi: '/tu-dien/chronograph', en: '/en/glossary/chronograph/' },
   { vi: '/tu-dien/tachymeter', en: '/en/glossary/tachymeter/' },
+  { vi: '/tu-dien/num-van', en: '/en/glossary/crown/' },
+  { vi: '/tu-dien/day-cot', en: '/en/glossary/mainspring/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

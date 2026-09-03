@@ -1,14 +1,17 @@
 ---
 // =============================================================================
-// DateSafety — Công cụ học: khung giờ nên tránh khi chỉnh lịch
+// DateSafety — Công cụ học: mô phỏng nguyên lý chu trình đổi ngày
 // =============================================================================
-// Nhiệm vụ duy nhất: cho người đọc thấy vì sao khung 20:00–04:00 là khoảng
-// thận trọng khi chỉnh lịch — cơ cấu lịch có thể đang ăn khớp. Dùng cho
-// /huong-dan/chinh-lich-an-toan.
+// Nhiệm vụ duy nhất: minh họa NGUYÊN LÝ rằng quanh nửa đêm, cơ cấu lịch của
+// nhiều bộ máy bước vào chu trình đổi ngày. Vùng tô 20:00–04:00 là VÍ DỤ TRỰC
+// QUAN — không phải vùng cấm chung, không phải khuyến nghị thao tác, và không
+// xác định khung giờ cho đồng hồ của người đọc. Khung giờ thật tùy calibre:
+// ví dụ có nguồn trong cụm — Seiko (calibre 6L37) ghi 21:00–01:00 trong manual
+// của calibre đó. Dùng cho /huong-dan/chinh-lich-an-toan.
 //
 // Thể hiện theo vòng 24 giờ (00:00 ở đỉnh, mỗi giờ 15°) để không còn mơ hồ
-// 08:00/20:00 như mặt số 12 giờ. Cung ruby có hatch mảnh = vùng cơ cấu đang
-// hoạt động; phần còn lại trung tính steel — không dùng xanh lá.
+// 08:00/20:00 như mặt số 12 giờ. Cung ruby có hatch mảnh = vùng minh họa;
+// phần còn lại trung tính steel — không dùng xanh lá.
 // Màu chỉ qua token --obs-*/--ig-* và token giao diện — không mã màu trực tiếp.
 // Không có hoạt ảnh tự chạy; kéo kim chỉ là một phương án, còn có thanh trượt
 // và nút chuẩn. prefers-reduced-motion không ảnh hưởng thao tác điều khiển.
@@ -45,7 +48,7 @@ const hourLabels = [0, 4, 8, 12, 16, 20].map((h) => {
   };
 });
 
-// Cung ăn khớp 20:00 → 04:00 (qua 00:00): điểm đầu/cuối trên vòng r=128
+// Cung vùng minh họa 20:00 → 04:00 (qua 00:00): điểm đầu/cuối trên vòng r=128
 const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
 ---
 
@@ -54,9 +57,9 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
   data-tool="date-safety"
 >
   <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 02 · Chỉnh lịch</p>
-  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Xem cơ cấu lịch đang an toàn hay đang ăn khớp</h3>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Mô phỏng nguyên lý: chu trình đổi ngày quanh nửa đêm</h3>
   <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-    Chọn một giờ trong ngày: nếu rơi vào khung cơ cấu lịch đang ăn khớp, hãy chờ qua khung đó rồi chỉnh.
+    Kéo kim để thấy nguyên lý: quanh nửa đêm, cơ cấu lịch của nhiều bộ máy bước vào chu trình đổi ngày. Vùng tô bên dưới chỉ là <strong>ví dụ minh họa</strong> — khung giờ thật của đồng hồ bạn nằm trong manual của đúng calibre.
   </p>
 
   <div class="date-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
@@ -67,10 +70,10 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
       height="270"
       style="touch-action: none;"
       role="img"
-      aria-label="Vòng 24 giờ: cung ruby từ 20:00 đến 04:00 là khung cơ cấu lịch có thể đang ăn khớp. Kéo kim giờ hoặc dùng thanh trượt để chọn giờ."
+      aria-label="Mô phỏng nguyên lý trên vòng 24 giờ: cung hatch từ 20:00 đến 04:00 là vùng minh họa cho chu trình đổi ngày của một số bộ máy — chỉ là ví dụ trực quan, không phải khuyến nghị thao tác hay vùng cấm chung. Kéo kim giờ hoặc dùng thanh trượt để chọn giờ."
       focusable="false">
       <defs>
-        <!-- Hatch mảnh cho cung ăn khớp: vạch chéo ruby, không phải biển báo đỏ -->
+        <!-- Hatch mảnh cho vùng minh họa: vạch chéo ruby, không phải biển báo đỏ -->
         <pattern id="ds-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <line x1="3" y1="0" x2="3" y2="6" style="stroke:var(--obs-ruby-soft)" stroke-width="1.6" opacity="0.75" />
         </pattern>
@@ -78,7 +81,7 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
 
       <!-- Nền vòng 24 giờ: trung tính steel -->
       <circle cx="150" cy="150" r="128" fill="none" style="stroke:var(--ig-stroke-soft)" stroke-width="12" opacity="0.5" />
-      <!-- Cung "cơ cấu lịch đang ăn khớp": 20:00 → 04:00 -->
+      <!-- Vùng minh họa: 20:00 → 04:00 -->
       <path
         class="date-mesh-arc"
         d={`M ${arc.x1} ${arc.y1} A ${arc.r} ${arc.r} 0 0 1 ${arc.x2} ${arc.y2}`}
@@ -104,7 +107,7 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
           font-family="Be Vietnam Pro, sans-serif" font-size="10.5" font-weight="600"
         >{n.label}</text>
       ))}
-      <text x="96" y="58" text-anchor="middle" style="fill:var(--ig-rubi)" font-family="Be Vietnam Pro, sans-serif" font-size="8.5" opacity="0.85">20:00–04:00</text>
+      <text x="96" y="58" text-anchor="middle" style="fill:var(--ig-rubi)" font-family="Be Vietnam Pro, sans-serif" font-size="8.5" opacity="0.85">20:00–04:00 · ví dụ</text>
 
       <!-- Mặt số trong -->
       <circle cx="150" cy="150" r="105" style="fill:var(--ig-bg);stroke:var(--ig-stroke)" stroke-width="1.5" />
@@ -128,19 +131,19 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
         <p class="date-current font-serif text-2xl text-navy dark:text-dark-text">06:00</p>
       </div>
       <div class="date-safe-box rounded-lg border-l-4 border-brass bg-brass/10 p-3">
-        <p class="text-sm font-semibold text-navy dark:text-dark-text">Có thể chỉnh lịch</p>
+        <p class="text-sm font-semibold text-navy dark:text-dark-text">Vị trí ngoài vùng minh họa</p>
         <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Ngoài khung thận trọng phổ biến 20:00–04:00.
+          Trong ví dụ này, kim không nằm trong vùng minh họa 20:00–04:00. Giờ thật của đồng hồ bạn: xem manual của đúng calibre.
         </p>
       </div>
       <div class="date-warn-box hidden rounded-lg border-l-4 border-ruby bg-ruby/10 p-3">
-        <p class="text-sm font-semibold text-ruby dark:text-dark-brass">Không chỉnh lịch lúc này</p>
+        <p class="text-sm font-semibold text-ruby dark:text-dark-brass">Vị trí trong vùng minh họa</p>
         <p class="mt-1 text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Cơ cấu lịch có thể đang ăn khớp — chỉnh ngày trong khung này có thể làm hỏng bánh răng.
+          Nguyên lý được minh họa: cơ cấu lịch của nhiều bộ máy đang trong chu trình đổi ngày quanh nửa đêm. Khung giờ thật của đồng hồ bạn: xem manual — không suy ra từ ví dụ này.
         </p>
       </div>
       <p class="date-live rounded-lg border-l-4 border-steel bg-steel/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
-        06:00. Ngoài khung thận trọng phổ biến.
+        06:00 — vị trí ngoài vùng minh họa. Ví dụ trực quan, không thay thế manual.
       </p>
     </div>
   </div>
@@ -168,19 +171,19 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
         type="button"
         class="date-safe-btn min-h-[44px] rounded-full border border-navy px-4 py-2.5 text-xs font-medium text-navy transition-colors hover:bg-navy hover:text-cream dark:border-dark-text dark:text-dark-text dark:hover:bg-dark-text dark:hover:text-dark-surface"
       >
-        Đưa về 06:00
+        Vị trí ngoài vùng (06:00)
       </button>
       <button
         type="button"
         class="date-danger-btn min-h-[44px] rounded-full border border-ruby px-4 py-2.5 text-xs font-medium text-ruby transition-colors hover:bg-ruby hover:text-cream dark:border-dark-brass dark:text-dark-brass"
       >
-        Xem ví dụ nguy hiểm 22:00
+        Vị trí trong vùng (22:00)
       </button>
     </div>
   </div>
 
   <p class="mt-3 text-center text-xs leading-relaxed text-ink-soft dark:text-dark-text-soft">
-    Khung 20:00–04:00 là quy tắc thận trọng phổ biến. Cấu tạo mỗi bộ máy có thể khác; luôn xem hướng dẫn của mẫu đồng hồ cụ thể.
+    Vùng tô 20:00–04:00 chỉ là ví dụ trực quan cho nguyên lý — không phải vùng cấm chung và không thay thế manual. Ví dụ có nguồn trong cụm này: Seiko ghi trong hướng dẫn của calibre 6L37 "không chỉnh ngày giữa 21:00 và 01:00" — một khung của một calibre. Khung giờ thật của đồng hồ bạn: tra manual của đúng mẫu, hoặc nhờ dịch vụ có chuyên môn.
   </p>
 </section>
 
@@ -203,7 +206,8 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
     const liveEl = root.querySelector('.date-live') as HTMLElement | null;
     if (!svg || !hand) return;
 
-    // Giờ mô phỏng 0–23 (24 giờ). Khung thận trọng: 20:00 đến 04:00.
+    // Giờ mô phỏng 0–23 (24 giờ). Vùng minh họa: 20:00 đến 04:00 — chỉ là ví dụ
+    // trực quan cho nguyên lý, không xác định khung giờ cho đồng hồ người đọc.
     function isEngaging(h: number): boolean {
       return h >= 20 || h <= 4;
     }
@@ -223,8 +227,8 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
       warnBox?.classList.toggle('hidden', !engaging);
       if (liveEl) {
         liveEl.textContent = engaging
-          ? `${label(hour)}. Cơ cấu lịch có thể đang ăn khớp. Không chỉnh lịch lúc này.`
-          : `${label(hour)}. Ngoài khung thận trọng phổ biến.`;
+          ? `${label(hour)} — vị trí trong vùng minh họa. Nguyên lý: cơ cấu lịch của nhiều bộ máy đang trong chu trình đổi ngày. Khung giờ thật của đồng hồ bạn: xem manual.`
+          : `${label(hour)} — vị trí ngoài vùng minh họa. Ví dụ trực quan, không thay thế manual.`;
       }
     }
 
@@ -286,7 +290,7 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
       setHour(Number(range.value));
     });
 
-    // Nút nhanh
+    // Nút nhanh (hai vị trí minh họa)
     safeBtn?.addEventListener('click', () => {
       hand.dataset.angle = '90'; // 06:00 = 6 × 15°
       setHour(6);

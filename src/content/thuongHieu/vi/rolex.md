@@ -38,7 +38,7 @@ lineHistory:
     detail: "Thời hoàng kim tool watch bắt đầu."
   - year: 1955
     title: "GMT-Master, Day-Date, Milgauss"
-    detail: "1955–1956: ba năm bùng nổ định hình gần trọn danh mục hiện đại (GMT-Master cho phi công Pan Am, Milgauss chống từ 1.000 gauss)."
+    detail: "1955–1956: ba năm bùng nổ định hình gần trọn danh mục hiện đại (GMT-Master — dòng này sau đó trở thành đồng hồ chính thức của hãng hàng không Pan Am; Milgauss chống từ 1.000 gauss)."
   - year: 1960
     title: "Deep Sea Special xuống vực Mariana; Hans Wilsdorf qua đời"
     detail: "Theo tàu Trieste xuống ~10.900m — đỉnh cao chinh phục; toàn bộ Rolex thuộc về Quỹ, cấu trúc sở hữu độc nhất ngành."
@@ -78,7 +78,7 @@ collections:
     iconic_ref: "Day-Date 40"
   - name: "GMT-Master II"
     year: 1955
-    identity: "Kim 24h + vành hai màu ('Pepsi', 'Batman'); thế hệ II từ 1982."
+    identity: "Kim 24h + vành 24 giờ hai nửa màu phân biệt ngày/đêm; thế hệ II từ 1982."
     positioning: "Đồng hồ du hành huyền thoại."
     iconic_ref: "GMT-Master II 126710"
   - name: "Cosmograph Daytona"

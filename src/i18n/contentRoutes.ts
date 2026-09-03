@@ -46,10 +46,12 @@ export const INDEX_PAIRS: RoutePair[] = [
 export const ARTICLE_PAIRS: RoutePair[] = [
   // Hướng dẫn
   { vi: '/huong-dan/chon-dong-ho-dau-tien', en: '/en/guides/first-mechanical-watch/' },
+  { vi: '/huong-dan/doc-va-chinh-gmt', en: '/en/guides/reading-and-setting-gmt/' },
   // Cơ chế
   { vi: '/co-che/chuyen-dong-co', en: '/en/mechanisms/how-a-mechanical-watch-works/' },
   { vi: '/co-che/tru-cot', en: '/en/mechanisms/power-reserve/' },
   { vi: '/co-che/bo-thoat', en: '/en/mechanisms/escapement/' },
+  { vi: '/co-che/gmt', en: '/en/mechanisms/gmt/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
@@ -57,6 +59,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/day-toc-banh-lac', en: '/en/glossary/hairspring/' },
   { vi: '/tu-dien/rotor', en: '/en/glossary/rotor/' },
   { vi: '/tu-dien/power-reserve', en: '/en/glossary/power-reserve/' },
+  { vi: '/tu-dien/gmt', en: '/en/glossary/gmt/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

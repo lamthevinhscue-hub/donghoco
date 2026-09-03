@@ -1,6 +1,6 @@
 ---
 title: "GMT (Múi giờ thứ hai)"
-excerpt: "Phức tạp hiển thị múi giờ thứ hai — hữu ích cho người đi máy bay, cầu nối giữa pilot watch và đồng hồ du lịch."
+excerpt: "Phức tạp hiển thị múi giờ thứ hai qua một kim 24 giờ bổ sung — đọc giờ tham chiếu song song giờ địa phương."
 term_en: "GMT / Multiple Time Zone"
 category: "phức tạp chức năng"
 has_infographic: true
@@ -10,6 +10,8 @@ draft: false
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "Rolex Newsroom — GMT-Master II"
+    url: "https://newsroom.rolex.com/watches/oyster-collection/gmt-master-ii"
 
 ---
 
@@ -17,8 +19,8 @@ sources:
 
 ## Nhận biết
 
-- **Kim GMT phụ** màu nổi bật (xanh/cam/vàng), quay 1 vòng / 24 giờ.
-- **Bezel 24 giờ** xoay được, thường hai màu (Pepsi, Batman, Coke) để phân biệt ngày/đêm.
+- **Kim GMT** phân biệt bằng thiết kế/màu riêng, quay 1 vòng / 24 giờ.
+- **Thang 24 giờ** thường nằm trên vành bezel; một số mẫu có vành xoay được, thường hai màu khác nhau để phân biệt nửa ngày / nửa đêm.
 
 ## Vì sao là 24 giờ?
 
@@ -26,8 +28,8 @@ Kim GMT quay 1 vòng / 24 giờ (không phải 12) để bạn **phân biệt s�
 
 ## Lịch sử ngắn
 
-GMT phổ biến nhờ **Rolex GMT-Master** (1954) — phát triển cho phi công Pan Am bay xuyên lục địa, cần biết cả giờ địa phương và giờ quê nhà.
+GMT phổ biến nhờ **Rolex GMT-Master** (ra mắt 1955 theo Rolex) — sau này trở thành đồng hồ chính thức của hãng hàng không Pan American World Airways (Pan Am), phục vụ nhu cầu đọc cả giờ địa phương và giờ quê nhà.
 
 ## Đi sâu hơn
 
-Muốn hiểu cơ chế truyền động tỷ lệ 2:1, cách bezel cho phép đọc múi giờ thứ ba, và khác biệt Caller GMT vs Flyer GMT → đọc bài **[GMT — Cơ chế hai múi giờ và kim 24 giờ](/co-che/gmt)**.
+Muốn hiểu nguyên lý kim 24 giờ, cách bezel mở thêm một múi giờ đọc được, và vì sao cách chỉnh phụ thuộc từng calibre → đọc bài **[GMT — Cơ chế hai múi giờ và kim 24 giờ](/co-che/gmt)**.

@@ -19,7 +19,7 @@ sources:
 
 ## Origins
 
-In the 1950s, civil aviation entered the age of long-range jets: a single flight could cross **several time zones** in one day, while pilots still had to check their schedule against local time at each destination. Rolex launched the **GMT-Master in 1955** — designed as a timekeeping tool for aviation — and it was quickly adopted by pilots at **Pan American World Airways (Pan Am)**.
+In the 1950s, civil aviation entered the age of long-range jets: a single flight could cross **several time zones** in one day, while pilots still had to check their schedule against local time at each destination. Rolex launched the **GMT-Master in 1955** — designed as a timekeeping tool for aviation — and the line later became **the official watch of the airline Pan American World Airways (Pan Am)**.
 
 The name **GMT** comes from **Greenwich Mean Time** — the standard chosen as the prime meridian reference in **1884**. Keeping one hand running on Greenwich time means keeping a fixed point of reference across all time zones.
 
@@ -41,7 +41,7 @@ In other words: the original GMT-Master reads two time zones, while the GMT-Mast
 
 ## Milestones
 
-- **1955** — The GMT-Master launches with a GMT hand and a bidirectional 24-hour bezel; adopted by Pan Am pilots.
+- **1955** — The GMT-Master launches with a GMT hand and a bidirectional 24-hour bezel; the line later became the official watch of the Pan Am airline.
 - **1982** — The GMT-Master II adds an independently adjustable local hour hand.
 - **2014** — Rolex brings the original red-and-blue pairing back on a Cerachrom ceramic bezel, reuniting the GMT-Master II with the original's look.
 
@@ -49,8 +49,8 @@ In other words: the original GMT-Master reads two time zones, while the GMT-Mast
 
 The GMT-Master is a rare case where **the historical facts connect directly to how the watch is used**: the two-colour bezel is not decoration but a day–night tool; the GMT hand is not an accessory but a second dial. So the practical question separating the versions is whether you need to **read two fixed time zones** (original GMT-Master) or to **change local time quickly** (GMT-Master II).
 
-To understand the versions, it helps to know the principle inside: a gear pair running at 2:1 is what makes the GMT hand complete one turn per 24 hours — half the hour hand's speed. Once that is clear, the versions above are easy to compare. Readers following Rolex's professional line can continue with the [Submariner](/en/iconic-watches/rolex-submariner/) — born in the same era on the same Oyster platform, but serving a different profession.
+To understand the versions, it helps to know one display principle: the GMT hand completes one turn every 24 hours — half the hour hand's speed. How each movement achieves that gearing is specific to its calibre. Once that is clear, the versions above are easy to compare. The full mechanism — the 24-hour hand, the rotatable bezel, and the model-specific approach to setting the hands — is covered in the [GMT mechanism article](/en/mechanisms/gmt/). Readers following Rolex's professional line can continue with the [Submariner](/en/iconic-watches/rolex-submariner/) — born in the same era on the same Oyster platform, but serving a different profession.
 
 ## Its place in history
 
-The GMT-Master proved a technical complication can become a **design language**: the GMT hand and the two-colour bezel now appear on hundreds of GMT watches from every brand, yet the fingerprints of the 1950s Pan Am cockpit are still visible in every detail.
+The GMT-Master proved a technical complication can become a **design language**: the GMT hand and the two-colour bezel now appear on hundreds of GMT watches from every brand, yet the fingerprints of the 1950s long-haul cockpit are still visible in every detail.

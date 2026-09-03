@@ -5,12 +5,22 @@ import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
 import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink';
 import rehypeWrapTables from './src/plugins/rehype-wrap-tables.mjs';
+import { ARTICLE_PAIRS } from './src/i18n/contentRoutes';
 import { ALL_PAIRS } from './src/i18n/contentRoutes';
 
 // Tải danh sách thuật ngữ từ điển (sinh bởi scripts/generate-glossary-terms.mjs)
 // File này được cập nhật trước mỗi lần build (xem package.json script "build").
 const glossaryTerms = JSON.parse(
   readFileSync('./src/data/glossary-terms.json', 'utf-8'),
+);
+
+// Cặp thuật ngữ từ điển có bản tiếng Anh (slug VI → URL EN), lấy từ bảng
+// contentRoutes — dùng cho autolink trên trang EN (quy ước i18n: thuật ngữ
+// chưa dịch thì không tự chế link về route tiếng Việt).
+const glossaryEnLinks = Object.fromEntries(
+  ARTICLE_PAIRS
+    .filter((p) => p.vi.startsWith('/tu-dien/'))
+    .map((p) => [p.vi.replace('/tu-dien/', ''), p.en]),
 );
 
 const SITE = 'https://www.kienthucdonghoco.vn';
@@ -32,7 +42,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
-      [remarkGlossaryAutolink, { terms: glossaryTerms }],
+      [remarkGlossaryAutolink, { terms: glossaryTerms, enLinks: glossaryEnLinks }],
     ],
     rehypePlugins: [rehypeWrapTables],
   },

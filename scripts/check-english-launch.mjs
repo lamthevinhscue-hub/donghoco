@@ -76,13 +76,16 @@ const REQUIRED_EN = [
   '/en/mechanisms/how-a-mechanical-watch-works/',
   '/en/mechanisms/power-reserve/',
   '/en/mechanisms/escapement/',
+  '/en/mechanisms/gmt/',
   '/en/glossary/movement/',
   '/en/glossary/calibre/',
   '/en/glossary/escapement/',
   '/en/glossary/hairspring/',
   '/en/glossary/rotor/',
   '/en/glossary/power-reserve/',
+  '/en/glossary/gmt/',
   '/en/guides/first-mechanical-watch/',
+  '/en/guides/reading-and-setting-gmt/',
 ];
 const missing = REQUIRED_EN.filter((r) => !routeExistsInDist(r));
 if (missing.length > 0) errors.push(`Thiếu route English launch pack trong dist: ${missing.join(', ')}`);

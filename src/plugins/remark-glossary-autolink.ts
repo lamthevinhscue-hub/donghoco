@@ -14,6 +14,10 @@
 // - Không bọc nếu thuật ngữ xuất hiện trong chính bài từ điển của nó (tránh link tự trỏ).
 // - Slug sinh từ TÊN FILE (không dùng custom_slug).
 // - Không bọc bên trong link/heading/code có sẵn.
+// - Trang tiếng Anh (quy ước i18n): chỉ bọc thuật ngữ có cặp EN khai trong
+//   enLinks (slug vi → URL EN từ contentRoutes); link trỏ route EN và KHÔNG
+//   kèm tooltip tiếng Việt. Thuật ngữ chưa dịch → để nguyên văn, không tự chế
+//   link về route tiếng Việt.
 //
 // Danh sách thuật ngữ được truyền vào từ astro.config.mjs.
 // =============================================================================
@@ -33,6 +37,12 @@ export interface GlossaryOptions {
   terms: GlossaryTerm[];
   /** Trần số link tự động mỗi bài (mặc định 8). */
   maxLinksPerDoc?: number;
+  /**
+   * Bảng cặp thuật ngữ có bản tiếng Anh: slug tiếng Việt → URL EN tuyệt đối
+   * (lấy từ ARTICLE_PAIRS trong i18n/contentRoutes). Chỉ áp dụng khi đang
+   * render tệp markdown tiếng Anh; thuật ngữ ngoài bảng → không bọc link.
+   */
+  enLinks?: Record<string, string>;
 }
 
 interface ProcessedTerm {
@@ -57,6 +67,9 @@ interface DocContext {
   used: Set<string>;
   linkCount: number;
   maxLinks: number;
+  /** Đang render tệp tiếng Anh → áp dụng quy tắc enLinks, bỏ tooltip. */
+  isEn: boolean;
+  enLinks: Record<string, string>;
 }
 
 // Bọc thuật ngữ trong 1 chuỗi text, trả về mảng phrasing content
@@ -67,11 +80,13 @@ function wrapInString(
 ): PhrasingContent[] {
   if (!text) return [];
 
-  // Tìm tất cả match, lấy match sớm nhất của thuật ngữ chưa dùng
+  // Tìm tất cả match, lấy match sớm nhất của thuật ngữ chưa dùng.
+  // Trang EN: chỉ xét thuật ngữ có cặp EN trong enLinks.
   let best: { index: number; display: string; slug: string; excerpt: string } | null = null;
 
   for (const term of terms) {
     if (ctx.used.has(term.slug)) continue;
+    if (ctx.isEn && !ctx.enLinks[term.slug]) continue;
     for (const { regex, display } of term.regexes) {
       const m = regex.exec(text);
       if (m && (best === null || m.index < best.index)) {
@@ -85,7 +100,7 @@ function wrapInString(
     return text ? [{ type: 'text', value: text }] : [];
   }
 
-  const { index, display, slug, excerpt } = best;
+  const { index, display, slug } = best;
   const matchedText = text.substring(index, index + display.length);
   const before = text.substring(0, index);
   const after = text.substring(index + display.length);
@@ -95,10 +110,13 @@ function wrapInString(
 
   const result: PhrasingContent[] = [];
   if (before) result.push({ type: 'text', value: before });
+  // Trang EN: link route EN (từ bảng cặp), không tooltip tiếng Việt.
+  // Trang VI: giữ nguyên hành vi cũ — link /tu-dien/<slug> kèm excerpt.
+  const url = ctx.isEn ? ctx.enLinks[slug] : `/tu-dien/${slug}`;
   result.push({
     type: 'link',
-    url: `/tu-dien/${slug}`,
-    title: excerpt,
+    url,
+    ...(ctx.isEn ? {} : { title: best.excerpt }),
     data: { hProperties: { className: 'glossary-autolink' } },
     children: [{ type: 'text', value: matchedText }],
   });
@@ -109,6 +127,7 @@ function wrapInString(
 
 const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
   const maxLinks = options.maxLinksPerDoc ?? MAX_LINKS_PER_DOC;
+  const enLinks = options.enLinks ?? {};
 
   const processed: ProcessedTerm[] = options.terms
     .filter((t) => t.title && t.title.length >= 3)
@@ -140,10 +159,16 @@ const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
     const pathMatch = (file.path || '').match(/tuDien[\/\\][^\/\\]+[\/\\]([^\/\\]+)\.md$/);
     const currentSlug = pathMatch ? pathMatch[1] : null;
 
+    // Tệp tiếng Anh nằm trong thư mục con `en/` của collection
+    // (VD: src/content/coChe/en/gmt.md) → áp dụng quy tắc i18n cho autolink.
+    const isEn = /(^|[\/\\])en([\/\\])/.test(file.path || '');
+
     const ctx: DocContext = {
       used: new Set<string>(),
       linkCount: 0,
       maxLinks,
+      isEn,
+      enLinks,
     };
     if (currentSlug) ctx.used.add(currentSlug); // tránh link tự trỏ về chính bài từ điển
 

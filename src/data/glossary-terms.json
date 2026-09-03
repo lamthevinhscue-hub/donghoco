@@ -61,7 +61,7 @@
   {
     "title": "GMT (Múi giờ thứ hai)",
     "slug": "gmt",
-    "excerpt": "Phức tạp hiển thị múi giờ thứ hai — hữu ích cho người đi máy bay, cầu nối giữa pilot watch và đồng hồ du lịch.",
+    "excerpt": "Phức tạp hiển thị múi giờ thứ hai qua một kim 24 giờ bổ sung — đọc giờ tham chiếu song song giờ địa phương.",
     "aliases": [
       "GMT (Múi giờ thứ hai)",
       "GMT",

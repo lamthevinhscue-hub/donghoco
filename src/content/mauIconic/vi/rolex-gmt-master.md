@@ -15,7 +15,7 @@ relatedModels:
 
 relatedMechanisms:
   - slug: "gmt"
-    relation: "GMT-Master là mẫu đưa cơ chế hai múi giờ với kim 24 giờ và vành xoay đến công chúng — xem nguyên lý truyền động 2:1"
+    relation: "GMT-Master là mẫu đưa cơ chế hai múi giờ với kim 24 giờ và vành xoay đến công chúng — xem nguyên lý kim 24 giờ"
 
 updated: "2026-09-01"
 
@@ -29,7 +29,7 @@ sources:
 
 ## Bối cảnh ra đời
 
-Thập niên 1950, hàng không dân dụng bước vào thời kỳ máy bay phản lực đường dài: một chuyến bay có thể vượt qua **nhiều múi giờ** trong cùng ngày, trong khi phi công vẫn phải đối chiếu lịch bay theo giờ địa phương của điểm đến. Rolex ra mắt **GMT-Master năm 1955** — thiết kế làm công cụ định vị thời gian cho hàng không — và nhanh chóng được các phi công của **Pan American World Airways (Pan Am)** lựa chọn sử dụng.
+Thập niên 1950, hàng không dân dụng bước vào thời kỳ máy bay phản lực đường dài: một chuyến bay có thể vượt qua **nhiều múi giờ** trong cùng ngày, trong khi phi công vẫn phải đối chiếu lịch bay theo giờ địa phương của điểm đến. Rolex ra mắt **GMT-Master năm 1955** — thiết kế làm công cụ định vị thời gian cho hàng không — và dòng này sau đó trở thành **đồng hồ chính thức của hãng hàng không Pan American World Airways (Pan Am)**.
 
 Cái tên **GMT** lấy từ **Greenwich Mean Time** — giờ trung bình kinh tuyến Greenwich, chuẩn mực được chọn làm kinh tuyến gốc từ năm **1884**. Giữ một kim chạy theo giờ Greenwich là giữ một mốc thời gian cố định giữa các múi giờ.
 
@@ -51,7 +51,7 @@ Nói cách khác: GMT-Master đời đầu đọc được hai múi giờ, còn 
 
 ## Cột mốc phát triển
 
-- **1955** — GMT-Master ra mắt, dùng kim 24 giờ và vành 24 giờ xoay hai chiều; được phi công Pan Am lựa chọn.
+- **1955** — GMT-Master ra mắt, dùng kim 24 giờ và vành 24 giờ xoay hai chiều; sau đó trở thành đồng hồ chính thức của hãng hàng không Pan Am.
 - **1982** — GMT-Master II bổ sung kim giờ địa phương chỉnh độc lập từng giờ.
 - **2014** — Rolex đưa cặp màu đỏ – xanh đời đầu trở lại trên vành gốm Cerachrom, gắn lại GMT-Master II với diện mạo bản gốc.
 
@@ -63,4 +63,4 @@ Người mới nên bắt đầu từ phần [cơ chế GMT](/co-che/gmt) để 
 
 ## Vị trí trong lịch sử
 
-GMT-Master chứng minh một phức tạp kỹ thuật có thể trở thành **ngôn ngữ thiết kế**: kim 24 giờ và vành hai màu nay xuất hiện trên hàng trăm mẫu GMT của đủ mọi hãng, nhưng dấu vết của buồng lái Pan Am thập niên 1950 vẫn rõ trong từng chi tiết.
+GMT-Master chứng minh một phức tạp kỹ thuật có thể trở thành **ngôn ngữ thiết kế**: kim 24 giờ và vành hai màu nay xuất hiện trên hàng trăm mẫu GMT của đủ mọi hãng, nhưng dấu vết của buồng lái đường dài thập niên 1950 vẫn rõ trong từng chi tiết.

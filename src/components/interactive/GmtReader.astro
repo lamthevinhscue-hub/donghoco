@@ -1,11 +1,13 @@
 ---
 // =============================================================================
-// GmtReader — Công cụ học: đọc ba múi giờ trên đồng hồ GMT
+// GmtReader — Công cụ học: minh họa nguyên lý hiển thị trên GMT có vành 24 giờ
 // =============================================================================
-// Ba cách đọc: giờ địa phương (kim giờ 12 giờ), giờ nhà (kim GMT trên thang
-// 24 giờ), và múi giờ thứ ba = giờ mà kim GMT đang chỉ trên vành 24 giờ đã
-// xoay. Công thức múi thứ ba: (gmtHour24 − bezelAngle/15) mod 24 — phản ánh
-// đồng thời kim GMT và vị trí vành. Dùng cho /huong-dan/doc-va-chinh-gmt.
+// Minh họa NGUYÊN LÝ HIỂN THỊ trên một mẫu có vành 24 giờ xoay: giờ địa
+// phương (kim giờ 12 giờ), giờ nhà (kim GMT trên thang 24 giờ), và múi giờ
+// thay thế = giờ mà kim GMT đang chỉ trên vành 24 giờ đã xoay. Công thức mô
+// phỏng: (gmtHour24 − bezelAngle/15) mod 24. Đây KHÔNG phải mô phỏng thao tác
+// chính xác cho mọi calibre — thao tác thật theo tài liệu của nhà sản xuất.
+// Dùng cho /huong-dan/doc-va-chinh-gmt.
 //
 // Ngôn ngữ "Horological Observatory": vành graphite/thép chuyển sắc, kim GMT
 // brass là điểm nhấn duy nhất, chỉ báo brass cố định ở đỉnh. Vạch và số sinh
@@ -67,10 +69,10 @@ const dialNumerals = [
   class="interactive-tool my-8 rounded-lg border border-cream-dark bg-cream-dark/20 p-4 sm:p-6 dark:border-dark-border dark:bg-dark-border/20"
   data-tool="gmt-reader"
 >
-  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 03 · Ba múi giờ</p>
-  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Đọc giờ địa phương, giờ nhà và múi giờ thứ ba</h3>
+  <p class="text-xs font-medium uppercase tracking-widest text-brass dark:text-dark-brass">Thực hành 03 · Minh họa nguyên lý GMT</p>
+  <h3 class="mt-1 font-serif text-lg font-semibold text-navy dark:text-dark-text">Đọc giờ địa phương, giờ nhà và múi giờ thay thế</h3>
   <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-    Kim GMT đọc giờ nhà; xoay vành 24 giờ để đọc thêm một múi giờ.
+    Kim GMT đọc giờ nhà trên thang 24 giờ; trên mẫu có vành 24 giờ xoay, xoay vành theo chênh lệch múi giờ để đọc thêm một múi giờ thay thế. Đây là <strong>minh họa nguyên lý</strong> — không thay thế hướng dẫn của nhà sản xuất.
   </p>
 
   <div class="gmt-stage mt-4 flex flex-col items-center gap-5 rounded-lg border border-cream-dark bg-white p-4 dark:border-dark-border dark:bg-dark-surface sm:flex-row sm:justify-center">
@@ -81,7 +83,7 @@ const dialNumerals = [
       height="280"
       style="touch-action: none;"
       role="img"
-      aria-label="Đồng hồ GMT: kim giờ đọc giờ địa phương, kim brass đọc giờ nhà trên thang 24 giờ; xoay vành 24 giờ để đưa múi giờ thứ ba tới đầu kim GMT."
+      aria-label="Minh họa nguyên lý đồng hồ GMT có vành 24 giờ xoay: kim giờ đọc giờ địa phương, kim brass đọc giờ nhà trên thang 24 giờ; xoay vành 24 giờ theo chênh lệch múi giờ để đọc múi giờ thay thế tại đầu kim GMT."
       focusable="false">
       <defs>
         <linearGradient id="gm-steel" x1="0" y1="0" x2="0" y2="1">
@@ -160,11 +162,11 @@ const dialNumerals = [
         <p class="gmt-home font-serif text-2xl text-navy dark:text-dark-text">12:00</p>
       </div>
       <div class="rounded-lg border border-cream-dark bg-cream/40 p-3 dark:border-dark-border dark:bg-dark-border/30">
-        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ ba · kim GMT trên vành</p>
+        <p class="text-xs uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thay thế · kim GMT trên vành đã xoay</p>
         <p class="gmt-third font-serif text-2xl text-navy dark:text-dark-text">12:00</p>
       </div>
       <p class="gmt-status rounded-lg border-l-4 border-brass bg-brass/10 p-3 text-sm text-navy dark:text-dark-text" role="status">
-        Địa phương 12:00 · Giờ nhà 12:00 · Múi thứ ba 12:00.
+        Địa phương 12:00 · Giờ nhà 12:00 · Múi thay thế 12:00.
       </p>
     </div>
   </div>
@@ -201,9 +203,12 @@ const dialNumerals = [
       type="button"
       class="gmt-example min-h-[44px] rounded-full bg-navy px-4 py-2.5 text-xs font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-text dark:text-dark-surface"
     >
-      Ví dụ: bay qua 7 múi giờ
+      Ví dụ minh họa: chuyến bay qua 7 múi giờ
     </button>
   </div>
+  <p class="mt-3 text-center text-xs text-ink-soft dark:text-dark-text-soft">
+    Các nút chỉ mô phỏng quan hệ hiển thị giữa các kim trên một mẫu có vành xoay — không phải hướng dẫn thao tác chung cho các đồng hồ GMT; thao tác thật theo tài liệu của từng calibre.
+  </p>
 </section>
 
 <style>
@@ -234,7 +239,7 @@ const dialNumerals = [
 
     function pad(n: number) { return n < 10 ? '0' + n : '' + n; }
 
-    // Múi giờ thứ ba = giờ mà kim GMT đang chỉ trên vành ĐÃ XOAY:
+    // Múi giờ thay thế = giờ mà kim GMT đang chỉ trên vành ĐÃ XOAY:
     // đầu kim GMT ở góc gmtHour24×15 theo vành gốc; vành xoay bezelAngle
     // đưa vạch (gmtHour24 − bezelAngle/15) tới đầu kim.
     function thirdHour(): number {
@@ -255,40 +260,40 @@ const dialNumerals = [
       if (homeEl) homeEl.textContent = homeLabel;
       if (thirdEl) thirdEl.textContent = thirdLabel;
       if (statusEl) {
-        statusEl.textContent = `Địa phương ${localLabel} · Giờ nhà ${homeLabel} · Múi thứ ba ${thirdLabel}.${lastNote ? ' ' + lastNote : ''}`;
+        statusEl.textContent = `Địa phương ${localLabel} · Giờ nhà ${homeLabel} · Múi thay thế ${thirdLabel}.${lastNote ? ' ' + lastNote : ''}`;
       }
     }
 
     hourUp?.addEventListener('click', () => {
       localHour = (localHour % 12) + 1;
-      lastNote = 'Kim giờ tăng 1 giờ — chỉ giờ địa phương thay đổi.';
+      lastNote = 'Kim giờ tăng 1 giờ (mô phỏng kiểu chỉnh GMT-Master II) — kim GMT đứng yên.';
       render();
     });
 
     gmtUp?.addEventListener('click', () => {
       gmtHour24 = (gmtHour24 + 1) % 24;
-      lastNote = 'Kim GMT tăng 1 giờ — giờ nhà và múi thứ ba tăng cùng nhau.';
+      lastNote = 'Kim GMT tăng 1 giờ — minh họa quan hệ hiển thị với thang 24 giờ (không phải thao tác chuẩn).';
       render();
     });
 
     bezelCw?.addEventListener('click', () => {
       bezelAngle = (bezelAngle + 15) % 360;
-      lastNote = 'Vành tiến 1 giờ — chỉ múi thứ ba thay đổi.';
+      lastNote = 'Vành tiến 1 giờ — múi thay thế thay đổi theo vạch tại đầu kim GMT.';
       render();
     });
 
     bezelCcw?.addEventListener('click', () => {
       bezelAngle = (bezelAngle - 15 + 360) % 360;
-      lastNote = 'Vành lùi 1 giờ — chỉ múi thứ ba thay đổi.';
+      lastNote = 'Vành lùi 1 giờ — múi thay thế thay đổi theo vạch tại đầu kim GMT.';
       render();
     });
 
-    // Ví dụ học nhanh: nơi đến 09:00, giờ nhà 16:00, vành xoay để múi thứ ba 18:00
+    // Ví dụ học nhanh: nơi đến 09:00, giờ nhà 16:00, vành xoay để múi thay thế 18:00
     root.querySelector('.gmt-example')?.addEventListener('click', () => {
       localHour = 9;
       gmtHour24 = 16;
       bezelAngle = 330; // 16:00 − 22 = −6 → 18:00 tại đầu kim GMT
-      lastNote = 'Ví dụ quan sát ba cách đọc (không phải thời gian thực): nơi đến 09:00, giờ nhà 16:00, vành đã xoay đọc múi thứ ba 18:00.';
+      lastNote = 'Ví dụ minh họa các cách đọc (không phải thời gian thực): nơi đến 09:00, giờ nhà 16:00, vành đã xoay đọc múi thay thế 18:00.';
       render();
     });
 
@@ -325,7 +330,7 @@ const dialNumerals = [
       if (delta < -180) delta += 360;
       if (delta !== 0) {
         bezelAngle = (bezelAngle + delta + 360) % 360;
-        lastNote = 'Kéo vành tay — múi thứ ba thay đổi theo vạch tại đầu kim GMT.';
+        lastNote = 'Kéo vành tay — múi thay thế thay đổi theo vạch tại đầu kim GMT.';
         render();
       }
       lastAngle = cur;

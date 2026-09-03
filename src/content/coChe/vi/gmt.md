@@ -1,6 +1,6 @@
 ---
 title: "GMT — Cơ chế hai múi giờ và kim 24 giờ"
-excerpt: "GMT hiển thị múi giờ thứ hai qua kim 24 giờ và vành bezel xoay. Hiểu cơ chế truyền động tỷ lệ 2:1, cách vành bezel cho phép đọc múi giờ thứ ba, và sự khác biệt giữa hai kiểu chỉnh giờ."
+excerpt: "GMT hiển thị múi giờ thứ hai qua một kim 24 giờ. Hiểu nguyên lý hiển thị, khi nào vành 24 giờ xoay mở thêm một múi giờ thay thế đọc được, và vì sao thao tác chỉnh luôn phải theo đúng từng mẫu."
 category: "phức tạp"
 difficulty: "trung bình"
 has_infographic: true
@@ -10,71 +10,66 @@ draft: false
 
 relatedModels:
   - slug: "rolex-gmt-master"
-    relation: "GMT-Master (1955) là mẫu đưa cơ chế hai múi giờ từ buồng lái Pan Am đến số đông với kim 24 giờ và vành xoay hai màu"
+    relation: "GMT-Master (1955) là mẫu đưa cơ chế hai múi giờ đến số đông với kim 24 giờ và vành hai màu — dòng này sau đó trở thành đồng hồ chính thức của hãng hàng không Pan Am"
 
 updated: "2026-09-01"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "Rolex Newsroom — GMT-Master II"
+    url: "https://newsroom.rolex.com/watches/oyster-collection/gmt-master-ii"
 
 ---
 
 ## Hiện tượng — bạn nhìn thấy gì?
 
-Một chiếc đồng hồ GMT có thêm **một kim phụ màu nổi bật** (thường xanh, cam, hoặc vàng) — kim này **đi hết 1 vòng trong 24 giờ** (thay vì 12 giờ như kim giờ thường). Vành bezel (vành xoay ngoài mặt số) có các số từ 1 đến 24. Nhờ vậy, bạn đọc được **giờ của 2-3 múi giờ cùng lúc**.
+Một chiếc đồng hồ GMT có thêm **một kim phụ** phân biệt bằng thiết kế hoặc màu sắc riêng — kim này **đi hết 1 vòng trong 24 giờ** (thay vì 12 giờ như kim giờ thường). Thang 24 giờ cho phép đọc kim này theo giờ tuyệt đối trong ngày.
 
-GMT (viết tắt *Greenwich Mean Time*) là phức tạp **hiển thị múi giờ thứ hai** — hữu dụng cho người đi máy bay, làm việc quốc tế, hoặc có người thân ở nước ngoài.
+GMT (viết tắt *Greenwich Mean Time*) là phức tạp **hiển thị múi giờ thứ hai** — hữu dụng cho người đi máy bay, làm việc quốc tế, hoặc có người thân ở nước ngoài. Ở những mẫu có **vành 24 giờ xoay**, vành còn cho phép đọc thêm một **múi giờ thay thế**.
 
-## Nguyên lý — cơ chế 24 giờ hoạt động thế nào?
+## Nguyên lý — kim GMT đi hết một vòng trong 24 giờ
 
-### Kim GMT 24 giờ — tỷ lệ truyền động 2:1
-
-Bí quyết của GMT nằm ở **tỷ lệ truyền động** giữa kim giờ thường và kim GMT:
+Điểm khác biệt cốt lõi của GMT nằm ở tốc độ của kim phụ:
 
 - **Kim giờ thường**: quay 1 vòng / 12 giờ (chuẩn).
-- **Kim GMT**: quay 1 vòng / **24 giờ** — chậm đúng **một nửa**.
+- **Kim GMT**: quay 1 vòng / **24 giờ** — nửa tốc độ kim giờ.
 
-Bên trong bộ máy, một bộ bánh răng trung gian **tỷ lệ 2:1** nối kim giờ với kim GMT: kim giờ quay 2 vòng thì kim GMT quay 1 vòng. Đây là lý do kim GMT luôn **đồng bộ** với kim giờ nhưng đi chậm hơn — chỉ đúng giờ của múi giờ thứ hai.
+Mỗi vị trí của kim GMT ứng với một giờ cụ thể trong ngày, không lặp lại như thang 12 giờ — nhờ vậy giờ của múi giờ thứ hai không lẫn sáng/chiều. Quan hệ được thiết lập giữa kim GMT và các kim còn lại là **đặc tính của từng calibre**.
 
-### Vì sao phải 24 giờ (không phải 12)?
+Về cấu trúc bên trong: các bộ máy đạt tốc độ này theo cách riêng của mình. Một cấu trúc thường gặp được Fondation de la Haute Horlogerie mô tả là dùng thêm bánh răng để **chia đôi tốc độ** cho kim 24 giờ — nhưng đó là mô tả một cách làm cụ thể, không phải quy tắc áp chung.
 
-Kim GMT quay 1 vòng / 24 giờ để bạn **phân biệt sáng/chiều**. Nếu kim chỉ số "8" trên vành bezel 24 giờ → 8 giờ sáng; nếu chỉ "20" → 8 giờ tối. Nếu dùng kim 12 giờ, bạn không biết "8" là sáng hay tối.
+## Vì sao phải 24 giờ (không phải 12)?
 
-### Vành bezel xoay — đọc múi giờ thứ ba
+Kim GMT quay 1 vòng / 24 giờ để bạn **phân biệt sáng/chiều**. Nếu kim chỉ số "8" trên thang 24 giờ → 8 giờ sáng; nếu chỉ "20" → 8 giờ tối. Nếu dùng kim 12 giờ, bạn không biết "8" là sáng hay tối.
 
-Vành bezel 24 giờ **xoay được** là điểm thông minh. Cách dùng:
+## Vành 24 giờ xoay — đọc thêm một múi giờ thay thế
 
-1. **Kim giờ + kim phút** thông thường → giờ địa phương (nơi bạn đang đứng).
-2. **Kim GMT 24 giờ** chỉ giờ nhà (múi giờ thứ 2) — vị trí kim trên mặt số 24 giờ cho biết giờ nhà.
-3. **Xoay vành bezel** để số "24/0" của vành bezel trùng với múi giờ thứ 3 → kim GMT cũng chỉ luôn cho bạn giờ múi giờ thứ 3.
+Thang 24 giờ có thể nằm trên vành bezel hoặc ở vị trí hiển thị khác, tùy mẫu. **Chỉ những mẫu có vành 24 giờ xoay** mới dùng được nguyên tắc sau để đọc thêm một múi giờ thay thế (theo mô tả của Rolex cho GMT-Master II):
 
-Vành bezel hai màu (đỏ/xanh "Pepsi", đen/xanh "Batman") phân biệt nửa ngày (đỏ) / nửa đêm (xanh).
+1. **Kim giờ + kim phút** thông thường → giờ địa phương (nơi bạn đang đứng); **kim GMT** → giờ tham chiếu (ví dụ giờ nhà), đọc trên thang 24 giờ của mẫu.
+2. **Xoay vành theo chênh lệch múi giờ cần theo dõi** → đọc kim GMT trên thang vành đã xoay: số tại đầu kim là giờ của múi giờ thay thế.
+3. Lưu ý giới hạn theo Rolex: khi vành đang dùng cho múi giờ thay thế, **giờ tham chiếu không còn đọc trực tiếp theo vành** — đưa vành về vị trí trung lập (tam giác về đúng 12 giờ) để đọc lại.
 
-## Caller GMT vs Flyer GMT — 2 kiểu chỉnh giờ
+Không có công thức chiều xoay hay số nấc áp chung cho các mẫu — nguyên tắc và thao tác chi tiết theo tài liệu của nhà sản xuất.
 
-Có **2 cách chế tạo** chức năng GMT, khác biệt ở cách chỉnh:
+Vành hai nửa màu khác nhau giúp phân biệt nửa ngày và nửa đêm khi nhìn xuống mặt số.
 
-### Caller GMT (kiểu "người nhận cuộc gọi" — chỉ đổi giờ địa phương)
-- **Kim giờ chính có thể nhảy từng giờ** độc lập (khi đến múi giờ mới, bạn kéo nút và nhảy kim giờ từng giờ — không ảnh hưởng kim phút/giây).
-- **Kim GMT phụ** trượt theo máy, khó chỉnh độc lập.
-- Phù hợp: người đi công tác (chỉ cần đổi giờ địa phương, giữ giờ nhà nguyên).
-- Ví dụ: Tudor Black Bay GMT, Omega Seamaster Aqua Terra GMT.
+## Cách chỉnh — tùy từng bộ máy
 
-### Flyer GMT (kiểu "người bay" — đổi được cả hai kim giờ)
-- **Cả 2 kim giờ đều chỉnh độc lập** — linh hoạt nhất.
-- Phù hợp: người bay nhiều chặng, cần đổi cả giờ địa phương lẫn giờ nhà.
-- Ví dụ: **Rolex GMT-Master II** — chuẩn mực của Flyer GMT.
+Kim nào chỉnh được và chỉnh như thế nào là **đặc tính của từng calibre** — không có thao tác chung cho các đồng hồ GMT. Trước khi chỉnh, hãy đọc **tài liệu của đúng mẫu** bạn dùng; không kéo núm thử theo phỏng đoán.
 
-## Ý nghĩa lịch sử — sinh ra cho phi công
+Ví dụ có nguồn: **Rolex GMT-Master II** — từ bộ máy năm **1982**, Rolex cho phép chỉnh kim giờ địa phương **nhảy từng giờ qua núm vặn**, không ảnh hưởng kim phút, kim giây và kim 24 giờ. Đây là mô tả của riêng mẫu này, không phải chuẩn chung.
 
-**1954**: Hãng hàng không **Pan Am** yêu cầu Rolex chế tạo đồng hồ cho phi công bay xuyên lục địa — cần biết giờ cả điểm đi lẫn điểm đến. Rolex đáp ứng bằng **GMT-Master** (ref. 6542) với kim 24h + bezel đỏ/xanh đặc trưng (xem [mốc 1954 trong timeline](/lich-su)).
+## Ý nghĩa lịch sử — sinh ra cho người xuyên múi giờ
 
-Biến thể nổi tiếng: **GMT-Master II** (1983, kim giờ độc lập), **Tudor Black Bay GMT**, **Grand Seiko GMT**, **Omega Seamaster Aqua Terra GMT**. Dành cho ai hay đi máy bay, làm việc với nhiều quốc gia — hoặc đơn giản yêu vẻ đẹp "phi công" của nó.
+Rolex ghi GMT-Master ra mắt năm **1955**, thiết kế như công cụ định vị thời gian cho người đi khắp các múi giờ, và sau này trở thành đồng hồ chính thức của hãng hàng không **Pan American World Airways (Pan Am)**. Năm **1982**, Rolex giới thiệu bộ máy cho phép chỉnh kim giờ độc lập với các kim còn lại — phiên bản mang tên **GMT-Master II** để phân biệt với đời đầu.
+
+Dành cho ai hay đi máy bay, làm việc với nhiều quốc gia — hoặc đơn giản yêu vẻ đẹp "phi công" của nó.
 
 ## Đọc thêm
 
 - Thuật ngữ định nghĩa → [GMT (Từ điển)](/tu-dien/gmt)
-- Mốc ra đời → [Rolex GMT-Master 1954](/lich-su)
-- Rolex GMT-Master II — mẫu biểu tượng → [GMT-Master II](/thuong-hieu/rolex)
+- Cách đọc và chỉnh thực hành → [Cách đọc và chỉnh đồng hồ GMT](/huong-dan/doc-va-chinh-gmt)
+- Mẫu biểu tượng của cơ chế này → [Rolex GMT-Master](/mau-iconic/rolex-gmt-master)
 - Chuỗi truyền động tổng thể → [Chuỗi truyền động](/co-che/chuyen-dong-co)

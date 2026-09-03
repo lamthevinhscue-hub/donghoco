@@ -2,12 +2,16 @@
 // =============================================================================
 // GMT (Múi giờ thứ hai) — INTERACTIVE
 // =============================================================================
-// Mô phỏng cơ chế 24 giờ:
-//   - Kim giờ thường (12 giờ)
-//   - Kim GMT phụ (24 giờ - 1 vòng/ngày)
-//   - Vòng bezel xoay được (để chọn múi giờ thứ 3)
-//   - Hiển thị 3 thời gian cùng lúc: giờ địa phương + giờ nhà + giờ thứ 3
+// Minh họa NGUYÊN LÝ HIỂN THỊ của GMT có vành 24 giờ xoay:
+//   - Kim GMT phụ (24 giờ - 1 vòng/ngày) → giờ nhà trên thang 24 giờ
+//   - Vành 24 giờ xoay (ở một số mẫu) → đọc thêm một múi giờ thay thế
+//   - Minh họa: giờ địa phương + giờ nhà + múi giờ thay thế (qua vành đã xoay)
+// KHÔNG phải mô phỏng thao tác chính xác cho mọi calibre — thao tác thật theo
+// tài liệu của nhà sản xuất.
 //
+// Lịch sử chuẩn theo hồ sơ nguồn cụm GMT: GMT-Master ra mắt 1955; trở thành
+// đồng hồ chính thức của hãng hàng không Pan Am; GMT-Master II giới thiệu bộ
+// máy mới năm 1982 cho phép chỉnh kim giờ độc lập.
 // Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.3.
 // =============================================================================
 
@@ -62,8 +66,11 @@ const cities = [
       </radialGradient>
     </defs>
 
-    <text style="fill:var(--ig-text)" x="300" y="28" text-anchor="middle" font-size="13" font-weight="bold">
-      3 thời gian cùng lúc: Giờ địa phương • Giờ nhà (kim 24h) • Giờ thứ 3 (bezel)
+    <text style="fill:var(--ig-text)" x="300" y="24" text-anchor="middle" font-size="13" font-weight="bold">
+      Giờ địa phương • Giờ nhà (kim 24 giờ) • Múi giờ thay thế (đọc qua vành 24 giờ xoay)
+    </text>
+    <text style="fill:var(--ig-text);opacity:0.7" x="300" y="42" text-anchor="middle" font-size="9.5">
+      Minh họa nguyên lý hiển thị trên một mẫu GMT có vành xoay — không phải mô phỏng thao tác của mọi calibre
     </text>
 
     <!-- ====== ĐỒNG HỒ GMT (mặt chính) ====== -->
@@ -163,7 +170,7 @@ const cities = [
       <!-- Giờ thứ 3 (bezel) -->
       <g transform="translate(520, 0)">
         <rect x="-65" y="0" width="130" height="44" rx="6" style="fill:var(--obs-graphite)"/>
-        <text x="0" y="15" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-soft)">GIỜ THỨ 3 (BEZEL)</text>
+        <text x="0" y="15" text-anchor="middle" font-size="8" style="fill:var(--obs-brass-soft)">MÚI THAY THẾ (VÀNH)</text>
         <text id="third-time" x="0" y="35" text-anchor="middle" font-size="14" style="fill:var(--obs-steel-soft)" font-weight="bold">--:--</text>
       </g>
     </g>
@@ -185,7 +192,7 @@ const cities = [
       </select>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <label for="third-tz" class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thứ 3 (vòng bezel sẽ xoay tới):</label>
+      <label for="third-tz" class="text-ink-soft/90 dark:text-dark-text-soft/70">Múi giờ thay thế (vành xoay theo chênh lệch):</label>
       <select id="third-tz" class="rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-navy dark:text-dark-text">
         {cities.map((c) => <option value={c.offset}>{c.name} (UTC{c.offset >= 0 ? '+' : ''}{c.offset})</option>)}
       </select>
@@ -304,41 +311,40 @@ const cities = [
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#3182CE] bg-white dark:bg-dark-surface p-5">
     <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">① Hiện tượng — bạn nhìn thấy gì?</h2>
     <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-      Một chiếc đồng hồ GMT có thêm <strong>một kim phụ màu nổi bật</strong> (thường xanh, cam, hoặc vàng) —
-      kim này <strong>đi hết 1 vòng trong 24 giờ</strong> (thay vì 12 giờ như kim giờ thường). Vòng bezel ngoài
-      có các số từ 1 đến 24. Nhờ vậy, bạn đọc được <strong>giờ của 2-3 múi giờ cùng lúc</strong>.
+      Một chiếc đồng hồ GMT có thêm <strong>một kim phụ phân biệt bằng thiết kế/màu riêng</strong> —
+      kim này <strong>đi hết 1 vòng trong 24 giờ</strong> (thay vì 12 giờ như kim giờ thường). Thang 24 giờ
+      cho phép đọc kim này theo giờ tuyệt đối trong ngày. GMT hiển thị <strong>múi giờ thứ hai</strong>;
+      ở những mẫu có <strong>vành 24 giờ xoay</strong>, vành còn cho phép đọc thêm một <strong>múi giờ thay thế</strong>.
     </p>
   </div>
 
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#B8893C] bg-white dark:bg-dark-surface p-5">
-    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">② Nguyên lý — 3 thời gian trên 1 mặt</h2>
+    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">② Nguyên lý — các cách đọc trên mặt số</h2>
     <ul class="space-y-2 text-sm text-ink-soft dark:text-dark-text-soft">
       <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">a)</span>
         <span><strong>Kim giờ + phút</strong> thông thường → giờ địa phương (nơi bạn đang đứng).</span>
       </li>
       <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">b)</span>
-        <span><strong>Kim GMT 24h</strong> chỉ giờ nhà (nơi bạn sinh sống). Cơ chế bên trong có bánh răng tỷ lệ 2:1 — kim giờ thường quay 2 vòng thì kim GMT quay 1 vòng.</span>
+        <span><strong>Kim GMT 24 giờ</strong> chỉ giờ nhà (nơi bạn sinh sống): kim hoàn thành một vòng trong 24 giờ; quan hệ giữa kim GMT và các kim còn lại là <strong>đặc tính của từng calibre</strong> — trong infographic này chỉ minh họa quan hệ hiển thị.</span>
       </li>
       <li class="flex gap-2"><span class="text-brass dark:text-dark-brass font-bold">c)</span>
-        <span><strong>Vòng bezel xoay</strong>: khi xoay bezel, số 24h trên bezel đổi vị trí tương đối với kim GMT → bạn có thể đọc <strong>múi giờ thứ 3</strong> (chẳng hạn múi giờ điểm đến khi đang bay).</span>
+        <span><strong>Vành 24 giờ xoay (chỉ ở một số mẫu)</strong>: xoay vành theo <strong>chênh lệch múi giờ</strong> cần theo dõi, rồi đọc kim GMT trên thang vành đã xoay — đó là múi giờ thay thế. Khi vành đang dùng cho múi này, giờ nhà không còn đọc trực tiếp theo vành (Rolex mô tả cho GMT-Master II).</span>
       </li>
     </ul>
     <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-      Thử bấm nút ở trên để đổi múi giờ nhà và múi giờ thứ 3 — bạn sẽ thấy bezel tự xoay!
+      Thử chọn múi giờ nhà và múi giờ thay thế ở trên — bạn sẽ thấy vành minh họa xoay theo chênh lệch. Đây là minh họa nguyên lý, không phải hướng dẫn thao tác của mẫu cụ thể.
     </p>
   </div>
 
   <div data-anim="explain-card" class="rounded-lg border-l-4 border-[#9B2C2C] bg-white dark:bg-dark-surface p-5">
-    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">③ Lịch sử — sinh ra cho phi công</h2>
+    <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">③ Lịch sử — sinh ra cho người xuyên múi giờ</h2>
     <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-      Năm <strong>1954</strong>, hãng hàng không <strong>Pan Am</strong> yêu cầu Rolex chế tạo đồng hồ cho phi công
-      bay xuyên lục địa — cần biết giờ cả điểm đi lẫn điểm đến. Rolex đáp ứng bằng <strong>GMT-Master</strong>
-      (ref. 6542) với vòng bezel hai màu đặc trưng (đỏ/xanh) để phân biệt ban ngày-ban đêm.
+      Rolex ghi <strong>GMT-Master</strong> ra mắt năm <strong>1955</strong> — thiết kế cho người đi khắp các múi giờ —
+      và dòng này sau đó trở thành <strong>đồng hồ chính thức của hãng hàng không Pan American World Airways (Pan Am)</strong>.
     </p>
     <p class="mt-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-      Biến thể nổi tiếng: <strong>GMT-Master II</strong> (1983, kim giờ độc lập có thể chỉnh riêng),
-      <strong>Tudor Black Bay GMT</strong>, <strong>Grand Seiko GMT</strong>, <strong>Omega Seamaster Aqua Terra GMT</strong>.
-      Dành cho ai hay đi máy bay, làm việc với nhiều quốc gia — hoặc đơn giản là yêu vẻ đẹp "phi công" của nó.
+      Năm <strong>1982</strong>, Rolex giới thiệu bộ máy cho phép chỉnh kim giờ độc lập với các kim còn lại —
+      phiên bản mang tên <strong>GMT-Master II</strong>. Kim nào chỉnh được và chỉnh thế nào là đặc tính của từng calibre — thao tác thật theo tài liệu của nhà sản xuất.
     </p>
   </div>
 </div>

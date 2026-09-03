@@ -47,8 +47,8 @@ export const rolexGmtMasterEvolution: ModelEvolutionDataset = {
         en: 'The first GMT-Master: Oyster case, red-and-blue 24-hour Bakelite bezel insert',
       },
       note: {
-        vi: 'Thiết kế cho phi công hàng không đường dài; Rolex ghi năm ra mắt 1955 và ghi nhận phi công Pan Am lựa chọn',
-        en: 'Designed for long-haul pilots; Rolex dates the launch to 1955 and notes the choice of Pan Am pilots',
+        vi: 'Thiết kế cho người đi đường dài; Rolex ghi năm ra mắt 1955 — dòng này sau đó trở thành đồng hồ chính thức của hãng hàng không Pan American World Airways (Pan Am)',
+        en: 'Designed for long-distance travel; Rolex dates the launch to 1955 — the line later became the official watch of the airline Pan American World Airways (Pan Am)',
       },
       sourceUrl: 'https://www.hodinkee.com/articles/rolex-gmt-master-reference-points',
       sourceName: 'Hodinkee',

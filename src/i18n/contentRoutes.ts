@@ -64,6 +64,8 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/co-che/chong-tu', en: '/en/mechanisms/anti-magnetism/' },
   { vi: '/co-che/chong-soc', en: '/en/mechanisms/shock-protection/' },
   { vi: '/co-che/day-toc-banh-lac', en: '/en/mechanisms/balance-and-hairspring/' },
+  { vi: '/co-che/perpetual-calendar', en: '/en/mechanisms/perpetual-calendar/' },
+  { vi: '/co-che/pha-trang', en: '/en/mechanisms/moon-phase/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
@@ -81,6 +83,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/chronometer', en: '/en/glossary/chronometer/' },
   { vi: '/tu-dien/metas', en: '/en/glossary/master-chronometer/' },
   { vi: '/tu-dien/vph', en: '/en/glossary/beat-rate/' },
+  { vi: '/tu-dien/perpetual-calendar', en: '/en/glossary/perpetual-calendar/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

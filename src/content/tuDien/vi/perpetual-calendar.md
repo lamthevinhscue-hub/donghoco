@@ -1,32 +1,31 @@
 ---
 title: "Perpetual Calendar (Lịch vạn niên)"
-excerpt: "Phức tạp tự động tính đúng số ngày mỗi tháng — kể cả năm nhuận — đến tận năm 2100 mới cần chỉnh."
+excerpt: "Complication lịch tính đến đặc thù lịch Gregory — tự chỉnh tháng 30 ngày và tháng 2 28/29 ngày nhờ trí nhớ cơ học lặp mỗi 48 tháng (theo FHH)."
 term_en: "Perpetual Calendar / QP"
-category: "phức tạp cao cấp"
+category: "phức tạp"
 has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+updated: "2026-09-04"
 sources:
-  - label: "Fondation de la Haute Horlogerie — Lịch vạn niên"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/perpetual-calendar-watch-1/"
-  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "FHH — Perpetual calendar (định nghĩa, trí nhớ 48 tháng, điểm chỉnh 2100/2400)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/perpetual-calendar"
+  - label: "FHH — Annual Calendar (phân biệt hai cơ cấu)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/annual-calendar"
 
 ---
 
-**Perpetual Calendar** (lịch vạn niên, viết tắt **QP** — từ tiếng Pháp *quantième perpétuel*) là một trong những phức tạp cao cấp nhất. Nó **tự động tính đúng số ngày của mỗi tháng** — kể cả tháng 28/29 ngày của tháng Hai năm nhuận — và hiển thị ngày, tháng, năm (thường cả năm nhuận).
+**Perpetual Calendar** (lịch vạn niên; tiếng Pháp *quantième perpétuel*) là một **complication** lịch. Theo FHH, nó được thiết kế để **tính đến các đặc thù của lịch Gregory**: tự động chỉnh cho các tháng 30 ngày và cho **28 hoặc 29 ngày của tháng Hai**, nhờ một **trí nhớ cơ học lặp chuỗi mỗi 48 tháng** theo chu kỳ năm nhuận.
 
-## Nhận biết
+## Khác annual calendar thế nào?
 
-- **Các mặt số phụ (sub-dials)** hiển thị ngày, tháng, năm — thường 3-4 mắt nhỏ.
-- **Chỉ số năm nhuận** (leap year indicator) — thường là 1 trong 4 vị trí hoặc mặt phụ 4 năm.
-- Chỉ gặp ở phân khúc **ultra luxury / haute horlogerie**.
+FHH định nghĩa **annual calendar** là lịch tự tính các tháng dưới 31 ngày nhưng **không tính năm nhuận**, và **phải chỉnh một lần mỗi năm**. Perpetual calendar và annual calendar là **hai cơ cấu khác nhau** — bài này không xếp hạng; cơ cấu của từng mẫu tra tài liệu hãng.
 
-## Năm 2100 — điểm mù
+## Điểm chỉnh ngoại lệ — theo FHH
 
-Năm chia hết 100 **không** là năm nhuận (trừ khi chia hết 400). Năm 2100 là năm như vậy — perpetual calendar sẽ **sai vào 1/3/2100** và cần chỉnh lại.
+Perpetual calendar chỉ cần chỉnh cho các **năm không-nhuận ngoại lệ — kế tiếp là 2100 và 2400** (theo FHH).
 
 ## Đi sâu hơn
 
-Muốn hiểu bánh cam 4 năm (và 48 tháng) "ghi nhớ" năm nhuận thế nào, vì sao đúng đến 2100, và khác biệt với annual calendar → đọc bài **[Lịch vạn niên — Bánh cam ghi nhớ chu kỳ nhuận](/co-che/perpetual-calendar)**.
+Nguyên lý đầy đủ và liên hệ với các phức tạp khác → bài **[Lịch vạn niên — complication lịch theo lịch Gregory](/co-che/perpetual-calendar)** và [Pha trăng](/co-che/pha-trang).

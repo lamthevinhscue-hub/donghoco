@@ -21,7 +21,7 @@
   {
     "title": "Perpetual Calendar (Lịch vạn niên)",
     "slug": "perpetual-calendar",
-    "excerpt": "Phức tạp tự động tính đúng số ngày mỗi tháng — kể cả năm nhuận — đến tận năm 2100 mới cần chỉnh.",
+    "excerpt": "Complication lịch tính đến đặc thù lịch Gregory — tự chỉnh tháng 30 ngày và tháng 2 28/29 ngày nhờ trí nhớ cơ học lặp mỗi 48 tháng (theo FHH).",
     "aliases": [
       "Perpetual Calendar (Lịch vạn niên)",
       "Perpetual Calendar",

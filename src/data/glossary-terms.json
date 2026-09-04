@@ -29,16 +29,6 @@
     ]
   },
   {
-    "title": "Incabloc (Hệ thống chống sốc)",
-    "slug": "incabloc",
-    "excerpt": "Cơ cấu bảo vệ bánh lắc khỏi hỏng khi va đập — tiêu chuẩn toàn ngành, hiện diện trong hầu hết đồng hồ cơ.",
-    "aliases": [
-      "Incabloc (Hệ thống chống sốc)",
-      "Incabloc",
-      "Incabloc / Shock protection"
-    ]
-  },
-  {
     "title": "Côtes de Genève (Vân Genève)",
     "slug": "cotes-de-geneve",
     "excerpt": "Họa tiết sọc song trên bề mặt movement — trang trí đặc trưng của đồng hồ Thụy Sĩ cao cấp.",
@@ -46,6 +36,15 @@
       "Côtes de Genève (Vân Genève)",
       "Côtes de Genève",
       "Côtes de Genève / Geneva Stripes"
+    ]
+  },
+  {
+    "title": "Incabloc (hệ chống sốc)",
+    "slug": "incabloc",
+    "excerpt": "Incabloc là tên một hệ chống sốc cụ thể của Incabloc SA, bảo vệ trục bánh lắc — không phải từ đồng nghĩa cho mọi hệ chống sốc.",
+    "aliases": [
+      "Incabloc (hệ chống sốc)",
+      "Incabloc"
     ]
   },
   {

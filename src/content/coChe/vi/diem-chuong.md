@@ -1,6 +1,6 @@
 ---
-title: "Điểm chuông — Phức tạp danh giá ngang tourbillon"
-excerpt: "Gõ giờ bằng âm thanh: búa nhỏ đập vào thanh cộng hưởng cuộn quanh bộ máy. Phân biệt điểm chuông theo yêu cầu và điểm chuông tự động — và vì sao khó chế tạo."
+title: "Điểm chuông — đồng hồ điểm giờ theo yêu cầu"
+excerpt: "Repeater là đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; minute repeater chỉ định số phút đã qua, xuất hiện những năm đầu thế kỷ 18 — theo FHH."
 category: "phức tạp"
 difficulty: "rất cao"
 has_infographic: true
@@ -10,77 +10,46 @@ draft: false
 
 relatedModels:
   - slug: "patek-philippe-grandmaster-chime"
-    relation: "Grandmaster Chime gom trọn grande sonnerie, petite sonnerie và minute repeater — bộ máy gõ giờ ba gong năm chế độ của Patek Philippe"
-
-updated: "2026-09-01"
+    relation: "Mẫu có bài riêng trên site — xem bài mẫu để đọc thêm"
+updated: "2026-09-04"
 
 sources:
-  - label: "Fondation de la Haute Horlogerie — Các phức tạp của đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
-  - label: "Patek Philippe — The Patek Philippe Sound"
-    url: "https://www.patek.com/en/manufacture/quality-and-fine-workmanship/the-patek-philippe-sound"
+  - label: "FHH — Repeater (định nghĩa, các loại, minute repeater 1700-1710, sonnerie)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/repeater"
+  - label: "FHH — Complication (định nghĩa phức tạp)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
 
-## Hiện tượng — bạn nghe thấy gì?
+> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
+> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
-Bạn bấm một nút, và chiếc đồng hồ trên cổ tay **kêu** — những tiếng "ting" rõ ràng, giàu hay nghèo tùy hồn thép, báo giờ, quý, phút. Trong phòng im, âm thanh ấy vang xa bất ngờ từ một vật thể nhỏ 40mm. Đó là phức tạp **điểm chuông** (minute repeater / striking) — một trong những phức tạp **danh giá nhất** của đồng hồ cơ, ngang hàng [tourbillon](/tu-dien/tourbillon).
+## Repeater là gì?
 
-## Nguyên lý — đồng hồ kêu thế nào?
+FHH định nghĩa repeater là một chiếc đồng hồ **điểm giờ theo yêu cầu**, được kích hoạt bằng một **nút bấm (pushpiece) hoặc cần gạt (slide)**. Đây là một **complication** theo nghĩa FHH — một chức năng ngoài hiển thị giờ, phút, giây (xem [Tourbillon](/co-che/tourbillon) — một phức tạp khác cùng nhóm).
 
-### Búa đập thanh cộng hưởng
+## Minute repeater — theo FHH
 
-Cơ cấu điểm chuông dùng **một hoặc nhiều búa nhỏ** (hammer), đập vào **một hoặc nhiều thanh kim loại dài** (gong) — thanh này **cuộn quanh bộ máy** thành vòng tròn để vừa vỏ. Khi búa đập, thanh cộng hưởng **rung**, phát ra âm thanh.
+Trong các loại repeater, FHH nêu riêng **minute repeater**: những cơ cấu đầu tiên **chỉ định chính xác số phút đã trôi qua** xuất hiện trong **những năm đầu thế kỷ 18 (1700–1710)**, phần lớn ở **miền nam nước Đức**; **Thomas Mudge** được ghi nhận theo truyền thống là người nghĩ ra phức tạp này, khoảng **1750**.
 
-Số thanh quyết định số nốt. **Minute repeater truyền thống thường dùng hai gong**: âm trầm cho giờ, cặp âm cao – trầm cho quý, âm cao cho phút lẻ. Một số hệ thống đặc biệt dùng ba gong — [Grandmaster Chime](/mau-iconic/patek-philippe-grandmaster-chime) của Patek Philippe là một ví dụ riêng, không phải cấu hình chung của mọi minute repeater.
+## Hai chế độ điểm giờ — theo FHH
 
-### Cách đọc giờ qua âm thanh
+FHH phân biệt các cơ cấu điểm giờ theo **cách kích hoạt**:
 
-Minute repeater gõ theo quy ước:
+- **Tự động** ("passing strike") — đồng hồ tự điểm qua từng mốc (theo FHH);
+- **Theo yêu cầu** — chỉ điểm khi người dùng kích hoạt.
 
-- **Giờ**: số tiếng thấp = số giờ (VD 3 tiếng = 3 giờ).
-- **Quý**: mỗi quý (15 phút) bằng một cặp cao-thấp. VD 2 cặp = 30 phút.
-- **Phút**: số tiếng cao = số phút lẻ trong quý. VD 4 tiếng = 4 phút.
+Trong nhóm tự động, FHH nêu:
 
-Ví dụ: 3 tiếng thấp + 2 cặp + 4 tiếng cao = 3 giờ 34 phút. Đọc quen rồi bạn **nghe là biết giờ** — không cần nhìn.
+- **Grande sonnerie** — tự điểm **cả giờ và quý** tại mỗi quý, và lặp giờ, quý, phút khi có yêu cầu (theo FHH);
+- **Petite sonnerie** — điểm giờ và quý nhưng **không lặp lại số giờ tại mỗi quý** (theo FHH).
 
-## Hai kiểu điểm chuông
+FHH cũng ghi nhận cơ cấu có thể được **làm im lặng bằng cần gạt "all or nothing" hoặc "silent"**.
 
-### Điểm chuông theo yêu cầu (repeater)
+Bài này trình bày hai chế độ theo đúng phạm vi nguồn; **không xếp hạng** cơ cấu nào cao hơn cơ cấu nào.
 
-Bạn **phải bấm nút** (hoặc gạt đòn) mới có tiếng. Bộ máy có một **bộ tích năng lượng riêng** (lò xo của chính cơ cấu điểm chuông), bạn lên cót cho nó khi bấm — rồi nó nhả dần, gõ đúng số tiếng ứng giờ hiện tại. Kiểu này phổ biến nhất: **chỉ kêu khi bạn muốn nghe**.
+## Đọc thêm
 
-### Điểm chuông tự động (grande / petite sonnerie)
-
-Đồng hồ **tự gõ** theo giờ — cứ qua giờ, qua quý, nó tự kêu mà không cần bấm. Hai biến thể khác nhau ở việc gõ gì khi qua quý:
-
-- **Grande sonnerie** — tự động điểm **giờ và quý**: qua mỗi quý, cơ cấu **lặp lại số giờ rồi điểm số quý** (ví dụ lúc 3 giờ 15 phút: 3 tiếng giờ + 1 quý).
-- **Petite sonnerie** — cũng tự động hoạt động theo giờ và quý, nhưng **tại các quý chỉ điểm phần quý, không lặp lại số giờ** (lúc 3 giờ 15 phút: chỉ 1 tiếng quý); số giờ được điểm khi qua giờ đúng.
-
-Đây là cơ cấu phức tạp hơn nhiều (vì phải tự canh giờ, tự quyết định gõ gì), và cũng phiền hơn: chúng kêu cả đêm khi bạn ngủ. Vì vậy phần lớn đồng hồ có điểm chuông tự động cũng có **công tắc tắt tiếng** (silence mode).
-
-> Xem mục từ điển: [Minute Repeater](/tu-dien/minute-repeater).
-
-## Vì sao khó — và vì sao đắt
-
-Điểm chuông là phức tạp **khó chế tạo nhất** của đồng hồ cơ, khó hơn cả tourbillon, vì ba lý do:
-
-### 1. Âm thanh phụ thuộc vào vỏ
-
-Thanh cộng hưởng chỉ là nửa câu chuyện — **vỏ đồng hồ là hộp cộng hưởng**, quyết định chất âm như thân đàn ghi-ta. Cùng thanh gong, lắp vào vỏ thép sẽ kêu khác vỏ vàng, vỏ bạch kim. Vì vậy nhà sản xuất **phải thử thanh gong trong từng loại vỏ** — không thể chuẩn hóa.
-
-### 2. Gắn thanh gong là tay nghề
-
-Thanh gong phải được **gắn vào vỏ ở đúng điểm** (nút) sao cho khi đập, thanh rung tối đa mà không chạm vào bộ máy hay vỏ. Chỉ sai một chút, âm thanh nghèo đi hoặc có tạp. Việc gắn này **phải làm tay**, và mỗi thợ gắn ra một kết quả hơi khác.
-
-### 3. Mỗi chiếc kêu khác nhau
-
-Vì hai lý do trên, **hai chiếc đồng hồ cùng mẫu vẫn kêu khác nhau** — không thể có hai chiếc điểm chuông giống hệt. Người mua repeater thường **nghe thử nhiều chiếc** rồi chọn chiếc có chất âm mình thích nhất, giống chọn nhạc cụ hơn chọn đồng hồ.
-
-> Đây cũng là lý do repeater đắt: không thể sản xuất hàng loạt giống nhau, mỗi chiếc phải **chỉnh tai từng chiếc một**.
-
-## Ý nghĩa lịch sử
-
-Điểm chuông có từ **trước khi có điện** — khi đó, trong bóng tối, bạn **không nhìn được giờ**. Cách duy nhất biết giờ đêm là **nghe**: bấm repeater, đếm tiếng, biết giờ. Vì vậy repeater từng là phức tạp **hữu dụng nhất** cho giới quý tộc thế kỷ 18-19 — họ thức đêm, dự tiệc, cần biết giờ mà không thắp đèn được.
-
-Đèn và điện ra đời, repeater mất chức năng thực tế — nhưng giữ nguyên danh giá. Hôm nay, điểm chuông là **tuyên ngôn chế tác**: hãng nào làm được repeater tốt chứng tỏ tay nghề đỉnh cao. Vì số lượng cực thấp (chỉ vài hãng làm, mỗi năm vài chục chiếc), repeater luôn nằm ở nhóm đắt nhất và hiếm nhất của đồng hồ cơ — mua không phải để đọc giờ đêm, mà để sở hữu một trong những đỉnh cao cơ học.
+- Định nghĩa ngắn gọn → [Minute Repeater (Từ điển)](/tu-dien/minute-repeater)
+- Chuỗi truyền động → [Chuỗi truyền động](/co-che/chuyen-dong-co)
+- Một phức tạp khác cùng nhóm → [Tourbillon](/co-che/tourbillon)

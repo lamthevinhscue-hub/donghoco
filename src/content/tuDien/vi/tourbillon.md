@@ -1,30 +1,23 @@
 ---
 title: "Tourbillon"
-excerpt: "Cơ chế xoay bộ thoát để bù sai số trọng lực — một trong những phức tạp cao cấp nhất."
+excerpt: "Hệ thống do Abraham-Louis Breguet đăng ký sáng chế năm 1801: bộ thoát trong lồng xoay, bù sai số do trọng lực ở vị trí thẳng đứng (theo FHH)."
 term_en: "Tourbillon"
-category: "phức tạp cao cấp"
+category: "phức tạp"
 has_infographic: true
 interactive: true
 date: "2026-07-31"
 draft: false
+updated: "2026-09-04"
 sources:
-  - label: "Fondation de la Haute Horlogerie — Tourbillon"
-    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/tourbillon-1/"
-  - label: "Fondation de la Haute Horlogerie — Cơ chế tourbillon"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/tourbillon-complications"
+  - label: "FHH — Tourbillon (định nghĩa, Breguet 1801, lồng xoay)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/tourbillon"
+  - label: "FHH — Complication (định nghĩa phức tạp)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
 
-**Tourbillon** (phát âm "tua-bi-ông", tiếng Pháp nghĩa là "xoáy") là cơ chế do **Abraham-Louis Breguet** phát minh năm 1801. Nó đặt **bộ thoát và bánh lắc vào trong một lồng xoay** (thường 1 vòng/60 giây) để trung hòa sai số do trọng lực gây ra.
-
-## Nhận biết
-
-- Một **vòng tròn xoay liên tục** lộ máy (thường qua mặt sau hoặc mặt số mở).
-- Bên trong vòng tròn có **bánh lắc đập** + bộ thoát.
-- Thường chỉ gặp ở phân khúc **ultra luxury / haute horlogerie**.
+**Tourbillon** là một **complication**: theo FHH, đây là hệ thống do **Abraham-Louis Breguet nghĩ ra và đăng ký sáng chế năm 1801**, nhằm **bù sai số chạy do trọng lực Trái Đất tác động ở các vị trí thẳng đứng** — bộ thoát được gắn trong một **lồng xoay**, với bộ điều tiết (bánh lắc) ở tâm. Lồng **thông thường quay một vòng mỗi phút**.
 
 ## Đi sâu hơn
 
-Tourbillon là một trong những phức tạp **đắt nhất** — chỉ xuất hiện ở tầng cao nhất của đồng hồ cơ.
-
-Muốn hiểu nguyên lý xoay bù trọng lực, các biến thể (Flying Tourbillon, Double/Triple Axis) và lý do khó chế tạo → đọc bài **[Tourbillon — Lồng xoay bù sai số trọng lực](/co-che/tourbillon)**.
+Nguyên lý đầy đủ theo nguồn → bài **[Tourbillon — lồng xoay và sai số vị trí](/co-che/tourbillon)**.

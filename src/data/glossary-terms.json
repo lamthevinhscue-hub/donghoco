@@ -12,7 +12,7 @@
   {
     "title": "Minute Repeater (Cơ chế điểm chuông)",
     "slug": "minute-repeater",
-    "excerpt": "Phức tạp điểm chuông báo giờ khi bấm — một trong những khó chế tạo nhất, từng là 'đèn pin' thời trước khi có điện.",
+    "excerpt": "Đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; những cơ cấu minute repeater đầu tiên xuất hiện những năm đầu thế kỷ 18 (theo FHH).",
     "aliases": [
       "Minute Repeater (Cơ chế điểm chuông)",
       "Minute Repeater"
@@ -151,7 +151,7 @@
   {
     "title": "Tourbillon",
     "slug": "tourbillon",
-    "excerpt": "Cơ chế xoay bộ thoát để bù sai số trọng lực — một trong những phức tạp cao cấp nhất.",
+    "excerpt": "Hệ thống do Abraham-Louis Breguet đăng ký sáng chế năm 1801: bộ thoát trong lồng xoay, bù sai số do trọng lực ở vị trí thẳng đứng (theo FHH).",
     "aliases": [
       "Tourbillon"
     ]

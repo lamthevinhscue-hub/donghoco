@@ -39,6 +39,15 @@
     ]
   },
   {
+    "title": "Master Chronometer (METAS)",
+    "slug": "metas",
+    "excerpt": "Chứng nhận của METAS kiểm trên đồng hồ hoàn thiện — gồm chống nước, hiệu năng chronometric, chống từ và trữ cót; tài liệu N001 yêu cầu chống từ 1,5 T (15.000 G).",
+    "aliases": [
+      "Master Chronometer (METAS)",
+      "Master Chronometer"
+    ]
+  },
+  {
     "title": "Incabloc (hệ chống sốc)",
     "slug": "incabloc",
     "excerpt": "Incabloc là tên một hệ chống sốc cụ thể của Incabloc SA, bảo vệ trục bánh lắc — không phải từ đồng nghĩa cho mọi hệ chống sốc.",
@@ -80,18 +89,10 @@
   {
     "title": "Chronometer và COSC",
     "slug": "chronometer",
-    "excerpt": "Chứng nhận độ chính xác do tổ chức độc lập cấp, kiểm bộ máy rời chứ không phải đồng hồ hoàn thiện. Khác hẳn nghĩa thông thường của chữ này.",
+    "excerpt": "Chronograph là chức năng bấm giờ; chronometer là chứng nhận độ chính xác. Mức kiểm và thời lượng kiểm dưới đây trích từ trang COSC.",
     "aliases": [
       "Chronometer và COSC",
       "Chronometer"
-    ]
-  },
-  {
-    "title": "Master Chronometer",
-    "slug": "metas",
-    "excerpt": "Chuẩn của viện đo lường Thụy Sĩ, kiểm đồng hồ đã lắp vỏ qua tám bài, gồm chống từ 15.000 gauss.",
-    "aliases": [
-      "Master Chronometer"
     ]
   },
   {

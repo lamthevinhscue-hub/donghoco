@@ -1,34 +1,38 @@
 ---
-title: "Master Chronometer"
-excerpt: "Chuẩn của viện đo lường Thụy Sĩ, kiểm đồng hồ đã lắp vỏ qua tám bài, gồm chống từ 15.000 gauss."
+title: "Master Chronometer (METAS)"
+excerpt: "Chứng nhận của METAS kiểm trên đồng hồ hoàn thiện — gồm chống nước, hiệu năng chronometric, chống từ và trữ cót; tài liệu N001 yêu cầu chống từ 1,5 T (15.000 G)."
 term_en: "Master Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
-updated: "2026-09-01"
+updated: "2026-09-04"
 sources:
-  - label: "METAS — Chứng nhận Master Chronometer"
+  - label: "METAS — Chứng nhận MASTER CHRONOMETER"
     url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
-  - label: "METAS — Cơ quan chứng nhận METAS-Cert"
-    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert.html"
-  - label: "COSC — Chứng nhận Chronometer, điều kiện tiên quyết của Master Chronometer"
-    url: "https://www.cosc.swiss/certified-chronometer"
+  - label: "COSC — COSC certifications (mô tả phạm vi cấp bộ máy)"
+    url: "https://www.cosc.swiss/cosc-certifications"
 
 ---
 
-**Master Chronometer** là chuẩn chứng nhận do **METAS** (Viện Đo lường Liên bang Thụy Sĩ) cấp. Đây là thế hệ mới hơn so với [COSC](/tu-dien/chronometer), sinh ra để giải quyết hạn chế lớn nhất của COSC: COSC kiểm **bộ máy rời**, Master Chronometer kiểm **đồng hồ đã lắp vỏ hoàn chỉnh**.
+**Master Chronometer** là chứng nhận do **METAS** — Viện Đo lường Liên bang Thụy Sĩ — thiết lập. Theo trang chính thức của METAS, việc chứng nhận **được thực hiện bởi một tổ chức độc lập, trên đồng hồ hoàn thiện** ("carried out by an independent organization on the watch head").
 
-## Tám bài kiểm
+## Phạm vi chứng nhận gồm những gì?
 
-Master Chronometer đưa đồng hồ qua **tám bài kiểm** độc lập, gồm:
+METAS nêu chứng nhận này bao gồm các phần chính:
 
-- **Độ chính xác** ở nhiều vị trí và nhiệt độ khác nhau.
-- **Chống từ trường 15.000 gauss** — đây là điểm nổi bật. Đồng hồ phải chạy đúng sau khi chịu từ trường mạnh ngang nam châm y tế, một bài kiểm mà COSC không làm. Từ trường từ loa, điện thoại, còng máy tính bảng là nguồn sai số phổ biến mà người đeo ít nghĩ tới.
-- **Trữ cót** — kiểm tra đồng hồ thực sự chạy được bao nhiêu giờ sau khi đầy [dây cót](/tu-dien/day-cot).
-- **Khả năng chống nước** và sai số hàng ngày.
+- **Khả năng chống nước**;
+- **Hiệu năng chronometric** (độ chính xác theo phép đo của chứng nhận);
+- **Khả năng chống từ trường**;
+- **Trữ cót** — thời gian chạy sau khi lên đầy [dây cót](/tu-dien/day-cot).
 
-## Quan hệ với COSC
+Về khả năng chống từ: tài liệu yêu cầu của chứng nhận (METAS N001) quy định khả năng kháng từ trường **1,5 T (15.000 G)**. Đây là **yêu cầu trong phạm vi chứng nhận MASTER CHRONOMETER — không phải mức chống từ chung của đồng hồ cơ**.
 
-Master Chronometer thường **xếp chồng lên COSC** — nghĩa là bộ máy thường phải đạt COSC trước, rồi đồng hồ hoàn chỉnh mới đi tiếp bài METAS. Vì vậy một chiếc Master Chronometer thực chất qua hai vòng kiểm độc lập.
+## Điều kiện mở cho hãng nào?
 
-Đây là chuẩn nghiêm ngặt nhất hiện có về độ chính xác thực tế — phản ánh đồng hồ đeo trên tay thật, không phải bộ máy rời trên bàn thí nghiệm. Bắt nguồn từ một hãng Thụy Sĩ lớn, sau mở rộng cho các hãng khác.
+Theo METAS, chứng nhận **mở cho mọi hãng** có đồng hồ "Swiss Made" với bộ máy đạt **chứng nhận chronometer theo ISO 3159**. Nghĩa là điều kiện về bộ máy của chứng nhận này liên kết tới một chứng nhận khác — xem [Chronometer và COSC](/tu-dien/chronometer).
+
+## COSC và Master Chronometer — hai phạm vi khác nhau
+
+Đây là **hai chứng nhận của hai tổ chức khác nhau, với phạm vi kiểm khác nhau**: một bên kiểm chủ yếu trên bộ máy (theo mô tả của COSC), một bên kiểm trên đồng hồ hoàn thiện (theo mô tả của METAS). Mỗi chứng nhận có phạm vi và tiêu chí riêng — bài này **không xếp hạng** chứng nhận nào cao hơn chứng nhận nào.
+
+Muốn biết một mẫu đồng hồ cụ thể được chứng nhận theo gì, nguồn đáng tin là **tài liệu của hãng sản xuất mẫu đó**.

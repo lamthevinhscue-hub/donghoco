@@ -52,6 +52,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/huong-dan/muc-chong-nuoc', en: '/en/guides/water-resistance/' },
   { vi: '/huong-dan/chinh-lich-an-toan', en: '/en/guides/setting-the-date-safely/' },
   { vi: '/huong-dan/hop-xoay-dong-ho', en: '/en/guides/watch-winders/' },
+  { vi: '/huong-dan/do-sai-so', en: '/en/guides/accuracy-tracking/' },
   // Cơ chế
   { vi: '/co-che/chuyen-dong-co', en: '/en/mechanisms/how-a-mechanical-watch-works/' },
   { vi: '/co-che/tru-cot', en: '/en/mechanisms/power-reserve/' },
@@ -76,6 +77,8 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/day-cot', en: '/en/glossary/mainspring/' },
   { vi: '/tu-dien/thung-cot', en: '/en/glossary/barrel/' },
   { vi: '/tu-dien/incabloc', en: '/en/glossary/incabloc/' },
+  { vi: '/tu-dien/chronometer', en: '/en/glossary/chronometer/' },
+  { vi: '/tu-dien/metas', en: '/en/glossary/master-chronometer/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

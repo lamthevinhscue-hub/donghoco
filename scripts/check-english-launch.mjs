@@ -95,6 +95,8 @@ const REQUIRED_EN = [
   '/en/glossary/mainspring/',
   '/en/glossary/barrel/',
   '/en/glossary/incabloc/',
+  '/en/glossary/chronometer/',
+  '/en/glossary/master-chronometer/',
   '/en/guides/first-mechanical-watch/',
   '/en/guides/reading-and-setting-gmt/',
   '/en/guides/using-a-tachymeter/',
@@ -102,6 +104,7 @@ const REQUIRED_EN = [
   '/en/guides/water-resistance/',
   '/en/guides/setting-the-date-safely/',
   '/en/guides/watch-winders/',
+  '/en/guides/accuracy-tracking/',
 ];
 const missing = REQUIRED_EN.filter((r) => !routeExistsInDist(r));
 if (missing.length > 0) errors.push(`Thiếu route English launch pack trong dist: ${missing.join(', ')}`);

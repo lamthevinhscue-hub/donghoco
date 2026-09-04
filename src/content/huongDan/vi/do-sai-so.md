@@ -1,130 +1,53 @@
 ---
-title: "Đo sai số và theo dõi độ chính xác của đồng hồ cơ"
-excerpt: "Cách đo độ chính xác đồng hồ cơ tại nhà, dùng app miễn phí, và hiểu thông số ±X giây/ngày."
+title: "Theo dõi độ chính xác của đồng hồ cơ — ghi nhận, không chẩn đoán"
+excerpt: "Ghi nhận cách đồng hồ hiển thị thời gian so với một mốc tham chiếu — quy ước dấu +/−, nên ghi lại những gì, và khi nào trao đổi đơn vị có chuyên môn."
 difficulty: "trung cấp"
 date: "2026-07-31"
 draft: false
-updated: "2026-09-01"
+updated: "2026-09-04"
 
 sources:
-  - label: "COSC — Tiêu chí chứng nhận Chronometer"
+  - label: "COSC — Chronograph or Chronometer? (FAQ: kiểm tra độ chính xác, đồng hồ tham chiếu, quan sát nhiều ngày)"
+    url: "https://www.cosc.swiss/cosc-chronograph-chronometer"
+  - label: "COSC — Chronometer Certified (FAQ: chứng nhận, thời lượng kiểm, giá trị danh hiệu)"
     url: "https://www.cosc.swiss/certified-chronometer"
-  - label: "COSC — Giải đáp thắc mắc"
-    url: "https://www.cosc.swiss/cosc-faq"
-  - label: "METAS — Chứng nhận Master Chronometer"
-    url: "https://www.metas.ch/metas/en/home/dl/konformitaetsbewertungsstelle-metas-cert/zertifizierung_uhren.html"
 
 ---
 
-> Đồng hồ cơ **luôn có sai số** — không chính xác tuyệt đối như quartz. Bài này giúp bạn đo sai số, hiểu kết quả, và biết khi nào cần can thiệp.
+Đồng hồ cơ hiển thị thời gian có thể lệch so với một mốc thời gian tham chiếu. Bài này là hướng dẫn **ghi nhận xu hướng hiển thị thời gian** — cách ghi, ghi lại những gì, và so kết quả với cái gì. Nó **không phải** hướng dẫn chẩn đoán tình trạng bộ máy, cũng **không phải** hướng dẫn sửa đồng hồ.
 
-## Trước hết: sai số là gì?
+## Dấu + và − nghĩa là gì?
 
-Đồng hồ cơ có sai số **vài giây mỗi ngày** so với giờ chính xác. Ví dụ "+4 giây/ngày" = mỗi ngày đồng hồ chạy nhanh 4 giây.
+Khi so đồng hồ với một mốc tham chiếu, hai dấu này là **quy ước mô tả**:
 
-- **+ (dương):** đồng hồ **chạy nhanh**.
-- **− (âm):** đồng hồ **chạy chậm**.
+- **+ (dương):** đồng hồ hiển thị **nhanh hơn** mốc tham chiếu.
+- **− (âm):** đồng hồ hiển thị **chậm hơn** mốc tham chiếu.
 
-Một chiếc đồng hồ "tốt" có thể sai số từ **−4 đến +6 giây/ngày** (chuẩn COSC). Nhưng thực tế, đồng hồ cơ có thể sai số **±10–15 giây/ngày** mà vẫn bình thường.
+Đây chỉ là cách mô tả nhanh/chậm so với mốc đã chọn — **không phải kết luận** về tình trạng của bộ máy.
 
-## Tại sao có sai số?
+## Ghi nhận như thế nào — theo gợi ý của COSC
 
-Sai số của đồng hồ cơ phụ thuộc nhiều yếu tố:
+FAQ của COSC ("How to check a watch's precision?") gợi ý các cách kiểm tra trung tính sau:
 
-- **Vị trí đặt** (lên mặt, úp mặt, đứng, nằm nghiêng) — do trọng lực ảnh hưởng bánh lắc.
-- **Mức cót** (dây cót đầy hay cạn) — đầy thì chính xác hơn.
-- **Nhiệt độ** — quá nóng/lạnh ảnh hưởng dây tóc.
-- **Hoạt động** — vận động mạnh có thể làm thay đổi.
-- **Từ trường** — làm nhiễm từ dây tóc → sai số lớn.
+- **Chọn mốc tham chiếu:** COSC FAQ nêu việc so với **đồng hồ nguyên tử hoặc đồng hồ điều khiển vô tuyến** — những nguồn giờ mà COSC mô tả là "extremely precise sources of time" (nguồn giờ rất chính xác).
+- **Quan sát nhiều ngày:** ghi **thời điểm bắt đầu** (ngày + giờ), rồi ghi **thời điểm kết thúc** và **độ lệch quan sát được**. Ghi thêm **điều kiện sử dụng mà bạn muốn lưu lại** cùng kết quả. COSC không quy định một khung thời gian cố định — bạn tự chọn khoảng quan sát phù hợp và ghi rõ khoảng đó.
+- **Vị trí và nhiệt độ:** COSC FAQ gợi ý thử quan sát xem việc đặt ở vị trí khác nhau hay thay đổi nhiệt độ có ảnh hưởng gì không. Đây là **quan sát** — không phải cách chẩn đoán nguyên nhân, cũng không phải cách điều chỉnh.
 
-> 💡 **Đó là lý do tourbillon ra đời** — xoay bộ thoát để bù sai số trọng lực. Xem thêm [Tourbillon](/tu-dien/tourbillon).
+## So kết quả với cái gì?
 
-## Cách đo sai số tại nhà (3 phương pháp)
+Kết quả bạn ghi nhận nên được **so với tài liệu, điều khoản bảo hành hoặc chứng nhận của chính mẫu đồng hồ đó**:
 
-### Phương pháp 1 — So với đồng hồ điện thoại (đơn giản nhất)
+- Nếu mẫu có chứng nhận — ví dụ [Chronometer](/tu-dien/chronometer) hoặc [Master Chronometer](/tu-dien/metas) — hãy đối chiếu với phạm vi mà chứng nhận đó công bố.
+- Lưu ý: một chứng nhận phản ánh **kết quả kiểm tra tại thời điểm kiểm, theo phạm vi kiểm đó** — nó không mô tả hiệu năng của đồng hồ trong mọi điều kiện đeo. COSC viết trong FAQ rằng danh hiệu có giá trị suốt đời, "even if one's performance is likely to change somewhat over time" — dù hiệu năng có thể thay đổi đôi chút theo thời gian.
 
-1. Mở **đồng hồ trên điện thoại** (giờ internet, chính xác tuyệt đối).
-2. Khi kim giây đồng hồ cơ đến đúng số 12, **ghi chú giờ chính xác** trên điện thoại.
-3. Sau **24 giờ** (hoặc 7 ngày), so sánh lại.
-4. Tính:
-   - Nếu đồng hồ cơ nhanh hơn 10 giây sau 5 ngày → sai số **+2 giây/ngày**.
-   - Nếu chậm hơn 30 giây sau 10 ngày → sai số **−3 giây/ngày**.
+## Khi nào trao đổi đơn vị có chuyên môn?
 
-> Phương pháp này đơn giản nhưng **không chính xác tuyệt đối** vì khó bắt đúng giây.
+Khi ghi nhận thấy **thay đổi kéo dài**, hoặc đơn giản khi **có nghi ngờ**, hãy trao đổi với **trung tâm dịch vụ hoặc đơn vị có chuyên môn của hãng**.
 
-### Phương pháp 2 — Dùng app đo tần số (khuyến nghị)
+Những gì bạn ghi được ở nhà giúp cuộc trao đổi đó cụ thể hơn (thời gian quan sát, độ lệch, điều kiện ghi nhận). Nó **không cho phép bạn — hay bất kỳ ai — tự kết luận** nguyên nhân hoặc tình trạng bộ máy từ vài con số quan sát.
 
-Có các app miễn phí dùng micro điện thoại để **nghe tiếng tích tắc** của đồng hồ và tính sai số chính xác:
+## Đọc thêm
 
-- **WatchTracker** (iOS, Android) — miễn phí, dễ dùng.
-- **WatchAccuracy** (web) — miễn phí, không cần app.
-- **Tool Stryi / Kello** (iOS) — trả phí, chuyên nghiệp.
-
-**Cách dùng WatchTracker (ví dụ):**
-1. Tải app, đặt đồng hồ vào mic điện thoại (theo hướng dẫn app).
-2. Chọn vị trí đo (lên mặt, úp mặt...).
-3. App nghe ~30 giây → hiển thị sai số, biên độ (amplitude), beat error.
-4. Lưu lại để theo dõi theo thời gian.
-
-> ⚡ **Ưu điểm:** chính xác hơn nhiều, biết ngay kết quả, có thể đo nhiều vị trí.
-
-### Phương pháp 3 — Máy đo chuyên dụng (timegrapher)
-
-Nếu bạn đam mê hoặc có nhiều đồng hồ, mua một máy **timegrapher** giá rẻ (~1–2 triệu VND trên Shopee):
-- Đặt đồng hồ vào, máy hiển thị sai số, biên độ, beat error.
-- Có thể đo ở 6 vị trí khác nhau.
-- Độ chính xác cao, dùng được cho nhiều năm.
-
-## Hiểu các thông số khi đo
-
-### 1. Rate (sai số) — đơn vị giây/ngày
-| Phạm vi | Đánh giá |
-|---------|----------|
-| ±0–2 s/ngày | Xuất sắc (đỉnh) |
-| ±2–5 s/ngày | Rất tốt (chuẩn chronometer) |
-| ±5–10 s/ngày | Tốt (bình thường) |
-| ±10–15 s/ngày | Chấp nhận được |
-| ±15–30 s/ngày | Cần kiểm tra / service |
-| > ±30 s/ngày | Có vấn đề — mang đi thợ |
-
-### 2. Amplitude (biên độ) — đơn vị độ (°)
-Biên độ là góc dao động của bánh lắc. Đồng hồ mới/đầy cót: **270–320°**. Khi cạn cót hoặc già dầu: giảm xuống **200–240°**. Dưới **180°** = cần service.
-
-### 3. Beat Error (lệch nhịp)
-Sự lệch giữa hai nửa dao động của bánh lắc. Lý tưởng: **0.0–0.8 ms**. Lớn hơn 1.0 ms → cần điều chỉnh.
-
-## Mẹo để đồng hồ chính xác hơn
-
-1. **Đeo đủ 8 giờ/ngày** (với automatic) — giữ dây cót căng.
-2. **Vặn tay bổ sung** nếu đeo ít.
-3. **Đặt đúng vị trí qua đêm** — nếu đồng hồ chạy nhanh, đặt úp mặt; chậm, đặt lên mặt. (Mỗi đồng hồ có "vị trí tốt" riêng — thử nghiệm để tìm.)
-4. **Tránh từ trường** — xa loa, nam châm, điện thoại nhiều giờ.
-5. **Service định kỳ** — dầu khô làm sai số tăng.
-6. **Đừng vặn quá căng** — dây cót quá căng → sai số lớn hơn.
-
-## Khi nào cần can thiệp?
-
-| Tình huống | Hành động |
-|-----------|-----------|
-| Sai số ổn định ±5 s/ngày | Bình thường — không cần làm gì |
-| Sai số ±10 s/ngày nhưng ổn định | Bình thường — thử đổi vị trí đặt đêm |
-| Sai số thay đổi đột ngột | Kiểm tra từ trường, cót, hoặc service |
-| Chạy nhanh nhiều (+20 s/ngày) | Có thể nhiễm từ — demagnetize hoặc service |
-| Chạy chậm nhiều (−20 s/ngày) | Có thể khô dầu / mòn — service |
-| Biên độ < 200° | Cần service |
-
-## Câu hỏi thường gặp
-
-**Sai số bao nhiêu là bình thường?**
-±5–10 giây/ngày là bình thường cho đồng hồ cơ. Chuẩn chronometer (COSC) là −4/+6 giây/ngày.
-
-**Đồng hồ của tôi đắt, sao vẫn sai số lớn?**
-Đắt không đồng nghĩa chính xác tuyệt đối. Ngay cả Rolex, Omega mới cũng có sai số vài giây/ngày. Đó là **đặc tính cơ học**.
-
-**Có thể chỉnh sai số về 0 không?**
-Một số đồng hồ có thiết bị **regulator** — thợ có thể tinh chỉnh. Nhưng khó giữ 0 trong mọi điều kiện (vị trí, nhiệt độ). "0 giây/ngày" là mục tiêu lý tưởng, không phải thực tế.
-
-**Nhiễm từ thì làm sao?**
-Mang tới thợ để **demagnetize** (khử từ) — nhanh, rẻ (vài trăm nghìn). Sau đó sai số trở lại bình thường.
-
-> Để dễ theo dõi, bạn có thể dùng app **WatchTracker** ghi sai số mỗi tuần — qua đó phát hiện sớm bất thường.
+- [Chứng nhận Chronometer](/tu-dien/chronometer) và [Master Chronometer](/tu-dien/metas)
+- [Chống từ](/co-che/chong-tu) — phạm vi kháng từ của bộ máy là thông số từng calibre/chứng nhận
+- [Bảo dưỡng đồng hồ](/huong-dan/bao-duong-dong-ho) — khi nào liên hệ chuyên môn, chuẩn bị gì

@@ -1,34 +1,46 @@
 ---
 title: "Chronometer và COSC"
-excerpt: "Chứng nhận độ chính xác do tổ chức độc lập cấp, kiểm bộ máy rời chứ không phải đồng hồ hoàn thiện. Khác hẳn nghĩa thông thường của chữ này."
+excerpt: "Chronograph là chức năng bấm giờ; chronometer là chứng nhận độ chính xác. Mức kiểm và thời lượng kiểm dưới đây trích từ trang COSC."
 term_en: "Chronometer"
 category: "chứng nhận"
 date: "2026-08-08"
 draft: false
-updated: "2026-09-01"
+updated: "2026-09-04"
 sources:
-  - label: "COSC — Chứng nhận Chronometer"
+  - label: "COSC — Chronometer Certified"
     url: "https://www.cosc.swiss/certified-chronometer"
-  - label: "COSC — Chronograph hay Chronometer"
+  - label: "COSC — Chronograph or Chronometer?"
     url: "https://www.cosc.swiss/cosc-chronograph-chronometer"
-  - label: "COSC — Các loại chứng nhận"
+  - label: "COSC — COSC certifications"
     url: "https://www.cosc.swiss/cosc-certifications"
 
 ---
 
-**Chronometer** có hai nghĩa — và việc nhầm lẫn giữa chúng gây hiểu sai nhiều. Trong ngôn ngữ thông thường, *chronometer* chỉ "đồng hồ đo thời gian chính xác". Nhưng trong đồng hồ cơ hiện đại, **Chronometer là một chứng nhận độ chính xác** do tổ chức độc lập cấp — và đó là nghĩa cần phân biệt.
+**Chronometer** có hai nghĩa — và việc nhầm lẫn giữa chúng gây hiểu sai nhiều. Trong ngôn ngữ thông thường, *chronometer* chỉ "đồng hồ đo thời gian chính xác". Nhưng trong đồng hồ cơ hiện đại, **Chronometer là một chứng nhận độ chính xác** — và đó là nghĩa cần phân biệt.
 
-## COSC — tổ chức cấp chứng nhận
+## COSC — cơ quan cấp chứng nhận
 
-Ở Thụy Sĩ, chứng nhận Chronometer do **COSC** (Contrôle Officiel Suisse des Chronomètres) cấp. COSC kiểm **bộ máy rời** (chưa lắp vỏ, chưa lắp mặt số, chưa lắp kim) qua 15 ngày ở nhiều vị trí và nhiệt độ khác nhau. Bộ máy đạt các tiêu chuẩn sai số cụ thể thì được cấp chứng nhận, đi kèm số liệu riêng của từng chiếc.
+Theo trang chính thức của COSC (Contrôle Officiel Suisse des Chronomètres), danh hiệu "Chronometer Certified" được cấp bởi **một cơ quan chính thức, trung lập** theo tiêu chuẩn **ISO 3159**; mỗi chronometer được cấp có **số duy nhất khắc trên bộ máy**, kèm chứng nhận do COSC phát. COSC chủ yếu chứng nhận **đồng hồ đeo tay cơ**, cùng một số loại khác (đồng hồ bỏ túi, thiết bị hiển thị giờ cố định, máy đeo tay quartz).
 
-## Cẩn thận chữ nghĩa
+Về thời lượng: trang COSC nêu mỗi bộ máy được kiểm qua biến đổi nhiệt độ và vị trí **trong 12–20 ngày tùy loại**. Riêng với máy đeo tay cơ, FAQ của COSC nêu: kiểm trong **15 ngày**, ở **5 vị trí** và **3 mức nhiệt độ (8°, 23° và 38°C)**, với **7 tiêu chí chứng nhận** — trong đó tiêu chí *Average Daily Rate* yêu cầu sai số ngày trung bình nằm trong khoảng **−4 đến +6 giây/ngày theo COSC**.
 
-- **Chronograph** — đồng hồ có chức năng bấm giờ (xem mục [chronograph](/tu-dien/chronograph)).
-- **Chronometer** — chứng nhận độ chính xác của bộ máy.
+## Chronograph hay chronometer?
 
-Hai chữ này gần nhau về chữ viết, nhưng hoàn toàn khác nghĩa. Một chiếc có thể là chronograph mà không phải chronometer, và ngược lại.
+COSC định nghĩa trên trang riêng của mình:
 
-## Hạn chế của COSC
+> "A chronograph is a complication on a watch that makes it possible to measure an interval of time. A chronometer is a high-precision watch that has been tested and certified by the COSC."
 
-Vì COSC kiểm **bộ máy rời**, chứng nhận này phản ánh độ chính xác khi bộ máy đứng một mình — không phải khi đã lắp vỏ, đeo trên tay, chịu sốc và từ trường thực tế. Đó là vì sao các chuẩn cao hơn (như [Master Chronometer](/tu-dien/metas)) sinh ra: kiểm cả đồng hồ đã lắp vỏ hoàn chỉnh.
+- **Chronograph** — chức năng bấm giờ, đo một khoảng thời gian (xem mục [chronograph](/tu-dien/chronograph)).
+- **Chronometer** — đồng hồ đã được kiểm và cấp chứng nhận độ chính xác.
+
+Hai chữ gần nhau về cách viết, hoàn toàn khác nghĩa — một chiếc có thể là chronograph mà không phải chronometer, và ngược lại. COSC cũng ghi nhận: hiện chưa có tiêu chuẩn riêng để chứng nhận độ chính xác của một chronograph.
+
+## Đọc danh hiệu này thế nào cho đúng?
+
+- COSC hiện có **hai cấp chứng nhận**: "Certified Chronometer" (theo trang COSC: *generally tested on the movement* — thường được kiểm trên bộ máy) và cấp thứ hai "Excellence Chronometer Certified" (kiểm trên đồng hồ hoàn thiện).
+- Chứng nhận là **kết quả kiểm tra tại thời điểm kiểm, theo phạm vi kiểm đó** — nó không mô tả hiệu năng của đồng hồ trong mọi điều kiện đeo. FAQ của COSC viết rõ: danh hiệu có giá trị suốt đời, "even if one's performance is likely to change somewhat over time" — dù hiệu năng có thể thay đổi đôi chút theo thời gian.
+- "Chronometer" là tên một loại chứng nhận, không phải thước đo so sánh giữa những chiếc đồng hồ — và không phải mọi đồng hồ ghi chữ này đều theo cùng một quy trình; đọc tài liệu của từng hãng để biết mẫu đó được chứng nhận theo gì.
+
+## Xem thêm
+
+- [Master Chronometer (METAS)](/tu-dien/metas) — một chứng nhận khác, của một tổ chức khác, với phạm vi kiểm khác; bài này không xếp hạng hai chứng nhận.

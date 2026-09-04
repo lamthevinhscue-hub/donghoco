@@ -1,47 +1,31 @@
 ---
 title: "Côtes de Genève (Vân Genève)"
-excerpt: "Họa tiết sọc song trên bề mặt movement — trang trí đặc trưng của đồng hồ Thụy Sĩ cao cấp."
+excerpt: "Trang trí bộ máy bằng các đường lượn sóng — mô tả theo mục từ FHH và quy định công bố của Poinçon de Genève cho mặt trên cầu máy."
 term_en: "Côtes de Genève / Geneva Stripes"
 category: "hoàn thiện"
 date: "2026-07-31"
+updated: "2026-09-04"
 draft: false
 sources:
-  - label: "Fondation de la Haute Horlogerie — Côtes de Genève"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/cotes-or-vagues-de-geneve/"
-  - label: "FHH Journal — Trang trí đồng hồ và bộ máy"
-    url: "https://journal.hautehorlogerie.org/en/decoration-of-watches-and-movements/"
+  - label: "Fondation de la Haute Horlogerie — Côtes or vagues de Genève (định nghĩa: đường lượn sóng)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/cotes-or-vagues-de-geneve"
+  - label: "Fondation de la Haute Horlogerie — Decorating and engraving the movement (đường song song cách đều, boxwood pad và máy tiện)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/decorating-and-engraving-the-movement"
+  - label: "Poinçon de Genève — Baseplates, plates for additional mechanisms and bridges (Geneva stripes trong quy định công bố)"
+    url: "https://www.poincondegeneve.ch/en/page/baseplates-plates-additional-mechanisms-and-bridges"
 
 ---
 
-**Côtes de Genève** (tiếng Pháp: "vân Genève", tiếng Anh: *Geneva Stripes*) là **họa tiết sọc song song** trên bề mặt movement và rotor của đồng hồ. Nó là một trong những cách trang trí (finishing) đặc trưng nhất của đồng hồ Thụy Sĩ cao cấp.
+**Côtes de Genève** (tiếng Anh: *Geneva stripes*) là trang trí bề mặt bằng các **đường lượn sóng** ("undulating lines, like waves" — theo FHH). Trong bài bách khoa về trang trí bộ máy, FHH nêu Côtes de Genève như một ví dụ của dạng đường **song song cách đều, thẳng hoặc tròn**, tạo bằng guối gỗ (boxwood pad) và máy tiện trên bề mặt chi tiết lớn như **cầu máy** (theo FHH).
 
-## Nó là gì?
+## Phạm vi của thuật ngữ
 
-Đây là **các vân sọc nhẹ** tạo ra bằng cách chà nhám/máy áp áp lực nhẹ lên bề mặt kim loại. Ánh sáng phản chiếu khác nhau theo hướng vân, tạo hiệu ứng "sóng sóng" đẹp mắt khi nhìn vào movement.
+Trong bộ quy định công bố của Poinçon de Genève cho bản máy, tấm bổ sung và cầu máy, **mặt trên của cầu máy** phải được hoàn thiện bằng Geneva stripes — **hoặc bất kỳ trang trí khác** cũng xóa dấu gia công (theo Poinçon de Genève). Tiêu chuẩn vì vậy không gắn chất lượng tổng thể vào một họa tiết duy nhất: mục tiêu được công bố là xóa dấu gia công, với nhiều lựa chọn trang trí tương đương.
 
-## Vì sao làm?
+Côtes de Genève là tên gọi của một kiểu xử lý bề mặt — nó không phải chứng nhận, và không tự là đánh giá chất lượng tổng thể của chiếc đồng hồ.
 
-Vân Genève **không có chức năng kỹ thuật** — nó là **trang trí thuần túy**. Nhưng nó chứng tỏ:
-- **Sự quan tâm đến chi tiết** — ngay cả phần giấu bên trong cũng được chăm chút.
-- **Kỹ năng thợ thủ công** — vân đều đặn đòi hỏi tay nghề cao.
-- **Dấu hiệu cao cấp** — chỉ thấy ở đồng hồ tốt, không thấy ở đồng hồ rẻ.
+## Đọc tiếp
 
-## Các loại vân trang trí khác
-
-Bên cạnh Côtes de Genève, còn có:
-- **Perlage** — vân chấm tròn lặp lại, thấy ở plate (mặt dưới) movement.
-- **Anglage / Beveling** — vát cạnh các góc kim loại, đánh bóng gương.
-- **Côtes Soleillées** — vân hình tia nắng, thấy ở rotor hoặc bánh răng.
-- **Engraving / Skeletonization** — khắc hoặc khoét lỗ để lộ máy.
-
-## Poinçon de Genève (Dấu ấn Genève)
-
-**Côtes de Genève** liên quan đến **Poinçon de Genève** — chứng nhận khắt khe của bang Genève về hoàn thiện. Một movement muốn đạt chứng nhận này phải áp dụng ít nhất 8 quy tắc trang trí, trong đó có **Côtes de Genève hoặc tương đương**.
-
-Các thương hiệu đạt Poinçon de Genève: **Vacheron Constantin, Chopard L.U.C, Roger Dubuis**... (Patek Philippe từng đạt nhưng từ 2009 đã chuyển sang chuẩn riêng — Patek Philippe Seal — khắt khe hơn).
-
-## Nhận biết
-
-Khi mua đồng hồ có **mặt sau lộ máy** (exhibition caseback), hãy nhìn mặt movement:
-- Nếu thấy **sọc song song** đều đặn, ánh sáng phản chiếu tốt → đó là Côtes de Genève.
-- Đây là dấu hiệu đồng hồ **được hoàn thiện tốt** — một trong những tiêu chí đánh giá chất lượng.
+- Tổng quan cả ba thuật ngữ và giới hạn diễn giải → [Hoàn thiện bộ máy: guilloché, perlage và Côtes de Genève](/huong-dan/hoan-thien-thu-cong-dong-ho)
+- Hai thuật ngữ hoàn thiện khác → [Guilloché](/tu-dien/guilloche) · [Perlage](/tu-dien/perlage)
+- Khung tiêu chuẩn nhắc đến kiểu hoàn thiện này → [Poinçon de Genève](/tu-dien/poincon-de-geneve)

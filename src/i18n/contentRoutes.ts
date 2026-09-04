@@ -88,6 +88,10 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/perpetual-calendar', en: '/en/glossary/perpetual-calendar/' },
   { vi: '/tu-dien/tourbillon', en: '/en/glossary/tourbillon/' },
   { vi: '/tu-dien/minute-repeater', en: '/en/glossary/minute-repeater/' },
+  { vi: '/tu-dien/guilloche', en: '/en/glossary/guilloche/' },
+  { vi: '/tu-dien/perlage', en: '/en/glossary/perlage/' },
+  { vi: '/tu-dien/cotes-de-geneve', en: '/en/glossary/geneva-stripes/' },
+  { vi: '/huong-dan/hoan-thien-thu-cong-dong-ho', en: '/en/guides/movement-finishing/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

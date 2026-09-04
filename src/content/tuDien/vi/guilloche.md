@@ -1,26 +1,29 @@
 ---
 title: "Guilloché"
-excerpt: "Hoa văn khắc bằng máy tiện hoa. Ban đầu để chống chói, sau thành thẩm mỹ. Gắn với Breguet."
+excerpt: "Kiểu khắc trang trí bằng các đường lượn hoặc đường thẳng giao nhau, tạo bằng tay hoặc bằng máy — theo mô tả của FHH."
 term_en: "Guilloché"
 category: "hoàn thiện"
 date: "2026-08-08"
+updated: "2026-09-04"
 draft: false
 sources:
-  - label: "Fondation de la Haute Horlogerie — Engine turning, tức guilloché"
-    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/engine-turning-guilloche"
-  - label: "FHH Journal — Trang trí đồng hồ và bộ máy"
-    url: "https://journal.hautehorlogerie.org/en/decoration-of-watches-and-movements/"
+  - label: "Fondation de la Haute Horlogerie — Engine-turning (Guilloché) (định nghĩa, khắc tay hoặc máy, hướng di chuyển)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/engine-turning-guilloche"
+  - label: "Fondation de la Haute Horlogerie — Decorating and engraving the movement (khắc và trang trí bộ máy)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/decorating-and-engraving-the-movement"
 
 ---
 
-**Guilloché** là **hoa văn chạm khắc** trên mặt số hoặc bộ máy, tạo bằng **máy tiện hoa** (guilloché lathe) — một máy cơ học chạy tay, dùng con quay (rosette) để dẫn đạo cụ cắt theo những đường cong toán học lặp lại. Kết quả là những họa tiết hình tròn xoáy, rẽ quạt, lưới thoi... bắt ánh sáng theo nhiều góc.
+**Guilloché** là một **kiểu khắc trang trí bằng tay hoặc bằng máy**, với các đường lượn hoặc đường thẳng **giao nhau** (theo FHH). Hiệu ứng guilloché tạo ra khi mảnh làm việc di chuyển **ngang hoặc dọc** so với dụng cụ khắc; FHH phân biệt nó với flinqué/flinking — kỹ thuật đi theo hướng **bán kính** (theo FHH).
 
-## Từ chức năng đến thẩm mỹ
+## Phạm vi của thuật ngữ
 
-Ban đầu guilloché có mục đích **thực tế**: khắc làm mặt số nhám hơn, giảm phản chiếu chói khi đọc dưới ánh nến. Chỉ sau đó nó mới trở thành **yếu tố trang trí** cao cấp — vì máy tiện hoa đòi hỏi tay nghề và thời gian, nên mặt số guilloché trở thành dấu hiệu của đồng hồ xứng tầm.
+Thuật ngữ mô tả **hình thái bề mặt và kỹ thuật tạo ra nó** — đường giao nhau, hướng di chuyển so với dụng cụ — chứ không mô tả tay nghề, giá trị hay chất lượng tổng thể của chi tiết mang nó (theo FHH). Trong mô tả của FHH về trang trí bộ máy, khắc (engraving) là một trong những kỹ thuật trang trí linh kiện, bên cạnh đánh bóng, brushing, satin, stippling, vân tia, snailing và vát cạnh.
 
-Guilloché gắn chặt với tên **Breguet** — Abraham-Louis Breguet phổ biến mặt số guilloché từ thế kỷ 18, và đến nay đây vẫn là đặc trưng nhận diện mạnh nhất của hãng.
+Guilloché là một họa tiết bề mặt — nó không phải chứng nhận, và không tự là đánh giá chất lượng tổng thể của chiếc đồng hồ.
 
-## Guilloché thật và giả
+## Đọc tiếp
 
-Guilloché **tay (máy tiện hoa)** khác hẳn guilloché **in (dập nổi hoặc in transfer)**: máy tiện cắt thật tạo rãnh sâu, cạnh sắc, ánh sáng lướt qua chuyển động; in chỉ là hình phẳng mô phỏng. Phân biệt: nghiêng đồng hồ dưới đèn, guilloché thật cho cảm giác ba chiều, guilloché in phẳng. Mức giá cũng khác rất nhiều.
+- Tổng quan cả ba thuật ngữ và giới hạn diễn giải → [Hoàn thiện bộ máy: guilloché, perlage và Côtes de Genève](/huong-dan/hoan-thien-thu-cong-dong-ho)
+- Hai thuật ngữ hoàn thiện khác → [Perlage](/tu-dien/perlage) · [Côtes de Genève](/tu-dien/cotes-de-geneve)
+- Cấu trúc bộ máy mà các kỹ thuật này đi kèm → [Chuỗi truyền động](/co-che/chuyen-dong-co)

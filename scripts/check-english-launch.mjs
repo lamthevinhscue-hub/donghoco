@@ -30,6 +30,13 @@ const PROPER_NOUNS = [
   'Kienthucdonghoco',
   'Côtes de Genève',       // thuật ngữ hoàn thiện (có dấu tiếng Việt trong tên gốc Pháp)
   'Côtes',
+  'Guilloché',             // thuật ngữ hoàn thiện (từ horology gốc Pháp, viết nguyên dấu trong tiếng Anh)
+  'guilloché',
+  'Poinçon de Genève',     // tên tổ chức cấp dấu Chất lượng Genève (tên gốc Pháp)
+  'Poinçon',
+  'Genève',
+  'Perlage',               // thuật ngữ hoàn thiện (không dấu, liệt kê để khỏi nhầm với từ thường)
+  'perlage',
 ];
 
 function walk(dir) {
@@ -87,6 +94,10 @@ const REQUIRED_EN = [
   '/en/mechanisms/moon-phase/',
   '/en/mechanisms/tourbillon/',
   '/en/mechanisms/minute-repeater/',
+  '/en/guides/movement-finishing/',
+  '/en/glossary/guilloche/',
+  '/en/glossary/perlage/',
+  '/en/glossary/geneva-stripes/',
   '/en/glossary/movement/',
   '/en/glossary/calibre/',
   '/en/glossary/escape-wheel/',

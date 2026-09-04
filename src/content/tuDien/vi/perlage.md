@@ -1,27 +1,29 @@
 ---
 title: "Perlage"
-excerpt: "Hoa văn vòng tròn chồng lấn trên mặt máy, vừa trang trí vừa giữ bụi."
+excerpt: "Hoàn thiện bề mặt bằng các vòng tròn đồng tâm chồng mép nhau — FHH gọi là stippling (spotting); trong quy định công bố của Poinçon de Genève gắn với hoàn thiện hốc trên bản máy và cầu máy."
 term_en: "Perlage"
 category: "hoàn thiện"
 date: "2026-08-08"
+updated: "2026-09-04"
 draft: false
 sources:
-  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+  - label: "Fondation de la Haute Horlogerie — Decorating and engraving the movement (stippling: vòng tròn đồng tâm chồng mép, circular-grained)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/decorating-and-engraving-the-movement"
+  - label: "Poinçon de Genève — Baseplates, plates for additional mechanisms and bridges (creusures perlées / circular-graining trong quy định công bố)"
+    url: "https://www.poincondegeneve.ch/en/page/baseplates-plates-additional-mechanisms-and-bridges"
 
 ---
 
-**Perlage** là **hoa văn vòng tròn** chấm đều trên mặt máy, tạo bằng cách úp một đầu cụp (burr) xoay vào mặt kim loại — mỗi vòng tròn để lại một tổ kim loại đồng tâm. Các vòng tròn đặt **chồng lấn** lên nhau một phần, tạo thành rặng chấm tròn đều đặn phủ kín mặt máy.
+**Perlage** là kiểu hoàn thiện bề mặt bằng **các vòng tròn đồng tâm chồng mép nhau**. Trong danh sách kỹ thuật xử lý bề mặt bộ máy, FHH gọi kỹ thuật này là **stippling (spotting)** và ghi linh kiện được "circular-grained" (theo FHH).
 
-## Kỹ thuật và mục đích
+## Phạm vi của thuật ngữ
 
-Perlage thường thấy trên **mặt trong của [cầu máy](/tu-dien/cau-may) và mặt đế** — những chỗ bình thường không nhìn thấy khi đeo. Vậy tại sao làm? Có hai lý do:
+Trong bộ quy định công bố của Poinçon de Genève cho bản máy, tấm bổ sung và cầu máy, các **hốc (creusures)** phải được hoàn thiện kiểu "perlées" — **hoặc một kiểu hoàn thiện khác** cũng xóa hết dấu gia công (theo Poinçon de Genève). Tiêu chuẩn vì vậy gắn kiểu hoàn thiện này với **vị trí linh kiện cụ thể** và mục tiêu xóa dấu gia công, chứ không gắn nó với một mức chất lượng tổng thể.
 
-- **Trang trí** — dù ẩn, perlage cho thấy xưởng không bỏ qua bất kỳ bề mặt nào. Đây là dấu hiệu chế tạo tỉ mỉ.
-- **Chức năng nhẹ** — hoa văn chấm nhẹ nhàng giữ một lớp dầu mỏng và giữ bụi (nếu có lọt vào) không xê dịch tự do trên mặt máy.
+Perlage là tên gọi của một kiểu xử lý bề mặt — nó không phải chứng nhận, và không tự là đánh giá chất lượng tổng thể của chiếc đồng hồ.
 
-## Nhận biết và phân biệt
+## Đọc tiếp
 
-Perlage khác [vân Genève](/tu-dien/cotes-de-geneve) (sọc song song): perlage là **chấm tròn**, vân Genève là **sọc thẳng**. Hai loại thường dùng ở chỗ khác nhau — vân Genève ở mặt trên cầu máy (nhìn thấy), perlage ở mặt dưới hoặc mặt đế (ít nhìn thấy).
-
-Đồng hồ công nghiệp đôi khi in perlage giả (dập nổi); perlage thật có cảm giác ba chiều, các tổ kim loại đồng tâm chạm tay nhẹ.
+- Tổng quan cả ba thuật ngữ và giới hạn diễn giải → [Hoàn thiện bộ máy: guilloché, perlage và Côtes de Genève](/huong-dan/hoan-thien-thu-cong-dong-ho)
+- Hai thuật ngữ hoàn thiện khác → [Guilloché](/tu-dien/guilloche) · [Côtes de Genève](/tu-dien/cotes-de-geneve)
+- Khung tiêu chuẩn nhắc đến kiểu hoàn thiện này → [Poinçon de Genève](/tu-dien/poincon-de-geneve)

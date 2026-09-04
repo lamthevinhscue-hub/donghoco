@@ -1,6 +1,6 @@
 ---
-title: "Bộ thoát (Escapement) — Trái tim đập của đồng hồ cơ"
-excerpt: "Phát minh vĩ đại nhất của ngành đồng hồ — chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động liên tục. Nguồn gốc tiếng 'tíc-tắc' quen thuộc."
+title: "Bộ thoát (Escapement) — chia năng lượng thành nhịp"
+excerpt: "Cơ cấu nằm giữa chuỗi bánh răng và bộ điều tiết — chặn-nhả chuyển động định kỳ và cấp năng lượng cho bánh lắc. Định nghĩa và phân loại theo FHH."
 category: "nền tảng"
 difficulty: "cao"
 has_infographic: true
@@ -10,78 +10,54 @@ draft: false
 
 relatedModels:
   - slug: "freak"
-    relation: "Ulysse Nardin Freak (2001) mang bộ thoát silic tiên phong — một hướng đi khác hẳn bộ thoát bánh ác truyền thống"
+    relation: "Mẫu Ulysse Nardin Freak có bài riêng trên site — chi tiết về mẫu nằm ở bài đó; bài này không mô tả cấu tạo bộ thoát của mẫu"
 
-updated: "2026-09-01"
+updated: "2026-09-04"
 
 sources:
-  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
-  - label: "Fondation de la Haute Horlogerie — Dây tóc và bộ dao động"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"
+  - label: "Fondation de la Haute Horlogerie — Escapement (định nghĩa, phân loại)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/escapement"
+  - label: "Fondation de la Haute Horlogerie — Assortiment (ba phần của bộ thoát)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/assortiment"
+  - label: "Fondation de la Haute Horlogerie — Balance (dao động, tick-tock)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance"
 
 ---
 
-## Bạn đang nghe gì?
+> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
+> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
-Khi áp tai vào mặt sau một chiếc đồng hồ cơ đang chạy, bạn nghe tiếng **"tíc... tắc... tíc... tắc..."** đều đặn. Đó không phải tiếng "kim chạy", mà là tiếng của **bộ thoát** đang làm việc. Đồng hồ hiện đại đập nhanh hơn bạn nghĩ: 28.800 vph (chuẩn Rolex/Omega) tương đương **8 nhịp mỗi giây**, 36.000 vph (Hi-Beat Grand Seiko) là **10 nhịp mỗi giây** — tiếng tíc-tắc hòa vào thành một âm "re" liên tục, tai người gần như không phân biệt từng nhịp nữa.
+## Bộ thoát là gì?
 
-Bộ thoát là **phát minh quan trọng nhất** trong lịch sử đồng hồ cơ — không có nó, đồng hồ cơ không thể tồn tại.
+Fondation de la Haute Horlogerie (FHH) định nghĩa: bộ thoát là **cơ cấu nằm giữa chuỗi bánh răng và bộ điều tiết**, có hai chức năng — **chặn chuyển động của chuỗi bánh răng tại các khoảng thời gian đều nhau**, và **cấp năng lượng cho bánh lắc**.
 
-## Vấn đề bộ thoát giải quyết
+Nói cách khác: dây cót muốn nhả năng lượng liên tục, còn bộ thoát là thứ **khia nhỏ** dòng năng lượng đó thành từng nhịp, đúng theo bước dao động của bộ điều tiết.
 
-Hãy tưởng tượng dây cót (mainspring) như một cuộn dây tiết kiệm năng lượng. Nếu thả nó tự do, nó sẽ **nhả hết trong vài giây** — như đứa trẻ thả diều chạy chong chóng. Để đồng hồ chạy đều nhiều giờ, cần một cơ chế **chia nhỏ** năng lượng đó ra thành từng nhịp nhỏ. Bộ thoát chính là "người gác cổng" đó.
+## Bộ thoát gồm những gì?
 
-## Ba bộ phận cốt lõi
+Theo mục từ *Assortiment* của FHH, bộ thoát gồm **ba phần: bánh thoát (escape-wheel), đòn ngựa (lever) và roller**:
 
-Bộ thoát Swiss lever (loại phổ biến nhất, có gốc từ bộ thoát đòn bẩy tách rời của Thomas Mudge thế kỷ 18) gồm 3 bộ phận chuyển động đồng bộ:
+- **[Bánh thoát](/tu-dien/banh-thoat)** — phần tiếp nhận chuyển động từ chuỗi bánh răng, bị chặn-nhả từng nấc.
+- **Đòn ngựa và roller** — phần trung gian dẫn nhịp giữa bánh thoát và bánh lắc.
 
-1. **Bánh thoát (escape wheel)** — bánh răng đặc biệt, răng hình móc neo. Nó muốn quay liên tục (do dây cót đẩy), nhưng bị "ngựa" giữ lại.
-2. **Ngựa (pallet fork)** — thanh chữ Y ngược, 2 đầu có **đá (pallet/jewel)** bằng rubi/sapphire. Dao động qua lại, luân phiên giữ-rãnh bánh thoát.
-3. **Bánh lắc (balance wheel)** — bánh xe dao động, "trái tim" của độ chính xác (xem bài [Bánh lắc & tần số](/tu-dien/vph)).
+## Các loại bộ thoát
 
-## Chu kỳ 1 nhịp (beat)
+FHH chia bộ thoát thành **ba nhóm chính**:
 
-Quan sát hoạt ảnh ở trên, bạn sẽ thấy:
+1. **Recoil** — ví dụ bộ thoát verge (bánh vương miện);
+2. **Dead-beat** — ví dụ cylinder, virgule, double virgule;
+3. **Detached** — ví dụ lever (đòn bẩy), detent.
 
-1. **Bánh lắc dao động** qua một bên → chạm vào một mỏ ngựa.
-2. Ngựa bị đẩy → **đá (pallet) nhả** bánh thoát → bánh thoát **tiến đúng 1 răng** (phát tiếng "tíc").
-3. Ngay sau đó, đá kia **khóa** bánh thoát lại → năng lượng không thoát thêm.
-4. Bánh lắc dao động **qua bên kia** → đẩy ngựa theo chiều ngược → đá kia nhả → bánh thoát tiến thêm 1 răng (phát tiếng "tắc").
-5. Lặp lại vô tận.
+Trong ba nhóm đó, FHH ghi nhận bộ thoát **đòn bẩy (lever)** là loại **"by far the most common today"** — phổ biến nhất hiện nay — vì đặc biệt phù hợp với đồng hồ đeo tay và chronometer.
 
-Mỗi lần nhả, một **xung năng lượng nhỏ** được truyền cho bánh lắc — bù lại ma sát, giữ bánh lắc dao động liên tục. Đây là **vòng phản hồi cơ học** tuyệt đẹp: bánh lắc điều khiển nhịp, bộ thoát nuôi năng lượng cho bánh lắc. Tiếng "tíc" và "tắc" là tiếng **đá (pallet) chạm răng**.
+## Tiếng "tíc-tắc" gắn với nhịp dao động
 
-## Vì sao dùng đá rubi?
+FHH mô tả: mỗi chuyển động qua-lại của bộ điều tiết — một "tick-tock" — được gọi là **một dao động (oscillation)**, và mỗi dao động gồm **hai lần rung (vibrations)**. Nhịp chặn-nhả của bộ thoát đi theo đúng bước dao động này: bộ điều tiết định nhịp, bộ thoát cấp năng lượng để dao động duy trì.
 
-Các **đá (jewels)** ở pallet và các trục là **rubi/sapphire tổng hợp** (đỏ, trong suốt). Lý do:
-- **Cứng** (9/10 thang Mohs) → ít mài mòn, tuổi thọ hàng thế kỷ.
-- **Trơn** → giảm ma sát, ít cần dầu bôi trơn.
-- Trước 1902 (khi **Auguste Verneuil** phát minh quy trình tổng hợp rubi), đồng hồ dùng đá tự nhiên → cực đắt. Nay rubi tổng hợp làm chi phí rẻ đi. Phần lớn bộ máy ba kim đơn giản dùng khoảng 17 đến 21 chân kính; bộ máy chronograph hoặc nhiều chức năng thường nhiều hơn, có loại vượt 30.
-
-Số "21 jewels" trên mặt sau = 21 viên đá rubi trong máy.
-
-## Ý nghĩa lịch sử
-
-Bộ thoát Swiss lever tồn tại **hơn 250 năm** và vẫn là chuẩn mực — chưa có gì thay thế hoàn toàn. Mỗi cải tiến bộ thoát đều là cơn địa chấn:
-
-- **Khoảng 1755**: Thomas Mudge phát minh bộ thoát đòn bẩy tách rời (detached lever) → nền tảng cho Swiss lever về sau. Bộ thoát Swiss lever dùng phổ biến hôm nay là kết quả của quá trình cải tiến kéo dài suốt thế kỷ 19, không phải thiết kế gốc của Mudge.
-- **1999**: Omega thương mại hóa **Co-Axial** của George Daniels — cải tiến quan trọng nhất sau 250 năm, giảm ma sát (xem [mốc 1999 trong timeline](/lich-su)).
-- **2001**: Ulysse Nardin Freak dùng **silicon** trong bộ thoát → không nhiễm từ, không cần dầu (xem [mốc 2001](/lich-su)).
-
-## "Độ đập" và cảm nhận
-
-Người chơi đồng hồ lâu năm phân biệt thương hiệu qua **chất âm "tíc-tắc"**. Những mô tả dưới đây là cảm nhận chủ quan của người nghe — phụ thuộc mẫu cụ thể, chất liệu vỏ và cả tai người nghe, không phải thông số đo được:
-
-- **Rolex**: tiếng trầm, êm.
-- **Tudor**: gần Rolex nhưng hơi "giòn" hơn.
-- **Grand Seiko Spring Drive**: <em>không có tiếng tíc-tắc</em> — vì kim trượt liên tục (lai cơ-điện tử).
-- **Bộ thoát Co-Axial (Omega)**: tiếng khác, "lách cách" thay vì "tíc-tắc" rõ.
-
-Đó là một niềm vui thầm lặng của người sưu tầm — áp tai vào đồng hồ và nghe "trái tim đập".
+Xem chi tiết từng phần: [Bánh thoát](/tu-dien/banh-thoat) · [Dây tóc & bánh lắc](/co-che/day-toc-banh-lac).
 
 ## Đọc thêm
 
-- Bánh lắc & tần số dao động → [VPH (Từ điển)](/tu-dien/vph)
-- Dây cót & nguồn năng lượng → [Trữ cót](/co-che/tru-cot)
+- Bộ dao động chi tiết → [Dây tóc & bánh lắc](/co-che/day-toc-banh-lac)
+- Tần số dao động → [VPH](/tu-dien/vph)
 - Chuỗi truyền động tổng thể → [Chuỗi truyền động](/co-che/chuyen-dong-co)

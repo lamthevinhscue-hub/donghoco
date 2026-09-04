@@ -1,29 +1,30 @@
 ---
 title: "Hairspring & Balance wheel"
 custom_slug: "hairspring"
-excerpt: "The oscillating pair that creates the beat of time — the beating heart of every mechanical watch."
+excerpt: "The fine spring and the oscillating wheel that together form the regulating organ — dividing time into strictly equal parts, as FHH describes it."
 term_en: "Hairspring & Balance Wheel"
 category: "bộ máy"
 has_infographic: false
+interactive: false
 date: "2026-08-02"
+updated: "2026-09-04"
 draft: false
 sources:
   - label: "Fondation de la Haute Horlogerie — Balance spring"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance-spring"
+  - label: "Fondation de la Haute Horlogerie — Balance"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance"
 ---
 
-The **balance wheel** is the small wheel oscillating back and forth — often gold-coloured (a Glucydur alloy), swinging left and right many thousands of times per hour. The **hairspring** is the delicate spiral coil sitting above it, breathing in and out with every swing.
+- The **balance wheel** — per FHH: a circular, moving part which **oscillates on its rotational axis**; a circular mass (rim) held by spokes.
+- The **hairspring** (balance spring) — per FHH: a very fine spring, the **"heart" of a mechanical watch**; its ends are affixed to the balance and the balance-cock.
 
-Together they form the **oscillator** — the part that turns the mainspring's energy into **regular units of time**. Without them, a mechanical watch cannot measure time at all.
+## The regulating organ
 
-## How to spot them
+FHH describes the two together as the watch's **regulating organ**: the spring, coupled to the balance, gives it its to-and-fro motion — **through which it divides time into strictly equal parts**.
 
-- Through an exhibition caseback, look for the **small wheel swinging back and forth**.
-- The **spiral coil** above it is the hairspring.
-- The familiar tick-tock is the escapement releasing energy to this oscillator, twice per swing.
+Each to-and-fro movement — a "tick-tock" — is **one oscillation**, and each oscillation **comprises two vibrations**. The duration of each oscillation is determined by **the length of the hairspring and the balance's moment of inertia** (per FHH); altering the spring's length is how a watch is regulated.
 
-## The core role
+## Going deeper
 
-The oscillation period of the balance-and-hairspring pair is **fixed by the physics of the hairspring** — so every swing represents an equal unit of time. **A mechanical watch measures time by oscillating.** Everything else in the movement exists to keep this oscillator counting.
-
-Read more in [the escapement article](/en/mechanisms/escapement/), which explains how the escapement feeds energy to this oscillator beat by beat.
+The full principle, the link with the escapement and with beat rate → [balance & hairspring](/en/mechanisms/balance-and-hairspring/), and the escapement that supplies the oscillator its energy → [the escapement](/en/mechanisms/escapement/).

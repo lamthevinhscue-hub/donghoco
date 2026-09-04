@@ -2,7 +2,7 @@
   {
     "title": "Dây tóc & bánh lắc (Hairspring & Balance)",
     "slug": "day-toc-banh-lac",
-    "excerpt": "Cặp đôi dao động tạo ra nhịp thời gian — trái tim đập của mọi đồng hồ cơ. Dao động điều hòa, tần số VPH.",
+    "excerpt": "Cặp bánh lắc và dây tóc tạo thành bộ điều tiết — chia thời gian thành các phần bằng nhau nghiêm ngặt, theo FHH.",
     "aliases": [
       "Dây tóc & bánh lắc (Hairspring & Balance)",
       "Dây tóc & bánh lắc",
@@ -79,7 +79,7 @@
   {
     "title": "VPH (tần số dao động)",
     "slug": "vph",
-    "excerpt": "Số lần bánh lắc dao động mỗi giờ — quyết định độ mượt và độ chính xác của đồng hồ.",
+    "excerpt": "Đơn vị mô tả tần số dao động của bộ điều tiết — số lần rung mỗi giờ; mỗi dao động qua-lại gồm hai lần rung (theo FHH).",
     "aliases": [
       "VPH (tần số dao động)",
       "VPH",
@@ -134,7 +134,7 @@
   {
     "title": "Bánh thoát",
     "slug": "banh-thoat",
-    "excerpt": "Bánh răng cuối chuỗi truyền động, bị ngựa chặn và nhả từng nấc — nguồn của tiếng tíc tắc.",
+    "excerpt": "Một trong ba phần của bộ thoát (cùng đòn ngựa và roller) — phần bị chặn-nhả từng nấc trong nhịp hoạt động của cơ cấu, theo FHH.",
     "aliases": [
       "Bánh thoát",
       "Escape wheel"

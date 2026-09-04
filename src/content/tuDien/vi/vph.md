@@ -1,40 +1,39 @@
 ---
 title: "VPH (tần số dao động)"
-excerpt: "Số lần bánh lắc dao động mỗi giờ — quyết định độ mượt và độ chính xác của đồng hồ."
+excerpt: "Đơn vị mô tả tần số dao động của bộ điều tiết — số lần rung mỗi giờ; mỗi dao động qua-lại gồm hai lần rung (theo FHH)."
 term_en: "Vibrations per hour / Beat rate"
 category: "bộ máy"
 has_infographic: true
+interactive: false
 date: "2026-07-31"
 draft: false
-updated: "2026-09-01"
+updated: "2026-09-04"
 sources:
-  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
-  - label: "COSC — Tiêu chí chứng nhận Chronometer"
-    url: "https://www.cosc.swiss/certified-chronometer"
+  - label: "Fondation de la Haute Horlogerie — Frequency (định nghĩa tần số, mối quan hệ với độ chính xác)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/frequency"
+  - label: "Fondation de la Haute Horlogerie — Balance (oscillation, vibration)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/balance"
 
 ---
 
-**VPH** (vibrations per hour — số lần dao động mỗi giờ) là đơn vị đo **tần số dao động** của bánh lắc trong đồng hồ cơ. Đôi khi cũng được tính bằng **Hz** (số dao động mỗi giây).
+**VPH** (vibrations per hour — số lần rung mỗi giờ) là đơn vị thường dùng để mô tả **tần số dao động** của bộ điều tiết trong đồng hồ cơ.
 
-## Ý nghĩa
+## Các đơn vị nói về cùng một đại lượng
 
-Tần số dao động càng cao thì:
-- **Kim giây đi càng mượt** (nhìn ít thấy giật hơn).
-- **Đồng hồ càng chính xác** (vì sai số nhỏ dễ được "cân bằng" lại).
-- Nhưng cũng **ma sát và hao mòn hơn**, đòi hỏi bảo dưỡng thường hơn.
+Theo FHH:
 
-## Các mức phổ biến
+- **Tần số (frequency)** là **số dao động mỗi giây, đo bằng Hertz (Hz)**.
+- **Mỗi dao động (oscillation)** — một chuyển động qua-lại của bánh lắc — **gồm hai lần rung (vibrations)**.
 
-| VPH | Hz | Đặc điểm |
-|-----|-----|----------|
-| 18.000 | 2,5 | Cổ điển, kim giây giật rõ |
-| 21.600 | 3 | Phổ biến ở đồng hồ tầm trung |
-| 28.800 | 4 | Tiêu chuẩn cho đồng hồ cao cấp |
-| 36.000 | 5 | Cao, đặc trưng của Zenith El Primero |
+Tức là: `Hz` đếm theo giây, `vph` đếm lần rung theo giờ — hai cách gọi khác nhau cho cùng một nhịp dao động của bộ điều tiết.
 
-## Cách quy đổi
+## Tần số và độ chính xác — theo FHH
 
-1 Hz = 7.200 vph (vì mỗi Hz gồm 2 lần dao động — qua và lại — và 1 giờ = 3.600 giây).
+Mục từ *Frequency* của FHH viết nguyên văn: **"The higher the frequency, the more accurate the watch: 21,600 vibrations/hour (3 Hz), 28,800 vibrations/hour (4 Hz) and 36,000 vibrations/hour (5 Hz)."** — tần số cao hơn thì đồng hồ chính xác hơn, với ba mức tần số được FHH nêu trong mục từ: 21.600 vph (3 Hz), 28.800 vph (4 Hz) và 36.000 vph (5 Hz).
 
-Ví dụ: 4 Hz × 2 × 3.600 = **28.800 vph**.
+Đây là nhận định của nguồn trong phạm vi mục từ của nó — bài này không mở rộng thành so sánh giữa các mức, không gắn mức nào với hãng hay dòng sản phẩm nào.
+
+## Đọc thêm
+
+- Bộ điều tiết tạo ra nhịp này → [Dây tóc & bánh lắc](/tu-dien/day-toc-banh-lac) và bài dài [Dây tóc & bánh lắc — Bộ điều tiết](/co-che/day-toc-banh-lac)
+- Cơ cấu cấp năng lượng theo nhịp → [Bộ thoát](/co-che/bo-thoat)

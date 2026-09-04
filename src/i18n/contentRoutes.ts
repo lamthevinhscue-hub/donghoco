@@ -63,10 +63,11 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/co-che/len-day-tu-dong', en: '/en/mechanisms/automatic-winding/' },
   { vi: '/co-che/chong-tu', en: '/en/mechanisms/anti-magnetism/' },
   { vi: '/co-che/chong-soc', en: '/en/mechanisms/shock-protection/' },
+  { vi: '/co-che/day-toc-banh-lac', en: '/en/mechanisms/balance-and-hairspring/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
-  { vi: '/tu-dien/banh-thoat', en: '/en/glossary/escapement/' },
+  { vi: '/tu-dien/banh-thoat', en: '/en/glossary/escape-wheel/' },
   { vi: '/tu-dien/day-toc-banh-lac', en: '/en/glossary/hairspring/' },
   { vi: '/tu-dien/rotor', en: '/en/glossary/rotor/' },
   { vi: '/tu-dien/power-reserve', en: '/en/glossary/power-reserve/' },
@@ -79,6 +80,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/incabloc', en: '/en/glossary/incabloc/' },
   { vi: '/tu-dien/chronometer', en: '/en/glossary/chronometer/' },
   { vi: '/tu-dien/metas', en: '/en/glossary/master-chronometer/' },
+  { vi: '/tu-dien/vph', en: '/en/glossary/beat-rate/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

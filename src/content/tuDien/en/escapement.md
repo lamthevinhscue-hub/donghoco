@@ -1,26 +1,24 @@
 ---
 title: "Escape wheel"
 custom_slug: "escapement"
-excerpt: "The last wheel of the train, locked and released tooth by tooth — the origin of the ticking sound."
+excerpt: "Compatibility address maintained for previously published links and bookmarks — the current glossary entry lives at escape-wheel."
 term_en: "Escape wheel"
 category: "bộ máy"
-date: "2026-08-08"
+has_infographic: false
+interactive: false
+date: "2026-09-04"
 draft: false
+updated: "2026-09-04"
 sources:
-  - label: "Fondation de la Haute Horlogerie — Glossary of watchmaking"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+  - label: "Fondation de la Haute Horlogerie — Assortiment (the three parts of the escapement)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/assortiment"
+  - label: "Fondation de la Haute Horlogerie — Escapement"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/escapement"
+
 ---
 
-The **escape wheel** is the **last wheel in the gear train**, sitting right before the [balance](/en/glossary/hairspring/). It is the part that **converts the continuous force of the mainspring into discrete beats** — and the source of the characteristic ticking sound.
+This glossary address is kept for **compatibility** — it was published before this article series was standardised, so existing links and bookmarks keep working.
 
-## How it works
+The current, maintained entry for this term is **[Escape wheel](/en/glossary/escape-wheel/)** — the part of the escapement described by the Fondation de la Haute Horlogerie as one of its three parts (with the lever and the roller).
 
-The escape wheel has distinctive hooked teeth (commonly 15). As the watch runs, the escape wheel is **locked by the pallet fork** — it cannot spin freely but advances **one tooth at a time**, each advance matching half an oscillation of the balance.
-
-Every release produces a tick. Hold a running watch to your ear: that steady tick-tock is the sound of the escape wheel's teeth catching the pallet fork, twice per full oscillation.
-
-## Why it matters
-
-The escape wheel is where **energy is handed to the balance**. Each time it releases a tooth, it gives the balance a small push — exactly the impulse that keeps the oscillation going against friction. If that impulse is too weak or uneven, the watch loses accuracy.
-
-The escapement as a whole — escape wheel, pallet fork and balance — is the hardest part of a movement to make well, and the place where high-end brands have concentrated their improvements. Read more in [the escapement article](/en/mechanisms/escapement/).
+Please update your links to [the current entry](/en/glossary/escape-wheel/).

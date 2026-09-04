@@ -1,26 +1,29 @@
 ---
 title: "Bánh thoát"
-excerpt: "Bánh răng cuối chuỗi truyền động, bị ngựa chặn và nhả từng nấc — nguồn của tiếng tíc tắc."
+excerpt: "Một trong ba phần của bộ thoát (cùng đòn ngựa và roller) — phần bị chặn-nhả từng nấc trong nhịp hoạt động của cơ cấu, theo FHH."
 term_en: "Escape wheel"
 category: "bộ máy"
 date: "2026-08-08"
 draft: false
+updated: "2026-09-04"
 sources:
-  - label: "Fondation de la Haute Horlogerie — Từ điển thuật ngữ chế tác đồng hồ"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/"
+  - label: "Fondation de la Haute Horlogerie — Assortiment (ba phần của bộ thoát)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/assortiment"
+  - label: "Fondation de la Haute Horlogerie — Escapement (chức năng chặn-nhả, cấp năng lượng)"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/escapement"
 
 ---
 
-**Bánh thoát** (escape wheel) là **bánh răng cuối cùng** của chuỗi truyền động, nằm ngay trước [bánh lắc](/tu-dien/day-toc-banh-lac). Đây là bộ phận **chuyển đổi lực liên tục của dây cót thành từng nhịp rời rạc** — và là nguồn của tiếng tíc tắc đặc trưng.
+**Bánh thoát** (escape wheel) là **một trong ba phần của bộ thoát** — cùng đòn ngựa (lever) và roller, theo mục từ *Assortiment* của FHH.
 
-## Nguyên lý
+## Bánh thoát nằm ở đâu trong bộ máy?
 
-Bánh thoát có răng đặc biệt (thường là 15 răng, hình móc). Khi đồng hồ chạy, bánh thoát **bị chặn** bởi ngựa (pallet fork) — nó không thể quay tự do mà chỉ **xoay từng nấc một**, mỗi nấc ứng với một nửa dao động của bánh lắc.
+FHH định nghĩa bộ thoát là cơ cấu **nằm giữa chuỗi bánh răng và bộ điều tiết**, có nhiệm vụ **chặn chuyển động của chuỗi bánh răng tại các khoảng thời gian đều nhau** và **cấp năng lượng cho bánh lắc**. Bánh thoát là phần của cơ cấu đó tiếp giáp với chuỗi bánh răng: thay vì quay tự do, chuyển động của nó bị **chặn và nhả theo từng nấc** trong nhịp hoạt động của cơ cấu.
 
-Mỗi nấc như vậy phát ra một tiếng "tíc". Bạn áp đồng hồ lên tai nghe thấy tiếng tíc tắc đều đặn — đó chính là tiếng răng bánh thoát va vào ngựa, đúng từng nửa chu kỳ dao động.
+## Mối liên hệ với các thuật ngữ khác
 
-## Vì sao quan trọng?
+- Cơ cấu tổng thể gồm cả ba phần này gọi là **[bộ thoát](/co-che/bo-thoat)** (escapement).
+- Nơi bộ thoát cấp năng lượng đến là **[bánh lắc và dây tóc](/tu-dien/day-toc-banh-lac)** — bộ điều tiết của đồng hồ.
+- Toàn bộ dòng năng lượng đi từ dây cót qua chuỗi bánh răng tới bộ thoát — xem [Chuỗi truyền động](/co-che/chuyen-dong-co).
 
-Bánh thoát là chỗ **năng lượng trao cho bánh lắc**. Mỗi lần bánh thoát nhả một nấc, nó "đẩy" bánh lắc nhẹ một cái — chính xung lực này duy trì dao động của bánh lắc không bị tắt dần do ma sát. Nếu xung lực này quá yếu hoặc không đều, đồng hồ chạy sai.
-
-Bộ thoát (escapement) — gồm bánh thoát + ngựa + bánh lắc — là tập hợp khó chế tạo nhất, và là chỗ các hãng cao cấp cải tiến nhiều nhất.
+Tiếng "tíc-tắc" quen thuộc gắn với nhịp dao động của bộ điều tiết: FHH gọi mỗi chuyển động qua-lại của bánh lắc là một "tick-tock", và mỗi dao động như vậy gồm hai lần rung.

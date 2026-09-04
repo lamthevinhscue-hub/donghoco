@@ -1,30 +1,29 @@
 ---
 title: "Thùng cót"
-excerpt: "Hộp tròn chứa dây cót. Nhiều thùng cót thì trữ cót dài hơn — lý do các mẫu chạy 7 ngày thường có hai thùng."
+excerpt: "Hộp tròn chứa dây cót — dây móc vào thành thùng và trục, răng ngoài ăn khớp bánh nhông đầu của chuỗi truyền động."
 term_en: "Barrel"
 category: "bộ máy"
 date: "2026-08-08"
+updated: "2026-09-04"
 draft: false
 sources:
   - label: "Fondation de la Haute Horlogerie — Barrel"
-    url: "https://www.hautehorlogerie.org/en/watches-and-culture/encyclopaedia/glossary-of-watchmaking/s/barrel-1"
-  - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
-  - label: "Fondation de la Haute Horlogerie — Trục hộp cót"
+  - label: "Fondation de la Haute Horlogerie — Barrel arbor"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel-arbor"
 
 ---
 
-**Thùng cót** (barrel) là **hộp tròn** chứa [dây cót](/tu-dien/day-cot). Bên trong, dây cót quấn quanh một trục; mặt ngoài của hộp có răng, truyền lực sang bánh răng đầu tiên của chuỗi truyền động.
+**Thùng cót** (barrel) là **hộp tròn** chứa [dây cót](/tu-dien/day-cot). Bách khoa của Fondation de la Haute Horlogerie mô tả: dây cót móc một đầu vào thành thùng, đầu kia vào **trục thùng (barrel arbor)**; mặt ngoài của thùng có răng và **ăn khớp với bánh nhông đầu tiên của chuỗi truyền động**.
+
+## Cách hoạt động
+
+Khi dây cót nhả, thùng cót quay rất chậm — FHH ghi mức quay này vào khoảng **một phần chín tới một phần sáu vòng mỗi giờ**. Chuyển động chậm và liên tục đó là thứ truyền năng lượng cho toàn bộ đồng hồ.
+
+Trục thùng đỡ thùng và dây cót: gồm một lõi trụ và móc gắn đầu trong của dây cót; chốt trên của trục được cắt thành hình vuông để gắn bánh lên cót.
 
 ## Một thùng hay nhiều thùng?
 
-Phần lớn đồng hồ cơ chỉ có **một thùng cót**, cho trữ cót khoảng 38 tới 50 giờ. Khi cần trữ cót dài hơn, hãng dùng **hai thùng cót** (thường chạy song song) — đó là lý do các mẫu trữ cót 7 ngày thường có hai thùng.
+Số thùng cót — một, hai hoặc nhiều hơn — và cách ghép chúng là **thiết kế riêng của từng calibre**. Cấu tạo này thuộc về các quyết định của nhà sản xuất, nhưng không có quy luật chung để suy ra thời lượng chạy từ số thùng: con số cụ thể là thông số hãng công bố cho từng mẫu (xem [trữ cót](/tu-dien/power-reserve)).
 
-Việc dùng hai thùng cót không chỉ đơn thuần là "gấp đôi" — còn giải quyết một vấn đề kỹ thuật: khi dây cót sắp hết, lực giảm đi và đồng hồ chạy kém chính xác hơn. Hai thùng cót giúp lực ổn định trong thời gian dài hơn.
-
-## Nhận biết
-
-Khi nhìn vào mặt sau lộ máy, thùng cót thường là **vòng tròn lớn nhất** — to hơn cả bánh lắc ở một số bộ máy. Dây cót nằm bên trong, nhưng chỉ thấy được ở những bản thùng cót mở (mainspring barrel với nắp khoét).
-
-Xem thêm: [dây cót](/tu-dien/day-cot), [trữ cót](/tu-dien/power-reserve).
+Xem thêm: [dây cót](/tu-dien/day-cot), [trữ cót](/tu-dien/power-reserve), [cơ chế lên dây tự động](/co-che/len-day-tu-dong).

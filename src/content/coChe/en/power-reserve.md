@@ -1,12 +1,13 @@
 ---
 title: "Power reserve: how long a mechanical watch runs"
 custom_slug: "power-reserve"
-excerpt: "Set the watch down — how long does it keep running? The mainspring, the barrel, and why 70 hours became the number to beat."
+excerpt: "Set the watch down — how long does it keep running? The mainspring, the barrel, and why the figure is a per-calibre specification."
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: false
+interactive: false
 date: "2026-08-01"
-updated: "2026-09-01"
+updated: "2026-09-04"
 draft: false
 
 sources:
@@ -26,45 +27,40 @@ When you set the watch down (not worn, not wound), the mainspring gradually rela
 
 ## The mainspring — a mechanical battery
 
-At the core of power reserve is the **mainspring** — a long strip of steel coiled inside a housing called the **barrel**.
+At the core of power reserve is the **[mainspring](/en/glossary/mainspring/)** — a long strip of steel coiled inside a housing called the **[barrel](/en/glossary/barrel/)**.
 
-- **Winding** (by crown, or on the wrist with an automatic): the spring coils tighter → **energy is stored**.
+- **Winding** (by crown, or on the wrist with an [automatic](/en/mechanisms/automatic-winding/)): the spring coils tighter → **energy is stored**.
 - **Unwinding**: the spring relaxes slowly → **energy is released** to run the watch.
 
-## Common levels
+Think of the mainspring as a mechanical battery: you "charge" it by winding, and it "discharges" slowly over hours.
 
-| Power reserve | Character | Examples |
-|---------|----------|-------|
-| 38–42 hours | Classic standard (pre-2010) | Many ETA movements |
-| 48–50 hours | Good, common today | Many modern calibres |
-| **70 hours** | **"Weekend"** — worn Friday, still running Monday | Rolex 32xx, Tudor MT |
-| 80 hours | Excellent | Powermatic 80 (Tissot, Hamilton) |
-| 100+ hours | High end | Glashütte Original, IWC 168h, Panerai |
+## The figure is a per-calibre specification
 
-## "Weekend power reserve" — a term worth knowing
+There is no standard level shared by all mechanical watches: **how long a watch runs on a full wind is a figure the brand publishes for each calibre**. A movement's construction — the number of barrels, how they are combined, the mainspring's material and size, how long the watch runs, how stable the force stays — is a set of decisions made by each manufacturer.
 
-Several brands (Rolex and Tudor especially) emphasize the **70-hour** figure — a **"weekend power reserve"**. The practical meaning:
-
-- You wear the watch all day Friday — the mainspring fully wound.
-- You take it off Friday evening (to wear something else over the weekend).
-- It sits in a box all Saturday and Sunday — **but keeps running**.
-- Monday morning: it is **still showing the right time**, no winding needed.
+The figure for your watch sits in the model's published specifications on the brand's official site, or in the documentation supplied with it.
 
 ## Power reserve indicator
 
-Some watches display the remaining energy on a **sub-dial or indicator** — a fuel gauge for the mainspring. A classic feature of dress watches and high complications (A. Lange & Söhne, Jaeger-LeCoultre, Oris).
+Some watches display the remaining energy on a **sub-dial or indicator** — a fuel gauge for the mainspring, showing how much is left.
 
-## Why power reserve is limited
+## When the watch stops
 
-A longer spring holds more energy, but only up to a mechanical limit:
-- **A bigger barrel** → a thicker watch.
-- **An over-tight spring** → risk of breakage.
+Stopping because the mainspring ran out is not a defect. Wearing it again (with an [automatic](/en/mechanisms/automatic-winding/), wrist motion turns the [rotor](/en/glossary/rotor/) to wind it) or winding it by hand as the manufacturer directs will restart it:
 
-So brands extend the reserve by:
-- **Improving efficiency** — less friction, optimized escapement.
-- **Twin barrels** — used by Hublot, Panerai and Tudor.
+- Safe hand-winding → [winding a mechanical watch](/en/guides/winding-a-mechanical-watch/)
+- Setting the time and date after a stop → [setting the date safely](/en/guides/setting-the-date-safely/)
 
-That is why long reserves usually come with more elaborate movements.
+## FAQ
+
+**Does an automatic watch need hand-winding?**
+It depends on the model — the deciding source is the manual for your watch. When winding is needed, follow [winding a mechanical watch](/en/guides/winding-a-mechanical-watch/), not any general number of turns.
+
+**What does "a power reserve of 40 hours" mean?**
+As an illustration: after a full wind, a watch with this figure runs for roughly 40 hours without further energy — set down at 10 p.m., it would stop around late afternoon the next day. The figure on your watch is the one the brand publishes for its calibre.
+
+**Do I need a watch winder?**
+A watch winder is a device that keeps an automatic watch rotating while it is stored. Whether it suits your watch is best answered with the question frame in [watch winders](/en/guides/watch-winders/) — that article neither recommends buying one nor advises against it.
 
 ## Related reading
 

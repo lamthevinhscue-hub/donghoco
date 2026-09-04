@@ -1,6 +1,6 @@
 ---
 title: "Trữ cót (Power Reserve) — Đồng hồ cơ chạy được bao lâu"
-excerpt: "Khi đặt đồng hồ xuống, nó chạy được bao lâu? Hiểu dây cót, thùng cót, và vì sao 70 giờ là con số 'ma thuật'."
+excerpt: "Khi đặt đồng hồ xuống, nó chạy được bao lâu? Dây cót, thùng cót, và vì sao mức trữ cót là thông số của từng calibre."
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: true
@@ -10,10 +10,10 @@ draft: false
 
 relatedModels:
   - slug: "rolex-submariner"
-    relation: "Submariner dùng trữ cót 'weekend' 70 giờ — mức được bài nêu như chuẩn mới của Rolex"
+    relation: "Mức trữ cót của Submariner là thông số Rolex công bố cho calibre của mẫu — con số cụ thể tra trong thông số chính thức của hãng"
   - slug: "tissot-prx"
-    relation: "PRX chạy Powermatic 80 — mức 80 giờ được bài nêu trong bảng trữ cót"
-updated: "2026-09-01"
+    relation: "PRX gắn một calibre cụ thể; mức trữ cót của nó là thông số do hãng công bố cho calibre đó"
+updated: "2026-09-04"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Cơ học của hộp cót"
@@ -36,71 +36,43 @@ Khi bạn đặt đồng hồ xuống (không đeo, không vặn), dây cót d�
 
 ## Dây cót — "pin cơ học"
 
-Cốt lõi của trữ cót là **dây cót (mainspring)** — một dải thép dài, cuộn quanh trục trong một hộp gọi là **thùng cót (barrel)**.
+Cốt lõi của trữ cót là **[dây cót](/tu-dien/day-cot) (mainspring)** — một dải thép dài, cuộn quanh trục trong một hộp gọi là **[thùng cót](/tu-dien/thung-cot) (barrel)**.
 
-- Khi **lên dây** (vặn núm, hoặc đeo với automatic): dây cót bị cuộn chặt → **tích trữ năng lượng**.
+- Khi **lên dây** (vặn núm, hoặc đeo với [automatic](/co-che/len-day-tu-dong)): dây cót bị cuộn chặt → **tích trữ năng lượng**.
 - Khi **nhả**: dây cót từ từ mở ra → **giải phóng năng lượng** chạy đồng hồ.
 
 Hãy nghĩ dây cót như một **"pin cơ học"**: bạn "sạc" bằng cách lên dây, và nó từ từ "xả" trong nhiều giờ.
 
-## Các mức trữ cót phổ biến
+## Mức trữ cót — thông số của từng calibre
 
-> Cuộn lên trên để xem infographic tương tác. Đây là phiên bản chữ đầy đủ.
+Không có mức chuẩn chung cho mọi đồng hồ cơ: **thời lượng chạy sau khi lên đầy là thông số do hãng công bố cho từng calibre**. Cấu tạo bộ máy — số thùng cót, cách ghép chúng, vật liệu và kích thước dây cót, thời lượng chạy, độ ổn định lực — là quyết định riêng của từng nhà sản xuất.
 
-| Trữ cót | Đặc điểm | Ví dụ |
-|---------|----------|-------|
-| 38–42 giờ | Tiêu chuẩn cổ điển (trước 2010) | Nhiều movement ETA |
-| 48–50 giờ | Tốt, phổ biến hiện nay | Nhiều calibre hiện đại |
-| **70 giờ** | **"Weekend"** — đeo thứ 6, chạy đến thứ 2 | Rolex 32xx, Tudor MT |
-| 80 giờ | Tuyệt vời | Powermatic 80 (Tissot, Hamilton) |
-| 100+ giờ | Cao cấp | Glashütte Original, IWC 168h, Panerai |
-
-## "Weekend Power Reserve" — thuật ngữ cần biết
-
-Nhiều hãng (đặc biệt Rolex, Tudor) nhấn mạnh trữ cót **70 giờ** — gọi là **"weekend power reserve"**. Ý nghĩa rất thực tế:
-
-- Bạn đeo đồng hồ cả ngày thứ 6, dây cót đầy.
-- Chiều thứ 6 tháo ra (để đeo chiếc khác cuối tuần).
-- Cả thứ 7, chủ nhật đồng hồ nằm trong hộp — nhưng **vẫn chạy**.
-- Sáng thứ 2 đeo lại: đồng hồ **vẫn chạy đúng giờ**, không cần vặn lại.
-
-Đó là tiện lợi của "weekend power reserve" — không phải lo đồng hồ dừng sau 2 ngày.
+Con số của chiếc bạn đang dùng nằm trong thông số mẫu trên trang chính thức của hãng hoặc trong tài liệu kèm đồng hồ.
 
 ## Power Reserve Indicator (Chỉ số trữ cót)
 
-Một số đồng hồ có **chỉ số trữ cót** — một mặt số phụ hoặc vạch hiển thị mức năng lượng còn lại. Giống như kim xăng của xe, cho biết dây cót còn nhiều hay ít. Đặc trưng của dress watch và đồng hồ phức tạp (A. Lange & Söhne, Jaeger-LeCoultre, Oris).
+Một số đồng hồ có **chỉ số trữ cót** — mặt số phụ hoặc vạch hiển thị mức năng lượng còn lại. Giống như kim xăng của xe: cho biết dây cót còn nhiều hay ít.
 
-## Vì sao trữ cót có hạn?
+## Đồng hồ dừng thì sao?
 
-Dây cót dài hơn → chứa nhiều năng lượng hơn, nhưng có giới hạn cơ học:
-- **Thùng cót to hơn** → vỏ đồng hồ phải dày hơn.
-- **Dây cót quá căng** → nguy cơ đứt.
+Dừng vì hết cót không phải là hỏng. Đeo lại (với automatic, chuyển động tay làm [rotor](/tu-dien/rotor) quay lên dây) hoặc lên tay theo hướng dẫn của mẫu sẽ khởi động lại nó:
 
-Vì vậy, các hãng tăng trữ cót bằng cách:
-- **Movement hiệu quả hơn** — giảm ma sát, tối ưu bộ thoát.
-- **Hai thùng cót** (dual barrel) — dùng ở Hublot, Panerai, Tudor.
-
-Đó là lý do trữ cót dài thường đi kèm movement phức tạp hoặc đắt tiền hơn.
-
-## Làm sao để đồng hồ hết cọt chậm?
-
-- **Đeo đủ 8 giờ/ngày** (với automatic) — giữ dây cót luôn căng.
-- **Vặn tay bổ sung** nếu đeo ít (chuyển động cổ tay yếu).
-- **Service định kỳ** — dầu khô làm ma sát tăng → cót nhả nhanh hơn.
-- **Không để đồng hồ dừng lâu** — dây cót nhả hoàn toàn lâu ngày có thể biến dạng.
+- Thao tác lên tay an toàn → [lên dây đồng hồ cơ](/huong-dan/len-day-dong-ho)
+- Chỉnh lại giờ và lịch sau khi dừng → [chỉnh lịch an toàn](/huong-dan/chinh-lich-an-toan)
 
 ## Câu hỏi thường gặp
 
-**Đồng hồ automatic có cần vặn tay không?**
-Có — khi mới mua, khi đã dừng, hoặc khi đeo ít (dưới 8 giờ/ngày). Vặn tay 20–30 vòng để khởi động. Xem chi tiết tại [Hướng dẫn lên dây](/huong-dan/len-day-dong-ho).
+**Đồng hồ automatic có cần lên tay không?**
+Tùy mẫu — nguồn quyết định là tài liệu của đúng chiếc. Khi cần lên tay, làm theo bài [lên dây đồng hồ cơ](/huong-dan/len-day-dong-ho), không theo con số chung nào.
 
-**Trữ cót 38h là sao?**
-Đồng hồ chạy được 38 giờ sau khi dây cót đầy. Nếu bạn tháo ra lúc 22h, đồng hồ sẽ dừng vào khoảng 12h trưa hôm sau.
+**"Trữ cót 40 giờ" nghĩa là sao?**
+Lấy một ví dụ minh họa: sau khi lên đầy, chiếc chạy được khoảng 40 giờ nếu không được tiếp thêm năng lượng — tháo ra lúc 22 giờ thì dừng vào khoảng chiều hôm sau. Con số trên chiếc của bạn là thông số hãng công bố cho calibre của nó.
 
-**Watch winder là gì? Có cần không?**
-Watch winder là hộp quay đồng hồ — mô phỏng chuyển động cổ tay để giữ dây cót đầy. **Chỉ cần nếu bạn có nhiều (>2) đồng hồ automatic** và muốn chúng luôn chạy. Nếu chỉ có 1 chiếc, không cần.
+**Watch winder (hộp xoay) có cần không?**
+Hộp xoay là thiết bị quay đồng hồ automatic khi cất. Có nên dùng cho chiếc của bạn hay không, hãy trả lời theo khung câu hỏi trong bài [hộp xoay đồng hồ](/huong-dan/hop-xoay-dong-ho) — bài đó không khuyến nghị mua hay tránh.
 
 ## Đọc thêm
 
 - Cách lên dây đúng cách → [Hướng dẫn lên dây](/huong-dan/len-day-dong-ho)
+- Bộ phận biến chuyển động thành năng lượng → [Cơ chế lên dây tự động](/co-che/len-day-tu-dong)
 - Movement (bộ máy) là gì → [Thuật ngữ Movement](/tu-dien/movement)

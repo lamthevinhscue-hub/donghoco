@@ -1,14 +1,19 @@
 ---
 title: "Power reserve"
 custom_slug: "power-reserve"
-excerpt: "How long a watch runs on a fully wound mainspring — the mechanical equivalent of battery life, commonly 38–80 hours."
+excerpt: "How long a watch runs on a fully wound mainspring — the mechanical equivalent of battery life, a figure published for each calibre."
 term_en: "Power Reserve / Reserve de marche"
 category: "bộ máy"
+has_infographic: false
+interactive: false
 date: "2026-07-31"
+updated: "2026-09-04"
 draft: false
 sources:
   - label: "Fondation de la Haute Horlogerie — Watch complications"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
+  - label: "Fondation de la Haute Horlogerie — Barrel"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/barrel"
 ---
 
 **Power reserve** (French: *réserve de marche*) is **how long a mechanical watch keeps running** after the mainspring is fully wound. It is the mechanical equivalent of battery life.
@@ -18,30 +23,15 @@ sources:
 - When you **take the watch off** (say, into a drawer), the mainspring slowly unwinds — and when it runs out, the watch stops.
 - The power reserve tells you **how long you have** before that happens.
 
-## Common levels
+## The figure is a per-calibre specification
 
-| Power reserve | Character | Examples |
-|---------------|-----------|----------|
-| 38–42 hours | Classic standard (pre-2010) | Many classic ETA movements |
-| 48–50 hours | Good, common today | Many modern calibres |
-| 70 hours | "Weekend" — worn Friday, still running Monday | Rolex 32xx, Tudor MT |
-| 80 hours | Excellent | Powermatic 80 (Tissot, Hamilton), Zenith |
-| 100+ hours | High end | Glashütte Original, IWC Big Pilot 168h |
-
-## "Weekend power reserve"
-
-Several brands (notably Rolex and Tudor) emphasize **70 hours** — a "weekend power reserve". The practical meaning: take the watch off on Friday evening and it is **still running on Monday morning**, no resetting needed.
+There is no standard level shared by all watches: how long a watch runs on a full wind is **a figure the brand publishes for each calibre**, because a movement's construction — the [mainspring](/en/glossary/mainspring/), the [barrel](/en/glossary/barrel/), how barrels are combined — is a design decision of each manufacturer. The figure for your watch sits in the model's published specifications or its documentation.
 
 ## Power reserve indicator
 
-Some watches show the remaining energy on a **sub-dial or indicator** — the fuel gauge of the mechanical world. It is a classic feature of dress watches and high complications (A. Lange & Söhne, Jaeger-LeCoultre, Oris).
+Some watches show the remaining energy on a **sub-dial or indicator** — a fuel gauge for the mainspring, showing how much is left.
 
-## How brands extend it
+## Related reading
 
-- **A longer mainspring** — but the barrel grows, and so does the case.
-- **A more efficient movement** — less friction, optimized escapement.
-- **Twin barrels** — used by Hublot, Panerai and Tudor, among others.
-
-That is why long power reserves tend to come with more elaborate — and more expensive — movements.
-
-Related: [the power-reserve mechanism article](/en/mechanisms/power-reserve/).
+- The mechanism behind the figure → [the power-reserve mechanism](/en/mechanisms/power-reserve/)
+- What winds the watch as you wear it → [automatic winding](/en/mechanisms/automatic-winding/)

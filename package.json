@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "check": "node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs && node scripts/check-keyboard-accessibility.mjs && node scripts/check-semantic-accessibility.mjs && node scripts/check-motion-accessibility.mjs && node scripts/check-content-accessibility.mjs && node scripts/check-evolution-data.mjs && node scripts/check-learning-paths.mjs && node scripts/check-first-watch-cluster.mjs && node scripts/check-editorial-links.mjs && node scripts/check-care-cluster.mjs && node scripts/check-gmt-source-integrity.mjs && node scripts/check-chronograph-cluster.mjs && node scripts/check-daily-care-cluster.mjs",
+    "check": "node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs && node scripts/check-keyboard-accessibility.mjs && node scripts/check-semantic-accessibility.mjs && node scripts/check-motion-accessibility.mjs && node scripts/check-content-accessibility.mjs && node scripts/check-evolution-data.mjs && node scripts/check-learning-paths.mjs && node scripts/check-first-watch-cluster.mjs && node scripts/check-editorial-links.mjs && node scripts/check-care-cluster.mjs && node scripts/check-gmt-source-integrity.mjs && node scripts/check-chronograph-cluster.mjs && node scripts/check-daily-care-cluster.mjs && node scripts/check-automatic-energy-cluster.mjs",
     "check:gmt": "node scripts/check-gmt-source-integrity.mjs",
     "check:chronograph": "node scripts/check-chronograph-cluster.mjs",
     "check:daily-care": "node scripts/check-daily-care-cluster.mjs",
+    "check:automatic-energy": "node scripts/check-automatic-energy-cluster.mjs",
     "check:a11y-semantics": "node scripts/check-semantic-accessibility.mjs",
     "check:a11y-motion": "node scripts/check-motion-accessibility.mjs",
     "check:a11y-content": "node scripts/check-content-accessibility.mjs",

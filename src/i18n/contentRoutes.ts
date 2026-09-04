@@ -51,6 +51,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/huong-dan/len-day-dong-ho', en: '/en/guides/winding-a-mechanical-watch/' },
   { vi: '/huong-dan/muc-chong-nuoc', en: '/en/guides/water-resistance/' },
   { vi: '/huong-dan/chinh-lich-an-toan', en: '/en/guides/setting-the-date-safely/' },
+  { vi: '/huong-dan/hop-xoay-dong-ho', en: '/en/guides/watch-winders/' },
   // Cơ chế
   { vi: '/co-che/chuyen-dong-co', en: '/en/mechanisms/how-a-mechanical-watch-works/' },
   { vi: '/co-che/tru-cot', en: '/en/mechanisms/power-reserve/' },
@@ -58,6 +59,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/co-che/gmt', en: '/en/mechanisms/gmt/' },
   { vi: '/co-che/chronograph', en: '/en/mechanisms/chronograph/' },
   { vi: '/co-che/chong-nuoc', en: '/en/mechanisms/water-resistance/' },
+  { vi: '/co-che/len-day-tu-dong', en: '/en/mechanisms/automatic-winding/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
@@ -70,6 +72,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/tachymeter', en: '/en/glossary/tachymeter/' },
   { vi: '/tu-dien/num-van', en: '/en/glossary/crown/' },
   { vi: '/tu-dien/day-cot', en: '/en/glossary/mainspring/' },
+  { vi: '/tu-dien/thung-cot', en: '/en/glossary/barrel/' },
   // Thương hiệu
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },

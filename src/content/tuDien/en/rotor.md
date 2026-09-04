@@ -1,43 +1,43 @@
 ---
 title: "Rotor"
 custom_slug: "rotor"
-excerpt: "The swinging weight inside an automatic watch — turning wrist motion into winding energy."
+excerpt: "A semi-circular weight that spins freely with each movement of the arm — the part that turns wrist motion into winding energy."
 term_en: "Rotor / Oscillating weight"
 category: "bộ máy"
 has_infographic: false
+interactive: false
 date: "2026-07-31"
+updated: "2026-09-04"
 draft: false
 sources:
   - label: "Fondation de la Haute Horlogerie — Rotor"
-    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/rotor-1/"
-  - label: "Fondation de la Haute Horlogerie — Oscillating weight (rotor)"
-    url: "https://www.hautehorlogerie.org/en/encyclopaedia/glossary-of-watchmaking/s/oscillating-weight-rotor/"
-  - label: "Fondation de la Haute Horlogerie — Rotor and the self-winding system"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/rotor"
+  - label: "Fondation de la Haute Horlogerie — Automatic self-winding"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/automatic-self-winding"
 ---
 
-The **rotor** (also called the "oscillating weight") is the defining part of an **automatic** (self-winding) watch. It is a semicircular — sometimes full-circle — weight mounted on a pivot that can spin freely through 360°.
+The **rotor** (also called the "oscillating weight") is the defining part of an **automatic** (self-winding) watch. In the Fondation de la Haute Horlogerie's definition, it is a **semi-circular disc that freely rotates with each movement of the arm** to wind the mainspring, while **its own weight returns it to a vertical position**.
 
 ## How it works
 
-As you wear the watch and move your wrist, **gravity** swings the rotor — it is heavy and mounted off-centre. The rotor's rotation is transmitted through a **one-way mechanism** to wind the mainspring.
+The rotor is heavy and mounted off-centre, so as you wear the watch and move your wrist, that motion sets it turning. A **specific gearing of each calibre** multiplies these rotations to wind the [mainspring](/en/glossary/mainspring/) continually.
 
-In other words, the rotor **converts your motion into energy** for the watch.
+In other words, the rotor **converts your motion into energy** for the watch — energy stored inside the [barrel](/en/glossary/barrel/).
 
 ## Two layouts
 
-- **Center rotor** — the most common layout, mounted in the middle of the movement and clearly visible through the caseback.
-- **Micro-rotor** — a smaller weight recessed into the movement's plane. It allows very thin movements but is harder to engineer (Universal Genève, Patek Philippe and Bvlgari are among its notable users).
+Where the rotor sits is a design decision of each calibre:
 
-## Materials and finishing
+- **Center rotor** — mounted in the middle of the movement, often visible through the caseback.
+- **Micro-rotor** — a smaller weight set into the movement's plane.
 
-Rotors are typically made from:
-- **Heavy metals** (gold, platinum) — mass helps winding efficiency.
-- **Steel** (in more affordable watches) — lighter, so it needs more movement to do the same work.
-- **Special materials** — tungsten, ceramic (Breitling, Bvlgari).
+Both layouts follow the same principle: the rotor turns with arm movement, and the calibre's gearing leads that motion back to winding.
 
-Many brands **decorate the rotor** with Geneva stripes, engraving or gilding — it is the part the owner sees most often through the caseback.
+## Design
 
-## History
+The rotor's shape, materials and finishing are decisions of each manufacturer.
 
-The first self-winding concept is credited to **Abraham-Louis Perrelet** (1777). The modern version — a 360° rotor in a wristwatch — was popularized by **Rolex** with its **Perpetual** mechanism (1931), which set the pattern the whole industry still follows.
+## Related reading
+
+- The full mechanism → [automatic winding](/en/mechanisms/automatic-winding/)
+- How long the watch runs on a full wind → [power reserve](/en/mechanisms/power-reserve/)

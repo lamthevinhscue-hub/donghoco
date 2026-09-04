@@ -3,7 +3,7 @@ title: "Hộp xoay đồng hồ: xác định gì trước khi dùng"
 excerpt: "Hộp xoay là thiết bị quay đồng hồ automatic khi cất. Khung câu hỏi giúp bạn xác định thiết bị này có phù hợp với chiếc đồng hồ và nhu cầu của bạn không — theo hướng dẫn của đúng mẫu."
 difficulty: "trung cấp"
 date: "2026-08-08"
-updated: "2026-09-02"
+updated: "2026-09-04"
 draft: false
 
 sources:
@@ -17,7 +17,7 @@ sources:
 
 ## 1. Hộp xoay là gì?
 
-Hộp xoay giữ đồng hồ [automatic](/co-che/len-day-tu-dong) quay trong lúc nằm trên kệ. Nền tảng cơ chế để hiểu thiết bị này: đồng hồ automatic tự lên dây nhờ chuyển động tác động lên quả nặng xoay, và năng lượng được tích trong [thùng cót](/tu-dien/day-cot) — kiến thức này được tổng hợp trong bách khoa của Fondation de la Haute Horlogerie (hai nguồn cuối bài).
+Hộp xoay giữ đồng hồ [automatic](/co-che/len-day-tu-dong) quay trong lúc nằm trên kệ. Nền tảng cơ chế để hiểu thiết bị này: đồng hồ automatic tự lên dây nhờ chuyển động tác động lên quả nặng xoay, và năng lượng được tích trong [thùng cót](/tu-dien/thung-cot) — kiến thức này được tổng hợp trong bách khoa của Fondation de la Haute Horlogerie (hai nguồn cuối bài).
 
 Bài này dừng ở mô tả thiết bị và khung quyết định: **nó không hứa rằng hộp xoay giữ đồng hồ được lên đầy cót hay không dừng** — điều đó tùy thuộc thiết bị, mẫu đồng hồ và cách cài đặt được xác nhận.
 

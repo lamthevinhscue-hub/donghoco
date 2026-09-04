@@ -51,7 +51,7 @@
   {
     "title": "Power Reserve (Trữ cót)",
     "slug": "power-reserve",
-    "excerpt": "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, thường 38–80 giờ.",
+    "excerpt": "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, là thông số công bố cho từng calibre.",
     "aliases": [
       "Power Reserve (Trữ cót)",
       "Power Reserve",
@@ -176,7 +176,7 @@
   {
     "title": "Thùng cót",
     "slug": "thung-cot",
-    "excerpt": "Hộp tròn chứa dây cót. Nhiều thùng cót thì trữ cót dài hơn — lý do các mẫu chạy 7 ngày thường có hai thùng.",
+    "excerpt": "Hộp tròn chứa dây cót — dây móc vào thành thùng và trục, răng ngoài ăn khớp bánh nhông đầu của chuỗi truyền động.",
     "aliases": [
       "Thùng cót",
       "Barrel"
@@ -282,7 +282,7 @@
   {
     "title": "Rotor",
     "slug": "rotor",
-    "excerpt": "Quả nặng xoay trong đồng hồ automatic — bộ phận biến chuyển động cổ tay thành năng lượng lên cót.",
+    "excerpt": "Quả nặng bán nguyệt quay tự do theo cử động tay — bộ phận biến chuyển động cổ tay thành năng lượng cuộn dây cót.",
     "aliases": [
       "Rotor",
       "Rotor / Oscillating weight"

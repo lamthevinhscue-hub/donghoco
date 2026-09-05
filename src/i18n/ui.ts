@@ -110,6 +110,8 @@ export const translations = {
     nav_explore: 'Khám phá',
     nav_compare: 'So sánh',
     read_more: 'Đọc tiếp',
+    // related_heading: tiêu đề KHỐI "bài liên quan" cuối bài — khác read_more (chữ trên từng thẻ)
+    related_heading: 'Đọc tiếp',
     back_to_list: '← Về danh sách',
     featured: 'Nội dung nổi bật',
     latest: 'Mới nhất',
@@ -266,6 +268,9 @@ export const translations = {
     nav_explore: 'Discover',
     nav_compare: 'Compare',
     read_more: 'Read more',
+    // related_heading: block heading above related articles — distinct from read_more (per-card label)
+    // and from the in-body "Related reading" sections some English articles contain.
+    related_heading: 'Continue reading',
     back_to_list: '← Back to list',
     featured: 'Featured',
     latest: 'Latest',

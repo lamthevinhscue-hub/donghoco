@@ -9,6 +9,7 @@
 // =============================================================================
 
 import Card from './Card.astro';
+import { getLangFromUrl, t } from '../i18n/ui';
 
 export interface RelatedItem {
   href: string;       // Đường dẫn gốc (chưa có tiền tố ngôn ngữ)
@@ -24,11 +25,13 @@ interface Props {
 
 const { items } = Astro.props;
 const visible = items.slice(0, 3); // tối đa 3 gợi ý
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
 ---
 
 {visible.length > 0 && (
   <section class="related-articles mt-16 border-t border-cream-dark pt-10 dark:border-dark-border" data-pagefind-ignore>
-    <h2 class="mb-6 font-serif text-2xl text-navy dark:text-dark-text">Đọc tiếp</h2>
+    <h2 class="mb-6 font-serif text-2xl text-navy dark:text-dark-text">{tr.related_heading}</h2>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map((item) => (
         <Card

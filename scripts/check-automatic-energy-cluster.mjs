@@ -63,6 +63,15 @@ const DOC_FILES = [
   'docs/nghiem-thu/2026-09-04_nghiem-thu-cum-automatic-nang-luong-song-ngu.md',
 ];
 
+// Component infographic của cụm — danh sách RIÊNG, không nằm trong FILES:
+// frontmatter (R1), cặp route (R2), liên kết Markdown (R3, R4) không áp lên
+// tệp Astro. Component chịu BANNED hiện có + COMPONENT_BANNED (quét toàn tệp,
+// vì dữ liệu hiển thị nằm ngay đầu tệp Astro).
+const COMPONENT_FILES = [
+  'src/components/infographics/AutomaticWinding.astro',
+  'src/components/infographics/PowerReserve.astro',
+];
+
 const REQUIRED_LINKS = {
   'src/content/coChe/vi/len-day-tu-dong.md': [
     '](/tu-dien/rotor)',
@@ -228,6 +237,16 @@ const BANNED = [
 const TPD_RE = /TPD|turns per day|vòng mỗi ngày/i;
 const TPD_ALLOW = /đừng|không nên tự đặt|do not set|don'?t set|chỉ theo|only per|per the|theo tài liệu|documentation|manual/i;
 
+// Chỉ áp cho COMPONENT (R7) — các mẫu P0.2 yêu cầu hàng rào phải bắt:
+// số vòng lên cót cố định; chu kỳ bảo dưỡng cố định; số giờ dừng/trữ cót
+// chung dạng viết tắt; xếp hạng "70 giờ / 100 giờ".
+const COMPONENT_BANNED = [
+  { re: /\d+\s*vòng/i, why: 'số vòng lên cót cố định (không nguồn, đã loại)' },
+  { re: /\d+\s*[–-]\s*\d+\s*năm(\/| per | mỗi )?(lần)?/i, why: 'chu kỳ bảo dưỡng cố định (đã loại)' },
+  { re: /~?\b40\s*h\b/i, why: 'số giờ dừng chung dạng viết tắt (đã loại)' },
+  { re: /(70|80|100)\s*\+?\s*(giờ|hours)(?![a-zA-Z0-9])/i, why: 'xếp hạng trữ cót theo mốc giờ phổ quát (đã loại)' },
+];
+
 const errors = [];
 const report = [];
 const fail = (rule, file, line, why) =>
@@ -241,7 +260,7 @@ function bodyOf(text) {
 }
 
 const textOf = {};
-for (const f of [...FILES.vi, ...FILES.en, ROUTES_FILE, ...DOC_FILES]) {
+for (const f of [...FILES.vi, ...FILES.en, ...COMPONENT_FILES, ROUTES_FILE, ...DOC_FILES]) {
   if (!existsSync(f)) errors.push(`[FILE] Thiếu tệp phạm vi: ${f}`);
   else textOf[f] = readFileSync(f, 'utf8');
 }
@@ -345,6 +364,38 @@ if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳn
 
 // ===== R6: hồ sơ + biên bản =====
 report.push(`Hồ sơ nguồn + biên bản nghiệm thu tồn tại (${DOC_FILES.length} tệp)`);
+
+// ===== R7: component infographic cùng chịu các quy tắc nội dung =====
+// Quét TOÀN BỘ tệp Astro (dữ liệu hiển thị nằm ngay phần đầu). Áp BANNED
+// hiện có + COMPONENT_BANNED + cửa sổ TPD; không áp frontmatter/route/link.
+for (const f of COMPONENT_FILES) {
+  const lines = textOf[f].split(/\r?\n/);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    for (const { re, why, allow } of BANNED) {
+      const m = re.exec(line);
+      if (m && !(allow && allow.test(line))) {
+        fail('R7', f, i + 1, `${why}: "${m[0]}"`);
+      }
+    }
+    for (const { re, why } of COMPONENT_BANNED) {
+      const m = re.exec(line);
+      if (m) fail('R7', f, i + 1, `${why}: "${m[0]}"`);
+    }
+    if (TPD_RE.test(line)) {
+      const next = lines[i + 1] ?? '';
+      if (!(TPD_ALLOW.test(line) || TPD_ALLOW.test(next))) {
+        fail('R7', f, i + 1, 'TPD/vòng mỗi ngày như cấu hình chung — chỉ được nêu trong cửa sổ "đừng tự đặt / theo tài liệu"');
+      }
+    }
+    if (line.trim().startsWith('|') && /\b\d{2,3}\s*(giờ|hours)\b/i.test(line)) {
+      fail('R7', f, i + 1, 'bảng số giờ trữ cót — dạng bảng dùng chung đã bị loại');
+    }
+  }
+}
+if (!errors.some((e) => e.includes('[R7]'))) {
+  report.push(`R7: component infographic (${COMPONENT_FILES.length} tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 12 bài Markdown`);
+}
 
 // ===== Kết luận =====
 console.log('KIỂM TRA CỤM AUTOMATIC & NĂNG LƯỢNG CƠ HỌC SONG NGỮ:');

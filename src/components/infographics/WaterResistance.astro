@@ -2,113 +2,80 @@
 // =============================================================================
 // INFOGRAPHIC: CHỐNG NƯỚC (Water Resistance)
 // =============================================================================
-// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (thanh trượt độ sâu, vòng đệm bị
-// ép khi áp suất tăng, bấm nút/kéo núm dưới nước = nước tràn vào). Các cảnh
-// khác giữ CSS reveal + Intersection Observer.
+// Chuẩn nội dung duy nhất: các bài Markdown do
+// scripts/check-daily-care-cluster.mjs quản lý (đầu tiên là
+// src/content/coChe/vi/chong-nuoc.md và src/content/huongDan/vi/muc-chong-nuoc.md).
+// Mọi câu hiển thị phải chỉ ra được căn cứ trong bài; không có căn cứ trong
+// bài thì không hiển thị.
 //
 // Cấu trúc 5 cảnh:
-//   1. Mở đầu — câu hỏi gây tò mò
-//   2. Vỏ + gioăng + áp suất — HOẠT ẢNH TƯƠNG TÁC
-//   3. Vòng kín — nguyên lý test áp suất
-//   4. Thang mức độ — 30m→1000m với hoạt động tương ứng
-//   5. Hiểu lầm nguy hiểm — đính chính sai lầm phổ biến
+//   1. Mở đầu — con số khắc trên vỏ có ý nghĩa kèm điều kiện công bố
+//   2. Điểm niêm phong + minh họa áp suất ĐỊNH TÍNH (không mét, không ATM)
+//   3. Gioăng — bộ phận bị mòn; kiểm tra áp suất cần thiết bị chuyên môn
+//   4. Hai hãng, hai cách công bố (Omega / Seiko) — không bảng quy đổi chung
+//   5. Đã công bố vs chưa công bố — không suy quy tắc
+//
+// Nội dung vượt căn cứ bài viết đã được rút khỏi bản trước (danh sách cụm
+// xem biên bản gói P0.2 trong docs/nghiem-thu/).
 // =============================================================================
 
 import MechanismAnimation from './MechanismAnimation.astro';
 
-// Dữ liệu các mức độ chống nước (có thể chỉnh sửa tại đây)
-const levels = [
+// Năm điểm niêm phong — đúng danh sách của bài viết.
+const seals = [
+  { n: '①', name: 'Kính (crystal)', text: 'gioăng viền kính.' },
+  { n: '②', name: 'Núm vặn (crown)', text: 'điểm thao tác nhiều nhất; núm ren phải vặn kín sau mỗi lần chỉnh (nguyên tắc Omega: "always screw it in after handling it").' },
+  { n: '③', name: 'Nắp lưng (caseback)', text: 'gioăng viền nắp.' },
+  { n: '④', name: 'Nút bấm (pushers)', text: 'Omega: "Avoid operating the chronograph pushers under water" — ngoại lệ do hãng công bố cho một số mẫu.' },
+  { n: '⑤', name: 'Van helium', text: 'trên một số mẫu lặn sâu.' },
+];
+
+// Hai hãng, hai cách công bố — đúng như bài viết.
+const disclosures = [
   {
-    depth: '30m / 3 ATM',
-    label: 'Chống nước cơ bản',
-    activities: ['Rửa tay', 'Mưa nhẹ'],
-    danger: 'Không tắm, không bơi',
-    color: 'var(--obs-steel-soft)',
-    height: 8,
+    brand: 'OMEGA',
+    text: 'Sản phẩm "water resistant to the depth defined by the model specifications, provided that the components ensuring the water resistance are intact" — mức theo thông số mẫu, điều kiện là các bộ phận niêm phong còn nguyên vẹn.',
   },
   {
-    depth: '50m / 5 ATM',
-    label: 'Chống nước nông',
-    activities: ['Bơi nông', 'Rửa tay', 'Tắm vòi sen'],
-    danger: 'Không lặn, không nhảy nước',
-    color: 'var(--obs-steel-soft)',
-    height: 14,
-  },
-  {
-    depth: '100m / 10 ATM',
-    label: 'Bơi lội thoải mái',
-    activities: ['Bơi hồ bơi', 'Lặn nông (snorkeling)'],
-    danger: 'Không lặn bình khí',
-    color: 'var(--obs-steel)',
-    height: 24,
-  },
-  {
-    depth: '200m / 20 ATM',
-    label: 'Thể thao nước',
-    activities: ['Lặn nông', 'Thể thao nước', 'Jet ski'],
-    danger: 'Đủ cho phần lớn nhu cầu',
-    color: 'var(--obs-steel)',
-    height: 42,
-  },
-  {
-    depth: '300m / 30 ATM',
-    label: 'Đồng hồ lặn',
-    activities: ['Lặn bình khí (scuba)', 'Tất cả thể thao nước'],
-    danger: 'Tiêu chuẩn đồng hồ lặn chuyên nghiệp',
-    color: 'var(--obs-steel-deep)',
-    height: 60,
-  },
-  {
-    depth: '1000m+',
-    label: 'Lặn sâu chuyên nghiệp',
-    activities: ['Lặn sâu', 'Helmét lặn', 'Diver chuyên nghiệp'],
-    danger: 'Rolex Deepsea, Omega Ploprof',
-    color: 'var(--obs-steel-deep)',
-    height: 95,
+    brand: 'SEIKO',
+    text: 'Bảng theo ký hiệu BAR khắc trên vỏ, cho đồng hồ Seiko: 3BAR — tia nước văng, mưa; 5BAR — thêm bơi, du thuyền, tắm vòi sen; 10/15/20BAR — thêm tắm, lặn nông; Diver\'s 200m — thêm lặn bình khí; Professional 1000m — thêm lặn bão hòa. Seiko yêu cầu đọc ký hiệu trên vỏ đúng chiếc đồng hồ của bạn.',
   },
 ];
 
-// Các hiểu lầm nguy hiểm cần đính chính
-const myths = [
-  {
-    myth: '50m là bơi được rồi',
-    truth: '50m (5 ATM) CHỈ bơi nông nhẹ — không lặn, không nhảy nước. Áp suất khi nhảy/tắm vòi xa hơn mức đo.',
-  },
-  {
-    myth: 'Đồng hồ chống nước là đeo tắm được',
-    truth: 'Xà phòng, dầu tắm làm giảm gioăng cao su → nước lọt vào dần. Tốt nhất tháo ra khi tắm.',
-  },
-  {
-    myth: 'Đã mua là chống nước mãi',
-    truth: 'Gioăng cao su già/heo theo thời gian (3–5 năm). Cần test áp suất định kỳ khi service.',
-  },
-  {
-    myth: 'Chống nước = chống hơi nước',
-    truth: 'Hơi nước (sauna, phòng tắm nóng) lọt qua gioăng dễ hơn nước lỏng. Đừng đeo vào sauna.',
-  },
+// Đã công bố — trích theo bài viết.
+const announced = [
+  'Rửa nước sạch sau nước biển (Omega, Seiko); lau khô bằng vải mềm.',
+  'Không rửa khi núm đang kéo ra; tránh rửa trực tiếp dưới vòi nước chảy (Seiko).',
+  'Núm vặn ren luôn vặn kín sau thao tác (Omega).',
+  'Không bấm nút chronograph dưới nước, trừ ngoại lệ hãng công bố (Omega — một số Seamaster 300M/600M).',
+  'Nhiệt độ vận hành tối ưu 0–60°C (Omega).',
 ];
+
+// Minh họa áp suất định tính — bốn mức, không đơn vị đo.
+const pressureLevels = ['chưa có nước (minh họa)', 'áp suất thấp (minh họa)', 'áp suất vừa (minh họa)', 'áp suất cao (minh họa)'];
 ---
 
 <section class="infographic my-12" data-infographic="water-resistance">
   <!-- ====================================================================
-       CẢNH 1: MỞ ĐẦU — câu hỏi gây tò mò
+       CẢNH 1: MỞ ĐẦU
        ==================================================================== -->
   <div class="scene scene-intro infographic-intro">
     <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
-    <h2 class="font-serif text-3xl sm:text-5xl">"50m" — có thật sự bơi được không?</h2>
+    <h2 class="font-serif text-3xl sm:text-5xl">Con số khắc trên vỏ — đọc thế nào cho đúng?</h2>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
-      Cuộn xuống để khám phá cách đồng hồ cơ chống nước thực sự hoạt động —
-      và vì sao con số trên mặt số lại nói dối bạn.
+      "100m" trên vỏ đồng hồ <strong class="text-brass-light">không</strong> tự động có nghĩa
+      bạn bơi được 100m. Con số đó chỉ có ý nghĩa <strong class="text-brass-light">kèm điều kiện
+      công bố của từng hãng</strong> — và khả năng chống nước thay đổi theo thời gian sử dụng.
     </p>
     <div class="mt-8 intro-arrow text-brass-light">↓</div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 2: VỎ + GIOĂNG + ÁP SUẤT — HOẠT ẢNH TƯƠNG TÁC
+       CẢNH 2: ĐIỂM NIÊM PHONG + MINH HỌA ÁP SUẤT ĐỊNH TÍNH
        ==================================================================== -->
   <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
     <div class="svg-container" data-svg="case">
-      <MechanismAnimation label="Kéo thanh trượt độ sâu — gioăng bị ép; bấm nút dưới nước = tràn" data-mech-step-id="water-resistance">
+      <MechanismAnimation label="Minh họa nguyên lý: áp suất tăng — gioăng bị ép; điểm hở là đường vào của nước" data-mech-step-id="water-resistance">
         <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="water-resistance-svg" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="wrSteel" x1="0" y1="0" x2="0" y2="1">
@@ -123,13 +90,11 @@ const myths = [
             </linearGradient>
           </defs>
           <text style="fill:var(--ig-stroke)" x="200" y="18" text-anchor="middle" font-size="11" font-weight="bold" class="svg-label">
-            Áp suất tăng theo độ sâu → gioăng càng ép chặt
+            Minh họa: áp suất tăng → điểm niêm phong chịu ép lớn hơn
           </text>
 
-          <!-- ====== CỘT NƯỚC (bên trái, dâng lên theo độ sâu) ====== -->
+          <!-- ====== NƯỚC (dâng theo mức minh họa) ====== -->
           <rect id="wr-water" x="0" y="380" width="400" height="0" style="fill:var(--obs-steel)" opacity="0.15"/>
-          <!-- Bọt khí -->
-          <g id="wr-bubbles" opacity="0"></g>
 
           <!-- ====== VỎ ĐỒNG HỒ (cắt mặt bên) ====== -->
           <path fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" d="M 80 80 L 80 240 L 320 240 L 320 80 Z" stroke-width="2"/>
@@ -139,64 +104,59 @@ const myths = [
 
           <!-- Kính -->
           <rect x="100" y="80" width="200" height="20" fill="url(#wrSapphire)" opacity="0.55" style="stroke:var(--obs-steel)" stroke-width="1"/>
-          <!-- Gioăng kính (động — bị ép dẹt) -->
           <rect id="wr-gasket-crystal" x="100" y="78" width="200" height="6" style="fill:var(--obs-brass-soft)" rx="2"/>
 
           <!-- Núm vặn -->
           <rect fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" id="wr-crown" x="320" y="150" width="30" height="20" rx="4" stroke-width="1"/>
-          <!-- Gioăng núm vặn (động) -->
           <ellipse id="wr-gasket-crown" cx="320" cy="160" rx="3" ry="8" style="fill:var(--obs-brass-soft)"/>
 
           <!-- Nắp lưng -->
           <rect fill="url(#wrSteel)" style="stroke:var(--obs-steel-deep)" x="100" y="220" width="200" height="20" stroke-width="1"/>
           <rect id="wr-gasket-caseback" x="100" y="218" width="200" height="6" style="fill:var(--obs-brass-soft)" rx="2"/>
 
-          <!-- Nước tràn vào (khi bấm nút dưới nước) -->
+          <!-- Nước vào qua điểm hở (minh họa khi núm mở) -->
           <path id="wr-flood" d="" style="fill:var(--obs-steel)" opacity="0" />
 
-          <!-- ====== THANH TRƯỢT ĐỘ SÂU (dưới) ====== -->
-          <text style="fill:var(--ig-stroke)" x="200" y="300" text-anchor="middle" font-size="10" font-weight="bold" class="wr-label">Độ sâu</text>
-          <!-- Thước đo độ sâu trong hình — nhận giá trị từ thanh kéo HTML bên dưới SVG -->
+          <!-- ====== THANH ÁP SUẤT MINH HỌA (dưới) ====== -->
+          <text style="fill:var(--ig-stroke)" x="200" y="300" text-anchor="middle" font-size="10" font-weight="bold" class="wr-label">Áp suất (minh họa)</text>
           <rect style="stroke:var(--ig-stroke)" x="60" y="310" width="280" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
           <rect id="wr-depth-fill" x="62" y="312" width="0" height="16" rx="2" style="fill:var(--obs-steel)"/>
-          <text style="fill:var(--ig-stroke)" id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" font-weight="bold" class="wr-label">Mặt nước (0m)</text>
-          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-label dark:fill-dark-text-soft">1 ATM</text>
+          <text style="fill:var(--ig-stroke)" id="wr-depth-label" x="200" y="350" text-anchor="middle" font-size="12" font-weight="bold" class="wr-label">chưa có nước (minh họa)</text>
+          <text id="wr-pressure-label" x="200" y="368" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-label dark:fill-dark-text-soft"></text>
         </svg>
 
-        <!-- Thanh kéo độ sâu — HTML ngoài SVG. Trong foreignObject, input bị
-             thu nhỏ theo tỉ lệ SVG nên vùng chạm chỉ còn ~18-22px trên mobile;
-             input native cao 44px này dùng được bằng chuột, bàn phím và chạm,
-             mỗi lần kéo cập nhật ngay hình minh họa (cột nước, gioăng, thước). -->
+        <!-- Thanh mức áp suất minh họa — HTML ngoài SVG (vùng chạm 44px), KHÔNG đơn vị mét/ATM -->
         <div class="mt-4">
           <input
             type="range"
             id="wr-depth-slider"
             min="0"
-            max="300"
+            max="3"
             value="0"
             step="1"
             class="wr-depth-slider w-full cursor-pointer appearance-none bg-transparent"
-            aria-label="Độ sâu (mét)"
+            aria-label="Mức áp suất minh họa tăng dần — chỉ minh họa nguyên lý, không phải độ sâu sử dụng thực tế"
           />
         </div>
 
-        <!-- Nút gây tràn nước — HTML ngoài SVG để có vùng bấm 44px và chữ
-             đọc được trên mobile (nút nhỏ trong foreignObject không đạt) -->
+        <!-- Nút minh họa: điểm hở là đường vào của nước (vùng bấm 44px) -->
         <div class="mt-3 text-center">
           <button
             type="button"
             id="wr-pull-crown-btn"
             class="min-h-11 rounded-full bg-ruby px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass"
           >
-            Kéo núm vặn (dưới nước!)
+            Minh họa: núm vặn mở khi tiếp xúc nước
           </button>
+          <p class="mx-auto mt-2 max-w-md text-xs text-ink-soft dark:text-dark-text-soft">
+            Minh họa nguyên lý — không phải phép thử, không phản ánh mức chống nước của một mẫu đồng hồ.
+          </p>
         </div>
 
         <script is:inline define:vars={{}} slot="script">
           (function() {
             const svg = document.getElementById('water-resistance-svg');
             if (!svg) return;
-            // Thanh kéo độ sâu là input HTML bên ngoài SVG (vùng chạm 44px)
             const slider = document.getElementById('wr-depth-slider');
             const depthFill = svg.querySelector('#wr-depth-fill');
             const depthLabel = svg.querySelector('#wr-depth-label');
@@ -206,26 +166,24 @@ const myths = [
             const gCrown = svg.querySelector('#wr-gasket-crown');
             const gCaseback = svg.querySelector('#wr-gasket-caseback');
             const flood = svg.querySelector('#wr-flood');
-            // Nút giờ là HTML bên ngoài SVG (vùng bấm 44px)
             const pullBtn = document.getElementById('wr-pull-crown-btn');
             if (!slider) return;
 
+            const labels = ['chưa có nước (minh họa)', 'áp suất thấp (minh họa)', 'áp suất vừa (minh họa)', 'áp suất cao (minh họa)'];
+
             function render() {
-              const depth = parseInt(slider.value); // 0-300m
-              const atm = Math.max(1, Math.round(depth / 10) + 1); // ~1 ATM mỗi 10m
+              const level = parseInt(slider.value, 10); // 0..3 — mức minh họa, không đơn vị
 
-              // Thanh độ sâu
-              depthFill.setAttribute('width', String((depth / 300) * 276));
-              depthLabel.textContent = depth === 0 ? 'Mặt nước (0m)' : depth + 'm';
-              pressureLabel.textContent = atm + ' ATM';
+              depthFill.setAttribute('width', String((level / 3) * 276));
+              depthLabel.textContent = labels[level];
+              pressureLabel.textContent = '';
 
-              // Cột nước dâng (che nửa dưới vỏ khi sâu)
-              const waterH = Math.min(280, depth * 0.9);
+              const waterH = Math.min(280, level * 90);
               water.setAttribute('y', String(380 - waterH));
               water.setAttribute('height', String(waterH));
 
-              // Gioăng bị ép dẹt theo áp suất (cao giảm, rộng tăng nhẹ)
-              const compression = Math.min(0.6, depth / 500); // 0 → 0.6
+              // Gioăng chịu ép theo mức minh họa
+              const compression = Math.min(0.6, level / 5);
               const gH = 6 * (1 - compression);
               gCrystal.setAttribute('height', String(gH));
               gCrystal.setAttribute('y', String(78 + (6 - gH) / 2));
@@ -236,17 +194,15 @@ const myths = [
 
             slider.addEventListener('input', render);
 
-            // Nút "kéo núm vặn" — nếu đang dưới nước, nước tràn vào
+            // Minh họa: điểm hở (núm mở) là đường vào của nước
             pullBtn.addEventListener('click', function() {
-              const depth = parseInt(slider.value);
-              if (depth > 0) {
-                // Đang dưới nước → tràn!
+              const level = parseInt(slider.value, 10);
+              if (level > 0) {
                 flood.setAttribute('opacity', '0.6');
                 flood.setAttribute('d', 'M 100 100 L 100 240 L 300 240 L 300 100 Z');
                 flood.style.fill = 'var(--obs-steel)';
                 setTimeout(function() { flood.setAttribute('opacity', '0'); }, 3000);
               } else {
-                // Trên mặt nước → không sao
                 flood.setAttribute('opacity', '0.3');
                 flood.setAttribute('d', 'M 280 150 L 260 145 L 270 155 Z');
                 flood.style.fill = 'var(--obs-brass-soft)';
@@ -254,10 +210,8 @@ const myths = [
               }
             });
 
-            // Đăng ký hàm step rỗng (MechanismAnimation cần có để hiện controls)
             (window.__mechSteps = window.__mechSteps || {})['water-resistance'] = function() {};
 
-            // Nút "Đặt lại" — thanh trượt về mặt nước, gioăng trở lại bình thường
             (window.__mechResets = window.__mechResets || {})['water-resistance'] = function() {
               slider.value = '0';
               flood.setAttribute('opacity', '0');
@@ -270,168 +224,149 @@ const myths = [
       </MechanismAnimation>
     </div>
     <div class="space-y-4">
-      <h3 class="font-serif text-2xl text-navy dark:text-dark-text">5 điểm "thủng" nước</h3>
+      <h3 class="font-serif text-2xl text-navy dark:text-dark-text">Các điểm niêm phong</h3>
       <p class="text-ink-soft dark:text-dark-text-soft">
-        Để chống nước, đồng hồ phải <strong>niêm phong 5 điểm</strong> —
-        bất kỳ điểm nào hở đều nước tràn vào hỏng máy.
+        Theo Omega, khả năng chống nước được bảo đảm bởi các <strong>gioăng</strong> đặt giữa
+        <strong>núm vặn, nút bấm, kính và vỏ</strong>; một số mẫu có thêm <strong>van helium</strong>.
+        Mỗi điểm hở đều là đường vào của nước.
       </p>
       <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        Kéo thanh trượt bên cạnh: càng sâu, áp suất càng lớn, gioăng (xanh) càng bị ép dẹt — đó là cách chống nước hoạt động. Rồi bấm <strong>"Kéo núm vặn"</strong> khi đang ở dưới độ sâu: nước tràn vào ngay.
+        Kéo thanh mức bên cạnh để xem <strong>minh họa nguyên lý</strong>: áp suất tăng, điểm niêm phong
+        chịu ép lớn hơn. Đây là minh họa — không phải phép thử, và không quy đổi ra độ sâu sử dụng thực tế.
       </p>
       <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        Xem hướng dẫn chi tiết mỗi mức trong bài <a href="/huong-dan/muc-chong-nuoc" class="text-brass underline">mức chống nước</a>.
+        Xem hướng dẫn chi tiết trong bài <a href="/huong-dan/muc-chong-nuoc" class="text-brass underline">mức chống nước</a>.
       </p>
       <ul class="space-y-3 text-sm">
-        <li class="flex gap-3">
-          <span class="text-brass dark:text-dark-brass font-bold">①</span>
-          <span><strong>Kính (crystal)</strong> + gioăng — lớp trong suốt nhìn thấy mặt số.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-brass dark:text-dark-brass font-bold">②</span>
-          <span><strong>Núm vặn (crown)</strong> + gioăng — điểm hở lớn nhất, quan trọng nhất.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-brass dark:text-dark-brass font-bold">③</span>
-          <span><strong>Nắp lưng (caseback)</strong> + gioăng — đóng kín phía sau.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-brass dark:text-dark-brass font-bold">④</span>
-          <span><strong>Nút bấm (pushers)</strong> — nếu là chronograph.</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="text-brass dark:text-dark-brass font-bold">⑤</span>
-          <span><strong>Bezel / các ốc vặn</strong> — điểm niêm phong phụ.</span>
-        </li>
+        {seals.map((s) => (
+          <li class="flex gap-3">
+            <span class="text-brass dark:text-dark-brass font-bold">{s.n}</span>
+            <span><strong>{s.name}</strong> — {s.text}</span>
+          </li>
+        ))}
       </ul>
     </div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 3: VÒNG KÍN — nguyên lý test áp suất
+       CẢNH 3: GIOĂNG — BỘ PHẬN BỊ MÒN; KIỂM TRA CẦN CHUYÊN MÔN
        ==================================================================== -->
   <div class="scene mt-24 rounded-2xl border border-cream-dark dark:border-dark-border bg-cream-dark/30 dark:bg-dark-border/30 p-8 sm:p-12">
-    <div class="mx-auto max-w-3xl text-center">
-      <h3 class="mb-8 font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-        Nguyên lý: "Vòng kín" + test áp suất
+    <div class="mx-auto max-w-3xl">
+      <h3 class="mb-6 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
+        Gioăng — bộ phận bị mòn
       </h3>
-      <div class="svg-container" data-svg="pressure">
+      <div class="space-y-4 text-ink-soft dark:text-dark-text-soft">
+        <p class="text-sm leading-relaxed sm:text-base">
+          Gioăng là vòng đệm bị <strong>ép chặt</strong> giữa các bộ phận. Omega ghi rõ: gioăng
+          "<strong>deteriorate over time</strong>" do nhiệt độ, môi trường, hóa chất và
+          "<strong>must be regularly replaced</strong>" — khả năng chống nước của một chiếc đồng hồ
+          không đứng yên theo thời gian.
+        </p>
+        <p class="text-sm leading-relaxed sm:text-base">
+          Seiko đồng quan điểm: "A watch's water resistance is <strong>not permanently guaranteed</strong>" —
+          ảnh hưởng bởi <strong>lão hóa gioăng</strong> và <strong>biến dạng vỏ do va chạm</strong>.
+        </p>
+        <p class="text-sm leading-relaxed sm:text-base">
+          Việc kiểm tra chống nước cần <strong>thiết bị chuyên dụng</strong> — nhờ thợ hoặc trung tâm
+          bảo trì chính hãng. Khuyến nghị kiểm tra hằng năm và chu kỳ full service là khuyến nghị
+          <strong>của Omega, cho sản phẩm Omega</strong>; các hãng khác có khuyến nghị riêng — tra manual.
+        </p>
+      </div>
+      <div class="svg-container mt-8" data-svg="pressure">
         <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" aria-hidden="true" focusable="false">
-          <!-- Đồng hồ ở giữa -->
           <circle style="fill:var(--ig-steel);stroke:var(--ig-edge)" cx="250" cy="100" r="50" stroke-width="3"/>
           <circle style="fill:var(--ig-bg)" cx="250" cy="100" r="35"/>
           <circle cx="250" cy="100" r="35" fill="none" style="stroke:var(--obs-brass-soft)" stroke-width="3" data-anim="seal-ring"/>
-
-          <!-- Mũi tên áp suất từ nhiều phía -->
           <g data-anim="pressure-arrows" opacity="0">
-            <!-- Trên -->
             <line x1="250" y1="20" x2="250" y2="45" style="stroke:var(--obs-steel)" stroke-width="2"/>
             <polygon points="250,50 245,42 255,42" style="fill:var(--obs-steel)"/>
-            <text x="250" y="15" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
-            <!-- Dưới -->
             <line x1="250" y1="180" x2="250" y2="155" style="stroke:var(--obs-steel)" stroke-width="2"/>
             <polygon points="250,150 245,158 255,158" style="fill:var(--obs-steel)"/>
-            <text x="250" y="195" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
-            <!-- Trái -->
             <line x1="170" y1="100" x2="195" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
             <polygon points="200,100 192,95 192,105" style="fill:var(--obs-steel)"/>
-            <text x="160" y="104" text-anchor="end" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
-            <!-- Phải -->
             <line x1="330" y1="100" x2="305" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
             <polygon points="300,100 308,95 308,105" style="fill:var(--obs-steel)"/>
-            <text x="340" y="104" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">10 ATM</text>
+            <text x="250" y="14" text-anchor="middle" font-size="10" style="fill:var(--obs-steel)" class="wr-atm-label">áp suất thử (minh họa)</text>
           </g>
-
-          <!-- Bong bóng nước (hiệu ứng) -->
           <circle cx="250" cy="100" r="35" fill="none" style="stroke:var(--obs-steel)" stroke-width="2" opacity="0" data-anim="water-test"/>
         </svg>
       </div>
-      <p class="mx-auto mt-6 max-w-2xl text-ink-soft dark:text-dark-text-soft">
-        Nhà sản xuất đặt đồng hồ vào buồng <strong>ép nước</strong> ở mức áp suất ghi trên vỏ
-        (ví dụ 10 ATM cho "100m"). Nếu <strong>không</strong> có nước lọt vào trong 24 giờ → đạt.
-        Con số "100m" thực ra là <strong>mức test áp suất tĩnh</strong>, <em>không</em> là "bơi được 100m".
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CẢNH 4: HAI HÃNG, HAI CÁCH CÔNG BỐ
+       ==================================================================== -->
+  <div class="scene mt-24">
+    <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
+      Hai hãng, hai cách công bố
+    </h3>
+    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
+      Không có bảng quy đổi giữa các hãng — <strong>manual của đúng mẫu luôn là chuẩn</strong>.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {disclosures.map((d, i) => (
+        <div
+          class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6"
+          data-anim="level"
+          data-index={i}
+        >
+          <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{d.brand}</h3>
+          <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{d.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 rounded-lg border-l-4 border-brass bg-brass/5 dark:bg-dark-brass/10 p-5">
+      <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+        Đồng hồ lặn của từng hãng công bố theo chuẩn lặn riêng và bảng dùng được riêng — với đồng hồ
+        lặn, tra thông số và manual của <strong>đúng mẫu</strong>, kể cả tên chuẩn khắc trên vỏ.
       </p>
     </div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 4: THANG MỨC ĐỘ — 30m → 1000m
+       CẢNH 5: ĐÃ CÔNG BỐ VS CHƯA CÔNG BỐ
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      Thang mức độ chống nước
+      Đã công bố — và những gì chưa
     </h3>
     <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Mỗi mức cho phép hoạt động khác nhau. <strong>Đừng chỉ nhìn số mét.</strong>
+      Chỉ những gì các nguồn đã nêu mới thành hướng dẫn; phần còn lại không suy ra quy tắc.
     </p>
 
-    <div class="space-y-4">
-      {levels.map((level, i) => (
+    <div class="mx-auto max-w-3xl space-y-3">
+      {announced.map((item, i) => (
         <div
-          class="level-row grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
-          data-anim="level"
-          data-index={i}
-        >
-          <!-- Thanh độ sâu (màu nước) -->
-          <div class="col-span-12 sm:col-span-3">
-            <div
-              class="flex h-20 items-end justify-center rounded text-white"
-              style={`background-color: ${level.color}; height: ${level.height * 2}px;`}
-            >
-              <span class="pb-2 text-center text-sm font-bold">{level.depth}</span>
-            </div>
-          </div>
-          <!-- Nhãn -->
-          <div class="col-span-12 sm:col-span-9">
-            <h3 class="font-serif text-lg text-navy dark:text-dark-text">{level.label}</h3>
-            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-              <span class="font-medium text-green-700">✓ {level.activities.join(' · ')}</span>
-            </p>
-            <p class="mt-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-              <span class="font-medium text-red-600">⚠ {level.danger}</span>
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  <!-- ====================================================================
-       CẢNH 5: HIỂU LẦM NGUY HIỂM
-       ==================================================================== -->
-  <div class="scene mt-24">
-    <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      4 hiểu lầm nguy hiểm cần đính chính
-    </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Nhiều người hỏng đồng hồ vì tin những điều này.
-    </p>
-
-    <div class="grid gap-6 md:grid-cols-2">
-      {myths.map((myth, i) => (
-        <div
-          class="myth-card rounded-lg border-l-4 border-red-500 bg-red-50/50 p-5"
+          class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4"
           data-anim="myth"
           data-index={i}
         >
-          <p class="mb-3 flex items-start gap-2 text-sm">
-            <span class="text-lg text-red-500">✗</span>
-            <span class="font-medium text-red-900 line-through decoration-red-400">{myth.myth}</span>
-          </p>
-          <p class="flex items-start gap-2 text-sm text-ink-soft dark:text-dark-text-soft">
+          <p class="flex items-start gap-2 text-sm leading-relaxed text-ink dark:text-dark-text">
             <span class="text-lg text-green-600">✓</span>
-            <span>{myth.truth}</span>
+            <span>{item}</span>
           </p>
         </div>
       ))}
+      <div class="rounded-lg border-l-4 border-ruby bg-ruby/5 p-5" data-anim="myth" data-index="5">
+        <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          <strong class="text-ruby">Chưa có công bố cụ thể trong các nguồn đã trích:</strong> tác động của
+          xà phòng/dầu gội/nước clo lên từng mức chống nước; giới hạn sauna. Với những trường hợp này,
+          không suy ra quy tắc — tra manual của mẫu hoặc hỏi dịch vụ có chuyên môn.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- Chú thích cuối -->
   <div class="infographic-note">
     <strong class="text-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
-    Con số "100m" = test áp suất <em>tĩnh</em> trong buồng lab,
-    <strong>không</strong> = bơi được 100m thực tế.
-    Trừ khi có ghi rõ "DIVER" (theo chuẩn ISO 6425), hãy thận trọng.
+    Con số khắc trên vỏ có ý nghĩa <strong>kèm điều kiện công bố của từng hãng</strong> — không tự
+    động là "độ sâu sử dụng được". Khả năng chống nước thay đổi theo thời gian do gioăng mòn.
+    Trước khi tiếp xúc nước, kiểm tra chỉ số và hướng dẫn chính thức của <strong>đúng mẫu</strong>.
   </div>
 </section>
 
@@ -443,10 +378,8 @@ const myths = [
   }
 
   /*
-    Mobile: nhãn mô tả (svg-label: tiêu đề, chữ "Máy", nhãn "10 ATM" cảnh 3)
-    quá nhỏ khi SVG co lại — ẩn đi, phần chữ HTML kèm theo từng cảnh đã giải
-    thích đầy đủ. Chỉ số phản hồi tương tác (wr-label: Độ sâu, mét, ATM)
-    tăng cỡ để đạt tối thiểu ~12px ở cả 320 và 375px.
+    Mobile: nhãn mô tả (svg-label, wr-atm-label) quá nhỏ khi SVG co lại — ẩn đi.
+    Chỉ số phản hồi tương tác (wr-label) tăng cỡ để đọc được ở 320 và 375px.
   */
   @media (max-width: 767px) {
     .svg-label,
@@ -459,8 +392,7 @@ const myths = [
   }
 
   /*
-    Thanh kéo độ sâu (HTML ngoài SVG): vùng chạm 44px, track mảnh 6px màu
-    token --c-line (tự đổi theo dark mode), núm tròn 22px màu nước.
+    Thanh mức áp suất minh họa (HTML ngoài SVG): vùng chạm 44px.
   */
   .wr-depth-slider {
     height: 2.75rem;
@@ -496,13 +428,7 @@ const myths = [
     border: 2px solid rgb(var(--c-surface-raised));
   }
 
-  /* =============================================================================
-     HOẠT ẢNH REVEAL — dùng CSS transition (ổn định, không phụ thuộc thư viện)
-     =============================================================================
-     Trạng thái đầu (ẩn): opacity 0, dịch nhẹ (tạo cảm giác "trượt vào")
-     Trạng thái hiện (.reveal-visible): opacity 1, về vị trí gốc
-     Transition mượt 0.6s. Nếu JS không chạy, fallback sẽ thêm class → vẫn hiện.
-     ============================================================================= */
+  /* Hoạt ảnh reveal */
   .scene [data-anim] {
     opacity: 0;
     transform: translateY(20px);
@@ -510,23 +436,19 @@ const myths = [
     will-change: opacity, transform;
   }
 
-  /* Các hàng mức độ trượt từ trái */
   .scene [data-anim="level"] {
     transform: translateX(-30px);
   }
 
-  /* Các thẻ hiểu lầm trượt từ dưới lên */
   .scene [data-anim="myth"] {
     transform: translateY(30px);
   }
 
-  /* Khi đã hiện (class được thêm bởi Intersection Observer / fallback) */
   .scene [data-anim].reveal-visible {
     opacity: 1;
     transform: translate(0, 0);
   }
 
-  /* Tôn trọng người dùng giảm chuyển động → hiện ngay không animation */
   @media (prefers-reduced-motion: reduce) {
     .scene [data-anim] {
       opacity: 1;
@@ -537,60 +459,40 @@ const myths = [
 </style>
 
 <script>
-  // =============================================================================
-  // HOẠT ẢNH CUỘN TRANG — dùng Intersection Observer native (KHÔNG cần thư viện)
-  // =============================================================================
-  // Lý do bỏ GSAP: thư viện ngoài có thể không load được trong mọi môi trường.
-  // Intersection Observer là API native của trình duyệt, ổn định và nhẹ.
-  // CSS animation (transition) xử lý chuyển động mượt — chạy ở tầng render,
-  // không bao giờ "không chạy" như JS.
-  // =============================================================================
-
   function initInfographic() {
     const root = document.querySelector('[data-infographic="water-resistance"]');
     if (!root) return;
 
     const revealTargets = root.querySelectorAll('[data-anim]');
 
-    // Tôn trọng người dùng giảm chuyển động (accessibility) → hiện ngay tất cả
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       revealTargets.forEach((el) => el.classList.add('reveal-visible'));
       return;
     }
 
-    // Dùng Intersection Observer: khi phần tử vào viewport → thêm class 'reveal-visible'
-    // CSS sẽ xử lý transition opacity/transform (đã định nghĩa trong <style> ở trên)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('reveal-visible');
-            // once: true — ngừng theo dõi sau khi đã hiện
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        // Hiện khi 15% phần tử lọt vào viewport
         threshold: 0.15,
-        // Hiện hơi sớm trước khi hoàn toàn vào viewport
         rootMargin: '0px 0px -10% 0px',
       }
     );
 
-    // Bắt đầu theo dõi tất cả phần tử cần hiện
     revealTargets.forEach((el) => observer.observe(el));
 
-    // ---------- FALLBACK AN TOÀN ----------
-    // Dù Intersection Observer có vấn đề, sau 3 giây ép hiện tất cả
-    // → đảm bảo nội dung KHÔNG BAO GIỜ bị kẹt ẩn.
+    // FALLBACK: sau 3 giây ép hiện tất cả — nội dung không bao giờ kẹt ẩn
     setTimeout(() => {
       revealTargets.forEach((el) => el.classList.add('reveal-visible'));
     }, 3000);
   }
 
-  // <script> của Astro là type="module" → tự DEFER (chạy sau khi DOM sẵn sàng).
-  // Gọi ngay, không cần DOMContentLoaded.
   initInfographic();
 </script>

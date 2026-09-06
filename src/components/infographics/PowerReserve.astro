@@ -2,55 +2,37 @@
 // =============================================================================
 // INFOGRAPHIC: TRỮ CÓT (Power Reserve)
 // =============================================================================
-// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (dây cót nhả dần, thanh trữ cót
-// tụt xuống, biên độ bánh lắc giảm khi dưới 1/4 — kiến thức thực dụng).
-// Các cảnh khác giữ nguyên CSS reveal + Intersection Observer.
+// Chuẩn nội dung duy nhất: các bài Markdown do
+// scripts/check-automatic-energy-cluster.mjs quản lý (đầu tiên là
+// src/content/coChe/vi/tru-cot.md). Mọi câu hiển thị phải chỉ ra được căn cứ
+// trong bài; không có căn cứ thì không hiển thị.
 //
 // 4 cảnh:
-//   1. Mở đầu — câu hỏi gây tò mò
-//   2. Thùng cót + thanh trữ cót + bánh lắc — HOẠT ẢNH TƯƠNG TÁC
-//   3. Thang mức độ — 38h → 100h+ với ví dụ đồng hồ
-//   4. Ứng dụng thực tế — weekend power reserve & mẹo
+//   1. Mở đầu — trữ cót là gì (định nghĩa theo bài)
+//   2. Thùng cót + dây cót — HOẠT ẢNH MINH HỌA NGUYÊN LÝ (nhịp nhả trong hình
+//      là ẩn dụ, không phản ánh thời lượng của một mẫu; không gắn mức giờ)
+//   3. Không có mức chuẩn chung — thông số của từng calibre
+//   4. Đồng hồ dừng thì sao? — dừng vì hết cót không phải hỏng
+//
+// Nội dung vượt căn cứ bài viết đã được rút khỏi bản trước (danh sách cụm
+// xem biên bản gói P0.2 trong docs/nghiem-thu/).
 // =============================================================================
 
 import MechanismAnimation from './MechanismAnimation.astro';
 
-// Dữ liệu các mức trữ cót (có thể chỉnh sửa tại đây)
-const levels = [
+// Ba ý "không có mức chuẩn chung" — đúng như bài viết.
+const facts = [
   {
-    hours: '38–42 giờ',
-    label: 'Tiêu chuẩn cổ điển',
-    examples: 'Nhiều movement ETA cổ điển',
-    note: 'Mức phổ biến trước 2010',
-    barWidth: 38,
+    title: 'Thông số của từng calibre',
+    text: 'Thời lượng chạy sau khi lên đầy là thông số do hãng công bố cho từng calibre — không có mức chuẩn chung cho mọi đồng hồ cơ.',
   },
   {
-    hours: '48–50 giờ',
-    label: 'Tốt, phổ biến hiện nay',
-    examples: 'Nhiều calibre hiện đại',
-    note: 'Tiêu chuẩn mới',
-    barWidth: 50,
+    title: 'Cấu tạo là quyết định của hãng',
+    text: 'Số thùng cót, cách ghép chúng, vật liệu và kích thước dây cót, thời lượng chạy, độ ổn định lực — là quyết định riêng của từng nhà sản xuất.',
   },
   {
-    hours: '70 giờ',
-    label: 'Weekend — đeo thứ 6, chạy đến thứ 2',
-    examples: 'Rolex 32xx, Tudor MT',
-    note: 'Đặt đồng hồ xuống cả cuối tuần vẫn chạy',
-    barWidth: 70,
-  },
-  {
-    hours: '80 giờ',
-    label: 'Tuyệt vời',
-    examples: 'Powermatic 80 (Tissot, Hamilton)',
-    note: 'Trải nghiệm thoải mái',
-    barWidth: 80,
-  },
-  {
-    hours: '100+ giờ',
-    label: 'Cao cấp',
-    examples: 'Glashütte Original, IWC 168h, Panerai',
-    note: 'Vượt nhu cầu phần lớn',
-    barWidth: 100,
+    title: 'Con số của chiếc bạn nằm ở tài liệu mẫu',
+    text: 'Con số cụ thể nằm trong thông số mẫu trên trang chính thức của hãng hoặc trong tài liệu kèm đồng hồ.',
   },
 ];
 ---
@@ -63,18 +45,19 @@ const levels = [
     <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
     <h2 class="font-serif text-3xl sm:text-5xl">Đồng hồ cơ chạy được bao lâu?</h2>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
-      Khi bạn đặt đồng hồ xuống, nó không dừng ngay — dây cót vẫn giữ năng lượng
-      nhiều giờ, thậm chí nhiều ngày. Cuộn xuống để hiểu "trữ cót" là gì.
+      Khi đặt đồng hồ xuống, dây cót dần nhả — đến lúc hết thì đồng hồ dừng.
+      <strong class="text-brass-light">Trữ cót</strong> cho biết bao lâu thì đồng hồ dừng
+      nếu không được tiếp năng lượng. Cuộn xuống để hiểu.
     </p>
     <div class="mt-8 intro-arrow text-brass-light">↓</div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 2: THÙNG CÓT + THANH TRỮ CÓT + BÁNH LẮC — HOẠT ẢNH TƯƠNG TÁC
+       CẢNH 2: THÙNG CÓT + DÂY CÓT — HOẠT ẢNH MINH HỌA NGUYÊN LÝ
        ==================================================================== -->
   <div class="scene mt-24 grid items-center gap-8 md:grid-cols-2">
     <div class="svg-container" data-svg="barrel">
-      <MechanismAnimation label="Dây cót nhả dần — trữ cót tụt, biên độ bánh lắc giảm khi gần hết" data-mech-step-id="power-reserve">
+      <MechanismAnimation label="Minh họa nguyên lý: dây cót nhả dần — mức trữ cót tụt xuống" data-mech-step-id="power-reserve">
         <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-md" id="power-reserve-svg" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="prBrass" x1="0" y1="0" x2="1" y2="1">
@@ -84,34 +67,27 @@ const levels = [
               <stop offset="1" style="stop-color:var(--obs-brass-deep)" />
             </linearGradient>
           </defs>
-          <!-- ====== THANH TRỮ CÓT (trên cùng) ====== -->
-          <text style="fill:var(--ig-stroke)" x="200" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">Thanh trữ cót</text>
+          <!-- ====== THANH TRỮ CÓT (trên cùng — mức định tính) ====== -->
+          <text style="fill:var(--ig-stroke)" x="200" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">Mức trữ cót (minh họa)</text>
           <rect style="stroke:var(--ig-stroke)" x="60" y="28" width="280" height="18" rx="3" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
-          <!-- Thanh lấp (động) -->
           <rect id="pr-bar-fill" x="62" y="30" width="276" height="14" rx="2" style="fill:var(--obs-brass)"/>
           <text style="fill:var(--ig-stroke)" id="pr-bar-label" x="200" y="62" text-anchor="middle" font-size="12" font-weight="bold" class="">100%</text>
 
           <!-- ====== THÙNG CÓT (giữa) ====== -->
           <g transform="translate(200, 170)">
-            <!-- Vỏ thùng cót -->
             <circle style="fill:var(--ig-bg);stroke:var(--obs-brass-deep)" r="78" stroke-width="2" class=""/>
-            <!-- Răng ngoài -->
             {Array.from({ length: 20 }).map((_, i) => {
               const a = (i * 360) / 20;
               return <g transform={`rotate(${a})`}><rect x="-2" y="-84" width="4" height="8" style="fill:var(--obs-brass)"/></g>;
             })}
-            <!-- Dây cót xoắn (động — giãn ra khi nhả) -->
             <g id="pr-mainspring" data-part="mainspring" data-name-vi="Dây cót (Mainspring)" data-name-en="Mainspring"></g>
-            <!-- Trục -->
             <circle style="fill:var(--ig-edge)" r="8"/>
           </g>
           <text style="fill:var(--ig-stroke)" x="200" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Thùng cót + dây cót</text>
 
-          <!-- ====== BÁNH LẮC (dưới — biên độ giảm khi cót thấp) ====== -->
+          <!-- ====== BÁNH LẮC (dưới — dao động minh họa) ====== -->
           <g transform="translate(200, 320)">
-            <!-- Quỹ đạo dao động (mờ) -->
             <path style="stroke:var(--ig-rubi)" id="pr-arc" d="M -50 0 A 50 50 0 0 1 50 0" fill="none" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.3"/>
-            <!-- Bánh lắc (dao động) -->
             <g id="pr-balance" data-part="balance-pr" data-name-vi="Bánh lắc (Balance wheel)" data-name-en="Balance wheel">
               <circle style="stroke:var(--ig-rubi)" r="22" fill="none" stroke-width="2"/>
               <line style="stroke:var(--ig-rubi)" x1="0" y1="-22" x2="0" y2="22" stroke-width="1"/>
@@ -128,13 +104,12 @@ const levels = [
             const g = document.querySelector('#power-reserve-svg #pr-mainspring');
             if (!g || g.children.length > 0) return;
             const svgNS = 'http://www.w3.org/2000/svg';
-            // 5 vòng xoắn — bán kính giảm dần vào trong
             for (let i = 0; i < 5; i++) {
               const r = 70 - i * 12;
               const c = document.createElementNS(svgNS, 'circle');
               c.setAttribute('r', String(r));
               c.setAttribute('fill', 'none');
-              c.style.stroke = 'var(--obs-brass)'; // vật liệu đồng thau qua token (attribute không nhận var)
+              c.style.stroke = 'var(--obs-brass)';
               c.setAttribute('stroke-width', '4');
               c.setAttribute('opacity', '0.7');
               c.setAttribute('stroke-dasharray', String(r * 2.5) + ' ' + String(r * 3.8));
@@ -144,7 +119,7 @@ const levels = [
             }
           })();
 
-          // Đăng ký hàm animate cho power-reserve
+          // Minh họa nguyên lý: dây cót nhả dần (nhịp trong hình là ẩn dụ)
           (window.__mechSteps = window.__mechSteps || {})['power-reserve'] = function(delta, elapsed) {
             const svg = document.getElementById('power-reserve-svg');
             if (!svg) return;
@@ -152,49 +127,26 @@ const levels = [
             const barLabel = svg.querySelector('#pr-bar-label');
             const coils = svg.querySelectorAll('.pr-coil');
             const balance = svg.querySelector('#pr-balance');
-            const arc = svg.querySelector('#pr-arc');
-            const ampNote = svg.querySelector('#pr-amplitude-note');
             if (!barFill || !balance) return;
 
-            // Chu kỳ: 1 chu kỳ nhả cót đầy→cạn = 20 giây mô phỏng
+            // Chu kỳ nhả minh họa — KHÔNG tương ứng thời lượng của một mẫu
             const cycle = 20000;
-            const phase = (elapsed % cycle) / cycle; // 0 → 1 (đầy → cạn)
-            const reserve = 1 - phase; // 1 → 0
+            const phase = (elapsed % cycle) / cycle;
+            const reserve = 1 - phase;
 
-            // Thanh trữ cót tụt
             const barW = Math.max(0, 276 * reserve);
             barFill.setAttribute('width', String(barW));
-            const pct = Math.round(reserve * 100);
-            barLabel.textContent = pct + '%';
+            barLabel.textContent = 'mức còn lại: ' + Math.round(reserve * 100) + '% (minh họa)';
 
-            // Dây cót: các vòng xoắn giãn ra (bán kính tăng) khi nhả
             coils.forEach((coil) => {
               const base = parseFloat(coil.dataset.baseRadius);
-              // Khi reserve cao (đầy) → vòng sát nhau; khi thấp → giãn ra
               const expand = (1 - reserve) * 10;
               coil.setAttribute('r', String(base + expand));
             });
 
-            // Biên độ bánh lắc: đầy = 28°, giảm dần; dưới 25% giảm mạnh
-            let amplitude;
-            if (reserve > 0.25) {
-              amplitude = 14 + reserve * 14; // 14° → 28°
-            } else {
-              amplitude = Math.max(4, reserve * 56); // giảm mạnh, tối thiểu 4°
-            }
-            // Dao động với biên độ hiện tại
-            const swingPeriod = 1000; // 1 nhịp/giây
-            const swingAngle = Math.sin((elapsed / swingPeriod) * Math.PI * 2) * amplitude;
+            // Bánh lắc dao động đều — chỉ minh họa nhịp
+            const swingAngle = Math.sin((elapsed / 1000) * Math.PI * 2) * 20;
             balance.setAttribute('transform', `rotate(${swingAngle})`);
-
-            // Cảnh báo khi biên độ thấp (dưới 1/4 trữ cót)
-            if (reserve <= 0.25) {
-              ampNote.setAttribute('opacity', '1');
-              ampNote.style.fill = 'var(--ig-rubi)';
-              ampNote.textContent = '⚠ Biên độ giảm — đồng hồ chạy sai khi gần hết cót';
-            } else {
-              ampNote.setAttribute('opacity', '0');
-            }
           };
         </script>
       </MechanismAnimation>
@@ -203,61 +155,49 @@ const levels = [
       <h3 class="font-serif text-2xl text-navy dark:text-dark-text">Dây cót — "pin cơ học"</h3>
       <p class="text-ink-soft dark:text-dark-text-soft">
         Dây cót (mainspring) là một dải thép dài cuộn quanh trục trong <strong>thùng cót</strong>
-        (barrel). Khi bạn lên dây, dây cót bị cuộn chặt — <strong>tích trữ năng lượng</strong>.
-        Khi nhả, nó từ từ mở ra, <strong>giải phóng năng lượng</strong> để chạy đồng hồ.
+        (barrel). Khi lên dây (vặn núm, hoặc đeo với automatic): dây cót bị cuộn chặt →
+        <strong>tích trữ năng lượng</strong>. Khi nhả: dây cót từ từ mở ra →
+        <strong>giải phóng năng lượng</strong> chạy đồng hồ.
       </p>
       <p class="text-ink-soft dark:text-dark-text-soft">
-        Hãy nghĩ nó như một <strong>"pin cơ học"</strong>: bạn "sạc" bằng cách lên dây
-        (vặn núm hoặc đeo với automatic), và nó từ từ "xả" trong nhiều giờ.
+        Hãy nghĩ nó như một <strong>"pin cơ học"</strong>: bạn "sạc" bằng cách lên dây,
+        và nó từ từ "xả" trong nhiều giờ.
       </p>
       <div class="rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-4 text-sm text-ink-soft dark:text-dark-text-soft">
-        <strong class="text-brass dark:text-dark-brass">💡 Trữ cót (power reserve)</strong> = thời gian đồng hồ
-        chạy được sau khi dây cót được lên đầy — tính bằng giờ.
+        <strong class="text-brass dark:text-dark-brass">💡 Trữ cót (power reserve)</strong> =
+        thời gian đồng hồ chạy được sau khi dây cót được lên đầy.
       </div>
       <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        Trong hoạt ảnh bên: dây cót giãn ra khi nhả, thanh trữ cót tụt xuống, và <strong>khi dưới khoảng một phần tư, biên độ dao động của bánh lắc giảm rõ</strong> — đó là lý do đồng hồ chạy sai khi gần hết cót.
+        Trong hoạt ảnh bên: dây cót giãn ra khi nhả, mức trữ cót tụt xuống. Nhịp nhả trong hình
+        là <strong>ẩn dụ minh họa</strong> — không phản ánh thời lượng của một mẫu cụ thể.
       </p>
     </div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 3: THANG MỨC ĐỘ
+       CẢNH 3: KHÔNG CÓ MỨC CHUẨN CHUNG
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      Thang mức độ trữ cót
+      Không có mức chuẩn chung
     </h3>
     <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Mỗi mức cho trải nghiệm khác nhau. <strong>Càng dài càng tiện.</strong>
+      Trữ cót là <strong>thông số của từng calibre</strong> — không xếp mức cho "đồng hồ nói chung".
     </p>
 
     <div class="space-y-4">
-      {levels.map((level, i) => (
+      {facts.map((fact, i) => (
         <div
-          class="grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
+          class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
           data-anim="level"
           data-index={i}
         >
-          <!-- Thanh trữ cót -->
-          <div class="col-span-12 sm:col-span-4">
-            <div class="h-10 w-full overflow-hidden rounded bg-cream-dark">
-              <div
-                class="flex h-full items-center justify-end rounded bg-gradient-to-r from-brass to-brass-light pr-2 text-xs font-bold text-white"
-                style={`width: ${level.barWidth}%;`}
-              >
-                {level.hours}
-              </div>
+          <div class="flex items-start gap-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-sm font-semibold text-steel dark:border-steel" style="font-variant-numeric: lining-nums;" aria-hidden="true">{i + 1}</span>
+            <div>
+              <h4 class="font-serif text-base text-navy dark:text-dark-text">{fact.title}</h4>
+              <p class="mt-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{fact.text}</p>
             </div>
-          </div>
-          <!-- Nhãn -->
-          <div class="col-span-12 sm:col-span-8">
-            <h3 class="font-serif text-lg text-navy dark:text-dark-text">{level.label}</h3>
-            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-              <span class="font-medium text-steel">Ví dụ: {level.examples}</span>
-            </p>
-            <p class="mt-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-              <span class="font-medium">{level.note}</span>
-            </p>
           </div>
         </div>
       ))}
@@ -265,57 +205,43 @@ const levels = [
   </div>
 
   <!-- ====================================================================
-       CẢNH 4: ỨNG DỤNG THỰC TẾ
+       CẢNH 4: ĐỒNG HỒ DỪNG THÌ SAO?
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      "Weekend Power Reserve" — tính năng đáng giá
+      Đồng hồ dừng thì sao?
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Tại sao 70 giờ lại là con số "ma thuật"?
+    <p class="mx-auto mb-8 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
+      <strong>Dừng vì hết cót không phải là hỏng.</strong> Đeo lại (với automatic, chuyển động
+      tay làm rotor quay lên dây) hoặc lên tay theo hướng dẫn của mẫu sẽ khởi động lại nó.
     </p>
 
-    <div class="grid gap-6 md:grid-cols-3">
-      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6" data-anim="app-card">
-        <div class="mb-3 text-3xl">📅</div>
-        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">Thứ 6 tối</h3>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-          Bạn đeo đồng hồ cả ngày, dây cót đầy. Chiều về nhà, bạn <strong>tháo ra</strong>
-          để đeo chiếc khác cuối tuần.
+    <div class="mx-auto max-w-2xl space-y-3">
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="app-card" data-index="0">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">
+          Thao tác lên tay an toàn → bài <a class="font-medium text-steel underline-offset-2 hover:underline dark:text-steel" href="/huong-dan/len-day-dong-ho">lên dây đồng hồ cơ</a>.
         </p>
       </div>
-      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6" data-anim="app-card">
-        <div class="mb-3 text-3xl">😴</div>
-        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">Cả cuối tuần</h3>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-          Đồng hồ nằm trong hộp, dây cót nhả dần — nhưng với <strong>70 giờ trữ cót</strong>,
-          nó vẫn tiếp tục chạy.
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="app-card" data-index="1">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">
+          Chỉnh lại giờ và lịch sau khi dừng → bài <a class="font-medium text-steel underline-offset-2 hover:underline dark:text-steel" href="/huong-dan/chinh-lich-an-toan">chỉnh lịch an toàn</a>.
         </p>
       </div>
-      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6" data-anim="app-card">
-        <div class="mb-3 text-3xl">✨</div>
-        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">Thứ 2 sáng</h3>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-          Bạn đeo lại — đồng hồ <strong>vẫn chạy đúng giờ</strong>, không cần vặn lại.
-          Đó là tiện lợi của "weekend power reserve".
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="app-card" data-index="2">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">
+          Đồng hồ automatic có cần lên tay không? <strong>Tùy mẫu</strong> — nguồn quyết định
+          là tài liệu của đúng chiếc, không theo con số chung nào.
         </p>
       </div>
-    </div>
-
-    <div class="mt-8 rounded-lg border-l-4 border-brass bg-brass/5 dark:bg-dark-brass/10 p-5">
-      <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        <strong class="text-brass dark:text-dark-brass">💡 Mẹo:</strong> Nếu bạn có nhiều đồng hồ automatic và muốn chúng
-        luôn chạy, cần <strong>hộp quay đồng hồ (watch winder)</strong> — mô phỏng chuyển động cổ tay
-        để giữ dây cót đầy. Nếu chỉ có 1 chiếc, chỉ cần đeo đủ 8 giờ/ngày.
-      </p>
     </div>
   </div>
 
   <!-- Chú thích cuối -->
   <div class="infographic-note">
     <strong class="text-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
-    Trữ cót = thời gian đồng hồ chạy được khi đầy cót. 38h là cũ, 70h là "weekend",
-    100h+ là cao cấp. Trữ cót càng dài — càng ít phải lo "đồng hồ dừng".
+    Trữ cót = thời gian đồng hồ chạy được khi dây cót được lên đầy — <strong>thông số do hãng
+    công bố cho từng calibre</strong>. Dừng vì hết cót không phải là hỏng; con số của chiếc bạn
+    nằm trong tài liệu của đúng mẫu.
   </div>
 </section>
 

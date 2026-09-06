@@ -49,6 +49,13 @@ const FILES = {
 const ROUTES_FILE = 'src/i18n/contentRoutes.ts';
 const EXTRA_LINK_FILES = ['src/content/huongDan/en/first-mechanical-watch.md'];
 const DATE_FILE = 'src/components/interactive/DateSafety.astro';
+// Component infographic chống nước — danh sách RIÊNG: frontmatter (R1), cặp
+// route (R2), liên kết Markdown (R3, R4) không áp lên tệp Astro. R5c quét
+// TOÀN BỘ tệp với BANNED của cụm + COMPONENT_WR_BANNED (quy tắc riêng cho
+// nội dung chống nước trong component).
+const COMPONENT_WR_FILES = [
+  'src/components/infographics/WaterResistance.astro',
+];
 const WR_FILES = new Set([
   'src/content/huongDan/vi/muc-chong-nuoc.md',
   'src/content/huongDan/en/water-resistance.md',
@@ -201,6 +208,23 @@ const BANNED = [
 // Ngưỡng chống nước gắn hoạt động mà dòng không kèm manual/nguồn/giới hạn
 const WR_LIMIT = /manual|theo |per |công bố|maker|hãng|seiko|omega|reference|tham khảo|table|bảng|guide/i;
 
+// P0.2 — mẫu cấm chỉ áp cho component chống nước (R5c), đúng yêu cầu hàng rào:
+// ma trận mức mét theo hoạt động; "50 m" kèm bơi; lịch bảo dưỡng/gioăng cố
+// định; thông số thử kín nước cố định dùng như quy tắc chung.
+const COMPONENT_WR_BANNED = [
+  { re: /\b50\s*m\b/i, why: '"50 m" gắn kết luận bơi/tắm — ma trận mức mét đã loại (phải kèm nguồn/hãng nếu nêu)',
+    allow: WR_LIMIT },
+  { re: /\b\d{2,4}\s*ATM/i, why: 'thông số thử kín nước cố định dùng như quy tắc chung (phải kèm nguồn/hãng nếu nêu)',
+    allow: WR_LIMIT },
+  { re: /\b\d{2,4}\s*m\b/i, why: 'độ sâu cố định dùng như quy tắc chung — chỉ được nêu trong câu phủ định/kèm nguồn',
+    allow: /manual|theo |per |công bố|maker|hãng|seiko|omega|reference|tham khảo|table|bảng|guide|không tự động|kèm điều kiện|con số khắc|bơi được|nghĩa là bơi|trên vỏ/i },
+  { re: /\d+\s*[–-]\s*\d+\s*(năm|years)/i, why: 'lịch bảo dưỡng/gioăng cố định không kèm attribution hãng',
+    allow: /omega|seiko|manual|hãng|của |per /i },
+  { re: /waterproof|chống nước (mãi|tuyệt đối)/i, why: 'lời hứa chống nước vĩnh viễn (đã loại)' },
+  { re: /permanently guaranteed|permanently water ?resistant/i, why: 'lời hứa chống nước vĩnh viễn — chỉ được phép trong trích nguồn phủ định của hãng',
+    allow: /not permanently|seiko|omega/i },
+];
+
 const errors = [];
 const report = [];
 const fail = (rule, file, line, why) =>
@@ -208,7 +232,7 @@ const fail = (rule, file, line, why) =>
 
 const textOf = {};
 
-for (const f of [...FILES.vi, ...FILES.en, ...EXTRA_LINK_FILES, DATE_FILE, ROUTES_FILE, ...DOC_FILES]) {
+for (const f of [...FILES.vi, ...FILES.en, ...EXTRA_LINK_FILES, DATE_FILE, ...COMPONENT_WR_FILES, ROUTES_FILE, ...DOC_FILES]) {
   if (!existsSync(f)) errors.push(`[FILE] Thiếu tệp phạm vi: ${f}`);
   else textOf[f] = readFileSync(f, 'utf8');
 }
@@ -355,6 +379,39 @@ for (const f of [...FILES.vi, ...FILES.en]) {
 }
 if (!errors.some((e) => e.includes('[R5b]'))) {
   report.push('R5b: DateSafety là mô phỏng nguyên lý (nhãn "vùng minh họa", dẫn về manual, không còn nhãn kết luận)');
+}
+
+// ===== R5c: component chống nước chịu quy tắc nội dung của cụm =====
+// Quét TOÀN BỘ tệp Astro (dữ liệu hiển thị nằm ngay phần đầu). Áp BANNED của
+// cụm + COMPONENT_WR_BANNED; lỗi nêu rõ rule, tệp, dòng và cụm khớp.
+{
+  for (const f of COMPONENT_WR_FILES) {
+    const lines = textOf[f].split(/\r?\n/);
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      for (const { re, why, allow } of BANNED) {
+        const m = re.exec(line);
+        if (m && !(allow && allow.test(line))) {
+          fail('R5c', f, i + 1, `${why}: "${m[0]}"`);
+        }
+      }
+      for (const { re, why, allow } of COMPONENT_WR_BANNED) {
+        const m = re.exec(line);
+        if (m && !(allow && allow.test(line))) {
+          fail('R5c', f, i + 1, `${why}: "${m[0]}"`);
+        }
+      }
+      // Ma trận mét↔hoạt động: mọi dòng bảng gắn m-level với hoạt động đều loại
+      if (line.trim().startsWith('|') &&
+          /\b(30|50|100|200|300|1000)\s?m\b/i.test(line) &&
+          /(bơi|tắm|swim|shower|dive|lặn|mưa|rain)/i.test(line)) {
+        fail('R5c', f, i + 1, 'bảng m-level gắn hoạt động — ma trận dùng chung đã bị loại');
+      }
+    }
+  }
+}
+if (!errors.some((e) => e.includes('[R5c]'))) {
+  report.push(`R5c: component chống nước (${COMPONENT_WR_FILES.length} tệp) sạch các khẳng định cấm — không ma trận mét↔hoạt động, không chu kỳ/gioăng cố định, không thông số thử như quy tắc chung`);
 }
 if (!errors.some((e) => e.includes('[R4]'))) report.push('R4: 6 bài EN không có link nội bộ về route tiếng Việt');
 if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)');

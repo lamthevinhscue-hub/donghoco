@@ -35,7 +35,7 @@ segmentComparison:
     slug: "tudor"
     strength: "Đồng hồ công cụ, di sản chung với Rolex"
     movement: "In-house dòng MT"
-    value_retention: "Độ bền và giá trị giữ giá"
+    value_retention: "Độ bền"
     philosophy: "Công cụ bền bỉ, giá hợp lý"
 collectorNote: "Chọn Sinn khi bạn coi đồng hồ là thiết bị phải hoạt động trong điều kiện thật chứ không phải phụ kiện. Ba công nghệ của hãng không phải chiêu tiếp thị — chúng giải quyết những vấn đề đo đếm được. Nói thẳng mặt hạn chế: thẩm mỹ Sinn rất thực dụng, gần như không nhượng bộ về mặt trang trí, nên nhiều người thấy khô khan; hãng ít được biết ngoài Đức, mạng lưới bảo hành ở châu Á mỏng; và phần lớn mẫu dùng bộ máy mua ngoài — giá trị nằm ở vỏ và xử lý vật liệu chứ không ở bộ máy."
 sources:

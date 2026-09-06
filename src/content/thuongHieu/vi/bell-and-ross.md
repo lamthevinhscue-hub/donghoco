@@ -36,7 +36,7 @@ segmentComparison:
     slug: "tudor"
     strength: "Đồng hồ công cụ, di sản chung với Rolex"
     movement: "In-house dòng MT"
-    value_retention: "Độ bền và giá trị giữ giá"
+    value_retention: "Độ bền"
     philosophy: "Công cụ bền bỉ"
 collectorNote: "Chọn Bell & Ross khi bạn muốn một thiết kế hiện đại có bản sắc rõ thay vì một biến thể của mẫu cổ điển nào đó. Nói thẳng mặt hạn chế: vỏ vuông cỡ lớn kén cổ tay và không luồn được dưới cổ tay áo; bộ máy dùng nền mua ngoài; và giữ giá kém so với các hãng Thụy Sĩ cùng tầm."
 sources:

@@ -18,6 +18,7 @@ import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import SourceList from '../components/SourceList.astro';
 import { getLangFromUrl, t, localizedPath, getTierLabel, CALIBRE_DISPLAY_SLUGS } from '../i18n/ui';
+import type { CollectionEntry } from 'astro:content';
 
 interface IconicModel {
   title: string;
@@ -34,7 +35,7 @@ interface Props {
   meta?: string;
   cover_image?: string;
   slug?: string; // slug thương hiệu — dùng để kiểm tra allowlist hiển thị calibre
-  data: any; // Toàn bộ frontmatter thương hiệu
+  data: CollectionEntry<'thuongHieu'>['data']; // Toàn bộ frontmatter thương hiệu
   iconicModels?: IconicModel[]; // Khối 5: mẫu iconic liên quan
   sameTierBrands?: { title: string; slug: string; excerpt: string; country?: string; founded?: number; logo?: string }[]; // Khối 5 thay thế khi trống
 }
@@ -48,6 +49,13 @@ const logo = data.logo;
 
 // Nhãn dịch phân khúc — dùng chung getTierLabel để đồng bộ với trang danh sách
 const tierLabel = getTierLabel(data.tier, lang);
+
+// Hàng so sánh tùy chọn (Khối 4): chỉ render khi trang tự đặt nhãn
+// value_retention_label và có ít nhất một giá trị tương ứng — không có
+// nhãn mặc định, không render hàng trống.
+const hasValueRetentionRow =
+  Boolean(data.value_retention_label) &&
+  data.segmentComparison.some((c) => Boolean(c.value_retention));
 
 // Breadcrumb: Trang chủ / Thương hiệu / [tên hãng] — cùng nguồn cho JSON-LD + hiển thị
 const breadcrumbData = [
@@ -189,7 +197,7 @@ const breadcrumbData = [
             <thead class="bg-navy text-cream">
               <tr>
                 <th class="px-4 py-3 font-medium">Tiêu chí</th>
-                {data.segmentComparison.map((c: any) => (
+                {data.segmentComparison.map((c) => (
                   <th class="px-4 py-3 font-medium">
                     {c.slug
                       ? <a href={`/thuong-hieu/${c.slug}`} class="underline-offset-2 hover:underline">{c.brand}</a>
@@ -201,19 +209,21 @@ const breadcrumbData = [
             <tbody class="divide-y divide-cream-dark bg-white dark:bg-dark-surface">
               <tr>
                 <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.strength_label ?? 'Thế mạnh chế tác'}</td>
-                {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.strength}</td>)}
+                {data.segmentComparison.map((c) => <td class="px-4 py-3 text-ink">{c.strength}</td>)}
               </tr>
               <tr>
                 <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.movement_label ?? 'Bộ máy'}</td>
-                {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.movement}</td>)}
+                {data.segmentComparison.map((c) => <td class="px-4 py-3 text-ink">{c.movement}</td>)}
               </tr>
-              <tr>
-                <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.value_retention_label ?? 'Giá trị giữ giá'}</td>
-                {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.value_retention}</td>)}
-              </tr>
+              {hasValueRetentionRow && (
+                <tr>
+                  <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.value_retention_label}</td>
+                  {data.segmentComparison.map((c) => <td class="px-4 py-3 text-ink">{c.value_retention}</td>)}
+                </tr>
+              )}
               <tr>
                 <td class="px-4 py-3 font-medium text-ink-soft dark:text-dark-text-soft">{data.philosophy_label ?? 'Triết lý'}</td>
-                {data.segmentComparison.map((c: any) => <td class="px-4 py-3 text-ink">{c.philosophy}</td>)}
+                {data.segmentComparison.map((c) => <td class="px-4 py-3 text-ink">{c.philosophy}</td>)}
               </tr>
             </tbody>
           </table>

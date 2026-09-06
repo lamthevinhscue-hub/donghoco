@@ -80,10 +80,10 @@ const thuongHieu = defineCollection({
         slug: z.string().optional(),                // Slug đối thủ (nếu có bài)
         strength: z.string(),                       // Thế mạnh chế tác
         movement: z.string(),                       // Bộ máy
-        value_retention: z.string(),                // Giá trị giữ giá
+        value_retention: z.string().optional(),    // Ô so sánh tùy chọn — chỉ hiện khi trang đặt value_retention_label
         philosophy: z.string(),                     // Triết lý
       })).default([]),
-      value_retention_label: z.string().optional(), // Nhãn tùy chỉnh cho dòng "Giá trị giữ giá" trong bảng đối chiếu (VD: "Vật liệu" của Rado)
+      value_retention_label: z.string().optional(), // Nhãn riêng để hiện dòng value_retention trong bảng đối chiếu — thiếu nhãn thì không render hàng (VD: "Vật liệu" của Rado)
       movement_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Bộ máy" trong bảng đối chiếu (VD: "Cách hiển thị giờ" của Urwerk)
       strength_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Thế mạnh chế tác" (VD: "Gốc gác" của Chanel)
       philosophy_label: z.string().optional(),      // Nhãn tùy chỉnh cho dòng "Triết lý" (VD: "Vật liệu đặc trưng" của Chanel)

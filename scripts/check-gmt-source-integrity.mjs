@@ -63,7 +63,6 @@ const PURE_GMT = new Set([
 ]);
 
 const errors = [];
-const notes = [];
 const fail = (rule, file, line, text) =>
   errors.push(`[${rule}] ${file}:${line} — ${text.trim().slice(0, 160)}`);
 

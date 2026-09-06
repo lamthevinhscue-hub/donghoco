@@ -198,7 +198,7 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     // =============================================================================
     // Hoạt ảnh Chronograph — chu kỳ 3 trạng thái lặp lại
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['chronograph'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['chronograph'] = function(_delta, elapsed) {
       const svg = document.getElementById('chrono-svg');
       if (!svg) return;
 
@@ -217,7 +217,6 @@ import MechanismAnimation from '../MechanismAnimation.astro';
       // Chu kỳ 12 giây chia 3 pha: DỪNG(3s) → CHẠY(6s) → RESET(3s)
       const cycle = 12000;
       const t = elapsed % cycle;
-      const cycleNum = Math.floor(elapsed / cycle);
 
       // Trạng thái giây của bánh chronograph (tích lũy qua các chu kỳ)
       if (!svg.dataset.chronoAngle) svg.dataset.chronoAngle = '0';

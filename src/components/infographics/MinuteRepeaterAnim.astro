@@ -167,7 +167,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
           wave.setAttribute('cy', String(cy));
           wave.setAttribute('r', String(baseR));
           wave.setAttribute('fill', 'none');
-          wave.setAttribute('stroke', stroke);
+          wave.setAttribute('stroke', strokeToken);
           wave.style.stroke = strokeToken; // token trầm — style thắng attribute
           wave.setAttribute('stroke-width', String(strokeWidth));
           wave.setAttribute('opacity', String(0.6 - i * 0.1));
@@ -233,7 +233,6 @@ import MechanismAnimation from './MechanismAnimation.astro';
         currentPart.textContent = 'Bắt đầu...';
 
         let delay = 300; // khoảng nghỉ giữa tiếng
-        let struck = 0;
 
         // Phần 1: giờ (trầm)
         for (let i = 0; i < s.hourStrikes; i++) {

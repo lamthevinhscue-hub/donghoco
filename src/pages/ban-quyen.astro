@@ -5,7 +5,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { getCollection, render } from 'astro:content';
 import { getLangFromUrl, t } from '../i18n/ui';
-import type { Lang } from '../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);

@@ -188,7 +188,7 @@ const dialMarks = Array.from({ length: 12 }, (_, i) => {
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-tool="tachymeter"]').forEach((root) => {
-    const secHand = root.querySelector('.tacho-sec-hand') as SVGGElement | null;
+    const secHandDecl = root.querySelector('.tacho-sec-hand') as SVGGElement | null;
     const elapsedEl = root.querySelector('.tacho-elapsed') as HTMLElement | null;
     const startBtn = root.querySelector('.tacho-start') as HTMLButtonElement | null;
     const stopBtn = root.querySelector('.tacho-stop') as HTMLButtonElement | null;
@@ -199,7 +199,8 @@ const dialMarks = Array.from({ length: 12 }, (_, i) => {
     const speedEl = root.querySelector('.tacho-speed') as HTMLElement | null;
     const noteEl = root.querySelector('.tacho-note') as HTMLElement | null;
     const liveEl = root.querySelector('.tacho-live') as HTMLElement | null;
-    if (!secHand || !startBtn || !stopBtn) return;
+    if (!secHandDecl || !startBtn || !stopBtn) return;
+    const secHand = secHandDecl;
 
     // Thang được minh họa: vạch từ 400 (9 giây) đến 60 (60 giây) — ngoài khoảng
     // này thang không còn số để đọc trực tiếp.

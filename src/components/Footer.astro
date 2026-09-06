@@ -12,7 +12,8 @@ const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 const year = new Date().getFullYear();
 
-const footerLinks = [
+type FooterKey = keyof typeof tr;
+const footerLinkSource: Array<{ key: FooterKey; path: string }> = [
   { key: 'nav_home', path: '/' },
   { key: 'nav_brands', path: '/thuong-hieu' },
   { key: 'nav_iconic', path: '/mau-iconic' },
@@ -27,7 +28,10 @@ const footerLinks = [
   // Chỉ hiện mục có bản dịch trong ngôn ngữ hiện tại — footer không còn
   // hard-code link tiếng Việt trên bản tiếng Anh.
   .map((item) => ({ ...item, href: localizedHref(item.path, lang) }))
-  .filter((item): item is { key: string; path: string; href: string } => Boolean(item.href));
+  .filter((item): item is { key: FooterKey; path: string; href: string } => Boolean(item.href));
+const footerLinks = footerLinkSource
+  .map((item) => ({ ...item, href: localizedHref(item.path, lang) }))
+  .filter((item): item is { key: FooterKey; path: string; href: string } => Boolean(item.href));
 ---
 
 <footer data-pagefind-ignore class="mt-24 border-t border-cream-dark bg-navy text-cream/80 dark:border-dark-border dark:bg-black/40">

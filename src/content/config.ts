@@ -45,7 +45,7 @@ const relatedLink = z.object({
 // --- Trụ cột 1: Thương hiệu ---
 const thuongHieu = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       ...baseFields,
       country: z.string(),                          // Quốc gia (VD: "Thụy Sĩ")

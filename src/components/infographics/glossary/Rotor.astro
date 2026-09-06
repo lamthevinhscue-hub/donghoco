@@ -25,7 +25,7 @@ const materials = [
   { name: 'Thép', note: 'Nhẹ hơn, rẻ hơn', tone: 'mid' },
   { name: 'Tungsten / Bronze', note: 'Siêu nặng, hiệu quả cao', tone: 'high' },
 ];
-const toneColors = { common: 'var(--ig-steel)', rare: 'var(--ig-rubi)', high: 'var(--ig-steel-soft)', mid: 'var(--obs-brass)' };
+const toneColors: Record<string, string> = { common: 'var(--ig-steel)', rare: 'var(--ig-rubi)', high: 'var(--ig-steel-soft)', mid: 'var(--obs-brass)' };
 ---
 
 <section class="my-8" data-infographic="glossary-rotor">

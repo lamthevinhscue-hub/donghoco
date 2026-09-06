@@ -120,7 +120,7 @@ const facts = [
           })();
 
           // Minh họa nguyên lý: dây cót nhả dần (nhịp trong hình là ẩn dụ)
-          (window.__mechSteps = window.__mechSteps || {})['power-reserve'] = function(delta, elapsed) {
+          (window.__mechSteps = window.__mechSteps || {})['power-reserve'] = function(_delta, elapsed) {
             const svg = document.getElementById('power-reserve-svg');
             if (!svg) return;
             const barFill = svg.querySelector('#pr-bar-fill');

@@ -64,7 +64,6 @@ function walk(dir, out = []) {
   } else {
     fail('MechanismAnimation: nút Play/Pause thiếu aria-label/aria-pressed');
   }
-  const autoplay = /setPlaying\(true\)(?!\s*\*)/.test(s) && !/playBtn\?\.click/.test(s);
   if (!/setPlaying\(true\)/.test(s.replace(/setPlaying\(!isPlaying\)/, ''))) {
     ok('MechanismAnimation: không tự phát khi tải trang (isPlaying mặc định false)');
   } else {

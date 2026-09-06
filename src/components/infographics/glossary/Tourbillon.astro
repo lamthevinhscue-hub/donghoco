@@ -169,7 +169,7 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     // =============================================================================
     // Hoạt ảnh Tourbillon — lồng xoay + bánh lắc dao động
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['tourbillon'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['tourbillon'] = function(_delta, elapsed) {
       const svg = document.getElementById('tourbillon-svg');
       if (!svg) return;
 

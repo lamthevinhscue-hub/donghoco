@@ -115,7 +115,7 @@ import MechanismAnimation from './MechanismAnimation.astro';
     // =============================================================================
     // Đăng ký hàm animate cho co-axial
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['co-axial'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['co-axial'] = function(_delta, elapsed) {
       const svg = document.getElementById('coaxial-svg');
       if (!svg) return;
       const swEscape = svg.querySelector('#sw-escape');
@@ -147,20 +147,20 @@ import MechanismAnimation from './MechanismAnimation.astro';
   document.addEventListener('astro:page-load', setupCoaxialTooltips);
   setupCoaxialTooltips();
   function setupCoaxialTooltips() {
-    const svg = document.getElementById('coaxial-svg');
+    const svg = document.getElementById('coaxial-svg') as SVGSVGElement | null;
     if (!svg) return;
-    const parts = svg.querySelectorAll('[data-part]');
+    const parts = svg.querySelectorAll<SVGGraphicsElement>('[data-part]');
     const tooltip = svg.querySelector('#coaxial-tooltip');
     const tooltipVi = svg.querySelector('#coaxial-tooltip-vi');
     const tooltipEn = svg.querySelector('#coaxial-tooltip-en');
     const tooltipBg = svg.querySelector('#coaxial-tooltip-bg');
-    if (!tooltip || !tooltipVi) return;
+    if (!tooltip || !tooltipVi || !tooltipEn || !tooltipBg) return;
     parts.forEach((part) => {
       const highlight = () => {
         part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
         tooltipEn.textContent = part.getAttribute('data-name-en') || '';
-        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);
+        tooltipBg.setAttribute('width', String(Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20));
         tooltip.setAttribute('opacity', '1');
       };
       const unhighlight = () => {

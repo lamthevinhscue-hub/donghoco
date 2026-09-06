@@ -10,7 +10,7 @@ const freqLevels = [
   { vph: '28.800', hz: '4 Hz', label: 'Cao cấp', note: 'Tiêu chuẩn cao cấp', tone: 'high' },
   { vph: '36.000', hz: '5 Hz', label: 'Rất cao', note: 'Zenith El Primero', tone: 'top' },
 ];
-const toneColors = {
+const toneColors: Record<string, string> = {
   low: 'var(--ig-rubi)', mid: 'var(--obs-brass)', high: 'var(--ig-steel)', top: 'var(--ig-stroke)',
 };
 ---

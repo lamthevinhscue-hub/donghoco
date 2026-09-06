@@ -16,12 +16,13 @@
 interface Props {
   src?: string;             // Đường dẫn ảnh — để trống/không có → chỉ plate
   alt?: string;             // Mô tả ảnh thật (bắt buộc khi có src)
+  class?: string;           // Lớp áp lên khung ngoài (VD: h-full w-full)
   ratio?: '16/10' | '16/9' | '1/1' | '4/3';  // Tỷ lệ khung hình
   caption?: string;         // Chú thích bên dưới ảnh (tùy chọn)
   eager?: boolean;          // true = tải ngay (cho ảnh above-the-fold), false = lazy (mặc định)
 }
 
-const { src, alt = '', ratio = '16/10', caption, eager = false } = Astro.props;
+const { src, alt = '', ratio = '16/10', caption, eager = false, class: className = '' } = Astro.props;
 
 // Tỷ lệ → padding-top (cho khung giữ tỷ lệ, tránh CLS)
 const aspectClass = {
@@ -44,7 +45,7 @@ const ratioDims = {
 const hasImage = typeof src === 'string' && src.trim() !== '';
 ---
 
-<figure class="watch-image my-6">
+<figure class:list={["watch-image", "my-6", className]}>
   <div class={`relative overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/30 dark:bg-dark-border/30 ${aspectClass}`}>
     <!-- Ảnh thật (chỉ khi có src) -->
     {hasImage && (

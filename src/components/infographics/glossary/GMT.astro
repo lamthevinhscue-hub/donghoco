@@ -206,7 +206,7 @@ const cities = [
     let __homeOffset = 7;   // SGN mặc định
     let __thirdOffset = 0;  // LDN mặc định
 
-    (window.__mechSteps = window.__mechSteps || {})['gmt'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['gmt'] = function(_delta, elapsed) {
       const svg = document.getElementById('gmt-svg');
       if (!svg) return;
 

@@ -8,7 +8,7 @@
 // Escape lần một xóa chữ + đóng danh sách, lần hai bỏ focus khỏi ô nhập.
 // -----------------------------------------------------------------------------
 
-import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, t } from '../i18n/ui';
 
 interface Props {
   inputId: string;
@@ -136,14 +136,14 @@ const isHero = variant === 'hero';
     let selectedIndex = -1;
     let optionEls: HTMLAnchorElement[] = [];
 
-    function closeDropdown() {
+    const closeDropdown = () => {
       listbox.classList.add('hidden');
       input.setAttribute('aria-expanded', 'false');
       input.removeAttribute('aria-activedescendant');
       selectedIndex = -1;
-    }
+    };
 
-    function highlight() {
+    const highlight = () => {
       optionEls.forEach((el, i) => {
         const on = i === selectedIndex;
         el.setAttribute('aria-selected', String(on));
@@ -154,9 +154,9 @@ const isHero = variant === 'hero';
           el.scrollIntoView({ block: 'nearest' });
         }
       });
-    }
+    };
 
-    function renderMessage(main: string, hint?: string, glossaryLink = false) {
+    const renderMessage = (main: string, hint?: string, glossaryLink = false) => {
       listbox.replaceChildren();
       const li = document.createElement('li');
       li.className = 'px-4 py-4 text-sm text-ink-soft dark:text-dark-text-soft';
@@ -182,9 +182,9 @@ const isHero = variant === 'hero';
       optionEls = [];
       selectedIndex = -1;
       input.removeAttribute('aria-activedescendant');
-    }
+    };
 
-    const unsubscribe = subscribeSearch((state) => {
+    subscribeSearch((state) => {
       // Chỉ render khi dropdown của ô này có thể đang được dùng (input là chủ thể
       // của query hiện tại, hoặc trạng thái idle dọn dọn kết quả cũ)
       if (state.status === 'idle') {

@@ -200,7 +200,7 @@ const stations = [
 
         <script is:inline define:vars={{}} slot="script">
           // Đăng ký hàm animate cho gear-train
-          (window.__mechSteps = window.__mechSteps || {})['gear-train'] = function(delta, elapsed) {
+          (window.__mechSteps = window.__mechSteps || {})['gear-train'] = function(_delta, elapsed) {
             const svg = document.getElementById('gear-train-svg');
             if (!svg) return;
             const barrel = svg.querySelector('#gt-barrel');
@@ -435,21 +435,21 @@ const stations = [
   // ====== Tooltip cho 5 bánh răng khi rê chuột (desktop) ======
   // Thiết bị cảm ứng: chỉ highlight — tên bộ phận đã có trong legend mobile.
   function setupGearTooltips() {
-    const svg = document.getElementById('gear-train-svg');
+    const svg = document.getElementById('gear-train-svg') as SVGSVGElement | null;
     if (!svg) return;
-    const parts = svg.querySelectorAll('[data-part]');
+    const parts = svg.querySelectorAll<SVGGraphicsElement>('[data-part]');
     const tooltip = svg.querySelector('#gt-tooltip');
     const tooltipVi = svg.querySelector('#gt-tooltip-vi');
     const tooltipEn = svg.querySelector('#gt-tooltip-en');
     const tooltipBg = svg.querySelector('#gt-tooltip-bg');
-    if (!tooltip || !tooltipVi) return;
+    if (!tooltip || !tooltipVi || !tooltipEn || !tooltipBg) return;
 
     parts.forEach((part) => {
       const highlight = () => {
         part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
         tooltipEn.textContent = part.getAttribute('data-name-en') || '';
-        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7.5 + 20);
+        tooltipBg.setAttribute('width', String(Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7.5 + 20));
         tooltip.setAttribute('opacity', '1');
       };
       const unhighlight = () => {

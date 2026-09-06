@@ -92,7 +92,7 @@ const materials = [
 
     <!-- Vùng chọn vật liệu (dưới) -->
     <foreignObject x="50" y="310" width="400" height="60">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">
         {materials.map((m, i) => (
           <button data-mat={m.id} class="lume-mat-btn" style={`padding:4px 10px;font-size:11px;border-radius:9999px;border:1px solid var(--obs-brass);background:${i === 2 ? 'var(--obs-brass)' : 'transparent'};color:${i === 2 ? 'var(--obs-ivory)' : 'var(--ig-text)'};cursor:pointer;touch-action:none;`}>{m.name}</button>
         ))}

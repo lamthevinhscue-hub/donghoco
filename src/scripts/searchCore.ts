@@ -16,6 +16,34 @@
 
 export type SearchStatus = 'idle' | 'preparing' | 'ready' | 'none' | 'error';
 
+// Đường dẫn runtime Pagefind — dùng biến (không literal) để TS bỏ kiểm module
+// (tệp /pagefind/*.js chỉ tồn tại trong dist sau khi Pagefind chạy).
+const PAGEFIND_UI_PATH = '/pagefind/pagefind-ui.js';
+const PAGEFIND_CORE_PATH = '/pagefind/pagefind.js';
+
+declare global {
+  interface Window {
+    /** Vercel Analytics (script CDN) — không có kiểu chính thức */
+    va?: (...args: unknown[]) => void;
+  }
+}
+
+// Kiểu tối thiểu của Pagefind runtime (file /pagefind/*.js sinh lúc build,
+// không có declaration — mô tả đúng phần API đang dùng).
+interface PagefindHitData {
+  url: string;
+  meta?: { title?: string; excerpt?: string };
+  excerpt?: string;
+}
+interface PagefindAPI {
+  init(): Promise<void>;
+  options(opts: Record<string, unknown>): Promise<void>;
+  search(
+    query: string,
+    opts?: { filters?: Record<string, string> }
+  ): Promise<{ results: Array<{ data(): Promise<PagefindHitData> }> }>;
+}
+
 export interface SearchHit {
   url: string;
   title: string;
@@ -69,15 +97,15 @@ function sanitizeExcerpt(raw: string): string {
 }
 
 // ----- Instance Pagefind duy nhất ------------------------------------------------
-let pagefindInstance: any = null;
+let pagefindInstance: PagefindAPI | null = null;
 let loadPromise: Promise<void> | null = null;
 
 function trackPagefindError(stage: string, error: unknown) {
   const msg = error instanceof Error ? error.message : String(error);
   console.warn('Pagefind lỗi (' + stage + '):', msg);
   try {
-    if (typeof (window as any).va === 'function') {
-      (window as any).va('event', {
+    if (typeof window.va === 'function') {
+      window.va('event', {
         name: 'pagefind_error',
         data: { stage, message: msg.substring(0, 200) },
       });
@@ -90,13 +118,15 @@ async function ensureLoaded() {
   if (loadPromise) { await loadPromise; return; }
   loadPromise = (async () => {
     try {
-      pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind-ui.js');
-      await pagefindInstance.init();
+      const mod = (await import(/* @vite-ignore */ PAGEFIND_UI_PATH)) as PagefindAPI;
+      pagefindInstance = mod;
+      await mod.init();
     } catch (e) {
       try {
-        pagefindInstance = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
-        await pagefindInstance.options({});
-        await pagefindInstance.init();
+        const mod = (await import(/* @vite-ignore */ PAGEFIND_CORE_PATH)) as PagefindAPI;
+        pagefindInstance = mod;
+        await mod.options({});
+        await mod.init();
       } catch (e2) {
         trackPagefindError('init', e2);
       }
@@ -158,17 +188,19 @@ async function runSearch(q: string) {
     return;
   }
 
+  // Biến cục bộ không-null — module-level let mất narrow sau await
+  const pf = pagefindInstance;
   try {
     // Lọc kết quả theo ngôn ngữ trang hiện tại (bộ lọc "language" được gắn
     // trên mọi trang qua BaseLayout) — tìm kiếm tiếng Anh không trả trang
     // tiếng Việt và ngược lại.
-    const search = await pagefindInstance.search(q, {
+    const search = await pf.search(q, {
       filters: { language: currentLang },
     });
     const top = search.results.slice(0, 8);
-    const rendered = await Promise.all(top.map((r: any) => r.data()));
+    const rendered = await Promise.all(top.map((r) => r.data()));
     if (seq !== searchSeq) return;
-    const hits: SearchHit[] = rendered.map((r: any) => ({
+    const hits: SearchHit[] = rendered.map((r) => ({
       url: r.url,
       title: r.meta?.title || r.url,
       excerptHtml: sanitizeExcerpt(r.excerpt || r.meta?.excerpt || ''),

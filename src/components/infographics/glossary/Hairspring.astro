@@ -126,7 +126,7 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     // =============================================================================
     let __currentFreq = 28800; // vph mặc định
 
-    (window.__mechSteps = window.__mechSteps || {})['hairspring'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['hairspring'] = function(_delta, elapsed) {
       const svg = document.getElementById('hairspring-svg');
       if (!svg) return;
 

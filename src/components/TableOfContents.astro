@@ -26,9 +26,10 @@ interface Props {
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { headings } = Astro.props;
+const props = Astro.props as Props;
+const { headings } = props;
 // Chỉ h2/h3 — h4+ làm mục lục bị ồn
-const items = (headings ?? []).filter((h) => h.depth === 2 || h.depth === 3);
+const items = (headings ?? []).filter((h: Heading) => h.depth === 2 || h.depth === 3);
 ---
 
 {items.length >= 2 && (
@@ -45,7 +46,7 @@ const items = (headings ?? []).filter((h) => h.depth === 2 || h.depth === 3);
         </svg>
       </summary>
       <ol class="mt-2 space-y-0.5 border-l border-line pl-1 dark:border-dark-border">
-        {items.map((h) => (
+        {items.map((h: Heading) => (
           <li class={h.depth === 3 ? 'pl-4' : ''}>
             <a
               href={`#${h.slug}`}
@@ -64,7 +65,7 @@ const items = (headings ?? []).filter((h) => h.depth === 2 || h.depth === 3);
     <div class="sticky top-28 hidden lg:block">
       <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{tr.toc_title}</p>
       <ol class="space-y-0.5 border-l border-line pl-1 dark:border-dark-border">
-        {items.map((h) => (
+        {items.map((h: Heading) => (
           <li class={h.depth === 3 ? 'pl-3' : ''}>
             <a
               href={`#${h.slug}`}

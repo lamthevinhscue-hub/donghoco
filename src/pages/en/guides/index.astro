@@ -1,10 +1,10 @@
 ---
 // EN index — Guides: /en/guides/
 import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
-import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../../lib/content';
 import { getGuideDifficultyLabel } from '../../../i18n/ui';
 
-const entries = await getEntriesByLang('huongDan', 'en');
+const entries = (await getEntriesByLang('huongDan', 'en')).filter(isEntryOf('huongDan'));
 const items = entries.map((e) => ({
   href: `/en/guides/${getSlug(e)}/`,
   title: e.data.title,

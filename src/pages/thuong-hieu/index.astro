@@ -11,14 +11,14 @@
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { getLangFromUrl, t, TIER_ORDER, getTierLabel, getTierDesc, getTierAccent } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 const isVi = lang === 'vi';
 
-const entries = await getEntriesByLang('thuongHieu', lang);
+const entries = (await getEntriesByLang('thuongHieu', lang)).filter(isEntryOf('thuongHieu'));
 
 // Nhãn năm đặc biệt cho một số thương hiệu (ghi chú kèm năm lập)
 const foundedLabel: Record<string, string> = {
@@ -218,7 +218,7 @@ const groups = TIER_ORDER.map((tier) => ({
     if (!m) return;
     // slug -> tier: đối chiếu data-tier của các nút sau khi thay gạch nối bằng khoảng trắng
     const target = Array.from(buttons).find(
-      (b) => b.dataset.tier !== 'all' && b.dataset.tier.replace(/\s+/g, '-') === m[1]
+      (b) => b.dataset.tier !== 'all' && (b.dataset.tier ?? '').replace(/\s+/g, '-') === m[1]
     );
     if (target) selectTier(target.dataset.tier!);
   }

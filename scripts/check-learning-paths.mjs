@@ -15,7 +15,7 @@
 // In báo cáo ngắn và exit 1 nếu có lỗi.
 // =============================================================================
 
-import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const DATA_FILE = 'src/data/learningPaths.ts';
@@ -36,7 +36,6 @@ const errors = [];
 const source = readFileSync(DATA_FILE, 'utf8');
 
 // Tách từng khối lộ trình: bắt đầu bằng "id: '...'," và kết thúc trước id kế hoặc cuối mảng
-const pathBlocks = [...source.matchAll(/\{\s*\n\s*id:\s*'([^']+)'/g)].map((m) => m[1]);
 const bodyParts = source.split(/\{\s*\n\s*id:\s*'/).slice(1);
 
 function getStr(text, key) {

@@ -141,11 +141,6 @@ const parts = [
     icon: '▣',
   },
 ];
-
-// Vị trí dọc của mỗi lớp khi "tách" (exploded)
-// Lớp 0 (kính) ở trên cùng, lớp 6 (đáy) ở dưới cùng
-// Tăng khoảng cách để các lớp không chồng nhau khi tách
-const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
 ---
 
 <section class="my-6" data-exploded-root>
@@ -551,12 +546,12 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
   // =============================================================================
   const root = document.querySelector('[data-exploded-root]');
   if (root) {
-    const svg = document.getElementById('exploded-svg');
+    const svg = document.getElementById('exploded-svg') as SVGSVGElement | null;
     const toggleBtn = document.getElementById('toggle-explode');
     const toggleLabel = document.getElementById('toggle-label');
     const modeLabel = document.getElementById('mode-label');
     const resetBtn = document.getElementById('reset-view');
-    const layers = svg?.querySelectorAll('.layer-group');
+    const layers = svg?.querySelectorAll<SVGGElement>('.layer-group');
     const tooltip = document.getElementById('exploded-tooltip');
     const tipBg = document.getElementById('tip-bg');
     const tipVi = document.getElementById('tip-vi');
@@ -567,18 +562,26 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     const detailNameVi = document.getElementById('detail-name-vi');
     const detailNameEn = document.getElementById('detail-name-en');
     const detailRole = document.getElementById('detail-role');
-    const detailLink = document.getElementById('detail-link');
-    const quickButtons = document.querySelectorAll('.part-quick');
+    const detailLink = document.getElementById('detail-link') as HTMLAnchorElement | null;
+    const quickButtons = document.querySelectorAll<HTMLElement>('.part-quick');
 
     let isExploded = false;
 
     // Map part id -> thông tin chi tiết (lấy từ data attributes)
-    const partMap = {};
+    interface PartInfo {
+      id: string;
+      nameVi: string;
+      nameEn: string;
+      role: string;
+      link: string;
+    }
+    const partMap: Record<string, PartInfo> = {};
     svg?.querySelectorAll('[data-part]').forEach((el) => {
       // Bỏ qua layer-group cha (có data-part nhưng không có data-name-vi) —
       // nếu không tên bộ phận fallback thành id thô (VD: "rotor" thay vì tên tiếng Việt)
       if (!el.getAttribute('data-name-vi')) return;
       const id = el.getAttribute('data-part');
+      if (!id) return;
       if (!partMap[id]) {
         partMap[id] = {
           id,
@@ -591,11 +594,12 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     });
 
     // Map part id -> icon (từ quick buttons)
-    const iconMap = {};
+    const iconMap: Record<string, string> = {};
     quickButtons.forEach((b) => {
       const id = b.dataset.partId;
+      if (!id) return;
       const iconEl = b.querySelector('span:first-child');
-      iconMap[id] = iconEl ? iconEl.textContent : '•';
+      iconMap[id] = iconEl ? iconEl.textContent ?? '•' : '•';
     });
 
     // ====== TÁCH / GHÉP (với stagger tuần tự) ======
@@ -610,7 +614,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     const FALLBACK_ASSEMBLED_VIEWBOX_H = 417;
 
     function computeExplodeTargets() {
-      const boxes = [];
+      const boxes: Array<{ y: number; height: number } | null> = [];
       let measurable = true;
       layers?.forEach((layer) => {
         try {
@@ -629,16 +633,17 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
           assembledVB: { y: FALLBACK_ASSEMBLED_VIEWBOX_Y, h: FALLBACK_ASSEMBLED_VIEWBOX_H },
         };
       }
-      const targets = [];
+      const targets: number[] = [];
       let prevBottom = 0;
       layers?.forEach((layer, i) => {
         const b = boxes[i];
         if (i === 0) {
           // Lớp đầu giữ nguyên vị trí tách gốc trong markup
-          targets[0] = parseFloat(layer.dataset.targetY);
-        } else {
+          targets[0] = parseFloat(layer.dataset.targetY ?? '');
+        } else if (b) {
           targets[i] = prevBottom + GAP - b.y;
         }
+        if (!b) return;
         prevBottom = targets[i] + b.y + b.height;
       });
       // Khung tách: chừa 22 đơn vị lề dưới như thiết kế cũ; không thu nhỏ dưới 860
@@ -649,7 +654,8 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       let maxBottom = -Infinity;
       layers?.forEach((layer, i) => {
         const b = boxes[i];
-        const ty = parseFloat(layer.dataset.assembledY);
+        if (!b) return;
+        const ty = parseFloat(layer.dataset.assembledY ?? '');
         minTop = Math.min(minTop, ty + b.y);
         maxBottom = Math.max(maxBottom, ty + b.y + b.height);
       });
@@ -664,12 +670,12 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     // giữa chừng sẽ được áp dụng ngay ở lần bấm kế tiếp
     const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    function setViewBox(vb) {
+    function setViewBox(vb: { y: number; h: number }) {
       svg?.setAttribute('viewBox', `0 ${vb.y} 500 ${vb.h}`);
     }
 
     let viewBoxRaf = 0;
-    function animateViewBox(to) {
+    function animateViewBox(to: { y: number; h: number }) {
       if (!svg) return;
       const cur = svg.viewBox.baseVal;
       const from = { y: cur.y, h: cur.height };
@@ -681,7 +687,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       cancelAnimationFrame(viewBoxRaf);
       const DUR = 600; // tổng chuyển động khớp trần 600ms của hiệu ứng tách/ghép
       const start = performance.now();
-      const step = (now) => {
+      const step = (now: number) => {
         const t = Math.min((now - start) / DUR, 1);
         // easeInOutQuad ~ cubic-bezier(0.4, 0, 0.2, 1) của transition lớp
         const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
@@ -703,15 +709,15 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
       layers.forEach((layer, i) => {
         const targetY = isExploded
           ? explode.targets[i]
-          : parseFloat(layer.dataset.assembledY);
+          : parseFloat(layer.dataset.assembledY ?? '');
         // Stagger 36ms/lớp — cảm giác tách từng tầng; bằng 0 khi người dùng
         // bật giảm chuyển động (các lớp chuyển cùng lúc, tức thì)
         setTimeout(() => {
           layer.setAttribute('transform', `translate(0, ${targetY})`);
         }, rmQuery.matches ? 0 : i * 36);
       });
-      toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
-      modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)';
+      toggleLabel && (toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp');
+      modeLabel && (modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)');
       toggleBtn?.setAttribute('aria-pressed', isExploded ? 'true' : 'false');
       // Đổi chiều mũi tên icon
       const arrow = toggleBtn?.querySelector('svg path');
@@ -732,7 +738,9 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     });
 
     // ====== CHỌN BỘ PHẬN ======
-    function selectPart(id) {
+    function selectPart(id: string | null) {
+      // Guard: các phần tử detail card là id tĩnh trong markup — thiếu thì thoát an toàn
+      if (!detailIcon || !detailNameVi || !detailNameEn || !detailRole || !detailLink) return;
       // Bỏ active cũ
       svg?.querySelectorAll('[data-part].active').forEach((el) => el.classList.remove('active'));
       quickButtons.forEach((b) => b.classList.remove('active'));
@@ -781,15 +789,16 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
         e.stopPropagation();
         selectPart(el.getAttribute('data-part'));
       });
-      el.addEventListener('mouseenter', (e) => {
+      el.addEventListener('mouseenter', () => {
         if (!el.getAttribute('data-name-vi')) return;
         const id = el.getAttribute('data-part');
+        if (!id) return;
         const p = partMap[id];
-        if (!p || !tooltip) return;
+        if (!p || !tooltip || !tipVi || !tipEn || !tipLink || !tipBg) return;
         tipVi.textContent = p.nameVi;
         tipEn.textContent = p.nameEn;
         tipLink.textContent = p.link ? '→ Chạm hoặc bấm để đọc bài' : '';
-        tipBg.setAttribute('width', Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30);
+        tipBg.setAttribute('width', String(Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30));
         tooltip.setAttribute('opacity', '1');
       });
       el.addEventListener('mouseleave', () => {
@@ -817,7 +826,7 @@ const layerOffsets = [0, 100, 200, 340, 480, 620, 740];
     // Click trên quick buttons
     quickButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        selectPart(btn.dataset.partId);
+        selectPart(btn.dataset.partId ?? null);
       });
     });
 

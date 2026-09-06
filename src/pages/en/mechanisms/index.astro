@@ -1,10 +1,10 @@
 ---
 // EN index — Mechanisms: /en/mechanisms/
 import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
-import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../../lib/content';
 import { getCoCheCategoryLabel, getMechanismDifficultyLabel } from '../../../i18n/ui';
 
-const entries = await getEntriesByLang('coChe', 'en');
+const entries = (await getEntriesByLang('coChe', 'en')).filter(isEntryOf('coChe'));
 const items = entries.map((e) => ({
   href: `/en/mechanisms/${getSlug(e)}/`,
   title: e.data.title,

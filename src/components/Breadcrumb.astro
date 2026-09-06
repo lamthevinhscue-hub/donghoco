@@ -18,7 +18,9 @@ interface Props {
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 const { items } = Astro.props;
-// Bỏ phần tử cuối (trang hiện tại) khỏi link — chỉ hiện tên, không link chính nó
+// Bỏ phần tử cuối (trang hiện tại) khỏi link — chỉ hiện tên, không link chính nó.
+// Đường dẫn nhận vào đã đúng ngôn ngữ của trang (path vi không tiền tố,
+// path /en/... giữ nguyên) — không cộng tiền tố hai lần.
 const links = items.slice(0, -1);
 const current = items[items.length - 1];
 ---
@@ -26,11 +28,9 @@ const current = items[items.length - 1];
 {items.length > 1 && (
   <nav aria-label={tr.nav_breadcrumb} data-pagefind-ignore class="mb-6">
     <ol class="flex flex-wrap items-center gap-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-      {links.map((item, i) => (
+      {links.map((item) => (
         <li class="flex items-center gap-1">
           <a
-            // Đường dẫn nhận vào đã đúng ngôn ngữ của trang (path vi không
-            // tiền tố, path /en/... giữ nguyên) — không cộng tiền tố hai lần.
             href={item.path.startsWith('/en') ? item.path : localizedPath(item.path, lang)}
             class="transition-colors hover:text-brass dark:hover:text-dark-brass"
           >

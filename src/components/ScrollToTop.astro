@@ -20,8 +20,9 @@
 </button>
 
 <script>
-  const btn = document.getElementById('scroll-to-top');
-  if (btn) {
+  const btnEl = document.getElementById('scroll-to-top');
+  if (btnEl) {
+    const btn = btnEl;
     // Hiện khi cuộn quá 2 chiều cao màn hình
     const threshold = window.innerHeight * 2;
     function onScroll() {

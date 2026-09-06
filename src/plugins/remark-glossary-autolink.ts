@@ -117,7 +117,7 @@ function wrapInString(
     type: 'link',
     url,
     ...(ctx.isEn ? {} : { title: best.excerpt }),
-    data: { hProperties: { className: 'glossary-autolink' } },
+    data: { hProperties: { className: ['glossary-autolink'] } },
     children: [{ type: 'text', value: matchedText }],
   });
   if (after) result.push(...wrapInString(after, terms, ctx));
@@ -177,12 +177,13 @@ const remarkGlossaryAutolink: Plugin<[GlossaryOptions], Root> = (options) => {
       if (node.type !== 'text') return;
 
       // Bỏ qua nếu đang trong link/heading/code
+      const parentType: string = parent.type;
       if (
-        parent.type === 'link' ||
-        parent.type === 'linkReference' ||
-        parent.type === 'heading' ||
-        parent.type === 'code' ||
-        parent.type === 'inlineCode'
+        parentType === 'link' ||
+        parentType === 'linkReference' ||
+        parentType === 'heading' ||
+        parentType === 'code' ||
+        parentType === 'inlineCode'
       ) {
         return SKIP;
       }

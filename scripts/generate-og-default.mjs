@@ -11,13 +11,10 @@
 //   thấp (nền tối) — nếu ảnh trắng/đơn sắc thì báo lỗi và thoát mã lỗi.
 // =============================================================================
 
-import { readdirSync, statSync, unlinkSync } from 'node:fs';
+import sharp from 'sharp';
+import { readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const sharp = require('sharp');
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'og-default.jpg');

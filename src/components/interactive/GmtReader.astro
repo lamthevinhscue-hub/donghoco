@@ -218,10 +218,10 @@ const dialNumerals = [
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-tool="gmt-reader"]').forEach((root) => {
-    const svg = root.querySelector('.gmt-svg') as SVGSVGElement | null;
-    const hourHand = root.querySelector('.hour-hand') as SVGGElement | null;
-    const gmtHand = root.querySelector('.gmt-hand') as SVGGElement | null;
-    const bezelRing = root.querySelector('.gmt-bezel-ring') as SVGGElement | null;
+    const svgDecl = root.querySelector('.gmt-svg') as SVGSVGElement | null;
+    const hourHandDecl = root.querySelector('.hour-hand') as SVGGElement | null;
+    const gmtHandDecl = root.querySelector('.gmt-hand') as SVGGElement | null;
+    const bezelRingDecl = root.querySelector('.gmt-bezel-ring') as SVGGElement | null;
     const localEl = root.querySelector('.gmt-local') as HTMLElement | null;
     const homeEl = root.querySelector('.gmt-home') as HTMLElement | null;
     const thirdEl = root.querySelector('.gmt-third') as HTMLElement | null;
@@ -230,7 +230,8 @@ const dialNumerals = [
     const gmtUp = root.querySelector('.gmt-gmt-up') as HTMLButtonElement | null;
     const bezelCcw = root.querySelector('.gmt-bezel-ccw') as HTMLButtonElement | null;
     const bezelCw = root.querySelector('.gmt-bezel-cw') as HTMLButtonElement | null;
-    if (!svg || !hourHand || !gmtHand || !bezelRing) return;
+    if (!svgDecl || !hourHandDecl || !gmtHandDecl || !bezelRingDecl) return;
+    const svg = svgDecl, hourHand = hourHandDecl, gmtHand = gmtHandDecl, bezelRing = bezelRingDecl;
 
     let localHour = 12;   // 1–12, đọc bằng kim giờ (một vòng/12 giờ)
     let gmtHour24 = 12;   // 0–23, giờ nhà — kim GMT (một vòng/24 giờ)

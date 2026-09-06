@@ -18,6 +18,7 @@ import SearchInline from '../components/SearchInline.astro';
 import { getEntriesByLang, getCollectionRoute, getSlug } from '../lib/content';
 import { getLangFromUrl, t, localizedPath, TIER_ORDER, getTierLabel, getTierDesc } from '../i18n/ui';
 import timelineData from '../data/timeline.json';
+import type { CollectionEntry } from 'astro:content';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -28,9 +29,20 @@ const allBrands = await getEntriesByLang('thuongHieu', lang);
 const allIconics = await getEntriesByLang('mauIconic', lang);
 const allMechanisms = await getEntriesByLang('coChe', lang);
 const allGlossary = await getEntriesByLang('tuDien', lang);
+
+// getEntriesByLang nhận union collection nên phần tử trả về là union schema.
+// Thu hẹp tại nơi dùng bằng type guard trên field đặc trưng — không ép kiểu,
+// không đổi chữ ký getEntriesByLang (việc tổng quát hóa là gói P1 riêng).
+type AnyEntry = Awaited<ReturnType<typeof getEntriesByLang>>[number];
+type BrandEntry = Extract<AnyEntry, CollectionEntry<'thuongHieu'>>;
+type IconicEntry = Extract<AnyEntry, CollectionEntry<'mauIconic'>>;
+const isBrand = (e: AnyEntry): e is BrandEntry => 'collections' in e.data;
+const isIconic = (e: AnyEntry): e is IconicEntry => 'brand' in e.data;
+const brands = allBrands.filter(isBrand);
+const iconics = allIconics.filter(isIconic);
 const heroCounts = tr.hero_counts
-  .replace('{brands}', String(allBrands.length))
-  .replace('{iconics}', String(allIconics.length))
+  .replace('{brands}', String(brands.length))
+  .replace('{iconics}', String(iconics.length))
   .replace('{mechanisms}', String(allMechanisms.length))
   .replace('{glossary}', String(allGlossary.length));
 
@@ -38,7 +50,7 @@ const heroCounts = tr.hero_counts
 // Không dùng slice(0, 3) — nếu sau này đổi danh sách, chỉ sửa mảng này.
 const FEATURED_SLUGS = ['rolex-submariner', 'omega-speedmaster', 'cartier-tank'] as const;
 const featured = FEATURED_SLUGS.map((slug) => {
-  const entry = allIconics.find((e) => getSlug(e) === slug);
+  const entry = iconics.find((e) => getSlug(e) === slug);
   if (!entry) {
     // Cảnh báo lúc build — dễ thấy khi bảo trì, không âm thầm lấy bài khác thay
     console.warn(`[trang chủ] Slug nổi bật "${slug}" không tồn tại trong mauIconic — đã bỏ khỏi danh sách.`);
@@ -93,7 +105,7 @@ const timelineHighlights = pickIndices
 // qua link lọc #tier=<slug>.
 const MAX_REPS = 6;
 const tierSlug = (tier: string) => tier.replace(/\s+/g, '-');
-function pickReps(items: typeof allBrands): typeof allBrands {
+function pickReps(items: BrandEntry[]): BrandEntry[] {
   const withRank = items
     .filter((e) => typeof e.data.featured_rank === 'number')
     .sort((a, b) => (a.data.featured_rank ?? 0) - (b.data.featured_rank ?? 0));
@@ -103,7 +115,7 @@ function pickReps(items: typeof allBrands): typeof allBrands {
   return [...withRank, ...rest].slice(0, MAX_REPS);
 }
 const brandGroups = TIER_ORDER.map((tier) => {
-  const items = allBrands.filter((e) => e.data.tier === tier);
+  const items = brands.filter((e) => e.data.tier === tier);
   return {
     tier,
     slug: tierSlug(tier),

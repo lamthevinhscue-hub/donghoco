@@ -18,7 +18,6 @@ import timelineData from '../data/timeline.json';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const isVi = true;
 
 // Cấu hình 3 lớp phân loại
 const layers = [
@@ -430,7 +429,9 @@ milestones.forEach((m, i) => {
 
     toggleAll?.addEventListener('click', () => {
       activeLayers.clear();
-      activeLayers.add('mechanism', 'brand', 'culture');
+      activeLayers.add('mechanism');
+      activeLayers.add('brand');
+      activeLayers.add('culture');
       toggles.forEach((btn) => btn.setAttribute('aria-pressed', 'true'));
       updateVisibility();
     });

@@ -92,13 +92,12 @@ import MechanismAnimation from './MechanismAnimation.astro';
     // =============================================================================
     // Đăng ký hàm animate cho shock-protection
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['shock-protection'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['shock-protection'] = function(_delta, elapsed) {
       const svg = document.getElementById('shock-svg');
       if (!svg) return;
       const jewelGroup = svg.querySelector('#shock-jewel-group');
       const balanceGroup = svg.querySelector('#shock-balance-group');
       const arrow = svg.querySelector('#shock-arrow');
-      const tooltip = svg.querySelector('#shock-tooltip');
       if (!jewelGroup || !balanceGroup) return;
 
       // Chu kỳ sốc: mỗi 5000ms một cú va đập + hồi phục
@@ -142,20 +141,20 @@ import MechanismAnimation from './MechanismAnimation.astro';
   document.addEventListener('astro:page-load', setupShockTooltips);
   setupShockTooltips();
   function setupShockTooltips() {
-    const svg = document.getElementById('shock-svg');
+    const svg = document.getElementById('shock-svg') as SVGSVGElement | null;
     if (!svg) return;
-    const parts = svg.querySelectorAll('[data-part]');
+    const parts = svg.querySelectorAll<SVGGraphicsElement>('[data-part]');
     const tooltip = svg.querySelector('#shock-tooltip');
     const tooltipVi = svg.querySelector('#shock-tooltip-vi');
     const tooltipEn = svg.querySelector('#shock-tooltip-en');
     const tooltipBg = svg.querySelector('#shock-tooltip-bg');
-    if (!tooltip || !tooltipVi) return;
+    if (!tooltip || !tooltipVi || !tooltipEn || !tooltipBg) return;
     parts.forEach((part) => {
       const highlight = () => {
         part.style.filter = 'drop-shadow(0 0 6px var(--obs-brass))';
         tooltipVi.textContent = part.getAttribute('data-name-vi') || '';
         tooltipEn.textContent = part.getAttribute('data-name-en') || '';
-        tooltipBg.setAttribute('width', Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20);
+        tooltipBg.setAttribute('width', String(Math.max(tooltipVi.textContent.length, tooltipEn.textContent.length) * 7 + 20));
         tooltip.setAttribute('opacity', '1');
       };
       const unhighlight = () => {

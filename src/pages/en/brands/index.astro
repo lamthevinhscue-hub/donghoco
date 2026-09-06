@@ -1,9 +1,9 @@
 ---
 // EN index — Brands: /en/brands/
 import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
-import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../../lib/content';
 
-const entries = await getEntriesByLang('thuongHieu', 'en');
+const entries = (await getEntriesByLang('thuongHieu', 'en')).filter(isEntryOf('thuongHieu'));
 const items = entries.map((e) => ({
   href: `/en/brands/${getSlug(e)}/`,
   title: e.data.title,

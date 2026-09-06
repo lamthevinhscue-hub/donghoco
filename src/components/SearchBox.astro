@@ -119,7 +119,7 @@ const tr = t(lang);
     `<p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">${main}<br /><span class="text-xs">${msg(hintKey)}</span></p>`;
 
   // ----- Render kết quả từ trạng thái dùng chung -----
-  const unsubscribe = subscribeSearch((state) => {
+  subscribeSearch((state) => {
     if (state.status === 'idle') {
       resultsContainer.innerHTML = '';
       hint.style.display = '';

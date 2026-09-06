@@ -1,11 +1,11 @@
 ---
 // Trang danh sách: MẪU ICONIC (Trụ cột 2) — lọc theo thể loại + thập niên
 import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { getLangFromUrl } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
-const entries = await getEntriesByLang('mauIconic', lang);
+const entries = (await getEntriesByLang('mauIconic', lang)).filter(isEntryOf('mauIconic'));
 
 // Nhóm lọc 1: Thể loại (lấy từ category của các bài)
 const categories = [...new Set(entries.map((e) => e.data.category).filter(Boolean))] as string[];
@@ -46,21 +46,21 @@ const sortedEntries = [...entries].sort((a, b) => collator.compare(a.data.title,
     : 'Stories of the watches that defined entire categories.'}
   descriptionLink={lang === 'vi' ? { href: '/so-sanh', label: 'Mở công cụ so sánh →' } : undefined}
   entries={sortedEntries}
-  getMeta={(e) => e.data.brand}
-  getFeatureYear={(e) => (e.data.year ? String(e.data.year) : undefined)}
+  getMeta={(e) => ('brand' in e.data ? e.data.brand : undefined)}
+  getFeatureYear={(e) => ('year' in e.data && e.data.year ? String(e.data.year) : undefined)}
   getCompareSlug={(e) => getSlug(e)}
   filters={[
     {
       key: 'theloai',
       label: 'Thể loại',
       options: categories.map((c) => ({ value: c, label: categoryLabels[c] ?? c })),
-      getValue: (e) => e.data.category,
+      getValue: (e) => ('category' in e.data ? e.data.category : undefined),
     },
     {
       key: 'decade',
       label: 'Thập niên',
       options: decades.map((d) => ({ value: d, label: d })),
-      getValue: (e) => getDecade(e.data.year),
+      getValue: (e) => ('year' in e.data ? getDecade(e.data.year) : undefined),
     },
   ]}
 />

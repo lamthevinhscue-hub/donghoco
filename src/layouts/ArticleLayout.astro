@@ -25,7 +25,7 @@ interface Heading {
 interface Props {
   title: string;
   excerpt?: string;
-  date?: string;
+  date?: string | Date;
   /** Ngày cập nhật (SEO — Prompt 4): nguồn của dateModified; trống = dùng ngày đăng */
   updated?: string | Date;
   cover_image?: string;
@@ -82,6 +82,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const normDate = (d?: string | Date) =>
   d === undefined ? undefined : (typeof d === 'string' ? d : d.toISOString().slice(0, 10));
 const updatedStr = normDate(updated);
+const dateStr = normDate(date);
 
 // Tách rõ hai nhánh: schemaOverride (DefinedTerm cho trang từ điển) được truyền
 // NGUYÊN VẸN — không gán thêm bất kỳ trường Article nào vào nó. Nhánh Article
@@ -101,21 +102,21 @@ if (schemaOverride) {
     image: [cover_image ? new URL(cover_image, siteUrl).href : 'https://www.kienthucdonghoco.vn/og-default.jpg'],
   };
   if (excerpt) articleData.description = excerpt;
-  if (date) articleData.datePublished = date;
-  if (updatedStr ?? date) articleData.dateModified = updatedStr ?? date;
+  if (dateStr) articleData.datePublished = dateStr;
+  if (updatedStr ?? dateStr) articleData.dateModified = updatedStr ?? dateStr;
 }
 
 // Định dạng ngày thân thiện theo ngôn ngữ trang
 const localeTag = lang === 'vi' ? 'vi-VN' : 'en-US';
 const fmtDate = (d?: string) =>
   d ? new Date(d).toLocaleDateString(localeTag, { year: 'numeric', month: 'long', day: 'numeric' }) : null;
-const formattedDate = fmtDate(date);
+const formattedDate = fmtDate(dateStr);
 // Chỉ coi là "đã cập nhật" khi updated khác ngày đăng — chưa bài nào có nên
 // dòng này hiện không xuất hiện ở bất kỳ trang nào
-const formattedUpdated = updatedStr && updatedStr !== date ? fmtDate(updatedStr) : null;
+const formattedUpdated = updatedStr && updatedStr !== dateStr ? fmtDate(updatedStr) : null;
 ---
 
-<BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={date}>
+<BaseLayout title={title} description={excerpt} cover_image={cover_image} breadcrumb={breadcrumbData} articleSchema={articleData} datePublished={dateStr}>
   <!-- Thanh tiến độ đọc: mảnh 2px, thuần trang trí (aria-hidden), scaleX qua rAF -->
   <div id="reading-progress" aria-hidden="true" data-pagefind-ignore
        class="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-brass dark:bg-dark-brass"></div>
@@ -132,7 +133,7 @@ const formattedUpdated = updatedStr && updatedStr !== date ? fmtDate(updatedStr)
 
           {(meta || formattedDate) && (
             <p class="mt-4 text-sm uppercase tracking-wider text-ink-soft/85 dark:text-dark-text-soft/85">
-              {[meta, formattedDate && <time datetime={date} class="font-mono">{formattedDate}</time>].filter(Boolean).map((m, i) => i === 0 || !meta ? m : <> • {m}</>)}
+              {[meta, formattedDate && <time datetime={dateStr} class="font-mono">{formattedDate}</time>].filter(Boolean).map((m, i) => i === 0 || !meta ? m : <> • {m}</>)}
             </p>
           )}
 

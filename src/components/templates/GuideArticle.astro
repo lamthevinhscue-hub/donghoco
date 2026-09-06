@@ -14,7 +14,7 @@ import TachymeterTool from '../../components/interactive/TachymeterTool.astro';
 import DateSafety from '../../components/interactive/DateSafety.astro';
 import DecisionMap from '../../components/DecisionMap.astro';
 import { getDecisionMap } from '../../data/decisionMaps';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { render } from 'astro:content';
 import { collectionHref } from '../../i18n/contentRoutes';
 import type { Lang } from '../../i18n/ui';
@@ -35,7 +35,7 @@ const interactive: Record<string, any> = {
 };
 
 const { slug, lang } = Astro.props;
-const entries = await getEntriesByLang('huongDan', lang);
+const entries = (await getEntriesByLang('huongDan', lang)).filter(isEntryOf('huongDan'));
 const entry = entries.find((e) => getSlug(e) === slug);
 if (!entry) {
   return Astro.redirect('/404');
@@ -50,27 +50,27 @@ const diffLabel: Record<string, { vi: string; en: string }> = {
   'trung cấp': { vi: 'Trung cấp', en: 'Intermediate' },
   'nâng cao': { vi: 'Nâng cao', en: 'Advanced' },
 };
-const diff = diffLabel[(data as any).difficulty] ?? diffLabel['người mới'];
+const diff = diffLabel[data.difficulty] ?? diffLabel['người mới'];
 const meta = lang === 'vi' ? diff.vi : diff.en;
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) ======
 const diffOrder = ['người mới', 'trung cấp', 'nâng cao'];
-const curIdx = diffOrder.indexOf((data as any).difficulty);
+const curIdx = diffOrder.indexOf(data.difficulty);
 
 const related: RelatedItem[] = [];
 
 const nextDiff = entries
   .filter((e) => getSlug(e) !== slug)
-  .filter((e) => diffOrder.indexOf((e.data as any).difficulty) === curIdx + 1)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+  .filter((e) => diffOrder.indexOf(e.data.difficulty) === curIdx + 1)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const sameDiff = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).difficulty === (data as any).difficulty)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+  .filter((e) => getSlug(e) !== slug && e.data.difficulty === data.difficulty)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 for (const e of [...nextDiff, ...sameDiff]) {
   if (related.length >= 3) break;
-  const ed = e.data as any;
+  const ed = e.data;
   if (related.some((r) => r.title === ed.title)) continue;
   const d = diffLabel[ed.difficulty] ?? diffLabel['người mới'];
   related.push({

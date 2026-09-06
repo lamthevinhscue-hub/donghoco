@@ -156,7 +156,7 @@ const FILENAME_ALT = /\.(jpe?g|png|webp|svg|gif|avif)$/i;
   const plugin = read('src/plugins/rehype-wrap-tables.mjs');
   const need = [/tabIndex:\s*0/, /role:\s*'region'/, /ariaLabel\s*[:,]/];
   const names = ['tabIndex: 0', "role: 'region'", 'ariaLabel'];
-  const missingP = names.filter((n, i) => !need[i].test(plugin));
+  const missingP = names.filter((_n, i) => !need[i].test(plugin));
   if (missingP.length === 0) ok('rehype-wrap-tables: wrapper có tabIndex 0 + role region + ariaLabel');
   else fail('rehype-wrap-tables: wrapper thiếu ' + missingP.join(', '));
 

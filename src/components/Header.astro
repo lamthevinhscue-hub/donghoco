@@ -17,39 +17,44 @@ import ThemeToggle from './ThemeToggle.astro';
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-// Mục menu cấp 1 (link đơn)
-const topItems = [
+// Mục menu cấp 1 (link đơn) — key gắn với khóa bản dịch trong i18n/ui
+type MenuKey = keyof ReturnType<typeof t>;
+interface MenuItem {
+  key: MenuKey;
+  path: string;
+}
+const topItems: MenuItem[] = [
   { key: 'nav_brands', path: '/thuong-hieu' },
   { key: 'nav_iconic', path: '/mau-iconic' },
 ];
 
 // Nhóm "Kiến thức" — mục xổ
 const knowledgeGroup = {
-  key: 'nav_knowledge',
+  key: 'nav_knowledge' as const,
   items: [
     { key: 'nav_learning_path', path: '/lo-trinh-hoc-dong-ho' },
     { key: 'nav_mechanisms', path: '/co-che' },
     { key: 'nav_glossary', path: '/tu-dien' },
     { key: 'nav_guides', path: '/huong-dan' },
-  ],
+  ] as MenuItem[],
 };
 
 // Nhóm "Khám phá" — mục xổ
 const exploreGroup = {
-  key: 'nav_explore',
+  key: 'nav_explore' as const,
   items: [
     { key: 'nav_history', path: '/lich-su' },
     { key: 'nav_anatomy', path: '/giai-phau' },
     { key: 'nav_compare', path: '/so-sanh' },
-  ],
+  ] as MenuItem[],
 };
 
 // Địa chỉ thật của từng mục trong ngôn ngữ hiện tại. Chỉ hiện mục CÓ bản dịch
 // (bảng trung tâm contentRoutes.ts) — không tạo link chết khi bản EN chưa có.
-const withHref = (item: { key: string; path: string }) => ({ ...item, href: localizedHref(item.path, lang) });
-const topNav = topItems.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
-const knowledgeNav = knowledgeGroup.items.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
-const exploreNav = exploreGroup.items.map(withHref).filter((i): i is { key: string; path: string; href: string } => Boolean(i.href));
+const withHref = (item: MenuItem) => ({ ...item, href: localizedHref(item.path, lang) });
+const topNav = topItems.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
+const knowledgeNav = knowledgeGroup.items.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
+const exploreNav = exploreGroup.items.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
 
 // Bộ chuyển ngôn ngữ: trang hiện tại có bản dịch thì tới đúng trang đó;
 // chưa có thì về trang chủ ngôn ngữ đích và nói rõ bằng aria-label.
@@ -288,7 +293,7 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
   }
 
   toggle?.addEventListener('click', () => {
-    setMobileMenu(menu?.classList.contains('hidden'));
+    setMobileMenu(menu?.classList.contains('hidden') ?? false);
   });
 
   // Chọn link trong menu mobile → đóng menu tự nhiên, trình duyệt chuyển trang
@@ -298,7 +303,6 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
 
   // ====== Mục xổ desktop: hover + focus + click-để-giữ + đóng khi bấm ra ngoài ======
   const dropdowns = document.querySelectorAll<HTMLElement>('.nav-dropdown');
-  const dropdownMenus = document.querySelectorAll<HTMLElement>('.nav-dropdown-menu');
 
   function openMenu(dd: HTMLElement) {
     const m = dd.querySelector<HTMLElement>('.nav-dropdown-menu');

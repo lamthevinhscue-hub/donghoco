@@ -17,7 +17,7 @@ import Rotor from '../../components/infographics/glossary/Rotor.astro';
 import Chronograph from '../../components/infographics/glossary/Chronograph.astro';
 import Hairspring from '../../components/infographics/glossary/Hairspring.astro';
 import GMT from '../../components/infographics/glossary/GMT.astro';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { render } from 'astro:content';
 import { getCategoryLabel } from '../../i18n/ui';
 import { collectionHref } from '../../i18n/contentRoutes';
@@ -30,7 +30,7 @@ interface Props {
 }
 
 const { slug, lang } = Astro.props;
-const entries = await getEntriesByLang('tuDien', lang);
+const entries = (await getEntriesByLang('tuDien', lang)).filter(isEntryOf('tuDien'));
 const entry = entries.find((e) => getSlug(e) === slug);
 if (!entry) {
   return Astro.redirect('/404');
@@ -38,9 +38,9 @@ if (!entry) {
 
 const { Content, headings } = await render(entry);
 const { data } = entry;
-const meta = (data as any).term_en
-  ? `EN: ${(data as any).term_en}`
-  : getCategoryLabel((data as any).category, lang);
+const meta = data.term_en
+  ? `EN: ${data.term_en}`
+  : getCategoryLabel(data.category, lang);
 
 // Map slug vi -> component infographic. Bản EN ẩn (nhãn chưa dịch hoàn toàn).
 const infographics: Record<string, any> = {
@@ -55,30 +55,30 @@ const infographics: Record<string, any> = {
   'day-toc-banh-lac': Hairspring,
 };
 const Infographic =
-  lang === 'vi' && (data as any).has_infographic ? infographics[slug] : null;
+  lang === 'vi' && data.has_infographic ? infographics[slug] : null;
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) ======
-const coCheEntries = await getEntriesByLang('coChe', lang);
+const coCheEntries = (await getEntriesByLang('coChe', lang)).filter(isEntryOf('coChe'));
 const matchingMechanism = coCheEntries.find((e) => getSlug(e) === slug);
 const sameCategory = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).category === (data as any).category)
-  .sort((a, b) => (a.data as any).title.localeCompare((b.data as any).title));
+  .filter((e) => getSlug(e) !== slug && e.data.category === data.category)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const related: RelatedItem[] = [];
 
 if (matchingMechanism) {
-  const md = matchingMechanism.data as any;
+  const md = matchingMechanism.data;
   related.push({
     href: collectionHref('coChe', getSlug(matchingMechanism), lang),
     title: md.title,
     excerpt: md.excerpt,
-    meta: md.term_en ? `EN: ${md.term_en}` : getCategoryLabel(md.category, lang),
+    meta: 'term_en' in md && md.term_en ? `EN: ${md.term_en}` : getCategoryLabel(md.category, lang),
   });
 }
 
 for (const e of sameCategory) {
   if (related.length >= 3) break;
-  const ed = e.data as any;
+  const ed = e.data;
   related.push({
     href: collectionHref('tuDien', getSlug(e), lang),
     title: ed.title,
@@ -119,7 +119,7 @@ const backHref = lang === 'vi' ? '/tu-dien' : '/en/glossary';
 >
   {Infographic && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-3 text-center text-xs font-medium text-brass">
-      ✅ Infographic minh họa {(data as any).interactive ? 'tương tác (Play/Pause/Speed/Step)' : ''}
+      ✅ Infographic minh họa {data.interactive ? 'tương tác (Play/Pause/Speed/Step)' : ''}
     </div>
   )}
   {Infographic && <Infographic />}

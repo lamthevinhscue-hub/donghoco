@@ -11,7 +11,7 @@ import BaseLayout from './BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Card from '../components/Card.astro';
 import { getCollectionRoute, getSlug, type ContentCollectionName } from '../lib/content';
-import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, t } from '../i18n/ui';
 import type { CollectionEntry } from 'astro:content';
 
 interface FilterGroup {
@@ -31,16 +31,27 @@ interface Props {
   description: string;
   /** Liên kết ngắn nối tiếp mô tả, không nhận HTML thô trong description. */
   descriptionLink?: { href: string; label: string };
-  entries: ContentEntry<ContentCollectionName>[];
+  entries: CollectionEntry<ContentCollectionName>[];
   getMeta?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   getBadge?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   /** Trích năm thành lập/ra mắt để hiển thị như yếu tố thị giác chính trên thẻ (serif, lớn, brass) */
   getFeatureYear?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
   /** Trích slug mẫu iconic để hiện nút 'So sánh' trên thẻ (chỉ dùng cho /mau-iconic) */
   getCompareSlug?: (entry: CollectionEntry<ContentCollectionName>) => string | undefined;
-  /** Bộ lọc tùy chọn (mỗi nhóm là 1 hàng nút) */
   filters?: FilterGroup[];
 }
+
+/** Dựng thuộc tính data-f-* cho từng thẻ từ bộ lọc (tránh TS annotation trong template) */
+const buildFilterAttrs = (
+  filterGroups: FilterGroup[],
+  entry: CollectionEntry<ContentCollectionName>
+): Record<string, string> => {
+  const attrs: Record<string, string> = {};
+  for (const g of filterGroups) {
+    attrs[`data-f-${g.key}`] = g.getValue(entry) ?? '';
+  }
+  return attrs;
+};
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
@@ -100,10 +111,7 @@ const route = getCollectionRoute(collection);
         <h2 class="sr-only">{lang === 'vi' ? 'Danh sách bài viết' : 'Article list'}</h2>
         <div id="card-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {entries.map((entry) => {
-            const filterAttrs = {};
-            for (const g of filters) {
-              filterAttrs[`data-f-${g.key}`] = g.getValue(entry) ?? '';
-            }
+            const filterAttrs = buildFilterAttrs(filters, entry);
             return (
               <div class="card-wrapper" {...filterAttrs}>
                 <Card

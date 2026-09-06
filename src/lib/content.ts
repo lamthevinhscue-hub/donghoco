@@ -82,6 +82,25 @@ export function getSlug(entry: CollectionEntry<ContentCollectionName>): string {
   return entry.id.split('/').pop()?.replace(/\.(md|mdx)$/, '') ?? entry.id;
 }
 
+// =============================================================================
+// TRỢ GIÚP KIỂU — thu hẹp phần tử union của getEntriesByLang về đúng collection
+// =============================================================================
+// getEntriesByLang nhận tên collection là union nên phần tử trả về là union
+// schema. Các trang chỉ dùng field của một collection cụ thể → lọc qua guard
+// này (so sánh entry.collection — literal từng nhánh union, chi phí 0 runtime
+// đáng kể). getEntriesByLang giữ nguyên chữ ký; việc tổng quát hóa là gói riêng.
+// =============================================================================
+export type EntriesOf<C extends ContentCollectionName> = Extract<
+  Awaited<ReturnType<typeof getEntriesByLang>>[number],
+  CollectionEntry<C>
+>;
+
+export function isEntryOf<C extends ContentCollectionName>(
+  collection: C,
+): (entry: Awaited<ReturnType<typeof getEntriesByLang>>[number]) => entry is EntriesOf<C> {
+  return (entry): entry is EntriesOf<C> => entry.collection === collection;
+}
+
 // Lấy MỘT entry đầy đủ (có khả năng render .Content) theo slug và ngôn ngữ.
 // Slug LUÔN lấy từ tên file (getSlug), không dùng custom_slug — quy ước thống nhất.
 // Trả về trực tiếp entry từ getCollection (đã có đầy đủ .Content),

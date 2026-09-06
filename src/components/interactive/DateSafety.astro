@@ -194,8 +194,8 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-tool="date-safety"]').forEach((root) => {
-    const svg = root.querySelector('.date-svg') as SVGSVGElement | null;
-    const hand = root.querySelector('.date-hour-hand') as SVGGElement | null;
+    const svgDecl = root.querySelector('.date-svg') as SVGSVGElement | null;
+    const handDecl = root.querySelector('.date-hour-hand') as SVGGElement | null;
     const currentEl = root.querySelector('.date-current') as HTMLElement | null;
     const timeOut = root.querySelector('.ds-time') as HTMLOutputElement | null;
     const range = root.querySelector('.ds-range') as HTMLInputElement | null;
@@ -204,7 +204,8 @@ const arc = { x1: 39.15, y1: 86, x2: 260.85, y2: 86, r: 128 };
     const safeBox = root.querySelector('.date-safe-box') as HTMLElement | null;
     const warnBox = root.querySelector('.date-warn-box') as HTMLElement | null;
     const liveEl = root.querySelector('.date-live') as HTMLElement | null;
-    if (!svg || !hand) return;
+    if (!svgDecl || !handDecl) return;
+    const svg = svgDecl, hand = handDecl;
 
     // Giờ mô phỏng 0–23 (24 giờ). Vùng minh họa: 20:00 đến 04:00 — chỉ là ví dụ
     // trực quan cho nguyên lý, không xác định khung giờ cho đồng hồ người đọc.

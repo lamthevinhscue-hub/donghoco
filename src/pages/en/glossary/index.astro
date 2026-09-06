@@ -1,10 +1,10 @@
 ---
 // EN index — Glossary: /en/glossary/
 import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
-import { getEntriesByLang, getSlug } from '../../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../../lib/content';
 import { getCategoryLabel } from '../../../i18n/ui';
 
-const entries = await getEntriesByLang('tuDien', 'en');
+const entries = (await getEntriesByLang('tuDien', 'en')).filter(isEntryOf('tuDien'));
 const items = entries.map((e) => ({
   href: `/en/glossary/${getSlug(e)}/`,
   title: e.data.title,

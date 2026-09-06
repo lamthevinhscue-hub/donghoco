@@ -74,7 +74,7 @@ function loadCollection(name) {
   let count = 0;
   for (const slug of slugs) {
     count++;
-    const { lists, hasFm } = parseEditorialLists(path.join(dir, `${slug}.md`));
+    const { lists } = parseEditorialLists(path.join(dir, `${slug}.md`));
     data.set(slug, lists);
     for (const listName of Object.keys(lists)) {
       const seen = new Set();

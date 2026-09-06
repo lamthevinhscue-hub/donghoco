@@ -257,6 +257,24 @@ const stepsJson = JSON.stringify(steps);
   // =============================================================================
   // BỘ ĐIỀU KHIỂN — dùng chung mọi MechanismAnimation trên trang
   // =============================================================================
+  // Registry toàn cục: các component con (script is:inline) đăng ký hàm theo
+  // data-mech-step-id — khai báo kiểu chính xác trên Window thay vì ép kiểu.
+  declare global {
+    interface Window {
+      __mechSteps?: Record<string, (delta: number, elapsed: number) => void>;
+      __mechResets?: Record<string, () => void>;
+      __mechGuided?: Record<
+        string,
+        {
+          apply?: (i: number) => void;
+          pause?: () => void;
+          select?: (key: string) => void;
+          legendSync?: (key: string | null) => void;
+        }
+      >;
+    }
+  }
+  // =============================================================================
   // Chế cũ (không có data-enhanced): play/pause/tốc độ/từng bước/đặt lại gọi
   // window.__mechSteps[id](delta, accumulated) — giữ nguyên như trước.
   // Chế enhanced (data-enhanced="true"): prev/next/play/reset điều khiển bước
@@ -328,16 +346,7 @@ const stepsJson = JSON.stringify(steps);
       const n = stepList.length;
       if (!n) return; // không có dữ liệu bước → không điều khiển gì thêm
 
-      const guided = stepId
-        ? ((window as any).__mechGuided?.[stepId] as
-            | {
-                apply?: (i: number) => void;
-                pause?: () => void;
-                select?: (key: string) => void;
-                legendSync?: (key: string | null) => void;
-              }
-            | undefined)
-        : undefined;
+      const guided = stepId ? window.__mechGuided?.[stepId] : undefined;
 
       let idx = 0;
       let isPlaying = false; // người dùng có đang ở trạng thái "phát" không
@@ -408,7 +417,7 @@ const stepsJson = JSON.stringify(steps);
       resetBtn?.addEventListener('click', () => {
         setPlaying(false);
         holdMs = 0;
-        const resetFn = stepId && (window as any).__mechResets?.[stepId];
+        const resetFn = stepId && window.__mechResets?.[stepId];
         if (resetFn) resetFn();
         applyStep(0);
       });
@@ -469,14 +478,14 @@ const stepsJson = JSON.stringify(steps);
     let speed = 0.2;
 
     // Lấy hàm step từ registry (component con đăng ký qua data-mech-step-id)
-    const stepFn = stepId && (window as any).__mechSteps?.[stepId];
+    const stepFn = stepId ? window.__mechSteps?.[stepId] : undefined;
 
     if (!stepFn) return; // không có animation cụ thể thì thôi
 
     // Chỉ chạy rAF khi: người dùng đã bấm Phát + đang trong viewport + tab hiện
     const canRun = () => isPlaying && inView && !document.hidden;
 
-    function loop() {
+    const loop = () => {
       const now = performance.now();
       const delta = (now - lastTime) * speed;
       accumulated += delta;
@@ -487,7 +496,7 @@ const stepsJson = JSON.stringify(steps);
       } else {
         rafId = null;
       }
-    }
+    };
 
     // Bật/tắt rAF theo trạng thái hiện tại — gọi sau mọi thay đổi trạng thái
     function syncLoop() {
@@ -528,7 +537,7 @@ const stepsJson = JSON.stringify(steps);
       setPlaying(false);
       accumulated = 0;
       lastTime = performance.now();
-      const resetFn = stepId && (window as any).__mechResets?.[stepId];
+      const resetFn = stepId && window.__mechResets?.[stepId];
       if (resetFn) resetFn();
       stepFn(0, 0);
     });

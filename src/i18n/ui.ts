@@ -493,12 +493,14 @@ const tierLabels: Record<Tier, { vi: string; en: string; desc: { vi: string; en:
   },
 };
 
+const isTier = (value: string): value is Tier => (TIER_ORDER as readonly string[]).includes(value);
+
 export function getTierLabel(tier: string, lang: Lang): string {
-  return (tierLabels as any)[tier]?.[lang] ?? tier;
+  return isTier(tier) ? tierLabels[tier][lang] : tier;
 }
 
 export function getTierDesc(tier: string, lang: Lang): string {
-  return (tierLabels as any)[tier]?.desc?.[lang] ?? '';
+  return isTier(tier) ? (tierLabels[tier].desc?.[lang] ?? '') : '';
 }
 
 // =============================================================================

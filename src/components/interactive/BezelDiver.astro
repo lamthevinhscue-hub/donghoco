@@ -172,16 +172,17 @@ const bezelNumerals = [0, 10, 20, 30, 40, 50].map((p) => {
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-tool="bezel-diver"]').forEach((root) => {
-    const svg = root.querySelector('.bezel-svg') as SVGSVGElement | null;
-    const ring = root.querySelector('.bezel-ring') as SVGGElement | null;
-    const minuteHand = root.querySelector('.minute-hand') as SVGGElement | null;
+    const svgDecl = root.querySelector('.bezel-svg') as SVGSVGElement | null;
+    const ringDecl = root.querySelector('.bezel-ring') as SVGGElement | null;
+    const minuteHandDecl = root.querySelector('.minute-hand') as SVGGElement | null;
     const elapsedEl = root.querySelector('.bezel-elapsed') as HTMLElement | null;
     const rotationEl = root.querySelector('.bezel-rotation') as HTMLElement | null;
     const statusEl = root.querySelector('.bezel-status') as HTMLElement | null;
     const stepBtn = root.querySelector('.bezel-step') as HTMLButtonElement | null;
     const setBtn = root.querySelector('.bezel-set') as HTMLButtonElement | null;
     const runBtn = root.querySelector('.bezel-run') as HTMLButtonElement | null;
-    if (!svg || !ring || !minuteHand) return;
+    if (!svgDecl || !ringDecl || !minuteHandDecl) return;
+    const svg = svgDecl, ring = ringDecl, minuteHand = minuteHandDecl;
 
     let bezelAngle = 0;  // góc vành — chỉ tăng (một chiều theo cơ cấu an toàn)
     let minuteAngle = 0; // góc kim phút, 0 = đỉnh

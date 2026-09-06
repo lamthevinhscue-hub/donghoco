@@ -10,13 +10,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import SearchInline from '../../components/SearchInline.astro';
 import { t } from '../../i18n/ui';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 
 const lang = 'en' as const;
 const tr = t(lang);
-const allIconics = await getEntriesByLang('mauIconic', lang);
+const allIconics = (await getEntriesByLang('mauIconic', lang)).filter(isEntryOf('mauIconic'));
 // Số lượng thư viện trên hero lấy từ dữ liệu thật của từng collection (bản EN).
-const allBrands = await getEntriesByLang('thuongHieu', lang);
+const allBrands = (await getEntriesByLang('thuongHieu', lang)).filter(isEntryOf('thuongHieu'));
 const allMechanisms = await getEntriesByLang('coChe', lang);
 const allGlossary = await getEntriesByLang('tuDien', lang);
 

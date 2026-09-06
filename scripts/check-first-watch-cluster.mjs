@@ -17,7 +17,7 @@
 // Exit 1 nếu có lỗi.
 // =============================================================================
 
-import { readFileSync, existsSync, statSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const PILLAR = 'src/content/huongDan/vi/chon-dong-ho-dau-tien.md';

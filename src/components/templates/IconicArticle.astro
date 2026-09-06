@@ -13,7 +13,7 @@ import SpecTable from '../../components/SpecTable.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
 import ModelEvolution from '../../components/ModelEvolution.astro';
 import { getEvolutionDataset } from '../../data/modelEvolution';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { render } from 'astro:content';
 import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
 import { collectionHref } from '../../i18n/contentRoutes';
@@ -27,7 +27,7 @@ interface Props {
 
 const { slug, lang } = Astro.props;
 const evolutionDataset = getEvolutionDataset(slug, lang);
-const entries = await getEntriesByLang('mauIconic', lang);
+const entries = (await getEntriesByLang('mauIconic', lang)).filter(isEntryOf('mauIconic'));
 const entry = entries.find((e) => getSlug(e) === slug);
 if (!entry) {
   return Astro.redirect('/404');
@@ -36,32 +36,31 @@ if (!entry) {
 const { Content, headings } = await render(entry);
 const { data } = entry;
 const meta = [
-  (data as any).brand,
-  (data as any).year ? `${(data as any).year}` : null,
-  (data as any).references && (data as any).references.length > 0 ? `${(data as any).references.length} ref` : null,
+  data.brand,
+  data.year ? `${data.year}` : null,
+  data.references && data.references.length > 0 ? `${data.references.length} ref` : null,
 ].filter(Boolean).join(' • ');
 
 // ====== Khối "Thông số kỹ thuật" — SpecTable tự bỏ dòng rỗng ======
 const tr = t(lang);
 const specRows = [
-  { label: tr.spec_brand, value: (data as any).brand || '' },
-  { label: tr.spec_year, value: (data as any).year ? String((data as any).year) : '' },
-  { label: tr.spec_category, value: (data as any).category ? getIconicCategoryLabel((data as any).category, lang) : '' },
-  { label: tr.spec_movement, value: (data as any).movement || '' },
-  { label: tr.spec_power_reserve, value: (data as any).power_reserve || '' },
-  { label: tr.spec_water_resistance, value: (data as any).water_resistance || '' },
-  { label: tr.spec_references, value: (data as any).references && (data as any).references.length > 0 ? (data as any).references.join(', ') : '' },
+  { label: tr.spec_brand, value: data.brand || '' },
+  { label: tr.spec_year, value: data.year ? String(data.year) : '' },
+  { label: tr.spec_category, value: data.category ? getIconicCategoryLabel(data.category, lang) : '' },
+  { label: tr.spec_movement, value: data.movement || '' },
+  { label: tr.spec_power_reserve, value: data.power_reserve || '' },
+  { label: tr.spec_water_resistance, value: data.water_resistance || '' },
+  { label: tr.spec_references, value: data.references && data.references.length > 0 ? data.references.join(', ') : '' },
 ];
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) ======
-const decade = (data as any).year ? Math.floor((data as any).year / 10) * 10 : null;
 const sameCategory = entries
-  .filter((e) => getSlug(e) !== slug && (e.data as any).category === (data as any).category)
+  .filter((e) => getSlug(e) !== slug && e.data.category === data.category)
   .sort((a, b) => {
-    const ya = (a.data as any).year ?? 9999;
-    const yb = (b.data as any).year ?? 9999;
-    if ((data as any).year) {
-      return Math.abs(ya - (data as any).year) - Math.abs(yb - (data as any).year);
+    const ya = a.data.year ?? 9999;
+    const yb = b.data.year ?? 9999;
+    if (data.year) {
+      return Math.abs(ya - data.year) - Math.abs(yb - data.year);
     }
     return ya - yb;
   });
@@ -70,7 +69,7 @@ const related: RelatedItem[] = [];
 
 if (sameCategory[0]) {
   const e = sameCategory[0];
-  const ed = e.data as any;
+  const ed = e.data;
   related.push({
     href: collectionHref('mauIconic', getSlug(e), lang),
     title: ed.title,
@@ -80,29 +79,29 @@ if (sameCategory[0]) {
   });
 }
 
-if ((data as any).brand) {
-  const brandEntries = await getEntriesByLang('thuongHieu', lang);
+if (data.brand) {
+  const brandEntries = (await getEntriesByLang('thuongHieu', lang)).filter(isEntryOf('thuongHieu'));
   const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
   const brandEntry = brandEntries.find((e) => {
-    const b = (e.data as any).title;
-    return b && norm(b) === norm((data as any).brand);
+    const b = e.data.title;
+    return b && norm(b) === norm(data.brand);
   });
   if (brandEntry) {
     related.push({
       href: collectionHref('thuongHieu', getSlug(brandEntry), lang),
-      title: (brandEntry.data as any).title,
-      excerpt: (brandEntry.data as any).excerpt,
-      meta: (brandEntry.data as any).country,
+      title: brandEntry.data.title,
+      excerpt: brandEntry.data.excerpt,
+      meta: brandEntry.data.country,
     });
   }
 }
 
 const thirdCandidate = sameCategory.find((e) => {
-  const ed = e.data as any;
+  const ed = e.data;
   return !related.some((r) => r.title === ed.title);
 });
 if (thirdCandidate) {
-  const ed = thirdCandidate.data as any;
+  const ed = thirdCandidate.data;
   related.push({
     href: collectionHref('mauIconic', getSlug(thirdCandidate), lang),
     title: ed.title,
@@ -113,17 +112,17 @@ if (thirdCandidate) {
 }
 
 // ====== Liên kết biên tập ======
-const coCheEntries = await getEntriesByLang('coChe', lang);
+const coCheEntries = (await getEntriesByLang('coChe', lang)).filter(isEntryOf('coChe'));
 const resolveTitle = (collection: any[], targetSlug: string) => {
   const e = collection.find((x) => getSlug(x) === targetSlug);
-  return e ? (e.data as any).title : null;
+  return e ? e.data.title : null;
 };
 const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
-for (const rm of (data as any).relatedModels ?? []) {
+for (const rm of data.relatedModels ?? []) {
   const title = resolveTitle(entries, rm.slug);
   if (title) editorialLinks.push({ href: collectionHref('mauIconic', rm.slug, lang), title, kind: lang === 'vi' ? 'Mẫu iconic' : 'Iconic watch', relation: rm.relation });
 }
-for (const rm of (data as any).relatedMechanisms ?? []) {
+for (const rm of data.relatedMechanisms ?? []) {
   const title = resolveTitle(coCheEntries, rm.slug);
   if (title) editorialLinks.push({ href: collectionHref('coChe', rm.slug, lang), title, kind: lang === 'vi' ? 'Cơ chế' : 'Mechanism', relation: rm.relation });
 }

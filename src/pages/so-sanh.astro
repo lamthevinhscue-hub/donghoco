@@ -9,9 +9,9 @@
 // =============================================================================
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getEntriesByLang, getSlug } from '../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../lib/content';
 
-const entries = await getEntriesByLang('mauIconic', 'vi');
+const entries = (await getEntriesByLang('mauIconic', 'vi')).filter(isEntryOf('mauIconic'));
 
 const categoryLabels: Record<string, string> = {
   'lặn': 'Lặn',

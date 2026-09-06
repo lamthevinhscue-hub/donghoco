@@ -92,7 +92,7 @@ import MechanismAnimation from '../MechanismAnimation.astro';
     // =============================================================================
     // Đăng ký hàm animate cho moon-phase
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['moon-phase'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['moon-phase'] = function(_delta, elapsed) {
       const svg = document.getElementById('moonphase-svg');
       if (!svg) return;
       const disk = svg.querySelector('#moon-disk');

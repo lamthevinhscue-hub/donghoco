@@ -255,7 +255,7 @@ const steps = [
     // (1) HOẠT ẢNH LIÊN TỤC — vật lý đã sửa: ngựa đổi chiều mỗi nhịp, bánh lắc
     //     nửa dao động mỗi nhịp. Giữ cho tương thích; chế enhanced dùng (2).
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['escapement'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['escapement'] = function(_delta, elapsed) {
       const svg = document.getElementById('escapement-svg');
       if (!svg) return;
 

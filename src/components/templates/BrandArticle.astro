@@ -12,7 +12,7 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import BrandLayout from '../../layouts/BrandLayout.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { render } from 'astro:content';
 import { getTierLabel } from '../../i18n/ui';
 import { collectionHref } from '../../i18n/contentRoutes';
@@ -25,7 +25,7 @@ interface Props {
 }
 
 const { slug, lang } = Astro.props;
-const entries = await getEntriesByLang('thuongHieu', lang);
+const entries = (await getEntriesByLang('thuongHieu', lang)).filter(isEntryOf('thuongHieu'));
 const entry = entries.find((e) => getSlug(e) === slug);
 if (!entry) {
   return Astro.redirect('/404');
@@ -35,28 +35,28 @@ const { Content } = await render(entry);
 const { data } = entry;
 
 const meta = [
-  (data as any).country,
-  (data as any).founded ? `${(data as any).founded}` : null,
-  getTierLabel((data as any).tier, lang),
+  data.country,
+  data.founded ? `${data.founded}` : null,
+  getTierLabel(data.tier, lang),
 ].filter(Boolean).join(' • ');
 
 // ====== Mẫu iconic liên quan (brand khớp) — dùng cho cả hai ngôn ngữ ======
 const collator = new Intl.Collator(lang === 'vi' ? 'vi' : 'en', { sensitivity: 'accent', numeric: true });
-const iconicEntries = await getEntriesByLang('mauIconic', lang);
+const iconicEntries = (await getEntriesByLang('mauIconic', lang)).filter(isEntryOf('mauIconic'));
 const iconicModels = iconicEntries
   .filter((e) => {
-    const brand = (e.data as any).brand;
+    const brand = e.data.brand;
     if (!brand) return false;
     const norm = (s: string) => s.toLowerCase().replace(/[\s\-_.&]/g, '');
     return norm(brand) === norm(data.title);
   })
   .map((e) => ({
-    title: (e.data as any).title,
+    title: e.data.title,
     slug: getSlug(e),
-    excerpt: (e.data as any).excerpt,
-    category: (e.data as any).category,
-    year: (e.data as any).year,
-    cover_image: (e.data as any).cover_image,
+    excerpt: e.data.excerpt,
+    category: e.data.category,
+    year: e.data.year,
+    cover_image: e.data.cover_image,
   }))
   .sort((a, b) => collator.compare(a.title, b.title));
 
@@ -69,14 +69,14 @@ const relatedEn: RelatedItem[] = iconicModels.slice(0, 3).map((m) => ({
 }));
 
 // ====== Liên kết biên tập (relatedMechanisms) — chỉ mục có bài đích cùng ngôn ngữ ======
-const coCheEntries = await getEntriesByLang('coChe', lang);
+const coCheEntries = (await getEntriesByLang('coChe', lang)).filter(isEntryOf('coChe'));
 const editorialLinks: Array<{ href: string; title: string; kind: string; relation: string }> = [];
-for (const rm of (data as any).relatedMechanisms ?? []) {
+for (const rm of data.relatedMechanisms ?? []) {
   const mech = coCheEntries.find((x) => getSlug(x) === rm.slug);
   if (mech) {
     editorialLinks.push({
       href: collectionHref('coChe', rm.slug, lang),
-      title: (mech.data as any).title,
+      title: mech.data.title,
       kind: lang === 'vi' ? 'Cơ chế' : 'Mechanism',
       relation: rm.relation,
     });
@@ -87,16 +87,16 @@ for (const rm of (data as any).relatedMechanisms ?? []) {
 const sameTierBrands =
   lang === 'vi'
     ? entries
-        .filter((e) => getSlug(e) !== slug && (e.data as any).tier === (data as any).tier)
+        .filter((e) => getSlug(e) !== slug && e.data.tier === data.tier)
         .sort((a, b) => collator.compare(a.data.title, b.data.title))
         .slice(0, 3)
         .map((e) => ({
-          title: (e.data as any).title,
+          title: e.data.title,
           slug: getSlug(e),
-          excerpt: (e.data as any).excerpt,
-          country: (e.data as any).country,
-          founded: (e.data as any).founded,
-          logo: (e.data as any).logo,
+          excerpt: e.data.excerpt,
+          country: e.data.country,
+          founded: e.data.founded,
+          logo: e.data.logo,
         }))
     : [];
 ---

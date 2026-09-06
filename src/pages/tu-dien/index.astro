@@ -9,19 +9,17 @@
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
-import { getEntriesByLang, getSlug } from '../../lib/content';
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import {
   getLangFromUrl,
-  t,
   GLOSSARY_CATEGORY_ORDER,
   getCategoryLabel,
 } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
-const tr = t(lang);
 const isVi = lang === 'vi';
 
-const entries = await getEntriesByLang('tuDien', lang);
+const entries = (await getEntriesByLang('tuDien', lang)).filter(isEntryOf('tuDien'));
 
 // Nhóm thuật ngữ theo nhóm (theo thứ tự GLOSSARY_CATEGORY_ORDER)
 const groups = GLOSSARY_CATEGORY_ORDER.map((category) => ({

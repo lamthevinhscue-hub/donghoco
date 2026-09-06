@@ -27,7 +27,7 @@
 //     tự đổi theo .dark — không có mã hex, không cần cặp dark:.
 // =============================================================================
 
-import type { ModelEvolutionDataset } from '../data/modelEvolution';
+import type { ModelEvolutionDataset, ModelEvolutionMilestone } from '../data/modelEvolution';
 import { tText, type DisplayText } from '../data/modelEvolution';
 import { t, type Lang } from '../i18n/ui';
 
@@ -36,7 +36,8 @@ interface Props {
   lang: Lang;
 }
 
-const { dataset, lang } = Astro.props;
+const props = Astro.props as Props;
+const { dataset, lang } = props;
 const tr = t(lang);
 const { milestones } = dataset;
 const text = (value: DisplayText) => tText(value, lang);
@@ -72,7 +73,7 @@ const ticks = Array.from({ length: 61 }, (_, i) => ({ x: i * 12, long: i % 5 ===
     </div>
 
     <ol class="evol-list m-0 list-none p-0" style={`--evol-cols: ${milestones.length}`}>
-      {milestones.map((m, i) => (
+      {milestones.map((m: ModelEvolutionMilestone, i: number) => (
         <li class="evol-item border-b border-line/60 py-4 last:border-b-0">
           <button
             type="button"

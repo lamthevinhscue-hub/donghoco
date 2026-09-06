@@ -64,6 +64,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   const container = root.querySelector<HTMLElement>('#three-canvas-container');
   const loadingEl = root.querySelector<HTMLElement>('#three-loading');
   if (!container) throw new Error('Không tìm thấy khung chứa mô hình 3D.');
+  const host = container;
 
   // ---- Dữ liệu 12 bộ phận đọc từ các nút chọn nhanh trong DOM ----
   const partMap: Record<string, PartInfo> = {};
@@ -364,8 +365,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     const center = box.getCenter(new Vector3());
     const size = box.getSize(new Vector3());
 
-    const cw = container.clientWidth || 1;
-    const ch = container.clientHeight || 1;
+    const cw = host.clientWidth || 1;
+    const ch = host.clientHeight || 1;
     const fovV = MathUtils.degToRad(camera.fov);
     const fovH = 2 * Math.atan(Math.tan(fovV / 2) * (cw / ch));
     const distV = (size.y / 2) / Math.tan(fovV / 2);

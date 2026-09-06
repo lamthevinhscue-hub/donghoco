@@ -18,7 +18,7 @@ const calendarTypes = [
   { name: 'Annual Calendar', desc: 'Tự đúng cả năm, chỉ sai tháng Hai (1 lần/năm)', tone: 'ok' },
   { name: 'Perpetual Calendar', desc: 'Đúng mãi đến năm 2100 (1 lần/400 năm!)', tone: 'great' },
 ];
-const toneColors = {
+const toneColors: Record<string, { bg: string; text: string }> = {
   bad: { bg: 'var(--ig-rubi)', text: 'var(--ig-rubi)' },
   ok: { bg: 'var(--obs-brass)', text: 'var(--obs-brass-deep)' },
   great: { bg: 'var(--ig-steel)', text: 'var(--ig-steel)' },
@@ -184,7 +184,7 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
     // =============================================================================
     // Hoạt ảnh Lịch vạn niên — mô phỏng ngày trôi qua (1 ngày = ~400ms)
     // =============================================================================
-    (window.__mechSteps = window.__mechSteps || {})['perpetual'] = function(delta, elapsed) {
+    (window.__mechSteps = window.__mechSteps || {})['perpetual'] = function(_delta, elapsed) {
       const svg = document.getElementById('perp-svg');
       if (!svg) return;
 
@@ -205,7 +205,6 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
       const totalDays = Math.floor(elapsed / dayMs);
 
       // Bắt đầu từ 1/1/Y1
-      let day = totalDays % 365; // chỉ mô phỏng 1 năm 4 chu kỳ cho dễ nhìn
       let year = 0; // 0-3 = năm 1-4
       let month = 0;
       let dateInMonth = 1;
@@ -245,7 +244,6 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
       if (leapCam) leapCam.setAttribute('transform', `rotate(${yearAngle})`);
       // Kim cảm biến vị trí theo bậc cam
       if (camFeeler) {
-        const feelerX = 35 + year * 5; // di chuyển xa hơn khi cam xoay
         camFeeler.setAttribute('transform', `rotate(0) translate(0, 0)`);
       }
 

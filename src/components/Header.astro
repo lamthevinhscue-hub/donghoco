@@ -73,10 +73,12 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
 ---
 
 <header data-pagefind-ignore class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur dark:border-dark-border dark:bg-dark-bg/95">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-    <!-- Logo / Tên website (đảm nhiệm việc về trang chủ) -->
-    <a href={localizedPath('/', lang)} class="flex items-baseline gap-2" aria-label={tr.siteName}>
-      <span class="font-serif text-xl font-bold text-navy dark:text-dark-text">{tr.siteName}</span>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4">
+    <!-- Logo / Tên website (đảm nhiệm việc về trang chủ).
+         min-w-0 + flex-1: logo chiếm phần trống còn lại và xuống dòng tự nhiên ở
+         màn hình rất hẹp — nội dung luôn hiển thị đủ, không cắt, không tràn. -->
+    <a href={localizedPath('/', lang)} class="flex min-w-0 flex-1 items-baseline gap-2" aria-label={tr.siteName}>
+      <span class="min-w-0 font-serif text-base font-bold leading-tight text-navy dark:text-dark-text sm:text-xl">{tr.siteName}</span>
     </a>
 
     <!-- Menu (máy tính) -->
@@ -157,20 +159,24 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
       )}
     </nav>
 
-    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + ngôn ngữ + dark mode -->
-    <div class="flex items-center gap-3">
+    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + ngôn ngữ + dark mode.
+         shrink-0: cụm nút không bị flex co nhỏ dưới 44px ở màn hình hẹp; logo bên trái là bên co. -->
+    <div class="flex shrink-0 items-center gap-3 max-[480px]:gap-2">
       <SearchInline inputId="header-search-input" variant="header" />
       <SearchBox />
       <!-- Bộ chuyển ngôn ngữ: link thật, bàn phím dùng được. Trang chưa có bản
-           dịch thì về trang chủ ngôn ngữ đích — aria-label nói rõ điều đó. -->
+           dịch thì về trang chủ ngôn ngữ đích — aria-label nói rõ điều đó.
+           Dưới 480px hiện nhãn rút gọn (EN/VI) để vừa 320px; aria-label vẫn nêu
+           đầy đủ đích chuyển ngôn ngữ, nên trình đọc màn hình không mất thông tin. -->
       <a
         href={sw.href}
         data-pagefind-ignore
-        class="inline-flex min-h-11 items-center rounded-full border border-cream-dark px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
+        class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-cream-dark px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
         aria-label={switcherLabel}
         hreflang={lang === 'vi' ? 'en' : 'vi'}
       >
-        {tr.switch_lang}
+        <span class="hidden min-[480px]:inline">{tr.switch_lang}</span>
+        <span aria-hidden="true" class="inline min-[480px]:hidden">{lang === 'vi' ? 'EN' : 'VI'}</span>
       </a>
       <ThemeToggle />
       <button
@@ -178,7 +184,7 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
         id="menu-toggle"
         data-label-open={tr.menu_open}
         data-label-close={tr.menu_close}
-        class="flex h-11 w-11 items-center justify-center rounded-md md:hidden"
+        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md md:hidden"
         aria-label={tr.menu_open}
         aria-expanded="false"
         aria-controls="mobile-menu"

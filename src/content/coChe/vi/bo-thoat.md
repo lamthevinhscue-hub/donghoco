@@ -31,7 +31,7 @@ sources:
 
 Fondation de la Haute Horlogerie (FHH) định nghĩa: bộ thoát là **cơ cấu nằm giữa chuỗi bánh răng và bộ điều tiết**, có hai chức năng — **chặn chuyển động của chuỗi bánh răng tại các khoảng thời gian đều nhau**, và **cấp năng lượng cho bánh lắc**.
 
-Nói cách khác: dây cót muốn nhả năng lượng liên tục, còn bộ thoát là thứ **khia nhỏ** dòng năng lượng đó thành từng nhịp, đúng theo bước dao động của bộ điều tiết.
+Nói cách khác: dây cót muốn nhả năng lượng liên tục, còn bộ thoát là thứ **chia nhỏ** dòng năng lượng đó thành từng nhịp, đúng theo bước dao động của bộ điều tiết.
 
 ## Bộ thoát gồm những gì?
 

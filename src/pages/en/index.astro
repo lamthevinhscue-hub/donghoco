@@ -15,6 +15,10 @@ import { getEntriesByLang, getSlug } from '../../lib/content';
 const lang = 'en' as const;
 const tr = t(lang);
 const allIconics = await getEntriesByLang('mauIconic', lang);
+// Số lượng thư viện trên hero lấy từ dữ liệu thật của từng collection (bản EN).
+const allBrands = await getEntriesByLang('thuongHieu', lang);
+const allMechanisms = await getEntriesByLang('coChe', lang);
+const allGlossary = await getEntriesByLang('tuDien', lang);
 
 // Featured profiles — same editorial picks as the Vietnamese homepage
 const FEATURED_SLUGS = ['rolex-submariner', 'omega-speedmaster', 'cartier-tank'] as const;
@@ -84,7 +88,11 @@ const pathDeep = {
           suggestions={['escapement', 'power reserve', 'Submariner', 'movement']}
         />
         <p class="mt-8 text-base leading-relaxed text-ink-soft/90 dark:text-dark-text-soft/70">
-          {tr.hero_counts.replace('{brands}', '3').replace('{iconics}', String(allIconics.length)).replace('{mechanisms}', '3').replace('{glossary}', '6')}
+          {tr.hero_counts
+            .replace('{brands}', String(allBrands.length))
+            .replace('{iconics}', String(allIconics.length))
+            .replace('{mechanisms}', String(allMechanisms.length))
+            .replace('{glossary}', String(allGlossary.length))}
         </p>
       </div>
     </div>

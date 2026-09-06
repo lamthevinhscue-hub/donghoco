@@ -2,63 +2,48 @@
 // =============================================================================
 // INFOGRAPHIC: CHỐNG TỪ (Anti-Magnetic)
 // =============================================================================
-// Hoạt ảnh: cảnh 2 dùng MechanismAnimation (so sánh 2 dây tóc thép vs silicon
-// dưới từ trường tăng dần — thép bị hút dính + sai số tăng, silicon không đổi).
-// Các cảnh khác giữ CSS reveal + Intersection Observer.
+// Chuẩn nội dung duy nhất: src/content/coChe/vi/chong-tu.md — mọi câu hiển thị
+// phải chỉ ra được căn cứ trong bài đó; không có căn cứ trong bài thì không
+// hiển thị. Chi tiết những gì đã rút khỏi bản trước được ghi trong biên bản
+// nghiệm thu gói P0.1 (docs/nghiem-thu/).
 //
 // 4 cảnh:
-//   1. Mở đầu — vấn đề từ trường giấu mặt
-//   2. So sánh 2 dây tóc dưới từ trường — HOẠT ẢNH TƯƠNG TÁC
-//   3. Thang mức độ — từ vài trăm gauss đến 15.000 gauss
-//   4. Nguồn từ trường quanh bạn — và mẹo phòng tránh
+//   1. Mở đầu — bộ máy cơ có thể nhiễm từ, ảnh hưởng độ chính xác (theo Oris)
+//   2. Minh họa nguyên lý ĐỊNH TÍNH (MechanismAnimation + thanh trượt tăng dần
+//      không mang đơn vị đo, không mô phỏng số giây sai lệch)
+//   3. Mức chống từ là thông số của từng bộ máy, từng chứng nhận (Oris / METAS
+//      — đúng như bài viết)
+//   4. Đồng hồ chạy bất thường — nên làm gì (không tự kết luận nguyên nhân)
 // =============================================================================
 
 import MechanismAnimation from './MechanismAnimation.astro';
 
-// Dữ liệu các mức chống từ
-const levels = [
+// Hai ví dụ có căn cứ trực tiếp trong bài viết (chong-tu.md):
+// một calibre (Oris) và một chứng nhận (METAS).
+const examples = [
   {
-    value: '600 gauss',
-    label: 'Không chống từ',
-    detail: 'Đa số đồng hồ cơ thông thường',
-    note: 'Loa điện thoại, nam châm tủ lạnh có thể làm sai số',
-    barWidth: 8,
-    tone: 'bad',
+    tag: 'Ví dụ một calibre',
+    title: 'Oris Calibre 400',
+    lines: [
+      'Dùng hơn 30 linh kiện phi từ (theo Oris).',
+      'Sau khi tiếp xúc 2.250 gauss, độ lệch còn dưới 10 giây/ngày — Oris mô tả calibre này vượt chuẩn ISO 764 (theo bài).',
+    ],
   },
   {
-    value: '1.000 gauss',
-    label: 'Đồng hồ pilot cổ điển',
-    detail: 'IWC Mark XI, Rolex Milgauss (cũ)',
-    note: 'Lồng sắt mềm (soft iron cage)',
-    barWidth: 15,
-    tone: 'ok',
-  },
-  {
-    value: '4.800 gauss',
-    label: 'Rolex Milgauss / Omega PoA',
-    detail: 'Lồng sắt + vật liệu đặc biệt',
-    note: 'Từ trường công nghiệp nhẹ',
-    barWidth: 35,
-    tone: 'good',
-  },
-  {
-    value: '15.000 gauss',
-    label: 'Omega Master Chronometer',
-    detail: 'Silicon + chứng nhận METAS',
-    note: 'Loa, điện thoại, iPad — không ảnh hưởng',
-    barWidth: 100,
-    tone: 'great',
+    tag: 'Ví dụ một chứng nhận',
+    title: 'METAS MASTER CHRONOMETER',
+    lines: [
+      'Kiểm tra cả "khả năng kháng từ trường"; tài liệu yêu cầu nêu mức 1,5 T (15.000 gauss) cho chứng nhận này.',
+      'Mở cho mọi hãng có đồng hồ Swiss Made với bộ máy đạt chứng nhận chronometer theo ISO 3159 (theo METAS).',
+    ],
   },
 ];
 
-// Nguồn từ trường quanh ta
-const sources = [
-  { icon: '📱', name: 'Điện thoại di động', strength: 'Trung bình', risk: 'Nguy hiểm nếu để cạnh nhiều giờ' },
-  { icon: '🔊', name: 'Loa (máy tính, loa bluetooth)', strength: 'Cao', risk: 'Có nam châm mạnh bên trong' },
-  { icon: '🧲', name: 'Nam châm tủ lạnh', strength: 'Cao', risk: 'Tránh dán đồng hồ lên' },
-  { icon: '💻', name: 'iPad / tablet + ốp từ', strength: 'Cao', risk: 'Ốp từ có nam châm mạnh' },
-  { icon: '👜', name: 'Túi xách có nam châm', strength: 'Trung bình', risk: 'Đặt đồng hồ vào túi lâu' },
-  { icon: '🏥', name: 'Thiết bị y tế (MRI)', strength: 'Cực cao', risk: 'Tuyệt đối không đeo vào phòng MRI' },
+// Ba điều cần nhớ — đúng ba ý của bài viết.
+const takeaways = [
+  'Mức chịu từ phụ thuộc thiết kế từng bộ máy và chuẩn công bố của từng calibre, từng chứng nhận.',
+  'Không có con số chống từ dùng chung cho đồng hồ cơ — mỗi nguồn công bố cho phạm vi của riêng nó.',
+  'Một chiếc đồng hồ chạy bất thường có nhiều nguyên nhân; việc xác định nguyên nhân thuộc về người có chuyên môn.',
 ];
 ---
 
@@ -68,59 +53,57 @@ const sources = [
        ==================================================================== -->
   <div class="scene scene-intro infographic-intro">
     <p class="mb-3 text-sm uppercase tracking-widest text-brass-light">Infographic động</p>
-    <h2 class="font-serif text-3xl sm:text-5xl">Kẻ thù giấu mặt của đồng hồ cơ</h2>
+    <h2 class="font-serif text-3xl sm:text-5xl">Chống từ — thông số của từng bộ máy</h2>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/80">
-      Bạn để đồng hồ cạnh điện thoại, loa, iPad — và tự nhiên nó chạy sai nhiều giây/ngày.
-      Đó có thể là do <strong class="text-brass-light">từ trường</strong>. Cuộn xuống để hiểu.
+      Bộ máy cơ có thể nhiễm từ, và điều này ảnh hưởng tới độ chính xác (theo Oris).
+      Nhưng <strong class="text-brass-light">mức chịu từ không có con số dùng chung</strong> —
+      nó là thông số của từng calibre, từng chứng nhận. Cuộn xuống để hiểu.
     </p>
     <div class="mt-8 intro-arrow text-brass-light">↓</div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 2: SO SÁNH 2 DÂY TÓC DƯỚI TỪ TRƯỜNG — HOẠT ẢNH TƯƠNG TÁC
+       CẢNH 2: MINH HỌA NGUYÊN LÝ ĐỊNH TÍNH — HOẠT ẢNH TƯƠNG TÁC
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      Hai cách đồng hồ chống từ
+      Minh họa nguyên lý — linh kiện thường và linh kiện phi từ
     </h3>
     <p class="mx-auto mb-8 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Từ trường làm <strong>dây tóc</strong> (phần mỏng manh nhất) bị nhiễm từ → sai số.
-      Kéo thanh trượt bên dưới để thấy sự khác nhau giữa dây tóc thép và silicon.
+      Kéo thanh trượt để thấy ở mức <strong>minh họa</strong>: linh kiện thường có thể bị ảnh hưởng
+      khi từ trường tăng, linh kiện phi từ không. Đây là <strong>minh họa nguyên lý</strong> —
+      không phải phép đo và không có ngưỡng kỹ thuật.
     </p>
 
-    <MechanismAnimation label="Kéo thanh trượt từ trường — dây tóc thép bị nhiễm, silicon không đổi" data-mech-step-id="anti-magnetic">
+    <MechanismAnimation label="Kéo thanh trượt minh họa từ trường tăng dần — linh kiện thường bị ảnh hưởng, linh kiện phi từ không đổi" data-mech-step-id="anti-magnetic">
       <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-2xl" id="anti-magnetic-svg" aria-hidden="true" focusable="false">
         <text style="fill:var(--ig-stroke)" x="300" y="20" text-anchor="middle" font-size="11" font-weight="bold" class="">
-          Cùng một từ trường — hai phản ứng khác nhau
+          Minh họa: cùng mức từ trường tăng dần — hai linh kiện khác nhau
         </text>
 
-        <!-- ====== BÊN TRÁI: DÂY TÓC THÉP ====== -->
+        <!-- ====== BÊN TRÁI: LINH KIỆN THƯỜNG (MINH HỌA) ====== -->
         <g transform="translate(150, 140)">
-          <text style="fill:var(--ig-rubi)" x="0" y="-70" text-anchor="middle" font-size="11" font-weight="bold">Dây tóc thép</text>
-          <!-- Dây tóc thép (xoắn ốc — bị hút dính khi từ trường cao) -->
+          <text style="fill:var(--ig-rubi)" x="0" y="-70" text-anchor="middle" font-size="11" font-weight="bold">Linh kiện thường (minh họa)</text>
           <g id="am-steel-spring">
             <path style="stroke:var(--ig-rubi)" id="am-steel-path" d="" fill="none" stroke-width="2"/>
           </g>
           <circle style="fill:var(--ig-rubi)" r="3"/>
-          <!-- Sai số -->
-          <text style="fill:var(--ig-rubi)" id="am-steel-error" x="0" y="80" text-anchor="middle" font-size="12" font-weight="bold">±0 giây/ngày</text>
-          <text style="fill:var(--ig-rubi)" x="0" y="95" text-anchor="middle" font-size="9" opacity="0.7">chạy sai khi nhiễm từ</text>
+          <text style="fill:var(--ig-rubi)" id="am-steel-error" x="0" y="80" text-anchor="middle" font-size="12" font-weight="bold">dao động không đổi</text>
+          <text style="fill:var(--ig-rubi)" x="0" y="95" text-anchor="middle" font-size="9" opacity="0.7">minh họa: bị ảnh hưởng khi từ trường tăng</text>
         </g>
 
         <!-- ====== ĐƯỜNG PHÂN CÁCH GIỮA ====== -->
         <line style="stroke:var(--ig-stroke-soft)" x1="300" y1="50" x2="300" y2="230" stroke-width="0.5" stroke-dasharray="6 4" opacity="0.3"/>
 
-        <!-- ====== BÊN PHẢI: DÂY TÓC SILICON ====== -->
+        <!-- ====== BÊN PHẢI: LINH KIỆN PHI TỪ (MINH HỌA) ====== -->
         <g transform="translate(450, 140)">
-          <text x="0" y="-70" text-anchor="middle" font-size="11" style="fill:var(--obs-steel-deep)" font-weight="bold">Dây tóc silicon</text>
-          <!-- Dây tóc silicon (không đổi dù từ trường cao) -->
+          <text x="0" y="-70" text-anchor="middle" font-size="11" style="fill:var(--obs-steel-deep)" font-weight="bold">Linh kiện phi từ (minh họa)</text>
           <g id="am-silicon-spring">
             <path id="am-silicon-path" d="" fill="none" style="stroke:var(--obs-steel)" stroke-width="2"/>
           </g>
           <circle r="3" style="fill:var(--obs-steel)"/>
-          <!-- Sai số -->
-          <text id="am-silicon-error" x="0" y="80" text-anchor="middle" font-size="12" style="fill:var(--obs-steel-deep)" font-weight="bold">±0 giây/ngày</text>
-          <text x="0" y="95" text-anchor="middle" font-size="9" style="fill:var(--obs-steel-deep)" opacity="0.7">không bị ảnh hưởng</text>
+          <text id="am-silicon-error" x="0" y="80" text-anchor="middle" font-size="12" style="fill:var(--obs-steel-deep)" font-weight="bold">dao động không đổi</text>
+          <text x="0" y="95" text-anchor="middle" font-size="9" style="fill:var(--obs-steel-deep)" opacity="0.7">minh họa: không bị ảnh hưởng</text>
         </g>
 
         <!-- ====== DÒNG TỪ TRƯỜNG (hiện khi > 0) ====== -->
@@ -131,14 +114,14 @@ const sources = [
           <text x="570" y="144" font-size="9" style="fill:var(--obs-steel)" font-weight="bold">B</text>
         </g>
 
-        <!-- ====== THANH TRƯỢT TỪ TRƯỜNG ====== -->
-        <text style="fill:var(--ig-stroke)" x="300" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Cường độ từ trường</text>
+        <!-- ====== THANH TRƯỜT MINH HỌA — không đơn vị, không ngưỡng ====== -->
+        <text style="fill:var(--ig-stroke)" x="300" y="270" text-anchor="middle" font-size="10" font-weight="bold" class="">Mức từ trường minh họa (tăng dần)</text>
         <rect style="stroke:var(--ig-stroke)" x="100" y="280" width="400" height="20" rx="4" fill="none" stroke-width="1.5" class="dark:stroke-dark-text"/>
         <rect id="am-field-fill" x="102" y="282" width="0" height="16" rx="2" style="fill:var(--obs-steel)"/>
         <foreignObject x="95" y="275" width="410" height="30">
-          <input type="range" id="am-field-slider" min="0" max="15000" value="0" step="500" style="width:100%;accent-color:var(--obs-steel);touch-action:none;" aria-label="Cường độ từ trường (gauss)" />
+          <input type="range" id="am-field-slider" min="0" max="3" value="0" step="1" style="width:100%;accent-color:var(--obs-steel);touch-action:none;" aria-label="Mức từ trường minh họa tăng dần — chỉ minh họa nguyên lý, không phải phép đo" />
         </foreignObject>
-        <text id="am-field-label" x="300" y="325" text-anchor="middle" font-size="12" style="fill:var(--obs-steel)" font-weight="bold" class="dark:fill-dark-text-soft">0 gauss</text>
+        <text id="am-field-label" x="300" y="325" text-anchor="middle" font-size="12" style="fill:var(--obs-steel)" font-weight="bold" class="dark:fill-dark-text-soft">chưa có từ trường (minh họa)</text>
       </svg>
 
       <script is:inline define:vars={{}} slot="script">
@@ -151,21 +134,17 @@ const sources = [
           const fieldLines = svg.querySelector('#am-field-lines');
           const steelPath = svg.querySelector('#am-steel-path');
           const siliconPath = svg.querySelector('#am-silicon-path');
-          const steelError = svg.querySelector('#am-steel-error');
-          const siliconError = svg.querySelector('#am-silicon-error');
           if (!slider) return;
 
-          // Sinh đường xoắn ốc dây tóc (bán kính có thể thay đổi)
-          function spiralPath(rMax, coils, collapse) {
-            // collapse: 0 = xoắn bình thường, 1 = các vòng hút dính vào nhau
+          // Sinh đường xoắn ốc dây tóc (chỉ minh họa hình dạng, không gắn đơn vị đo)
+          function spiralPath(rMax, coils, affected) {
             let d = '';
             const points = coils * 24;
             for (let i = 0; i <= points; i++) {
               const t = i / points;
               const angle = t * coils * Math.PI * 2;
-              let r = rMax * (1 - t * 0.8); // xoắn vào trong
-              // Khi nhiễm từ: các vòng hút dính → bán kính giảm theo collapse
-              r = r * (1 - collapse * 0.5);
+              let r = rMax * (1 - t * 0.8);
+              r = r * (1 - affected * 0.35);
               const x = r * Math.cos(angle);
               const y = r * Math.sin(angle);
               d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
@@ -174,27 +153,17 @@ const sources = [
           }
 
           function render() {
-            const gauss = parseInt(slider.value);
-            // Thanh trượt
-            fieldFill.setAttribute('width', String((gauss / 15000) * 396));
-            fieldLabel.textContent = gauss.toLocaleString('vi-VN') + ' gauss';
+            const level = parseInt(slider.value, 10); // 0..3 — chỉ mức minh họa
+            fieldFill.setAttribute('width', String((level / 3) * 396));
+            fieldLabel.textContent = ['chưa có từ trường (minh họa)', 'mức yếu (minh họa)', 'mức vừa (minh họa)', 'mức mạnh (minh họa)'][level];
 
-            // Dòng từ trường hiện khi > 0
-            fieldLines.setAttribute('opacity', gauss > 0 ? String(Math.min(0.6, gauss / 10000)) : '0');
+            // Dòng từ trường minh họa hiện dần
+            fieldLines.setAttribute('opacity', level === 0 ? '0' : String(0.2 + level * 0.15));
 
-            // Dây tóc thép: nhiễm từ khi > ~100 gauss
-            // Mức độ "dính": tăng từ 0 tới 1 khi gauss tới 5000+
-            const steelCollapse = Math.min(1, Math.max(0, (gauss - 100) / 5000));
-            steelPath.setAttribute('d', spiralPath(45, 4, steelCollapse));
-
-            // Dây tóc silicon: không đổi
+            // Linh kiện thường: minh họa dạng thay đổi rõ hơn khi mức tăng
+            steelPath.setAttribute('d', spiralPath(45, 4, level / 3));
+            // Linh kiện phi từ: không đổi
             siliconPath.setAttribute('d', spiralPath(45, 4, 0));
-
-            // Sai số: thép chạy nhanh khi nhiễm từ
-            // ~0 dưới 100 gauss, tăng tới ~300 giây/ngày ở 5000+ gauss
-            const steelErr = gauss < 100 ? 0 : Math.min(300, Math.round((gauss - 100) / 15));
-            steelError.textContent = (steelErr === 0 ? '±0' : '+' + steelErr) + ' giây/ngày';
-            siliconError.textContent = '±0 giây/ngày';
           }
 
           slider.addEventListener('input', render);
@@ -208,112 +177,54 @@ const sources = [
     </MechanismAnimation>
 
     <p class="mx-auto mb-12 mt-8 max-w-2xl text-center text-sm text-ink-soft dark:text-dark-text-soft">
-      Kéo thanh trượt: khi từ trường mạnh, dây tóc thép (trái) bị <strong>hút dính các vòng vào nhau</strong> → chu kỳ dao động ngắn lại → đồng hồ chạy nhanh. Dây tóc silicon (phải) không hề thay đổi.
+      Đây chỉ là <strong>minh họa nguyên lý</strong> ở mức khái niệm: mức ảnh hưởng cụ thể của từ trường
+      phụ thuộc thiết kế từng bộ máy — không có ngưỡng dùng chung để "đọc" từ hình vẽ này.
     </p>
 
     <div class="grid gap-8 md:grid-cols-2">
-      <!-- Cách 1: Lồng sắt -->
+      <!-- Ví dụ 1: một calibre (Oris) — đúng như bài viết -->
       <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6" data-anim="method-card">
-        <div class="svg-container mb-4">
-          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs" aria-hidden="true" focusable="false">
-            <!-- Lồng sắt (soft iron cage) - lớp bao ngoài -->
-            <rect style="stroke:var(--ig-steel)" x="60" y="40" width="180" height="120" rx="8" fill="none" stroke-width="4" stroke-dasharray="6 3" data-anim="iron-cage" opacity="0"/>
-            <!-- Movement ở giữa -->
-            <rect x="90" y="65" width="120" height="70" rx="4" style="fill:var(--obs-brass)" opacity="0.4"/>
-            <text style="fill:var(--ig-text)" x="150" y="105" text-anchor="middle" font-size="11" font-weight="bold">Máy</text>
-            <!-- Mũi tên từ trường bị chặn -->
-            <g data-anim="field-blocked" opacity="0">
-              <line x1="30" y1="100" x2="55" y2="100" style="stroke:var(--obs-steel)" stroke-width="2"/>
-              <polygon points="55,100 48,95 48,105" style="fill:var(--obs-steel)"/>
-              <text x="20" y="90" text-anchor="middle" font-size="9" style="fill:var(--obs-steel)" font-weight="bold">Từ trường</text>
-              <text style="fill:var(--ig-rubi)" x="20" y="120" text-anchor="middle" font-size="8">✗ bị chặn</text>
-            </g>
-            <text style="fill:var(--ig-stroke)" x="150" y="185" text-anchor="middle" font-size="10" font-weight="bold">Lồng sắt dẫn từ trường đi vòng quanh máy</text>
-          </svg>
-        </div>
-        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">① Lồng sắt mềm (Soft Iron Cage)</h3>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-          Bọc máy bằng một lớp <strong>sắt mềm</strong> — vật liệu dẫn từ rất tốt. Khi từ trường ngoài
-          tới, nó bị <strong>dẫn đi vòng quanh</strong> máy, không vào trong được. Cách cổ điển,
-          dùng cho IWC Mark XI, Rolex Milgauss.
-        </p>
-        <p class="mt-2 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Hạn chế: làm đồng hồ dày hơn, khó có mặt sau lộ máy.</p>
+        <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-steel dark:text-dark-text-soft">{examples[0].tag}</p>
+        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{examples[0].title}</h3>
+        {examples[0].lines.map((line) => (
+          <p class="mb-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{line}</p>
+        ))}
+        <p class="mt-3 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Đây là thông số công bố cho calibre đó — không phải mức dùng chung.</p>
       </div>
 
-      <!-- Cách 2: Vật liệu silicon -->
+      <!-- Ví dụ 2: một chứng nhận (METAS) — đúng như bài viết -->
       <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-6" data-anim="method-card">
-        <div class="svg-container mb-4">
-          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-xs" aria-hidden="true" focusable="false">
-            <!-- Dây tóc (silicon) - cuộn nhỏ -->
-            <g data-anim="silicon-hairspring" opacity="0">
-              <path d="M 150 100
-                       m -30 0
-                       a 30 30 0 1 1 60 0
-                       a 24 24 0 1 1 -48 0
-                       a 18 18 0 1 1 36 0
-                       a 12 12 0 1 1 -24 0"
-                    fill="none" style="stroke:var(--obs-steel)" stroke-width="2"/>
-              <circle cx="150" cy="100" r="4" style="fill:var(--obs-steel)"/>
-              <text style="fill:var(--ig-text)" x="150" y="145" text-anchor="middle" font-size="9" font-weight="bold">Dây tóc silicon</text>
-            </g>
-            <!-- Từ trường đi qua nhưng không ảnh hưởng -->
-            <g data-anim="field-pass" opacity="0">
-              <line x1="30" y1="60" x2="270" y2="60" style="stroke:var(--obs-steel)" stroke-width="2" stroke-dasharray="4 3"/>
-              <line x1="30" y1="140" x2="270" y2="140" style="stroke:var(--obs-steel)" stroke-width="2" stroke-dasharray="4 3"/>
-              <text x="150" y="180" text-anchor="middle" font-size="8" style="fill:var(--obs-steel-deep)" font-weight="bold">✓ Đi qua nhưng không gây hại</text>
-            </g>
-          </svg>
-        </div>
-        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">② Vật liệu silicon / phi từ</h3>
-        <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-          Làm <strong>dây tóc bằng silicon</strong> (hoặc hợp chất phi từ như Nivachron, Spron).
-          Vì silicon <strong>không bị nhiễm từ</strong>, từ trường ngoài không làm nó biến dạng.
-          Cách hiện đại, dùng cho Omega Master, Tudor, Tissot, Rolex Syloxi.
-        </p>
-        <p class="mt-2 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Ưu điểm: mỏng hơn, có thể lộ máy, hiệu quả cao (lên tới 15.000 gauss).</p>
+        <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-steel dark:text-dark-text-soft">{examples[1].tag}</p>
+        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{examples[1].title}</h3>
+        {examples[1].lines.map((line) => (
+          <p class="mb-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{line}</p>
+        ))}
+        <p class="mt-3 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">15.000 gauss là tiêu chí của chứng nhận MASTER CHRONOMETER — không phải mức chống từ chung của đồng hồ cơ.</p>
       </div>
     </div>
   </div>
 
   <!-- ====================================================================
-       CẢNH 3: THANG MỨC ĐỘ CHỐNG TỪ
+       CẢNH 3: BA ĐIỀU CẦN NHỚ (không thang gauss dùng chung)
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      Thang mức độ chống từ
+      Ba điều cần nhớ
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Đo bằng <strong>gauss</strong> (đơn vị từ trường). Càng cao càng chống được từ trường mạnh hơn.
+    <p class="mx-auto mb-8 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
+      Không có "thang mức chống từ" dùng chung — mỗi nguồn công bố cho phạm vi của riêng nó.
     </p>
 
     <div class="space-y-4">
-      {levels.map((level, i) => (
+      {takeaways.map((text, i) => (
         <div
-          class="grid grid-cols-12 items-center gap-4 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
+          class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4 sm:p-5"
           data-anim="level"
           data-index={i}
         >
-          <div class="col-span-12 sm:col-span-4">
-            <div class="h-10 w-full overflow-hidden rounded bg-cream-dark">
-              <div
-                class={`flex h-full items-center justify-end rounded pr-2 text-xs font-bold text-white ${
-                  level.tone === 'great' ? 'bg-gradient-to-r from-steel to-steel-deep' :
-                  level.tone === 'good' ? 'bg-gradient-to-r from-steel-soft to-steel' :
-                  level.tone === 'ok' ? 'bg-gradient-to-r from-brass to-brass-deep' :
-                  'bg-gradient-to-r from-ruby to-ruby'
-                }`}
-                style={`width: ${level.barWidth}%;`}
-              >
-                {level.value}
-              </div>
-            </div>
-          </div>
-          <div class="col-span-12 sm:col-span-8">
-            <h3 class="font-serif text-lg text-navy dark:text-dark-text">{level.label}</h3>
-            <p class="mt-1 text-sm text-ink-soft dark:text-dark-text-soft">
-              <span class="font-medium text-steel">{level.detail}</span>
-            </p>
-            <p class="mt-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">{level.note}</p>
+          <div class="flex items-start gap-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-steel font-mono text-sm font-semibold text-steel dark:border-steel" style="font-variant-numeric: lining-nums;" aria-hidden="true">{i + 1}</span>
+            <p class="text-sm leading-relaxed text-ink dark:text-dark-text sm:text-base">{text}</p>
           </div>
         </div>
       ))}
@@ -321,51 +232,36 @@ const sources = [
   </div>
 
   <!-- ====================================================================
-       CẢNH 4: NGUỒN TỪ TRƯỜNG QUANH BẠN
+       CẢNH 4: ĐỒNG HỒ CHẠY BẤT THƯỜNG — NÊN LÀM GÌ (không tự kết luận)
        ==================================================================== -->
   <div class="scene mt-24">
     <h3 class="mb-3 text-center font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">
-      Từ trường ở đâu quanh bạn?
+      Đồng hồ chạy bất thường — nên làm gì?
     </h3>
-    <p class="mx-auto mb-12 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
-      Nhiều vật dụng hàng ngày có nam châm — nguy cơ cho đồng hồ cơ thông thường.
+    <p class="mx-auto mb-8 max-w-2xl text-center text-ink-soft dark:text-dark-text-soft">
+      Một chiếc đồng hồ đột nhiên lệch giờ có nhiều nguyên nhân khác nhau. Từ một dấu hiệu duy nhất,
+      không nên tự kết luận "đồng hồ bị nhiễm từ" — việc xác định nguyên nhân thuộc về người có chuyên môn.
     </p>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {sources.map((source, i) => (
-        <div
-          class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4"
-          data-anim="source-card"
-          data-index={i}
-        >
-          <div class="flex items-start gap-3">
-            <span class="text-3xl">{source.icon}</span>
-            <div>
-              <h3 class="font-serif text-base text-navy dark:text-dark-text">{source.name}</h3>
-              <p class="mt-1 text-xs">
-                <span class="font-medium text-ruby">{source.strength}</span>
-              </p>
-              <p class="mt-1 text-xs text-ink-soft dark:text-dark-text-soft">{source.risk}</p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-8 rounded-lg border-l-4 border-ruby bg-ruby/5 p-5">
-      <p class="text-sm text-ink-soft dark:text-dark-text-soft">
-        <strong class="text-ruby">⚠ Dấu hiệu đồng hồ nhiễm từ:</strong> chạy nhanh đột ngột
-        (vài chục giây đến vài phút/ngày). <strong>Khắc phục:</strong> mang tới thợ để
-        <strong>demagnetize</strong> (khử từ) — nhanh, rẻ (vài trăm nghìn), sau đó sai số trở lại bình thường.
-      </p>
+    <div class="mx-auto max-w-2xl space-y-3">
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="source-card" data-index="0">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">Tra <strong>tài liệu của hãng</strong> về đồng hồ của bạn trước tiên.</p>
+      </div>
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="source-card" data-index="1">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">Mang tới <strong>nơi có chuyên môn</strong> để kiểm tra — họ mới là người xác định nguyên nhân và cách xử lý.</p>
+      </div>
+      <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-4" data-anim="source-card" data-index="2">
+        <p class="text-sm leading-relaxed text-ink dark:text-dark-text">Việc <a class="font-medium text-steel underline-offset-2 hover:underline dark:text-steel" href="/huong-dan/do-sai-so">đo sai số</a> giúp quan sát độ chính xác theo thời gian — hữu ích khi làm việc với nơi chuyên môn, nhưng không thay thế việc xác định nguyên nhân.</p>
+      </div>
     </div>
   </div>
 
-  <!-- Chú thích cuối -->
+  <!-- Chú thích cuối — đúng ba ý của bài -->
   <div class="infographic-note">
     <strong class="text-brass dark:text-dark-brass">💡 Tóm tắt:</strong>
-    Từ trường làm dây tóc nhiễm từ → đồng hồ chạy sai. Có 2 cách chống: lồng sắt (cũ) hoặc
-    dây tóc silicon (mới). Nếu nghi nhiễm từ, mang đi khử từ — nhanh và rẻ.
+    Bộ máy cơ có thể nhiễm từ và điều này ảnh hưởng độ chính xác. Mức chống từ là thông số của
+    từng bộ máy và từng chuẩn công bố — không có ngưỡng dùng chung. Khi đồng hồ chạy bất thường,
+    hãy để người có chuyên môn xác định nguyên nhân.
   </div>
 </section>
 

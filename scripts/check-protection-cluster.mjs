@@ -57,6 +57,15 @@ const FILES = {
   ],
 };
 
+// Component infographic của cụm — danh sách RIÊNG, không nằm trong FILES:
+// các quy tắc frontmatter (R1), cặp route (R2), liên kết Markdown (R3, R4)
+// không áp lên tệp Astro; component chỉ chịu các quy tắc NỘI DUNG (R7).
+// Quét TOÀN BỘ tệp (không cắt "frontmatter"): dữ liệu hiển thị của component
+// nằm ngay đầu tệp Astro — bỏ phần đầu là mất vùng dữ liệu cần kiểm.
+const COMPONENT_FILES = [
+  'src/components/infographics/AntiMagnetic.astro',
+];
+
 const ROUTES_FILE = 'src/i18n/contentRoutes.ts';
 const DOC_FILES = [
   'docs/ho-so-nguon-cum-bao-ve-bo-may-song-ngu.md',
@@ -136,6 +145,8 @@ const BANNED = [
   { re: /milgauss|\bcern\b|ingenieur|pare-chute|breguet|\bkif\b|etachoc|diashock|1934|soft iron|sắt mềm|nivachron|spron|syloxi/i,
     why: 'lịch sử/hãng/vật liệu không có nguồn trực tiếp trong hồ sơ' },
   { re: /60\s*[–-]\s*600\s*gauss|4[.,]800\s*gauss|[^\d]1[.,]000\s*gauss/i, why: 'bảng/dải gauss dùng chung (đã loại)' },
+  { re: /[^0-9.,;:)\"']600\s*gauss|(?<![\d.,])1[.,]000\s*gauss|4[.,]800\s*gauss/i,
+    why: 'mức gauss đơn lẻ thuộc thang dùng chung 600/1.000/4.800 (đã loại)' },
   { re: /(điện thoại|smartphone|loa|speaker|ipad|tablet|nam châm tủ lạnh|fridge magnet|refrigerator|\bmri\b|sạc không dây|wireless charg)/i,
     why: 'danh sách thiết bị sinh hoạt + rủi ro (đã loại)' },
   { re: /khử từ|demagnetiz|demagnetis|\bvnd\b/i, why: 'tự khử từ / chi phí (đã loại)' },
@@ -177,7 +188,7 @@ function bodyOf(text) {
 }
 
 const textOf = {};
-for (const f of [...FILES.vi, ...FILES.en, ROUTES_FILE, ...DOC_FILES]) {
+for (const f of [...FILES.vi, ...FILES.en, ...COMPONENT_FILES, ROUTES_FILE, ...DOC_FILES]) {
   if (!existsSync(f)) errors.push(`[FILE] Thiếu tệp phạm vi: ${f}`);
   else textOf[f] = readFileSync(f, 'utf8');
 }
@@ -289,6 +300,49 @@ if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳn
 
 // ===== R6: hồ sơ + biên bản =====
 report.push(`Hồ sơ nguồn + biên bản nghiệm thu tồn tại (${DOC_FILES.length} tệp)`);
+
+// ===== R7: component infographic cùng chịu các quy tắc nội dung =====
+// Chỉ áp các mẫu cấm phù hợp với component (không R1 frontmatter, không R2
+// route, không R3/R4 liên kết Markdown). Quét TOÀN BỘ tệp — dữ liệu hiển thị
+// nằm trong phần đầu tệp Astro. 15.000 gauss vẫn phải nằm trong cửa sổ
+// chứng nhận METAS (cùng dòng hoặc dòng kế).
+for (const f of COMPONENT_FILES) {
+  const lines = textOf[f].split(/\r?\n/);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    for (const { re, why } of BANNED) {
+      const m = re.exec(line);
+      if (m) fail('R7', f, i + 1, `${why}: "${m[0]}"`);
+    }
+    if (GAUSS_RE.test(line)) {
+      const next = lines[i + 1] ?? '';
+      if (!(GAUSS_ALLOW.test(line) || GAUSS_ALLOW.test(next))) {
+        fail('R7', f, i + 1, '15.000 gauss ngoài cửa sổ chứng nhận METAS (cần METAS/chứng nhận cùng dòng hoặc dòng kế)');
+      }
+    }
+    if (MAJORITY_RE.test(line)) {
+      if (!MAJORITY_ALLOW.test(line)) {
+        fail('R7', f, i + 1, '"majority of watches / phần lớn đồng hồ" thiếu attribution FHH/Incabloc SA cùng dòng');
+      }
+    }
+    if (G5000_RE.test(line)) {
+      if (!G5000_ALLOW.test(line)) {
+        fail('R7', f, i + 1, 'con số 5.000 g thiếu attribution hãng cùng dòng');
+      }
+    }
+    // Bảng gauss: mọi dòng bảng kèm "gauss" đều bị loại
+    if (line.trim().startsWith('|') && /gauss/i.test(line)) {
+      fail('R7', f, i + 1, 'bảng mức gauss — dạng bảng dùng chung đã bị loại');
+    }
+    // Trục thanh trượt mang đơn vị gauss — mô phỏng thành phép đo (đã loại)
+    if (/max="\d+"/.test(line) && /am-field-slider/.test(line) === false && /gauss/i.test(line)) {
+      fail('R7', f, i + 1, 'thanh trượt/điều khiển gắn thang gauss (mô phỏng thành phép đo)');
+    }
+  }
+}
+if (!errors.some((e) => e.includes('[R7]'))) {
+  report.push(`R7: component infographic (${COMPONENT_FILES.length} tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 6 bài Markdown`);
+}
 
 // ===== Kết luận =====
 console.log('KIỂM TRA CỤM BẢO VỆ BỘ MÁY (CHỐNG TỪ, CHỐNG SỐC & INCABLOC) SONG NGỮ:');

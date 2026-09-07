@@ -3,7 +3,7 @@
 // PERPETUAL CALENDAR (Lịch vạn niên) — INTERACTIVE
 // =============================================================================
 // Mô phỏng cơ cấu bánh cam 4 năm + hiển thị ngày/tháng/năm chuyển động:
-//   - Mỗi giây mô phỏng = 1 ngày trôi qua
+//   - Mỗi 400 ms mô phỏng = 1 ngày trôi qua (hằng số nội bộ của hoạt ảnh)
 //   - Khi hết tháng: kim "ngày" nhảy về 1, kim "tháng" tiến lên
 //   - Khi hết năm: kim "năm" tiến, và bánh cam nhuận 4 năm chuyển
 //   - Đặc biệt tháng 2 năm nhuận: 29 ngày (đặc điểm của perpetual calendar)
@@ -12,17 +12,6 @@
 // =============================================================================
 
 import MechanismAnimation from '../MechanismAnimation.astro';
-
-const calendarTypes = [
-  { name: 'Lịch đơn giản', desc: 'Phải chỉnh cuối tháng ngắn (5 lần/năm)', tone: 'bad' },
-  { name: 'Annual Calendar', desc: 'Tự đúng cả năm, chỉ sai tháng Hai (1 lần/năm)', tone: 'ok' },
-  { name: 'Perpetual Calendar', desc: 'Đúng mãi đến năm 2100 (1 lần/400 năm!)', tone: 'great' },
-];
-const toneColors: Record<string, { bg: string; text: string }> = {
-  bad: { bg: 'var(--ig-rubi)', text: 'var(--ig-rubi)' },
-  ok: { bg: 'var(--obs-brass)', text: 'var(--obs-brass-deep)' },
-  great: { bg: 'var(--ig-steel)', text: 'var(--ig-steel)' },
-};
 
 // Số ngày mỗi tháng (năm thường và năm nhuận)
 const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'];
@@ -295,24 +284,18 @@ const monthsVi = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '
   </script>
 </MechanismAnimation>
 
-<!-- So sánh các loại lịch -->
+<!-- Giải thích trung tính theo bài nguồn -->
 <div class="mt-8 space-y-3" data-explanation>
-  <h2 class="font-serif text-lg text-navy dark:text-dark-text">Ba cấp độ lịch — vì sao "vạn niên" là đỉnh?</h2>
-  {calendarTypes.map((cal, i) => {
-    const color = toneColors[cal.tone];
-    return (
-      <div class="flex items-start gap-3 rounded-lg border-l-4 bg-white dark:bg-dark-surface p-3" style={`border-left-color: ${color.bg};`} data-anim="cal-row">
-        <span class="mt-0.5 shrink-0 text-sm font-bold" style={`color: ${color.text};`}>{i + 1}.</span>
-        <div>
-          <p class="text-sm font-medium" style={`color: ${color.text};`}>{cal.name}</p>
-          <p class="text-xs text-ink-soft dark:text-dark-text-soft">{cal.desc}</p>
-        </div>
-      </div>
-    );
-  })}
-
-  <div class="mt-4 rounded-lg bg-brass/5 dark:bg-dark-brass/10 p-3 text-center text-xs text-ink-soft dark:text-dark-text-soft" data-anim="note">
-    <strong class="text-brass dark:text-dark-brass">⚠ Lưu ý năm 2100:</strong> Năm chia hết 100 <em>không</em> là nhuận (trừ khi chia hết 400).
-    Năm 2100 perpetual calendar sẽ sai → cần chỉnh. Đó là vì sao Patek Philippe quảng cáo máy của họ "đúng đến 2100".
+  <h2 class="font-serif text-lg text-navy dark:text-dark-text">Cách hiểu lịch vạn niên</h2>
+  <div class="rounded-lg bg-brass/5 dark:bg-dark-brass/10 p-3 text-sm text-ink-soft dark:text-dark-text-soft" data-anim="note">
+    <p>
+      Lịch vạn niên là một <strong>cơ cấu xử lý độ dài tháng theo thiết kế của bộ máy</strong> —
+      trí nhớ cơ học của nó lặp chuỗi mỗi 48 tháng để tính các tháng 30 ngày và
+      tháng Hai 28 hoặc 29 ngày (theo FHH). Hoạt ảnh trên chỉ mô phỏng thời gian trôi qua.
+    </p>
+    <p class="mt-2">
+      Thông tin và giới hạn của từng mẫu cần đọc theo <strong>tài liệu của chính mẫu đó</strong> —
+      không suy diễn thành cam kết áp dụng chung cho mọi đồng hồ.
+    </p>
   </div>
 </div>

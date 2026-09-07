@@ -31,6 +31,14 @@
 //   R6. Relation Việt còn lại trung tính — không chứa số dài, bố cục, chức
 //       năng, hãng, "nhảy tức thời", độ chính xác.
 //   R7. Hồ sơ nguồn + biên bản nghiệm thu tồn tại.
+//   R8. Component infographic PerpetualCalendar.astro — danh sách component
+//       riêng (KHÔNG nằm trong FILES, để R1/R3/route không áp nhầm lên
+//       component): quét toàn bộ tệp kể cả comment, cấm lời hứa "đúng mãi/
+//       mãi mãi/không cần chỉnh/tự đúng hoàn toàn", claim hiển thị "2100"/
+//       "400 năm", ví dụ hãng/quảng cáo (Patek), xếp hạng ("đắt", "cao cấp",
+//       "tốt nhất", "phân khúc", "đỉnh") và hướng dẫn chỉnh/thao tác nút/núm.
+//       Số "400" làm thời lượng hoạt ảnh không bị bắt; "2100/2400" hợp lệ
+//       trong bài Markdown có attribution FHH (rule R5 riêng đã xử lý).
 //
 // Exit 1 nếu có lỗi.
 // =============================================================================
@@ -54,6 +62,12 @@ const ROUTES_FILE = 'src/i18n/contentRoutes.ts';
 const DOC_FILES = [
   'docs/ho-so-nguon-cum-lich-van-nien-va-pha-trang-song-ngu.md',
   'docs/nghiem-thu/2026-09-04_nghiem-thu-cum-lich-van-nien-va-pha-trang-song-ngu.md',
+];
+
+// R8 — danh sách component riêng (không đưa vào FILES: rule frontmatter,
+// liên kết và route chỉ áp cho bài Markdown, không áp cho component Astro).
+const COMPONENTS = [
+  'src/components/infographics/glossary/PerpetualCalendar.astro',
 ];
 
 const REQUIRED_LINKS = {
@@ -271,6 +285,40 @@ for (const f of [...FILES.vi, ...FILES.en]) {
 }
 if (!errors.some((e) => e.includes('[R4]'))) report.push('R4: 3 bài EN không có link nội bộ về route tiếng Việt');
 if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳng định cấm (tên người/hãng/năm, số perpetual/moon ngoài cửa sổ FHH, bảng, "mãi mãi/không cần chỉnh", giá/phân khúc, hướng dẫn chỉnh, lịch sử công dụng, thẩm mỹ chủ quan, nhận biết bằng mắt)');
+
+// ===== R8: component PerpetualCalendar.astro — nội dung hiển thị trung tính =====
+// Quét toàn bộ tệp component (kể cả comment). Ranh giới từ dùng lớp chữ
+// tiếng Việt để "đắt" không khớp từ dài; "400" làm thời lượng hoạt ảnh
+// (dayMs = 400ms) không bị bắt vì chỉ cấm cụm "400 năm".
+const VL = 'a-zăâđêôơưàáảãạằắẳẵặầấẩẫậèéẻẽẹềếểễệìíỉĩịòóỏõọồốổỗộờớởỡợùúủũụừứửữựỳýỷỹỵ';
+const vw = (p) => new RegExp(`(?<![${VL}])${p}(?![${VL}])`, 'iu');
+
+const CALENDAR_COMPONENT_BANNED = [
+  { re: /đúng mãi|mãi mãi|không cần chỉnh|tự đúng hoàn toàn|forever|never needs?|no need to (set|adjust)/iu, why: 'lời hứa "đúng mãi/mãi mãi/không cần chỉnh"' },
+  { re: /\b2100\b|400\s*năm|đúng đến năm/iu, why: 'claim hiển thị năm ngoại lệ 2100 / "400 năm"' },
+  { re: /\bPatek\b|quảng cáo/iu, why: 'ví dụ hãng/quảng cáo không nằm trong component' },
+  { re: vw('đắt'), why: 'nhận định giá "đắt"' },
+  { re: /cao cấp|tốt nhất|phân khúc|\bđỉnh\b/iu, why: 'xếp hạng đắt/cao cấp/tốt nhất' },
+  { re: /cách chỉnh|hướng dẫn chỉnh|cần chỉnh|phải chỉnh|chỉnh lại|nhấn nút|bấm nút|nút chỉnh|xoay núm|núm chỉnh|how to (set|adjust|change)/iu, why: 'hướng dẫn chỉnh/thao tác nút/núm' },
+];
+
+for (const f of COMPONENTS) {
+  if (!existsSync(f)) errors.push(`[FILE] Thiếu tệp component phạm vi: ${f}`);
+  else {
+    const lines = readFileSync(f, 'utf8').split(/\r?\n/);
+    for (let i = 0; i < lines.length; i++) {
+      for (const { re, why } of CALENDAR_COMPONENT_BANNED) {
+        const m = re.exec(lines[i]);
+        if (m) {
+          fail('R8', f, i + 1, `${why}: "${m[0]}"`);
+        }
+      }
+    }
+  }
+}
+if (!errors.some((e) => e.includes('[R8]'))) {
+  report.push(`R8: component infographic (${COMPONENTS.length} tệp, quét cả comment) sạch lời hứa "đúng mãi", claim 2100/"400 năm", hãng/quảng cáo, xếp hạng, hướng dẫn chỉnh`);
+}
 
 // ===== R6: relation Việt còn lại trung tính =====
 let relationChecked = 0;

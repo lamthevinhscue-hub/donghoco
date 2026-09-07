@@ -40,6 +40,13 @@
 //       false, interactive: false, ≥2 nguồn HTTPS, category/difficulty enum vi.
 //   R9. 4 cặp route có trong src/i18n/contentRoutes.ts.
 //   R10. Hồ sơ nguồn + biên bản nghiệm thu tồn tại.
+//   R11. Component infographic Chronograph.astro — danh sách component riêng
+//        (KHÔNG nằm trong FILES, để R7/R8/route không áp nhầm lên component):
+//        quét toàn bộ tệp kể cả comment, cấm xếp hạng ("cao cấp", "đắt", "rẻ",
+//        "khó chế tạo", diễn đạt hơn kém/phân khúc), cảm giác bấm ("êm",
+//        "click", "bước rõ ràng"), hãng/calibre (Rolex 4130, Patek CH 29,
+//        Valjoux 7750, Zenith El Primero, Seiko, Heuer, Louis Moinet) và mốc
+//        1816/1969 — phần chữ căn cứ nằm ở bài Markdown, không ở component.
 //
 // Exit 1 nếu có lỗi.
 // =============================================================================
@@ -71,6 +78,12 @@ const ROUTES_FILE = 'src/i18n/contentRoutes.ts';
 const DOC_FILES = [
   'docs/ho-so-nguon-cum-chronograph-tachymeter-song-ngu.md',
   'docs/nghiem-thu/2026-09-03_nghiem-thu-cum-chronograph-tachymeter-song-ngu.md',
+];
+
+// R11 — danh sách component riêng (không đưa vào FILES: rule frontmatter,
+// liên kết và route chỉ áp cho bài Markdown, không áp cho component Astro).
+const COMPONENTS = [
+  'src/components/infographics/glossary/Chronograph.astro',
 ];
 
 // Marker nguồn: một dòng claim "đầu tiên" chỉ hợp lệ khi mang marker này.
@@ -223,6 +236,41 @@ for (const f of [...FILES.vi, ...FILES.en]) {
   }
 }
 
+// ===== R11: component Chronograph.astro — nội dung hiển thị trung tính =====
+// Quét toàn bộ tệp component (kể cả comment). Ranh giới từ dùng lớp chữ
+// tiếng Việt để "êm" không bắt nhầm "thêm/nghiêm", "đắt" không khớp từ dài.
+const VL = 'a-zăâđêôơưàáảãạằắẳẵặầấẩẫậèéẻẽẹềếểễệìíỉĩịòóỏõọồốổỗộờớởỡợùúủũụừứửữựỳýỷỹỵ';
+const vw = (p) => new RegExp(`(?<![${VL}])${p}(?![${VL}])`, 'iu');
+
+const CHRONO_COMPONENT_BANNED = [
+  { re: /cao cấp/iu, why: 'xếp hạng "cao cấp" gắn cấu tạo' },
+  { re: vw('đắt'), why: 'nhận định giá "đắt"' },
+  { re: vw('rẻ'), why: 'nhận định giá "rẻ"' },
+  { re: /khó chế tạo/iu, why: 'nhận định "khó chế tạo"' },
+  { re: vw('êm'), why: 'cảm giác bấm "êm"' },
+  { re: /click/iu, why: 'cảm giác bấm "click"', allow: /addEventListener/iu },
+  { re: /bước rõ ràng/iu, why: 'cảm giác bấm "bước rõ ràng"' },
+  { re: /\bRolex\b|\b4130\b|\bPatek\b|\bCH\s*29\b|\bValjoux\b|\b7750\b/iu, why: 'hãng/calibre không nằm trong component (căn cứ ở bài Markdown)' },
+  { re: /Louis Moinet|\bMoinet\b|\bZenith\b|El Primero|\bSeiko\b|\bHeuer\b/iu, why: 'hãng/mẫu lịch sử không nằm trong component' },
+  { re: /\b1816\b|\b1969\b/iu, why: 'mốc lịch sử không nằm trong component' },
+  { re: /ai hơn ai|tốt hơn|tệ hơn|hơn hẳn|xếp hạng|phân khúc|tầm trung|tầm giá|tầm cao|tầm thấp/iu, why: 'diễn đạt phân khúc/so sánh hơn kém' },
+];
+
+for (const f of COMPONENTS) {
+  if (!existsSync(f)) errors.push(`[FILE] Thiếu tệp component phạm vi: ${f}`);
+  else {
+    const lines = readFileSync(f, 'utf8').split(/\r?\n/);
+    for (let i = 0; i < lines.length; i++) {
+      for (const { re, why, allow } of CHRONO_COMPONENT_BANNED) {
+        const m = re.exec(lines[i]);
+        if (m && !(allow && allow.test(lines[i]))) {
+          fail('R11', f, i + 1, `${why}: "${m[0]}"`);
+        }
+      }
+    }
+  }
+}
+
 // ===== R5: bài EN không link nội bộ về route vi =====
 for (const f of FILES.en) {
   const lines = textOf[f].split(/\r?\n/);
@@ -312,6 +360,7 @@ if (!errors.some((e) => e.startsWith('[R3]'))) report.push('R3: mọi claim "đ�
 if (!errors.some((e) => e.startsWith('[R4]'))) report.push('R4: tachymeter luôn "tốc độ trung bình" có điều kiện quãng đường/đơn vị');
 if (!errors.some((e) => e.startsWith('[R5]'))) report.push('R5: 4 bài EN không có link nội bộ về route tiếng Việt');
 if (!errors.some((e) => e.startsWith('[R6]'))) report.push('R6: hình học vạch đúng chiều (ngắn→gần, dài→xa), không khẳng định tuyệt đối chronograph, không title cũ');
+if (!errors.some((e) => e.startsWith('[R11]'))) report.push(`R11: component infographic (${COMPONENTS.length} tệp, quét cả comment) sạch xếp hạng, cảm giác bấm, hãng/calibre, mốc lịch sử, hơn kém`);
 
 // ===== Kết luận =====
 console.log('KIỂM TRA CỤM CHRONOGRAPH & TACHYMETER SONG NGỮ:');

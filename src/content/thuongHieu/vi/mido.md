@@ -38,7 +38,7 @@ segmentComparison:
     movement: "Bộ máy riêng trong hệ Swatch Group"
     value_retention: "Danh mục rộng, thẩm mỹ cổ điển"
     philosophy: "Cổ điển dễ tiếp cận"
-collectorNote: "Chọn Mido khi bạn muốn giá trị thực dụng trong một hãng có lịch sử kỹ thuật thật. Multifort là mẫu có đóng góp thật vào việc phổ cập đồng hồ chống từ và chống nước. Nói thẳng mặt hạn chế: hãng bị lu mờ giữa các thương hiệu cùng tập đoàn; giữ giá kém; và bộ máy dùng chung với nhiều hãng anh em."
+collectorNote: "Chọn Mido khi bạn muốn giá trị thực dụng trong một hãng có lịch sử kỹ thuật thật. Multifort là mẫu có đóng góp thật vào việc phổ cập đồng hồ chống từ và chống nước. Nói thẳng mặt hạn chế: hãng bị lu mờ giữa các thương hiệu cùng tập đoàn; và bộ máy dùng chung với nhiều hãng anh em."
 sources:
   - label: "Mido — Lịch sử thương hiệu"
     url: "https://www.midowatches.com/us/mido-universe-history"

@@ -81,7 +81,7 @@ segmentComparison:
     strength: "Tự chủ gần như toàn bộ chuỗi sản xuất ở mọi mức giá."
     movement: "Tự sản xuất ở mọi phân khúc."
     philosophy: "Đỉnh cao của thực dụng."
-collectorNote: "Chọn Tissot khi bạn muốn **chữ 'Swiss made' trên mặt số mà không phải tiết kiệm nhiều tháng**. Đây là hãng có danh mục rộng nhất trong nhóm giá này: từ đồng hồ lặn, đồng hồ lịch sự, tới chiếc T-Touch không giống ai. PRX là mẫu đáng chú ý nhất — thiết kế dây liền vỏ vốn là đặc quyền của các hãng đắt gấp hàng chục lần, nay có ở mức giá người mới cũng với tới, và Powermatic 80 cho trữ cót ba ngày. Nếu bạn thích **di sản dày hơn và thiết kế cổ điển hơn**, [Hamilton](/thuong-hieu/hamilton). Nếu sẵn sàng chi thêm cho một cái tên gần hai trăm năm, [Longines](/thuong-hieu/longines). Nếu muốn hãng tự làm bộ máy từ đầu, [Seiko](/thuong-hieu/seiko). Nói thẳng hai điều: Tissot gần như không giữ giá, và bộ máy của hãng phát triển trên nền bộ máy ETA cùng tập đoàn chứ không phải thiết kế riêng — điều này không làm chúng kém đi, nhưng bạn nên biết mình đang mua gì."
+collectorNote: "Chọn Tissot khi bạn muốn **chữ 'Swiss made' trên mặt số**. Đây là hãng có danh mục rộng nhất: từ đồng hồ lặn, đồng hồ lịch sự, tới chiếc T-Touch không giống ai. PRX là mẫu đáng chú ý nhất — thiết kế dây liền vỏ, và Powermatic 80 cho trữ cót ba ngày. Nếu bạn thích **di sản dày hơn và thiết kế cổ điển hơn**, [Hamilton](/thuong-hieu/hamilton). Nếu muốn hãng tự làm bộ máy từ đầu, [Seiko](/thuong-hieu/seiko). Nói thẳng: bộ máy của hãng phát triển trên nền bộ máy ETA cùng tập đoàn chứ không phải thiết kế riêng — điều này không làm chúng kém đi, nhưng bạn nên biết mình đang mua gì."
 sources:
   - label: "Wikipedia — Tissot"
     url: "https://en.wikipedia.org/wiki/Tissot"

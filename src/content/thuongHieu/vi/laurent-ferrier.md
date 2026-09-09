@@ -46,7 +46,7 @@ segmentComparison:
     movement: "Đẩy giới hạn cơ học"
     value_retention: "Phô diễn kết cấu"
     philosophy: "Kỹ thuật là mục đích"
-collectorNote: "Chọn Laurent Ferrier khi bạn muốn vẻ ngoài kín đáo bậc nhất trong nhóm chế tác độc lập — nhìn qua chỉ là một chiếc đồng hồ tròn cổ điển, phần đặc biệt nằm hết bên trong. Nói thẳng mặt hạn chế: gần như không ai nhận ra, kể cả người chơi đồng hồ; sản lượng rất thấp nên khó mua; và giá cao không phản ánh ở vẻ ngoài, điều khiến nhiều người thấy khó lý giải."
+collectorNote: "Chọn Laurent Ferrier khi bạn muốn vẻ ngoài kín đáo bậc nhất trong nhóm chế tác độc lập — nhìn qua chỉ là một chiếc đồng hồ tròn cổ điển, phần đặc biệt nằm hết bên trong. Nói thẳng mặt hạn chế: gần như không ai nhận ra, kể cả người chơi đồng hồ; sản lượng rất thấp nên khó mua."
 sources:
   - label: "Laurent Ferrier — Trang chính hãng"
     url: "https://laurentferrier.ch/"

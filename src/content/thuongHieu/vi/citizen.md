@@ -50,7 +50,7 @@ segmentComparison:
     strength: "Bề dày Thụy Sĩ, quy mô phân phối rộng"
     movement: "Chủ yếu dùng bộ máy của Swatch Group"
     philosophy: "Đồng hồ Thụy Sĩ ai cũng mua được"
-collectorNote: "Chọn Citizen khi bạn muốn năng lực kỹ thuật Nhật Bản mà không phải trả giá cho tên tuổi. Điều thú vị nhất về hãng này là khoảng cách giữa mức độ nhận diện thương hiệu và ảnh hưởng thực tế lên thị trường: rất nhiều người chơi đồng hồ đang đeo bộ máy Miyota mà không biết đó là Citizen. Ở tuyến trên, calibre 0200 cho thấy hãng có thể làm bộ máy cơ nghiêm túc khi muốn. Nói thẳng mặt hạn chế: phần lớn danh mục Citizen là quartz, nên người tìm đồng hồ cơ phải chọn lọc kỹ trong danh mục; và các mẫu cơ cao cấp của hãng ít phổ biến ngoài Nhật Bản. Nếu muốn danh mục cơ dày hơn ở cùng tầm giá thì Seiko và Orient là lựa chọn trực tiếp."
+collectorNote: "Chọn Citizen khi bạn muốn năng lực kỹ thuật Nhật Bản. Điều thú vị nhất về hãng này là khoảng cách giữa mức độ nhận diện thương hiệu và ảnh hưởng thực tế lên thị trường: rất nhiều người chơi đồng hồ đang đeo bộ máy Miyota mà không biết đó là Citizen. Ở tuyến trên, calibre 0200 cho thấy hãng có thể làm bộ máy cơ nghiêm túc khi muốn. Nói thẳng mặt hạn chế: phần lớn danh mục Citizen là quartz, nên người tìm đồng hồ cơ phải chọn lọc kỹ trong danh mục; và các mẫu cơ cao cấp của hãng ít phổ biến ngoài Nhật Bản. Nếu muốn danh mục cơ dày hơn thì Seiko và Orient là lựa chọn trực tiếp."
 sources:
   - label: "Citizen — Lịch sử tập đoàn"
     url: "https://www.citizen.co.jp/global/aboutus/history.html"

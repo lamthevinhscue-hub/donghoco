@@ -52,7 +52,7 @@ segmentComparison:
     movement: "Bộ máy siêu mỏng"
     value_retention: "In-house dòng 9P và 12P"
     philosophy: "Vàng"
-collectorNote: "Chọn Chanel khi bạn muốn thiết kế mạnh cộng với kỹ thuật gốm đã được chứng minh. J12 là một trong số ít mẫu đồng hồ ra đời sau năm 2000 thực sự thay đổi cách ngành dùng vật liệu. Nói thẳng mặt hạn chế: định kiến về nhà mốt làm đồng hồ khiến hãng bị đánh giá thấp hơn thực tế trong giới chơi; giữ giá kém so với các hãng chuyên đồng hồ; và danh mục cơ khí nghiêm túc rất hẹp, chủ yếu nằm ở tuyến Monsieur."
+collectorNote: "Chọn Chanel khi bạn muốn thiết kế mạnh cộng với kỹ thuật gốm đã được chứng minh. J12 là một trong số ít mẫu đồng hồ ra đời sau năm 2000 thực sự thay đổi cách ngành dùng vật liệu. Nói thẳng mặt hạn chế: định kiến về nhà mốt làm đồng hồ khiến hãng bị đánh giá thấp hơn thực tế trong giới chơi; và danh mục cơ khí nghiêm túc rất hẹp, chủ yếu nằm ở tuyến Monsieur."
 sources:
   - label: "Chanel — Đồng hồ J12"
     url: "https://www.chanel.com/us/watches/the-j12-watch/"

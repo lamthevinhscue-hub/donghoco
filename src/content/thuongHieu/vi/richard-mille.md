@@ -25,7 +25,7 @@ segmentComparison:
     strength: "Chế tác độc lập, bộ máy vàng nguyên khối"
     movement: "In-house"
     philosophy: "Thuần khiết cơ học"
-collectorNote: "Chọn Richard Mille khi bạn muốn vật liệu và kết cấu của ngành hàng không, đặt trên cổ tay — và chấp nhận rằng đây là món đồ gây chú ý mạnh. Nói thẳng: đây là hãng bị tranh cãi nhiều nhất về tương quan giá trị và giá bán trong toàn bộ danh sách trên trang này. Người phản đối cho rằng phần lớn giá nằm ở khan hiếm và tiếp thị; người ủng hộ chỉ ra chi phí gia công vật liệu khó và tỷ lệ hỏng cao khi chế tác. Ngoài ra vỏ rất lớn và khó tiếp cận kể cả khi có tiền."
+collectorNote: "Chọn Richard Mille khi bạn quan tâm đến vật liệu và kết cấu được nhắc đến trong hồ sơ thương hiệu. Nói thẳng: thiết kế gây chú ý mạnh và vỏ lớn có thể không phù hợp với mọi cổ tay."
 sources:
   - label: "Richard Mille — RM 001 Tourbillon"
     url: "https://www.richardmille.com/historical-models/rm-001-tourbillon"

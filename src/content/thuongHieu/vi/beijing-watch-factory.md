@@ -35,7 +35,7 @@ segmentComparison:
     movement: "Từ phổ thông tới Grand Seiko"
     value_retention: "Rất lớn"
     philosophy: "Tự chủ công nghệ"
-collectorNote: "Chọn Beijing Watch Factory khi bạn muốn tìm hiểu xem một nền chế tác ngoài châu Âu đã đi được tới đâu ở mảng phức tạp cao. Việc làm được tourbillon hai trục và tourbillon điểm chuông phút là điều rất ít nơi trên thế giới làm được. Nhưng cần nói thẳng phần quan trọng: thông tin công khai về hãng này ít và khó kiểm chứng hơn hẳn các hãng khác trên trang. Việc mua và bảo dưỡng ngoài Trung Quốc rất phức tạp, và giá trị bán lại gần như không có ở thị trường quốc tế."
+collectorNote: "Chọn Beijing Watch Factory khi bạn muốn tìm hiểu xem một nền chế tác ngoài châu Âu đã đi được tới đâu ở mảng phức tạp cao. Việc làm được tourbillon hai trục và tourbillon điểm chuông phút là điều rất ít nơi trên thế giới làm được. Nhưng cần nói thẳng phần quan trọng: thông tin công khai về hãng này ít và khó kiểm chứng hơn hẳn các hãng khác trên trang. Việc mua và bảo dưỡng ngoài Trung Quốc rất phức tạp."
 sources:
   - label: "Wikipedia — Beijing Watch Factory"
     url: "https://en.wikipedia.org/wiki/Beijing_Watch_Factory"

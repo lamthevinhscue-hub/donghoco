@@ -34,7 +34,7 @@ collections:
     iconic_ref: "Hampton"
   - name: "Classima"
     identity: "Mặt số tròn tối giản, nhiều kích thước và cấu hình."
-    positioning: "Dòng dress watch dễ tiếp cận nhất."
+    positioning: "Dòng dress watch cổ điển."
 segmentComparison:
   - brand: "Frederique Constant"
     slug: "frederique-constant"
@@ -51,7 +51,7 @@ segmentComparison:
     strength: "Danh mục lớn, giá vào nghề và độ phổ biến cao."
     movement: "Bộ máy Thụy Sĩ trong tập đoàn."
     philosophy: "Cửa ngõ vào đồng hồ Thụy Sĩ."
-collectorNote: "Chọn Baume & Mercier khi bạn muốn một chiếc đồng hồ Thụy Sĩ thanh lịch, không phô trương và có tỷ lệ giá hợp lý. Riviera là lựa chọn đáng thử nhất nếu bạn thích đồng hồ thể thao dây liền; Clifton phù hợp hơn với cổ tay áo sơ mi. Hãy mua vì thiết kế và cảm giác đeo, không vì kỳ vọng giữ giá."
+collectorNote: "Chọn Baume & Mercier khi bạn muốn một chiếc đồng hồ Thụy Sĩ thanh lịch, không phô trương. Riviera là lựa chọn đáng thử nhất nếu bạn thích đồng hồ thể thao dây liền; Clifton phù hợp hơn với cổ tay áo sơ mi. Hãy mua vì thiết kế và cảm giác đeo."
 sources:
   - label: "Baume & Mercier — Lịch sử chính hãng"
     url: "https://www.baume-et-mercier.com/us/en/the-maison/history.html"

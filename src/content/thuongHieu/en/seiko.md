@@ -1,7 +1,7 @@
 ---
 title: "Seiko"
 custom_slug: "seiko"
-excerpt: "The brand that triggered the Quartz Crisis — and remains one of mechanical watchmaking's best protectors, with in-house movements at every price."
+excerpt: "The brand that triggered the Quartz Crisis — and never stopped making mechanical watches."
 country: "Japan"
 tier: "entry-level luxury"
 founded: 1881
@@ -21,7 +21,7 @@ sources:
 
 ## Overview
 
-Seiko is the brand that **triggered the greatest crisis in mechanical watchmaking — and remains one of its best guardians**. The Quartz Astron of 1969, the world's first quartz wristwatch, nearly wiped out the Swiss industry; yet Seiko itself never stopped making mechanical watches.
+Seiko is the brand that **triggered the greatest crisis in mechanical watchmaking**. The Quartz Astron of 1969, the world's first quartz wristwatch, nearly wiped out the Swiss industry; yet Seiko itself never stopped making mechanical watches.
 
 The name "Seikosha", given by Kintaro Hattori to his factory in 1892, means **"the house of exquisite workmanship and precision"** — a statement of intent made before the company had produced a single wristwatch.
 
@@ -36,11 +36,11 @@ The name "Seikosha", given by Kintaro Hattori to his factory in 1892, means **"t
 
 ## Watchmaking philosophy
 
-- **Vertical independence.** Seiko makes nearly everything in-house — movements, hairsprings, dials — a rarity at entry-level prices.
+- **Vertical independence.** Seiko makes nearly everything in-house — movements, hairsprings, dials.
 - **Pragmatism first.** A good watch is durable, accurate and wearable every day — not a safe queen.
-- **Comfortable competing with itself.** Affordable Seiko 5 and high-end Grand Seiko have coexisted under one roof for decades.
+- **Comfortable competing with itself.** Seiko 5 and high-end Grand Seiko have coexisted under one roof for decades.
 
-For mechanical enthusiasts, Seiko's greatest value lies there: **no other brand covers such a wide price range while making its own movements at every level**. (Grand Seiko now stands as a separate brand and is covered on its own page.)
+(Grand Seiko now stands as a separate brand and is covered on its own page.)
 
 ## Key lines
 

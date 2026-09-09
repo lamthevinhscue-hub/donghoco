@@ -43,7 +43,7 @@ segmentComparison:
     strength: "Chronometer hàng hải, vật liệu silicon"
     movement: "In-house"
     philosophy: "Đi trước về vật liệu"
-collectorNote: "Chọn Girard-Perregaux khi bạn muốn một cái tên có bề dày thật nhưng chưa bị thị trường đẩy giá. Ba Cầu Vàng là thứ không hãng nào bắt chước được vì nó gắn với một mốc lịch sử cụ thể. Nói thẳng mặt hạn chế: độ nhận diện thấp so với bề dày kỹ thuật, và mạng lưới phân phối mỏng ở nhiều thị trường châu Á."
+collectorNote: "Chọn Girard-Perregaux khi bạn muốn một cái tên có bề dày thật. Ba Cầu Vàng là thứ không hãng nào bắt chước được vì nó gắn với một mốc lịch sử cụ thể. Nói thẳng mặt hạn chế: độ nhận diện thấp so với bề dày kỹ thuật, và mạng lưới phân phối mỏng ở nhiều thị trường châu Á."
 sources:
   - label: "Girard-Perregaux — Lịch sử nhà chế tác"
     url: "https://www.girard-perregaux.com/en-us/our-maison/crafting-history"

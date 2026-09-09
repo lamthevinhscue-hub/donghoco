@@ -55,7 +55,7 @@ segmentComparison:
     strength: "Chronograph đua xe, di sản thể thao tốc độ"
     movement: "Kết hợp bộ máy in-house và bộ máy mua ngoài"
     philosophy: "Tốc độ và văn hóa đua xe"
-collectorNote: "Chọn Breitling khi bạn muốn một chronograph có lý do tồn tại rõ ràng, chứ không chỉ là mặt số nhiều kim. Navitimer là chiếc đồng hồ mà từng vạch trên mặt số đều để dùng — dù hôm nay gần như không ai còn tính toán bằng nó nữa, việc mỗi chi tiết đều xuất phát từ một công dụng khiến chiếc đồng hồ có sự nghiêm túc riêng. Nói thẳng mặt hạn chế: mặt số Navitimer rất dày đặc, khó đọc nhanh, và kích thước vỏ của nhiều mẫu lớn hơn mức nhiều cổ tay châu Á thấy thoải mái — nên thử đeo trước khi quyết định. Nếu ưu tiên độ nhận diện và giữ giá thì Omega là lựa chọn song song; nếu thích thẩm mỹ tiết chế hơn thì IWC."
+collectorNote: "Chọn Breitling khi bạn muốn một chronograph có lý do tồn tại rõ ràng, chứ không chỉ là mặt số nhiều kim. Navitimer là chiếc đồng hồ mà từng vạch trên mặt số đều để dùng — dù hôm nay gần như không ai còn tính toán bằng nó nữa, việc mỗi chi tiết đều xuất phát từ một công dụng khiến chiếc đồng hồ có sự nghiêm túc riêng. Nói thẳng mặt hạn chế: mặt số Navitimer rất dày đặc, khó đọc nhanh, và kích thước vỏ của nhiều mẫu lớn hơn mức nhiều cổ tay châu Á thấy thoải mái — nên thử đeo trước khi quyết định. Nếu ưu tiên độ nhận diện thì Omega là lựa chọn song song; nếu thích thẩm mỹ tiết chế hơn thì IWC."
 sources:
   - label: "Breitling — Lịch sử thương hiệu từ 1884"
     url: "https://www.breitling.com/us-en/about/history/"

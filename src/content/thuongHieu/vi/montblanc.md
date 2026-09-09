@@ -29,7 +29,7 @@ segmentComparison:
     strength: "Kỹ thuật vỏ, đồng hồ phi công"
     movement: "In-house dòng 52000 và 89361"
     philosophy: "Công năng trước hết"
-collectorNote: "Chọn Montblanc khi bạn muốn chế tác Minerva ở mức giá thấp hơn nhiều so với giá trị thật của nó — các mẫu dùng bộ máy Villeret là một trong những món hời kín tiếng của phân khúc này. Nói thẳng mặt hạn chế: hình ảnh thương hiệu bị chi phối bởi mảng bút và đồ da, khiến phần đồng hồ thường bị đánh giá thấp hơn thực tế; và khoảng cách rất lớn giữa các mẫu dùng bộ máy mua ngoài với các mẫu dùng bộ máy Villeret — người mua cần phân biệt rõ mình đang mua loại nào."
+collectorNote: "Chọn Montblanc khi bạn muốn chế tác Minerva. Nói thẳng mặt hạn chế: hình ảnh thương hiệu bị chi phối bởi mảng bút và đồ da, khiến phần đồng hồ thường bị đánh giá thấp hơn thực tế; và khoảng cách rất lớn giữa các mẫu dùng bộ máy mua ngoài với các mẫu dùng bộ máy Villeret — người mua cần phân biệt rõ mình đang mua loại nào."
 sources:
   - label: "Montblanc — Nhà chế tác Thụy Sĩ từ 1858"
     url: "https://www.montblanc.com/en-gb/discover/campaign/craftmanship"

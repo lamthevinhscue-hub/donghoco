@@ -38,7 +38,7 @@ segmentComparison:
     movement: "Tự sản xuất dòng ST19"
     value_retention: "Công nghiệp sản lượng lớn"
     philosophy: "Sản lượng lớn, giá thấp"
-collectorNote: "Chọn Swatch Sistem51 khi bạn muốn hiểu một bộ máy cơ có thể được giản lược tới đâu mà vẫn hoạt động. Đây là món đồ đáng có trong tủ vì lý do kỹ thuật, không phải vì giá trị sưu tầm. Nói thẳng mặt hạn chế: bộ máy được niêm kín, không mở ra bảo dưỡng theo cách thông thường; vỏ nhựa không phù hợp với người tìm cảm giác kim loại; và không có giá trị bán lại đáng kể."
+collectorNote: "Chọn Swatch Sistem51 khi bạn muốn hiểu một bộ máy cơ có thể được giản lược tới đâu mà vẫn hoạt động. Đây là món đồ đáng có trong tủ vì lý do kỹ thuật. Nói thẳng mặt hạn chế: bộ máy được niêm kín, không mở ra bảo dưỡng theo cách thông thường; và vỏ nhựa không phù hợp với người tìm cảm giác kim loại."
 sources:
   - label: "Swatch — Sistem51"
     url: "https://www.swatch.com/en-us/our-icons/sistem51/"

@@ -41,7 +41,7 @@ segmentComparison:
     movement: "Bộ máy riêng trong hệ Swatch Group"
     value_retention: "Danh mục rộng"
     philosophy: "Cổ điển dễ tiếp cận"
-collectorNote: "Chọn Alpina khi bạn muốn một hãng thể thao Thụy Sĩ có lịch sử thật ở tầm giá vừa. Khái niệm Alpina 4 là đóng góp có thật vào cách ngành định nghĩa đồng hồ thể thao. Nói thẳng mặt hạn chế: thương hiệu bị nhầm lẫn với Frederique Constant vì quan hệ giữa hai hãng; độ nhận diện thấp; và giữ giá kém."
+collectorNote: "Chọn Alpina khi bạn muốn một hãng thể thao Thụy Sĩ có lịch sử thật. Khái niệm Alpina 4 là đóng góp có thật vào cách ngành định nghĩa đồng hồ thể thao. Nói thẳng mặt hạn chế: thương hiệu bị nhầm lẫn với Frederique Constant vì quan hệ giữa hai hãng; và độ nhận diện thấp."
 sources:
   - label: "Alpina — Di sản thương hiệu"
     url: "https://alpinawatches.com/pages/the-brand"

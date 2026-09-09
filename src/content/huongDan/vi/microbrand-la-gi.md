@@ -37,7 +37,6 @@ Nói thẳng: **trả tiền cho một chiếc microbrand không phải là tr�
 
 ## 4. Được gì khi mua microbrand
 
-- **Giá trị vật liệu cao hơn ở cùng tầm tiền** — nhờ bỏ bớt khâu trung gian. Tiền bạn trả đi thẳng hơn vào sản phẩm thay vì qua chuỗi đại lý.
 - **Thiết kế nguyên bản**, không phải bản sao nhạt của mẫu nổi tiếng — với những hãng làm nghiêm túc.
 - **Có câu chuyện con người phía sau** — bạn nói chuyện trực tiếp với chính người dựng ra chiếc đồng hồ, và nhiều người mua thấy gắn bó hơn vì điều đó.
 
@@ -47,7 +46,6 @@ Bài này nằm trong mục hướng dẫn cho người mới, nên không thể
 
 - **Rủi ro khi mua qua gọi vốn cộng đồng:** bạn trả tiền trước, nhận hàng sau nhiều tháng, và có trường hợp không bao giờ nhận được.
 - **Bảo hành và sửa chữa:** hãng nhỏ có thể ngừng hoạt động. Bộ máy thì thường phổ thông nên thợ sửa được, nhưng **vỏ, mặt số, kim là linh kiện riêng, hỏng thì rất khó thay**.
-- **Giữ giá kém:** phần lớn microbrand mất giá mạnh khi bán lại.
 - **Chênh lệch chất lượng giữa các hãng rất lớn** — cùng gọi là microbrand, nhưng khoảng cách giữa hãng làm nghiêm túc và hãng làm ẩu là rất xa.
 
 ## 6. Cách đánh giá một microbrand trước khi xuống tiền
@@ -62,4 +60,4 @@ Một bộ câu hỏi thực dụng, trả lời được càng nhiều càng t�
 
 ## Kết lại
 
-Microbrand hợp với người muốn thiết kế nguyên bản và giá trị vật liệu tốt ở tầm tiền vừa, với điều kiện chấp nhận rủi ro đã nêu ở trên. Nếu bạn cần bảo hành dài hạn, mạng lưới dịch vụ gần nhà, hay chiếc đồng hồ giữ giá khi bán lại — mô hình này không phải dành cho bạn. Và nếu vẫn muốn thử: chỉ dùng số tiền mà bạn chấp nhận mất, và kiểm tra kỹ bộ câu hỏi ở mục 6 trước khi bấm nút đặt hàng.
+Microbrand hợp với người muốn thiết kế nguyên bản, với điều kiện chấp nhận rủi ro đã nêu ở trên. Nếu bạn cần bảo hành dài hạn hay mạng lưới dịch vụ gần nhà — mô hình này không phải dành cho bạn. Và nếu vẫn muốn thử: kiểm tra kỹ bộ câu hỏi ở mục 6 trước khi bấm nút đặt hàng.

@@ -42,7 +42,7 @@ segmentComparison:
     movement: "Bộ máy dòng H, nền ETA"
     value_retention: "Thiết kế cổ điển"
     philosophy: "Đồng hồ cho số đông"
-collectorNote: "Chọn Certina khi bạn cần một chiếc đồng hồ chịu được va đập trong sinh hoạt hằng ngày mà không phải trả giá cao. Hệ DS không phải khẩu hiệu, nó là tập hợp các biện pháp cụ thể. Nói thẳng mặt hạn chế: giống Mido, hãng bị lu mờ trong tập đoàn, giữ giá kém, và thiết kế ít có bản sắc riêng."
+collectorNote: "Chọn Certina khi bạn cần một chiếc đồng hồ chịu được va đập trong sinh hoạt hằng ngày. Hệ DS không phải khẩu hiệu, nó là tập hợp các biện pháp cụ thể. Nói thẳng mặt hạn chế: giống Mido, hãng bị lu mờ trong tập đoàn, và thiết kế ít có bản sắc riêng."
 sources:
   - label: "Certina — Lịch sử thương hiệu"
     url: "https://www.certina.com/en/since1888/history"

@@ -45,7 +45,7 @@ segmentComparison:
     strength: "Hoàn thiện thủ công kín đáo, tỷ lệ cổ điển."
     movement: "In-house, sản lượng thấp."
     philosophy: "Cổ điển tinh giản."
-collectorNote: "Chọn Arnold & Son khi bạn thích nhìn cơ cấu như một bố cục kiến trúc: cầu máy đối xứng, bánh xe lớn và complication được đưa ra mặt số. Hãng phù hợp với người đã có vài chiếc quen thuộc và muốn một ngôn ngữ ít gặp hơn. Nói thẳng: độ nhận diện và thị trường thứ cấp nhỏ hơn các maison lớn cùng tầm giá."
+collectorNote: "Chọn Arnold & Son khi bạn thích nhìn cơ cấu như một bố cục kiến trúc: cầu máy đối xứng, bánh xe lớn và complication được đưa ra mặt số. Hãng phù hợp với người đã có vài chiếc quen thuộc và muốn một ngôn ngữ ít gặp hơn. Nói thẳng: độ nhận diện nhỏ hơn các maison lớn."
 sources:
   - label: "Arnold & Son — Các bộ sưu tập chính hãng"
     url: "https://www.arnoldandson.com/collections/"

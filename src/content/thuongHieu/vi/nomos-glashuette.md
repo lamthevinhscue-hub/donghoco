@@ -35,7 +35,7 @@ segmentComparison:
     strength: "Quy mô và độ phủ"
     movement: "Chủ yếu bộ máy Swatch Group"
     philosophy: "Đồng hồ Thụy Sĩ ai cũng mua được"
-collectorNote: "Chọn NOMOS Glashütte khi bạn muốn thiết kế tối giản có kỷ luật và một bộ máy hãng tự làm từ đầu tới cả bộ thoát. Đây là một trong số rất ít hãng ở tầm giá này làm được điều đó. Nói thẳng mặt hạn chế: thẩm mỹ Bauhaus rất kén người — mặt số mảnh và tối giản không hợp với ai thích đồng hồ có sự hiện diện mạnh; và danh mục ít thay đổi qua các năm."
+collectorNote: "Chọn NOMOS Glashütte khi bạn muốn thiết kế tối giản có kỷ luật và một bộ máy hãng tự làm từ đầu tới cả bộ thoát. Nói thẳng mặt hạn chế: thẩm mỹ Bauhaus rất kén người — mặt số mảnh và tối giản không hợp với ai thích đồng hồ có sự hiện diện mạnh; và danh mục ít thay đổi qua các năm."
 sources:
   - label: "NOMOS Glashütte — Hãng chế tác độc lập của Đức"
     url: "https://nomos-glashuette.com/en/watchmaking/nomos-and-glashutte"

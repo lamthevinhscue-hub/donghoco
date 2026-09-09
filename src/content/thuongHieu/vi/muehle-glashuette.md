@@ -37,7 +37,7 @@ segmentComparison:
     movement: "Chủ yếu nền mua ngoài"
     value_retention: "Cựu phi công lập tại Frankfurt"
     philosophy: "Đồng hồ là thiết bị làm việc"
-collectorNote: "Chọn Mühle-Glashütte khi bạn muốn một cái tên Glashütte thật ở mức giá thấp hơn nhiều so với Glashütte Original hay A. Lange & Söhne. Gốc gác của gia đình này trong vùng là thật và lâu hơn phần lớn các hãng đang bán. Nói thẳng mặt hạn chế: bộ máy phần lớn dùng nền mua ngoài có chỉnh sửa, không phải in-house theo nghĩa đầy đủ; và độ nhận diện rất thấp ngoài Đức."
+collectorNote: "Chọn Mühle-Glashütte khi bạn muốn một cái tên Glashütte thật. Gốc gác của gia đình này trong vùng là thật và lâu hơn phần lớn các hãng đang bán. Nói thẳng mặt hạn chế: bộ máy phần lớn dùng nền mua ngoài có chỉnh sửa, không phải in-house theo nghĩa đầy đủ; và độ nhận diện rất thấp ngoài Đức."
 sources:
   - label: "Mühle-Glashütte — Lịch sử một gia đình trong ngành đồng hồ"
     url: "https://www.muehle-glashuette.de/en/manufactory/history/"

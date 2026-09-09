@@ -47,4 +47,4 @@ Lưu ý: thông số thuộc các bản **Big Bang Unico**. Dòng Big Bang rất
 
 Big Bang là **hiện thân của triết lý Art of Fusion** — cách tiếp cận vật liệu dựa trên nghiên cứu công nghệ và sự không ngại thử. **Năm 2010 hãng có bộ máy chronograph in-house đầu tiên mang tên Unico**, và **năm 2013 ra mắt Big Bang Unico** kết hợp kiểu dáng biểu tượng với bộ máy tự làm — hoàn tất vòng từ ghép vật liệu tới chế tác bộ máy.
 
-Nói thẳng: đây là **mẫu gây chia rẽ** — người phản đối cho rằng vật liệu lạ không thay thế được bề dày kỹ thuật; vỏ **rất lớn và dày**, và **giữ giá kém**. Người mua cần biết mình đứng về phía nào của cuộc tranh luận đó.
+Nói thẳng: đây là **mẫu gây chia rẽ** — người phản đối cho rằng vật liệu lạ không thay thế được bề dày kỹ thuật; vỏ **rất lớn và dày**. Người mua cần biết mình đứng về phía nào của cuộc tranh luận đó.

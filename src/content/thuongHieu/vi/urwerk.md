@@ -45,7 +45,7 @@ segmentComparison:
     movement: "Truyền thống"
     value_retention: "Cơ học thuần khiết"
     philosophy: "Thuần khiết cơ học"
-collectorNote: "Chọn Urwerk khi bạn muốn một cách đọc thời gian khác hẳn và chấp nhận rằng đó là lựa chọn có chủ đích, không phải sự bất tiện ngẫu nhiên. Nói thẳng mặt hạn chế: đọc giờ chậm hơn đồng hồ kim thông thường, cần làm quen; vỏ dày và nặng; và giống MB&F, giữ giá phụ thuộc mạnh vào từng mẫu."
+collectorNote: "Chọn Urwerk khi bạn muốn một cách đọc thời gian khác hẳn và chấp nhận rằng đó là lựa chọn có chủ đích, không phải sự bất tiện ngẫu nhiên. Nói thẳng mặt hạn chế: đọc giờ chậm hơn đồng hồ kim thông thường, cần làm quen; và vỏ dày và nặng."
 sources:
   - label: "Urwerk — Lịch sử hãng"
     url: "https://www.urwerk.com/story"

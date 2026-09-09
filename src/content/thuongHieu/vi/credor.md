@@ -42,7 +42,7 @@ segmentComparison:
     movement: "Làm tay từng chiếc"
     value_retention: "Cực thấp"
     philosophy: "Nghề thủ công trên hết"
-collectorNote: "Chọn Credor khi bạn muốn mức thủ công Nhật Bản cao nhất có thể mua được. Eichi II là một trong số rất ít đồng hồ hiện đại mà mặt số được vẽ tay từng nét. Nói thẳng mặt hạn chế: gần như không bán ngoài Nhật Bản, việc mua và bảo dưỡng đều phức tạp; giá ngang các nhà chế tác châu Âu hàng đầu trong khi độ nhận diện quốc tế thấp hơn nhiều; và danh mục rất hẹp."
+collectorNote: "Chọn Credor khi bạn muốn mức thủ công Nhật Bản cao nhất có thể mua được. Eichi II là một trong số rất ít đồng hồ hiện đại mà mặt số được vẽ tay từng nét. Nói thẳng mặt hạn chế: gần như không bán ngoài Nhật Bản, việc mua và bảo dưỡng đều phức tạp; và danh mục rất hẹp."
 sources:
   - label: "Credor — Lịch sử thương hiệu"
     url: "https://www.credor.com/en/about/history/"

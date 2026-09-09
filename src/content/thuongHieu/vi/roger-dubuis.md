@@ -35,7 +35,7 @@ segmentComparison:
     movement: "In-house nhiều dòng"
     value_retention: "Chuẩn nội bộ"
     philosophy: "Nhà chế tác của các nhà chế tác"
-collectorNote: "Chọn Roger Dubuis khi bạn muốn một chuẩn hoàn thiện có bên thứ ba xác nhận thay vì chỉ có lời của hãng. Poinçon de Genève là thứ đo đếm được. Nói thẳng mặt hạn chế: thiết kế rất phô trương, vỏ lớn và nhiều chi tiết lộ máy — kén người; giữ giá kém so với các hãng cùng tầm; và hãng trẻ hơn nhiều so với các tên tuổi cùng phân khúc, nên chưa có bề dày lịch sử để dựa vào."
+collectorNote: "Chọn Roger Dubuis khi bạn muốn một chuẩn hoàn thiện có bên thứ ba xác nhận thay vì chỉ có lời của hãng. Poinçon de Genève là thứ đo đếm được. Nói thẳng mặt hạn chế: thiết kế rất phô trương, vỏ lớn và nhiều chi tiết lộ máy — kén người; và hãng trẻ hơn nhiều so với các tên tuổi cùng phân khúc, nên chưa có bề dày lịch sử để dựa vào."
 sources:
   - label: "Roger Dubuis — Lịch sử hãng"
     url: "https://www.rogerdubuis.com/our-world/manufacture/our-history"

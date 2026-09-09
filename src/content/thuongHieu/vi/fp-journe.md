@@ -31,7 +31,7 @@ collections:
   - name: "Chronomètre Bleu"
     year: 2009
     identity: "Vỏ tantalum màu xám ánh xanh, mặt số xanh đậm phủ sơn mài, bộ máy calibre 1304 bằng vàng hồng."
-    positioning: "Cửa vào danh mục — mẫu dễ tiếp cận nhất và được săn tìm nhất."
+    positioning: "Cửa vào danh mục — mẫu được săn tìm nhất."
     iconic_ref: "Chronomètre Bleu"
   - name: "Chronomètre à Résonance"
     year: 2000
@@ -65,7 +65,7 @@ segmentComparison:
     strength: "Chế tác Đức: bản đĩa ba phần tư, hợp kim German silver, mọi bộ máy lắp ráp hai lần."
     movement: "In-house tay cơ và tự động."
     philosophy: "Hoàn thiện Đức lạnh lùng, chính xác."
-collectorNote: "Chọn F.P. Journe khi bạn đã đi qua giai đoạn mua thương hiệu và bắt đầu mua tư duy của người làm ra nó. Journe là nhà chế tác đương đại hiếm hoi vừa nghĩ ra cơ cấu mới, vừa tự làm được nó, vừa khiến nó đẹp — Chronomètre Bleu là chiếc đồng hồ được cả giới sưu tầm đồng thuận là đúng ở mọi khía cạnh. Nếu bạn đặt hoàn thiện thủ công lên trên tất cả, Philippe Dufour là đỉnh cao không tranh cãi. Nếu mê kỹ thuật thuần túy và không ngại phô diễn, Greubel Forsey. Nếu muốn cùng đẳng cấp hoàn thiện nhưng có hệ thống bảo hành của một tập đoàn lớn, A. Lange & Söhne. Nói thẳng: mua mới F.P. Journe gần như không thể nếu bạn chưa có quan hệ với đại lý, và giá thị trường thứ cấp cao hơn giá niêm yết đáng kể."
+collectorNote: "Chọn F.P. Journe khi bạn đã đi qua giai đoạn mua thương hiệu và bắt đầu mua tư duy của người làm ra nó. Journe là nhà chế tác đương đại hiếm hoi vừa nghĩ ra cơ cấu mới, vừa tự làm được nó, vừa khiến nó đẹp — Chronomètre Bleu là chiếc đồng hồ được cả giới sưu tầm đồng thuận là đúng ở mọi khía cạnh. Nếu bạn đặt hoàn thiện thủ công lên trên tất cả, Philippe Dufour là đỉnh cao không tranh cãi. Nếu mê kỹ thuật thuần túy và không ngại phô diễn, Greubel Forsey. Nếu muốn cùng đẳng cấp hoàn thiện nhưng có hệ thống bảo hành của một tập đoàn lớn, A. Lange & Söhne. Nói thẳng: mua mới F.P. Journe gần như không thể nếu bạn chưa có quan hệ với đại lý."
 sources:
   - label: "The 1916 Company — F.P. Journe Guide"
     url: "https://www.the1916company.com/blog/f-p-journe-guide.html"

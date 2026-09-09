@@ -19,8 +19,7 @@ Think of it as the engine of a car: you rarely see it, but it is the single most
 
 ### 1. Quartz (battery)
 - Runs on a battery, with a vibrating quartz crystal as the timekeeping element.
-- Extremely accurate (seconds per month), affordable, and needs no servicing.
-- But it has no mechanical soul — which is why many enthusiasts keep coming back to mechanics.
+- It has no mechanical soul — which is why many enthusiasts keep coming back to mechanics.
 
 ### 2. Mechanical (manual winding)
 - Powered by a mainspring that you **wind by hand**, typically every day or two.

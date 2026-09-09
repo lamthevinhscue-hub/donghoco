@@ -14,7 +14,7 @@ lineHistory:
 collections:
   - name: "Marlin"
     identity: "Thiết kế mảnh, tối giản, vạch giờ rõ; có cả bản lên dây tay và bản tự động."
-    positioning: "Cửa vào đồng hồ cơ ở mức giá thấp nhất trên trang này."
+    positioning: "Cửa vào danh mục đồng hồ cơ."
   - name: "Waterbury Heritage"
     identity: "Thiết kế cổ điển diễn giải lại theo ngôn ngữ hiện đại."
     positioning: "Tuyến kế thừa tên gọi gốc của công ty."
@@ -37,7 +37,7 @@ segmentComparison:
     movement: "In-house nhiều cấp"
     value_retention: "Bề rộng danh mục"
     philosophy: "Tự chủ tuyệt đối về công nghệ"
-collectorNote: "Chọn Timex khi bạn muốn một chiếc đồng hồ cơ có gốc gác thật ở mức giá thấp nhất. Marlin không giả vờ là thứ gì khác ngoài chính nó. Nói thẳng mặt hạn chế: hoàn thiện ở mức cơ bản, bộ máy dùng nền mua ngoài, và phần lớn danh mục Timex là quartz nên người tìm đồng hồ cơ phải lọc kỹ."
+collectorNote: "Chọn Timex khi bạn muốn một chiếc đồng hồ cơ có gốc gác thật. Marlin không giả vờ là thứ gì khác ngoài chính nó. Nói thẳng mặt hạn chế: hoàn thiện ở mức cơ bản, bộ máy dùng nền mua ngoài, và phần lớn danh mục Timex là quartz nên người tìm đồng hồ cơ phải lọc kỹ."
 sources:
   - label: "Timex — Giới thiệu về hãng"
     url: "https://timex.com/pages/about-us"

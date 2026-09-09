@@ -35,6 +35,6 @@ Năm 1983, các mẫu quartz Swatch đầu tiên có đúng **51 bộ phận**. 
 
 ## Vị trí trong lịch sử
 
-Bộ máy cơ vốn được xem là thứ phải có bàn tay người can thiệp ở nhiều công đoạn. **Sistem51 chứng minh điều ngược lại là khả thi**, và nhờ đó đưa giá đồng hồ cơ Thụy Sĩ xuống mức chưa từng thấy. Kèm theo là **trữ cót 90 giờ** và **khả năng chống từ đặc biệt tốt** — hai con số không tưởng ở mức giá này.
+Bộ máy cơ vốn được xem là thứ phải có bàn tay người can thiệp ở nhiều công đoạn. **Sistem51 chứng minh điều ngược lại là khả thi**, và nhờ đó đưa giá đồng hồ cơ Thụy Sĩ xuống mức chưa từng thấy. Kèm theo là **trữ cót 90 giờ** và **khả năng chống từ đặc biệt tốt**.
 
-Nói thẳng: **bộ máy được niêm kín, không mở ra bảo dưỡng theo cách thông thường**; vỏ nhựa không phù hợp người tìm cảm giác kim loại; và **không có giá trị bán lại** đáng kể — đây là món đồ để hiểu kỹ thuật, không phải để đầu tư.
+Nói thẳng: **bộ máy được niêm kín, không mở ra bảo dưỡng theo cách thông thường**; vỏ nhựa không phù hợp người tìm cảm giác kim loại.

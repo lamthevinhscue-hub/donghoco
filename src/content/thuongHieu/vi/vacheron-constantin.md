@@ -47,7 +47,7 @@ collections:
   - name: "Overseas"
     year: 1996
     identity: "Sport-luxury thép — vỏ 6 cạnh 'Maltese cross', bracelet tích hợp tapers, mặt số xanh dương/den transclucent. 3 dây quickly interchangeable (bracelet/leather/rubber) không cần dụng cụ."
-    positioning: "Dòng biểu tượng số 1 hiện tại — cạnh tranh trực tiếp Nautilus/Royal Oak, đang tăng giá mạnh nhờ khan hiếm cả 2 đối thủ."
+    positioning: "Dòng biểu tượng số 1 hiện tại — cạnh tranh trực tiếp Nautilus/Royal Oak."
     iconic_ref: "Overseas Self-Winding 41/35 / Overseas Chronograph / Overseas Perpetual Calendar"
   - name: "Patrimony"
     year: 2003

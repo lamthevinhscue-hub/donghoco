@@ -83,7 +83,7 @@ segmentComparison:
     strength: "Thương hiệu đồng hồ lâu đời nhất thế giới (1735); cha đẻ đồng hồ lặn hiện đại."
     movement: "Cơ học thuần túy, không bao giờ làm quartz."
     philosophy: "Thuần cơ học, di sản lặn."
-collectorNote: "Chọn Breguet khi bạn muốn chạm vào cội nguồn của ngành, chứ không chỉ mua một chiếc đồng hồ đẹp. Đeo một chiếc Classique là đeo bộ từ vựng mà cả ngành đang dùng: kim Breguet, số Breguet, mặt guilloché, tourbillon — tất cả đều mang tên một người. Nếu bạn thích sự tinh tế kín đáo và bề dày hoạt động liên tục, Vacheron Constantin là lựa chọn song song. Nếu yêu hoàn thiện tay cơ lạnh lùng kiểu Đức, A. Lange & Söhne. Nếu ưu tiên di sản đồng hồ lặn và triết lý thuần cơ học, Blancpain. Điều cần nói thẳng: Breguet ít được công chúng nhận ra hơn Patek Philippe hay Rolex ở cùng tầm tiền — đây là thương hiệu để bạn tự biết mình đang đeo gì, không phải để người khác nhận ra."
+collectorNote: "Chọn Breguet khi bạn muốn chạm vào cội nguồn của ngành, chứ không chỉ mua một chiếc đồng hồ đẹp. Đeo một chiếc Classique là đeo bộ từ vựng mà cả ngành đang dùng: kim Breguet, số Breguet, mặt guilloché, tourbillon — tất cả đều mang tên một người. Nếu bạn thích sự tinh tế kín đáo và bề dày hoạt động liên tục, Vacheron Constantin là lựa chọn song song. Nếu yêu hoàn thiện tay cơ lạnh lùng kiểu Đức, A. Lange & Söhne. Nếu ưu tiên di sản đồng hồ lặn và triết lý thuần cơ học, Blancpain. Điều cần nói thẳng: Breguet ít được công chúng nhận ra hơn Patek Philippe hay Rolex — đây là thương hiệu để bạn tự biết mình đang đeo gì, không phải để người khác nhận ra."
 sources:
   - label: "Wikipedia — Breguet (brand)"
     url: "https://en.wikipedia.org/wiki/Breguet_(brand)"

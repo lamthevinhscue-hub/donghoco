@@ -54,7 +54,7 @@ segmentComparison:
     strength: "Vật liệu mới và nhận diện vỏ mạnh."
     movement: "Kết hợp in-house và nền máy khác."
     philosophy: "Art of Fusion."
-collectorNote: "Chọn Corum khi bạn đã chán những mặt số tròn an toàn. Admiral hợp với người cần đồng hồ thể thao có câu chuyện; Golden Bridge hợp với người muốn xem bộ máy như tác phẩm điêu khắc; Bubble dành cho người sưu tầm vì niềm vui. Điểm cần cân nhắc là nhận diện thương hiệu và thị trường thứ cấp nhỏ hơn các đối thủ phổ biến."
+collectorNote: "Chọn Corum khi bạn đã chán những mặt số tròn an toàn. Admiral hợp với người cần đồng hồ thể thao có câu chuyện; Golden Bridge hợp với người muốn xem bộ máy như tác phẩm điêu khắc; Bubble dành cho người sưu tầm vì niềm vui. Điểm cần cân nhắc là nhận diện thương hiệu nhỏ hơn các đối thủ phổ biến."
 sources:
   - label: "Corum — Timeline chính hãng"
     url: "https://www.corum.ch/en/timeline/"

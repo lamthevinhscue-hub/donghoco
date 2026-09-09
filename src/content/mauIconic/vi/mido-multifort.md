@@ -35,4 +35,4 @@ Ba tính năng — chống từ, chống nước, chống sốc — ngày nay l�
 
 Multifort là hiện thân đúng nhất của triết lý Mido: kỹ thuật thực dụng cho số đông, không phô trương nhưng giải quyết vấn đề thật.
 
-Nói thẳng: hãng **bị lu mờ** giữa các thương hiệu cùng tập đoàn; **giữ giá kém**; bộ máy dùng chung với nhiều hãng anh em.
+Nói thẳng: hãng **bị lu mờ** giữa các thương hiệu cùng tập đoàn; bộ máy dùng chung với nhiều hãng anh em.

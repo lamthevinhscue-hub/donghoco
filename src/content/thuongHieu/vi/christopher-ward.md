@@ -39,7 +39,7 @@ segmentComparison:
     movement: "Chủ yếu bộ máy Swatch Group"
     value_retention: "Qua hệ thống bán lẻ"
     philosophy: "Đồng hồ Thụy Sĩ ai cũng mua được"
-collectorNote: "Chọn Christopher Ward khi bạn muốn giá trị vật chất cao nhất trên mỗi đồng bỏ ra. Mô hình bán thẳng cho phép hãng đưa vào những thứ mà hãng bán qua cửa hàng không thể ở cùng giá. Nói thẳng mặt hạn chế: giữ giá kém; thương hiệu còn trẻ nên chưa có bề dày để dựa vào; và thiết kế của hãng bị chê là vay mượn ở một số mẫu, dù các mẫu gần đây đã có bản sắc rõ hơn."
+collectorNote: "Chọn Christopher Ward vì mô hình bán thẳng cho người dùng của hãng. Nói thẳng mặt hạn chế: thương hiệu còn trẻ nên chưa có bề dày để dựa vào; và thiết kế của hãng bị chê là vay mượn ở một số mẫu, dù các mẫu gần đây đã có bản sắc rõ hơn."
 sources:
   - label: "Christopher Ward — Câu chuyện của hãng"
     url: "https://www.christopherward.com/int/our-story.html"

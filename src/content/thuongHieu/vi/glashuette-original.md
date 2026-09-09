@@ -73,7 +73,7 @@ segmentComparison:
     strength: "Hoàn thiện thủ công vượt tầm giá: đánh bóng Zaratsu, mặt số lấy cảm hứng thiên nhiên Nhật Bản."
     movement: "Hi-beat 36.000 nhịp mỗi giờ và công nghệ Spring Drive độc quyền."
     philosophy: "Bản chất của thời gian qua con mắt Nhật Bản."
-collectorNote: "Chọn Glashütte Original khi bạn yêu chế tác Đức nhưng chưa tới ngân sách A. Lange & Söhne — cùng trường phái Glashütte, cùng bản đĩa ba phần tư, cùng cần cổ thiên nga, ở mức giá thấp hơn đáng kể. Ô lịch lớn Panorama và bố cục mặt số lệch của dòng Pano là hai thứ không hãng nào làm giống được. Nếu ngân sách cho phép và bạn muốn đỉnh cao tuyệt đối của trường phái này, A. Lange & Söhne. Nếu ưu tiên di sản lặn và bề dày lâu đời, Blancpain. Nếu yêu hoàn thiện thủ công tỉ mỉ tới mức ám ảnh ở cùng tầm tiền, Grand Seiko là đối thủ đáng gờm nhất. Nói thẳng: đây là thương hiệu bị thị trường định giá thấp hơn giá trị chế tác thực — tốt cho người mua để đeo, kém hấp dẫn cho người mua để bán lại. Mạng lưới bảo hành tại Việt Nam cũng mỏng hơn các hãng Thụy Sĩ lớn."
+collectorNote: "Chọn Glashütte Original khi bạn yêu chế tác Đức — cùng trường phái Glashütte, cùng bản đĩa ba phần tư, cùng cần cổ thiên nga. Ô lịch lớn Panorama và bố cục mặt số lệch của dòng Pano là hai thứ không hãng nào làm giống được. Nếu muốn đỉnh cao tuyệt đối của trường phái này, A. Lange & Söhne. Nếu ưu tiên di sản lặn và bề dày lâu đời, Blancpain. Nếu yêu hoàn thiện thủ công tỉ mỉ tới mức ám ảnh, Grand Seiko là đối thủ đáng gờm nhất. Nói thẳng: mạng lưới bảo hành tại Việt Nam mỏng hơn các hãng Thụy Sĩ lớn."
 sources:
   - label: "Wikipedia — Glashütte Original"
     url: "https://en.wikipedia.org/wiki/Glash%C3%BCtte_Original"

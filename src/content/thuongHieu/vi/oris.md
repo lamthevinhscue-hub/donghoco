@@ -41,7 +41,7 @@ segmentComparison:
     strength: "El Primero, chronograph tần số cao"
     movement: "In-house El Primero"
     philosophy: "Kỹ thuật chronograph"
-collectorNote: "Chọn Oris khi bạn muốn một hãng Thụy Sĩ độc lập thật sự, chứ không phải một cái tên trong danh mục tập đoàn. Câu chuyện năm 1982 — ban lãnh đạo tự mua lại công ty đang đứng trước nguy cơ bị đóng cửa — là lý do hãng tự định đoạt được hướng đi của mình cho tới hôm nay. Calibre 400 với năm ngày trữ cót và chu kỳ bảo dưỡng mười năm là lời tuyên bố nghiêm túc về kỹ thuật, không phải chiêu tiếp thị. Nói thẳng mặt hạn chế: Oris không có sức nặng thương hiệu như các tên tuổi cùng tầm giá, và giữ giá kém khi bán lại — hãy mua vì thích chiếc đồng hồ, không phải vì kỳ vọng nó giữ giá."
+collectorNote: "Chọn Oris khi bạn muốn một hãng Thụy Sĩ độc lập thật sự, chứ không phải một cái tên trong danh mục tập đoàn. Câu chuyện năm 1982 — ban lãnh đạo tự mua lại công ty đang đứng trước nguy cơ bị đóng cửa — là lý do hãng tự định đoạt được hướng đi của mình cho tới hôm nay. Calibre 400 với năm ngày trữ cót và chu kỳ bảo dưỡng mười năm là lời tuyên bố nghiêm túc về kỹ thuật, không phải chiêu tiếp thị. Nói thẳng mặt hạn chế: Oris không có sức nặng thương hiệu như các tên tuổi khác — hãy mua vì thích chiếc đồng hồ."
 sources:
   - label: "Oris — Lịch sử thương hiệu"
     url: "https://www.oris.ch/en-US/worldoforis/about-us/where-joy-mechanics-comes-life"

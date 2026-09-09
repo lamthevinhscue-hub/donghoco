@@ -65,7 +65,7 @@ segmentComparison:
     strength: "Tự chủ gần như toàn bộ chuỗi sản xuất ở mọi mức giá."
     movement: "Tự sản xuất ở mọi phân khúc."
     philosophy: "Đỉnh cao của thực dụng."
-collectorNote: "Chọn Grand Seiko khi bạn **mua bằng mắt chứ không bằng tai** — nghĩa là bạn thực sự nhìn vào chiếc đồng hồ, chứ không nghe người khác nói về nó. Ở cùng tầm tiền, không hãng nào đánh bóng vỏ và làm mặt số đẹp hơn; kỹ thuật Zaratsu tạo ra những bề mặt phẳng phản chiếu không méo mà đồng hồ Thụy Sĩ cùng giá hiếm khi đạt tới. Nếu bạn cần **giữ giá và được người khác nhận ra**, [Rolex](/thuong-hieu/rolex) là câu trả lời khác hẳn. Nếu muốn công nghệ và di sản có bề dày kể chuyện, Omega. Nếu chỉ mới bắt đầu, [Seiko](/thuong-hieu/seiko) là bước đệm tự nhiên. Nói thẳng ba điều: Grand Seiko giữ giá chỉ trung bình khá, mạng lưới bảo hành ngoài Nhật Bản mỏng hơn các hãng Thụy Sĩ lớn, và phần lớn người xung quanh bạn sẽ không biết bạn đang đeo gì. Đây là chiếc đồng hồ mua cho chính mình."
+collectorNote: "Chọn Grand Seiko khi bạn **mua bằng mắt chứ không bằng tai** — nghĩa là bạn thực sự nhìn vào chiếc đồng hồ, chứ không nghe người khác nói về nó. Kỹ thuật Zaratsu tạo ra những bề mặt phẳng phản chiếu không méo. Nếu muốn công nghệ và di sản có bề dày kể chuyện, Omega. Nếu chỉ mới bắt đầu, [Seiko](/thuong-hieu/seiko) là bước đệm tự nhiên. Nói thẳng: mạng lưới bảo hành ngoài Nhật Bản mỏng hơn các hãng Thụy Sĩ lớn, và phần lớn người xung quanh bạn sẽ không biết bạn đang đeo gì. Đây là chiếc đồng hồ mua cho chính mình."
 sources:
   - label: "Seiko Design 140 — The Grand Seiko Style"
     url: "https://by.seiko-design.com/140th/en/topic/28.html"

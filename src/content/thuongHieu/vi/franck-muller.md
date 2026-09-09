@@ -47,7 +47,7 @@ segmentComparison:
     strength: "Vật liệu mới và vỏ có hiện diện mạnh."
     movement: "Kết hợp Unico in-house và các nền máy khác."
     philosophy: "Art of Fusion."
-collectorNote: "Chọn Franck Muller khi bạn muốn một chiếc đồng hồ có cá tính thị giác rõ ràng, đặc biệt là vỏ tonneau hoặc Crazy Hours. Đây là lựa chọn vì thiết kế và niềm vui cơ học, không phải vì mức độ kín đáo hay tính thanh khoản. Hãy thử đúng kích thước trên tay: nhiều mẫu cong đẹp nhưng có cảm giác hiện diện lớn hơn thông số đường kính."
+collectorNote: "Chọn Franck Muller khi bạn muốn một chiếc đồng hồ có cá tính thị giác rõ ràng, đặc biệt là vỏ tonneau hoặc Crazy Hours. Đây là lựa chọn vì thiết kế và niềm vui cơ học. Hãy thử đúng kích thước trên tay: nhiều mẫu cong đẹp nhưng có cảm giác hiện diện lớn hơn thông số đường kính."
 sources:
   - label: "Franck Muller — Vanguard Crazy Hours"
     url: "https://www.franckmuller.com/vanguard-crazy-hours"

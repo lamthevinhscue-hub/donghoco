@@ -34,7 +34,7 @@ collections:
   - name: "Kurono Tokyo"
     year: 2019
     identity: "Thiết kế và bản mẫu do chính Asaoka làm; thẩm mỹ Art Deco diễn giải qua con mắt Nhật Bản."
-    positioning: "Tuyến giá dễ tiếp cận, giúp người yêu thích sở hữu được thiết kế của ông."
+    positioning: "Tuyến mang thiết kế của Hajime Asaoka."
 segmentComparison:
   - brand: "Philippe Dufour"
     slug: "philippe-dufour"
@@ -54,7 +54,7 @@ segmentComparison:
     movement: "Tourbillon nghiêng nhiều trục"
     value_retention: "Cực thấp"
     philosophy: "Đẩy giới hạn kỹ thuật"
-collectorNote: "Chọn tác phẩm của Hajime Asaoka khi bạn muốn một con đường vào nghề khác với truyền thống châu Âu. Kurono Tokyo là cách hợp lý nhất để tiếp cận thiết kế của ông mà không phải chờ nhiều năm. Nói thẳng mặt hạn chế: các tác phẩm mang tên riêng gần như không mua được; Kurono bán theo đợt và hết rất nhanh; và giá bán lại của Kurono biến động mạnh theo từng mẫu."
+collectorNote: "Chọn tác phẩm của Hajime Asaoka khi bạn muốn một con đường vào nghề khác với truyền thống châu Âu. Kurono Tokyo là cách hợp lý nhất để tiếp cận thiết kế của ông mà không phải chờ nhiều năm. Nói thẳng mặt hạn chế: các tác phẩm mang tên riêng gần như không mua được; và Kurono bán theo đợt và hết rất nhanh."
 sources:
   - label: "AHCI — Hồ sơ thành viên Hajime Asaoka"
     url: "https://www.ahci.ch/members/hajime-asaoka/"

@@ -42,7 +42,7 @@ segmentComparison:
     strength: "Dòng L.U.C với bộ máy in-house"
     movement: "In-house dòng L.U.C"
     philosophy: "Chế tác kín tiếng"
-collectorNote: "Chọn Bvlgari khi bạn muốn thiết kế Ý rõ rệt cộng với một thành tựu kỹ thuật đo đếm được. Octo Finissimo là trường hợp hiếm mà thẩm mỹ và kỷ lục kỹ thuật đi cùng nhau. Nói thẳng mặt hạn chế: vỏ nhiều mặt cắt dễ xước và khó đánh bóng lại; giữ giá kém so với các hãng Thụy Sĩ cùng tầm; và các bản mỏng cực hạn đánh đổi độ bền để lấy con số kỷ lục."
+collectorNote: "Chọn Bvlgari khi bạn muốn thiết kế Ý rõ rệt cộng với một thành tựu kỹ thuật đo đếm được. Octo Finissimo là trường hợp hiếm mà thẩm mỹ và kỷ lục kỹ thuật đi cùng nhau. Nói thẳng mặt hạn chế: vỏ nhiều mặt cắt dễ xước và khó đánh bóng lại; và các bản mỏng cực hạn đánh đổi độ bền để lấy con số kỷ lục."
 sources:
   - label: "Bvlgari — Dòng thời gian lịch sử"
     url: "https://www.bulgari.com/en-us/bvlgari-history"

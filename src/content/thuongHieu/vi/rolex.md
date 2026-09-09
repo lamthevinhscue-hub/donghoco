@@ -124,7 +124,7 @@ segmentComparison:
     strength: "Kỹ thuật phong cách Đức-Thụy Sĩ, di sản đồng hồ phi công từ 1936."
     movement: "Họ 52000/69000 in-house, trữ cót dài."
     philosophy: "Kỹ thuật thực dụng cho nhà thám hiểm."
-collectorNote: "Chọn Rolex khi bạn cần một chiếc đồng hồ 'không bao giờ sai' theo cả ba nghĩa: chạy chính xác, hợp mọi hoàn cảnh, và giữ giá trị tốt nhất toàn ngành — với người Việt, Rolex còn là tài sản thanh khoản gần như tức thì. Chọn Omega nếu muốn công nghệ ngang hoặc hơn ở mức giá thấp hơn đáng kể và chấp nhận giữ giá kém hơn. Chọn Grand Seiko nếu bạn mua bằng con mắt nghệ nhân — ở cùng tầm tiền, không hãng nào hoàn thiện mặt số và vỏ đẹp hơn. Chọn IWC nếu yêu đồng hồ phi công có chiều sâu lịch sử. Hai điều cần nói thẳng về Rolex: các mẫu thể thao 'hot' gần như không thể mua đúng giá niêm yết tại đại lý nếu chưa có lịch sử mua hàng; và về hoàn thiện thủ công thuần túy, Grand Seiko cùng tầm giá làm tốt hơn — Rolex thắng ở sự toàn diện, không phải ở từng chi tiết cực đoan."
+collectorNote: "Khi tìm hiểu Rolex, hãy đối chiếu thiết kế và thông số của từng mẫu với nhu cầu sử dụng. Nếu quan tâm đến hoàn thiện mặt số và vỏ, có thể đọc thêm hồ sơ Grand Seiko; nếu yêu đồng hồ phi công, có thể đọc thêm hồ sơ IWC."
 sources:
   - label: "Rolex — Giới thiệu chính hãng"
     url: "https://www.rolex.com/about-rolex"

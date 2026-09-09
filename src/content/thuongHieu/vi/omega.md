@@ -55,7 +55,7 @@ collections:
   - name: "Seamaster"
     year: 1948
     identity: "Đồng hồ lặn + đa dụng — Seamaster Diver 300M (vỏ 42mm, helium escape valve, wave dial), Seamaster Planet Ocean (600m). Gắn với James Bond từ 1995."
-    positioning: "Dòng bán chạy nhất — đa dụng, chống nước tốt, giá tiếp cận hơn Submariner, popular nhờ James Bond."
+    positioning: "Dòng bán chạy nhất — đa dụng, chống nước tốt, popular nhờ James Bond."
     iconic_ref: "Seamaster Diver 300M '007' / Planet Ocean 600M"
   - name: "Constellation"
     year: 1952
@@ -83,7 +83,7 @@ segmentComparison:
     strength: "Đại diện pilot watch — Mark XI (1948), Big Pilot. Di sản hàng không mạnh, German-Swiss aesthetic minimalist."
     movement: "Calibre 32111 (in-house, 120h), 69385 — chế tác dùng cả in-house và modified ETA, ít đổi mới escapement."
     philosophy: "Form follows function — thiết kế công cụ hàng không, tối giản, không trang trí thừa."
-collectorNote: "Chọn Omega khi bạn trân trọng **di sản Mặt Trăng** (Speedmaster là chiếc đồng hồ duy nhất từng chạm tới Moon) và **đổi mới kỹ thuật có trách nhiệm** (Co-Axial 1999, Master Chronometer METAS 2015). Omega là lựa chọn **'Rolex ít danh sách chờ'** — chất lượng tương đương, đôi khi hơn về kỹ thuật (chống từ 15.000 gauss), nhưng giá tốt hơn và dễ mua hơn. Hợp với người yêu khoa học/không gian, fan James Bond, và ai muốn một chiếc đồng hồ có câu chuyện lịch sử thực. Nếu ưu tiên **giá trị giữ giá + biểu tượng toàn cầu**, chọn Rolex. Nếu yêu **accuracy cực đoan + hoàn thiện Nhật**, chọn Grand Seiko. Nếu thích **di sản pilot watch tối giản**, chọn IWC. Omega hợp với người hiện đại, thực tế, không cần 'khoe' — ai muốn chất lượng chứng nhận mà không xếp hàng chờ."
+collectorNote: "Chọn Omega khi bạn trân trọng **di sản Mặt Trăng** (Speedmaster là chiếc đồng hồ duy nhất từng chạm tới Moon) và **đổi mới kỹ thuật có trách nhiệm** (Co-Axial 1999, Master Chronometer METAS 2015). Omega là lựa chọn **'Rolex ít danh sách chờ'** — chất lượng tương đương, đôi khi hơn về kỹ thuật (chống từ 15.000 gauss), và dễ mua hơn. Hợp với người yêu khoa học/không gian, fan James Bond, và ai muốn một chiếc đồng hồ có câu chuyện lịch sử thực. Nếu ưu tiên **biểu tượng toàn cầu**, chọn Rolex. Nếu yêu **accuracy cực đoan + hoàn thiện Nhật**, chọn Grand Seiko. Nếu thích **di sản pilot watch tối giản**, chọn IWC. Omega hợp với người hiện đại, thực tế, không cần 'khoe' — ai muốn chất lượng chứng nhận mà không xếp hàng chờ."
 sources:
   - label: "Omega — Chronicle, biên niên sử chính hãng"
     url: "https://www.omegawatches.com/chronicle"

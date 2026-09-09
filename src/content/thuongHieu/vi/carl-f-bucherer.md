@@ -46,7 +46,7 @@ segmentComparison:
     strength: "L.U.C hoàn thiện cao cùng nền tảng kim hoàn."
     movement: "In-house ở L.U.C; đa dạng ở các dòng khác."
     philosophy: "Kim hoàn gặp chế tác."
-collectorNote: "Chọn Carl F. Bucherer khi bạn bị thuyết phục bởi kỹ thuật rotor ngoại vi và muốn một chiếc dress watch hiện đại, ít gặp hơn các tên tuổi lớn. Hãy xem mặt đáy trước khi mua: đó là nơi lợi thế của rotor ngoại vi hiện ra rõ nhất. Thị trường thứ cấp không sâu; hãy mua vì kỹ thuật và thiết kế, không vì kỳ vọng thanh khoản."
+collectorNote: "Chọn Carl F. Bucherer khi bạn bị thuyết phục bởi kỹ thuật rotor ngoại vi và muốn một chiếc dress watch hiện đại, ít gặp hơn các tên tuổi lớn. Hãy xem mặt đáy trước khi mua: đó là nơi lợi thế của rotor ngoại vi hiện ra rõ nhất. Hãy mua vì kỹ thuật và thiết kế."
 sources:
   - label: "Carl F. Bucherer — Lịch sử chính hãng"
     url: "https://www.carl-f-bucherer.com/en/brand/history"

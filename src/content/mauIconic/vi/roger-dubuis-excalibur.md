@@ -38,4 +38,4 @@ Vì sao điều này quan trọng với người đọc: đây là **chuẩn do 
 
 Excalibur chọn hướng phô diễn: kết cấu, cơ khí và sự vượt trội thị giác đặt lên hàng đầu — ngược với trường phái kín đáo.
 
-Nói thẳng: **thiết kế rất phô trương**, vỏ lớn và nhiều chi tiết lộ máy — kén người; **giữ giá kém** so với các hãng cùng tầm.
+Nói thẳng: **thiết kế rất phô trương**, vỏ lớn và nhiều chi tiết lộ máy — kén người.

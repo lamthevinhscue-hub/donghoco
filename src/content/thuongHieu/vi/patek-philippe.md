@@ -42,18 +42,18 @@ lineHistory:
     title: "175 năm — Grandmaster Chime 5175 (5 cặp)"
     detail: "Kỷ niệm 175 năm bằng Grandmaster Chime — đồng hồ phức tạp nhất Patek từng sản xuất (20 complications, 2 mặt số). Chỉ làm 7 chiếc."
   - year: 2022
-    title: "Nautilus 5711 ngừng sản xuất — thị trường 'phát điên'"
-    detail: "Thierry Stern tuyên bố ngừng mẫu Nautilus 5711 'Blue' — giá thị trường thứ cấp lập tức tăng vọt cho một chiếc đồng hồ thép, trở thành hiện tượng sưu tầm."
+    title: "Nautilus 5711 ngừng sản xuất"
+    detail: "Thierry Stern tuyên bố ngừng mẫu Nautilus 5711 'Blue' — mẫu thép trở thành hiện tượng sưu tầm."
 collections:
   - name: "Nautilus"
     year: 1976
     identity: "Sport-luxury thép — vỏ 8 cạnh 'porthole' (cửa tàu), bezel mỏng 'ears' hai bên, mặt số xanh dương kim cương (embossed). Thiết kế Gérald Genta."
-    positioning: "Dòng biểu tượng số 1 — săn đón nhất, danh sách chờ 8-10 năm cho mẫu thép, giá thị trường thứ cấp luôn cao hơn nhiều lần giá niêm yết."
+    positioning: "Dòng biểu tượng số 1 — săn đón nhất, danh sách chờ 8-10 năm cho mẫu thép."
     iconic_ref: "Nautilus 5811 / 5712 / 5990 Travel Time"
   - name: "Aquanaut"
     year: 1996
     identity: "Phiên bản hiện đại của Nautilus — vỏ hình tương tự, dây cao su Composite, mặt số 'tropical' embossed, chống nước 120m. Trẻ trung hơn."
-    positioning: "Dòng 'gateway' — dễ tiếp cận hơn Nautilus, thu hút khách trẻ hơn."
+    positioning: "Dòng 'gateway' — thu hút khách trẻ hơn."
     iconic_ref: "Aquanaut 5167 / 5960 Chronograph / Travel Time 5164"
   - name: "Calatrava"
     year: 1932
@@ -63,7 +63,7 @@ collections:
   - name: "Grand Complications"
     year: 1839
     identity: "Dòng phức tạp cao cấp — perpetual calendar, minute repeater, tourbillon, sky chart. Mỗi chiếc là tác phẩm chế tác thủ công, ống đóng kính sapphire."
-    positioning: "Dòng đỉnh — cho nhà sưu tầm đỉnh, mỗi mẫu limited production, tầng giá cao nhất của hãng."
+    positioning: "Dòng đỉnh — cho nhà sưu tầm đỉnh, mỗi mẫu limited production."
     iconic_ref: "Perpetual Calendar 5236P / Grandmaster Chime 6300"
   - name: "Twenty-4"
     year: 1999
@@ -86,7 +86,7 @@ segmentComparison:
     strength: "Đại diện Đức xuất sắc — mặt số và movement Đức đặc trưng (3/4 plate, vàng tay chống, moon phase chính xác). LANGE 1 (1994) định nghĩa 'German watchmaking'."
     movement: "Calibre L951.6 (manual chronograph), L121.1 (LANGE 1) — chế tác Đức cực tỉ mỉ, đường annealed blue tay."
     philosophy: "Deutsche Wertarbeit (chế tác Đức) — không bắt chước Thụy Sĩ, hoàn thiện Đức lạnh lùng, exactitud."
-collectorNote: "Chọn Patek Philippe khi bạn tìm kiếm **đỉnh cao tuyệt đối của haute horlogerie** — một thương hiệu 3 thế hệ gia đình Stern sở hữu, slogan 'bạn chỉ giữ cho thế hệ sau' nói lên tất cả. Patek là **món gia sản truyền đời**, không phải 'đồng hồ để đeo' đơn thuần — Nautilus/Aquanaut săn đón nhất ngành, Calatrava là dress watch chuẩn mực, Grand Complications là tác phẩm nghệ thuật. Hợp với người đã có mọi thứ và muốn một mảnh 'vĩnh cửu' — không hợp với người mua để 'khoe' (Patek ít nổi tiếng với công chúng hơn Rolex). Nếu ưu tiên **sport-luxury thép táo bạo**, chọn AP Royal Oak (đẹp hơn Nautilus ở 'attitude'). Nếu yêu **nhà chế tác lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne (LANGE 1). Patek Philippe hợp với nhà sưu tập dạn dày, người trân trọng **di sản gia đình** và 'đầu tư an toàn' — giá trị tăng đều 50 năm qua."
+collectorNote: "Chọn Patek Philippe khi bạn tìm kiếm **đỉnh cao tuyệt đối của haute horlogerie** — một thương hiệu 3 thế hệ gia đình Stern sở hữu, slogan 'bạn chỉ giữ cho thế hệ sau' nói lên tất cả. Patek là **món gia sản truyền đời**, không phải 'đồng hồ để đeo' đơn thuần — Nautilus/Aquanaut săn đón nhất ngành, Calatrava là dress watch chuẩn mực, Grand Complications là tác phẩm nghệ thuật. Hợp với người đã có mọi thứ và muốn một mảnh 'vĩnh cửu' — không hợp với người mua để 'khoe' (Patek ít nổi tiếng với công chúng hơn Rolex). Nếu ưu tiên **sport-luxury thép táo bạo**, chọn AP Royal Oak (đẹp hơn Nautilus ở 'attitude'). Nếu yêu **nhà chế tác lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne (LANGE 1). Patek Philippe hợp với nhà sưu tập dạn dày, người trân trọng **di sản gia đình**."
 sources:
   - label: "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ"
     url: "https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland"

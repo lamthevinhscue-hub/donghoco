@@ -61,7 +61,7 @@ segmentComparison:
     strength: "Hoàn thiện thủ công vượt tầm giá: đánh bóng Zaratsu, mặt số lấy cảm hứng thiên nhiên Nhật Bản."
     movement: "Hi-beat 36.000 nhịp mỗi giờ và công nghệ Spring Drive độc quyền."
     philosophy: "Bản chất của thời gian qua con mắt Nhật Bản."
-collectorNote: "Chọn Seiko khi bạn muốn **bắt đầu chơi đồng hồ cơ mà không phải trả học phí**. Đây là hãng hiếm hoi mà chiếc rẻ nhất và chiếc đắt nhất đều do cùng một tổ chức tự làm bộ máy, nên chất lượng ở tầm giá thấp cao hơn hẳn mặt bằng. Một chiếc Seiko lặn là cách rẻ nhất để hiểu vì sao người ta mê đồng hồ cơ. Nếu ngân sách còn hẹp hơn nữa, Orient là bước đệm hợp lý. Nếu thích di sản Mỹ và thiết kế cổ điển, Hamilton. Nếu bạn đã đi qua giai đoạn nhập môn và muốn thấy người Nhật làm hết sức mình, [Grand Seiko](/thuong-hieu/grand-seiko) là đích đến. Nói thẳng: các dòng phổ thông của Seiko gần như không giữ giá, và chất lượng hoàn thiện vỏ ở tầm rẻ chỉ ở mức chấp nhận được — hãy mua để đeo và để học, không phải để đầu tư."
+collectorNote: "Chọn Seiko khi bạn muốn **bắt đầu chơi đồng hồ cơ**. Đây là hãng hiếm hoi mà chiếc phổ thông nhất và chiếc cao cấp nhất đều do cùng một tổ chức tự làm bộ máy. Nếu thích di sản Mỹ và thiết kế cổ điển, Hamilton. Nếu bạn đã đi qua giai đoạn nhập môn và muốn thấy người Nhật làm hết sức mình, [Grand Seiko](/thuong-hieu/grand-seiko) là đích đến. Nói thẳng: chất lượng hoàn thiện vỏ ở tầm phổ thông chỉ ở mức chấp nhận được — hãy mua để đeo và để học."
 sources:
   - label: "Seiko Group Corporation — History"
     url: "https://www.seiko.co.jp/en/group/history/"

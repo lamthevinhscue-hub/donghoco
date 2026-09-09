@@ -38,7 +38,7 @@ segmentComparison:
     movement: "In-house dòng MT"
     value_retention: "Độ bền"
     philosophy: "Công cụ bền bỉ"
-collectorNote: "Chọn Bell & Ross khi bạn muốn một thiết kế hiện đại có bản sắc rõ thay vì một biến thể của mẫu cổ điển nào đó. Nói thẳng mặt hạn chế: vỏ vuông cỡ lớn kén cổ tay và không luồn được dưới cổ tay áo; bộ máy dùng nền mua ngoài; và giữ giá kém so với các hãng Thụy Sĩ cùng tầm."
+collectorNote: "Chọn Bell & Ross khi bạn muốn một thiết kế hiện đại có bản sắc rõ thay vì một biến thể của mẫu cổ điển nào đó. Nói thẳng mặt hạn chế: vỏ vuông cỡ lớn kén cổ tay và không luồn được dưới cổ tay áo; và bộ máy dùng nền mua ngoài."
 sources:
   - label: "Bell & Ross — Lịch sử thương hiệu"
     url: "https://bellross.com/en-us/pages/histoire"

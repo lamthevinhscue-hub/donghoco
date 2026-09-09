@@ -45,7 +45,7 @@ segmentComparison:
     movement: "Làm tay từng chiếc"
     value_retention: "Bảo tồn kỹ thuật thủ công"
     philosophy: "Nghề thủ công trên hết"
-collectorNote: "Chọn MB&F khi bạn xem đồng hồ là vật thể để ngắm chứ không chỉ để xem giờ. Đây là hãng hiếm hoi mà giá trị nằm ở ý tưởng nhiều ngang với tay nghề. Nói thẳng mặt hạn chế: nhiều mẫu rất khó đọc giờ, và hình dáng khác thường khiến chúng không đeo được trong phần lớn bối cảnh thường ngày; giữ giá phụ thuộc mạnh vào từng mẫu chứ không đồng đều như các hãng truyền thống."
+collectorNote: "Chọn MB&F khi bạn xem đồng hồ là vật thể để ngắm chứ không chỉ để xem giờ. Đây là hãng hiếm hoi mà giá trị nằm ở ý tưởng nhiều ngang với tay nghề. Nói thẳng mặt hạn chế: nhiều mẫu rất khó đọc giờ, và hình dáng khác thường khiến chúng không đeo được trong phần lớn bối cảnh thường ngày."
 sources:
   - label: "MB&F — Giới thiệu về hãng"
     url: "https://www.mbandf.com/odyssey/about-mbf"

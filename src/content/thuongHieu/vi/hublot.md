@@ -45,7 +45,7 @@ segmentComparison:
     strength: "Chronograph đua xe"
     movement: "Kết hợp in-house và mua ngoài"
     philosophy: "Tốc độ và văn hóa đua xe"
-collectorNote: "Chọn Hublot khi bạn muốn một chiếc đồng hồ có sự hiện diện mạnh và quan tâm tới vật liệu như một hướng chế tác riêng. Nói thẳng: đây là hãng gây chia rẽ nhất trong danh sách này. Người phản đối cho rằng vật liệu lạ không thay thế được bề dày kỹ thuật; người ủng hộ cho rằng nghiên cứu vật liệu cũng là chế tác. Ngoài ra vỏ Hublot rất lớn và dày, và giữ giá kém so với các hãng cùng tầm — hãy mua vì thích chiếc đồng hồ, không phải vì kỳ vọng giữ giá."
+collectorNote: "Chọn Hublot khi bạn muốn một chiếc đồng hồ có sự hiện diện mạnh và quan tâm tới vật liệu như một hướng chế tác riêng. Nói thẳng: đây là hãng gây chia rẽ nhất trong danh sách này. Người phản đối cho rằng vật liệu lạ không thay thế được bề dày kỹ thuật; người ủng hộ cho rằng nghiên cứu vật liệu cũng là chế tác. Ngoài ra vỏ Hublot rất lớn và dày — hãy mua vì thích chiếc đồng hồ."
 sources:
   - label: "Hublot — Sản phẩm qua 40 năm"
     url: "https://www.hublot.com/en-us/40-years/digital-book-products"

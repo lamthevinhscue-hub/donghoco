@@ -42,7 +42,7 @@ collections:
     iconic_ref: "Kamasu"
   - name: "Bambino"
     identity: "Đồng hồ lịch sự, mặt số vòm, kính vòm."
-    positioning: "Tuyến thanh lịch giá thấp, rất phổ biến với người mới."
+    positioning: "Tuyến thanh lịch."
     iconic_ref: "Bambino"
   - name: "Orient Star"
     year: 1951
@@ -65,7 +65,7 @@ segmentComparison:
     strength: "Thương hiệu Thụy Sĩ phổ biến nhất ở tầm giá vào nghề, danh mục rộng."
     movement: "Bộ máy Thụy Sĩ trong cùng tập đoàn."
     philosophy: "Cửa ngõ vào đồng hồ Thụy Sĩ."
-collectorNote: "Chọn Orient khi bạn muốn **biết cảm giác đeo một chiếc đồng hồ cơ thật sự mà không phải cân nhắc gì nhiều**. Đây là hãng rẻ nhất trên toàn bộ website này vẫn tự làm bộ máy — mở nắp lưng một chiếc Mako ra, thứ bạn nhìn thấy là do chính hãng thiết kế, không phải mua sẵn rồi khắc tên lên. Bambino là cách rẻ nhất để có một chiếc đồng hồ lịch sự đeo đi làm được. Nếu muốn danh mục rộng hơn và chất lượng hoàn thiện nhỉnh hơn, [Seiko](/thuong-hieu/seiko) là bước kế tiếp tự nhiên. Nếu thích thẩm mỹ cổ điển phương Tây, [Hamilton](/thuong-hieu/hamilton). Nếu muốn chữ 'Swiss made' trên mặt số, [Tissot](/thuong-hieu/tissot). Nói thẳng: hoàn thiện vỏ và mặt số của Orient chỉ ở mức chấp nhận được, độ chính xác dao động khá rộng, và hãng gần như không có giá trị bán lại. Đây là chiếc đồng hồ để học và để đeo, tuyệt đối không phải để đầu tư."
+collectorNote: "Chọn Orient khi bạn muốn **biết cảm giác đeo một chiếc đồng hồ cơ thật sự mà không phải cân nhắc gì nhiều**. Đây là hãng tự làm bộ máy — mở nắp lưng một chiếc Mako ra, thứ bạn nhìn thấy là do chính hãng thiết kế, không phải mua sẵn rồi khắc tên lên. Nếu muốn danh mục rộng hơn và chất lượng hoàn thiện nhỉnh hơn, [Seiko](/thuong-hieu/seiko) là bước kế tiếp tự nhiên. Nếu thích thẩm mỹ cổ điển phương Tây, [Hamilton](/thuong-hieu/hamilton). Nếu muốn chữ 'Swiss made' trên mặt số, [Tissot](/thuong-hieu/tissot). Nói thẳng: hoàn thiện vỏ và mặt số của Orient chỉ ở mức chấp nhận được, độ chính xác dao động khá rộng. Đây là chiếc đồng hồ để học và để đeo."
 sources:
   - label: "Wikipedia — Orient Watch"
     url: "https://en.wikipedia.org/wiki/Orient_Watch"

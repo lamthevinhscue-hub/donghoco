@@ -38,7 +38,7 @@ segmentComparison:
     movement: "In-house, lắp ráp hai lần"
     value_retention: "Thấp"
     philosophy: "Hoàn thiện Đức lạnh lùng, chính xác"
-collectorNote: "Chọn H. Moser khi bạn muốn sự tối giản có chủ đích — nhiều mẫu của hãng thậm chí không in tên thương hiệu trên mặt số. Mặt số fumé là thứ ảnh chụp không tả hết, phải nhìn tận mắt dưới ánh sáng thay đổi. Nói thẳng mặt hạn chế: giá cao so với mức độ nhận diện, người ngoài gần như không biết bạn đang đeo gì; và quy mô nhỏ nghĩa là mạng lưới bảo dưỡng hạn chế."
+collectorNote: "Chọn H. Moser khi bạn muốn sự tối giản có chủ đích — nhiều mẫu của hãng thậm chí không in tên thương hiệu trên mặt số. Mặt số fumé là thứ ảnh chụp không tả hết, phải nhìn tận mắt dưới ánh sáng thay đổi. Nói thẳng mặt hạn chế: người ngoài gần như không biết bạn đang đeo gì; và quy mô nhỏ nghĩa là mạng lưới bảo dưỡng hạn chế."
 sources:
   - label: "H. Moser & Cie — Trang chính hãng"
     url: "https://h-moser.com/en"

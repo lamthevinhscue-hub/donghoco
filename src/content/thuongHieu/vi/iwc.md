@@ -63,7 +63,7 @@ collections:
     iconic_ref: "Portugieser"
   - name: "Portofino"
     identity: "Thiết kế tối giản, dây da, mặt số phẳng."
-    positioning: "Tuyến thanh lịch dễ tiếp cận nhất."
+    positioning: "Tuyến thanh lịch cổ điển."
     iconic_ref: "Portofino"
   - name: "Ingenieur"
     identity: "Đồng hồ chống từ, vỏ thể thao, vành bắt vít."
@@ -89,7 +89,7 @@ segmentComparison:
     strength: "Bề rộng kỹ thuật hiếm có, tự làm gần như mọi loại cơ cấu."
     movement: "In-house với số lượng bộ máy tự phát triển thuộc hàng nhiều nhất ngành."
     philosophy: "Nhà chế tác của các nhà chế tác."
-collectorNote: "Chọn IWC khi bạn muốn một chiếc đồng hồ **trông như dụng cụ chứ không như trang sức**. Đây là hãng cao cấp hiếm hoi mà thẩm mỹ chủ đạo là sự thực dụng: mặt số Pilot của IWC được thiết kế để đọc trong buồng lái tối, và điều đó vẫn còn nguyên trong các mẫu hôm nay. Nếu bạn cần **giữ giá và thanh khoản**, [Rolex](/thuong-hieu/rolex) hơn hẳn. Nếu ưu tiên **công nghệ chống từ và di sản không gian**, Omega. Nếu muốn **bề rộng kỹ thuật và sự tinh tế**, Jaeger-LeCoultre. Nói thẳng: IWC giữ giá chỉ ở mức trung bình, và một số dòng thấp của hãng dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu bạn định mua, đừng mặc định cứ IWC là bộ máy tự sản xuất."
+collectorNote: "Chọn IWC khi bạn muốn một chiếc đồng hồ **trông như dụng cụ chứ không như trang sức**. Đây là hãng cao cấp hiếm hoi mà thẩm mỹ chủ đạo là sự thực dụng: mặt số Pilot của IWC được thiết kế để đọc trong buồng lái tối, và điều đó vẫn còn nguyên trong các mẫu hôm nay. Nếu ưu tiên **công nghệ chống từ và di sản không gian**, Omega. Nếu muốn **bề rộng kỹ thuật và sự tinh tế**, Jaeger-LeCoultre. Nói thẳng: một số dòng thấp của hãng dùng bộ máy mua ngoài — nên kiểm kỹ mã bộ máy của đúng mẫu bạn định mua, đừng mặc định cứ IWC là bộ máy tự sản xuất."
 sources:
   - label: "Wikipedia — IWC Schaffhausen"
     url: "https://en.wikipedia.org/wiki/IWC_Schaffhausen"

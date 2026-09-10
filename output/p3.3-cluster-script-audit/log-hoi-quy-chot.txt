@@ -1,0 +1,45 @@
+== DỰNG BẢN NỀN SANDBOX (module an toàn dùng chung) ==
+   bản nền: 355 tệp | manifest 224 dòng | hash script 27 khớp | sanity ĐẠT
+== PHIÊN SẠCH: 13 ca ==
+DAT   [S01] exit=0 | hoàn nguyên: sạch
+DAT   [S02] exit=0 | hoàn nguyên: sạch
+DAT   [S03] exit=0 | hoàn nguyên: sạch
+DAT   [S04] exit=0 | hoàn nguyên: sạch
+DAT   [S05] exit=0 | hoàn nguyên: sạch
+DAT   [S06] exit=0 | hoàn nguyên: sạch
+DAT   [S07] exit=0 | hoàn nguyên: sạch
+DAT   [S08] exit=0 | hoàn nguyên: sạch
+DAT   [S09] exit=0 | hoàn nguyên: sạch
+DAT   [S10] exit=0 | hoàn nguyên: sạch
+DAT   [S11] exit=0 | hoàn nguyên: sạch
+DAT   [S12] exit=0 | hoàn nguyên: sạch
+DAT   [S13] exit=0 | hoàn nguyên: sạch
+== VI PHẠM: 13 ca ==
+DAT   [V01] exit=1 | hoàn nguyên: sạch
+DAT   [V02] exit=1 | hoàn nguyên: sạch
+DAT   [V03] exit=1 | hoàn nguyên: sạch
+DAT   [V04] exit=1 | hoàn nguyên: sạch
+DAT   [V05] exit=1 | hoàn nguyên: sạch
+DAT   [V06] exit=1 | hoàn nguyên: sạch
+DAT   [V07] exit=1 | hoàn nguyên: sạch
+DAT   [V08] exit=1 | hoàn nguyên: sạch
+DAT   [V09] exit=1 | hoàn nguyên: sạch
+DAT   [V10] exit=1 | hoàn nguyên: sạch
+DAT   [V11] exit=1 | hoàn nguyên: sạch
+DAT   [V12] exit=1 | hoàn nguyên: sạch
+DAT   [V13] exit=1 | hoàn nguyên: sạch
+== NGOẠI LỆ: 4 ca ==
+DAT   [E01] exit=0 | hoàn nguyên: sạch
+DAT   [E02] exit=0 | hoàn nguyên: sạch
+DAT   [E03] exit=0 | hoàn nguyên: sạch
+DAT   [E04] exit=0 | hoàn nguyên: sạch
+== CẠNH NGOẠI LỆ: 2 ca ==
+DAT   [N01] exit=1 | hoàn nguyên: sạch
+DAT   [N02] exit=1 | hoàn nguyên: sạch
+== THIẾU TỆP/TRƯỜNG: 3 ca ==
+DAT   [M01] exit=1 | hoàn nguyên: sạch
+DAT   [M02] exit=1 | hoàn nguyên: sạch
+DAT   [M03] exit=1 | hoàn nguyên: sạch
+
+TONG: 35 ca | DAT: 35 | TRUOT: 0 | LOI-VAN-HANH/BO-QUA: 0
+Đã ghi kiem-thu-hoi-quy-ket-qua.json

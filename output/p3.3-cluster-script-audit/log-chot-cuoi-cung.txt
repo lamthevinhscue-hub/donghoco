@@ -1,0 +1,22 @@
+=== CHỐT CUỐI CÙNG P3.3 — 2026-09-10T17:53:16+0700 — HEAD b2a4ba0 ===
+build exit=0
+output/p3.3-cluster-script-audit/kiem-thu-hoi-quy.cjs:8:7 - warning ts(6133): 'SCRIPTS_DIR' is declared but its value is never read.
+output/p3.3-cluster-script-audit/tao-sandbox.cjs:51:7 - warning ts(6133): 'scriptHashes' is declared but its value is never read.
+output/p3.3-cluster-script-audit/tao-sandbox.cjs:13:7 - warning ts(6133): 'EXPECT_ROOT' is declared but its value is never read.
+Result (174 files):
+- 0 errors
+- 0 warnings
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+17:55:01 [pagefind] Pagefind indexed 286 pages
+diff-check: sạch
+(trống trên = repo gốc không bị đụng)
+
+=== CHỐT TYPES SAU DỌN BIẾN — 2026-09-10T18:01:34+0700 ===
+check:types exit=0 | Result (174 files):  - 0 errors - 0 warnings - 3 hints
+(3 hints còn lại thuộc tệp .cjs gói P3.2 đã commit b2a4ba0 — ngoài phạm vi, không sửa)
+diff-check: sạch
+
+=== TXN-20260910-38 — 18:4x +07: hoàn tất 4 điều kiện ===
+tự kiểm driver: 4/4 ĐẠT (11:43:55Z) → chốt 35 ca: 35/35 ĐẠT exit 0 (11:44:59Z)
+mã website (scripts/, src/) không đổi — KHÔNG build lại; mốc build 17:53 + types 18:01 vẫn là trạng thái hiện hành
+(3 hint ts(6133) tệp .cjs gói P3.2 = trạng thái đường cơ sở hiện hành)

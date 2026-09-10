@@ -1,0 +1,1763 @@
+{
+  "moTa": "P3.3 hồi quy 13 script kiểm cụm trên sandbox cô lập — 35 ca; bản ghi đầy đủ stdout/stderr/thời gian/hoàn nguyên + hash từng ca",
+  "thoiGianChay": "2026-09-10T12:00:36.719Z",
+  "cheDoTuKiem": {
+    "chiCa": null,
+    "saiKyVong": null,
+    "loiTiem": null
+  },
+  "benNen": {
+    "soTep": 355,
+    "manifestLines": 224,
+    "sanity": {
+      "script": "check-brand-value-retention.mjs",
+      "exit": 0
+    }
+  },
+  "loiBanNen": null,
+  "sandboxBan": false,
+  "exitTong": 0,
+  "tongCa": 35,
+  "dat": 35,
+  "truot": 0,
+  "loiVanHanh": 0,
+  "chiTietKhongDat": [],
+  "results": [
+    {
+      "ma": "S01",
+      "nhom": "PHIEN-SACH",
+      "script": "check-automatic-energy-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM AUTOMATIC & NĂNG LƯỢNG CƠ HỌC SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/len-day-tu-dong, /tu-dien/thung-cot, /huong-dan/hop-xoay-dong-ho)\n  59 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (lịch sử không nguồn, khái quát, lời hứa đeo/lên tay, một chiều/declutch, bảng giờ trữ cót, weekend, barrel-gắn-mốc, đắt-hơn, vòng-tròn-lớn-nhất, hãng rotor, hộp xoay hứa hẹn, TPD, 8 giờ/ngày, dải mức chung)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (2 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 12 bài Markdown\n  KẾT LUẬN: ĐẠT — cụm automatic & năng lượng khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:03.772Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:03.980Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:03.231Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:05.656Z"
+    },
+    {
+      "ma": "S02",
+      "nhom": "PHIEN-SACH",
+      "script": "check-brand-value-retention.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỘT SO SÁNH TÙY CHỌN TRANG THƯƠNG HIỆU (P1.3):\n  R1: BrandLayout không còn nhãn/fallback \"Giá trị giữ giá\"\n  R2: 29/73 tệp có nhãn riêng; mọi tệp còn ô value_retention đều có nhãn\n  R3: 87 ô và nhãn còn lại sạch các cụm tài chính (giữ giá, thị trường thứ cấp, giá niêm yết, giá bán lại, thanh khoản, đầu tư, tăng giá, mất giá)\n  KẾT LUẬN: ĐẠT — cột giá trị giữ giá đã gỡ sạch, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:05.976Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:06.151Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:05.657Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:07.783Z"
+    },
+    {
+      "ma": "S03",
+      "nhom": "PHIEN-SACH",
+      "script": "check-calendar-complications-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM LỊCH VẠN NIÊN & PHA TRĂNG SONG NGỮ:\n  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/perpetual-calendar, /co-che/pha-trang, /tu-dien/perpetual-calendar)\n  17 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (tên người/hãng/năm, số perpetual/moon ngoài cửa sổ FHH, bảng, \"mãi mãi/không cần chỉnh\", giá/phân khúc, hướng dẫn chỉnh, lịch sử công dụng, thẩm mỹ chủ quan, nhận biết bằng mắt)\n  R8: component infographic (1 tệp, quét cả comment) sạch lời hứa \"đúng mãi\", claim 2100/\"400 năm\", hãng/quảng cáo, xếp hạng, hướng dẫn chỉnh\n  R6: 3 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  R6b: bài pha trăng Việt dùng đúng 2 thuật ngữ bốn pha (thượng huyền/hạ huyền)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm lịch vạn niên & pha trăng khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:08.096Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:08.194Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:07.783Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:09.763Z"
+    },
+    {
+      "ma": "S04",
+      "nhom": "PHIEN-SACH",
+      "script": "check-care-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM \"BẢO DƯỠNG & SỬ DỤNG AN TOÀN\":\n  4 bài tồn tại, frontmatter đủ title/excerpt/difficulty/date/updated\n  \"bao-duong-dong-ho\": 4 nguồn HTTPS, trong đó 4 nguồn chính hãng\n  \"chon-co-dong-ho\": 2 nguồn HTTPS\n  \"hop-xoay-dong-ho\": 2 nguồn HTTPS\n  \"nhan-biet-dong-ho-gia\": 2 nguồn HTTPS\n  Đủ 8 liên kết bắt buộc trong bài bảo dưỡng, mọi route tồn tại\n  DecisionMap bao-duong: heading đúng theo đề\n  DecisionMap bao-duong: đúng 3 nhánh\n  DecisionMap bao-duong: 7 link nội bộ đều tồn tại (/huong-dan/do-sai-so, /huong-dan/muc-chong-nuoc, /huong-dan/len-day-dong-ho, /co-che/chong-tu, /co-che/chong-soc, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/hop-xoay-dong-ho)\n  DecisionMap chon-dong-ho-dau-tien: nguyên vẹn với 8 link\n  Bài bảo dưỡng: sạch chu kỳ cố định, chi phí, \"X tuần\", \"gấp X lần\", xà phòng, sai số tuyệt đối và các khái quát vượt nguồn\n  Bài chon-co: không còn bảng tra, số mm khuyến nghị, nhận định cổ tay người Việt/Á hay quy tắc vấu tuyệt đối\n  Bài hop-xoay: khung quyết định trung tính, không còn claim lợi ích/cách cài/thời gian\n  Bài nhan-biet: không còn claim tự kiểm bằng mắt (kim giây/tiếng máy/trọng lượng/hoàn thiện/giá)\n  Bài nhan-biet: có \"không tự chứng minh\" + phần giới hạn tự kiểm + mô tả đúng vai trò FH\n  Không có link vòng (bài/map không tự trỏ chính nó)\n  DecisionMap.astro: <section> + H2 mang id + aria-labelledby + H3 nhánh — semantics nguyên vẹn\n  URL ngoài trong cả 4 bài đều dùng HTTPS\n  KẾT LUẬN: ĐẠT — cụm nội dung theo nguồn hợp lệ, mọi route đều tồn tại.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:10.249Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:10.406Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:09.763Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:11.972Z"
+    },
+    {
+      "ma": "S05",
+      "nhom": "PHIEN-SACH",
+      "script": "check-chronograph-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM CHRONOGRAPH & TACHYMETER SONG NGỮ:\n  18 liên kết bắt buộc cụm (vi+en) đều có trong bài và đích tồn tại\n  Frontmatter 4 bài EN: custom_slug khớp, has_infographic/interactive = false, enum + ≥2 nguồn HTTPS\n  4 cặp route có trong contentRoutes.ts (/co-che/chronograph, /huong-dan/dung-tachymeter, /tu-dien/chronograph, /tu-dien/tachymeter)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R1: không khái quát hóa cấu trúc (mọi/every/all chronograph)\n  R2: dữ kiện lịch sử khớp hồ sơ nguồn (1821, không Hamilton/calibre phân khúc/9 cột/40°/3 dự án)\n  R3: mọi claim \"đầu tiên\" đều có marker nguồn trên cùng dòng\n  R4: tachymeter luôn \"tốc độ trung bình\" có điều kiện quãng đường/đơn vị\n  R5: 4 bài EN không có link nội bộ về route tiếng Việt\n  R6: hình học vạch đúng chiều (ngắn→gần, dài→xa), không khẳng định tuyệt đối chronograph, không title cũ\n  R11: component infographic (1 tệp, quét cả comment) sạch xếp hạng, cảm giác bấm, hãng/calibre, mốc lịch sử, hơn kém\n  KẾT LUẬN: ĐẠT — cụm Chronograph & Tachymeter khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:12.391Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:12.803Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:11.972Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:14.373Z"
+    },
+    {
+      "ma": "S06",
+      "nhom": "PHIEN-SACH",
+      "script": "check-daily-care-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM SỬ DỤNG AN TOÀN HẰNG NGÀY SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  6 cặp route có trong contentRoutes.ts (/huong-dan/len-day-dong-ho, /huong-dan/muc-chong-nuoc, /huong-dan/chinh-lich-an-toan, /co-che/chong-nuoc, /tu-dien/num-van, /tu-dien/day-cot)\n  42 liên kết bắt buộc cụm (vi+en, kể cả first-mechanical-watch EN) đều có và đích tồn tại\n  R5b: DateSafety là mô phỏng nguyên lý (nhãn \"vùng minh họa\", dẫn về manual, không còn nhãn kết luận)\n  R5c: component chống nước (1 tệp) sạch các khẳng định cấm — không ma trận mét↔hoạt động, không chu kỳ/gioăng cố định, không thông số thử như quy tắc chung\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm sử dụng an toàn khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:14.833Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:14.965Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:14.374Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:16.257Z"
+    },
+    {
+      "ma": "S07",
+      "nhom": "PHIEN-SACH",
+      "script": "check-financial-claims-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA NHẬN ĐỊNH TÀI CHÍNH CÒN SÓT (P1.4):\n  Phạm vi: 6 bài VI, 290 trường collectorNote/positioning trên 73 thương hiệu (kèm YAML nhiều dòng), title/detail Patek, 2 tệp EN\n  R1: sạch giữ giá/mất giá/bán lại/thanh khoản/thị trường thứ cấp trong phạm vi đã xử lý\n  R2: sạch đầu tư/tăng giá (miễn trừ disclaimer chỉ theo câu)\n  R3: sạch đáng tiền/khả năng chi trả/so sánh giá — gồm nhóm ngân sách, \"sẵn sàng chi thêm\", khung tầm giá/tầm tiền, phân khúc giá\n  R4: movement EN không còn \"needs no servicing\"\n  R5: seiko EN sạch diễn đạt tôn vinh quảng bá đã nêu\n  KẾT LUẬN: ĐẠT — không hồi quy nhận định tài chính trong phạm vi P1.4.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:16.616Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:16.883Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:16.257Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:18.286Z"
+    },
+    {
+      "ma": "S08",
+      "nhom": "PHIEN-SACH",
+      "script": "check-first-watch-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM \"CHỌN ĐỒNG HỒ CƠ ĐẦU TIÊN\":\n  Bài trụ cột tồn tại đúng slug: chon-dong-ho-dau-tien\n  Frontmatter đầy đủ (title/excerpt/difficulty/date) + 2 nguồn HTTPS\n  Đủ 9 liên kết bắt buộc, tất cả route tồn tại\n  Không còn bảng giá/ngân sách, \"giữ giá/đầu tư\", chu kỳ bảo dưỡng cố định hay bảng kích thước tuyệt đối\n  URL ngoài (0) đều dùng HTTPS hoặc bài không link ngoài\n  DecisionMap hợp lệ: 8 link nội bộ đều tồn tại (/huong-dan/chon-co-dong-ho, /huong-dan/muc-chong-nuoc, /co-che/len-day-tu-dong, /co-che/chuyen-dong-co, /huong-dan/len-day-dong-ho, /giai-phau, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/bao-duong-dong-ho)\n  src/components/DecisionMap.astro: wrapper là <section>\n  DecisionMap: aria-labelledby trỏ đúng id danh nghĩa dm-${map.slug}-title\n  DecisionMap: tiêu đề khối là <h2> mang đúng id (thứ bậc H1 → H2 map → H3 nhánh)\n  DecisionMap: ngữ nghĩa heading + aria-labelledby hợp lệ\n  Đủ 5 bài hỗ trợ có liên kết quay lại bài trụ cột\n  KẾT LUẬN: ĐẠT — cụm nội dung people-first hợp lệ, mọi route đều tồn tại.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:18.700Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:18.848Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:18.289Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:20.309Z"
+    },
+    {
+      "ma": "S09",
+      "nhom": "PHIEN-SACH",
+      "script": "check-high-complications-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM TOURBILLON & ĐIỂM CHUÔNG SONG NGỮ:\n  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới\n  4 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  4 cặp route mới có trong contentRoutes.ts (/co-che/tourbillon, /co-che/diem-chuong, /tu-dien/tourbillon, /tu-dien/minute-repeater)\n  21 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 4 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (biến thể/vật liệu tourbillon, số đo \"về 0\", hiệu quả cổ tay, claim FHH ngoài cửa sổ, lịch sử repeater, gong/búa/cam/rack, chất âm, thương hiệu thân bài, giá/xếp hạng/thẩm mỹ, nhận biết bằng mắt, khuyến nghị mua/nghe, bảng)\n  R6: 4 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm tourbillon & điểm chuông khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:20.804Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:20.936Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:20.309Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:22.521Z"
+    },
+    {
+      "ma": "S10",
+      "nhom": "PHIEN-SACH",
+      "script": "check-movement-finishing-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM HOÀN THIỆN BỘ MÁY SONG NGỮ:\n  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới\n  4 bài VI + 4 bài EN đều tồn tại\n  4 bài EN frontmatter hợp lệ (custom_slug khớp tệp, false-flags, enum, ≥2 nguồn HTTPS)\n  4 cặp route mới có trong contentRoutes.ts (/huong-dan/hoan-thien-thu-cong-dong-ho, /tu-dien/guilloche, /tu-dien/perlage, /tu-dien/cotes-de-geneve); tổng 63 cặp\n  33 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R5: 4 bài EN không có link nội bộ về route tiếng Việt\n  R6: 8 bài không có bảng Markdown\n  R7: sạch claim giá/phân khúc/chất lượng tổng thể/chính xác/bền/đầu tư/làm tay-máy tuyệt đối/mua bán/nhận biết bằng ảnh\n  R8: sạch claim lịch sử/kỹ thuật chưa có nguồn (Breguet, thế kỷ, chống chói, dầu/bụi, \"thật/giả\", ba chiều, chạm tay, số tiêu chí Poinçon, tên hãng)\n  R9: 0 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm hoàn thiện bộ máy khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:23.032Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:23.207Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:22.521Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:24.941Z"
+    },
+    {
+      "ma": "S11",
+      "nhom": "PHIEN-SACH",
+      "script": "check-precision-certification-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM ĐỘ CHÍNH XÁC & CHỨNG NHẬN (COSC / MASTER CHRONOMETER) SONG NGỮ:\n  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/huong-dan/do-sai-so, /tu-dien/chronometer, /tu-dien/metas)\n  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (app/timegrapher, amplitude/beat error, ± số, lịch đo cố định, nhãn ngưỡng, chẩn đoán, khử từ/tự chỉnh, thiết bị từ trường, xếp hạng chứng nhận, −4/+6 không COSC, 15.000 G không METAS/N001, \"mọi đồng hồ\")\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm độ chính xác & chứng nhận khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:25.210Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:25.319Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:24.941Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:26.894Z"
+    },
+    {
+      "ma": "S12",
+      "nhom": "PHIEN-SACH",
+      "script": "check-protection-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM BẢO VỆ BỘ MÁY (CHỐNG TỪ, CHỐNG SỐC & INCABLOC) SONG NGỮ:\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/chong-tu, /co-che/chong-soc, /tu-dien/incabloc)\n  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (lịch sử/hãng không nguồn, bảng/dải gauss, 15.000 gauss ngoài cửa sổ chứng nhận, thiết bị+rủi ro, khử từ/chi phí, tự chẩn đoán, \"toàn ngành/mọi đồng hồ\", \"majority\" không attribution, lời hứa độ bền, 0,1 mm, \"vài nghìn G\", 5.000 g không attribution, cơ chế nhiễm từ chi tiết, nhận biết bằng mắt, khuyến nghị mua)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (1 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 6 bài Markdown\n  KẾT LUẬN: ĐẠT — cụm bảo vệ bộ máy khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:27.222Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:27.340Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:26.894Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:28.583Z"
+    },
+    {
+      "ma": "S13",
+      "nhom": "PHIEN-SACH",
+      "script": "check-regulating-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT SONG NGỮ:\n  Phạm vi: 5 bài vi + 6 bài en; 3 cặp route mới\n  6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/day-toc-banh-lac, /tu-dien/banh-thoat, /tu-dien/vph)\n  32 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: các bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (tên riêng/năm, siêulative ngoài cửa sổ FHH, số tần số ngoài cửa sổ FHH, tần số→chính xác ngoài cửa sổ FHH, bảng tần số, số bộ phận/vật liệu, âm thanh theo hãng/nhận biết, khái quát cấu trúc)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm bộ điều chỉnh nhịp & bộ thoát khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:29.107Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:29.284Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:28.583Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:31.335Z"
+    },
+    {
+      "ma": "V01",
+      "nhom": "VI-PHAM",
+      "script": "check-automatic-energy-cluster.mjs",
+      "fixture": "src/content/coChe/vi/len-day-tu-dong.md",
+      "action": "append",
+      "noiDungTiem": "Harwood 1923 — mốc không nguồn.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Harwood"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM AUTOMATIC & NĂNG LƯỢNG CƠ HỌC SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/len-day-tu-dong, /tu-dien/thung-cot, /huong-dan/hop-xoay-dong-ho)\n  59 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (2 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 12 bài Markdown\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/len-day-tu-dong.md:38 — lịch sử/năm không có nguồn nguyên văn trong hồ sơ (bỏ khỏi thân bài): \"Harwood\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:31.990Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:32.218Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/len-day-tu-dong.md:38 — lịch sử/năm không có nguồn nguyên văn trong hồ sơ (bỏ khỏi thân bài): \"Harwood\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/len-day-tu-dong.md",
+              "dong": 38
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:31.336Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:34.214Z"
+    },
+    {
+      "ma": "V02",
+      "nhom": "VI-PHAM",
+      "script": "check-calendar-complications-cluster.mjs",
+      "fixture": "src/content/coChe/vi/perpetual-calendar.md",
+      "action": "append",
+      "noiDungTiem": "Mudge 1762 — tiên phong không nguồn.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Mudge"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM LỊCH VẠN NIÊN & PHA TRĂNG SONG NGỮ:\n  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/perpetual-calendar, /co-che/pha-trang, /tu-dien/perpetual-calendar)\n  17 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  R8: component infographic (1 tệp, quét cả comment) sạch lời hứa \"đúng mãi\", claim 2100/\"400 năm\", hãng/quảng cáo, xếp hạng, hướng dẫn chỉnh\n  R6: 3 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  R6b: bài pha trăng Việt dùng đúng 2 thuật ngữ bốn pha (thượng huyền/hạ huyền)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/perpetual-calendar.md:32 — tên người/hãng/năm lịch sử không nguồn (đã loại): \"Mudge\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:34.727Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:34.920Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 12,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/perpetual-calendar.md:32 — tên người/hãng/năm lịch sử không nguồn (đã loại): \"Mudge\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/perpetual-calendar.md",
+              "dong": 32
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:34.214Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:37.021Z"
+    },
+    {
+      "ma": "V03",
+      "nhom": "VI-PHAM",
+      "script": "check-chronograph-cluster.mjs",
+      "fixture": "src/content/coChe/vi/chronograph.md",
+      "action": "append",
+      "noiDungTiem": "Hamilton",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Hamilton"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM CHRONOGRAPH & TACHYMETER SONG NGỮ:\n  18 liên kết bắt buộc cụm (vi+en) đều có trong bài và đích tồn tại\n  Frontmatter 4 bài EN: custom_slug khớp, has_infographic/interactive = false, enum + ≥2 nguồn HTTPS\n  4 cặp route có trong contentRoutes.ts (/co-che/chronograph, /huong-dan/dung-tachymeter, /tu-dien/chronograph, /tu-dien/tachymeter)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R1: không khái quát hóa cấu trúc (mọi/every/all chronograph)\n  R3: mọi claim \"đầu tiên\" đều có marker nguồn trên cùng dòng\n  R4: tachymeter luôn \"tốc độ trung bình\" có điều kiện quãng đường/đơn vị\n  R5: 4 bài EN không có link nội bộ về route tiếng Việt\n  R6: hình học vạch đúng chiều (ngắn→gần, dài→xa), không khẳng định tuyệt đối chronograph, không title cũ\n  R11: component infographic (1 tệp, quét cả comment) sạch xếp hạng, cảm giác bấm, hãng/calibre, mốc lịch sử, hơn kém\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R2] src/content/coChe/vi/chronograph.md:96 — Hamilton không có trong nguồn FHH của cụm\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:37.606Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:37.783Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 13,
+            "noiDung": "    LỖI  [R2] src/content/coChe/vi/chronograph.md:96 — Hamilton không có trong nguồn FHH của cụm",
+            "fixtureKhop": true,
+            "cuem": [
+              "R2"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/chronograph.md",
+              "dong": 96
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:37.022Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:39.418Z"
+    },
+    {
+      "ma": "V04",
+      "nhom": "VI-PHAM",
+      "script": "check-protection-cluster.mjs",
+      "fixture": "src/content/coChe/vi/chong-tu.md",
+      "action": "append",
+      "noiDungTiem": "4.800 gauss",
+      "kyVong": {
+        "exit": 1,
+        "msg": "4.800 gauss"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM BẢO VỆ BỘ MÁY (CHỐNG TỪ, CHỐNG SỐC & INCABLOC) SONG NGỮ:\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/chong-tu, /co-che/chong-soc, /tu-dien/incabloc)\n  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (1 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 6 bài Markdown\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/chong-tu.md:35 — bảng/dải gauss dùng chung (đã loại): \"4.800 gauss\"\n    LỖI  [R5] src/content/coChe/vi/chong-tu.md:35 — mức gauss đơn lẻ thuộc thang dùng chung 600/1.000/4.800 (đã loại): \"4.800 gauss\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:39.751Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:40.110Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/chong-tu.md:35 — bảng/dải gauss dùng chung (đã loại): \"4.800 gauss\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/chong-tu.md",
+              "dong": 35
+            }
+          },
+          {
+            "soThuTuTrongOutput": 10,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/chong-tu.md:35 — mức gauss đơn lẻ thuộc thang dùng chung 600/1.000/4.800 (đã loại): \"4.800 gauss\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/chong-tu.md",
+              "dong": 35
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:39.418Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:42.322Z"
+    },
+    {
+      "ma": "V05",
+      "nhom": "VI-PHAM",
+      "script": "check-regulating-cluster.mjs",
+      "fixture": "src/content/coChe/vi/bo-thoat.md",
+      "action": "append",
+      "noiDungTiem": "Đây là phát minh quan trọng nhất của bộ máy.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "quan trọng nhất"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT SONG NGỮ:\n  Phạm vi: 5 bài vi + 6 bài en; 3 cặp route mới\n  6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/day-toc-banh-lac, /tu-dien/banh-thoat, /tu-dien/vph)\n  32 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: các bài EN không có link nội bộ về route tiếng Việt\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/bo-thoat.md:40 — siêulative \"nhất/thay thế\" (chỉ trong cửa sổ FHH): \"quan trọng nhất\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:42.879Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:43.107Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/bo-thoat.md:40 — siêulative \"nhất/thay thế\" (chỉ trong cửa sổ FHH): \"quan trọng nhất\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/bo-thoat.md",
+              "dong": 40
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:42.323Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:45.855Z"
+    },
+    {
+      "ma": "V06",
+      "nhom": "VI-PHAM",
+      "script": "check-precision-certification-cluster.mjs",
+      "fixture": "src/content/tuDien/vi/chronometer.md",
+      "action": "append",
+      "noiDungTiem": "±15 giây/ngày",
+      "kyVong": {
+        "exit": 1,
+        "msg": "±"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM ĐỘ CHÍNH XÁC & CHỨNG NHẬN (COSC / MASTER CHRONOMETER) SONG NGỮ:\n  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/huong-dan/do-sai-so, /tu-dien/chronometer, /tu-dien/metas)\n  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/tuDien/vi/chronometer.md:31 — ngưỡng độ / con số sai số dạng ±: \"±1\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:46.951Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:47.174Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "    LỖI  [R5] src/content/tuDien/vi/chronometer.md:31 — ngưỡng độ / con số sai số dạng ±: \"±1\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/tuDien/vi/chronometer.md",
+              "dong": 31
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:45.855Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:50.158Z"
+    },
+    {
+      "ma": "V07",
+      "nhom": "VI-PHAM",
+      "script": "check-movement-finishing-cluster.mjs",
+      "fixture": "src/content/tuDien/vi/guilloche.md",
+      "action": "append",
+      "noiDungTiem": "| Cột | Giá trị |",
+      "kyVong": {
+        "exit": 1,
+        "msg": "bảng Markdown"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM HOÀN THIỆN BỘ MÁY SONG NGỮ:\n  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới\n  4 bài VI + 4 bài EN đều tồn tại\n  4 bài EN frontmatter hợp lệ (custom_slug khớp tệp, false-flags, enum, ≥2 nguồn HTTPS)\n  4 cặp route mới có trong contentRoutes.ts (/huong-dan/hoan-thien-thu-cong-dong-ho, /tu-dien/guilloche, /tu-dien/perlage, /tu-dien/cotes-de-geneve); tổng 63 cặp\n  33 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R5: 4 bài EN không có link nội bộ về route tiếng Việt\n  R7: sạch claim giá/phân khúc/chất lượng tổng thể/chính xác/bền/đầu tư/làm tay-máy tuyệt đối/mua bán/nhận biết bằng ảnh\n  R8: sạch claim lịch sử/kỹ thuật chưa có nguồn (Breguet, thế kỷ, chống chói, dầu/bụi, \"thật/giả\", ba chiều, chạm tay, số tiêu chí Poinçon, tên hãng)\n  R9: 0 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R6] src/content/tuDien/vi/guilloche.md:16 — bảng Markdown đã bị loại trong cụm này\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:51.240Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:51.470Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 13,
+            "noiDung": "    LỖI  [R6] src/content/tuDien/vi/guilloche.md:16 — bảng Markdown đã bị loại trong cụm này",
+            "fixtureKhop": true,
+            "cuem": [
+              "R6"
+            ],
+            "soDongFile": {
+              "tep": "src/content/tuDien/vi/guilloche.md",
+              "dong": 16
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:50.158Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:54.304Z"
+    },
+    {
+      "ma": "V08",
+      "nhom": "VI-PHAM",
+      "script": "check-brand-value-retention.mjs",
+      "fixture": "src/content/thuongHieu/vi/tissot.md",
+      "action": "insert-after",
+      "noiDungTiem": "value_retention: \"giá trị giữ giá cao\"",
+      "kyVong": {
+        "exit": 1,
+        "msg": "value_retention_label"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỘT SO SÁNH TÙY CHỌN TRANG THƯƠNG HIỆU (P1.3):\n  R1: BrandLayout không còn nhãn/fallback \"Giá trị giữ giá\"\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R2] src/content/thuongHieu/vi/tissot.md:11 — có 1 ô value_retention nhưng thiếu value_retention_label\n    LỖI  [R3] src/content/thuongHieu/vi/tissot.md:11 — cụm tài chính \"giữ giá\" trong ô còn lại: \"giá trị giữ giá cao\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:55.257Z",
+        "thoiDiemKetCham": "2026-09-10T11:59:55.635Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 4,
+            "noiDung": "    LỖI  [R2] src/content/thuongHieu/vi/tissot.md:11 — có 1 ô value_retention nhưng thiếu value_retention_label",
+            "fixtureKhop": true,
+            "cuem": [
+              "R2"
+            ],
+            "soDongFile": {
+              "tep": "src/content/thuongHieu/vi/tissot.md",
+              "dong": 11
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:54.304Z",
+      "thoiDiemKetCham": "2026-09-10T11:59:58.627Z"
+    },
+    {
+      "ma": "V09",
+      "nhom": "VI-PHAM",
+      "script": "check-financial-claims-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/microbrand-la-gi.md",
+      "action": "append",
+      "noiDungTiem": "Đây là khoản đầu tư an toàn.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "nhận định đầu tư"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA NHẬN ĐỊNH TÀI CHÍNH CÒN SÓT (P1.4):\n  Phạm vi: 6 bài VI, 290 trường collectorNote/positioning trên 73 thương hiệu (kèm YAML nhiều dòng), title/detail Patek, 2 tệp EN\n  R1: sạch giữ giá/mất giá/bán lại/thanh khoản/thị trường thứ cấp trong phạm vi đã xử lý\n  R3: sạch đáng tiền/khả năng chi trả/so sánh giá — gồm nhóm ngân sách, \"sẵn sàng chi thêm\", khung tầm giá/tầm tiền, phân khúc giá\n  R4: movement EN không còn \"needs no servicing\"\n  R5: seiko EN sạch diễn đạt tôn vinh quảng bá đã nêu\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R2] src/content/huongDan/vi/microbrand-la-gi.md:65 — nhận định đầu tư: \"đầu tư\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:59:59.518Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:00.009Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 8,
+            "noiDung": "    LỖI  [R2] src/content/huongDan/vi/microbrand-la-gi.md:65 — nhận định đầu tư: \"đầu tư\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R2"
+            ],
+            "soDongFile": {
+              "tep": "src/content/huongDan/vi/microbrand-la-gi.md",
+              "dong": 65
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:59:58.627Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:01.906Z"
+    },
+    {
+      "ma": "V10",
+      "nhom": "VI-PHAM",
+      "script": "check-first-watch-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/chon-dong-ho-dau-tien.md",
+      "action": "append",
+      "noiDungTiem": "Đây là lựa chọn giữ giá tốt.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "giữ giá"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM \"CHỌN ĐỒNG HỒ CƠ ĐẦU TIÊN\":\n  Bài trụ cột tồn tại đúng slug: chon-dong-ho-dau-tien\n  Frontmatter đầy đủ (title/excerpt/difficulty/date) + 2 nguồn HTTPS\n  Đủ 9 liên kết bắt buộc, tất cả route tồn tại\n  URL ngoài (0) đều dùng HTTPS hoặc bài không link ngoài\n  DecisionMap hợp lệ: 8 link nội bộ đều tồn tại (/huong-dan/chon-co-dong-ho, /huong-dan/muc-chong-nuoc, /co-che/len-day-tu-dong, /co-che/chuyen-dong-co, /huong-dan/len-day-dong-ho, /giai-phau, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/bao-duong-dong-ho)\n  src/components/DecisionMap.astro: wrapper là <section>\n  DecisionMap: aria-labelledby trỏ đúng id danh nghĩa dm-${map.slug}-title\n  DecisionMap: tiêu đề khối là <h2> mang đúng id (thứ bậc H1 → H2 map → H3 nhánh)\n  DecisionMap: ngữ nghĩa heading + aria-labelledby hợp lệ\n  Đủ 5 bài hỗ trợ có liên kết quay lại bài trụ cột\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  Bài trụ cột còn nội dung cần xử lý (lời hứa \"giữ giá\"): \"giữ giá\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:02.370Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:02.519Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 13,
+            "noiDung": "    LỖI  Bài trụ cột còn nội dung cần xử lý (lời hứa \"giữ giá\"): \"giữ giá\"",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          }
+        ],
+        "scriptKhongBaoDong": true,
+        "ghiChu": "script KHÔNG báo số dòng/tệp trong thông báo (đặc tính script, không phải driver) — kiểm theo nội dung dòng"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:01.906Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:04.568Z"
+    },
+    {
+      "ma": "V11",
+      "nhom": "VI-PHAM",
+      "script": "check-high-complications-cluster.mjs",
+      "fixture": "src/content/coChe/vi/tourbillon.md",
+      "action": "append",
+      "noiDungTiem": "Breguet phát minh tourbillon năm 1801.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Breguet"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM TOURBILLON & ĐIỂM CHUÔNG SONG NGỮ:\n  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới\n  4 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  4 cặp route mới có trong contentRoutes.ts (/co-che/tourbillon, /co-che/diem-chuong, /tu-dien/tourbillon, /tu-dien/minute-repeater)\n  21 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 4 bài EN không có link nội bộ về route tiếng Việt\n  R6: 4 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/tourbillon.md:27 — claim tourbillon có nguồn ngoài cửa sổ attribution FHH cùng dòng: \"Breguet\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:05.003Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:05.178Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 10,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/tourbillon.md:27 — claim tourbillon có nguồn ngoài cửa sổ attribution FHH cùng dòng: \"Breguet\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/tourbillon.md",
+              "dong": 27
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:04.568Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:07.047Z"
+    },
+    {
+      "ma": "V12",
+      "nhom": "VI-PHAM",
+      "script": "check-care-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/bao-duong-dong-ho.md",
+      "action": "delete-text",
+      "noiDungTiem": "updated: \"2026-09-02\"",
+      "kyVong": {
+        "exit": 1,
+        "msg": "updated"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 0,
+        "soViTriThucTe": 0,
+        "soViTriTruoc": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM \"BẢO DƯỠNG & SỬ DỤNG AN TOÀN\":\n  \"bao-duong-dong-ho\": 4 nguồn HTTPS, trong đó 4 nguồn chính hãng\n  \"chon-co-dong-ho\": 2 nguồn HTTPS\n  \"hop-xoay-dong-ho\": 2 nguồn HTTPS\n  \"nhan-biet-dong-ho-gia\": 2 nguồn HTTPS\n  Đủ 8 liên kết bắt buộc trong bài bảo dưỡng, mọi route tồn tại\n  DecisionMap bao-duong: heading đúng theo đề\n  DecisionMap bao-duong: đúng 3 nhánh\n  DecisionMap bao-duong: 7 link nội bộ đều tồn tại (/huong-dan/do-sai-so, /huong-dan/muc-chong-nuoc, /huong-dan/len-day-dong-ho, /co-che/chong-tu, /co-che/chong-soc, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/hop-xoay-dong-ho)\n  DecisionMap chon-dong-ho-dau-tien: nguyên vẹn với 8 link\n  Bài bảo dưỡng: sạch chu kỳ cố định, chi phí, \"X tuần\", \"gấp X lần\", xà phòng, sai số tuyệt đối và các khái quát vượt nguồn\n  Bài chon-co: không còn bảng tra, số mm khuyến nghị, nhận định cổ tay người Việt/Á hay quy tắc vấu tuyệt đối\n  Bài hop-xoay: khung quyết định trung tính, không còn claim lợi ích/cách cài/thời gian\n  Bài nhan-biet: không còn claim tự kiểm bằng mắt (kim giây/tiếng máy/trọng lượng/hoàn thiện/giá)\n  Bài nhan-biet: có \"không tự chứng minh\" + phần giới hạn tự kiểm + mô tả đúng vai trò FH\n  Không có link vòng (bài/map không tự trỏ chính nó)\n  DecisionMap.astro: <section> + H2 mang id + aria-labelledby + H3 nhánh — semantics nguyên vẹn\n  URL ngoài trong cả 4 bài đều dùng HTTPS\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  \"bao-duong-dong-ho\": frontmatter thiếu trường updated\n    LỖI  \"bao-duong-dong-ho\": updated phải có định dạng ngày YYYY-MM-DD\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:07.765Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:07.927Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 20,
+            "noiDung": "    LỖI  \"bao-duong-dong-ho\": frontmatter thiếu trường updated",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          },
+          {
+            "soThuTuTrongOutput": 21,
+            "noiDung": "    LỖI  \"bao-duong-dong-ho\": updated phải có định dạng ngày YYYY-MM-DD",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          }
+        ],
+        "scriptKhongBaoDong": true,
+        "ghiChu": "script KHÔNG báo số dòng/tệp trong thông báo (đặc tính script, không phải driver) — kiểm theo nội dung dòng"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:07.047Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:09.468Z"
+    },
+    {
+      "ma": "V13",
+      "nhom": "VI-PHAM",
+      "script": "check-daily-care-cluster.mjs",
+      "fixture": "src/components/infographics/WaterResistance.astro",
+      "action": "append",
+      "noiDungTiem": "<p>Chịu 50 m khi bơi.</p>",
+      "kyVong": {
+        "exit": 1,
+        "msg": "R5c"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM SỬ DỤNG AN TOÀN HẰNG NGÀY SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  6 cặp route có trong contentRoutes.ts (/huong-dan/len-day-dong-ho, /huong-dan/muc-chong-nuoc, /huong-dan/chinh-lich-an-toan, /co-che/chong-nuoc, /tu-dien/num-van, /tu-dien/day-cot)\n  42 liên kết bắt buộc cụm (vi+en, kể cả first-mechanical-watch EN) đều có và đích tồn tại\n  R5b: DateSafety là mô phỏng nguyên lý (nhãn \"vùng minh họa\", dẫn về manual, không còn nhãn kết luận)\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5c] src/components/infographics/WaterResistance.astro:499 — \"50 m\" gắn kết luận bơi/tắm — ma trận mức mét đã loại (phải kèm nguồn/hãng nếu nêu): \"50 m\"\n    LỖI  [R5c] src/components/infographics/WaterResistance.astro:499 — độ sâu cố định dùng như quy tắc chung — chỉ được nêu trong câu phủ định/kèm nguồn: \"50 m\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:09.929Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:10.129Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 10,
+            "noiDung": "    LỖI  [R5c] src/components/infographics/WaterResistance.astro:499 — \"50 m\" gắn kết luận bơi/tắm — ma trận mức mét đã loại (phải kèm nguồn/hãng nếu nêu): \"50 m\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5c"
+            ],
+            "soDongFile": {
+              "tep": "src/components/infographics/WaterResistance.astro",
+              "dong": 499
+            }
+          },
+          {
+            "soThuTuTrongOutput": 11,
+            "noiDung": "    LỖI  [R5c] src/components/infographics/WaterResistance.astro:499 — độ sâu cố định dùng như quy tắc chung — chỉ được nêu trong câu phủ định/kèm nguồn: \"50 m\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5c"
+            ],
+            "soDongFile": {
+              "tep": "src/components/infographics/WaterResistance.astro",
+              "dong": 499
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:09.468Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:11.900Z"
+    },
+    {
+      "ma": "E01",
+      "nhom": "NGOAI-LE",
+      "script": "check-regulating-cluster.mjs",
+      "fixture": "src/content/coChe/vi/bo-thoat.md",
+      "action": "append",
+      "noiDungTiem": "Theo FHH, đây là mốc quan trọng nhất.",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT SONG NGỮ:\n  Phạm vi: 5 bài vi + 6 bài en; 3 cặp route mới\n  6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/day-toc-banh-lac, /tu-dien/banh-thoat, /tu-dien/vph)\n  32 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: các bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (tên riêng/năm, siêulative ngoài cửa sổ FHH, số tần số ngoài cửa sổ FHH, tần số→chính xác ngoài cửa sổ FHH, bảng tần số, số bộ phận/vật liệu, âm thanh theo hãng/nhận biết, khái quát cấu trúc)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm bộ điều chỉnh nhịp & bộ thoát khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:12.326Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:12.501Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:11.900Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:14.463Z"
+    },
+    {
+      "ma": "E02",
+      "nhom": "NGOAI-LE",
+      "script": "check-daily-care-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/len-day-dong-ho.md",
+      "action": "append",
+      "noiDungTiem": "Không ghi số vòng, number of turns — theo manual.",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM SỬ DỤNG AN TOÀN HẰNG NGÀY SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  6 cặp route có trong contentRoutes.ts (/huong-dan/len-day-dong-ho, /huong-dan/muc-chong-nuoc, /huong-dan/chinh-lich-an-toan, /co-che/chong-nuoc, /tu-dien/num-van, /tu-dien/day-cot)\n  42 liên kết bắt buộc cụm (vi+en, kể cả first-mechanical-watch EN) đều có và đích tồn tại\n  R5b: DateSafety là mô phỏng nguyên lý (nhãn \"vùng minh họa\", dẫn về manual, không còn nhãn kết luận)\n  R5c: component chống nước (1 tệp) sạch các khẳng định cấm — không ma trận mét↔hoạt động, không chu kỳ/gioăng cố định, không thông số thử như quy tắc chung\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: ĐẠT — cụm sử dụng an toàn khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:15.030Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:15.237Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:14.463Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:17.581Z"
+    },
+    {
+      "ma": "E03",
+      "nhom": "NGOAI-LE",
+      "script": "check-protection-cluster.mjs",
+      "fixture": "src/content/coChe/vi/chong-tu.md",
+      "action": "append",
+      "noiDungTiem": "Mẫu chịu 15.000 gauss theo chứng nhận METAS.",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM BẢO VỆ BỘ MÁY (CHỐNG TỪ, CHỐNG SỐC & INCABLOC) SONG NGỮ:\n  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/chong-tu, /co-che/chong-soc, /tu-dien/incabloc)\n  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 3 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (lịch sử/hãng không nguồn, bảng/dải gauss, 15.000 gauss ngoài cửa sổ chứng nhận, thiết bị+rủi ro, khử từ/chi phí, tự chẩn đoán, \"toàn ngành/mọi đồng hồ\", \"majority\" không attribution, lời hứa độ bền, 0,1 mm, \"vài nghìn G\", 5.000 g không attribution, cơ chế nhiễm từ chi tiết, nhận biết bằng mắt, khuyến nghị mua)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (1 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 6 bài Markdown\n  KẾT LUẬN: ĐẠT — cụm bảo vệ bộ máy khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:18.175Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:18.389Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:17.581Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:20.310Z"
+    },
+    {
+      "ma": "E04",
+      "nhom": "NGOAI-LE",
+      "script": "check-financial-claims-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/microbrand-la-gi.md",
+      "action": "append",
+      "noiDungTiem": "Mục này chỉ mang tính tham khảo, không phải tư vấn đầu tư.",
+      "kyVong": {
+        "exit": 0,
+        "msg": "(không)"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA NHẬN ĐỊNH TÀI CHÍNH CÒN SÓT (P1.4):\n  Phạm vi: 6 bài VI, 290 trường collectorNote/positioning trên 73 thương hiệu (kèm YAML nhiều dòng), title/detail Patek, 2 tệp EN\n  R1: sạch giữ giá/mất giá/bán lại/thanh khoản/thị trường thứ cấp trong phạm vi đã xử lý\n  R2: sạch đầu tư/tăng giá (miễn trừ disclaimer chỉ theo câu)\n  R3: sạch đáng tiền/khả năng chi trả/so sánh giá — gồm nhóm ngân sách, \"sẵn sàng chi thêm\", khung tầm giá/tầm tiền, phân khúc giá\n  R4: movement EN không còn \"needs no servicing\"\n  R5: seiko EN sạch diễn đạt tôn vinh quảng bá đã nêu\n  KẾT LUẬN: ĐẠT — không hồi quy nhận định tài chính trong phạm vi P1.4.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:21.070Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:21.491Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:20.310Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:23.260Z"
+    },
+    {
+      "ma": "N01",
+      "nhom": "CANH-NGOAI-LE",
+      "script": "check-regulating-cluster.mjs",
+      "fixture": "src/content/coChe/vi/bo-thoat.md",
+      "action": "append",
+      "noiDungTiem": "Theo FHH, lịch sử dài.\nĐây là phát minh quan trọng nhất của bộ máy.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "quan trọng nhất"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT SONG NGỮ:\n  Phạm vi: 5 bài vi + 6 bài en; 3 cặp route mới\n  6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/day-toc-banh-lac, /tu-dien/banh-thoat, /tu-dien/vph)\n  32 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: các bài EN không có link nội bộ về route tiếng Việt\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R5] src/content/coChe/vi/bo-thoat.md:41 — siêulative \"nhất/thay thế\" (chỉ trong cửa sổ FHH): \"quan trọng nhất\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:23.769Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:23.949Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "    LỖI  [R5] src/content/coChe/vi/bo-thoat.md:41 — siêulative \"nhất/thay thế\" (chỉ trong cửa sổ FHH): \"quan trọng nhất\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R5"
+            ],
+            "soDongFile": {
+              "tep": "src/content/coChe/vi/bo-thoat.md",
+              "dong": 41
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:23.260Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:26.345Z"
+    },
+    {
+      "ma": "N02",
+      "nhom": "CANH-NGOAI-LE",
+      "script": "check-financial-claims-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/microbrand-la-gi.md",
+      "action": "append",
+      "noiDungTiem": "Không phải tư vấn đầu tư. Nhưng mẫu này rẻ nhất.",
+      "kyVong": {
+        "exit": 1,
+        "msg": "rẻ nhất"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 1,
+        "soViTriThucTe": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA NHẬN ĐỊNH TÀI CHÍNH CÒN SÓT (P1.4):\n  Phạm vi: 6 bài VI, 290 trường collectorNote/positioning trên 73 thương hiệu (kèm YAML nhiều dòng), title/detail Patek, 2 tệp EN\n  R1: sạch giữ giá/mất giá/bán lại/thanh khoản/thị trường thứ cấp trong phạm vi đã xử lý\n  R2: sạch đầu tư/tăng giá (miễn trừ disclaimer chỉ theo câu)\n  R4: movement EN không còn \"needs no servicing\"\n  R5: seiko EN sạch diễn đạt tôn vinh quảng bá đã nêu\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R3] src/content/huongDan/vi/microbrand-la-gi.md:65 — so sánh \"rẻ nhất\": \"rẻ nhất\"\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:26.959Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:27.295Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 8,
+            "noiDung": "    LỖI  [R3] src/content/huongDan/vi/microbrand-la-gi.md:65 — so sánh \"rẻ nhất\": \"rẻ nhất\"",
+            "fixtureKhop": true,
+            "cuem": [
+              "R3"
+            ],
+            "soDongFile": {
+              "tep": "src/content/huongDan/vi/microbrand-la-gi.md",
+              "dong": 65
+            }
+          }
+        ],
+        "scriptKhongBaoDong": false,
+        "ghiChu": "script báo tệp+dòng; kiểm dòng/cụm thuộc fixture ở cacDong"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:26.345Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:28.850Z"
+    },
+    {
+      "ma": "M01",
+      "nhom": "THIEU-TEP-TRUONG",
+      "script": "check-regulating-cluster.mjs",
+      "fixture": "src/content/tuDien/vi/vph.md",
+      "action": "delete-file",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Thiếu tệp phạm vi"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 0,
+        "soViTriThucTe": 0,
+        "soViTriTruoc": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT — CÓ LỖI:\n  LỖI  [FILE] Thiếu tệp phạm vi: src/content/tuDien/vi/vph.md\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:29.294Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:29.451Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 2,
+            "noiDung": "  LỖI  [FILE] Thiếu tệp phạm vi: src/content/tuDien/vi/vph.md",
+            "fixtureKhop": true,
+            "cuem": [],
+            "soDongFile": null
+          }
+        ],
+        "scriptKhongBaoDong": true,
+        "ghiChu": "script KHÔNG báo số dòng/tệp trong thông báo (đặc tính script, không phải driver) — kiểm theo nội dung dòng"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:28.851Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:31.319Z"
+    },
+    {
+      "ma": "M02",
+      "nhom": "THIEU-TEP-TRUONG",
+      "script": "check-daily-care-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/len-day-dong-ho.md",
+      "action": "delete-text",
+      "noiDungTiem": "](/tu-dien/num-van)",
+      "kyVong": {
+        "exit": 1,
+        "msg": "liên kết bắt buộc"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 0,
+        "soViTriThucTe": 0,
+        "soViTriTruoc": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM SỬ DỤNG AN TOÀN HẰNG NGÀY SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  6 cặp route có trong contentRoutes.ts (/huong-dan/len-day-dong-ho, /huong-dan/muc-chong-nuoc, /huong-dan/chinh-lich-an-toan, /co-che/chong-nuoc, /tu-dien/num-van, /tu-dien/day-cot)\n  R5b: DateSafety là mô phỏng nguyên lý (nhãn \"vùng minh họa\", dẫn về manual, không còn nhãn kết luận)\n  R5c: component chống nước (1 tệp) sạch các khẳng định cấm — không ma trận mét↔hoạt động, không chu kỳ/gioăng cố định, không thông số thử như quy tắc chung\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  [R3] src/content/huongDan/vi/len-day-dong-ho.md thiếu liên kết bắt buộc: ](/tu-dien/num-van)\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:31.784Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:31.979Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 10,
+            "noiDung": "    LỖI  [R3] src/content/huongDan/vi/len-day-dong-ho.md thiếu liên kết bắt buộc: ](/tu-dien/num-van)",
+            "fixtureKhop": true,
+            "cuem": [
+              "R3"
+            ],
+            "soDongFile": null
+          }
+        ],
+        "scriptKhongBaoDong": true,
+        "ghiChu": "script KHÔNG báo số dòng/tệp trong thông báo (đặc tính script, không phải driver) — kiểm theo nội dung dòng"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:31.319Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:33.535Z"
+    },
+    {
+      "ma": "M03",
+      "nhom": "THIEU-TEP-TRUONG",
+      "script": "check-first-watch-cluster.mjs",
+      "fixture": "src/content/huongDan/vi/chon-dong-ho-dau-tien.md",
+      "action": "delete-text",
+      "noiDungTiem": "title:",
+      "kyVong": {
+        "exit": 1,
+        "msg": "title"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": true,
+        "soViTriKyVong": 0,
+        "soViTriThucTe": 0,
+        "soViTriTruoc": 1
+      },
+      "chay": {
+        "exit": 1,
+        "stdout": "KIỂM TRA CỤM \"CHỌN ĐỒNG HỒ CƠ ĐẦU TIÊN\":\n  Bài trụ cột tồn tại đúng slug: chon-dong-ho-dau-tien\n  Frontmatter đầy đủ (title/excerpt/difficulty/date) + 2 nguồn HTTPS\n  Đủ 9 liên kết bắt buộc, tất cả route tồn tại\n  Không còn bảng giá/ngân sách, \"giữ giá/đầu tư\", chu kỳ bảo dưỡng cố định hay bảng kích thước tuyệt đối\n  URL ngoài (0) đều dùng HTTPS hoặc bài không link ngoài\n  DecisionMap hợp lệ: 8 link nội bộ đều tồn tại (/huong-dan/chon-co-dong-ho, /huong-dan/muc-chong-nuoc, /co-che/len-day-tu-dong, /co-che/chuyen-dong-co, /huong-dan/len-day-dong-ho, /giai-phau, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/bao-duong-dong-ho)\n  src/components/DecisionMap.astro: wrapper là <section>\n  DecisionMap: aria-labelledby trỏ đúng id danh nghĩa dm-${map.slug}-title\n  DecisionMap: tiêu đề khối là <h2> mang đúng id (thứ bậc H1 → H2 map → H3 nhánh)\n  DecisionMap: ngữ nghĩa heading + aria-labelledby hợp lệ\n  Đủ 5 bài hỗ trợ có liên kết quay lại bài trụ cột\n  KẾT LUẬN: KHÔNG ĐẠT:\n    LỖI  frontmatter thiếu trường title\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T12:00:34.085Z",
+        "thoiDiemKetCham": "2026-09-10T12:00:34.235Z"
+      },
+      "msgFound": true,
+      "thongBao": {
+        "cacDong": [
+          {
+            "soThuTuTrongOutput": 3,
+            "noiDung": "  Frontmatter đầy đủ (title/excerpt/difficulty/date) + 2 nguồn HTTPS",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          },
+          {
+            "soThuTuTrongOutput": 9,
+            "noiDung": "  DecisionMap: aria-labelledby trỏ đúng id danh nghĩa dm-${map.slug}-title",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          },
+          {
+            "soThuTuTrongOutput": 14,
+            "noiDung": "    LỖI  frontmatter thiếu trường title",
+            "fixtureKhop": false,
+            "cuem": [],
+            "soDongFile": null
+          }
+        ],
+        "scriptKhongBaoDong": true,
+        "ghiChu": "script KHÔNG báo số dòng/tệp trong thông báo (đặc tính script, không phải driver) — kiểm theo nội dung dòng"
+      },
+      "ketLuan": "DAT",
+      "lyDo": null,
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T12:00:33.536Z",
+      "thoiDiemKetCham": "2026-09-10T12:00:36.719Z"
+    }
+  ]
+}

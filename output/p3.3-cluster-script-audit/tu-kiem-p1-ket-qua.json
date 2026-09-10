@@ -1,0 +1,72 @@
+{
+  "moTa": "P3.3 hồi quy 13 script kiểm cụm trên sandbox cô lập — 35 ca; bản ghi đầy đủ stdout/stderr/thời gian/hoàn nguyên + hash từng ca",
+  "thoiGianChay": "2026-09-10T11:58:52.993Z",
+  "cheDoTuKiem": {
+    "chiCa": "S01",
+    "saiKyVong": "S01",
+    "loiTiem": null
+  },
+  "benNen": {
+    "soTep": 355,
+    "manifestLines": 224,
+    "sanity": {
+      "script": "check-brand-value-retention.mjs",
+      "exit": 0
+    }
+  },
+  "loiBanNen": null,
+  "sandboxBan": false,
+  "exitTong": 1,
+  "tongCa": 1,
+  "dat": 0,
+  "truot": 1,
+  "loiVanHanh": 0,
+  "chiTietKhongDat": [
+    {
+      "ma": "S01",
+      "ketLuan": "TRUOT",
+      "lyDo": "exit 0 ≠ kỳ vọng 1"
+    }
+  ],
+  "results": [
+    {
+      "ma": "S01",
+      "nhom": "PHIEN-SACH",
+      "script": "check-automatic-energy-cluster.mjs",
+      "fixture": "(không)",
+      "action": "(không)",
+      "noiDungTiem": "(không)",
+      "kyVong": {
+        "exit": 1,
+        "msg": "(không)",
+        "saiKyVongCoY": "kỳ vọng bị đổi +1 để chứng minh driver TRUỢT đúng"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "chay": {
+        "exit": 0,
+        "stdout": "KIỂM TRA CỤM AUTOMATIC & NĂNG LƯỢNG CƠ HỌC SONG NGỮ:\n  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)\n  3 cặp route mới có trong contentRoutes.ts (/co-che/len-day-tu-dong, /tu-dien/thung-cot, /huong-dan/hop-xoay-dong-ho)\n  59 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại\n  R4: 6 bài EN không có link nội bộ về route tiếng Việt\n  R5: sạch các khẳng định cấm (lịch sử không nguồn, khái quát, lời hứa đeo/lên tay, một chiều/declutch, bảng giờ trữ cót, weekend, barrel-gắn-mốc, đắt-hơn, vòng-tròn-lớn-nhất, hãng rotor, hộp xoay hứa hẹn, TPD, 8 giờ/ngày, dải mức chung)\n  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)\n  R7: component infographic (2 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 12 bài Markdown\n  KẾT LUẬN: ĐẠT — cụm automatic & năng lượng khớp hồ sơ nguồn, không hồi quy.\n",
+        "stderr": "",
+        "loiVanHanh": null,
+        "thoiDiemBatDau": "2026-09-10T11:58:51.588Z",
+        "thoiDiemKetCham": "2026-09-10T11:58:51.742Z"
+      },
+      "msgFound": "n/a",
+      "thongBao": {
+        "ghiChu": "ca không đặt expectMsg — không phân tích thông báo"
+      },
+      "ketLuan": "TRUOT",
+      "lyDo": "exit 0 ≠ kỳ vọng 1",
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:58:51.075Z",
+      "thoiDiemKetCham": "2026-09-10T11:58:52.993Z"
+    }
+  ]
+}

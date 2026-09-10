@@ -1,0 +1,6 @@
+ĐẠT  [P1-sai-ky-vong] exit=1 | S01 ketLuan=TRUOT | hoàn nguyên sạch | exitTong=1
+ĐẠT  [P2-loi-tiem-hoan-nguyen] exit=1 | V03 ketLuan=LOI-VAN-HANH | lỗi tiêm: fixture không tồn tại: src/content/coChe/vi/chronograph.md.khong-ton-tai | script KHÔNG chạy | hoàn nguyên sạch
+ĐẠT  [P3-hash-phat-hien] sửa "docs/ho-so-nguon-cum-automatic-nang-luong-song-ngu.md" → lệch phát hiện: CÓ (lech=1) | khôi phục → khớp: CÓ
+ĐẠT  [P4-manifest-loai-truoc-khi-ghi-xoa] manifest thử (3 đường dẫn xấu) bị từ chối: CÓ — Manifest không hợp lệ (3 dòng bị từ chối):… | sandbox chính không xóa/ghi: CÓ (hash+manifest nguyên)
+
+TỰ KIỂM: 4/4 ĐẠT → exit 0

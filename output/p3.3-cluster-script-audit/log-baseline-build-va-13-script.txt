@@ -1,0 +1,19 @@
+=== BASELINE P3.3 — chạy lại 13 script sạch — 18:08:44 10/9/2026 (+07) — HEAD b2a4ba0 ===
+--- npm run build (14:10:37 → 14:12:35 +07 10/09, log gốc: log-build-chi-tiet.txt) ---
+exit=0 | astro check 0 errors | 286 page(s) built | Pagefind indexed 286 pages
+--- 13 script chạy sạch lần lượt ---
+check-automatic-energy-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm automatic & năng lượng khớp hồ sơ nguồn, không hồi quy.
+check-brand-value-retention.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cột giá trị giữ giá đã gỡ sạch, không hồi quy.
+check-calendar-complications-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm lịch vạn niên & pha trăng khớp hồ sơ nguồn, không hồi quy.
+check-care-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm nội dung theo nguồn hợp lệ, mọi route đều tồn tại.
+check-chronograph-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm Chronograph & Tachymeter khớp hồ sơ nguồn, không hồi quy.
+check-daily-care-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm sử dụng an toàn khớp hồ sơ nguồn, không hồi quy.
+check-financial-claims-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — không hồi quy nhận định tài chính trong phạm vi P1.4.
+check-first-watch-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm nội dung people-first hợp lệ, mọi route đều tồn tại.
+check-high-complications-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm tourbillon & điểm chuông khớp hồ sơ nguồn, không hồi quy.
+check-movement-finishing-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm hoàn thiện bộ máy khớp hồ sơ nguồn, không hồi quy.
+check-precision-certification-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm độ chính xác & chứng nhận khớp hồ sơ nguồn, không hồi quy.
+check-protection-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm bảo vệ bộ máy khớp hồ sơ nguồn, không hồi quy.
+check-regulating-cluster.mjs: exit=0 |   KẾT LUẬN: ĐẠT — cụm bộ điều chỉnh nhịp & bộ thoát khớp hồ sơ nguồn, không hồi quy.
+TỔNG: 13/13 exit=0
+KẾT THÚC: 18:08:46 10/9/2026 (+07)

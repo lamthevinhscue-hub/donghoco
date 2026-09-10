@@ -1,0 +1,63 @@
+{
+  "moTa": "P3.3 hồi quy 13 script kiểm cụm trên sandbox cô lập — 35 ca; bản ghi đầy đủ stdout/stderr/thời gian/hoàn nguyên + hash từng ca",
+  "thoiGianChay": "2026-09-10T11:58:56.410Z",
+  "cheDoTuKiem": {
+    "chiCa": "V03",
+    "saiKyVong": null,
+    "loiTiem": "V03"
+  },
+  "benNen": {
+    "soTep": 355,
+    "manifestLines": 224,
+    "sanity": {
+      "script": "check-brand-value-retention.mjs",
+      "exit": 0
+    }
+  },
+  "loiBanNen": null,
+  "sandboxBan": false,
+  "exitTong": 1,
+  "tongCa": 1,
+  "dat": 0,
+  "truot": 0,
+  "loiVanHanh": 1,
+  "chiTietKhongDat": [
+    {
+      "ma": "V03",
+      "ketLuan": "LOI-VAN-HANH",
+      "lyDo": "lỗi thao tác tiêm: fixture không tồn tại: src/content/coChe/vi/chronograph.md.khong-ton-tai — KHÔNG chạy script"
+    }
+  ],
+  "results": [
+    {
+      "ma": "V03",
+      "nhom": "VI-PHAM",
+      "script": "check-chronograph-cluster.mjs",
+      "fixture": "src/content/coChe/vi/chronograph.md",
+      "action": "append",
+      "noiDungTiem": "Hamilton",
+      "kyVong": {
+        "exit": 1,
+        "msg": "Hamilton"
+      },
+      "sachTruocTiem": {
+        "ok": true,
+        "lech": null
+      },
+      "tiem": {
+        "ok": false,
+        "loi": "fixture không tồn tại: src/content/coChe/vi/chronograph.md.khong-ton-tai"
+      },
+      "ketLuan": "LOI-VAN-HANH",
+      "lyDo": "lỗi thao tác tiêm: fixture không tồn tại: src/content/coChe/vi/chronograph.md.khong-ton-tai — KHÔNG chạy script",
+      "hoanNguyen": {
+        "ok": true,
+        "hashKhop": true,
+        "duongDanKhop": true,
+        "chiTietLech": null
+      },
+      "thoiDiemBatDau": "2026-09-10T11:58:54.610Z",
+      "thoiDiemKetCham": "2026-09-10T11:58:56.409Z"
+    }
+  ]
+}

@@ -1,0 +1,497 @@
+{
+ "moTa": "Phân nhóm 51 định nghĩa gradient nguồn theo chữ ký đầy đủ (loại + gradientUnits + tọa độ + transform + stops: offset/biến màu CSS/opacity). Hai định nghĩa cùng nhóm = trùng hoàn toàn về ngữ nghĩa render.",
+ "thoiGian": "2026-09-10T06:47:16.955Z",
+ "tongDinhNghiaNguon": 51,
+ "soNhom": 19,
+ "nhomTrungHoanToan": [
+  {
+   "nhom": "N1",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/AutomaticWinding.astro",
+     "id": "awRotor",
+     "line": 68
+    },
+    {
+     "file": "src/components/infographics/CoAxial.astro",
+     "id": "cxSteel",
+     "line": 18
+    },
+    {
+     "file": "src/components/infographics/GearTrain.astro",
+     "id": "gtSteel",
+     "line": 95
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoSteel",
+     "line": 30
+    },
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtSteel",
+     "line": 56
+    },
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsSteel",
+     "line": 27
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbSteel",
+     "line": 22
+    },
+    {
+     "file": "src/components/infographics/Lume.astro",
+     "id": "lumeRing",
+     "line": 55
+    },
+    {
+     "file": "src/components/infographics/ShockProtection.astro",
+     "id": "shockSteel",
+     "line": 21
+    },
+    {
+     "file": "src/components/infographics/WaterResistance.astro",
+     "id": "wrSteel",
+     "line": 80
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevSteel",
+     "line": 179
+    }
+   ],
+   "dacTaNhien": "var(--obs-steel-soft) → var(--obs-steel) → var(--obs-steel-deep)",
+   "toaDo": "0,0→0,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-steel-soft"
+  },
+  {
+   "nhom": "N2",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/AutomaticWinding.astro",
+     "id": "awClutch",
+     "line": 73
+    },
+    {
+     "file": "src/components/infographics/DateDisplay.astro",
+     "id": "dd-brass",
+     "line": 17
+    },
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escBrass",
+     "line": 82
+    },
+    {
+     "file": "src/components/infographics/GearTrain.astro",
+     "id": "gtBrass",
+     "line": 89
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoBrass",
+     "line": 36
+    },
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsBrass",
+     "line": 33
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbBrass",
+     "line": 28
+    },
+    {
+     "file": "src/components/infographics/MinuteRepeaterAnim.astro",
+     "id": "repBrass",
+     "line": 21
+    },
+    {
+     "file": "src/components/infographics/PowerReserve.astro",
+     "id": "prBrass",
+     "line": 63
+    },
+    {
+     "file": "src/components/infographics/ShockProtection.astro",
+     "id": "shockBrass",
+     "line": 15
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevBrass",
+     "line": 185
+    }
+   ],
+   "dacTaNhien": "var(--obs-brass-deep) → var(--obs-brass-soft) → var(--obs-brass) → var(--obs-brass-deep)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-brass-deep"
+  },
+  {
+   "nhom": "N4",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escRuby",
+     "line": 89
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoRuby",
+     "line": 43
+    },
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtRuby",
+     "line": 62
+    },
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-ruby",
+     "line": 31
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbRuby",
+     "line": 35
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevRuby",
+     "line": 192
+    }
+   ],
+   "dacTaNhien": "var(--obs-ruby-soft) → var(--obs-ruby) → var(--obs-ruby-deep)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.35,0.3 r=0.9",
+   "bienMauChinh": "obs-ruby-soft"
+  },
+  {
+   "nhom": "N11",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-steel",
+     "line": 25
+    },
+    {
+     "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+     "id": "mrp-steel",
+     "line": 19
+    },
+    {
+     "file": "src/components/infographics/glossary/Rotor.astro",
+     "id": "rot-steel",
+     "line": 36
+    },
+    {
+     "file": "src/components/interactive/BezelDiver.astro",
+     "id": "bd-steel",
+     "line": 70
+    },
+    {
+     "file": "src/components/interactive/GmtReader.astro",
+     "id": "gm-steel",
+     "line": 89
+    }
+   ],
+   "dacTaNhien": "var(--ig-steel-soft) → var(--ig-steel) → var(--ig-edge)",
+   "toaDo": "0,0→0,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "ig-steel-soft"
+  },
+  {
+   "nhom": "N8",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtDial",
+     "line": 51
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevDial",
+     "line": 198
+    }
+   ],
+   "dacTaNhien": "var(--ig-bg) → var(--ig-bg-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.5,0.42 r=0.8",
+   "bienMauChinh": "ig-bg"
+  },
+  {
+   "nhom": "N10",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-brass",
+     "line": 19
+    },
+    {
+     "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+     "id": "pc-brass",
+     "line": 30
+    }
+   ],
+   "dacTaNhien": "var(--obs-brass-soft) → var(--obs-brass) → var(--obs-brass-deep)",
+   "toaDo": "0,0→0,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-brass-soft"
+  },
+  {
+   "nhom": "N12",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+     "id": "mrp-brass",
+     "line": 25
+    },
+    {
+     "file": "src/components/infographics/glossary/MoonPhase.astro",
+     "id": "mph-brass",
+     "line": 19
+    }
+   ],
+   "dacTaNhien": "var(--obs-brass-soft) → var(--obs-brass) → var(--obs-brass-deep)",
+   "toaDo": "0,0→0,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-brass-soft"
+  }
+ ],
+ "nhomRiengBiet": [
+  {
+   "nhom": "N3",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escSteel",
+     "line": 76
+    }
+   ],
+   "dacTaNhien": "var(--obs-steel-soft) → var(--obs-steel) → var(--obs-steel-deep)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-steel-soft"
+  },
+  {
+   "nhom": "N5",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escBalance",
+     "line": 95
+    }
+   ],
+   "dacTaNhien": "var(--obs-ruby-soft) → var(--obs-ruby-deep)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-ruby-soft"
+  },
+  {
+   "nhom": "N6",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escLoupe",
+     "line": 100
+    }
+   ],
+   "dacTaNhien": "var(--obs-ivory) → var(--obs-ivory) → var(--obs-ivory)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.5,0.5 r=0.5",
+   "bienMauChinh": "obs-ivory"
+  },
+  {
+   "nhom": "N7",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoPress",
+     "line": 49
+    }
+   ],
+   "dacTaNhien": "var(--obs-ivory) → var(--obs-ivory)",
+   "toaDo": "0,0→0,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-ivory"
+  },
+  {
+   "nhom": "N9",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsBalance",
+     "line": 21
+    }
+   ],
+   "dacTaNhien": "var(--obs-ruby-soft) → var(--obs-ruby) → var(--obs-ruby-deep)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-ruby-soft"
+  },
+  {
+   "nhom": "N13",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/MoonPhase.astro",
+     "id": "mph-moon",
+     "line": 25
+    }
+   ],
+   "dacTaNhien": "var(--obs-ivory) → var(--obs-ivory) → var(--obs-brass-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.38,0.32 r=0.95",
+   "bienMauChinh": "obs-ivory"
+  },
+  {
+   "nhom": "N14",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+     "id": "pc-dial",
+     "line": 24
+    }
+   ],
+   "dacTaNhien": "var(--ig-bg) → var(--ig-bg) → var(--ig-bg-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.4,0.35 r=0.95",
+   "bienMauChinh": "ig-bg"
+  },
+  {
+   "nhom": "N15",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Rotor.astro",
+     "id": "rot-movement",
+     "line": 42
+    }
+   ],
+   "dacTaNhien": "var(--ig-bg) → var(--ig-bg) → var(--ig-bg-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.42,0.38 r=0.95",
+   "bienMauChinh": "ig-bg"
+  },
+  {
+   "nhom": "N16",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/VPH.astro",
+     "id": "vph-balance",
+     "line": 23
+    }
+   ],
+   "dacTaNhien": "var(--ig-bg) → var(--ig-bg) → var(--ig-bg-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.4,0.35 r=0.95",
+   "bienMauChinh": "ig-bg"
+  },
+  {
+   "nhom": "N17",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Lume.astro",
+     "id": "lumeDial",
+     "line": 51
+    }
+   ],
+   "dacTaNhien": "var(--ig-bg) → var(--ig-bg-soft)",
+   "toaDo": "0,0→1,1",
+   "loai": "radialGradient",
+   "tam": "0.5,0.42 r=0.75",
+   "bienMauChinh": "ig-bg"
+  },
+  {
+   "nhom": "N18",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/WaterResistance.astro",
+     "id": "wrSapphire",
+     "line": 85
+    }
+   ],
+   "dacTaNhien": "var(--obs-ivory) → var(--obs-ivory) → var(--obs-ivory)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-ivory"
+  },
+  {
+   "nhom": "N19",
+   "thanhVien": [
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevSapphire",
+     "line": 203
+    }
+   ],
+   "dacTaNhien": "var(--obs-ivory) → var(--obs-ivory) → var(--obs-ivory)",
+   "toaDo": "0,0→1,1",
+   "loai": "linearGradient",
+   "tam": null,
+   "bienMauChinh": "obs-ivory"
+  }
+ ],
+ "capGanTrungChuaGop": [
+  {
+   "cap": [
+    "inc-brass",
+    "mrp-brass"
+   ],
+   "khac": "stop giữa offset 0.45 vs 0.5 — cùng biến màu brass-dọc",
+   "giai": "giống hình thức, khác tham số nhỏ"
+  },
+  {
+   "cap": [
+    "escBalance",
+    "hsBalance"
+   ],
+   "khac": "escBalance 2 stop (0,1) vs hsBalance 3 stop (0,0.55,1) — cùng đường chéo ruby",
+   "giai": "giống hình thức, khác số stop"
+  },
+  {
+   "cap": [
+    "pc-dial",
+    "rot-movement"
+   ],
+   "khac": "stop giữa offset 0.8 vs 0.78 — cùng radial --ig-bg",
+   "giai": "giống hình thức, khác tham số nhỏ"
+  },
+  {
+   "cap": [
+    "pc-dial",
+    "vph-balance"
+   ],
+   "khac": "stop giữa offset 0.8 vs 0.78",
+   "giai": "giống hình thức, khác tham số nhỏ"
+  },
+  {
+   "cap": [
+    "chronoSteel",
+    "escSteel"
+   ],
+   "khac": "chronoSteel dọc (0,0→0,1) offset 0.55; escSteel chéo (0,0→1,1) offset 0.5 — cùng biến --obs-steel",
+   "giai": "giống hình thức, khác hướng"
+  }
+ ]
+}

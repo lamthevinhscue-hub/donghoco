@@ -1,0 +1,5125 @@
+{
+ "thoiGian": "2026-09-10T06:47:16.853Z",
+ "soNhomNguon": 19,
+ "nhomTrungHoanToan": [
+  {
+   "nhom": "N1",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/AutomaticWinding.astro",
+     "id": "awRotor",
+     "line": 68
+    },
+    {
+     "file": "src/components/infographics/CoAxial.astro",
+     "id": "cxSteel",
+     "line": 18
+    },
+    {
+     "file": "src/components/infographics/GearTrain.astro",
+     "id": "gtSteel",
+     "line": 95
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoSteel",
+     "line": 30
+    },
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtSteel",
+     "line": 56
+    },
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsSteel",
+     "line": 27
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbSteel",
+     "line": 22
+    },
+    {
+     "file": "src/components/infographics/Lume.astro",
+     "id": "lumeRing",
+     "line": 55
+    },
+    {
+     "file": "src/components/infographics/ShockProtection.astro",
+     "id": "shockSteel",
+     "line": 21
+    },
+    {
+     "file": "src/components/infographics/WaterResistance.astro",
+     "id": "wrSteel",
+     "line": 80
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevSteel",
+     "line": 179
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=0 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-steel-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.55",
+     "mau": "var(--obs-steel)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-steel-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N2",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/AutomaticWinding.astro",
+     "id": "awClutch",
+     "line": 73
+    },
+    {
+     "file": "src/components/infographics/DateDisplay.astro",
+     "id": "dd-brass",
+     "line": 17
+    },
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escBrass",
+     "line": 82
+    },
+    {
+     "file": "src/components/infographics/GearTrain.astro",
+     "id": "gtBrass",
+     "line": 89
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoBrass",
+     "line": 36
+    },
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsBrass",
+     "line": 33
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbBrass",
+     "line": 28
+    },
+    {
+     "file": "src/components/infographics/MinuteRepeaterAnim.astro",
+     "id": "repBrass",
+     "line": 21
+    },
+    {
+     "file": "src/components/infographics/PowerReserve.astro",
+     "id": "prBrass",
+     "line": 63
+    },
+    {
+     "file": "src/components/infographics/ShockProtection.astro",
+     "id": "shockBrass",
+     "line": 15
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevBrass",
+     "line": 185
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-brass-deep)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.3",
+     "mau": "var(--obs-brass-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.42",
+     "mau": "var(--obs-brass)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-brass-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N4",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escRuby",
+     "line": 89
+    },
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoRuby",
+     "line": 43
+    },
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtRuby",
+     "line": 62
+    },
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-ruby",
+     "line": 31
+    },
+    {
+     "file": "src/components/infographics/glossary/Tourbillon.astro",
+     "id": "tbRuby",
+     "line": 35
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevRuby",
+     "line": 192
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.35 cy=0.3 r=0.9",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ruby-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.55",
+     "mau": "var(--obs-ruby)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ruby-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N11",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-steel",
+     "line": 25
+    },
+    {
+     "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+     "id": "mrp-steel",
+     "line": 19
+    },
+    {
+     "file": "src/components/infographics/glossary/Rotor.astro",
+     "id": "rot-steel",
+     "line": 36
+    },
+    {
+     "file": "src/components/interactive/BezelDiver.astro",
+     "id": "bd-steel",
+     "line": 70
+    },
+    {
+     "file": "src/components/interactive/GmtReader.astro",
+     "id": "gm-steel",
+     "line": 89
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=0 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-steel-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.5",
+     "mau": "var(--ig-steel)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-edge)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N8",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/GMT.astro",
+     "id": "gmtDial",
+     "line": 51
+    },
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevDial",
+     "line": 198
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.5 cy=0.42 r=0.8",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-bg-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N10",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Incabloc.astro",
+     "id": "inc-brass",
+     "line": 19
+    },
+    {
+     "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+     "id": "pc-brass",
+     "line": 30
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=0 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-brass-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.45",
+     "mau": "var(--obs-brass)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-brass-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N12",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+     "id": "mrp-brass",
+     "line": 25
+    },
+    {
+     "file": "src/components/infographics/glossary/MoonPhase.astro",
+     "id": "mph-brass",
+     "line": 19
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=0 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-brass-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.5",
+     "mau": "var(--obs-brass)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-brass-deep)",
+     "opacity": "-"
+    }
+   ]
+  }
+ ],
+ "nhomDocLap": [
+  {
+   "nhom": "N3",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escSteel",
+     "line": 76
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-steel-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.5",
+     "mau": "var(--obs-steel)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-steel-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N5",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escBalance",
+     "line": 95
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ruby-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ruby-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N6",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Escapement.astro",
+     "id": "escLoupe",
+     "line": 100
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.5 cy=0.5 r=0.5",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.4"
+    },
+    {
+     "offset": "0.75",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.12"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0"
+    }
+   ]
+  },
+  {
+   "nhom": "N7",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Chronograph.astro",
+     "id": "chronoPress",
+     "line": 49
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=0 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.55"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.08"
+    }
+   ]
+  },
+  {
+   "nhom": "N9",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Hairspring.astro",
+     "id": "hsBalance",
+     "line": 21
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ruby-soft)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.55",
+     "mau": "var(--obs-ruby)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ruby-deep)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N13",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/MoonPhase.astro",
+     "id": "mph-moon",
+     "line": 25
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.38 cy=0.32 r=0.95",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ivory)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.75",
+     "mau": "var(--obs-ivory)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-brass-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N14",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+     "id": "pc-dial",
+     "line": 24
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.4 cy=0.35 r=0.95",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.8",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-bg-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N15",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/Rotor.astro",
+     "id": "rot-movement",
+     "line": 42
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.42 cy=0.38 r=0.95",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.78",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-bg-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N16",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/glossary/VPH.astro",
+     "id": "vph-balance",
+     "line": 23
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.4 cy=0.35 r=0.95",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "0.78",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-bg-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N17",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/Lume.astro",
+     "id": "lumeDial",
+     "line": 51
+    }
+   ],
+   "loai": "radialGradient",
+   "toaDo": "x1=- y1=- x2=- y2=- | tâm cx=0.5 cy=0.42 r=0.75",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--ig-bg)",
+     "opacity": "-"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--ig-bg-soft)",
+     "opacity": "-"
+    }
+   ]
+  },
+  {
+   "nhom": "N18",
+   "thanhVien": [
+    {
+     "file": "src/components/infographics/WaterResistance.astro",
+     "id": "wrSapphire",
+     "line": 85
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.5"
+    },
+    {
+     "offset": "0.5",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.1"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.3"
+    }
+   ]
+  },
+  {
+   "nhom": "N19",
+   "thanhVien": [
+    {
+     "file": "src/components/WatchExplodedView.astro",
+     "id": "wevSapphire",
+     "line": 203
+    }
+   ],
+   "loai": "linearGradient",
+   "toaDo": "x1=0 y1=0 x2=1 y2=1",
+   "stops": [
+    {
+     "offset": "0",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.45"
+    },
+    {
+     "offset": "0.5",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.06"
+    },
+    {
+     "offset": "1",
+     "mau": "var(--obs-ivory)",
+     "opacity": "0.25"
+    }
+   ]
+  }
+ ],
+ "thuocTinhKhongXuatHienTrongDuLieu": {
+  "fr": "không xuất hiện trong dữ liệu hiện hành",
+  "fx": "không xuất hiện trong dữ liệu hiện hành",
+  "fy": "không xuất hiện trong dữ liệu hiện hành",
+  "spreadMethod": "không xuất hiện trong dữ liệu hiện hành",
+  "gradientTransform": "không xuất hiện trong dữ liệu hiện hành",
+  "gradientUnits": "không xuất hiện trong dữ liệu hiện hành"
+ },
+ "gioiHanChuKy": "Chữ ký chỉ chứng minh TRÙNG TRONG PHẠM VI ĐÃ KIỂM (thuộc tính tĩnh + biến màu CSS). Không tự động đồng nghĩa render tương đương trong mọi ngữ cảnh CSS (giá trị biến phụ thuộc theme/phạm vi) và chưa so ảnh render từng cặp.",
+ "thamChieu": {
+  "tong": 484,
+  "theoNguon": {
+   "src": 149,
+   "build": 303,
+   "taiSanSvg": 32
+  },
+  "theoDich": {
+   "không xác định được trong phạm vi quét tài liệu": 183,
+   "gradient": 194,
+   "marker": 2,
+   "filter": 4,
+   "clipPath": 1,
+   "pattern": 100
+  },
+  "chiTiet": [
+   {
+    "file": "src/components/infographics/AutomaticWinding.astro",
+    "line": 91,
+    "id": "awRotor",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/AutomaticWinding.astro",
+    "line": 98,
+    "id": "awClutch",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/CoAxial.astro",
+    "line": 32,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/CoAxial.astro",
+    "line": 43,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/CoAxial.astro",
+    "line": 68,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/CoAxial.astro",
+    "line": 86,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/DateDisplay.astro",
+    "line": 49,
+    "id": "dd-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 123,
+    "id": "escSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 133,
+    "id": "escSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 147,
+    "id": "escBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 151,
+    "id": "escBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 169,
+    "id": "escRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 173,
+    "id": "escRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 184,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 185,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 186,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 187,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 217,
+    "id": "escArrow",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 223,
+    "id": "escLoupe",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 466,
+    "id": "escShadow",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Escapement.astro",
+    "line": 469,
+    "id": "escShadowDim",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/GearTrain.astro",
+    "line": 119,
+    "id": "gtBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/GearTrain.astro",
+    "line": 136,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/GearTrain.astro",
+    "line": 152,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/GearTrain.astro",
+    "line": 168,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 61,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 63,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 66,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 68,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 72,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 74,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 76,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 83,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 94,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 107,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 116,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 118,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 128,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 134,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 140,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 146,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 152,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 158,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 161,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 163,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 165,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 172,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Chronograph.astro",
+    "line": 174,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/GMT.astro",
+    "line": 103,
+    "id": "gmtDial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/GMT.astro",
+    "line": 132,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/GMT.astro",
+    "line": 133,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 49,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 52,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 53,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 55,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 58,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 59,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 60,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 61,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 63,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 94,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Hairspring.astro",
+    "line": 96,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Incabloc.astro",
+    "line": 42,
+    "id": "inc-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Incabloc.astro",
+    "line": 44,
+    "id": "inc-ruby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Incabloc.astro",
+    "line": 53,
+    "id": "inc-steel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Incabloc.astro",
+    "line": 59,
+    "id": "inc-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Incabloc.astro",
+    "line": 61,
+    "id": "inc-ruby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+    "line": 33,
+    "id": "mrp-steel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MinuteRepeater.astro",
+    "line": 38,
+    "id": "mrp-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MoonPhase.astro",
+    "line": 50,
+    "id": "mph-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MoonPhase.astro",
+    "line": 58,
+    "id": "mph-moon",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MoonPhase.astro",
+    "line": 67,
+    "id": "mph-moon",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/MoonPhase.astro",
+    "line": 84,
+    "id": "mph-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+    "line": 43,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+    "line": 71,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+    "line": 95,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+    "line": 112,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/PerpetualCalendar.astro",
+    "line": 137,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Rotor.astro",
+    "line": 52,
+    "id": "rot-movement",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Rotor.astro",
+    "line": 61,
+    "id": "rot-steel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 48,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 57,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 60,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 66,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 67,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 69,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 75,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 81,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 88,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 89,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 90,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 91,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 97,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 98,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 99,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/Tourbillon.astro",
+    "line": 100,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/glossary/VPH.astro",
+    "line": 38,
+    "id": "vph-balance",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Lume.astro",
+    "line": 69,
+    "id": "lumeRing",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/Lume.astro",
+    "line": 69,
+    "id": "lumeDial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/MinuteRepeaterAnim.astro",
+    "line": 41,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/MinuteRepeaterAnim.astro",
+    "line": 53,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/MinuteRepeaterAnim.astro",
+    "line": 54,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/ShockProtection.astro",
+    "line": 40,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/ShockProtection.astro",
+    "line": 46,
+    "id": "shockBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/ShockProtection.astro",
+    "line": 62,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/ShockProtection.astro",
+    "line": 66,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/WaterResistance.astro",
+    "line": 99,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/WaterResistance.astro",
+    "line": 105,
+    "id": "wrSapphire",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/WaterResistance.astro",
+    "line": 109,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/infographics/WaterResistance.astro",
+    "line": 113,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/interactive/BezelDiver.astro",
+    "line": 86,
+    "id": "bd-steel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/interactive/BezelDiver.astro",
+    "line": 87,
+    "id": "bd-brush",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/interactive/DateSafety.astro",
+    "line": 92,
+    "id": "ds-hatch",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/interactive/GmtReader.astro",
+    "line": 104,
+    "id": "gm-steel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/interactive/GmtReader.astro",
+    "line": 105,
+    "id": "gm-brush",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 234,
+    "id": "wevArrowUp",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 246,
+    "id": "wevSapphire",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 249,
+    "id": "wevCrystalClip",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 261,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 265,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 269,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 270,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 272,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 282,
+    "id": "wevDial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 302,
+    "id": "wevDial",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 308,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 318,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 330,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 336,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 341,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 347,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 361,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 367,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 372,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 373,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 374,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 382,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 383,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 384,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 385,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 403,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 405,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 408,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 417,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 489,
+    "id": "wevShadowSoft",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 492,
+    "id": "wevShadowLift",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 495,
+    "id": "wevShadowDimSoft",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchExplodedView.astro",
+    "line": 498,
+    "id": "wevShadowDimLift",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "src/components/WatchImage.astro",
+    "line": 85,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "src",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/ap-royal-oak.svg",
+    "line": 15,
+    "id": "gui-ap-royal-oak",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/ap-royal-oak.svg",
+    "line": 71,
+    "id": "tapisserie-ap",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/automatic-chronograph-race.svg",
+    "line": 12,
+    "id": "gui-automatic-chronograph-race",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/blancpain.svg",
+    "line": 12,
+    "id": "gui-blancpain",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/breguet-naples.svg",
+    "line": 16,
+    "id": "gui-breguet-naples",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/breguet-naples.svg",
+    "line": 49,
+    "id": "dial-naples",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/breguet-tourbillon.svg",
+    "line": 12,
+    "id": "gui-breguet-tourbillon",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/cartier-santos.svg",
+    "line": 12,
+    "id": "gui-cartier-santos",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/fifty-fathoms.svg",
+    "line": 12,
+    "id": "gui-fifty-fathoms",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/harwood-automatic.svg",
+    "line": 12,
+    "id": "gui-harwood-automatic",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/heuer-carrera.svg",
+    "line": 12,
+    "id": "gui-heuer-carrera",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/huygens-hairspring.svg",
+    "line": 12,
+    "id": "gui-huygens-hairspring",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/iwc-pilot.svg",
+    "line": 12,
+    "id": "gui-iwc-pilot",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/jlc-reverso.svg",
+    "line": 12,
+    "id": "gui-jlc-reverso",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/omega-coaxial.svg",
+    "line": 12,
+    "id": "gui-omega-coaxial",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/omega-speedmaster.svg",
+    "line": 12,
+    "id": "gui-omega-speedmaster",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/patek-first-wristwatch.svg",
+    "line": 12,
+    "id": "gui-patek-first-wristwatch",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/patek-nautilus.svg",
+    "line": 16,
+    "id": "gui-patek-nautilus",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/patek-nautilus.svg",
+    "line": 49,
+    "id": "nautilus-ribs",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/peter-henlein.svg",
+    "line": 12,
+    "id": "gui-peter-henlein",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/rolex-datejust.svg",
+    "line": 12,
+    "id": "gui-rolex-datejust",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/rolex-gmt.svg",
+    "line": 12,
+    "id": "gui-rolex-gmt",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/rolex-oyster.svg",
+    "line": 12,
+    "id": "gui-rolex-oyster",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/rolex-perpetual.svg",
+    "line": 12,
+    "id": "gui-rolex-perpetual",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/rolex-submariner.svg",
+    "line": 12,
+    "id": "gui-rolex-submariner",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/seiko-astron.svg",
+    "line": 12,
+    "id": "gui-seiko-astron",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/silicon-revival.svg",
+    "line": 17,
+    "id": "gui-silicon-revival",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/silicon-revival.svg",
+    "line": 34,
+    "id": "silicon-lattice",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/swatch-1983.svg",
+    "line": 12,
+    "id": "gui-swatch-1983",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/trench-watch.svg",
+    "line": 12,
+    "id": "gui-trench-watch",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/un-freak.svg",
+    "line": 12,
+    "id": "gui-un-freak",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "public/images/timeline/vacheron-constantin.svg",
+    "line": 12,
+    "id": "gui-vacheron-constantin",
+    "kieu": "url(#)",
+    "nguon": "tài sản SVG (public)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 50,
+    "id": "escSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 50,
+    "id": "escSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 50,
+    "id": "escBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 50,
+    "id": "escBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 51,
+    "id": "escBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 56,
+    "id": "escArrow",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "marker",
+    "loaiDich": "marker"
+   },
+   {
+    "file": "dist/co-che/bo-thoat/index.html",
+    "line": 56,
+    "id": "escLoupe",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat-dong-truc/index.html",
+    "line": 54,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat-dong-truc/index.html",
+    "line": 54,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat-dong-truc/index.html",
+    "line": 54,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/bo-thoat-dong-truc/index.html",
+    "line": 54,
+    "id": "cxSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-nuoc/index.html",
+    "line": 62,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-nuoc/index.html",
+    "line": 62,
+    "id": "wrSapphire",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-nuoc/index.html",
+    "line": 62,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-nuoc/index.html",
+    "line": 62,
+    "id": "wrSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-soc/index.html",
+    "line": 54,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-soc/index.html",
+    "line": 54,
+    "id": "shockBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-soc/index.html",
+    "line": 54,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chong-soc/index.html",
+    "line": 54,
+    "id": "shockSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chronograph/index.html",
+    "line": 54,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chuyen-dong-co/index.html",
+    "line": 65,
+    "id": "gtBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chuyen-dong-co/index.html",
+    "line": 65,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chuyen-dong-co/index.html",
+    "line": 65,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/chuyen-dong-co/index.html",
+    "line": 65,
+    "id": "gtSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/da-quang/index.html",
+    "line": 54,
+    "id": "lumeRing",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/da-quang/index.html",
+    "line": 54,
+    "id": "lumeDial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 54,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 59,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/day-toc-banh-lac/index.html",
+    "line": 59,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/diem-chuong/index.html",
+    "line": 54,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/diem-chuong/index.html",
+    "line": 54,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/diem-chuong/index.html",
+    "line": 54,
+    "id": "repBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/gmt/index.html",
+    "line": 56,
+    "id": "gmtDial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/gmt/index.html",
+    "line": 56,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/gmt/index.html",
+    "line": 56,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/hien-thi-ngay/index.html",
+    "line": 54,
+    "id": "dd-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/len-day-tu-dong/index.html",
+    "line": 62,
+    "id": "awRotor",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/len-day-tu-dong/index.html",
+    "line": 62,
+    "id": "awClutch",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/perpetual-calendar/index.html",
+    "line": 54,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/perpetual-calendar/index.html",
+    "line": 54,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/perpetual-calendar/index.html",
+    "line": 54,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/perpetual-calendar/index.html",
+    "line": 54,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/perpetual-calendar/index.html",
+    "line": 68,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/pha-trang/index.html",
+    "line": 54,
+    "id": "mph-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/pha-trang/index.html",
+    "line": 54,
+    "id": "mph-moon",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/pha-trang/index.html",
+    "line": 54,
+    "id": "mph-moon",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/pha-trang/index.html",
+    "line": 55,
+    "id": "mph-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/co-che/tourbillon/index.html",
+    "line": 54,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 11,
+    "id": "wevShadowSoft",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "filter",
+    "loaiDich": "filter"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 11,
+    "id": "wevShadowLift",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "filter",
+    "loaiDich": "filter"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 11,
+    "id": "wevShadowDimSoft",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "filter",
+    "loaiDich": "filter"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 11,
+    "id": "wevShadowDimLift",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "filter",
+    "loaiDich": "filter"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 53,
+    "id": "wevArrowUp",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "marker",
+    "loaiDich": "marker"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSapphire",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevCrystalClip",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "clipPath",
+    "loaiDich": "clipPath"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevDial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevDial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/giai-phau/index.html",
+    "line": 54,
+    "id": "wevSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/huong-dan/chinh-lich-an-toan/index.html",
+    "line": 48,
+    "id": "ds-hatch",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/huong-dan/doc-va-chinh-gmt/index.html",
+    "line": 48,
+    "id": "gm-steel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/huong-dan/doc-va-chinh-gmt/index.html",
+    "line": 48,
+    "id": "gm-brush",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/huong-dan/dung-vanh-lan/index.html",
+    "line": 48,
+    "id": "bd-steel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/huong-dan/dung-vanh-lan/index.html",
+    "line": 48,
+    "id": "bd-brush",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 49,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 50,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 51,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 60,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 64,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 67,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 68,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 71,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 72,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 75,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 78,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 81,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 82,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 85,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 88,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 91,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 94,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 97,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 100,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 101,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 104,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 107,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 108,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 109,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/lich-su/index.html",
+    "line": 112,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/a-lange-soehne/index.html",
+    "line": 73,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/arnold-and-son/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/audemars-piguet/index.html",
+    "line": 68,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/audemars-piguet/index.html",
+    "line": 69,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/baume-et-mercier/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/bell-and-ross/index.html",
+    "line": 55,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/blancpain/index.html",
+    "line": 78,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/breguet/index.html",
+    "line": 68,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/breitling/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/bvlgari/index.html",
+    "line": 55,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/carl-f-bucherer/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/cartier/index.html",
+    "line": 78,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/chanel/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/chopard/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/corum/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/credor/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/de-bethune/index.html",
+    "line": 60,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/doxa/index.html",
+    "line": 60,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/eterna/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/fp-journe/index.html",
+    "line": 62,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/franck-muller/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/frederique-constant/index.html",
+    "line": 71,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/girard-perregaux/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/glashuette-original/index.html",
+    "line": 62,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/grand-seiko/index.html",
+    "line": 77,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/greubel-forsey/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/h-moser/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/hajime-asaoka/index.html",
+    "line": 60,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/hamilton/index.html",
+    "line": 71,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/hublot/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/iwc/index.html",
+    "line": 77,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/jaeger-lecoultre/index.html",
+    "line": 73,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/junghans/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/laurent-ferrier/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/longines/index.html",
+    "line": 72,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/mb-and-f/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/mido/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/minase/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/montblanc/index.html",
+    "line": 62,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/nomos-glashuette/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/omega/index.html",
+    "line": 70,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/orient/index.html",
+    "line": 74,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/oris/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/panerai/index.html",
+    "line": 109,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/parmigiani-fleurier/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/patek-philippe/index.html",
+    "line": 66,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/patek-philippe/index.html",
+    "line": 67,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/philippe-dufour/index.html",
+    "line": 62,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/piaget/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/rado/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/richard-mille/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/roger-dubuis/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/rolex/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/rolex/index.html",
+    "line": 62,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/seagull/index.html",
+    "line": 134,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/seiko/index.html",
+    "line": 76,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/stowa/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/swatch/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/tag-heuer/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/timex/index.html",
+    "line": 57,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/tissot/index.html",
+    "line": 74,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/tudor/index.html",
+    "line": 72,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/ulysse-nardin/index.html",
+    "line": 61,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/universal-geneve/index.html",
+    "line": 56,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/urwerk/index.html",
+    "line": 54,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/vacheron-constantin/index.html",
+    "line": 68,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/vostok/index.html",
+    "line": 58,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/voutilainen/index.html",
+    "line": 55,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/thuong-hieu/zenith/index.html",
+    "line": 69,
+    "id": "guilloche",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "pattern",
+    "loaiDich": "pattern"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoPress",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/chronograph/index.html",
+    "line": 53,
+    "id": "chronoBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsBalance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 53,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 58,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/day-toc-banh-lac/index.html",
+    "line": 58,
+    "id": "hsBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/gmt/index.html",
+    "line": 55,
+    "id": "gmtDial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/gmt/index.html",
+    "line": 55,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/gmt/index.html",
+    "line": 55,
+    "id": "gmtRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/incabloc/index.html",
+    "line": 49,
+    "id": "inc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/incabloc/index.html",
+    "line": 49,
+    "id": "inc-ruby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/incabloc/index.html",
+    "line": 49,
+    "id": "inc-steel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/incabloc/index.html",
+    "line": 49,
+    "id": "inc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/incabloc/index.html",
+    "line": 49,
+    "id": "inc-ruby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/minute-repeater/index.html",
+    "line": 47,
+    "id": "mrp-steel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/minute-repeater/index.html",
+    "line": 47,
+    "id": "mrp-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/perpetual-calendar/index.html",
+    "line": 53,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/perpetual-calendar/index.html",
+    "line": 53,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/perpetual-calendar/index.html",
+    "line": 53,
+    "id": "pc-dial",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/perpetual-calendar/index.html",
+    "line": 53,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/perpetual-calendar/index.html",
+    "line": 67,
+    "id": "pc-brass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/rotor/index.html",
+    "line": 49,
+    "id": "rot-movement",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/rotor/index.html",
+    "line": 49,
+    "id": "rot-steel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbSteel",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbBrass",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "linearGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/tourbillon/index.html",
+    "line": 51,
+    "id": "tbRuby",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/tu-dien/vph/index.html",
+    "line": 49,
+    "id": "vph-balance",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "gradient",
+    "loaiDich": "radialGradient"
+   },
+   {
+    "file": "dist/_astro/_slug_.DFRY94Q3.css",
+    "line": 1,
+    "id": "escShadow",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   },
+   {
+    "file": "dist/_astro/_slug_.DFRY94Q3.css",
+    "line": 1,
+    "id": "escShadowDim",
+    "kieu": "url(#)",
+    "nguon": "build (dist)",
+    "dich": "không xác định được trong phạm vi quét tài liệu",
+    "loaiDich": null
+   }
+  ]
+ },
+ "luYTongHop": "Số nguồn + số build là hai lớp khác nhau (định nghĩa nguồn và lần render trên route) — không cộng làm \"số tham chiếu duy nhất trên website\".",
+ "gradientKeThuaQuaHref": {
+  "so": 0,
+  "chiTiet": []
+ },
+ "idTrungToanTaiLieu": {
+  "soVanDe": 4,
+  "chiTiet": [
+   {
+    "doc": "dist/lich-su/index.html",
+    "id": "guilloche",
+    "soLan": 28,
+    "tags": "pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern,pattern"
+   },
+   {
+    "doc": "dist/thuong-hieu/audemars-piguet/index.html",
+    "id": "guilloche",
+    "soLan": 2,
+    "tags": "pattern,pattern"
+   },
+   {
+    "doc": "dist/thuong-hieu/patek-philippe/index.html",
+    "id": "guilloche",
+    "soLan": 2,
+    "tags": "pattern,pattern"
+   },
+   {
+    "doc": "dist/thuong-hieu/rolex/index.html",
+    "id": "guilloche",
+    "soLan": 2,
+    "tags": "pattern,pattern"
+   }
+  ]
+ },
+ "urlThieuDich": {
+  "so": 0,
+  "chiTiet": []
+ }
+}

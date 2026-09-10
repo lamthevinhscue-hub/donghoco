@@ -1,0 +1,207 @@
+{
+ "moTa": "Ma trận đường cơ sở gradient SVG trên localhost (astro preview, bản build 12:14 +07 10/09). Mỗi ô: kiểm DOM trong chính trang — số defs gradient, ID trùng trong tài liệu, url(#) không có đích (kể cả marker/filter/clipPath), trạng thái theme xác minh từ html.dark. Ảnh chụp: element screenshot của đúng SVG infographic.",
+ "thoiGian": "10/09/2026, ~12:20–12:40 +07",
+ "trinhDuyet": "HeadlessChrome/152.0.0.0 (Playwright CLI)",
+ "dieuKienChung": "Các ô tối: xóa localStorage theme + reload + emulateMedia colorScheme dark; các ô sáng: colorScheme light",
+ "o": {
+  "chronograph_1440S": {
+   "htmlDark": false,
+   "defs": 4,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "chronograph-1440S.png"
+  },
+  "chronograph_1440T": {
+   "htmlDark": true,
+   "defs": 4,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "chronograph-1440T.png",
+   "ghiChu": "lần đầu chụp htmlDark=false do localStorage theme cũ — đã chạy lại với xóa localStorage, kết quả này là lần chạy đúng"
+  },
+  "chronograph_320S": {
+   "htmlDark": false,
+   "defs": 4,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "chronograph-320S.png"
+  },
+  "chronograph_320T": {
+   "htmlDark": true,
+   "defs": 4,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "chronograph-320T.png"
+  },
+  "incabloc_1440S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "incabloc-1440S.png"
+  },
+  "incabloc_1440T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "incabloc-1440T.png"
+  },
+  "incabloc_320S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "incabloc-320S.png"
+  },
+  "incabloc_320T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "incabloc-320T.png"
+  },
+  "gmt_1440S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "gmt-1440S.png"
+  },
+  "gmt_1440T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "gmt-1440T.png"
+  },
+  "gmt_320S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "gmt-320S.png"
+  },
+  "gmt_320T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "gmt-320T.png"
+  },
+  "bothoat_1440S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "soSvgInlineTrang": 25,
+   "anh": "bothoat-1440S.png"
+  },
+  "bothoat_1440T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "bothoat-1440T.png"
+  },
+  "bothoat_320S": {
+   "htmlDark": false,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "bothoat-320S.png"
+  },
+  "bothoat_320T": {
+   "htmlDark": true,
+   "idTrung": 0,
+   "urlMissing": 0,
+   "anh": "bothoat-320T.png"
+  },
+  "giaiphau_1440S": {
+   "idTrung": 0,
+   "urlMissing": 0,
+   "defs": 5,
+   "soSvgInlineTrang": 20,
+   "anh": "giaiphau-2d.png"
+  }
+ },
+ "banPhim": {
+  "route": "/co-che/bo-thoat/",
+  "phamViKiemTra": "CHỈ nút Phát (.play-btn) — hai nút Bước trước/tiếp và Đặt lại CHƯA kiểm bằng bàn phím (thay cho kết luận cũ bao trùm)",
+  "ghiChuThucTe": "focus .play-btn qua bàn phím → Enter: aria-pressed true↔false (2 lần đo, phiên reduced-motion 10/09 ~13:00 +07)",
+  "ketLuanThuHẹp": "ĐẠT cho nút Phát; các nút còn lại chưa kiểm bàn phím"
+ },
+ "reducedMotion": {
+  "/giai-phau/": {
+   "kemTra": "computed style .layer-group: reduce = 1e-05s vs thường = 0.3s → CSS hoạt động",
+   "thoiGian": "10/09"
+  },
+  "/co-che/bo-thoat/": {
+   "chuKy": "MechanismAnimation JS KHÔNG kiểm prefers-reduced-motion (grep nguồn: chỉ CSS .step-bar transition:none)",
+   "thuNghiemSauTuongTac": "reducedMotion=reduce + bấm Phát qua bàn phím (aria-pressed=true): dõi #balance-wheel 4 mẫu cách 500ms — element gốc không đổi transform (bộ phận con có thể mới là phần quay) + 2 khung ảnh cách 1,2s giống nhau từng byte trong cửa sổ thử",
+   "ketLuanGioiHan": "Không quan sát chuyển động trong cửa sổ thử; CHƯA kết luận tuân thủ triệt để cho toàn bộ hoạt ảnh (hoạt ảnh theo bước có khoảng dừng; bộ phận quay thật chưa được probe đúng) — để GPT Work quyết có kiểm thêm hay ghi giới hạn"
+  }
+ },
+ "hanChe": "Không route nào hiện có 2 instance cùng component gradient trên một trang → kịch bản nhiều instance chưa tồn tại để kiểm trên route thật",
+ "phatrang": {
+  "route": "/co-che/pha-trang/",
+  "nhom": "N-brass-dọc-B (mph-brass) + độc lập (mph-moon)",
+  "ghiChu": "Bổ sung TXN-20260910-21 theo yêu cầu GPT Work — nhóm brass-dọc-B trước đây chưa có route đại diện trong ma trận 4 route",
+  "o": {
+   "1440S": {
+    "viewport": "1440x900",
+    "thoiGian": "2026-09-10T06:02:29Z",
+    "htmlDark": false,
+    "defs": 2,
+    "idTrungGradient": 0,
+    "idTrungToanTaiLieu": 0,
+    "urlMissing": 0,
+    "anh": "phatrang-1440S.png"
+   },
+   "1440T": {
+    "viewport": "1440x900",
+    "thoiGian": "2026-09-10T06:02:32Z",
+    "htmlDark": true,
+    "defs": 2,
+    "idTrungGradient": 0,
+    "idTrungToanTaiLieu": 0,
+    "urlMissing": 0,
+    "anh": "phatrang-1440T.png"
+   },
+   "320S": {
+    "viewport": "320x700",
+    "thoiGian": "2026-09-10T06:02:34Z",
+    "htmlDark": false,
+    "defs": 2,
+    "idTrungGradient": 0,
+    "idTrungToanTaiLieu": 0,
+    "urlMissing": 0,
+    "anh": "phatrang-320S.png"
+   },
+   "320T": {
+    "viewport": "320x700",
+    "thoiGian": "2026-09-10T06:02:36Z",
+    "htmlDark": true,
+    "defs": 2,
+    "idTrungGradient": 0,
+    "idTrungToanTaiLieu": 0,
+    "urlMissing": 0,
+    "anh": "phatrang-320T.png"
+   }
+  },
+  "xacMinhBangMat": "GLM đã tự mở phatrang-1440T.png: đúng mặt trăng tròn (radial ivory) + viền brass trên nền tối"
+ },
+ "phatHienNgoaiPhamVi": {
+  "idTrungToanTaiLieu": "Kết quả cuối TXN-20260910-25: 4 nhóm (tài liệu, ID) guilloche: /lich-su/ có 28 lần; ba trang thương hiệu audemars-piguet, patek-philippe, rolex mỗi trang 2 lần. Tổng 34 lần xuất hiện, 30 phần tử dư. Báo nhầm hairspring và 12 cặp nút đã được loại sau khi sửa công cụ.",
+  "danhGia": "Ngoài phạm vi gradient; không sửa website trong P3.2. Tác động hiển thị chưa xác minh, không kết luận trình duyệt chọn pattern đầu tiên. GPT Work chấp thuận ghi giới hạn reduced motion và metadata lịch sử cho kết luận giữ nguyên; không chứng nhận accessibility toàn website.",
+  "nguon": "phan-nhom-id.cjs phiên đã sửa (tập ID toàn tài liệu) + ket-qua-kiem-tra-tham-chieu.json"
+ },
+ "thoiGianChayTheoRoute": {
+  "ghiChu": "Thời điểm chạy lấy từ log gốc (/tmp p32-*.json đã chép vào logs không áp dụng — log gốc còn lưu tại /tmp của phiên). Ô không có thời gian = log gốc không ghi; KHÔNG tự gán.",
+  "/co-che/chronograph/": {
+   "thoiGianChay": "2026-09-10T05:15:50Z (UTC)",
+   "oToiChayLai": "lần chạy lại ô 1440T/320T (xóa localStorage): log gốc không ghi thời gian riêng"
+  },
+  "/tu-dien/incabloc/": {
+   "thoiGianChay": "KHÔNG GHI trong log gốc — thiếu metadata lịch sử"
+  },
+  "/tu-dien/gmt/": {
+   "thoiGianChay": "KHÔNG GHI trong log gốc — thiếu metadata lịch sử"
+  },
+  "/co-che/bo-thoat/": {
+   "thoiGianChay": "KHÔNG GHI trong log gốc — thiếu metadata lịch sử"
+  },
+  "/co-che/pha-trang/": {
+   "thoiGianChay": "đã ghi từng ô (06:02:29–06:02:36Z)"
+  }
+ }
+}

@@ -1,0 +1,19 @@
+Bản ghi kiểm tra tên tệp ảnh trong phạm vi công cụ không quét — TXN-20260910-21, chạy 10/09
+
+[1] Ảnh dưới src/ (mọi đuôi ảnh):
+  lệnh: find src -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.avif' -o -iname '*.gif' -o -iname '*.svg' \) | wc -l
+  kết quả: 0 tệp
+
+[2] 'hero-bg.jpg' và 'guilloche-tile.png' trong src/ (JSON/TS/md/astro):
+  lệnh: grep -rn -E 'hero-bg|guilloche-tile' src/ --include='*.json' --include='*.ts' --include='*.astro' --include='*.md'
+  kết quả: 0 dòng
+
+[3] hai tên đó trong built JS (dist/_astro/*.js):
+  lệnh: grep -l -E 'hero-bg|guilloche-tile' dist/_astro/*.js
+  kết quả: 0 tệp
+
+[4] hai tên đó trong JSON trong dist:
+  lệnh: grep -rl -E 'hero-bg|guilloche-tile' dist --include='*.json'
+  kết quả: 0 tệp
+
+Giới hạn: 'không tìm thấy' chỉ trong phạm vi quét nêu trên (src, dist HTML/CSS/JS/JSON); không khẳng định không ai có thể tải trực tiếp URL (bên ngoài repo không kiểm được).

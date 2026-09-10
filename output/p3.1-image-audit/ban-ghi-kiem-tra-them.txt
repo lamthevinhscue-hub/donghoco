@@ -1,0 +1,10 @@
+[1] Ảnh dưới src/: find src -type f (-iname jpg/jpeg/png/webp/avif/gif/svg) → KHÔNG có tệp nào
+[2] hero-bg.jpg + guilloche-tile.png trong src/ JSON + dist JS/JSON:
+  - grep -rn 'hero-bg\|guilloche-tile' src/ --include='*.json' --include='*.ts' → chạy 10/09, kết quả: 0 dòng (kể cả file ts schema)
+  - grep -rl 'hero-bg\|guilloche-tile' dist/_astro/*.js → 0 tệp
+  - grep -rl 'hero-bg\|guilloche-tile' dist --include='*.json' → 0 tệp
+  - giới hạn: 'không tìm thấy' chỉ trong phạm vi quét (src, dist HTML/CSS/JS/JSON); không khẳng định không ai tải trực tiếp URL
+[1] find src -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.svg' \) | wc -l → 0
+[2a] grep -rn 'hero-bg\|guilloche-tile' src/ --include='*.json' --include='*.ts' | wc -l → 0
+[2b] grep -rl 'hero-bg\|guilloche-tile' dist/_astro/*.js | wc -l → 0
+[2c] grep -rl 'hero-bg\|guilloche-tile' dist --include='*.json' | wc -l → 0

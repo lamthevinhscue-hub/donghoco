@@ -1,0 +1,525 @@
+{
+ "thoiGian": "2026-09-10T04:34:59.599Z",
+ "soTep": 35,
+ "tongByte": 1142110,
+ "tep": [
+  {
+   "file": "public/images/og/hero-bg.jpg",
+   "byte": 317999,
+   "format": "jpeg",
+   "width": 1774,
+   "height": 887,
+   "alpha": false,
+   "thamChieu": {
+    "html": 0,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "MO_COI"
+  },
+  {
+   "file": "public/images/og/guilloche-tile.png",
+   "byte": 175487,
+   "format": "png",
+   "width": 600,
+   "height": 600,
+   "alpha": false,
+   "thamChieu": {
+    "html": 0,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "MO_COI"
+  },
+  {
+   "file": "public/images/og/og-thuong-hieu.jpg",
+   "byte": 127218,
+   "format": "jpeg",
+   "width": 1200,
+   "height": 630,
+   "alpha": false,
+   "thamChieu": {
+    "html": 74,
+    "css": 0,
+    "src": 1
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/og-default.jpg",
+   "byte": 107491,
+   "format": "jpeg",
+   "width": 1200,
+   "height": 630,
+   "alpha": false,
+   "thamChieu": {
+    "html": 286,
+    "css": 0,
+    "src": 2
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/og/og-mau-iconic.jpg",
+   "byte": 98710,
+   "format": "jpeg",
+   "width": 1200,
+   "height": 630,
+   "alpha": false,
+   "thamChieu": {
+    "html": 70,
+    "css": 0,
+    "src": 1
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/og/og-lich-su.jpg",
+   "byte": 85430,
+   "format": "jpeg",
+   "width": 1200,
+   "height": 630,
+   "alpha": false,
+   "thamChieu": {
+    "html": 2,
+    "css": 0,
+    "src": 1
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/og/og-co-che.jpg",
+   "byte": 77665,
+   "format": "jpeg",
+   "width": 1200,
+   "height": 630,
+   "alpha": false,
+   "thamChieu": {
+    "html": 68,
+    "css": 0,
+    "src": 1
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/iwc-pilot.svg",
+   "byte": 8493,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/rolex-oyster.svg",
+   "byte": 8258,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/omega-coaxial.svg",
+   "byte": 7491,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/omega-speedmaster.svg",
+   "byte": 7327,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/fifty-fathoms.svg",
+   "byte": 5960,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/vacheron-constantin.svg",
+   "byte": 5849,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/heuer-carrera.svg",
+   "byte": 5755,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/automatic-chronograph-race.svg",
+   "byte": 5750,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/cartier-santos.svg",
+   "byte": 5547,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/rolex-submariner.svg",
+   "byte": 5462,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/peter-henlein.svg",
+   "byte": 5428,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/patek-first-wristwatch.svg",
+   "byte": 5345,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/trench-watch.svg",
+   "byte": 5289,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/un-freak.svg",
+   "byte": 5221,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/ap-royal-oak.svg",
+   "byte": 5167,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/blancpain.svg",
+   "byte": 5117,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/rolex-gmt.svg",
+   "byte": 5056,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/harwood-automatic.svg",
+   "byte": 4978,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/rolex-datejust.svg",
+   "byte": 4856,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/breguet-naples.svg",
+   "byte": 4834,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/rolex-perpetual.svg",
+   "byte": 4809,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/patek-nautilus.svg",
+   "byte": 4661,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/huygens-hairspring.svg",
+   "byte": 4611,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/jlc-reverso.svg",
+   "byte": 4513,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/breguet-tourbillon.svg",
+   "byte": 4451,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/silicon-revival.svg",
+   "byte": 4097,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/seiko-astron.svg",
+   "byte": 4062,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  },
+  {
+   "file": "public/images/timeline/swatch-1983.svg",
+   "byte": 3723,
+   "format": "svg",
+   "width": null,
+   "height": null,
+   "alpha": false,
+   "viewBox": "0 0 800 600",
+   "thamChieu": {
+    "html": 1,
+    "css": 0,
+    "src": 0
+   },
+   "trangThai": "DANG_DUNG"
+  }
+ ]
+}

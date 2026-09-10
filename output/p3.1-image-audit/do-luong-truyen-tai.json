@@ -1,0 +1,219 @@
+{
+ "moTa": "Đo disk vs transferred trên localhost:4321 (astro preview), 10/09/2026. SVG được server nén gzip khi truyền; JPEG/PNG truyền nguyên bản (không nén — chuẩn cho định dạng đã nén). Đo bằng curl: không nén = size_download không Accept-Encoding; gzip = size_download có Accept-Encoding: gzip.",
+ "svg": {
+  "ap-royal-oak.svg": {
+   "disk": 5167,
+   "transferGzip": 1190,
+   "tyLe": "23%"
+  },
+  "automatic-chronograph-race.svg": {
+   "disk": 5750,
+   "transferGzip": 1451,
+   "tyLe": "25%"
+  },
+  "blancpain.svg": {
+   "disk": 5117,
+   "transferGzip": 1409,
+   "tyLe": "28%"
+  },
+  "breguet-naples.svg": {
+   "disk": 4834,
+   "transferGzip": 1549,
+   "tyLe": "32%"
+  },
+  "breguet-tourbillon.svg": {
+   "disk": 4451,
+   "transferGzip": 1416,
+   "tyLe": "32%"
+  },
+  "cartier-santos.svg": {
+   "disk": 5547,
+   "transferGzip": 1416,
+   "tyLe": "26%"
+  },
+  "fifty-fathoms.svg": {
+   "disk": 5960,
+   "transferGzip": 1694,
+   "tyLe": "28%"
+  },
+  "harwood-automatic.svg": {
+   "disk": 4978,
+   "transferGzip": 1563,
+   "tyLe": "31%"
+  },
+  "heuer-carrera.svg": {
+   "disk": 5755,
+   "transferGzip": 1588,
+   "tyLe": "28%"
+  },
+  "huygens-hairspring.svg": {
+   "disk": 4611,
+   "transferGzip": 1101,
+   "tyLe": "24%"
+  },
+  "iwc-pilot.svg": {
+   "disk": 8493,
+   "transferGzip": 2150,
+   "tyLe": "25%"
+  },
+  "jlc-reverso.svg": {
+   "disk": 4513,
+   "transferGzip": 1466,
+   "tyLe": "32%"
+  },
+  "omega-coaxial.svg": {
+   "disk": 7491,
+   "transferGzip": 1890,
+   "tyLe": "25%"
+  },
+  "omega-speedmaster.svg": {
+   "disk": 7327,
+   "transferGzip": 1824,
+   "tyLe": "25%"
+  },
+  "patek-first-wristwatch.svg": {
+   "disk": 5345,
+   "transferGzip": 1462,
+   "tyLe": "27%"
+  },
+  "patek-nautilus.svg": {
+   "disk": 4661,
+   "transferGzip": 1374,
+   "tyLe": "29%"
+  },
+  "peter-henlein.svg": {
+   "disk": 5428,
+   "transferGzip": 1565,
+   "tyLe": "29%"
+  },
+  "rolex-datejust.svg": {
+   "disk": 4856,
+   "transferGzip": 1564,
+   "tyLe": "32%"
+  },
+  "rolex-gmt.svg": {
+   "disk": 5056,
+   "transferGzip": 1541,
+   "tyLe": "30%"
+  },
+  "rolex-oyster.svg": {
+   "disk": 8258,
+   "transferGzip": 2030,
+   "tyLe": "25%"
+  },
+  "rolex-perpetual.svg": {
+   "disk": 4809,
+   "transferGzip": 1535,
+   "tyLe": "32%"
+  },
+  "rolex-submariner.svg": {
+   "disk": 5462,
+   "transferGzip": 1495,
+   "tyLe": "27%"
+  },
+  "seiko-astron.svg": {
+   "disk": 4062,
+   "transferGzip": 1311,
+   "tyLe": "32%"
+  },
+  "silicon-revival.svg": {
+   "disk": 4097,
+   "transferGzip": 1366,
+   "tyLe": "33%"
+  },
+  "swatch-1983.svg": {
+   "disk": 3723,
+   "transferGzip": 1182,
+   "tyLe": "32%"
+  },
+  "trench-watch.svg": {
+   "disk": 5289,
+   "transferGzip": 1401,
+   "tyLe": "26%"
+  },
+  "un-freak.svg": {
+   "disk": 5221,
+   "transferGzip": 1578,
+   "tyLe": "30%"
+  },
+  "vacheron-constantin.svg": {
+   "disk": 5849,
+   "transferGzip": 1939,
+   "tyLe": "33%"
+  }
+ },
+ "svgTong": {
+  "disk": 152110,
+  "transferGzip": 43050
+ },
+ "raster": {
+  "og-default.jpg": {
+   "disk": 107491,
+   "transfer": 107491,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1200x630",
+   "routeHtml": 286,
+   "url": "/og-default.jpg"
+  },
+  "images/og/hero-bg.jpg": {
+   "disk": 317999,
+   "transfer": 317999,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1774x887",
+   "routeHtml": 0,
+   "url": null
+  },
+  "images/og/guilloche-tile.png": {
+   "disk": 175487,
+   "transfer": 175487,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "600x600",
+   "routeHtml": 0,
+   "url": null
+  },
+  "images/og/og-co-che.jpg": {
+   "disk": 77665,
+   "transfer": 77665,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1200x630",
+   "routeHtml": 68,
+   "url": "/images/og/og-co-che.jpg"
+  },
+  "images/og/og-lich-su.jpg": {
+   "disk": 85430,
+   "transfer": 85430,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1200x630",
+   "routeHtml": 2,
+   "url": "/images/og/og-lich-su.jpg"
+  },
+  "images/og/og-mau-iconic.jpg": {
+   "disk": 98710,
+   "transfer": 98710,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1200x630",
+   "routeHtml": 70,
+   "url": "/images/og/og-mau-iconic.jpg"
+  },
+  "images/og/og-thuong-hieu.jpg": {
+   "disk": 127218,
+   "transfer": 127218,
+   "nenThem": "không (JPEG/PNG truyền nguyên bản)",
+   "kichThuoc": "1200x630",
+   "routeHtml": 74,
+   "url": "/images/og/og-thuong-hieu.jpg"
+  }
+ },
+ "luuY": "Lượt đo 404 lúc 10:31 là do đua với build nền đang chép lại dist/ — đã đo lại khi build ổn định, tất cả 200.",
+ "phuongPhap": {
+  "congCu": "curl trên localhost:4321 (astro preview), không chạy build đồng thời với phép đo",
+  "urlMau": "http://localhost:4321/images/timeline/<tên tệp> | http://localhost:4321/images/og/<tên tệp> | http://localhost:4321/og-default.jpg",
+  "cachDoByte": [
+   "không nén: curl -s -o /dev/null -w %{size_download} (không Accept-Encoding) → byte response gốc = byte đĩa",
+   "gzip: curl -s -H \"Accept-Encoding: gzip\" -o /dev/null -w %{size_download} → byte THÂN NÉN truyền; đây là số transferred cho tệp, chưa gồm overhead header/TLS"
+  ],
+  "dieuKienCache": "lượt đầu đo không cache (mỗi URL thêm query riêng khi cần buộc tải mới); lượt reload sau ghi nhận 304 Not Modified với SVG — không tính vào bảng số liệu",
+  "status": "SVG 200; raster 200 (một lượt 404 thoáng qua do đua với build nền — đã đo lại khi build ổn định)",
+  "contentEncoding": "SVG: gzip | JPEG/PNG: không nén (server không nén lại định dạng đã nén)"
+ }
+}

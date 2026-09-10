@@ -1,0 +1,26 @@
+Thời điểm phân tích: 2026-09-10T04:00:40.963Z
+og-co-che.jpg:
+  - số HTML chứa đường dẫn ở bất kỳ vị trí nào: 68
+  - route chọn ảnh trong og:image: 68 (tổng thẻ og:image: 68)
+  - thẻ twitter:image: 68
+  - HTML có nhắc trong JSON-LD: 0
+og-lich-su.jpg:
+  - số HTML chứa đường dẫn ở bất kỳ vị trí nào: 2
+  - route chọn ảnh trong og:image: 2 (tổng thẻ og:image: 2)
+  - thẻ twitter:image: 2
+  - HTML có nhắc trong JSON-LD: 0
+og-mau-iconic.jpg:
+  - số HTML chứa đường dẫn ở bất kỳ vị trí nào: 70
+  - route chọn ảnh trong og:image: 70 (tổng thẻ og:image: 70)
+  - thẻ twitter:image: 70
+  - HTML có nhắc trong JSON-LD: 0
+og-thuong-hieu.jpg:
+  - số HTML chứa đường dẫn ở bất kỳ vị trí nào: 74
+  - route chọn ảnh trong og:image: 74 (tổng thẻ og:image: 74)
+  - thẻ twitter:image: 74
+  - HTML có nhắc trong JSON-LD: 0
+og-default.jpg:
+  - số HTML chứa đường dẫn ở bất kỳ vị trí nào: 286
+  - route chọn ảnh trong og:image: 72 (tổng thẻ og:image: 72)
+  - thẻ twitter:image: 72
+  - HTML có nhắc trong JSON-LD: 286 (route ví dụ: /404.html, /ban-quyen/, /co-che/bo-thoat/)

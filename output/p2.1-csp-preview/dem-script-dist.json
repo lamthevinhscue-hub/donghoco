@@ -1,0 +1,48 @@
+{
+ "measured_at": "2026-09-09T14:50:53.297Z",
+ "dist": "dist",
+ "pages": 286,
+ "script_tags_total": 1622,
+ "script_tags_with_src": 286,
+ "script_tags_without_src": 1336,
+ "jsonld_blocks": 735,
+ "inline_script_tags": 601,
+ "unique_inline_bodies": 23,
+ "unique_jsonld_bodies": 735,
+ "top_repeated_inline": [
+  {
+   "count": 286,
+   "preview": "(function() { const stored = localStorage.getItem('theme'); const pref"
+  },
+  {
+   "count": 286,
+   "preview": "(function() { var btn = document.getElementById('theme-toggle'); if (!"
+  },
+  {
+   "count": 4,
+   "preview": "// Bật chế độ tương tác: gắn data-js (CSS chuyển sang lưới ngang + một"
+  },
+  {
+   "count": 2,
+   "preview": "// ==================================================================="
+  },
+  {
+   "count": 2,
+   "preview": "// ==================================================================="
+  }
+ ],
+ "top_repeated_jsonld": [
+  {
+   "count": 1,
+   "preview": "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Đồng Hồ Cơ\""
+  },
+  {
+   "count": 1,
+   "preview": "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Đồng Hồ Cơ\""
+  },
+  {
+   "count": 1,
+   "preview": "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListEle"
+  }
+ ]
+}

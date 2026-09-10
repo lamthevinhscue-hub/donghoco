@@ -1,0 +1,6 @@
+Xác minh lúc 2026-09-09T16:47:08.447Z (UTC):
+TOKEN #2 (đã revoke) → 302 https://vercel.com/sso-api?url=https%3A%2F%2Fdonghoco1-3iqxqo0ji-vinh-lam.vercel.app%2F&nonce=3d1aab28ca5e0c47b1435a06d7a32a5e4761be8d9ff35170238d9c2411b9e9f0 (bị chặn → SSO)
+TOKEN #3 (đã revoke) → 302 https://vercel.com/sso-api?url=https%3A%2F%2Fdonghoco1-3iqxqo0ji-vinh-lam.vercel.app%2F&nonce=3f5008ae21e25f4a9a79c613ff5b2650e66ce7d030fb04432dca61111159943f (bị chặn → SSO)
+TOKEN #4 (đã revoke) → 302 https://vercel.com/sso-api?url=https%3A%2F%2Fdonghoco1-3iqxqo0ji-vinh-lam.vercel.app%2F&nonce=7a0ef9c7c22bdcf6f448641879bbc4e9526fea41e110c3ed9398fb3421d2229b (bị chặn → SSO)
+TOKEN #1 (còn sống — chờ dashboard) → 200
+Ghi chú: HTTP 200 = token còn hiệu lực; 302 kèm redirect sso-api = token không còn hiệu lực (bị đẩy về trang đăng nhập SSO).

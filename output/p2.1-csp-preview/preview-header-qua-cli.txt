@@ -1,0 +1,50 @@
+=== PREVIEW HTML — 2026-09-09T22:31:11+07:00 ===
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Age: 104
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'
+Content-Type: text/html; charset=utf-8
+Date: Wed, 09 Sep 2026 15:31:13 GMT
+Etag: W/"04fc41d810409f2c65e5815bf399e1ba"
+Last-Modified: Wed, 09 Sep 2026 15:29:29 GMT
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+Referrer-Policy: strict-origin-when-cross-origin
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Robots-Tag: noindex
+X-Vercel-Cache: HIT
+X-Vercel-Id: hkg1:hkg1:hkg1::lggft-1788967873762-e5680592695d
+Transfer-Encoding: chunked
+
+
+=== PREVIEW WORKER pagefind-worker.js ===
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Access-Control-Allow-Origin: *
+Age: 48
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline; filename="pagefind-worker.js"
+Content-Length: 41255
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'
+Content-Type: application/javascript; charset=utf-8
+Date: Wed, 09 Sep 2026 15:31:17 GMT
+Etag: "b7060d25b8ccfa1bad7aa6a148eeadce"
+Last-Modified: Wed, 09 Sep 2026 15:30:28 GMT
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+Referrer-Policy: strict-origin-when-cross-origin
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Robots-Tag: noindex
+X-Vercel-Cache: HIT
+X-Vercel-Id: hkg1::z2w5w-1788967877480-c4ae094b5fe9
+
+
+=== PREVIEW /giai-phau/ ===
+HTTP/1.1 200 OK
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'

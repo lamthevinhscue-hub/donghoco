@@ -1,0 +1,57 @@
+{
+  "mô_tả": "Log có cấu trúc của các phép thử bổ sung trên deploy 2 (TXN-20260909-12) — trình duyệt HeadlessChrome/152.0.0.0 (Windows NT 10.0, Win64, x64), phiên sạch không tiện ích, truy cập preview sau Deployment Protection bằng bypass header chỉ gắn cho request cùng origin",
+  "thời_gian_chạy": "2026-09-09T16:33–16:42Z (23:33–23:42 +07)",
+  "deploy_2": {
+    "url": "https://donghoco1-3iqxqo0ji-vinh-lam.vercel.app",
+    "id": "dpl_JCLoQ4mJbsJi1Bnraetyg5GKAD7P"
+  },
+  "tổ_hợp": {
+    "1440_sáng": {
+      "home_vi": {
+        "chế_độ": "sáng (html không có class dark)",
+        "menu_desktop_hiển": true,
+        "tìm_kiểm_tourbillon": { "số_kết_quả": 16, "bấm_mở": "/mau-iconic/greubel-double-tourbillon/", "is404": false },
+        "switcher_vi_en": "/en/",
+        "tìm_kiểm_en_chronograph": { "số_kết_quả": 16, "bấm_mở": "/en/glossary/chronograph/", "is404": false }
+      },
+      "lich_su": { "ảnh_tổng": 28, "naturalWidth_hợp_lệ_sau_cuộn": 20, "ảnh_hỏng": 0, "chưa_tải_lazy": 8, "kích_thước_mẫu": "200x150", "ảnh_chụp": "anh-chup/lich-su-1440-sang.png" },
+      "bài_cơ_chế": { "trang": "/co-che/perpetual-calendar", "play_aria_pressed_sau_bấm": "true" },
+      "giai_phau_3d": { "canvas": true, "kích_thước": "677x518", "kéo_quay": "mouse.down + 8 bước mouse.move + up", "pixel_trước_sau": "KHÁC NHAU (PNG 64762 vs 43752 byte) → mô hình/cảnh thay đổi thật", "ảnh_chụp": "anh-chup/3d-sau-keo-1440-sang.png" },
+      "form_vi": { "hiển": true, "submit_trống": { "số_ô_invalid": 3, "thông_báo": "Please fill out this field." } },
+      "form_en": { "hiển": true, "submit_trống": { "số_ô_invalid": 3 } },
+      "post_formspree": 0
+    },
+    "1440_tối": {
+      "home_vi": { "html_dark": true, "tìm_kiểm_tourbillon": 16 },
+      "giai_phau_3d": { "kéo_quay": "mouse.down + 1 bước kéo + up", "pixel_trước_sau": "KHÁC NHAU" },
+      "form_vi": { "hiển": true, "submit_trống_số_ô_invalid": 3 },
+      "post_formspree": 0
+    },
+    "320_sáng": {
+      "home_vi": {
+        "chế_độ": "sáng",
+        "tràn_ngang": { "scrollWidth": 320, "clientWidth": 320 },
+        "menu_bàn_phím": "focus #menu-toggle + Enter → #mobile-menu hiện",
+        "tìm_kiểm_hero_tourbillon": { "số_kết_quả": 16, "bấm_mở": "/mau-iconic/greubel-double-tourbillon/", "is404": false },
+        "switcher_320": { "số_link_hreflang": 2, "bấm_en": "/en/" }
+      },
+      "form_vi": { "hiển": true, "submit_trống_số_ô_invalid": 3 },
+      "post_formspree": 0
+    },
+    "320_tối": {
+      "home_en": {
+        "html_dark": true,
+        "menu_bàn_phím": "focus + Enter → #mobile-menu hiện",
+        "tìm_kiếm_hero_en_chronograph": { "số_kết_quả": 16, "bấm_mở": "/en/glossary/chronograph/", "is404": false }
+      },
+      "form_en": { "hiển": true, "submit_trống_số_ô_invalid": 3 },
+      "bài_cơ_chế_320": { "play_aria_pressed_sau_bấm": "true" },
+      "post_formspree": 0
+    }
+  },
+  "bằng_chụp_bổ_sung": ["anh-chup/tim-kiem-1440-sang.png", "anh-chup/form-validation-320-toi.png"],
+  "console_csp_violation": 0,
+  "console_error": 0,
+  "request_thất_bại": 0,
+  "ghi_chú_phép_thử": "Lần đầu gõ tìm kiếm sau mỗi lần tải trang cần ≥3,5s (Pagefind khởi động lạnh: nạp engine + wasm + index) — phép thử chờ 2,5s trước đó cho 0 kết quả là sai số chờ, không phải lỗi site"
+}

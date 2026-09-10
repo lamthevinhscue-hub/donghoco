@@ -1,0 +1,46 @@
+{
+ "cons": [
+  "e: Failed to load resource: the server responded with a status of 404 ()"
+ ],
+ "reqs": {
+  "https://www.kienthucdonghoco.vn/": 1,
+  "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&fam": 2,
+  "https://www.kienthucdonghoco.vn/_astro/ban-quyen.BuJqx4-R.css": 2,
+  "https://www.kienthucdonghoco.vn/_astro/index.D2K7oQcg.css": 2,
+  "https://www.kienthucdonghoco.vn/_astro/hoisted.Ci9Kxo38.js": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0": 2,
+  "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.wof": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0": 2,
+  "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2": 2,
+  "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0": 2,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW87Rb0": 2,
+  "https://www.kienthucdonghoco.vn/8353d7638e565049/script.js": 2,
+  "https://www.kienthucdonghoco.vn/pagefind/pagefind-ui.js": 1,
+  "https://www.kienthucdonghoco.vn/pagefind/pagefind.js": 1,
+  "https://www.kienthucdonghoco.vn/pagefind/pagefind-worker.js": 1,
+  "https://www.kienthucdonghoco.vn/pagefind/pagefind-entry.json?ts=1788963152675": 1,
+  "https://www.kienthucdonghoco.vn/pagefind/pagefind.vi_c642348740.pf_meta": 1,
+  "https://www.kienthucdonghoco.vn/pagefind/wasm.unknown.pagefind": 1,
+  "https://www.kienthucdonghoco.vn/giai-phau": 1,
+  "https://www.kienthucdonghoco.vn/_astro/hoisted.BtqG6uY1.js": 1,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0": 1,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0": 1,
+  "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0": 1,
+  "https://www.kienthucdonghoco.vn/_astro/exploded3d.D29IsIER.js": 1,
+  "https://www.kienthucdonghoco.vn/_astro/OrbitControls.BwvrplCg.js": 1
+ },
+ "docHeaders": {
+  "status": 200,
+  "cspRO": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'",
+  "csp": null,
+  "xfo": "SAMEORIGIN",
+  "reportTo": null
+ },
+ "errs": []
+}

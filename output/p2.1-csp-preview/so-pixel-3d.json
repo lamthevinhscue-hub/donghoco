@@ -1,0 +1,15 @@
+{
+  "mô_tả": "So pixel giải mã (sharp → raw RGB) cho phép thử kéo/quay 3D trên deploy 2 — chạy 10/09, ĐÍNH CHÍNH TXN-20260910-05 (10/09): tách rõ SỐ PIXEL khác nhau (≥1 kênh RGB đổi — chỉ số chính) khỏi SỐ BYTE/KÊNH RGB khác nhau (bằng 3 lần số pixel khi cả 3 kênh đổi — chỉ số tham chiếu). Bản đầu ghi số byte nhầm là số pixel.",
+  "đính_chính_bởi": "GPT Work giải mã và đối chiếu độc lập 16 ảnh (TXN-20260910-05); GLM đếm lại bằng sharp khớp từng số.",
+  "giao_thức": "Mỗi tổ hợp: mở /giai-phau → bấm tab 3D → chờ 5s → (1) ảnh nền nghỉ 1 (element screenshot canvas) → (2) chờ 1,6s → ảnh nền nghỉ 2 → (3) ảnh TRƯỚC kéo → (4) kéo chuột: down tại tâm + 10 bước ×15px ngang / −4px dọc, 70ms/bước → up → chờ 1,5s → ảnh SAU. So 1: nghỉ1 vs nghỉ2 (kiểm soát chuyển động tự động). So 2: trước vs sau (hiệu ứng kéo). So trên dữ liệu pixel RAW sau giải mã.",
+  "canvas_từ_ảnh": { "desktop": "678x520", "mobile": "270x340" },
+  "kết_quả": [
+    { "tổ_hợp": "1440 sáng", "tổng_pixel": 352560, "pixel_khác": 276646, "tỷ_lệ_pixel_khác": "78.47%", "byte_kênh_rgb_khác_tham_chiếu": 827672, "ảnh": ["anh-chup/3d-1440S-nghi1.png", "anh-chup/3d-1440S-nghi2.png", "anh-chup/3d-1440S-truoc.png", "anh-chup/3d-1440S-sau.png"] },
+    { "tổ_hợp": "1440 tối", "tổng_pixel": 352560, "pixel_khác": 276604, "tỷ_lệ_pixel_khác": "78.46%", "byte_kênh_rgb_khác_tham_chiếu": 824432, "ảnh": ["anh-chup/3d-1440T-nghi1.png", "anh-chup/3d-1440T-nghi2.png", "anh-chup/3d-1440T-truoc.png", "anh-chup/3d-1440T-sau.png"] },
+    { "tổ_hợp": "320 sáng", "tổng_pixel": 91800, "pixel_khác": 45330, "tỷ_lệ_pixel_khác": "49.38%", "byte_kênh_rgb_khác_tham_chiếu": 135910, "ảnh": ["anh-chup/3d-320S-nghi1.png", "anh-chup/3d-320S-nghi2.png", "anh-chup/3d-320S-truoc.png", "anh-chup/3d-320S-sau.png"] },
+    { "tổ_hợp": "320 tối", "tổng_pixel": 91800, "pixel_khác": 45093, "tỷ_lệ_pixel_khác": "49.12%", "byte_kênh_rgb_khác_tham_chiếu": 134224, "ảnh": ["anh-chup/3d-320T-nghi1.png", "anh-chup/3d-320T-nghi2.png", "anh-chup/3d-320T-truoc.png", "anh-chup/3d-320T-sau.png"] }
+  ],
+  "kiểm_soát_chuyển_động_tự_động": "Ở cả 4 tổ hợp, cặp ảnh nền nghỉ (cách 1,6s, không thao tác) có dữ liệu pixel GIỐNG NHAU → không có chuyển động tự động; do đó pixel thay đổi giữa trước/sau là do thao tác kéo.",
+  "kết_luận": "Kéo chuột làm thay đổi 49,12–78,47% số pixel canvas tùy tổ hợp — mô hình/cảnh thực sự phản hồi kéo/quay.",
+  "ghi_chú": "Không chứa secret/cookie. Ảnh chụp canvas cùng element, cùng kích thước trong từng cặp so sánh. Giữ nguyên 16 ảnh gốc."
+}

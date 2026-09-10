@@ -1,0 +1,16 @@
+=== DEPLOY 2 HTML / — 2026-09-09T16:33:48.165Z ===
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=0, must-revalidate
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+X-Robots-Tag: noindex
+
+=== DEPLOY 2 WORKER /pagefind/pagefind-worker.js — 2026-09-09T16:33:48.561Z ===
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=0, must-revalidate
+Content-Length: 41255
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'
+Content-Type: application/javascript; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+X-Robots-Tag: noindex

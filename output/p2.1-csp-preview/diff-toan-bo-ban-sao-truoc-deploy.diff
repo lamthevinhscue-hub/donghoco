@@ -1,0 +1,24 @@
+diff --git a/.gitignore b/.gitignore
+index 751c2a6..6f84315 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -30,3 +30,6 @@ Thumbs.db
+ .env
+ .env.production
+ .env.local
++
++.vercel
++.env*
+diff --git a/vercel.json b/vercel.json
+index 3cc656a..fb2057e 100644
+--- a/vercel.json
++++ b/vercel.json
+@@ -13,7 +13,7 @@
+         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" },
+-        { "key": "Content-Security-Policy-Report-Only", "value": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'" }
++        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://vitals.vercel-insights.com https://formspree.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'" }
+       ]
+     }
+   ]

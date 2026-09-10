@@ -1,0 +1,19 @@
+HEAD 1e4551b | đo 2026-09-10T16:02:08.645Z
+--- Markdown (đĩa; draft đọc trọn frontmatter) ---
+thuongHieu: vi=73 (draft 0) | en=3 (draft 0)
+mauIconic: vi=69 (draft 0) | en=4 (draft 0)
+coChe: vi=18 (draft 0) | en=14 (draft 0)
+tuDien: vi=33 (draft 0) | en=23 (draft 0)
+huongDan: vi=14 (draft 0) | en=9 (draft 0)
+trang: vi=1 (draft 0) | en=0 (draft 0)
+TỔNG: bài VI 5 collection nội dung = 207 | trang pháp lý VI (trang) = 1 | bài EN 5 collection = 53 | TỔNG Markdown = 261 (không đồng nhất với 286 HTML build)
+--- dist HTML ---
+tongHtml=286 | vi=221 | en=64 | khác=["404.html"] | có 404.html=true
+--- sitemap (index tách khỏi URL trang) ---
+{"tep":[{"tep":"sitemap-0.xml","urlTrang":285,"enUrl":64,"locXmlBiLoai":0}],"index":[{"tep":"sitemap-index.xml","thamChieuSitemapCon":1}],"tongUrlTrang":285,"enUrl":64,"viUrl":221,"kiemTra":{"tongBangViCongEn":true,"locSitemapXmlDaLoaiKhoiDem":0,"soTepIndex":1,"soTepUrlTrang":1}}
+--- related (frontmatter) ---
+{"relatedModels_iconic":{"muc":131,"bai":69},"relatedModels_coChe":{"muc":29,"bai":18},"relatedMechanisms_iconic":{"muc":29,"bai":24}}
+--- timeline ---
+{"soMoc":28,"soSvg":28}
+--- nguồn (khối sources, bài vi) ---
+{"thuongHieu":{"co":73,"tong":73},"mauIconic":{"co":69,"tong":69},"coChe":{"co":18,"tong":18},"tuDien":{"co":33,"tong":33},"huongDan":{"co":14,"tong":14}}

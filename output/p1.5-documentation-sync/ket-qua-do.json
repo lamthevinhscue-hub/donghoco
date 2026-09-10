@@ -1,0 +1,385 @@
+{
+  "moTa": "P1.5 đo số liệu tài liệu hiện trạng — node output/p1.5-documentation-sync/do-so-lieu.cjs",
+  "thoiDiemDo": "2026-09-10T16:15:42.456Z",
+  "head": "1e4551b",
+  "markdown": {
+    "collections": {
+      "thuongHieu": {
+        "vi": {
+          "tepTrenDia": 73,
+          "draftTrue": 0,
+          "xuatBan": 73
+        },
+        "en": {
+          "tepTrenDia": 3,
+          "draftTrue": 0,
+          "xuatBan": 3
+        }
+      },
+      "mauIconic": {
+        "vi": {
+          "tepTrenDia": 69,
+          "draftTrue": 0,
+          "xuatBan": 69
+        },
+        "en": {
+          "tepTrenDia": 4,
+          "draftTrue": 0,
+          "xuatBan": 4
+        }
+      },
+      "coChe": {
+        "vi": {
+          "tepTrenDia": 18,
+          "draftTrue": 0,
+          "xuatBan": 18
+        },
+        "en": {
+          "tepTrenDia": 14,
+          "draftTrue": 0,
+          "xuatBan": 14
+        }
+      },
+      "tuDien": {
+        "vi": {
+          "tepTrenDia": 33,
+          "draftTrue": 0,
+          "xuatBan": 33
+        },
+        "en": {
+          "tepTrenDia": 23,
+          "draftTrue": 0,
+          "xuatBan": 23
+        }
+      },
+      "huongDan": {
+        "vi": {
+          "tepTrenDia": 14,
+          "draftTrue": 0,
+          "xuatBan": 14
+        },
+        "en": {
+          "tepTrenDia": 9,
+          "draftTrue": 0,
+          "xuatBan": 9
+        }
+      },
+      "trang": {
+        "vi": {
+          "tepTrenDia": 1,
+          "draftTrue": 0,
+          "xuatBan": 1
+        },
+        "en": {
+          "tepTrenDia": 0,
+          "draftTrue": 0,
+          "xuatBan": 0
+        }
+      }
+    },
+    "tong": {
+      "viBaiNoiDung_5collection": 207,
+      "trangPhapLyVi_collectionTrang": 1,
+      "enBai_5collection": 53,
+      "tongMarkdownTatCa": 261,
+      "luuY": "tongMarkdownTatCa (261 nếu draft=0) là số tệp Markdown — KHÔNG đồng nhất với 286 tệp HTML build (gồm trang tĩnh, trang danh sách, trang chủ, 404 — sinh từ wrapper/template chứ không phải 1 tệp Markdown mỗi trang)"
+    }
+  },
+  "dist": {
+    "vi": 221,
+    "en": 64,
+    "khac": [
+      "404.html"
+    ],
+    "tongHtml": 286,
+    "co404": true,
+    "viDanhSach": [
+      "/ban-quyen/",
+      "/co-che/bo-thoat/",
+      "/co-che/bo-thoat-dong-truc/",
+      "/co-che/chong-nuoc/",
+      "/co-che/chong-soc/",
+      "/co-che/chong-tu/",
+      "/co-che/chronograph/",
+      "/co-che/chuyen-dong-co/",
+      "/co-che/da-quang/",
+      "/co-che/day-toc-banh-lac/",
+      "/co-che/diem-chuong/",
+      "/co-che/gmt/",
+      "/co-che/hien-thi-ngay/",
+      "/co-che/",
+      "/co-che/kinh-dong-ho/",
+      "/co-che/len-day-tu-dong/",
+      "/co-che/perpetual-calendar/",
+      "/co-che/pha-trang/",
+      "/co-che/tourbillon/",
+      "/co-che/tru-cot/",
+      "/giai-phau/",
+      "/huong-dan/bao-duong-dong-ho/",
+      "/huong-dan/chinh-lich-an-toan/",
+      "/huong-dan/chon-co-dong-ho/",
+      "/huong-dan/chon-dong-ho-dau-tien/",
+      "/huong-dan/do-sai-so/",
+      "/huong-dan/doc-va-chinh-gmt/",
+      "/huong-dan/dung-tachymeter/",
+      "/huong-dan/dung-vanh-lan/",
+      "/huong-dan/hoan-thien-thu-cong-dong-ho/",
+      "/huong-dan/hop-xoay-dong-ho/",
+      "/huong-dan/",
+      "/huong-dan/len-day-dong-ho/",
+      "/huong-dan/microbrand-la-gi/",
+      "/huong-dan/muc-chong-nuoc/",
+      "/huong-dan/nhan-biet-dong-ho-gia/",
+      "/",
+      "/kha-nang-tiep-can/",
+      "/lich-su/",
+      "/lien-he/",
+      "/lo-trinh-hoc-dong-ho/",
+      "/mau-iconic/arnold-and-son-perpetual-moon/",
+      "/mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/",
+      "/mau-iconic/baume-mercier-riviera/",
+      "/mau-iconic/bell-ross-br-01/",
+      "/mau-iconic/breguet-type-xx/",
+      "/mau-iconic/breitling-navitimer/",
+      "/mau-iconic/bvlgari-octo-finissimo/",
+      "/mau-iconic/carl-f-bucherer-manero-peripheral/",
+      "/mau-iconic/cartier-tank/",
+      "/mau-iconic/chanel-j12/",
+      "/mau-iconic/chopard-luc/",
+      "/mau-iconic/corum-golden-bridge/",
+      "/mau-iconic/credor-eichi-2/",
+      "/mau-iconic/de-bethune-db28/",
+      "/mau-iconic/doxa-sub-300/",
+      "/mau-iconic/dufour-simplicity/",
+      "/mau-iconic/eterna-matic-1948/",
+      "/mau-iconic/fc-heart-beat/",
+      "/mau-iconic/fifty-fathoms/",
+      "/mau-iconic/fpjourne-chronometre-bleu/",
+      "/mau-iconic/franck-muller-crazy-hours/",
+      "/mau-iconic/freak/",
+      "/mau-iconic/girard-perregaux-tourbillon-ba-cau/",
+      "/mau-iconic/glashuette-seaq/",
+      "/mau-iconic/grand-seiko-snowflake/",
+      "/mau-iconic/greubel-double-tourbillon/",
+      "/mau-iconic/h-moser-streamliner/",
+      "/mau-iconic/hajime-asaoka-project-t/",
+      "/mau-iconic/hamilton-ventura/",
+      "/mau-iconic/hublot-big-bang/",
+      "/mau-iconic/",
+      "/mau-iconic/iwc-mark-xi/",
+      "/mau-iconic/junghans-max-bill/",
+      "/mau-iconic/lange-1/",
+      "/mau-iconic/laurent-ferrier-galet-classic/",
+      "/mau-iconic/longines-lindbergh/",
+      "/mau-iconic/mbf-horological-machine-1/",
+      "/mau-iconic/mido-multifort/",
+      "/mau-iconic/minase-horizon/",
+      "/mau-iconic/monaco/",
+      "/mau-iconic/montblanc-minerva-monopusher/",
+      "/mau-iconic/nomos-tangente/",
+      "/mau-iconic/omega-speedmaster/",
+      "/mau-iconic/orient-bambino/",
+      "/mau-iconic/oris-aquis-depth-gauge/",
+      "/mau-iconic/panerai-luminor/",
+      "/mau-iconic/parmigiani-toric/",
+      "/mau-iconic/patek-nautilus/",
+      "/mau-iconic/patek-philippe-grandmaster-chime/",
+      "/mau-iconic/piaget-altiplano/",
+      "/mau-iconic/rado-diastar/",
+      "/mau-iconic/reverso/",
+      "/mau-iconic/richard-mille-rm-001/",
+      "/mau-iconic/roger-dubuis-excalibur/",
+      "/mau-iconic/rolex-gmt-master/",
+      "/mau-iconic/rolex-submariner/",
+      "/mau-iconic/royal-oak/",
+      "/mau-iconic/seagull-1963/",
+      "/mau-iconic/seiko-62mas/",
+      "/mau-iconic/stowa-flieger/",
+      "/mau-iconic/swatch-sistem51/",
+      "/mau-iconic/timex-marlin/",
+      "/mau-iconic/tissot-prx/",
+      "/mau-iconic/tudor-black-bay/",
+      "/mau-iconic/universal-geneve-polerouter/",
+      "/mau-iconic/urwerk-ur-105/",
+      "/mau-iconic/vc-overseas/",
+      "/mau-iconic/vostok-amphibia/",
+      "/mau-iconic/voutilainen-vingt-8/",
+      "/mau-iconic/zenith-el-primero/",
+      "/so-sanh/",
+      "/thuong-hieu/a-lange-soehne/",
+      "/thuong-hieu/alpina/",
+      "/thuong-hieu/arnold-and-son/",
+      "/thuong-hieu/audemars-piguet/",
+      "/thuong-hieu/baume-et-mercier/",
+      "/thuong-hieu/beijing-watch-factory/",
+      "/thuong-hieu/bell-and-ross/",
+      "/thuong-hieu/blancpain/",
+      "/thuong-hieu/breguet/",
+      "/thuong-hieu/breitling/",
+      "/thuong-hieu/bvlgari/",
+      "/thuong-hieu/carl-f-bucherer/",
+      "/thuong-hieu/cartier/",
+      "/thuong-hieu/certina/",
+      "/thuong-hieu/chanel/",
+      "/thuong-hieu/chopard/",
+      "/thuong-hieu/christopher-ward/",
+      "/thuong-hieu/citizen/",
+      "/thuong-hieu/corum/",
+      "/thuong-hieu/credor/",
+      "/thuong-hieu/de-bethune/",
+      "/thuong-hieu/doxa/",
+      "/thuong-hieu/eterna/",
+      "/thuong-hieu/fp-journe/",
+      "/thuong-hieu/franck-muller/",
+      "/thuong-hieu/frederique-constant/",
+      "/thuong-hieu/girard-perregaux/",
+      "/thuong-hieu/glashuette-original/",
+      "/thuong-hieu/grand-seiko/",
+      "/thuong-hieu/greubel-forsey/",
+      "/thuong-hieu/h-moser/",
+      "/thuong-hieu/hajime-asaoka/",
+      "/thuong-hieu/hamilton/",
+      "/thuong-hieu/hublot/",
+      "/thuong-hieu/",
+      "/thuong-hieu/iwc/",
+      "/thuong-hieu/jaeger-lecoultre/",
+      "/thuong-hieu/junghans/",
+      "/thuong-hieu/laurent-ferrier/",
+      "/thuong-hieu/longines/",
+      "/thuong-hieu/mb-and-f/",
+      "/thuong-hieu/mido/",
+      "/thuong-hieu/minase/",
+      "/thuong-hieu/montblanc/",
+      "/thuong-hieu/muehle-glashuette/",
+      "/thuong-hieu/nomos-glashuette/",
+      "/thuong-hieu/omega/",
+      "/thuong-hieu/orient/",
+      "/thuong-hieu/oris/",
+      "/thuong-hieu/panerai/",
+      "/thuong-hieu/parmigiani-fleurier/",
+      "/thuong-hieu/patek-philippe/",
+      "/thuong-hieu/philippe-dufour/",
+      "/thuong-hieu/piaget/",
+      "/thuong-hieu/rado/",
+      "/thuong-hieu/richard-mille/",
+      "/thuong-hieu/roger-dubuis/",
+      "/thuong-hieu/rolex/",
+      "/thuong-hieu/seagull/",
+      "/thuong-hieu/seiko/",
+      "/thuong-hieu/sinn/",
+      "/thuong-hieu/stowa/",
+      "/thuong-hieu/swatch/",
+      "/thuong-hieu/tag-heuer/",
+      "/thuong-hieu/timex/",
+      "/thuong-hieu/tissot/",
+      "/thuong-hieu/tudor/",
+      "/thuong-hieu/ulysse-nardin/",
+      "/thuong-hieu/universal-geneve/",
+      "/thuong-hieu/urwerk/",
+      "/thuong-hieu/vacheron-constantin/",
+      "/thuong-hieu/vostok/",
+      "/thuong-hieu/voutilainen/",
+      "/thuong-hieu/zenith/",
+      "/tu-dien/banh-thoat/",
+      "/tu-dien/bezel/",
+      "/tu-dien/calibre/",
+      "/tu-dien/cau-may/",
+      "/tu-dien/chan-kinh/",
+      "/tu-dien/chronograph/",
+      "/tu-dien/chronometer/",
+      "/tu-dien/cotes-de-geneve/",
+      "/tu-dien/day-cot/",
+      "/tu-dien/day-toc-banh-lac/",
+      "/tu-dien/day-vo/",
+      "/tu-dien/gmt/",
+      "/tu-dien/guilloche/",
+      "/tu-dien/incabloc/",
+      "/tu-dien/",
+      "/tu-dien/khoa-day/",
+      "/tu-dien/lo-may/",
+      "/tu-dien/metas/",
+      "/tu-dien/microbrand/",
+      "/tu-dien/minute-repeater/",
+      "/tu-dien/movement/",
+      "/tu-dien/ngua/",
+      "/tu-dien/num-van/",
+      "/tu-dien/perlage/",
+      "/tu-dien/perpetual-calendar/",
+      "/tu-dien/poincon-de-geneve/",
+      "/tu-dien/power-reserve/",
+      "/tu-dien/rotor/",
+      "/tu-dien/tachymeter/",
+      "/tu-dien/thung-cot/",
+      "/tu-dien/tourbillon/",
+      "/tu-dien/vat-canh/",
+      "/tu-dien/vau-day/",
+      "/tu-dien/vph/",
+      "/ve-chung-toi/"
+    ]
+  },
+  "sitemap": {
+    "tep": [
+      {
+        "tep": "sitemap-0.xml",
+        "urlTrang": 285,
+        "enUrl": 64,
+        "locXmlBiLoai": 0
+      }
+    ],
+    "index": [
+      {
+        "tep": "sitemap-index.xml",
+        "thamChieuSitemapCon": 1
+      }
+    ],
+    "tongUrlTrang": 285,
+    "enUrl": 64,
+    "viUrl": 221,
+    "kiemTra": {
+      "tongBangViCongEn": true,
+      "locSitemapXmlDaLoaiKhoiDem": 0,
+      "soTepIndex": 1,
+      "soTepUrlTrang": 1
+    }
+  },
+  "related": {
+    "relatedModels_iconic": {
+      "muc": 131,
+      "bai": 69
+    },
+    "relatedModels_coChe": {
+      "muc": 29,
+      "bai": 18
+    },
+    "relatedMechanisms_iconic": {
+      "muc": 29,
+      "bai": 24
+    }
+  },
+  "timeline": {
+    "soMoc": 28,
+    "soSvg": 28
+  },
+  "nguon": {
+    "thuongHieu": {
+      "co": 73,
+      "tong": 73
+    },
+    "mauIconic": {
+      "co": 69,
+      "tong": 69
+    },
+    "coChe": {
+      "co": 18,
+      "tong": 18
+    },
+    "tuDien": {
+      "co": 33,
+      "tong": 33
+    },
+    "huongDan": {
+      "co": 14,
+      "tong": 14
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "thoiGian": "2026-09-12T02:50:20.421Z",
+  "tongTepHtml": 286,
+  "soTepEn": 64,
+  "soTepVi": 222,
+  "cauPhan": {
+    "exploreEnLink": 384,
+    "exploreEnSoTrang": 64,
+    "panelGoLink": 286,
+    "footerHomeEnLink": 64,
+    "hreflangTrangChuVi": 3,
+    "hreflangTrangChuEn": 3,
+    "hreflangTongToanDist": 378,
+    "dataLangSwitchAttr": 320
+  },
+  "tangThemMoi": 737,
+  "doiChieuMoc": {
+    "mocTruoc": 19827,
+    "buildG01": 20564
+  },
+  "ghiChu": "check-links đếm mọi href=\"...\" (kể cả hreflang link và link trang chủ đích trong hộp thoại). Explore EN trước đây ẩn (exploreNav rỗng ở EN) nên 0; footer EN trước đây không có mục Home; trang chủ VI trước đây không có hreflang (bug map mất cặp root); #lang-panel-go render trên mọi trang (markup luôn có, hiện/ẩn bằng class hidden). data-lang-switch là attr, không phải link mới: 320 = 2 attr × 160 trang chưa dịch (158 trang VI + 404 + legacy /en/glossary/escapement)."
+}

@@ -105,10 +105,29 @@ export const ARTICLE_PAIRS: RoutePair[] = [
 
 export const ALL_PAIRS: RoutePair[] = [...STATIC_PAIRS, ...INDEX_PAIRS, ...ARTICLE_PAIRS];
 
-const byVi = new Map(ALL_PAIRS.map((p) => [p.vi.replace(/\/$/, ''), p]));
-const byEn = new Map(ALL_PAIRS.map((p) => [p.en.replace(/\/$/, ''), p]));
+/**
+ * Chuẩn hóa đường dẫn dùng CHO CẢ lúc tạo bảng băm và lúc tra cứu:
+ * bỏ mọi slash cuối; chuỗi rỗng còn lại (từ "/") quy về "/". Nhờ vậy khóa
+ * trang chủ là "/" ở cả hai phía — trước đây bảng băm giữ "" trong khi tra
+ * cứu dùng "/" nên cặp trang chủ bị mất, hreflang trang chủ chỉ còn một chiều.
+ */
+const norm = (p: string): string => {
+  const n = p.replace(/\/+$/, '');
+  return n === '' ? '/' : n;
+};
 
-const norm = (p: string) => p.replace(/\/$/, '') || '/';
+const byVi = new Map(ALL_PAIRS.map((p) => [norm(p.vi), p]));
+const byEn = new Map(ALL_PAIRS.map((p) => [norm(p.en), p]));
+
+/**
+ * Đường dẫn có thuộc khu vực tiếng Anh không — kiểm theo RANH GIỚI segment:
+ * chỉ "/en" và "/en/..." là EN. "/english" hay "/en-other" KHÔNG phải, để
+ * không nhầm trang tiếng Việt có tên bắt đầu bằng "en" với khu vực EN.
+ */
+export function isEnglishPath(pathname: string): boolean {
+  const n = norm(pathname);
+  return n === '/en' || n.startsWith('/en/');
+}
 
 /** Đường dẫn tiếng Anh tương ứng của một trang tiếng Việt (undefined = chưa dịch) */
 export function englishPathFor(viPath: string): string | undefined {
@@ -137,7 +156,7 @@ export function localizedHref(viPath: string, lang: Lang): string | undefined {
  *   phải nói rõ điều này bằng aria-label, không dẫn tới URL rỗng/404.
  */
 export function switcherTarget(pathname: string): { href: string; translated: boolean } {
-  const isEn = norm(pathname).startsWith('/en');
+  const isEn = isEnglishPath(pathname);
   if (isEn) {
     const vi = vietnamesePathFor(pathname);
     return { href: vi ?? '/', translated: vi !== undefined };
@@ -150,15 +169,18 @@ export function switcherTarget(pathname: string): { href: string; translated: bo
  * Các bản ngôn ngữ thay thế (cho hreflang) của một đường dẫn hiện tại.
  * Chỉ trả en khi cặp thật sự tồn tại — không bao giờ hreflang "giả".
  * x-default do nơi dùng tự thêm, luôn trỏ về bản tiếng Việt.
+ * Trang chủ trả đủ hai chiều: "/" ↔ "/en/".
  */
 export function getAlternates(pathname: string): { vi: string; en?: string } {
-  const n = norm(pathname);
-  if (n.startsWith('/en')) {
+  if (isEnglishPath(pathname)) {
     const vi = vietnamesePathFor(pathname);
-    return { vi: vi ?? '/', en: vi ? pathname : undefined };
+    // "/en" không phải route chuẩn (route thật là "/en/") — chuẩn hóa lại
+    // trước khi đưa vào hreflang để không khai báo URL không tồn tại.
+    const self = norm(pathname) === '/en' ? '/en/' : pathname;
+    return { vi: vi ?? '/', en: vi ? self : undefined };
   }
   const en = englishPathFor(pathname);
-  return { vi: pathname === '/' ? '/' : pathname, en };
+  return { vi: pathname, en };
 }
 
 // --- Đường dẫn danh sách (collection route) theo ngôn ngữ --------------------

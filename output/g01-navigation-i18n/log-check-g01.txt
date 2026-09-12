@@ -1,0 +1,67 @@
+G01 — LỚP 1: LOGIC ÁNH XẠ NGÔN NGỮ (gọi thẳng src/i18n/contentRoutes.ts):
+  ĐẠT root: "/" có bản EN là "/en/"
+  ĐẠT root: "/en/" có bản VI là "/"
+  ĐẠT root: "/en" (không slash cuối) vẫn nhận cặp → "/"
+  ĐẠT slash cuối: "/thuong-hieu/" tra được cặp EN
+  ĐẠT bài có cặp: /huong-dan/muc-chong-nuoc → /en/guides/water-resistance/
+  ĐẠT chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc
+  ĐẠT trang chưa dịch: /lich-su không có URL EN giả
+  ĐẠT localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch
+  ĐẠT localizedHref("/", "vi") = "/"
+  ĐẠT localizedHref("/lich-su", "en") = undefined — không chế URL
+  ĐẠT isEnglishPath: "/en" và "/en/" là EN
+  ĐẠT isEnglishPath: "/en/brands/rolex/" là EN
+  ĐẠT isEnglishPath: "/english" KHÔNG phải EN (ranh giới segment)
+  ĐẠT isEnglishPath: "/en-other" KHÔNG phải EN
+  ĐẠT isEnglishPath: "/thuong-hieu" không phải EN
+  ĐẠT switcherTarget("/") → "/en/", translated=true (trang chủ là cặp thật)
+  ĐẠT switcherTarget("/en/") → "/", translated=true
+  ĐẠT switcherTarget("/lich-su/") → "/en/", translated=false (chưa dịch)
+  ĐẠT switcherTarget("/english") KHÔNG bị coi là khu vực EN
+  ĐẠT switcherTarget("/co-che/bo-thoat") → bài EN tương ứng
+  ĐẠT getAlternates("/"): đủ vi "/" + en "/en/" (hreflang hai chiều)
+  ĐẠT getAlternates("/en/"): đủ vi "/" + en "/en/"
+  ĐẠT getAlternates("/en") chuẩn hóa về "/en/" (không khai báo URL không tồn tại)
+  ĐẠT getAlternates("/lich-su"): en=undefined — không hreflang giả
+G01 — LỚP 2: ĐẦU RA HTML TRONG DIST:
+  ĐẠT Trang chủ VI: nav desktop và nav mobile đều được tìm thấy trong HTML
+  ĐẠT Trang chủ VI: Home desktop có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: Home mobile có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: không mục nào khác mang aria-current ngoài Home
+  ĐẠT Trang chủ VI: hreflang đủ vi + en "/en/" + x-default → "/"
+  ĐẠT Trang chủ VI: nút nhóm xổ không mang aria-current
+  ĐẠT Danh sách VI /thuong-hieu: Home desktop KHÔNG có aria-current
+  ĐẠT Danh sách VI /thuong-hieu: Home mobile KHÔNG có aria-current
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu desktop aria-current="page" (1)
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu mobile aria-current="page" (1)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu desktop aria-current="location" (không phải page)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu mobile aria-current="location"
+  ĐẠT Bài con VI /thuong-hieu/rolex: Home desktop KHÔNG active
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục Cơ chế (trong dropdown) aria-current="location"
+  ĐẠT Bài cơ chế /co-che/bo-thoat: nút nhóm cha đổi màu nhưng KHÔNG gạch active, KHÔNG aria-current
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục dropdown active có gạch chân (underline)
+  ĐẠT Bài cơ chế /co-che/bo-thoat: Home mobile KHÔNG active
+  ĐẠT Trang chủ EN: Home desktop (href="/en/") aria-current="page"
+  ĐẠT Trang chủ EN: Home mobile aria-current="page"
+  ĐẠT Trang chủ EN: hreflang đủ vi "/" + en "/en/" + x-default → "/"
+  ĐẠT Explore EN (desktop): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Trang chủ EN: bộ chuyển ngôn ngữ là link thẳng (không có data-lang-switch)
+  ĐẠT Trang chủ EN: switcher href="/" với hreflang="vi"
+  ĐẠT Bài EN /en/mechanisms/escapement: Home EN KHÔNG active
+  ĐẠT Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 3 link VI có nhãn
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 3 link VI có nhãn
+  ĐẠT Chưa dịch /lich-su: CẢ HAI bộ chuyển ngôn ngữ (header + mobile) đều đánh dấu mở hộp thoại
+  ĐẠT Chưa dịch /lich-su: hộp thoại #lang-panel có link "/en/" (trang chủ đích)
+  ĐẠT Chưa dịch /lich-su: KHÔNG có hreflang en giả
+  ĐẠT Chưa dịch /lich-su: có chú thích noscript giải thích đường chuyển ngôn ngữ
+  ĐẠT 404: Trang chủ KHÔNG active chỉ vì pathname bắt đầu bằng "/"
+  ĐẠT Toàn dist (286 trang): aria-current chỉ nhận "page"/"location"
+  ĐẠT Toàn dist: nút nhóm xổ không bao giờ mang aria-current
+  KẾT LUẬN: ĐẠT — 63/63 ca
+  Đã ghi JSON: output/g01-navigation-i18n/check-g01-ket-qua.json

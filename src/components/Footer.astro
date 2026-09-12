@@ -5,7 +5,7 @@
 // Hiển thị ở cuối mọi trang: thông tin bản quyền, liên kết nhanh, thông báo bản tin.
 // =============================================================================
 
-import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { getLangFromUrl, t } from '../i18n/ui';
 import { localizedHref } from '../i18n/contentRoutes';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
@@ -39,7 +39,7 @@ const footerLinks = footerLinkSource
     <!-- Cột 1: Giới thiệu -->
     <div>
       <p class="mb-3 font-serif text-xl text-cream">
-        <a href={localizedPath('/', lang)} class="text-cream transition-colors hover:text-brass-light focus-visible:text-brass-light">{tr.siteName}</a>
+        <a href={localizedHref('/', lang) ?? '/'} class="text-cream transition-colors hover:text-brass-light focus-visible:text-brass-light">{tr.siteName}</a>
       </p>
       <p class="text-sm leading-relaxed">{tr.siteTagline}</p>
     </div>

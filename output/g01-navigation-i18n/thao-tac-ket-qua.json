@@ -1,0 +1,128 @@
+[
+  {
+    "ten": "VI→EN trang chủ: tới /en/ đúng ngôn ngữ",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/en/ lang=en",
+    "thoiGian": "2026-09-12T03:14:55.085Z"
+  },
+  {
+    "ten": "EN→VI trang chủ: về /",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/",
+    "thoiGian": "2026-09-12T03:14:55.283Z"
+  },
+  {
+    "ten": "VI→EN danh sách: /thuong-hieu → /en/brands/",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/en/brands/",
+    "thoiGian": "2026-09-12T03:14:55.604Z"
+  },
+  {
+    "ten": "EN→VI danh sách: /en/brands/ → /thuong-hieu",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/thuong-hieu",
+    "thoiGian": "2026-09-12T03:14:55.796Z"
+  },
+  {
+    "ten": "VI→EN bài: /co-che/bo-thoat → /en/mechanisms/escapement/",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/en/mechanisms/escapement/",
+    "thoiGian": "2026-09-12T03:14:56.051Z"
+  },
+  {
+    "ten": "EN→VI bài: về đúng bài VI",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/co-che/bo-thoat",
+    "thoiGian": "2026-09-12T03:14:56.228Z"
+  },
+  {
+    "ten": "Chưa dịch: bấm switcher mở panel (không rời trang)",
+    "dat": true,
+    "chiTiet": "title=\"Trang này chưa có bản tiếng Anh\" url=http://localhost:4321/lich-su",
+    "thoiGian": "2026-09-12T03:14:56.456Z"
+  },
+  {
+    "ten": "Chưa dịch: \"Ở lại\" đóng panel, focus trở về vùng switcher, vẫn /lich-su",
+    "dat": true,
+    "chiTiet": "focus-trong-header=true",
+    "thoiGian": "2026-09-12T03:14:56.512Z"
+  },
+  {
+    "ten": "Chưa dịch: \"Đi tới trang chủ tiếng Anh\" → /en/",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/en/",
+    "thoiGian": "2026-09-12T03:14:56.671Z"
+  },
+  {
+    "ten": "Escape đóng panel + focus về nút đã mở",
+    "dat": true,
+    "chiTiet": "focus-trên-switcher=true aria-label=\"Chuyển sang tiếng Anh — trang này chưa có bản dịch; bạn sẽ tới trang chủ tiếng Anh.\"",
+    "thoiGian": "2026-09-12T03:14:57.077Z"
+  },
+  {
+    "ten": "Explore EN desktop: History → /lich-su (nhãn \"Vietnamese only\")",
+    "dat": true,
+    "chiTiet": "url=http://localhost:4321/lich-su badge=Vietnamese only",
+    "thoiGian": "2026-09-12T03:14:57.783Z"
+  },
+  {
+    "ten": "Explore EN desktop: Anatomy → /giai-phau (nhãn \"Vietnamese only\")",
+    "dat": true,
+    "chiTiet": "url=http://localhost:4321/giai-phau badge=Vietnamese only",
+    "thoiGian": "2026-09-12T03:14:58.325Z"
+  },
+  {
+    "ten": "Explore EN desktop: Compare → /so-sanh (nhãn \"Vietnamese only\")",
+    "dat": true,
+    "chiTiet": "url=http://localhost:4321/so-sanh badge=Vietnamese only",
+    "thoiGian": "2026-09-12T03:14:58.817Z"
+  },
+  {
+    "ten": "Explore EN mobile: History → /lich-su",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/lich-su",
+    "thoiGian": "2026-09-12T03:14:59.144Z"
+  },
+  {
+    "ten": "Bàn phím dropdown: Enter mở + focus link đầu; ArrowDown đi tiếp; Escape đóng + focus nút",
+    "dat": true,
+    "chiTiet": "link1=/lo-trinh-hoc-dong-ho expanded=true link2=/co-che expandedSauEsc=false focusVeNut=true",
+    "thoiGian": "2026-09-12T03:14:59.795Z"
+  },
+  {
+    "ten": "Tìm kiếm mobile: mở dialog, gõ \"rolex\" có kết quả, Escape đóng + focus về nút",
+    "dat": true,
+    "chiTiet": "overlay=true ketQua=8 dong=true focusVe=true",
+    "thoiGian": "2026-09-12T03:15:01.261Z"
+  },
+  {
+    "ten": "Tìm kiếm desktop: ô inline có kết quả",
+    "dat": true,
+    "chiTiet": "ketQua=8",
+    "thoiGian": "2026-09-12T03:15:02.658Z"
+  },
+  {
+    "ten": "Theme: click đổi dark ↔ light, aria-label cập nhật",
+    "dat": true,
+    "chiTiet": "truoc=false sau=true ve=false label=\"Chuyển sang chế độ sáng\"",
+    "thoiGian": "2026-09-12T03:15:03.014Z"
+  },
+  {
+    "ten": "Reduced motion: panel hiện ngay, không có transition trên panel",
+    "dat": true,
+    "chiTiet": "transitionDuration=1e-05s",
+    "thoiGian": "2026-09-12T03:15:03.254Z"
+  },
+  {
+    "ten": "Không-JS: chú thích noscript hiển thị giải thích rõ",
+    "dat": true,
+    "chiTiet": "text=\"Trang này chưa có bản tiếng Anh. Liên kết \"English\" phía trên sẽ dẫn bạn tới tra\"",
+    "thoiGian": "2026-09-12T03:15:04.624Z"
+  },
+  {
+    "ten": "Không-JS: liên kết \"English\" thật — tới /en/ không kẹt",
+    "dat": true,
+    "chiTiet": "http://localhost:4321/en/",
+    "thoiGian": "2026-09-12T03:15:04.864Z"
+  }
+]

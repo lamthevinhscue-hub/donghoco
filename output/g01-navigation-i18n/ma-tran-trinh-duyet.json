@@ -1,0 +1,6026 @@
+[
+  {
+    "route": "/",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:40.468Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:40.828Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:41.108Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:41.532Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:41.828Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:42.210Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:42.528Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 320,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:42.918Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:43.177Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:43.476Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:43.809Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:44.245Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:44.525Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:44.846Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:45.110Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 375,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:45.464Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:45.711Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:46.039Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:46.325Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:46.696Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:46.960Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:47.274Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:47.525Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 768,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:47.893Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:48.141Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:48.424Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:48.692Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:49.093Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:49.342Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:49.643Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:49.926Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 820,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:50.309Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:50.575Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:50.860Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 111.46875,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.96875,
+      "y": 37.25,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:51.124Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 129.40625,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 154.90625,
+      "y": 17,
+      "w": 495.1875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:51.475Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 110.609375,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.109375,
+      "y": 37.25,
+      "w": 494.328125,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:51.726Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:52.057Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 111.46875,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.96875,
+      "y": 37.25,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:52.323Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 1024,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:52.662Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:52.911Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:53.224Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 243.46875,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.96875,
+      "y": 22.375,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:53.494Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 261.40625,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 394.90625,
+      "y": 17,
+      "w": 495.1875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:53.846Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 242.609375,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.109375,
+      "y": 22.375,
+      "w": 494.328125,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:54.109Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:54.425Z",
+    "domDark": false,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 243.46875,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.96875,
+      "y": 22.375,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:54.692Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 1440,
+    "theme": "light",
+    "thoiGian": "2026-09-12T03:10:55.112Z",
+    "domDark": false,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:55.342Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:55.625Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:55.894Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:56.259Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:56.544Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:57.008Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 17,
+      "w": 82,
+      "h": 51
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 19.125,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:57.294Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 320,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:57.642Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "ngangTran": false,
+    "logo": {
+      "x": 8.5,
+      "y": 19.125,
+      "w": 82,
+      "h": 42.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 264.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 154.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 209.5,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:57.879Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:58.158Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:58.408Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:58.808Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:59.061Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:59.379Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 120,
+      "h": 63.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 25.5,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:59.642Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 375,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:10:59.958Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 29.75,
+      "w": 120,
+      "h": 21.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 311.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 200.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 256,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:00.209Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:00.491Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:00.743Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:01.129Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:01.393Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:01.726Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 455.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 540.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:01.992Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 768,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:02.410Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 474.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 704.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 559.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 644.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:02.641Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:02.940Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:03.192Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:03.591Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:03.841Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:04.276Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 507.1875,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 592.1875,
+      "y": 17,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:04.525Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 820,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:04.893Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 820,
+    "clientWidth": 820,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 25.5,
+      "w": 526.84375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "desktopNavHien": false,
+    "hamburger": {
+      "x": 756.25,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "hamburgerHien": true,
+    "searchInlineHien": false,
+    "searchBtnHien": true,
+    "switcher": {
+      "x": 611.84375,
+      "y": 17,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 696.75,
+      "y": 17,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:05.144Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:05.443Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 111.46875,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.96875,
+      "y": 37.25,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:05.695Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 129.40625,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 154.90625,
+      "y": 17,
+      "w": 495.1875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:06.094Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 110.609375,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.109375,
+      "y": 37.25,
+      "w": 494.328125,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:06.359Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:06.676Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 17,
+      "w": 111.46875,
+      "h": 89.25
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 136.96875,
+      "y": 37.25,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 855.6875,
+      "y": 38.25,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 38.25,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:06.955Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 1024,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:07.312Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1024,
+    "clientWidth": 1024,
+    "ngangTran": false,
+    "logo": {
+      "x": 17,
+      "y": 26.5,
+      "w": 130.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 156.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 875.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 960.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:07.576Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:07.911Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 243.46875,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.96875,
+      "y": 22.375,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/thuong-hieu",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:08.158Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 261.40625,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 394.90625,
+      "y": 17,
+      "w": 495.1875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/thuong-hieu",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/brands/",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:08.529Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 242.609375,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.109375,
+      "y": 22.375,
+      "w": 494.328125,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/brands/",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/co-che/bo-thoat",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:08.792Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/co-che",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/en/mechanisms/escapement/",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:09.109Z",
+    "domDark": true,
+    "htmlLang": "en",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 17,
+      "w": 243.46875,
+      "h": 59.5
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 376.96875,
+      "y": 22.375,
+      "w": 493.46875,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1163.6875,
+      "y": 23.375,
+      "w": 91.8125,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 23.375,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/en/mechanisms/",
+        "value": "location"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/lich-su",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:09.409Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "activeMobile": [
+      {
+        "href": "/lich-su",
+        "value": "page"
+      }
+    ],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  },
+  {
+    "route": "/404.html",
+    "viewport": 1440,
+    "theme": "dark",
+    "thoiGian": "2026-09-12T03:11:09.780Z",
+    "domDark": true,
+    "htmlLang": "vi",
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "ngangTran": false,
+    "logo": {
+      "x": 125,
+      "y": 26.5,
+      "w": 262.609375,
+      "h": 29.75
+    },
+    "logoHien": true,
+    "logoSpanTran": 0,
+    "desktopNav": {
+      "x": 396.109375,
+      "y": 17,
+      "w": 493.984375,
+      "h": 48.75
+    },
+    "desktopNavHien": true,
+    "hamburger": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "hamburgerHien": false,
+    "searchInlineHien": true,
+    "searchBtnHien": false,
+    "switcher": {
+      "x": 1183.34375,
+      "y": 18,
+      "w": 72.15625,
+      "h": 46.75
+    },
+    "switcherHien": true,
+    "themeBtn": {
+      "x": 1268.25,
+      "y": 18,
+      "w": 46.75,
+      "h": 46.75
+    },
+    "nutNhoNhatPx": 46.8,
+    "chong": [],
+    "activeDesktop": [],
+    "activeMobile": [],
+    "mobileMenuDangMo": false,
+    "hopLe": true
+  }
+]

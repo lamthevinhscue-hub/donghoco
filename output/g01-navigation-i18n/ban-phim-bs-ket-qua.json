@@ -1,0 +1,17 @@
+[
+  {
+    "ten": "Desktop dropdown: Tab hết 4 link → rời menu tự đóng, focus không mắc kẹt",
+    "dat": true,
+    "chiTiet": "linkCuoi=/huong-dan {\"expanded\":\"false\",\"focusRoiKhoiMenu0\":true}"
+  },
+  {
+    "ten": "Mobile menu: Enter mở (focus vào menu), Escape đóng + focus về hamburger",
+    "dat": true,
+    "chiTiet": "mo=true focusTrong=true dong=true focusHamburger=true"
+  },
+  {
+    "ten": "Panel: Tab xoay vòng stay↔go, focus vào \"Ở lại\" khi mở, Escape đóng",
+    "dat": true,
+    "chiTiet": "mo=true dau=lang-panel-stay giua=lang-panel-go xoay=lang-panel-stay"
+  }
+]

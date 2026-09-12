@@ -2,10 +2,13 @@
 // =============================================================================
 // HEADER (Thanh menu trên cùng)
 // =============================================================================
-// Logo + menu điều hướng. Menu máy tính có 2 mục xổ (Kiến thức, Khám phá).
-// Trên điện thoại, menu hamburger mở ra 2 cụm có tiêu đề nhỏ (không xổ).
+// Logo + menu điều hướng. Menu máy tính có 2 mục xổ (Kiến thức, Khám phá),
+// hiển thị từ lg (1024px) — dưới ngưỡng này dùng menu hamburger để logo và
+// các nút chức năng không bị co/đè nhau ở màn hình tablet.
 // Mục xổ: mở khi rê chuột (desktop) / chạm (mobile), đóng khi bấm ra ngoài,
 // dùng được bằng bàn phím (Tab + Enter).
+// Bộ chuyển ngôn ngữ: trang đã dịch → đi thẳng; trang chưa dịch → mở hộp
+// thoại nhỏ cho người đọc chọn ở lại hoặc tới trang chủ ngôn ngữ đích (D2).
 // =============================================================================
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
@@ -49,71 +52,121 @@ const exploreGroup = {
   ] as MenuItem[],
 };
 
-// Địa chỉ thật của từng mục trong ngôn ngữ hiện tại. Chỉ hiện mục CÓ bản dịch
-// (bảng trung tâm contentRoutes.ts) — không tạo link chết khi bản EN chưa có.
+// Chuẩn hóa đường dẫn: bỏ mọi slash cuối, riêng "/" đứng một mình giữ nguyên.
+// Dùng chung cho pathname hiện tại và từng mục menu để so khớp theo ranh giới
+// segment — tránh khớp tiền tố gần giống (/english không phải khu vực /en).
+const normalize = (p: string): string => {
+  const n = p.replace(/\/+$/, '');
+  return n === '' ? '/' : n;
+};
+const currentPath = normalize(Astro.url.pathname);
+
+/**
+ * Mức khớp của một mục menu với trang hiện tại:
+ *   'page'     — link đúng trang đang xem        → aria-current="page"
+ *   'location' — link là mục danh sách cha chứa trang đang xem → aria-current="location"
+ * So khớp theo ranh giới segment (chính xác hoặc target + "/").
+ */
+function matchState(itemPath: string): 'page' | 'location' | null {
+  const target = normalize(itemPath);
+  if (target === currentPath) return 'page';
+  if (currentPath.startsWith(target + '/')) return 'location';
+  return null;
+}
+
+// Địa chỉ thật của từng mục trong ngôn ngữ hiện tại. Kiến thức/Thương hiệu chỉ
+// hiện mục CÓ bản dịch (bảng trung tâm contentRoutes.ts) — không tạo link chết.
 const withHref = (item: MenuItem) => ({ ...item, href: localizedHref(item.path, lang) });
 const topNav = topItems.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
 const knowledgeNav = knowledgeGroup.items.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
-const exploreNav = exploreGroup.items.map(withHref).filter((i): i is MenuItem & { href: string } => Boolean(i.href));
 
-// Bộ chuyển ngôn ngữ: trang hiện tại có bản dịch thì tới đúng trang đó;
-// chưa có thì về trang chủ ngôn ngữ đích và nói rõ bằng aria-label.
+// Nhóm "Khám phá" theo phương án D2: mục chưa dịch vẫn HIỆN trên menu ngôn ngữ
+// đó, trỏ thẳng route tiếng Việt kèm nhãn hiển thị "Vietnamese only" — KHÔNG
+// thêm vào bảng cặp dịch, không sinh hreflang giả, không đổi nội dung trang.
+const exploreNav = exploreGroup.items.map((item) => {
+  const href = localizedHref(item.path, lang);
+  return { ...item, href: href ?? item.path, viOnly: !href };
+});
+
+// Bộ chuyển ngôn ngữ: trang hiện tại có bản dịch thì tới đúng trang đó (link
+// dẫn thẳng); chưa có thì mở hộp thoại giải thích và cho chọn ở lại hoặc tới
+// trang chủ ngôn ngữ đích — aria-label vẫn nói rõ điều đó cho trình đọc màn hình.
 const sw = switcherTarget(Astro.url.pathname);
 const switcherLabel = sw.translated
   ? tr.switch_lang
   : tr.switch_lang_untranslated;
 
-// Trang hiện tại active? Home chỉ khớp chính xác; mục khác khớp cả trang con.
-const currentPath = Astro.url.pathname;
-function isActive(path: string): boolean {
-  if (currentPath === path) return true;
-  return currentPath.startsWith(path.endsWith('/') ? path : path + '/');
-}
-// Trạng thái active: màu brass + gạch chân (không chỉ dựa vào màu) + aria-current do nơi gọi gắn.
+// Trang chủ: chỉ active khi đúng TRANG CHỦ của ngôn ngữ hiện tại. Không dùng
+// matchState vì "/" là tiền tố của mọi đường dẫn — bug cũ làm Home mang gạch
+// active trên mọi trang. Home VI active tại "/"; Home EN tại "/en" và "/en/".
+// Link trang chủ đi qua bảng cặp (localizedHref) để EN nhận "/en/" — route thật,
+// không phải "/en" không có slash cuối (localizedPath sinh ra).
+const homeHref = localizedHref('/', lang) ?? localizedPath('/', lang);
+const isHome = normalize(homeHref) === currentPath;
+
+// Trạng thái active: gạch chân brass + màu (không chỉ dựa vào màu).
+// 'page' đậm hơn 'location' một nấc chữ — phân biệt thị giác trang đúng/khu vực.
 const activeLink = 'text-brass dark:text-dark-brass border-b-2 border-brass dark:border-dark-brass';
-// Nhóm menu cha active khi đang xem bất kỳ trang con nào trong nhóm (chỉ trạng thái thị giác —
-// button nhóm không mang aria-current vì đó là vai trò của link trang con).
-const knowledgeActive = knowledgeNav.some((i) => isActive(i.href));
-const exploreActive = exploreNav.some((i) => isActive(i.href));
+const topItemClass = (st: 'page' | 'location' | null): string =>
+  st
+    ? `${activeLink} ${st === 'page' ? 'font-semibold' : 'font-medium'}`
+    : 'border-transparent font-medium text-ink-soft';
+const dropItemClass = (st: 'page' | 'location' | null): string =>
+  st
+    ? `text-brass dark:text-dark-brass underline decoration-2 underline-offset-4 ${st === 'page' ? 'font-semibold' : ''}`
+    : 'text-ink-soft';
+const mobileItemClass = (st: 'page' | 'location' | null): string =>
+  st
+    ? `font-semibold text-brass dark:text-dark-brass underline decoration-2 underline-offset-[6px]`
+    : 'text-ink-soft dark:text-dark-text-soft';
+// Nhóm menu cha active khi đang xem bất kỳ trang con nào trong nhóm — CHỈ đổi
+// màu chữ, KHÔNG gạch (vai trò "đang chọn" thuộc về link trang con bên trong).
+const knowledgeActive = knowledgeNav.some((i) => matchState(i.href) !== null);
+const exploreActive = exploreNav.some((i) => !i.viOnly && matchState(i.href) !== null);
 ---
 
 <header data-pagefind-ignore class="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur dark:border-dark-border dark:bg-dark-bg/95">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-4 max-[339px]:px-2">
     <!-- Logo / Tên website (đảm nhiệm việc về trang chủ).
-         min-w-0 + flex-1: logo chiếm phần trống còn lại và xuống dòng tự nhiên ở
-         màn hình rất hẹp — nội dung luôn hiển thị đủ, không cắt, không tràn. -->
-    <a href={localizedPath('/', lang)} class="flex min-w-0 flex-1 items-baseline gap-2" aria-label={tr.siteName}>
-      <span class="min-w-0 font-serif text-base font-bold leading-tight text-navy dark:text-dark-text sm:text-xl">{tr.siteName}</span>
+         min-w-0 + flex-1: logo chiếm phần trống còn lại. Tên EN có từ dài
+         ("Mechanical") — dưới 340px hạ xuống text-xs và nới padding để từ dài
+         nhất vừa trong vùng logo: không tràn đè nút, không cắt, không ellipsis. -->
+    <a href={homeHref} class="flex min-w-0 flex-1 items-baseline gap-2" aria-label={tr.siteName}>
+      <span class={`min-w-0 font-serif font-bold leading-tight text-navy dark:text-dark-text ${lang === 'en' ? 'text-base max-[339px]:text-xs' : 'text-base'} sm:text-xl`}>{tr.siteName}</span>
     </a>
 
-    <!-- Menu (máy tính) -->
-    <nav aria-label={tr.nav_primary} class="hidden items-center gap-6 md:flex">
+    <!-- Menu (máy tính) — từ lg (1024px); tablet dùng menu hamburger -->
+    <nav aria-label={tr.nav_primary} class="hidden items-center gap-6 lg:flex">
       <!-- Nút Trang chủ (biểu tượng nhà) — vùng bấm 44px qua py-3 -->
       <a
-        href={localizedPath('/', lang)}
-        class={`inline-flex items-center py-3 transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${isActive('/') ? activeLink + ' px-1' : 'text-ink-soft px-1'}`}
+        href={homeHref}
+        class={`inline-flex items-center px-1 py-3 transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${isHome ? activeLink + ' font-semibold' : 'text-ink-soft'}`}
         aria-label={tr.nav_home}
-        aria-current={isActive('/') ? 'page' : undefined}
+        aria-current={isHome ? 'page' : undefined}
       >
         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10" />
         </svg>
       </a>
-      {topNav.map((item) => (
-        <a
-          href={item.href}
-          class={`inline-flex items-center border-b-2 py-3 text-sm transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${isActive(item.href) ? activeLink : 'border-transparent font-medium text-ink-soft'}`}
-          aria-current={isActive(item.href) ? 'page' : undefined}
-        >
-          {tr[item.key]}
-        </a>
-      ))}
+      {topNav.map((item) => {
+        const st = matchState(item.href);
+        return (
+          <a
+            href={item.href}
+            class={`inline-flex items-center border-b-2 py-3 text-sm transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass ${topItemClass(st)}`}
+            aria-current={st ?? undefined}
+          >
+            {tr[item.key]}
+          </a>
+        );
+      })}
 
-      <!-- Mục xổ: Kiến thức — vùng bấm 44px, hover/focus/:active rõ, gạch chân khi nhóm active -->
+      <!-- Mục xổ: Kiến thức — vùng bấm 44px, hover/focus/:active rõ.
+           Nút nhóm CHỈ đổi màu khi nhóm active — không gạch, không aria-current. -->
       <div class="nav-dropdown relative">
         <button
           type="button"
-          class={`flex min-h-11 items-center gap-1 border-b-2 px-1 text-sm font-medium transition-colors hover:text-brass focus-visible:text-brass active:opacity-80 dark:hover:text-dark-brass dark:focus-visible:text-dark-brass ${knowledgeActive ? activeLink : 'border-transparent text-ink-soft dark:text-dark-text-soft'}`}
+          class={`flex min-h-11 items-center gap-1 border-b-2 border-transparent px-1 text-sm font-medium transition-colors hover:text-brass focus-visible:text-brass active:opacity-80 dark:hover:text-dark-brass dark:focus-visible:text-dark-brass ${knowledgeActive ? 'text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
           aria-expanded="false"
           aria-haspopup="true"
           aria-controls="nav-dropdown-knowledge"
@@ -123,24 +176,26 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
           <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </button>
         <div id="nav-dropdown-knowledge" class="nav-dropdown-menu invisible absolute left-0 top-full z-50 min-w-[180px] translate-y-1 rounded-lg border border-cream-dark bg-white py-2 opacity-0 shadow-lg transition-all duration-150 dark:border-dark-border dark:bg-dark-surface">
-          {knowledgeNav.map((item) => (
-            <a
-              href={item.href}
-              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-            >
-              {tr[item.key]}
-            </a>
-          ))}
+          {knowledgeNav.map((item) => {
+            const st = matchState(item.href);
+            return (
+              <a
+                href={item.href}
+                class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${dropItemClass(st)}`}
+                aria-current={st ?? undefined}
+              >
+                {tr[item.key]}
+              </a>
+            );
+          })}
         </div>
       </div>
 
-      <!-- Mục xổ: Khám phá — chỉ hiện khi nhóm CÓ mục đã dịch (bản EN giai đoạn này ẩn cụm) -->
-      {exploreNav.length > 0 && (
+      <!-- Mục xổ: Khám phá — VI đủ bản dịch; EN hiện 3 mục tiếng Việt kèm nhãn "Vietnamese only" (D2) -->
       <div class="nav-dropdown relative">
         <button
           type="button"
-          class={`flex min-h-11 items-center gap-1 border-b-2 px-1 text-sm font-medium transition-colors hover:text-brass focus-visible:text-brass active:opacity-80 dark:hover:text-dark-brass dark:focus-visible:text-dark-brass ${exploreActive ? activeLink : 'border-transparent text-ink-soft dark:text-dark-text-soft'}`}
+          class={`flex min-h-11 items-center gap-1 border-b-2 border-transparent px-1 text-sm font-medium transition-colors hover:text-brass focus-visible:text-brass active:opacity-80 dark:hover:text-dark-brass dark:focus-visible:text-dark-brass ${exploreActive ? 'text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
           aria-expanded="false"
           aria-haspopup="true"
           aria-controls="nav-dropdown-explore"
@@ -149,33 +204,41 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
           {tr[exploreGroup.key]}
           <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </button>
-        <div id="nav-dropdown-explore" class="nav-dropdown-menu invisible absolute left-0 top-full z-50 min-w-[180px] translate-y-1 rounded-lg border border-cream-dark bg-white py-2 opacity-0 shadow-lg transition-all duration-150 dark:border-dark-border dark:bg-dark-surface">
-          {exploreNav.map((item) => (
-            <a
-              href={item.href}
-              class={`flex items-center px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft'}`}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-            >
-              {tr[item.key]}
-            </a>
-          ))}
+        <div id="nav-dropdown-explore" class="nav-dropdown-menu invisible absolute left-0 top-full z-50 min-w-[230px] translate-y-1 rounded-lg border border-cream-dark bg-white py-2 opacity-0 shadow-lg transition-all duration-150 dark:border-dark-border dark:bg-dark-surface">
+          {exploreNav.map((item) => {
+            const st = item.viOnly ? null : matchState(item.href);
+            return (
+              <a
+                href={item.href}
+                hreflang={item.viOnly ? 'vi' : undefined}
+                class={`flex items-center justify-between gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-cream-dark/50 hover:text-brass dark:text-dark-text-soft dark:hover:bg-dark-border/30 dark:hover:text-dark-brass ${dropItemClass(st)}`}
+                aria-current={st ?? undefined}
+              >
+                <span>{tr[item.key]}</span>
+                {item.viOnly && (
+                  <span class="rounded-full border border-alloy/60 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-alloy dark:text-dark-brass">{tr.nav_vi_only}</span>
+                )}
+              </a>
+            );
+          })}
         </div>
       </div>
-      )}
     </nav>
 
-    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (màn hình nhỏ) + ngôn ngữ + dark mode.
+    <!-- Ô tìm kiếm trực tiếp (desktop từ 1024px) + nút mở dialog (dưới 1024px) + ngôn ngữ + dark mode.
+         Cả hai đổi chế độ theo CÙNG breakpoint lg của menu — không cùng chiếm chỗ, không cùng biến mất.
          shrink-0: cụm nút không bị flex co nhỏ dưới 44px ở màn hình hẹp; logo bên trái là bên co. -->
     <div class="flex shrink-0 items-center gap-3 max-[480px]:gap-2">
       <SearchInline inputId="header-search-input" variant="header" />
       <SearchBox />
-      <!-- Bộ chuyển ngôn ngữ: link thật, bàn phím dùng được. Trang chưa có bản
-           dịch thì về trang chủ ngôn ngữ đích — aria-label nói rõ điều đó.
-           Dưới 480px hiện nhãn rút gọn (EN/VI) để vừa 320px; aria-label vẫn nêu
-           đầy đủ đích chuyển ngôn ngữ, nên trình đọc màn hình không mất thông tin. -->
+      <!-- Bộ chuyển ngôn ngữ: link thật (không-JS vẫn đi được). Trang chưa có bản
+           dịch thì data-lang-switch báo cho client script chặn mở hộp thoại lựa chọn
+           — không rời trang trước khi người đọc chọn. Dưới 480px hiện nhãn rút gọn
+           (EN/VI) để vừa 320px; aria-label vẫn nêu đầy đủ đích chuyển ngôn ngữ. -->
       <a
         href={sw.href}
         data-pagefind-ignore
+        {...(!sw.translated ? { 'data-lang-switch': 'untranslated' } : {})}
         class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-cream-dark px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
         aria-label={switcherLabel}
         hreflang={lang === 'vi' ? 'en' : 'vi'}
@@ -189,7 +252,7 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
         id="menu-toggle"
         data-label-open={tr.menu_open}
         data-label-close={tr.menu_close}
-        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md md:hidden"
+        class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md lg:hidden"
         aria-label={tr.menu_open}
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -203,62 +266,86 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
     </div>
   </div>
 
-  <!-- Menu đổ xuống (điện thoại) — hai cụm có tiêu đề nhỏ, không xổ -->
-  <nav id="mobile-menu" aria-label={tr.nav_primary} class="hidden border-t border-cream-dark bg-cream md:hidden dark:border-dark-border dark:bg-dark-bg">
+  <!-- Không-JS: trang chưa dịch — giải thích rõ hành động của liên kết chuyển
+       ngôn ngữ. Bản thân liên kết là liên kết thật nên người đọc vẫn tới được
+       trang chủ ngôn ngữ đích. (Comment này KHÔNG chứa chuỗi thẻ anchor — Astro
+       giữ comment trong HTML xuất bản và bộ kiểm EN quét văn bản hiển thị.) -->
+  {!sw.translated && (
+    <noscript>
+      <p class="border-t border-cream-dark/60 px-4 py-2 text-xs leading-relaxed text-ink-soft dark:border-dark-border/60 dark:text-dark-text-soft">
+        {tr.lang_noscript_note}
+      </p>
+    </noscript>
+  )}
+
+  <!-- Menu đổ xuống (máy tính bảng + điện thoại, dưới lg) — hai cụm có tiêu đề nhỏ, không xổ -->
+  <nav id="mobile-menu" aria-label={tr.nav_primary} class="hidden border-t border-cream-dark bg-cream lg:hidden dark:border-dark-border dark:bg-dark-bg">
     <div class="mx-auto max-h-[70vh] max-w-6xl overflow-y-auto px-4 py-2">
       {/* Mục cấp 1 */}
       <a
-        href={localizedPath('/', lang)}
-        class={`flex items-center gap-2 border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${isActive('/') ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-        aria-current={isActive('/') ? 'page' : undefined}
+        href={homeHref}
+        class={`flex items-center gap-2 border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${mobileItemClass(isHome ? 'page' : null)}`}
+        aria-current={isHome ? 'page' : undefined}
       >
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V10" />
         </svg>
         {tr.nav_home}
       </a>
-      {topNav.map((item) => (
-        <a
-          href={item.href}
-          class={`block border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-          aria-current={isActive(item.href) ? 'page' : undefined}
-        >
-          {tr[item.key]}
-        </a>
-      ))}
+      {topNav.map((item) => {
+        const st = matchState(item.href);
+        return (
+          <a
+            href={item.href}
+            class={`block border-b border-cream-dark/60 py-3 text-sm transition-colors dark:border-dark-border/60 ${mobileItemClass(st)}`}
+            aria-current={st ?? undefined}
+          >
+            {tr[item.key]}
+          </a>
+        );
+      })}
 
       {/* Cụm Kiến thức */}
       <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[knowledgeGroup.key]}</p>
-      {knowledgeNav.map((item) => (
-        <a
-          href={item.href}
-          class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-          aria-current={isActive(item.href) ? 'page' : undefined}
-        >
-          {tr[item.key]}
-        </a>
-      ))}
+      {knowledgeNav.map((item) => {
+        const st = matchState(item.href);
+        return (
+          <a
+            href={item.href}
+            class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${mobileItemClass(st)}`}
+            aria-current={st ?? undefined}
+          >
+            {tr[item.key]}
+          </a>
+        );
+      })}
 
-      {/* Cụm Khám phá — chỉ khi có mục đã dịch */}
-      {exploreNav.length > 0 && (
-        <>
-          <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[exploreGroup.key]}</p>
-          {exploreNav.map((item) => (
+      {/* Cụm Khám phá — EN: 3 mục tiếng Việt kèm nhãn "Vietnamese only" (D2) */}
+      <>
+        <p class="mt-4 mb-1 px-0 text-xs font-semibold uppercase tracking-wider text-brass dark:text-dark-brass">{tr[exploreGroup.key]}</p>
+        {exploreNav.map((item) => {
+          const st = item.viOnly ? null : matchState(item.href);
+          return (
             <a
               href={item.href}
-              class={`block border-b border-cream-dark/60 py-3 pl-3 text-sm transition-colors dark:border-dark-border/60 ${isActive(item.href) ? 'font-medium text-brass dark:text-dark-brass' : 'text-ink-soft dark:text-dark-text-soft'}`}
-              aria-current={isActive(item.href) ? 'page' : undefined}
+              hreflang={item.viOnly ? 'vi' : undefined}
+              class={`flex items-center justify-between gap-3 border-b border-cream-dark/60 py-3 pl-3 pr-1 text-sm transition-colors dark:border-dark-border/60 ${mobileItemClass(st)}`}
+              aria-current={st ?? undefined}
             >
-              {tr[item.key]}
+              <span>{tr[item.key]}</span>
+              {item.viOnly && (
+                <span class="rounded-full border border-alloy/60 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-alloy dark:text-dark-brass">{tr.nav_vi_only}</span>
+              )}
             </a>
-          ))}
-        </>
-      )}
+          );
+        })}
+      </>
 
       {/* Bộ chuyển ngôn ngữ — mục cuối của menu mobile */}
       <a
         href={sw.href}
         data-pagefind-ignore
+        {...(!sw.translated ? { 'data-lang-switch': 'untranslated' } : {})}
         class="mt-4 flex min-h-11 items-center gap-2 rounded-lg border border-cream-dark px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
         aria-label={switcherLabel}
         hreflang={lang === 'vi' ? 'en' : 'vi'}
@@ -271,6 +358,42 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
       </a>
     </div>
   </nav>
+
+  <!-- Hộp thoại nhỏ: trang chưa có bản dịch (D2) — chọn ở lại hoặc tới trang
+       chủ ngôn ngữ đích. Chỉ mở bằng JS khi bấm bộ chuyển ngôn ngữ; bản thân
+       liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. -->
+  <div
+    id="lang-panel"
+    data-pagefind-ignore
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lang-panel-title"
+    class="fixed inset-0 z-[110] hidden bg-navy/50"
+  >
+    <div class="mx-auto mt-[28vh] max-w-sm px-4">
+      <div class="rounded-lg border border-cream-dark bg-white p-5 shadow-2xl dark:border-dark-border dark:bg-dark-surface">
+        <h2 id="lang-panel-title" class="font-serif text-lg font-semibold text-navy dark:text-dark-text">{tr.lang_panel_title}</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.lang_panel_desc}</p>
+        <div class="mt-4 flex flex-col gap-2">
+          <button
+            type="button"
+            id="lang-panel-stay"
+            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-navy px-4 text-sm font-medium text-cream transition-colors hover:bg-steel dark:bg-cream dark:text-navy dark:hover:bg-brass"
+          >
+            {tr.lang_panel_stay}
+          </button>
+          <a
+            id="lang-panel-go"
+            href={sw.href}
+            hreflang={lang === 'vi' ? 'en' : 'vi'}
+            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-cream-dark px-4 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
+          >
+            {tr.lang_panel_go_home}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -421,6 +544,60 @@ const exploreActive = exploreNav.some((i) => isActive(i.href));
         setMobileMenu(false);
         toggle?.focus();
       }
+    }
+  });
+
+  // ====== Hộp thoại "trang chưa có bản dịch" (D2) ======
+  // Bấm bộ chuyển ngôn ngữ trên trang chưa dịch → mở hộp chọn Ở lại / Tới trang
+  // chủ đích — không rời trang trước khi người đọc chọn rõ ràng.
+  const langPanel = document.getElementById('lang-panel');
+  let langPanelOpener: HTMLElement | null = null;
+
+  function openLangPanel(opener: HTMLElement) {
+    if (!langPanel || langPanel.classList.contains('hidden') === false) return;
+    // Menu mobile đang mở thì đóng trước — tránh hai lớp tương tác cùng mở.
+    if (menu && !menu.classList.contains('hidden')) setMobileMenu(false);
+    langPanelOpener = opener;
+    langPanel.classList.remove('hidden');
+    document.getElementById('lang-panel-stay')?.focus();
+  }
+  function closeLangPanel() {
+    if (!langPanel || langPanel.classList.contains('hidden')) return;
+    langPanel.classList.add('hidden');
+    // Trả focus về đúng nút đã mở hộp
+    langPanelOpener?.focus();
+    langPanelOpener = null;
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLangPanel(a);
+    });
+  });
+  document.getElementById('lang-panel-stay')?.addEventListener('click', closeLangPanel);
+  langPanel?.addEventListener('click', (e) => {
+    if (e.target === langPanel) closeLangPanel(); // bấm nền mờ = đóng
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLangPanel();
+  });
+  // Tab trong hộp: chỉ 2 điều khiển — giữ focus xoay vòng bên trong hộp.
+  langPanel?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = Array.from(
+      langPanel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    );
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && (active === first || !langPanel.contains(active))) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && (active === last || !langPanel.contains(active))) {
+      e.preventDefault();
+      first.focus();
     }
   });
 </script>

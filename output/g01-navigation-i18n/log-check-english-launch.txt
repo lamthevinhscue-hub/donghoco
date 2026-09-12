@@ -1,0 +1,11 @@
+KIỂM TRA ENGLISH LAUNCH PACK:
+  Đủ 60 route English launch pack trong dist
+  109 link nội bộ /en/... unique — tất cả tồn tại trong dist
+  64 trang EN đều có <html lang="en">
+  Canonical + og:locale (en_US) + inLanguage (en) đúng trên 64 trang EN
+  222 trang VI giữ canonical đúng URL (không đổi URL tiếng Việt)
+  Không còn văn bản tiếng Việt trong Header/Footer/title/H1/CTA của trang EN (trừ tên riêng cho phép)
+  Mọi hreflang (vi/en/x-default) đều trỏ tới trang tồn tại thật
+  Bộ chuyển ngôn ngữ: mọi link đều trỏ tới trang tồn tại
+  Pagefind: trang EN gắn filter language=en; mã tìm kiếm lọc theo ngôn ngữ trang
+  KẾT LUẬN: ĐẠT — English launch pack đúng kiến trúc đa ngôn ngữ.

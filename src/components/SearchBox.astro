@@ -1,9 +1,9 @@
 ---
 // =============================================================================
-// SEARCH BOX — dialog tìm kiếm toàn màn hình (mobile) + phím tắt "/"
+// SEARCH BOX — dialog tìm kiếm toàn màn hình (máy tính bảng + điện thoại) + phím tắt "/"
 // =============================================================================
-// Từ 1024px trở lên, header hiển thị ô tìm kiếm trực tiếp (SearchInline) nên
-// nút mở dialog này chỉ còn ở màn hình nhỏ. CẢ HAI dùng chung một controller
+// Từ 1024px trở lên, header hiển thị ô tìm kiếm trực tiếp (SearchInline) theo
+// đúng breakpoint của menu nên nút mở dialog này chỉ còn ở màn hình nhỏ hơn. CẢ HAI dùng chung một controller
 // Pagefind (src/scripts/searchCore.ts) — không có hai hệ thống tìm kiếm
 // độc lập: một instance, một debounce, một bảng trạng thái phát cho mọi UI.
 //
@@ -16,13 +16,14 @@ const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 ---
 
-<!-- Nút tìm kiếm (icon) — chỉ còn ở dưới sm (640px): từ 640px trở lên header có
-     ô nhập trực tiếp. min-h-11 đảm bảo vùng bấm 44px ở cả mobile (khi chữ ẩn). -->
+<!-- Nút tìm kiếm (icon) — hiện dưới lg (1024px): từ lg trở lên header có ô nhập
+     trực tiếp (SearchInline) theo đúng breakpoint của menu. Icon-only để vừa hàng
+     nút ở tablet; min-h-11/min-w-11 đảm bảo vùng bấm 44px. -->
 <button
   type="button"
   id="search-trigger"
   data-pagefind-ignore
-  class="flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-2 rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass sm:hidden"
+  class="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-cream-dark dark:border-dark-border px-3 py-1.5 text-xs text-ink-soft dark:text-dark-text-soft transition-colors hover:border-brass hover:text-brass dark:hover:text-dark-brass lg:hidden"
   aria-label={tr.search_placeholder}
   aria-controls="search-overlay"
   aria-expanded="false"
@@ -31,8 +32,6 @@ const tr = t(lang);
     <circle cx="11" cy="11" r="7" />
     <path stroke-linecap="round" d="M21 21l-4.3-4.3" />
   </svg>
-  <span class="hidden sm:inline">{tr.search_placeholder}</span>
-  <kbd class="hidden rounded border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 px-1 text-[10px] font-medium sm:inline">/</kbd>
 </button>
 
 <!-- Dialog tìm kiếm — data-pagefind-ignore để chữ gợi ý không lọt vào chỉ mục.

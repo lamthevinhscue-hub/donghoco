@@ -1,0 +1,1 @@
+Command failed: node D:\Watch web build\scripts\check-g01-navigation.mjs dist --json D:\Watch web build\output\g01-navigation-i18n\sandbox-m1-root-ket-qua.json

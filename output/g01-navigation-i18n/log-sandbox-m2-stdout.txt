@@ -1,0 +1,439 @@
+09:55:58 [types] Generated 1.53s
+09:55:58 [build] output: "static"
+09:55:58 [build] directory: D:\Watch web build\output\g01-navigation-i18n\sandbox\dist\
+09:55:58 [build] Collecting build info...
+09:55:58 [build] ✓ Completed in 1.62s.
+09:55:58 [build] Building static entrypoints...
+09:56:11 [vite] [32m✓ built in 12.44s[39m
+09:56:11 [build] ✓ Completed in 12.51s.
+
+ building client (vite)
+09:56:11 [vite] transforming...
+09:56:13 [vite] [32m✓[39m 46 modules transformed.
+09:56:13 [vite] rendering chunks...
+09:56:13 [vite] computing gzip size...
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.DbV4SqDq.js        [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.bqiZLele.js        [39m[1m[2m  0.65 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.84vUU5CD.js        [39m[1m[2m  0.87 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.D-D0yqab.js        [39m[1m[2m  1.57 kB[22m[1m[22m[2m │ gzip:   0.76 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.BnBIbZL5.js        [39m[1m[2m  1.78 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.BVMbbEgg.js        [39m[1m[2m  2.00 kB[22m[1m[22m[2m │ gzip:   0.90 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.IMtYRj5O.js        [39m[1m[2m  2.44 kB[22m[1m[22m[2m │ gzip:   0.98 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.ByYIA-8S.js        [39m[1m[2m  4.61 kB[22m[1m[22m[2m │ gzip:   1.80 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.BSF1ch-T.js        [39m[1m[2m  6.70 kB[22m[1m[22m[2m │ gzip:   1.14 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.BaW7HtHK.js        [39m[1m[2m  8.55 kB[22m[1m[22m[2m │ gzip:   3.69 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.Cv1MuWIR.js        [39m[1m[2m 10.95 kB[22m[1m[22m[2m │ gzip:   4.12 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/hoisted.DX0x34b4.js        [39m[1m[2m 17.66 kB[22m[1m[22m[2m │ gzip:   5.96 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/OrbitControls.RWMGWMk0.js  [39m[1m[2m 19.80 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+09:56:13 [vite] [2mdist/[22m[36m_astro/exploded3d.CdKMMlnX.js     [39m[1m[33m525.62 kB[39m[22m[2m │ gzip: 134.51 kB[22m
+09:56:13 [WARN] [vite] [33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+09:56:13 [vite] [32m✓ built in 2.29s[39m
+
+ generating static routes
+09:56:14 ▶ src/pages/404.astro
+09:56:14   └─ /404.html (+15ms)
+09:56:14 ▶ src/pages/ban-quyen.astro
+09:56:14   └─ /ban-quyen/index.html (+12ms)
+09:56:14 ▶ src/pages/co-che/[slug].astro
+09:56:14   ├─ /co-che/bo-thoat-dong-truc/index.html (+156ms)
+09:56:14   ├─ /co-che/chong-soc/index.html (+10ms)
+09:56:14   ├─ /co-che/da-quang/index.html (+11ms)
+09:56:14   ├─ /co-che/diem-chuong/index.html (+9ms)
+09:56:14   ├─ /co-che/hien-thi-ngay/index.html (+9ms)
+09:56:14   ├─ /co-che/kinh-dong-ho/index.html (+8ms)
+09:56:14   ├─ /co-che/pha-trang/index.html (+20ms)
+09:56:14   ├─ /co-che/bo-thoat/index.html (+9ms)
+09:56:14   ├─ /co-che/chronograph/index.html (+9ms)
+09:56:14   ├─ /co-che/day-toc-banh-lac/index.html (+7ms)
+09:56:14   ├─ /co-che/gmt/index.html (+11ms)
+09:56:14   ├─ /co-che/perpetual-calendar/index.html (+9ms)
+09:56:14   ├─ /co-che/tourbillon/index.html (+10ms)
+09:56:14   ├─ /co-che/chong-tu/index.html (+8ms)
+09:56:14   ├─ /co-che/tru-cot/index.html (+10ms)
+09:56:14   ├─ /co-che/chong-nuoc/index.html (+9ms)
+09:56:14   ├─ /co-che/chuyen-dong-co/index.html (+9ms)
+09:56:14   └─ /co-che/len-day-tu-dong/index.html (+21ms)
+09:56:14 ▶ src/pages/co-che/index.astro
+09:56:14   └─ /co-che/index.html (+5ms)
+09:56:14 ▶ src/pages/en/about.astro
+09:56:14   └─ /en/about/index.html (+4ms)
+09:56:14 ▶ src/pages/en/accessibility.astro
+09:56:14   └─ /en/accessibility/index.html (+4ms)
+09:56:14 ▶ src/pages/en/brands/[slug].astro
+09:56:14   ├─ /en/brands/omega/index.html (+7ms)
+09:56:14   ├─ /en/brands/rolex/index.html (+7ms)
+09:56:14   └─ /en/brands/seiko/index.html (+7ms)
+09:56:14 ▶ src/pages/en/brands/index.astro
+09:56:14   └─ /en/brands/index.html (+3ms)
+09:56:14 ▶ src/pages/en/contact.astro
+09:56:14   └─ /en/contact/index.html (+3ms)
+09:56:14 ▶ src/pages/en/copyright.astro
+09:56:14   └─ /en/copyright/index.html (+2ms)
+09:56:14 ▶ src/pages/en/glossary/[slug].astro
+09:56:14   ├─ /en/glossary/barrel/index.html (+9ms)
+09:56:14   ├─ /en/glossary/beat-rate/index.html (+12ms)
+09:56:14   ├─ /en/glossary/chronometer/index.html (+9ms)
+09:56:14   ├─ /en/glossary/escape-wheel/index.html (+8ms)
+09:56:14   ├─ /en/glossary/escapement/index.html (+7ms)
+09:56:14   ├─ /en/glossary/geneva-stripes/index.html (+6ms)
+09:56:14   ├─ /en/glossary/guilloche/index.html (+18ms)
+09:56:14   ├─ /en/glossary/incabloc/index.html (+7ms)
+09:56:14   ├─ /en/glossary/master-chronometer/index.html (+6ms)
+09:56:14   ├─ /en/glossary/minute-repeater/index.html (+7ms)
+09:56:14   ├─ /en/glossary/perlage/index.html (+6ms)
+09:56:14   ├─ /en/glossary/perpetual-calendar/index.html (+6ms)
+09:56:14   ├─ /en/glossary/tourbillon/index.html (+7ms)
+09:56:14   ├─ /en/glossary/gmt/index.html (+6ms)
+09:56:14   ├─ /en/glossary/crown/index.html (+7ms)
+09:56:14   ├─ /en/glossary/mainspring/index.html (+10ms)
+09:56:14   ├─ /en/glossary/tachymeter/index.html (+9ms)
+09:56:14   ├─ /en/glossary/hairspring/index.html (+9ms)
+09:56:14   ├─ /en/glossary/calibre/index.html (+9ms)
+09:56:14   ├─ /en/glossary/chronograph/index.html (+9ms)
+09:56:14   ├─ /en/glossary/movement/index.html (+11ms)
+09:56:14   ├─ /en/glossary/power-reserve/index.html (+9ms)
+09:56:14   └─ /en/glossary/rotor/index.html (+8ms)
+09:56:14 ▶ src/pages/en/glossary/index.astro
+09:56:14   └─ /en/glossary/index.html (+4ms)
+09:56:14 ▶ src/pages/en/guides/[slug].astro
+09:56:14   ├─ /en/guides/accuracy-tracking/index.html (+9ms)
+09:56:14   ├─ /en/guides/movement-finishing/index.html (+9ms)
+09:56:14   ├─ /en/guides/watch-winders/index.html (+12ms)
+09:56:14   ├─ /en/guides/reading-and-setting-gmt/index.html (+11ms)
+09:56:14   ├─ /en/guides/setting-the-date-safely/index.html (+22ms)
+09:56:14   ├─ /en/guides/using-a-tachymeter/index.html (+13ms)
+09:56:14   ├─ /en/guides/water-resistance/index.html (+11ms)
+09:56:14   ├─ /en/guides/first-mechanical-watch/index.html (+11ms)
+09:56:14   └─ /en/guides/winding-a-mechanical-watch/index.html (+10ms)
+09:56:14 ▶ src/pages/en/guides/index.astro
+09:56:14   └─ /en/guides/index.html (+4ms)
+09:56:14 ▶ src/pages/en/iconic-watches/[slug].astro
+09:56:14   ├─ /en/iconic-watches/rolex-gmt-master/index.html (+14ms)
+09:56:15   ├─ /en/iconic-watches/cartier-tank/index.html (+15ms)
+09:56:15   ├─ /en/iconic-watches/omega-speedmaster/index.html (+10ms)
+09:56:15   └─ /en/iconic-watches/rolex-submariner/index.html (+9ms)
+09:56:15 ▶ src/pages/en/iconic-watches/index.astro
+09:56:15   └─ /en/iconic-watches/index.html (+3ms)
+09:56:15 ▶ src/pages/en/index.astro
+09:56:15   └─ /en/index.html (+4ms)
+09:56:15 ▶ src/pages/en/learning-path.astro
+09:56:15   └─ /en/learning-path/index.html (+4ms)
+09:56:15 ▶ src/pages/en/mechanisms/[slug].astro
+09:56:15   ├─ /en/mechanisms/anti-magnetism/index.html (+10ms)
+09:56:15   ├─ /en/mechanisms/automatic-winding/index.html (+13ms)
+09:56:15   ├─ /en/mechanisms/balance-and-hairspring/index.html (+11ms)
+09:56:15   ├─ /en/mechanisms/minute-repeater/index.html (+9ms)
+09:56:15   ├─ /en/mechanisms/moon-phase/index.html (+9ms)
+09:56:15   ├─ /en/mechanisms/perpetual-calendar/index.html (+8ms)
+09:56:15   ├─ /en/mechanisms/shock-protection/index.html (+8ms)
+09:56:15   ├─ /en/mechanisms/tourbillon/index.html (+8ms)
+09:56:15   ├─ /en/mechanisms/gmt/index.html (+9ms)
+09:56:15   ├─ /en/mechanisms/chronograph/index.html (+10ms)
+09:56:15   ├─ /en/mechanisms/escapement/index.html (+8ms)
+09:56:15   ├─ /en/mechanisms/power-reserve/index.html (+10ms)
+09:56:15   ├─ /en/mechanisms/how-a-mechanical-watch-works/index.html (+8ms)
+09:56:15   └─ /en/mechanisms/water-resistance/index.html (+8ms)
+09:56:15 ▶ src/pages/en/mechanisms/index.astro
+09:56:15   └─ /en/mechanisms/index.html (+3ms)
+09:56:15 ▶ src/pages/giai-phau.astro
+09:56:15   └─ /giai-phau/index.html (+8ms)
+09:56:15 ▶ src/pages/huong-dan/[slug].astro
+09:56:15   ├─ /huong-dan/hoan-thien-thu-cong-dong-ho/index.html (+8ms)
+09:56:15   ├─ /huong-dan/microbrand-la-gi/index.html (+10ms)
+09:56:15   ├─ /huong-dan/chinh-lich-an-toan/index.html (+15ms)
+09:56:15   ├─ /huong-dan/chon-co-dong-ho/index.html (+9ms)
+09:56:15   ├─ /huong-dan/doc-va-chinh-gmt/index.html (+11ms)
+09:56:15   ├─ /huong-dan/dung-tachymeter/index.html (+11ms)
+09:56:15   ├─ /huong-dan/dung-vanh-lan/index.html (+13ms)
+09:56:15   ├─ /huong-dan/hop-xoay-dong-ho/index.html (+9ms)
+09:56:15   ├─ /huong-dan/muc-chong-nuoc/index.html (+9ms)
+09:56:15   ├─ /huong-dan/nhan-biet-dong-ho-gia/index.html (+8ms)
+09:56:15   ├─ /huong-dan/bao-duong-dong-ho/index.html (+10ms)
+09:56:15   ├─ /huong-dan/chon-dong-ho-dau-tien/index.html (+9ms)
+09:56:15   ├─ /huong-dan/do-sai-so/index.html (+9ms)
+09:56:15   └─ /huong-dan/len-day-dong-ho/index.html (+10ms)
+09:56:15 ▶ src/pages/huong-dan/index.astro
+09:56:15   └─ /huong-dan/index.html (+4ms)
+09:56:15 ▶ src/pages/index.astro
+09:56:15   └─ /index.html (+7ms)
+09:56:15 ▶ src/pages/kha-nang-tiep-can.astro
+09:56:15   └─ /kha-nang-tiep-can/index.html (+4ms)
+09:56:15 ▶ src/pages/lich-su.astro
+09:56:15   └─ /lich-su/index.html (+14ms)
+09:56:15 ▶ src/pages/lien-he.astro
+09:56:15   └─ /lien-he/index.html (+5ms)
+09:56:15 ▶ src/pages/lo-trinh-hoc-dong-ho.astro
+09:56:15   └─ /lo-trinh-hoc-dong-ho/index.html (+4ms)
+09:56:15 ▶ src/pages/mau-iconic/[slug].astro
+09:56:15   ├─ /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/patek-philippe-grandmaster-chime/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/rolex-gmt-master/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/arnold-and-son-perpetual-moon/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/baume-mercier-riviera/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/carl-f-bucherer-manero-peripheral/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/corum-golden-bridge/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/franck-muller-crazy-hours/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/bell-ross-br-01/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/breitling-navitimer/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/bvlgari-octo-finissimo/index.html (+15ms)
+09:56:15   ├─ /mau-iconic/chanel-j12/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/chopard-luc/index.html (+6ms)
+09:56:15   ├─ /mau-iconic/credor-eichi-2/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/de-bethune-db28/index.html (+6ms)
+09:56:15   ├─ /mau-iconic/doxa-sub-300/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/eterna-matic-1948/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/girard-perregaux-tourbillon-ba-cau/index.html (+6ms)
+09:56:15   ├─ /mau-iconic/h-moser-streamliner/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/hajime-asaoka-project-t/index.html (+6ms)
+09:56:15   ├─ /mau-iconic/hublot-big-bang/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/junghans-max-bill/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/laurent-ferrier-galet-classic/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/mbf-horological-machine-1/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/mido-multifort/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/minase-horizon/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/montblanc-minerva-monopusher/index.html (+6ms)
+09:56:15   ├─ /mau-iconic/nomos-tangente/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/oris-aquis-depth-gauge/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/panerai-luminor/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/parmigiani-toric/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/piaget-altiplano/index.html (+19ms)
+09:56:15   ├─ /mau-iconic/rado-diastar/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/richard-mille-rm-001/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/roger-dubuis-excalibur/index.html (+7ms)
+09:56:15   ├─ /mau-iconic/seagull-1963/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/stowa-flieger/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/swatch-sistem51/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/timex-marlin/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/universal-geneve-polerouter/index.html (+14ms)
+09:56:15   ├─ /mau-iconic/urwerk-ur-105/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/vostok-amphibia/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/voutilainen-vingt-8/index.html (+13ms)
+09:56:15   ├─ /mau-iconic/breguet-type-xx/index.html (+11ms)
+09:56:15   ├─ /mau-iconic/dufour-simplicity/index.html (+19ms)
+09:56:15   ├─ /mau-iconic/fc-heart-beat/index.html (+11ms)
+09:56:15   ├─ /mau-iconic/fpjourne-chronometre-bleu/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/glashuette-seaq/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/greubel-double-tourbillon/index.html (+10ms)
+09:56:15   ├─ /mau-iconic/hamilton-ventura/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/longines-lindbergh/index.html (+11ms)
+09:56:15   ├─ /mau-iconic/orient-bambino/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/tissot-prx/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/fifty-fathoms/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/freak/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/monaco/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/cartier-tank/index.html (+8ms)
+09:56:15   ├─ /mau-iconic/grand-seiko-snowflake/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/iwc-mark-xi/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/lange-1/index.html (+9ms)
+09:56:15   ├─ /mau-iconic/omega-speedmaster/index.html (+12ms)
+09:56:15   ├─ /mau-iconic/patek-nautilus/index.html (+9ms)
+09:56:16   ├─ /mau-iconic/reverso/index.html (+12ms)
+09:56:16   ├─ /mau-iconic/rolex-submariner/index.html (+11ms)
+09:56:16   ├─ /mau-iconic/royal-oak/index.html (+13ms)
+09:56:16   ├─ /mau-iconic/seiko-62mas/index.html (+12ms)
+09:56:16   ├─ /mau-iconic/tudor-black-bay/index.html (+11ms)
+09:56:16   ├─ /mau-iconic/vc-overseas/index.html (+10ms)
+09:56:16   └─ /mau-iconic/zenith-el-primero/index.html (+15ms)
+09:56:16 ▶ src/pages/mau-iconic/index.astro
+09:56:16   └─ /mau-iconic/index.html (+16ms)
+09:56:16 ▶ src/pages/so-sanh.astro
+09:56:16   └─ /so-sanh/index.html (+7ms)
+09:56:16 ▶ src/pages/thuong-hieu/[slug].astro
+09:56:16   ├─ /thuong-hieu/arnold-and-son/index.html (+13ms)
+09:56:16   ├─ /thuong-hieu/baume-et-mercier/index.html (+18ms)
+09:56:16   ├─ /thuong-hieu/carl-f-bucherer/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/corum/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/franck-muller/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/alpina/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/beijing-watch-factory/index.html (+19ms)
+09:56:16   ├─ /thuong-hieu/bell-and-ross/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/breitling/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/bvlgari/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/certina/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/chanel/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/chopard/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/christopher-ward/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/citizen/index.html (+13ms)
+09:56:16   ├─ /thuong-hieu/credor/index.html (+14ms)
+09:56:16   ├─ /thuong-hieu/de-bethune/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/doxa/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/eterna/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/girard-perregaux/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/h-moser/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/hajime-asaoka/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/hublot/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/junghans/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/laurent-ferrier/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/mb-and-f/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/mido/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/minase/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/montblanc/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/muehle-glashuette/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/nomos-glashuette/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/oris/index.html (+8ms)
+09:56:16   ├─ /thuong-hieu/panerai/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/parmigiani-fleurier/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/piaget/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/rado/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/richard-mille/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/roger-dubuis/index.html (+14ms)
+09:56:16   ├─ /thuong-hieu/seagull/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/sinn/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/stowa/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/swatch/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/timex/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/universal-geneve/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/urwerk/index.html (+8ms)
+09:56:16   ├─ /thuong-hieu/vostok/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/voutilainen/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/orient/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/tissot/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/blancpain/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/tag-heuer/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/ulysse-nardin/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/a-lange-soehne/index.html (+9ms)
+09:56:16   ├─ /thuong-hieu/audemars-piguet/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/breguet/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/cartier/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/fp-journe/index.html (+13ms)
+09:56:16   ├─ /thuong-hieu/frederique-constant/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/glashuette-original/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/grand-seiko/index.html (+13ms)
+09:56:16   ├─ /thuong-hieu/greubel-forsey/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/hamilton/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/iwc/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/jaeger-lecoultre/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/longines/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/omega/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/patek-philippe/index.html (+10ms)
+09:56:16   ├─ /thuong-hieu/philippe-dufour/index.html (+11ms)
+09:56:16   ├─ /thuong-hieu/rolex/index.html (+18ms)
+09:56:16   ├─ /thuong-hieu/seiko/index.html (+14ms)
+09:56:16   ├─ /thuong-hieu/tudor/index.html (+12ms)
+09:56:16   ├─ /thuong-hieu/vacheron-constantin/index.html (+11ms)
+09:56:16   └─ /thuong-hieu/zenith/index.html (+10ms)
+09:56:16 ▶ src/pages/thuong-hieu/index.astro
+09:56:16   └─ /thuong-hieu/index.html (+11ms)
+09:56:16 ▶ src/pages/tu-dien/[slug].astro
+09:56:16   ├─ /tu-dien/microbrand/index.html (+11ms)
+09:56:16   ├─ /tu-dien/banh-thoat/index.html (+11ms)
+09:56:16   ├─ /tu-dien/cau-may/index.html (+11ms)
+09:56:16   ├─ /tu-dien/chan-kinh/index.html (+10ms)
+09:56:16   ├─ /tu-dien/chronometer/index.html (+12ms)
+09:56:17   ├─ /tu-dien/day-cot/index.html (+12ms)
+09:56:17   ├─ /tu-dien/day-vo/index.html (+13ms)
+09:56:17   ├─ /tu-dien/guilloche/index.html (+8ms)
+09:56:17   ├─ /tu-dien/khoa-day/index.html (+10ms)
+09:56:17   ├─ /tu-dien/lo-may/index.html (+9ms)
+09:56:17   ├─ /tu-dien/metas/index.html (+10ms)
+09:56:17   ├─ /tu-dien/ngua/index.html (+11ms)
+09:56:17   ├─ /tu-dien/num-van/index.html (+10ms)
+09:56:17   ├─ /tu-dien/perlage/index.html (+10ms)
+09:56:17   ├─ /tu-dien/poincon-de-geneve/index.html (+10ms)
+09:56:17   ├─ /tu-dien/tachymeter/index.html (+9ms)
+09:56:17   ├─ /tu-dien/thung-cot/index.html (+10ms)
+09:56:17   ├─ /tu-dien/vat-canh/index.html (+8ms)
+09:56:17   ├─ /tu-dien/vau-day/index.html (+10ms)
+09:56:17   ├─ /tu-dien/day-toc-banh-lac/index.html (+9ms)
+09:56:17   ├─ /tu-dien/bezel/index.html (+10ms)
+09:56:17   ├─ /tu-dien/calibre/index.html (+11ms)
+09:56:17   ├─ /tu-dien/chronograph/index.html (+9ms)
+09:56:17   ├─ /tu-dien/cotes-de-geneve/index.html (+11ms)
+09:56:17   ├─ /tu-dien/gmt/index.html (+14ms)
+09:56:17   ├─ /tu-dien/incabloc/index.html (+10ms)
+09:56:17   ├─ /tu-dien/minute-repeater/index.html (+10ms)
+09:56:17   ├─ /tu-dien/movement/index.html (+15ms)
+09:56:17   ├─ /tu-dien/perpetual-calendar/index.html (+12ms)
+09:56:17   ├─ /tu-dien/power-reserve/index.html (+9ms)
+09:56:17   ├─ /tu-dien/rotor/index.html (+10ms)
+09:56:17   ├─ /tu-dien/tourbillon/index.html (+9ms)
+09:56:17   └─ /tu-dien/vph/index.html (+9ms)
+09:56:17 ▶ src/pages/tu-dien/index.astro
+09:56:17   └─ /tu-dien/index.html (+6ms)
+09:56:17 ▶ src/pages/ve-chung-toi.astro
+09:56:17   └─ /ve-chung-toi/index.html (+3ms)
+09:56:17 ✓ Completed in 3.32s.
+
+09:56:20 [build] Waiting for integration "pagefind", hook "astro:build:done"...
+09:56:25 [pagefind] Pagefind indexed 286 pages
+09:56:25 [pagefind] Pagefind wrote index to D:\Watch web build\output\g01-navigation-i18n\sandbox\dist\pagefind
+09:56:26 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+09:56:26 [build] 286 page(s) built in 28.82s
+09:56:26 [build] Complete!
+G01 — LỚP 1: LOGIC ÁNH XẠ NGÔN NGỮ (gọi thẳng src/i18n/contentRoutes.ts):
+  ĐẠT root: "/" có bản EN là "/en/"
+  ĐẠT root: "/en/" có bản VI là "/"
+  ĐẠT root: "/en" (không slash cuối) vẫn nhận cặp → "/"
+  ĐẠT slash cuối: "/thuong-hieu/" tra được cặp EN
+  ĐẠT bài có cặp: /huong-dan/muc-chong-nuoc → /en/guides/water-resistance/
+  ĐẠT chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc
+  ĐẠT trang chưa dịch: /lich-su không có URL EN giả
+  ĐẠT localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch
+  ĐẠT localizedHref("/", "vi") = "/"
+  ĐẠT localizedHref("/lich-su", "en") = undefined — không chế URL
+  ĐẠT isEnglishPath: "/en" và "/en/" là EN
+  ĐẠT isEnglishPath: "/en/brands/rolex/" là EN
+  ĐẠT isEnglishPath: "/english" KHÔNG phải EN (ranh giới segment)
+  ĐẠT isEnglishPath: "/en-other" KHÔNG phải EN
+  ĐẠT isEnglishPath: "/thuong-hieu" không phải EN
+  ĐẠT switcherTarget("/") → "/en/", translated=true (trang chủ là cặp thật)
+  ĐẠT switcherTarget("/en/") → "/", translated=true
+  ĐẠT switcherTarget("/lich-su/") → "/en/", translated=false (chưa dịch)
+  ĐẠT switcherTarget("/english") KHÔNG bị coi là khu vực EN
+  ĐẠT switcherTarget("/co-che/bo-thoat") → bài EN tương ứng
+  ĐẠT getAlternates("/"): đủ vi "/" + en "/en/" (hreflang hai chiều)
+  ĐẠT getAlternates("/en/"): đủ vi "/" + en "/en/"
+  ĐẠT getAlternates("/en") chuẩn hóa về "/en/" (không khai báo URL không tồn tại)
+  ĐẠT getAlternates("/lich-su"): en=undefined — không hreflang giả
+G01 — LỚP 2: ĐẦU RA HTML TRONG DIST:
+  ĐẠT Trang chủ VI: nav desktop và nav mobile đều được tìm thấy trong HTML
+  ĐẠT Trang chủ VI: Home desktop có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: Home mobile có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: không mục nào khác mang aria-current ngoài Home
+  ĐẠT Trang chủ VI: hreflang đủ vi + en "/en/" + x-default → "/"
+  ĐẠT Trang chủ VI: nút nhóm xổ không mang aria-current
+  LỖI  Danh sách VI /thuong-hieu: Home desktop KHÔNG có aria-current — count=1
+  LỖI  Danh sách VI /thuong-hieu: Home mobile KHÔNG có aria-current — count=1
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu desktop aria-current="page" (1)
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu mobile aria-current="page" (1)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu desktop aria-current="location" (không phải page)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu mobile aria-current="location"
+  LỖI  Bài con VI /thuong-hieu/rolex: Home desktop KHÔNG active — count=1
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục Cơ chế (trong dropdown) aria-current="location"
+  ĐẠT Bài cơ chế /co-che/bo-thoat: nút nhóm cha đổi màu nhưng KHÔNG gạch active, KHÔNG aria-current
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục dropdown active có gạch chân (underline)
+  LỖI  Bài cơ chế /co-che/bo-thoat: Home mobile KHÔNG active — count=1
+  ĐẠT Trang chủ EN: Home desktop (href="/en/") aria-current="page"
+  ĐẠT Trang chủ EN: Home mobile aria-current="page"
+  ĐẠT Trang chủ EN: hreflang đủ vi "/" + en "/en/" + x-default → "/"
+  ĐẠT Explore EN (desktop): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Trang chủ EN: bộ chuyển ngôn ngữ là link thẳng (không có data-lang-switch)
+  ĐẠT Trang chủ EN: switcher href="/" với hreflang="vi"
+  LỖI  Bài EN /en/mechanisms/escapement: Home EN KHÔNG active — count=1
+  ĐẠT Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 3 link VI có nhãn
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 3 link VI có nhãn
+  ĐẠT Chưa dịch /lich-su: CẢ HAI bộ chuyển ngôn ngữ (header + mobile) đều đánh dấu mở hộp thoại
+  ĐẠT Chưa dịch /lich-su: hộp thoại #lang-panel có link "/en/" (trang chủ đích)
+  ĐẠT Chưa dịch /lich-su: KHÔNG có hreflang en giả
+  ĐẠT Chưa dịch /lich-su: có chú thích noscript giải thích đường chuyển ngôn ngữ
+  LỖI  404: Trang chủ KHÔNG active chỉ vì pathname bắt đầu bằng "/" — count=2
+  ĐẠT Toàn dist (286 trang): aria-current chỉ nhận "page"/"location"
+  ĐẠT Toàn dist: nút nhóm xổ không bao giờ mang aria-current
+  KẾT LUẬN: KHÔNG ĐẠT:
+    LỖI  đầu ra: Danh sách VI /thuong-hieu: Home desktop KHÔNG có aria-current — count=1
+    LỖI  đầu ra: Danh sách VI /thuong-hieu: Home mobile KHÔNG có aria-current — count=1
+    LỖI  đầu ra: Bài con VI /thuong-hieu/rolex: Home desktop KHÔNG active — count=1
+    LỖI  đầu ra: Bài cơ chế /co-che/bo-thoat: Home mobile KHÔNG active — count=1
+    LỖI  đầu ra: Bài EN /en/mechanisms/escapement: Home EN KHÔNG active — count=1
+    LỖI  đầu ra: 404: Trang chủ KHÔNG active chỉ vì pathname bắt đầu bằng "/" — count=2
+  Đã ghi JSON: D:\Watch web build\output\g01-navigation-i18n\sandbox-m2-home-ket-qua.json

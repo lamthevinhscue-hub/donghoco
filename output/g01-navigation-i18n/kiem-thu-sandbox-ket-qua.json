@@ -1,0 +1,30 @@
+{
+  "thoiGian": "2026-09-12T02:54:51.640Z",
+  "sandbox": "D:\\Watch web build\\output\\g01-navigation-i18n\\sandbox",
+  "cacCa": [
+    {
+      "ca": "S1 bản sạch",
+      "exitBuild": 0,
+      "exitCheck": 0,
+      "kyVong": "exit 0 cho cả build và check",
+      "dat": true
+    },
+    {
+      "ca": "M1 root mapping sai",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0 — ca root mapping (lớp 1) và/hoặc hreflang trang chủ (lớp 2) bị bắt",
+      "dat": true,
+      "chiTiet": "3 ca root/hreflang bị bắt"
+    },
+    {
+      "ca": "M2 Home khớp mọi pathname",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0 — ca Home không active trên trang khác (lớp 2) bị bắt",
+      "dat": true,
+      "chiTiet": "5 ca Home-active sai bị bắt"
+    }
+  ],
+  "tongKet": "ĐẠT — cả 3 ca đúng kỳ vọng"
+}

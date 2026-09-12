@@ -196,6 +196,17 @@ export const translations = {
     // Language switcher — aria-label khi trang chưa có bản dịch (về trang chủ đích)
     switch_lang_untranslated:
       'Chuyển sang tiếng Anh — trang này chưa có bản dịch; bạn sẽ tới trang chủ tiếng Anh.',
+    // D2 — nhãn hiện kèm mục menu EN trỏ tới nội dung chưa dịch (chỉ dùng ở menu EN)
+    nav_vi_only: 'Vietnamese only',
+    // D2 — hộp thoại nhỏ khi bấm chuyển ngôn ngữ trên trang chưa có bản dịch
+    lang_panel_title: 'Trang này chưa có bản tiếng Anh',
+    lang_panel_desc:
+      'Bạn có thể ở lại đọc trang này bằng tiếng Việt, hoặc tới trang chủ tiếng Anh — nơi có các bài đã dịch.',
+    lang_panel_stay: 'Ở lại trang tiếng Việt',
+    lang_panel_go_home: 'Đi tới trang chủ tiếng Anh',
+    // Không-JS: chú thích dưới header khi trang chưa có bản dịch
+    lang_noscript_note:
+      'Trang này chưa có bản tiếng Anh. Liên kết "English" phía trên sẽ dẫn bạn tới trang chủ tiếng Anh, nơi có các bài đã dịch.',
     // Homepage CTA phụ (trước đây hard-code tiếng Việt)
     home_map_cta_prefix: 'Muốn bản đồ đầy đủ?',
     home_map_cta_link: 'Lộ trình học đồng hồ cơ',
@@ -397,6 +408,18 @@ export const translations = {
     // Language switcher — aria-label cho trường hợp trang chưa có bản dịch
     // (nút lúc đó về trang chủ của ngôn ngữ đích, không dẫn tới URL rỗng)
     switch_lang_untranslated: 'Switch to English — this page is not translated yet; you will land on the English home page.',
+    // D2 — label shown next to EN menu items pointing at untranslated content
+    nav_vi_only: 'Vietnamese only',
+    // D2 — small dialog when using the language switcher on an untranslated page
+    // (trang EN chưa có bản tiếng Việt — hướng ngược lại với bản VI)
+    lang_panel_title: 'This page has no Vietnamese version',
+    lang_panel_desc:
+      'You can keep reading this page in English, or go to the Vietnamese home page.',
+    lang_panel_stay: 'Stay on this English page',
+    lang_panel_go_home: 'Go to the Vietnamese home page',
+    // No-JS: note under the header when the page has no translation
+    lang_noscript_note:
+      'This page has no Vietnamese version. The "Tiếng Việt" link above goes to the Vietnamese home page.',
     search_section_brand_en: 'Brand (English)',
     // Homepage extra CTA (trước đây hard-code tiếng Việt)
     home_map_cta_prefix: 'Want the full map?',

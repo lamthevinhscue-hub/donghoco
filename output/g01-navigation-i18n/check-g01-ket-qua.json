@@ -1,0 +1,330 @@
+{
+  "thoiGian": "2026-09-12T02:50:20.604Z",
+  "root": "D:\\Watch web build",
+  "dist": "D:\\Watch web build\\dist",
+  "logic": [
+    {
+      "ca": "root: \"/\" có bản EN là \"/en/\"",
+      "dat": true,
+      "chiTiet": "/en/"
+    },
+    {
+      "ca": "root: \"/en/\" có bản VI là \"/\"",
+      "dat": true,
+      "chiTiet": "/"
+    },
+    {
+      "ca": "root: \"/en\" (không slash cuối) vẫn nhận cặp → \"/\"",
+      "dat": true,
+      "chiTiet": "/"
+    },
+    {
+      "ca": "slash cuối: \"/thuong-hieu/\" tra được cặp EN",
+      "dat": true,
+      "chiTiet": "/en/brands/"
+    },
+    {
+      "ca": "bài có cặp: /huong-dan/muc-chong-nuoc → /en/guides/water-resistance/",
+      "dat": true,
+      "chiTiet": "/en/guides/water-resistance/"
+    },
+    {
+      "ca": "chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc",
+      "dat": true,
+      "chiTiet": "/huong-dan/muc-chong-nuoc"
+    },
+    {
+      "ca": "trang chưa dịch: /lich-su không có URL EN giả",
+      "dat": true,
+      "chiTiet": "undefined"
+    },
+    {
+      "ca": "localizedHref(\"/\", \"en\") = \"/en/\" — trang chủ hai chiều có bản dịch",
+      "dat": true,
+      "chiTiet": "/en/"
+    },
+    {
+      "ca": "localizedHref(\"/\", \"vi\") = \"/\"",
+      "dat": true,
+      "chiTiet": "/"
+    },
+    {
+      "ca": "localizedHref(\"/lich-su\", \"en\") = undefined — không chế URL",
+      "dat": true,
+      "chiTiet": "undefined"
+    },
+    {
+      "ca": "isEnglishPath: \"/en\" và \"/en/\" là EN",
+      "dat": true,
+      "chiTiet": "true/true"
+    },
+    {
+      "ca": "isEnglishPath: \"/en/brands/rolex/\" là EN",
+      "dat": true,
+      "chiTiet": "true"
+    },
+    {
+      "ca": "isEnglishPath: \"/english\" KHÔNG phải EN (ranh giới segment)",
+      "dat": true,
+      "chiTiet": "false"
+    },
+    {
+      "ca": "isEnglishPath: \"/en-other\" KHÔNG phải EN",
+      "dat": true,
+      "chiTiet": "false"
+    },
+    {
+      "ca": "isEnglishPath: \"/thuong-hieu\" không phải EN",
+      "dat": true,
+      "chiTiet": "false"
+    },
+    {
+      "ca": "switcherTarget(\"/\") → \"/en/\", translated=true (trang chủ là cặp thật)",
+      "dat": true,
+      "chiTiet": "{\"href\":\"/en/\",\"translated\":true}"
+    },
+    {
+      "ca": "switcherTarget(\"/en/\") → \"/\", translated=true",
+      "dat": true,
+      "chiTiet": "{\"href\":\"/\",\"translated\":true}"
+    },
+    {
+      "ca": "switcherTarget(\"/lich-su/\") → \"/en/\", translated=false (chưa dịch)",
+      "dat": true,
+      "chiTiet": "{\"href\":\"/en/\",\"translated\":false}"
+    },
+    {
+      "ca": "switcherTarget(\"/english\") KHÔNG bị coi là khu vực EN",
+      "dat": true,
+      "chiTiet": "{\"href\":\"/en/\",\"translated\":false}"
+    },
+    {
+      "ca": "switcherTarget(\"/co-che/bo-thoat\") → bài EN tương ứng",
+      "dat": true,
+      "chiTiet": "{\"href\":\"/en/mechanisms/escapement/\",\"translated\":true}"
+    },
+    {
+      "ca": "getAlternates(\"/\"): đủ vi \"/\" + en \"/en/\" (hreflang hai chiều)",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"/\",\"en\":\"/en/\"}"
+    },
+    {
+      "ca": "getAlternates(\"/en/\"): đủ vi \"/\" + en \"/en/\"",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"/\",\"en\":\"/en/\"}"
+    },
+    {
+      "ca": "getAlternates(\"/en\") chuẩn hóa về \"/en/\" (không khai báo URL không tồn tại)",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"/\",\"en\":\"/en/\"}"
+    },
+    {
+      "ca": "getAlternates(\"/lich-su\"): en=undefined — không hreflang giả",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"/lich-su\"}"
+    }
+  ],
+  "dauRa": [
+    {
+      "ca": "Trang chủ VI: nav desktop và nav mobile đều được tìm thấy trong HTML",
+      "dat": true,
+      "chiTiet": "desktop=true, mobile=true"
+    },
+    {
+      "ca": "Trang chủ VI: Home desktop có aria-current=\"page\" (1 mục)",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Trang chủ VI: Home mobile có aria-current=\"page\" (1 mục)",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Trang chủ VI: không mục nào khác mang aria-current ngoài Home",
+      "dat": true,
+      "chiTiet": "tổng=2"
+    },
+    {
+      "ca": "Trang chủ VI: hreflang đủ vi + en \"/en/\" + x-default → \"/\"",
+      "dat": true,
+      "chiTiet": "cần 3 thẻ link alternate đúng URL"
+    },
+    {
+      "ca": "Trang chủ VI: nút nhóm xổ không mang aria-current",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Danh sách VI /thuong-hieu: Home desktop KHÔNG có aria-current",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Danh sách VI /thuong-hieu: Home mobile KHÔNG có aria-current",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Danh sách VI /thuong-hieu: mục Thương hiệu desktop aria-current=\"page\" (1)",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Danh sách VI /thuong-hieu: mục Thương hiệu mobile aria-current=\"page\" (1)",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Bài con VI /thuong-hieu/rolex: mục Thương hiệu desktop aria-current=\"location\" (không phải page)",
+      "dat": true,
+      "chiTiet": "location=1, page=0"
+    },
+    {
+      "ca": "Bài con VI /thuong-hieu/rolex: mục Thương hiệu mobile aria-current=\"location\"",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Bài con VI /thuong-hieu/rolex: Home desktop KHÔNG active",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Bài cơ chế /co-che/bo-thoat: mục Cơ chế (trong dropdown) aria-current=\"location\"",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Bài cơ chế /co-che/bo-thoat: nút nhóm cha đổi màu nhưng KHÔNG gạch active, KHÔNG aria-current",
+      "dat": true,
+      "chiTiet": "border-brass=0, aria-current=0"
+    },
+    {
+      "ca": "Bài cơ chế /co-che/bo-thoat: mục dropdown active có gạch chân (underline)",
+      "dat": true,
+      "chiTiet": "cần class underline trên mục dropdown active"
+    },
+    {
+      "ca": "Bài cơ chế /co-che/bo-thoat: Home mobile KHÔNG active",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Trang chủ EN: Home desktop (href=\"/en/\") aria-current=\"page\"",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Trang chủ EN: Home mobile aria-current=\"page\"",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Trang chủ EN: hreflang đủ vi \"/\" + en \"/en/\" + x-default → \"/\"",
+      "dat": true,
+      "chiTiet": "cần 3 thẻ link alternate đúng URL"
+    },
+    {
+      "ca": "Explore EN (desktop): link \"/lich-su\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Explore EN (desktop): link \"/giai-phau\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Explore EN (desktop): link \"/so-sanh\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Explore EN (mobile): link \"/lich-su\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Explore EN (mobile): link \"/giai-phau\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Explore EN (mobile): link \"/so-sanh\" có nhãn hiển thị \"Vietnamese only\"",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "Trang chủ EN: bộ chuyển ngôn ngữ là link thẳng (không có data-lang-switch)",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Trang chủ EN: switcher href=\"/\" với hreflang=\"vi\"",
+      "dat": true,
+      "chiTiet": "count=2"
+    },
+    {
+      "ca": "Bài EN /en/mechanisms/escapement: Home EN KHÔNG active",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current=\"location\"",
+      "dat": true,
+      "chiTiet": "count=1"
+    },
+    {
+      "ca": "Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 3 link VI có nhãn",
+      "dat": true,
+      "chiTiet": "thiếu link hoặc nhãn"
+    },
+    {
+      "ca": "Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 3 link VI có nhãn",
+      "dat": true,
+      "chiTiet": "thiếu link hoặc nhãn"
+    },
+    {
+      "ca": "Chưa dịch /lich-su: CẢ HAI bộ chuyển ngôn ngữ (header + mobile) đều đánh dấu mở hộp thoại",
+      "dat": true,
+      "chiTiet": "count=2"
+    },
+    {
+      "ca": "Chưa dịch /lich-su: hộp thoại #lang-panel có link \"/en/\" (trang chủ đích)",
+      "dat": true,
+      "chiTiet": "thiếu #lang-panel-go href=\"/en/\""
+    },
+    {
+      "ca": "Chưa dịch /lich-su: KHÔNG có hreflang en giả",
+      "dat": true,
+      "chiTiet": "không được có hreflang en"
+    },
+    {
+      "ca": "Chưa dịch /lich-su: có chú thích noscript giải thích đường chuyển ngôn ngữ",
+      "dat": true,
+      "chiTiet": "thiếu noscript"
+    },
+    {
+      "ca": "404: Trang chủ KHÔNG active chỉ vì pathname bắt đầu bằng \"/\"",
+      "dat": true,
+      "chiTiet": "count=0"
+    },
+    {
+      "ca": "Toàn dist (286 trang): aria-current chỉ nhận \"page\"/\"location\"",
+      "dat": true,
+      "chiTiet": "lệch=0"
+    },
+    {
+      "ca": "Toàn dist: nút nhóm xổ không bao giờ mang aria-current",
+      "dat": true,
+      "chiTiet": "lệch=0"
+    }
+  ],
+  "tongKet": {
+    "tongCa": 63,
+    "tongDat": 63,
+    "tongLoi": 0,
+    "dat": true
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "thoiGian": "2026-09-12T16:15:13.606Z",
+  "ghiChu": "đo lại lượt SAU sau vòng sửa màu; cùng phương pháp pw-do-mang-truoc-sau.js",
+  "phap": [
+    {
+      "pha": "sau-loi-mau",
+      "route": "vi",
+      "soRequestLocal": 10,
+      "tongByteLocal": 304819,
+      "theoLoai": {
+        "document": 73699,
+        "stylesheet": 111059,
+        "image": 87456,
+        "script": 32605
+      },
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 73699,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6305,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55869,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bodyBytes": 87456,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.Du3n0O5a.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 9885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "ngoai": false
+        }
+      ]
+    },
+    {
+      "pha": "sau-loi-mau",
+      "route": "en",
+      "soRequestLocal": 10,
+      "tongByteLocal": 299343,
+      "theoLoai": {
+        "document": 68223,
+        "stylesheet": 111059,
+        "image": 87456,
+        "script": 32605
+      },
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 68223,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6305,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55869,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bodyBytes": 87456,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.Du3n0O5a.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 9885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "ngoai": false
+        }
+      ]
+    }
+  ]
+}

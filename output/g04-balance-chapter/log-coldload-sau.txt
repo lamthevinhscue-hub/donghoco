@@ -1,0 +1,43 @@
+### Result
+{"thoiGian":"2026-09-12T14:33:15.332Z","phap":{"vi":{"soRequestLocal":10,"tongByteLocal":304669,"chiTiet":[{"url":"http://localhost:4321/co-che/day-toc-banh-lac/","status":200,"type":"document","bytes":73596},{"url":"http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css","status":200,"type":"stylesheet","bytes":48885},{"url":"http://localhost:4321/_astro/_slug_.DnFbWJND.css","status":200,"type":"stylesheet","bytes":6305},{"url":"http://localhost:4321/_astro/hoisted.DDssamkX.js","status":200,"type":"script","bytes":9838},{"url":"http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg","status":200,"type":"image","bytes":87456},{"url":"http://localhost:4321/_astro/index.DW2_qSIC.css","status":200,"type":"stylesheet","bytes":55869},{"url":"http://localhost:4321/_astro/hoisted.DbV4SqDq.js","status":200,"type":"script","bytes":344},{"url":"http://localhost:4321/_astro/hoisted.DX0x34b4.js","status":200,"type":"script","bytes":17731},{"url":"http://localhost:4321/_astro/hoisted.ByYIA-8S.js","status":200,"type":"script","bytes":4645},{"url":"http://localhost:4321/_vercel/insights/script.js","status":404,"type":"script","bytes":0}],"anh":{"complete":true,"w":1200,"h":675},"soRequestTatCa":25},"en":{"soRequestLocal":10,"tongByteLocal":299178,"chiTiet":[{"url":"http://localhost:4321/en/mechanisms/balance-and-hairspring/","status":200,"type":"document","bytes":68105},{"url":"http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg","status":200,"type":"image","bytes":87456},{"url":"http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css","status":200,"type":"stylesheet","bytes":48885},{"url":"http://localhost:4321/_astro/index.DW2_qSIC.css","status":200,"type":"stylesheet","bytes":55869},{"url":"http://localhost:4321/_astro/_slug_.DnFbWJND.css","status":200,"type":"stylesheet","bytes":6305},{"url":"http://localhost:4321/_astro/hoisted.DDssamkX.js","status":200,"type":"script","bytes":9838},{"url":"http://localhost:4321/_astro/hoisted.DbV4SqDq.js","status":200,"type":"script","bytes":344},{"url":"http://localhost:4321/_astro/hoisted.ByYIA-8S.js","status":200,"type":"script","bytes":4645},{"url":"http://localhost:4321/_astro/hoisted.DX0x34b4.js","status":200,"type":"script","bytes":17731},{"url":"http://localhost:4321/_vercel/insights/script.js","status":404,"type":"script","bytes":0}],"anh":{"complete":true,"w":1200,"h":675},"soRequestTatCa":17}}}
+### Ran Playwright code
+```js
+await (// Cold-load sạch: context mới (cache rỗng) cho từng route — đo request/byte
+// và kiểm ảnh load hoàn tất. So với nền: dist cũ có cùng bộ JS/CSS, 0 ảnh.
+async (page) => {
+  const BASE = 'http://localhost:4321';
+  const browser = page.context().browser();
+  const kq = { thoiGian: new Date().toISOString(), phap: {} };
+  const routes = [
+    { lang: 'vi', url: BASE + '/co-che/day-toc-banh-lac/' },
+    { lang: 'en', url: BASE + '/en/mechanisms/balance-and-hairspring/' },
+  ];
+  for (const r of routes) {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    const reqs = [];
+    p.on('response', async (resp) => {
+      let bytes = null;
+      try { bytes = (await resp.body()).length; } catch {}
+      reqs.push({ url: resp.url(), status: resp.status(), type: resp.request().resourceType(), bytes });
+    });
+    await p.setViewportSize({ width: 1280, height: 900 });
+    await p.goto(r.url, { waitUntil: 'networkidle' });
+    const img = await p.evaluate(() => {
+      const i = document.querySelector('[data-bhc-root] img');
+      return i ? { complete: i.complete, w: i.naturalWidth, h: i.naturalHeight } : null;
+    });
+    const local = reqs.filter((x) => x.url.startsWith(BASE));
+    kq.phap[r.lang] = {
+      soRequestLocal: local.length,
+      tongByteLocal: local.reduce((s, x) => s + (x.bytes || 0), 0),
+      chiTiet: local,
+      anh: img,
+      soRequestTatCa: reqs.length,
+    };
+    await ctx.close();
+  }
+  return kq;
+}
+)(page);
+```

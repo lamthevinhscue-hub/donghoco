@@ -1,0 +1,375 @@
+{
+  "thoiGian": "2026-09-12T13:49:57.023Z",
+  "nen": "234fa26 — dist build 16:02 12/09/2026 (log nền output/g03-audience-search-baseline/log-build.txt: 286 trang, 20.622 link)",
+  "moTruong": "astro preview cục bộ",
+  "phap": [
+    {
+      "route": "vi",
+      "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+      "loadMs": 1642,
+      "soRequest": 24,
+      "tongBytes": 114512,
+      "requests": [
+        {
+          "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+          "method": "GET",
+          "type": "document",
+          "status": 200,
+          "bytes": 78599
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 200,
+          "bytes": 6493
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.Cgmb62Oh.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DFRY94Q3.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.Cl1R1067.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DFQVDHMf.js",
+          "method": "GET",
+          "type": "script",
+          "status": 200,
+          "bytes": 6700
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "method": "GET",
+          "type": "script",
+          "status": 200,
+          "bytes": 17731
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "method": "GET",
+          "type": "script",
+          "status": 200,
+          "bytes": 344
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "method": "GET",
+          "type": "script",
+          "status": 200,
+          "bytes": 4645
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "method": "GET",
+          "type": "script",
+          "status": 404,
+          "bytes": 0
+        }
+      ],
+      "dom": {
+        "htmlBytes": 74775,
+        "imgs": [],
+        "coSvgHairspring": true,
+        "introBlockquote": true,
+        "h1": "Dây tóc & bánh lắc — Bộ điều tiết của đồng hồ cơ"
+      }
+    },
+    {
+      "route": "en",
+      "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+      "loadMs": 1595,
+      "soRequest": 24,
+      "tongBytes": 59505,
+      "requests": [
+        {
+          "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+          "method": "GET",
+          "type": "document",
+          "status": 200,
+          "bytes": 53012
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 200,
+          "bytes": 6493
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.Cgmb62Oh.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DFRY94Q3.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.Cl1R1067.css",
+          "method": "GET",
+          "type": "stylesheet",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DFQVDHMf.js",
+          "method": "GET",
+          "type": "script",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "method": "GET",
+          "type": "script",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "method": "GET",
+          "type": "script",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "method": "GET",
+          "type": "script",
+          "status": 304,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "method": "GET",
+          "type": "font",
+          "status": 200,
+          "bytes": null
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "method": "GET",
+          "type": "script",
+          "status": 404,
+          "bytes": 0
+        }
+      ],
+      "dom": {
+        "htmlBytes": 51997,
+        "imgs": [],
+        "coSvgHairspring": false,
+        "introBlockquote": false,
+        "h1": "Balance & hairspring: the regulating organ"
+      }
+    }
+  ]
+}

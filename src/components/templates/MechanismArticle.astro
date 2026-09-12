@@ -33,6 +33,7 @@ import { collectionHref } from '../../i18n/contentRoutes';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
+import BalanceHairspringChapter from '../history/BalanceHairspringChapter.astro';
 
 interface Props {
   slug: string;
@@ -75,8 +76,13 @@ const infographics: Record<string, any> = {
   'kinh-dong-ho': Crystal,
   'diem-chuong': MinuteRepeaterAnim,
 };
+// G04-B: chương "Bánh lắc và dây tóc" (ảnh bối cảnh + lịch sử + SVG tương tác)
+// thay infographic cũ trên đúng hai bài này; mọi bài khác giữ nguyên hành vi.
+const G04_BALANCE_CHAPTER_SLUGS = ['day-toc-banh-lac', 'balance-and-hairspring'];
+const hasBalanceChapter = G04_BALANCE_CHAPTER_SLUGS.includes(slug);
+
 const Infographic =
-  lang === 'vi' && data.has_infographic ? infographics[slug] : null;
+  !hasBalanceChapter && lang === 'vi' && data.has_infographic ? infographics[slug] : null;
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) — theo lộ trình đọc ======
 const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
@@ -144,6 +150,8 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
   relatedArticles={related}
   sources={data.sources}
 >
+  {hasBalanceChapter && <BalanceHairspringChapter />}
+
   {data.has_infographic && Infographic && <Infographic />}
 
   {data.has_infographic === false && lang === 'vi' && (

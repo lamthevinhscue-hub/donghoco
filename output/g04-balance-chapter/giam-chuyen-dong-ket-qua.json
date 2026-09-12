@@ -1,0 +1,54 @@
+{
+  "thoiGian": "2026-09-12T15:37:06.895Z",
+  "thu": {
+    "rmTruoc": {
+      "dungThat": true,
+      "status": "Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2 — Đã bật giảm chuyển động: chuyển động liên tục tắt — bấm Bước để xem từng pha.",
+      "mauGiongNhau": [
+        "rotate(0.00 320 215)",
+        "rotate(0.00 320 215)",
+        "rotate(0.00 320 215)"
+      ]
+    },
+    "rmBuoc": {
+      "thayDoiHuuHan": true,
+      "dungSau": true,
+      "truoc": "rotate(0.00 320 215)",
+      "sau": "rotate(20.00 320 215)",
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — Đã bật giảm chuyển động: chuyển động liên tục tắt — bấm Bước để xem từng pha."
+    },
+    "rmGiuaPhien": {
+      "rmTruocPhat": false,
+      "p1": "rotate(28.74 320 215)",
+      "p2": "rotate(28.74 320 215)",
+      "p3": "rotate(28.74 320 215)",
+      "p4": "rotate(28.74 320 215)",
+      "dangTruocDoi": false,
+      "dungSauKhiBật": true,
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — Đã bật giảm chuyển động: chuyển động liên tục tắt — bấm Bước để xem từng pha."
+    },
+    "roiViewport": {
+      "statusNgoai": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại.",
+      "dungThat": true
+    },
+    "troLaiViewport": {
+      "khongTuPhat": true,
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại."
+    },
+    "phatLaiThuCong": {
+      "chay": true,
+      "status": "Trạng thái: Đang phát · dao động thứ 1 · lần rung 1/2"
+    },
+    "tabAnMoPhong": {
+      "ghiChu": "mô phỏng sự kiện bằng script",
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại.",
+      "dungThat": true
+    },
+    "tabHienLaiMoPhong": {
+      "ghiChu": "mô phỏng sự kiện bằng script",
+      "khongTuPhat": true,
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại."
+    }
+  },
+  "tatDat": true
+}

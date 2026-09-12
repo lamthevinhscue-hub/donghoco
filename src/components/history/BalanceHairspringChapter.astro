@@ -1,0 +1,693 @@
+---
+// =============================================================================
+// BALANCE HAIRSPRING CHAPTER — Chương mở đầu "Bánh lắc và dây tóc" (G04-B)
+// =============================================================================
+// Chương mẫu ghép ba lớp: (1) ảnh AI tái dựng bối cảnh theo hướng A+B đã chọn,
+// (2) bối cảnh lịch sử 1657–1675 đúng phạm vi nguồn G02, (3) sơ đồ nguyên lý
+// SVG tương tác. Chỉ render trên đúng hai bài:
+//   VI: /co-che/day-toc-banh-lac/ · EN: /en/mechanisms/balance-and-hairspring/
+// (nhánh tích hợp tại MechanismArticle.astro — không dùng nơi khác).
+//
+// Nguyên tắc:
+//   - Ảnh AI CHỈ tạo bối cảnh; mọi chi tiết cơ khí nằm ở SVG riêng, suy từ
+//     nguồn FHH/bài viết — KHÔNG suy cấu tạo từ ảnh.
+//   - Mô hình SVG là giản lược: đầu ngoài dây tóc gắn điểm cố định đứng yên,
+//     đầu trong quay cùng bánh lắc; ghi rõ "không phải phép đo/theo tỷ lệ".
+//   - Khởi tạo tĩnh, không tự phát; dừng khi rời viewport/tab ẩn; chỉ phát
+//     lại khi người dùng bấm Phát; prefers-reduced-motion tắt chuyển động
+//     liên tục (Bước rời rạc vẫn dùng được).
+//   - SVG aria-hidden: toàn bộ thông tin có bản chữ HTML thật (legend + trạng
+//     thái aria-live). SVG không dùng thuộc tính id và không tham chiếu
+//     gradient theo id — tránh trùng ID trong tài liệu.
+//   - Không sửa Header/i18n map: toàn bộ chuỗi hiển thị nằm trong component
+//     này, chọn theo ngôn ngữ trang.
+// =============================================================================
+
+import { getLangFromUrl } from '../../i18n/ui';
+import { collectionHref } from '../../i18n/contentRoutes';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const isEn = lang === 'en';
+
+// Nguồn lịch sử (mốc huygens-hairspring trong src/data/timeline.json, G02)
+const SRC_SMG =
+  'https://collection.sciencemuseumgroup.org.uk/objects/co33/early-balance-spring-watch-by-thomas-tompion';
+const SRC_FHH = 'https://www.hautehorlogerie.org/en/watches-and-culture/history';
+
+// Đường xoắn tĩnh (pha 0) — tính trước để SVG hiển thị đúng cả khi JS tắt.
+// Cùng công thức với springPath() trong script: tâm (320,215), r 16→92,
+// 5 vòng, đầu ngoài ghim tại góc -45° (điểm gắn cố định).
+const SPRING_STATIC =
+  'M 336.0 215.0 L 335.5 222.0 L 331.9 228.6 L 325.6 233.3 L 317.4 235.0 L 308.8 233.1 L 301.4 227.4 L 296.9 218.8 L 296.4 208.7 L 300.3 198.8 L 308.3 191.2 L 319.1 187.4 L 331.0 188.5 L 341.7 194.7 L 349.1 205.1 L 351.7 218.1 L 348.5 231.4 L 339.8 242.6 L 326.8 249.3 L 311.8 250.1 L 297.4 244.4 L 286.3 233.0 L 280.9 217.6 L 282.3 200.8 L 290.8 185.8 L 305.1 175.3 L 322.8 171.6 L 341.0 175.8 L 356.1 187.3 L 365.4 204.4 L 366.8 224.3 L 359.6 243.4 L 344.9 258.1 L 325.0 265.6 L 303.3 264.1 L 283.8 253.6 L 270.1 235.7 L 265.0 213.2 L 269.7 190.2 L 283.7 170.8 L 304.9 158.8 L 329.7 156.5 L 353.5 164.8 L 372.1 182.6 L 381.9 206.8 L 380.8 233.4 L 368.5 257.6 L 347.1 274.8 L 320.0 281.7 L 292.1 276.7 L 268.3 260.3 L 253.2 235.3 L 249.7 205.7 L 258.9 177.0 L 279.4 154.3 L 307.9 141.9 L 339.4 142.4 L 368.3 156.1 L 389.3 180.8 L 398.2 212.4 L 393.3 245.4 L 375.0 273.7 L 346.2 292.1 L 311.9 297.1 L 278.2 287.4 L 251.2 264.3 L 236.0 231.7 L 235.5 195.3 L 250.4 161.6 L 278.1 136.7 L 314.1 125.3 L 352.0 129.9 L 385.1 149.9';
+
+interface ChapterStrings {
+  ariaSection: string;
+  leadQuestion: string;
+  leadPara: string;
+  heroAlt: string;
+  aiCaption: string;
+  historyTitle: string;
+  periodLabel: string;
+  m1Year: string;
+  m1Text: string;
+  m2Year: string;
+  m2Text: string;
+  srcFhh: string;
+  srcSmg: string;
+  limitNote: string;
+  scopeNote: string;
+  principleTitle: string;
+  legend: string[];
+  controlsLabel: string;
+  btnStatic: string;
+  btnPlay: string;
+  btnPause: string;
+  btnStep: string;
+  btnReset: string;
+  btnStaticLabel: string;
+  btnPlayLabel: string;
+  btnPauseLabel: string;
+  btnStepLabel: string;
+  btnResetLabel: string;
+  keyCaption: string;
+  modelNote: string;
+  readNextLabel: string;
+  readNext: { href: string; label: string }[];
+  svgLabels: { balance: string; spring: string; stud: string; moving: string };
+}
+
+const vi: ChapterStrings = {
+  ariaSection: 'Chương mở đầu: bánh lắc và dây tóc',
+  leadQuestion: 'Điều gì khiến đồng hồ cơ biết giữ nhịp?',
+  leadPara:
+    'Câu trả lời nằm ở cặp bánh lắc – dây tóc: bộ điều tiết chia thời gian thành các phần bằng nhau nghiêm ngặt (theo FHH).',
+  heroAlt:
+    'Bánh lắc màu đồng và dây tóc xoắn màu bạc nổi trên nền bàn chế tác mờ — minh họa AI tái dựng',
+  aiCaption: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+  historyTitle: 'Từ con lắc đến bánh lắc – dây tóc',
+  periodLabel: 'Giai đoạn 1657–1675 — theo dòng lịch sử của trang',
+  m1Year: '1657',
+  m1Text: 'Christiaan Huygens áp dụng con lắc vào đồng hồ.',
+  m2Year: '1675',
+  m2Text:
+    'Dây tóc xoắn được áp dụng lên bánh lắc của đồng hồ bỏ túi; phút từ đó được chỉ báo đáng tin cậy.',
+  srcFhh: 'Fondation Haute Horlogerie — History',
+  srcSmg: 'Science Museum Group — đồng hồ dây tóc sớm (Tompion)',
+  limitNote:
+    'Giới hạn: quyền phát minh dây tóc bị Robert Hooke tranh chấp mạnh — Science Museum Group ghi rõ "strongly contested".',
+  scopeNote:
+    'Hai mốc trên không có nghĩa là đồng hồ bỏ túi thay thế con lắc tức thì, hay phổ cập toàn ngành ngay sau đó.',
+  principleTitle: 'Nguyên lý: bánh lắc và dây tóc cùng nhau',
+  legend: [
+    'Bánh lắc (balance wheel) — vành tròn giữ bởi các nan hoa, dao động quanh trục quay của nó (theo FHH).',
+    'Dây tóc (hairspring) — lò xo rất mảnh, "trái tim" của đồng hồ cơ (theo FHH); đầu trong gắn vào trục bánh lắc, đầu ngoài gắn vào điểm cố định.',
+    'Điểm gắn cố định — đầu ngoài dây tóc gắn vào giá đỡ bánh lắc (balance-cock) và đứng yên khi bánh lắc quay.',
+    'Phần chuyển động — bánh lắc cùng đầu trong dây tóc quay qua lại; chấm đồng trên vành đánh dấu góc quay.',
+  ],
+  controlsLabel: 'Điều khiển mô phỏng nguyên lý',
+  btnStatic: 'Tĩnh',
+  btnPlay: 'Phát',
+  btnPause: 'Tạm dừng',
+  btnStep: 'Bước',
+  btnReset: 'Đặt lại',
+  btnStaticLabel: 'Về tư thế tĩnh ban đầu',
+  btnPlayLabel: 'Phát mô phỏng',
+  btnPauseLabel: 'Tạm dừng mô phỏng',
+  btnStepLabel: 'Tiến đúng một pha',
+  btnResetLabel: 'Đặt lại mô phỏng về trạng thái đầu',
+  keyCaption:
+    'Một dao động đầy đủ gồm hai lần rung. Hoạt ảnh phát chậm để quan sát — không phải tốc độ thật của đồng hồ.',
+  modelNote:
+    'Sơ đồ là mô hình giản lược minh họa nguyên lý — không phải phép đo và không phải cơ cấu theo tỷ lệ.',
+  readNextLabel: 'Đọc tiếp',
+  readNext: [
+    { href: collectionHref('tuDien', 'day-toc-banh-lac', 'vi'), label: 'Từ điển: Dây tóc & bánh lắc' },
+    { href: '/lich-su', label: 'Dòng lịch sử đồng hồ' },
+  ],
+  svgLabels: { balance: 'Bánh lắc', spring: 'Dây tóc', stud: 'Điểm gắn cố định', moving: 'Phần chuyển động' },
+};
+
+const en: ChapterStrings = {
+  ariaSection: 'Opening chapter: balance wheel and hairspring',
+  leadQuestion: 'What makes a mechanical watch keep time?',
+  leadPara:
+    'The answer is the balance-and-hairspring pair: the regulating organ that divides time into strictly equal parts (per FHH).',
+  heroAlt:
+    'A gold-coloured balance wheel and a silver-coloured coiled hairspring against a softly blurred workbench — AI reconstruction',
+  aiCaption: 'AI reconstruction — not a historical photograph',
+  historyTitle: 'From the pendulum to the balance and hairspring',
+  periodLabel: "1657–1675 — per this site's history timeline",
+  m1Year: '1657',
+  m1Text: 'Christiaan Huygens adapts the pendulum to the clock.',
+  m2Year: '1675',
+  m2Text:
+    'The spiral spring is applied to the balance of a watch; minutes could now be reliably indicated.',
+  srcFhh: 'Fondation Haute Horlogerie — History',
+  srcSmg: 'Science Museum Group — early balance-spring watch (Tompion)',
+  limitNote:
+    'Limit: Robert Hooke strongly contested credit for the hairspring — Science Museum Group records the claim as "strongly contested".',
+  scopeNote:
+    'These two milestones do not mean pocket watches replaced the pendulum overnight, or across the whole industry.',
+  principleTitle: 'The principle: balance and hairspring together',
+  legend: [
+    'Balance wheel — a circular rim held by spokes, oscillating on its rotational axis (per FHH).',
+    'Hairspring (balance spring) — a very fine spring, the "heart" of a mechanical watch (per FHH); its inner end attaches to the balance staff, its outer end to a fixed point.',
+    'Fixed attachment — the spring\'s outer end is pinned to the balance-cock and stays still while the balance turns.',
+    'Moving part — the balance and the spring\'s inner end swing back and forth; the brass dot on the rim marks the rotation angle.',
+  ],
+  controlsLabel: 'Simulation controls',
+  btnStatic: 'Static',
+  btnPlay: 'Play',
+  btnPause: 'Pause',
+  btnStep: 'Step',
+  btnReset: 'Reset',
+  btnStaticLabel: 'Return to the initial still pose',
+  btnPlayLabel: 'Play the simulation',
+  btnPauseLabel: 'Pause the simulation',
+  btnStepLabel: 'Advance exactly one phase',
+  btnResetLabel: 'Reset the simulation to its initial state',
+  keyCaption:
+    'One full oscillation comprises two vibrations. The animation runs in slow motion for clarity — it is not the real pace of a watch.',
+  modelNote:
+    'This diagram is a simplified illustrative model — not a measurement and not a to-scale mechanism.',
+  readNextLabel: 'Read next',
+  readNext: [
+    { href: collectionHref('tuDien', 'hairspring', 'en'), label: 'hairspring (glossary)' },
+    { href: collectionHref('tuDien', 'beat-rate', 'en'), label: 'beat rate (glossary)' },
+  ],
+  svgLabels: { balance: 'Balance wheel', spring: 'Hairspring', stud: 'Fixed attachment', moving: 'Moving part' },
+};
+
+const s = isEn ? en : vi;
+---
+
+<section class="bhc my-10" data-bhc-root data-bhc-lang={lang} aria-label={s.ariaSection}>
+  {/* ===== Lớp 1 — ảnh AI bối cảnh (hướng A+B) + câu hỏi mở đầu; chữ là HTML ngoài ảnh ===== */}
+  <div class="grid items-center gap-6 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <p class="font-serif text-2xl font-medium leading-snug text-navy dark:text-dark-text sm:text-3xl">
+        {s.leadQuestion}
+      </p>
+      <p class="mt-3 text-base leading-relaxed text-ink-soft dark:text-dark-text-soft">{s.leadPara}</p>
+    </div>
+    <figure class="overflow-hidden rounded-xl border border-cream-dark bg-cream-dark/20 dark:border-dark-border dark:bg-dark-border/20 lg:col-span-7">
+      <img
+        src="/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg"
+        alt={s.heroAlt}
+        width="1200"
+        height="675"
+        loading="eager"
+        decoding="async"
+        class="h-auto w-full"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div class="hidden aspect-[16/9] items-center justify-center bg-navy p-6 dark:bg-dark-surface" aria-hidden="true">
+        <svg viewBox="0 0 48 48" class="h-16 w-16" fill="none" stroke="var(--obs-brass)" stroke-width="1.5" focusable="false">
+          <circle cx="24" cy="24" r="16" />
+          <path d="M24 24 m-9 0 a9 9 0 1 1 18 0 a13 13 0 1 0 -26 0" stroke-width="1" />
+          <circle cx="24" cy="24" r="2.5" />
+        </svg>
+      </div>
+      <figcaption class="border-t border-cream-dark px-4 py-2 text-center text-xs text-ink-soft/90 dark:border-dark-border dark:text-dark-text-soft/70">
+        {s.aiCaption}
+      </figcaption>
+    </figure>
+  </div>
+
+  {/* ===== Lớp 2 — bối cảnh lịch sử 1657–1675 (phạm vi nguồn G02) ===== */}
+  <div class="mt-10">
+    <h2 class="font-serif text-xl font-semibold text-navy dark:text-dark-text sm:text-2xl">{s.historyTitle}</h2>
+    <p class="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/80 dark:text-dark-text-soft/70">
+      {s.periodLabel}
+    </p>
+
+    {/* Biểu tượng con lắc → bánh lắc–dây tóc (trang trí; ý nghĩa ở chữ) */}
+    <svg viewBox="0 0 220 36" class="mt-4 h-9 w-auto" aria-hidden="true" focusable="false">
+      <g stroke="var(--ig-steel)" stroke-width="1.5" fill="none">
+        <path d="M8 7 h26" />
+        <path d="M21 7 L30 25" />
+      </g>
+      <circle cx="31" cy="28" r="5" fill="var(--ig-steel)" />
+      <path d="M56 18 h24 m-6 -5 l6 5 l-6 5" stroke="var(--obs-brass)" stroke-width="2" fill="none" />
+      <g stroke="var(--ig-steel)" stroke-width="1.5" fill="none">
+        <circle cx="150" cy="18" r="13" />
+        <path d="M150 18 m-6 0 a6 6 0 1 1 12 0 a9 9 0 1 0 -18 0" stroke-width="1" />
+        <circle cx="150" cy="18" r="1.8" fill="var(--ig-steel)" />
+      </g>
+    </svg>
+
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-lg border border-cream-dark bg-surface-raised p-4 dark:border-dark-border dark:bg-dark-surface">
+        <p class="font-mono text-2xl font-semibold text-brass dark:text-dark-brass" style="font-variant-numeric: lining-nums;">{s.m1Year}</p>
+        <p class="mt-1 text-sm leading-relaxed text-ink dark:text-dark-text">{s.m1Text}</p>
+        <a
+          href={SRC_FHH}
+          rel="noopener noreferrer"
+          target="_blank"
+          class="mt-2 inline-block text-xs text-steel underline decoration-dotted underline-offset-2 hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+        >
+          {s.srcFhh}
+        </a>
+      </div>
+      <div class="rounded-lg border border-cream-dark bg-surface-raised p-4 dark:border-dark-border dark:bg-dark-surface">
+        <p class="font-mono text-2xl font-semibold text-brass dark:text-dark-brass" style="font-variant-numeric: lining-nums;">{s.m2Year}</p>
+        <p class="mt-1 text-sm leading-relaxed text-ink dark:text-dark-text">{s.m2Text}</p>
+        <a
+          href={SRC_SMG}
+          rel="noopener noreferrer"
+          target="_blank"
+          class="mt-2 inline-block text-xs text-steel underline decoration-dotted underline-offset-2 hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+        >
+          {s.srcSmg}
+        </a>
+      </div>
+    </div>
+
+    <p class="mt-4 rounded-lg border-l-4 border-[#9B2C2C] bg-white p-3 text-sm leading-relaxed text-ink-soft dark:bg-dark-surface dark:text-dark-text-soft">
+      {s.limitNote}
+    </p>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft/90 dark:text-dark-text-soft/70">{s.scopeNote}</p>
+  </div>
+
+  {/* ===== Lớp 3 — sơ đồ nguyên lý SVG tương tác ===== */}
+  <div class="mt-10 rounded-xl border border-cream-dark bg-surface-raised p-4 dark:border-dark-border dark:bg-dark-surface sm:p-6">
+    <h2 class="font-serif text-xl font-semibold text-navy dark:text-dark-text sm:text-2xl">{s.principleTitle}</h2>
+
+    <svg
+      viewBox="0 0 640 360"
+      class="bhc-svg mx-auto mt-4 w-full max-w-2xl"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {/* Nền hình */}
+      <rect x="0" y="0" width="640" height="360" rx="10" style="fill:var(--ig-bg)" />
+
+      {/* Nhãn (ẩn dưới 640px — thông tin đầy đủ ở legend HTML dưới hình) */}
+      <g class="bhc-lb" style="fill:var(--ig-text)" font-size="15">
+        <text x="52" y="86">{s.svgLabels.moving}</text>
+        <text x="30" y="250">{s.svgLabels.balance}</text>
+        <text x="462" y="178">{s.svgLabels.stud}</text>
+        <text x="470" y="300">{s.svgLabels.spring}</text>
+      </g>
+      <g class="bhc-lb" stroke="var(--ig-stroke-soft)" stroke-width="1" stroke-dasharray="3 3" fill="none">
+        <line x1="120" y1="94" x2="306" y2="120" />
+        <line x1="100" y1="242" x2="206" y2="220" />
+        <line x1="468" y1="168" x2="396" y2="152" />
+        <line x1="470" y1="292" x2="398" y2="258" />
+      </g>
+
+      {/* Giá đỡ (balance-cock, tĩnh): cánh tay thanh từ góc trên phải xuống
+          điểm gắn cố định của đầu ngoài dây tóc. Đầu vít + khối ghim dùng
+          --ig-steel (có đủ giá trị sáng/tối trong global.css) + viền halo màu
+          nền SVG để tách khỏi cánh tay liền kề. */}
+      <g>
+        <line x1="544" y1="56" x2="390" y2="149" style="stroke:var(--ig-edge)" stroke-width="11" stroke-linecap="round" />
+        <circle cx="544" cy="56" r="9" style="fill:var(--ig-steel);stroke:var(--ig-bg);stroke-width:2" />
+        <rect x="376" y="140" width="15" height="17" rx="3" style="fill:var(--ig-steel);stroke:var(--ig-bg);stroke-width:2" />
+      </g>
+
+      {/* Bánh lắc — nhóm quay (data-bhc-rot) */}
+      <g data-bhc-rot>
+        <circle cx="320" cy="215" r="108" style="fill:none;stroke:var(--ig-edge)" stroke-width="8" />
+        <line x1="212" y1="215" x2="428" y2="215" style="stroke:var(--ig-steel-soft)" stroke-width="5" />
+        <line x1="320" y1="107" x2="320" y2="323" style="stroke:var(--ig-steel-soft)" stroke-width="5" />
+        <circle cx="396" cy="139" r="7" style="fill:var(--ig-steel)" />
+        <circle cx="396" cy="291" r="7" style="fill:var(--ig-steel)" />
+        <circle cx="244" cy="139" r="7" style="fill:var(--ig-steel)" />
+        <circle cx="244" cy="291" r="7" style="fill:var(--ig-steel)" />
+        {/* Chấm đồng đánh dấu góc quay */}
+        <circle cx="320" cy="127" r="7" style="fill:var(--obs-brass)" />
+        {/* Trục bánh lắc — --ig-steel + viền halo màu nền để tách khỏi nan hoa */}
+        <circle cx="320" cy="215" r="11" style="fill:var(--ig-steel);stroke:var(--ig-bg);stroke-width:2" />
+      </g>
+
+      {/* Dây tóc — đầu trong quay cùng bánh lắc, đầu ngoài ghim tại điểm cố định */}
+      <path data-bhc-spring d={SPRING_STATIC} style="fill:none;stroke:var(--ig-steel)" stroke-width="1.6" />
+      {/* Collet: đầu trong tại trục (quay theo — vẽ lại theo pha trong script) */}
+      <circle data-bhc-collet cx="336" cy="215" r="5" style="fill:var(--ig-steel);stroke:var(--ig-bg);stroke-width:2" />
+
+      {/* Vòng chân kính dưới trục */}
+      <circle cx="320" cy="215" r="4" style="fill:var(--ig-rubi)" />
+    </svg>
+
+    {/* Legend HTML — bản chữ thật của hình (SVG aria-hidden) */}
+    <ul class="mt-4 grid gap-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft sm:grid-cols-2">
+      {s.legend.map((item) => (
+        <li class="flex gap-2">
+          <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brass dark:bg-dark-brass" aria-hidden="true"></span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+
+    {/* Điều khiển — khởi tạo tĩnh, không tự phát */}
+    <div
+      class="mt-5 flex flex-wrap items-center gap-2 rounded-lg border border-cream-dark bg-cream-dark/20 p-3 dark:border-dark-border dark:bg-dark-border/20"
+      role="group"
+      aria-label={s.controlsLabel}
+    >
+      <button
+        type="button"
+        data-bhc-action="static"
+        class="flex min-h-11 items-center rounded-full border border-navy px-4 text-sm font-medium text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+      >
+        {s.btnStatic}
+      </button>
+      <button
+        type="button"
+        data-bhc-action="play"
+        aria-pressed="false"
+        class="flex min-h-11 items-center rounded-full bg-navy px-5 text-sm font-medium text-cream transition-colors hover:bg-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:hover:bg-dark-brass"
+      >
+        {s.btnPlay}
+      </button>
+      <button
+        type="button"
+        data-bhc-action="pause"
+        class="flex min-h-11 items-center rounded-full border border-navy px-4 text-sm font-medium text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+      >
+        {s.btnPause}
+      </button>
+      <button
+        type="button"
+        data-bhc-action="step"
+        class="flex min-h-11 items-center rounded-full border border-navy px-4 text-sm font-medium text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
+      >
+        {s.btnStep}
+      </button>
+      <button
+        type="button"
+        data-bhc-action="reset"
+        class="flex min-h-11 items-center rounded-full border border-cream-dark px-4 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+      >
+        {s.btnReset}
+      </button>
+
+      {/* Hiển thị trạng thái (aria-live) */}
+      <p data-bhc-status role="status" aria-live="polite" class="ml-auto min-h-11 px-2 text-sm font-medium text-navy dark:text-dark-text"></p>
+    </div>
+
+    <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{s.keyCaption}</p>
+    <p class="mt-1 text-xs italic leading-relaxed text-ink-soft/80 dark:text-dark-text-soft/70">{s.modelNote}</p>
+  </div>
+
+  {/* ===== Đọc tiếp — route thật theo ngôn ngữ, không tạo trang lịch sử EN giả ===== */}
+  <p class="mt-8 text-sm text-ink-soft dark:text-dark-text-soft">
+    <span class="font-medium text-navy dark:text-dark-text">{s.readNextLabel}</span>
+    {' — '}
+    {s.readNext.map((link, i) => (
+      <>
+        <a
+          href={link.href}
+          class="text-steel underline decoration-dotted underline-offset-2 hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+        >
+          {link.label}
+        </a>
+        {i < s.readNext.length - 1 && <span aria-hidden="true"> · </span>}
+      </>
+    ))}
+  </p>
+</section>
+
+<style>
+  /* Nhãn trong SVG: ẩn trên màn hẹp (chữ quá nhỏ khi co theo viewBox) —
+     thông tin tên bộ phận luôn có ở legend HTML ngay dưới hình.
+     Cả hai quy tắc dùng :global để cùng độ ưu tiên, quy tắc @media đứng sau
+     sẽ thắng từ 640px trở lên. */
+  :global(.bhc-svg .bhc-lb) {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    :global(.bhc-svg .bhc-lb) {
+      display: initial;
+    }
+  }
+</style>
+
+<script>
+  // ===== Điều khiển chương Bánh lắc – dây tóc (G04-B) =====
+  // Trạng thái: 'static' (tư thế tĩnh ban đầu) / 'playing' / 'paused'.
+  // - Phát: vòng rAF duy nhất, tự tạm dừng khi rời viewport hoặc tab ẩn
+  //   (KHÔNG tự phát lại — người dùng bấm Phát).
+  // - Bước: tiến đúng 1/12 dao động; nếu đang phát thì tự tạm dừng trước.
+  // - Tĩnh: về tư thế tĩnh ban đầu, giữ bộ đếm dao động đang hiển thị.
+  // - Đặt lại: về trạng thái đầu, bộ đếm về 0.
+  // - prefers-reduced-motion: chặn chuyển động liên tục (kể cả bật giữa phiên);
+  //   Bước rời rạc vẫn hoạt động.
+  const roots = document.querySelectorAll<HTMLElement>('[data-bhc-root]');
+
+  roots.forEach((root) => {
+    const rot = root.querySelector<SVGGElement>('[data-bhc-rot]');
+    const spring = root.querySelector<SVGPathElement>('[data-bhc-spring]');
+    const collet = root.querySelector<SVGCircleElement>('[data-bhc-collet]');
+    const statusEl = root.querySelector<HTMLElement>('[data-bhc-status]');
+    const playBtn = root.querySelector<HTMLButtonElement>('[data-bhc-action="play"]');
+    if (!rot || !spring || !collet || !statusEl || !playBtn) return;
+
+    const lang = root.dataset.bhcLang === 'en' ? 'en' : 'vi';
+    const msg =
+      lang === 'en'
+        ? {
+            status: { static: 'Status: Static', playing: 'Status: Playing', paused: 'Status: Paused' },
+            osc: (n: number) => ` · oscillation ${n}`,
+            vib: (v: number) => ` · vibration ${v}/2`,
+            rm: 'Reduced motion is on: continuous animation stays off — use Step to view one phase at a time.',
+            hidden: 'out of view or tab hidden — press Play to resume.',
+          }
+        : {
+            status: { static: 'Trạng thái: Tĩnh', playing: 'Trạng thái: Đang phát', paused: 'Trạng thái: Tạm dừng' },
+            osc: (n: number) => ` · dao động thứ ${n}`,
+            vib: (v: number) => ` · lần rung ${v}/2`,
+            rm: 'Đã bật giảm chuyển động: chuyển động liên tục tắt — bấm Bước để xem từng pha.',
+            hidden: 'rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại.',
+          };
+
+    const CX = 320;
+    const CY = 215;
+    const AMP = 40; // biên độ quay (độ) của mô hình giản lược
+    const STEP = 1 / 12; // mỗi lần Bước = 1/12 dao động (pha xác định)
+    const PERIOD_MS = 4000; // phát chậm: 4 giây một dao động đầy đủ
+    const A_STUD = -Math.PI / 4; // góc điểm gắn cố định (đầu ngoài dây tóc)
+    const N_COILS = 5; // số vòng xoắn cơ bản — PHẢI NGUYÊN để đầu ngoài ghim
+    const R_IN = 16; // đầu trong (collet) — quay cùng bánh lắc
+    const R_OUT = 92; // đầu ngoài — gắn điểm cố định
+    const WIND_K = Math.PI; // biên độ phối lại vòng xoắn ở giữa lò xo (max nửa vòng)
+
+    let phase = 0; // pha trong dao động hiện tại, LUÔN thuộc [0,1)
+    let oscBase = 0; // số dao động ĐÃ HOÀN THÀNH (Đặt mới về 0; Tĩnh giữ nguyên)
+    let state: 'static' | 'playing' | 'paused' = 'static';
+    let rafId: number | null = null;
+    let lastTs = 0;
+    let note: string | null = null;
+
+    const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // (arrow const sau guard — TypeScript giữ narrowing cho biến const trong closure)
+    const angleAt = (p: number): number => AMP * Math.sin(2 * Math.PI * p);
+
+    // Dây tóc — mô hình giản lược HAI ĐẦU GHIM (vòng sửa TXN-20260912-23):
+    //   đầu trong tại góc quay hiện tại (gắn phần quay, radius R_IN);
+    //   đầu ngoài LUÔN tại A_STUD vì độ quét là A_STUD − phi + 2*pi*N_COILS với
+    //   N_COILS NGUYÊN không đổi (đầu = phi + độ quét ≡ A_STUD mọi pha).
+    //   Hiệu ứng co/giãn do số vòng thay đổi theo pha (công thức cũ) làm đầu
+    //   ngoài trôi khỏi giá đỡ — thay bằng phát phối lại vòng xoắn ở GIỮA lò
+    //   xo: thành phần WIND_K*w*sin(pi*t) triệt tiêu tại cả hai đầu (g(0)=g(1)=0)
+    //   nên hai đầu giữ ghim, vòng giữa nén/dãn theo pha.
+    const springPath = (p: number): string => {
+      const phi = (angleAt(p) * Math.PI) / 180;
+      const w = Math.sin(2 * Math.PI * p);
+      const sweep = A_STUD - phi + 2 * Math.PI * N_COILS;
+      const N = 72;
+      let d = '';
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        const a = phi + t * sweep + WIND_K * w * Math.sin(Math.PI * t);
+        const r = R_IN + (R_OUT - R_IN) * t;
+        d += (i === 0 ? 'M ' : ' L ') + (CX + r * Math.cos(a)).toFixed(1) + ' ' + (CY + r * Math.sin(a)).toFixed(1);
+      }
+      return d;
+    };
+
+    const render = () => {
+      const deg = angleAt(phase).toFixed(2);
+      rot.setAttribute('transform', `rotate(${deg} ${CX} ${CY})`);
+      spring.setAttribute('d', springPath(phase));
+      const phi = (angleAt(phase) * Math.PI) / 180;
+      collet.setAttribute('cx', (CX + 16 * Math.cos(phi)).toFixed(1));
+      collet.setAttribute('cy', (CY + 16 * Math.sin(phi)).toFixed(1));
+    };
+
+    const renderStatus = () => {
+      const vib = Math.floor(phase * 2) % 2 === 0 ? 1 : 2;
+      const osc = oscBase + Math.floor(phase) + 1;
+      statusEl.textContent = msg.status[state] + msg.osc(osc) + msg.vib(vib) + (note ? ' — ' + note : '');
+    };
+
+    const stopLoop = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    const syncPlayUi = () => {
+      playBtn.setAttribute('aria-pressed', String(state === 'playing'));
+    };
+
+    const loop = (ts: number) => {
+      if (state !== 'playing') {
+        rafId = null;
+        return;
+      }
+      phase += (ts - lastTs) / PERIOD_MS;
+      lastTs = ts;
+      // Gói phần tròn vào oscBase để phase luôn [0,1) — Tĩnh/Đặt lại không
+      // làm mất các dao động đã tích lũy khi Phát (lỗi vòng 1: chỉ Bước gói)
+      oscBase += Math.floor(phase);
+      phase %= 1;
+      render();
+      renderStatus();
+      rafId = requestAnimationFrame(loop);
+    };
+
+    const play = () => {
+      // Giảm chuyển động: không khởi động chuyển động liên tục — chỉ nhắc dùng Bước
+      if (reduceMq.matches) {
+        note = msg.rm;
+        renderStatus();
+        return;
+      }
+      note = null;
+      state = 'playing';
+      lastTs = performance.now();
+      syncPlayUi();
+      renderStatus();
+      if (rafId === null) rafId = requestAnimationFrame(loop);
+    };
+
+    const pauseByLeave = () => {
+      // Rời viewport/tab ẩn khi đang phát → dừng thật, KHÔNG tự phát lại
+      if (state !== 'playing') return;
+      stopLoop();
+      state = 'paused';
+      note = msg.hidden;
+      syncPlayUi();
+      renderStatus();
+    };
+
+    const doStatic = () => {
+      stopLoop();
+      phase = 0; // về tư thế tĩnh đầu; oscBase GIỮ NGUYÊN — đếm tiếp tục khi phát lại
+      state = 'static';
+      note = null;
+      syncPlayUi();
+      render();
+      renderStatus();
+    };
+
+    const doReset = () => {
+      stopLoop();
+      phase = 0;
+      oscBase = 0;
+      state = 'static';
+      note = null;
+      syncPlayUi();
+      render();
+      renderStatus();
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('[data-bhc-action]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        switch (btn.dataset.bhcAction) {
+          case 'play':
+            play();
+            break;
+          case 'pause':
+            if (state === 'playing') {
+              stopLoop();
+              state = 'paused';
+              note = null;
+              syncPlayUi();
+              renderStatus();
+            }
+            break;
+          case 'step':
+            // Bước rời rạc: dùng được cả khi giảm chuyển động
+            if (state === 'playing') {
+              stopLoop();
+              state = 'paused';
+              note = null;
+              syncPlayUi();
+            }
+            if (state === 'static') state = 'paused';
+            phase += STEP;
+            oscBase += Math.floor(phase); // tràn sang dao động kế
+            phase = phase % 1;
+            render();
+            renderStatus();
+            break;
+          case 'static':
+            doStatic();
+            break;
+          case 'reset':
+            doReset();
+            break;
+        }
+      });
+    });
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => !e.isIntersecting)) pauseByLeave();
+      },
+      { threshold: 0 }
+    );
+    io.observe(root);
+
+    const onVisibility = () => {
+      if (document.hidden) pauseByLeave();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    const onRmChange = () => {
+      // Đổi preference GIỮA PHIÊN khi đang phát → dừng chuyển động liên tục thật
+      if (reduceMq.matches && state === 'playing') {
+        stopLoop();
+        state = 'paused';
+        note = msg.rm;
+        syncPlayUi();
+        renderStatus();
+      }
+    };
+    reduceMq.addEventListener('change', onRmChange);
+
+    // Vòng đời trang: rời trang chỉ DỪNG vòng lặp và đóng băng — KHÔNG gỡ
+    // listener/observer. Trang tĩnh sống chết cùng tài liệu nên không có rò
+    // rỉ, còn trình duyệt có thể phục hồi trang từ bfcache: giữ nguyên cơ chế
+    // (dừng khi ẩn, điều khiển) là điều kiện để sau khi phục hồi mọi nút và
+    // cơ chế dừng vẫn hoạt động (vòng sửa TXN-20260912-23).
+    const onPageHide = () => {
+      if (state === 'playing') {
+        stopLoop();
+        state = 'paused';
+        syncPlayUi();
+        renderStatus();
+      } else {
+        stopLoop();
+      }
+    };
+    const onPageShow = () => {
+      // Phục hồi từ bfcache: vẽ lại tư thế + trạng thái theo state đã lưu
+      render();
+      renderStatus();
+      syncPlayUi();
+    };
+    window.addEventListener('pagehide', onPageHide);
+    window.addEventListener('pageshow', onPageShow);
+
+    // Khởi tạo tĩnh — đúng tư thế khi JS tắt
+    render();
+    renderStatus();
+    syncPlayUi();
+  });
+</script>

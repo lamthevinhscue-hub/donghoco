@@ -1,0 +1,25 @@
+{
+  "thoiGian": "2026-09-12T15:36:08.883Z",
+  "ghiChu": "bước 2-3 là mô phỏng sự kiện bằng script; bước 1 là điều hướng thật",
+  "thu": {
+    "quayLai": {
+      "conTrangThai": true,
+      "statusQuayLai": "Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2",
+      "phatDuoc": true,
+      "statusSauPhat": "Trạng thái: Đang phát · dao động thứ 1 · lần rung 1/2"
+    },
+    "tabAnMoPhong": {
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại.",
+      "dungThat": true
+    },
+    "pageshowMoPhong": {
+      "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2 — rời màn hình hoặc tab bị ẩn — bấm Phát để phát lại.",
+      "conTrangThai": true
+    },
+    "phatLai": {
+      "chay": true,
+      "status": "Trạng thái: Đang phát · dao động thứ 1 · lần rung 1/2"
+    }
+  },
+  "tatDat": true
+}

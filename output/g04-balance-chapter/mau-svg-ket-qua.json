@@ -1,0 +1,192 @@
+{
+  "thoiGian": "2026-09-12T16:11:22.527Z",
+  "phap": [
+    {
+      "route": "vi",
+      "theme": "sang",
+      "datTheme": true,
+      "chiTiet": {
+        "dauVit": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "khoiGhim": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "truc": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "collet": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "nen": [
+          250,
+          247,
+          242
+        ]
+      }
+    },
+    {
+      "route": "vi",
+      "theme": "toi",
+      "datTheme": true,
+      "chiTiet": {
+        "dauVit": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "khoiGhim": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "truc": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "collet": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "nen": [
+          32,
+          39,
+          45
+        ]
+      }
+    },
+    {
+      "route": "en",
+      "theme": "sang",
+      "datTheme": true,
+      "chiTiet": {
+        "dauVit": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "khoiGhim": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "truc": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "collet": {
+          "fill": "rgb(74, 85, 104)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 7.04,
+          "halo": true,
+          "stroke": "rgb(250, 247, 242)"
+        },
+        "nen": [
+          250,
+          247,
+          242
+        ]
+      }
+    },
+    {
+      "route": "en",
+      "theme": "toi",
+      "datTheme": true,
+      "chiTiet": {
+        "dauVit": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "khoiGhim": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "truc": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "collet": {
+          "fill": "rgb(140, 153, 166)",
+          "coMau": true,
+          "khacDen": true,
+          "tuongPhanNen": 5.2,
+          "halo": true,
+          "stroke": "rgb(32, 39, 45)"
+        },
+        "nen": [
+          32,
+          39,
+          45
+        ]
+      }
+    }
+  ],
+  "shots": [
+    "output/g04-balance-chapter/shots/svg-vi-1440-sang.png",
+    "output/g04-balance-chapter/shots/svg-vi-1440-toi.png",
+    "output/g04-balance-chapter/shots/svg-vi-320-sang.png",
+    "output/g04-balance-chapter/shots/svg-vi-320-toi.png",
+    "output/g04-balance-chapter/shots/svg-en-1440-sang.png",
+    "output/g04-balance-chapter/shots/svg-en-1440-toi.png",
+    "output/g04-balance-chapter/shots/svg-en-320-sang.png",
+    "output/g04-balance-chapter/shots/svg-en-320-toi.png"
+  ],
+  "tatDat": true
+}

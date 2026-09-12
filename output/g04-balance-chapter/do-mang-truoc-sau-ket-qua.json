@@ -1,0 +1,733 @@
+{
+  "thoiGian": "2026-09-12T15:28:05.118Z",
+  "phap": [
+    {
+      "pha": "truoc",
+      "nguon": "worktree 234fa26 (dist nền)",
+      "route": "vi",
+      "url": "http://localhost:4327/co-che/day-toc-banh-lac/",
+      "soRequestLocal": 9,
+      "soRequestNgoai": 15,
+      "tongByteLocal": 218314,
+      "byteNullLocal": 0,
+      "theoLoai": {
+        "document": 78599,
+        "document_null": 0,
+        "stylesheet": 110295,
+        "stylesheet_null": 0,
+        "script": 29420,
+        "script_null": 0
+      },
+      "requestLoi": [
+        {
+          "url": "http://localhost:4327/_vercel/insights/script.js",
+          "status": 404
+        }
+      ],
+      "byteKhongLayDuoc": [],
+      "chiTiet": [
+        {
+          "url": "http://localhost:4327/co-che/day-toc-banh-lac/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 78599,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/_slug_.DFRY94Q3.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6215,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/ban-quyen.Cgmb62Oh.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48548,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.BSF1ch-T.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 6700,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/index.Cl1R1067.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55532,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.DbV4SqDq.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "contentLength": "344",
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.ByYIA-8S.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.DX0x34b4.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        }
+      ],
+      "taiNguyenNgoai": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "status": 200,
+          "bodyBytes": 6493,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+          "status": 200,
+          "bodyBytes": 11532,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12176,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+          "status": 200,
+          "bodyBytes": 13056,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 21892,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22032,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2",
+          "status": 200,
+          "bodyBytes": 27248,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2",
+          "status": 200,
+          "bodyBytes": 86608,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "status": 200,
+          "bodyBytes": 132000,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12172,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 13548,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "status": 200,
+          "bodyBytes": 21168,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 13852,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22152,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12468,
+          "byteLayDuoc": true
+        }
+      ],
+      "cls": 0.0105
+    },
+    {
+      "pha": "truoc",
+      "nguon": "worktree 234fa26 (dist nền)",
+      "route": "en",
+      "url": "http://localhost:4327/en/mechanisms/balance-and-hairspring/",
+      "soRequestLocal": 9,
+      "soRequestNgoai": 7,
+      "tongByteLocal": 192727,
+      "byteNullLocal": 0,
+      "theoLoai": {
+        "document": 53012,
+        "document_null": 0,
+        "stylesheet": 110295,
+        "stylesheet_null": 0,
+        "script": 29420,
+        "script_null": 0
+      },
+      "requestLoi": [
+        {
+          "url": "http://localhost:4327/_vercel/insights/script.js",
+          "status": 404
+        }
+      ],
+      "byteKhongLayDuoc": [],
+      "chiTiet": [
+        {
+          "url": "http://localhost:4327/en/mechanisms/balance-and-hairspring/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 53012,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/_slug_.DFRY94Q3.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6215,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.BSF1ch-T.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 6700,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/ban-quyen.Cgmb62Oh.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48548,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/index.Cl1R1067.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55532,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.DbV4SqDq.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "contentLength": "344",
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.ByYIA-8S.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_astro/hoisted.DX0x34b4.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4327/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "contentLength": null,
+          "ngoai": false
+        }
+      ],
+      "taiNguyenNgoai": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "status": 200,
+          "bodyBytes": 6493,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12172,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 21892,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22032,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "status": 200,
+          "bodyBytes": 21168,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22152,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "status": 200,
+          "bodyBytes": 132000,
+          "byteLayDuoc": true
+        }
+      ],
+      "cls": 0.1032
+    },
+    {
+      "pha": "sau",
+      "nguon": "working tree bản sửa G04-B (dist vòng sửa)",
+      "route": "vi",
+      "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+      "soRequestLocal": 10,
+      "soRequestNgoai": 15,
+      "tongByteLocal": 304819,
+      "byteNullLocal": 0,
+      "theoLoai": {
+        "document": 73699,
+        "stylesheet": 111059,
+        "image": 87456,
+        "script": 32605
+      },
+      "requestLoi": [
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404
+        }
+      ],
+      "byteKhongLayDuoc": [],
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 73699,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6305,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55869,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bodyBytes": 87456,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.Du3n0O5a.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 9885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "ngoai": false
+        }
+      ],
+      "taiNguyenNgoai": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "status": 200,
+          "bodyBytes": 6493,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2",
+          "status": 200,
+          "bodyBytes": 11532,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm87Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 13548,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12172,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw5BXoKZA.woff2",
+          "status": 200,
+          "bodyBytes": 13056,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12176,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439HyjJBG.woff2",
+          "status": 200,
+          "bodyBytes": 27248,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "status": 200,
+          "bodyBytes": 21168,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 21892,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22032,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12468,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG87Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 13852,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22152,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK439DyjJBG.woff2",
+          "status": 200,
+          "bodyBytes": 86608,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "status": 200,
+          "bodyBytes": 132000,
+          "byteLayDuoc": true
+        }
+      ],
+      "cls": 0.0307,
+      "ghiChu": "đo lại sau vòng sửa màu TXN-20260912-25 (HTML đổi do thuộc tính stroke halo)"
+    },
+    {
+      "pha": "sau",
+      "nguon": "working tree bản sửa G04-B (dist vòng sửa)",
+      "route": "en",
+      "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+      "soRequestLocal": 10,
+      "soRequestNgoai": 7,
+      "tongByteLocal": 299343,
+      "byteNullLocal": 0,
+      "theoLoai": {
+        "document": 68223,
+        "stylesheet": 111059,
+        "image": 87456,
+        "script": 32605
+      },
+      "requestLoi": [
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404
+        }
+      ],
+      "byteKhongLayDuoc": [],
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+          "status": 200,
+          "type": "document",
+          "bodyBytes": 68223,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 6305,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 55869,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bodyBytes": 48885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bodyBytes": 87456,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.Du3n0O5a.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 9885,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.SUk_D_44.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 344,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DAq-WSBG.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 4645,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.CWbabvD0.js",
+          "status": 200,
+          "type": "script",
+          "bodyBytes": 17731,
+          "byteLayDuoc": true,
+          "ngoai": false
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bodyBytes": 0,
+          "byteLayDuoc": true,
+          "ngoai": false
+        }
+      ],
+      "taiNguyenNgoai": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap",
+          "status": 200,
+          "bodyBytes": 6493,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm86Rb0bcw.woff2",
+          "status": 200,
+          "bodyBytes": 12172,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HTEJm81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 21892,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HToIW81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22032,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2",
+          "status": 200,
+          "bodyBytes": 21168,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIG81Rb0.woff2",
+          "status": 200,
+          "bodyBytes": 22152,
+          "byteLayDuoc": true
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2",
+          "status": 200,
+          "bodyBytes": 132000,
+          "byteLayDuoc": true
+        }
+      ],
+      "cls": 0.0164,
+      "ghiChu": "đo lại sau vòng sửa màu TXN-20260912-25 (HTML đổi do thuộc tính stroke halo)"
+    }
+  ],
+  "tongHop": [
+    {
+      "route": "vi",
+      "soRequestLocal": "9 → 10",
+      "tongByteLocal": "218314 → 304819",
+      "chenhTheLoai": {
+        "document": "78599 → 73579 (-5020)",
+        "stylesheet": "110295 → 111059 (+764)",
+        "script": "29420 → 32605 (+3185)",
+        "image": "0 → 87456 (+87456)"
+      }
+    },
+    {
+      "route": "en",
+      "soRequestLocal": "9 → 10",
+      "tongByteLocal": "192727 → 299343",
+      "chenhTheLoai": {
+        "document": "53012 → 68103 (+15091)",
+        "stylesheet": "110295 → 111059 (+764)",
+        "script": "29420 → 32605 (+3185)",
+        "image": "0 → 87456 (+87456)"
+      }
+    }
+  ]
+}

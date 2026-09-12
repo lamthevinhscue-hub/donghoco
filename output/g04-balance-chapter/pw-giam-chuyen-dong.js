@@ -1,0 +1,109 @@
+// Reduced-motion + rời viewport + tab ẩn — so transform/path của CHÍNH bộ phận
+// chuyển động (data-bhc-rot / data-bhc-spring) qua nhiều mẫu thời gian.
+async (page) => {
+  const BASE = 'http://localhost:4321';
+  const URL = BASE + '/co-che/day-toc-banh-lac/';
+  const doi = (ms) => page.waitForTimeout(ms);
+  const mau = () => page.evaluate(() => ({
+    transform: document.querySelector('[data-bhc-rot]').getAttribute('transform'),
+    d: document.querySelector('[data-bhc-spring]').getAttribute('d').length + ':' + document.querySelector('[data-bhc-spring]').getAttribute('d').slice(-30),
+    status: document.querySelector('[data-bhc-status]').textContent,
+    pressed: document.querySelector('[data-bhc-action="play"]').getAttribute('aria-pressed'),
+  }));
+  const bam = (action) => page.locator(`[data-bhc-action="${action}"]`).click();
+
+  const kq = { thoiGian: new Date().toISOString(), thu: {} };
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  // ===== 1) RM bật TRƯỚC khi tải: Phát KHÔNG tạo chuyển động liên tục; Bước chạy =====
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(URL, { waitUntil: 'load' });
+  await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+  await bam('play');
+  const r1 = await mau(); await doi(500); const r2 = await mau(); await doi(500); const r3 = await mau();
+  kq.thu.rmTruoc = {
+    dungThat: r1.transform === r2.transform && r2.transform === r3.transform && r1.d === r2.d && r2.d === r3.d,
+    status: r3.status,
+    mauGiongNhau: [r1.transform, r2.transform, r3.transform],
+  };
+  await bam('step');
+  const r4 = await mau(); await doi(400); const r5 = await mau();
+  kq.thu.rmBuoc = {
+    thayDoiHuuHan: r3.transform !== r4.transform,
+    dungSau: r4.transform === r5.transform && r4.d === r5.d,
+    truoc: r3.transform, sau: r4.transform,
+    status: r5.status,
+  };
+
+  // ===== 2) Đang phát rồi bật RM GIỮA PHIÊN → dừng chuyển động liên tục thật =====
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.reload({ waitUntil: 'load' });
+  await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+  await doi(300);
+  const rmTruocPhat = await page.evaluate(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  await bam('play');
+  await doi(500);
+  const p1 = await mau();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await doi(150);
+  const p2 = await mau(); await doi(500); const p3 = await mau(); await doi(500); const p4 = await mau();
+  kq.thu.rmGiuaPhien = {
+    rmTruocPhat,
+    p1: p1.transform, p2: p2.transform, p3: p3.transform, p4: p4.transform,
+    dangTruocDoi: p1.transform !== p2.transform,
+    dungSauKhiBật: p2.transform === p3.transform && p3.transform === p4.transform && p2.d === p3.d && p3.d === p4.d,
+    status: p4.status,
+  };
+
+  // ===== 3) Đang phát → cuộn chương ra ngoài viewport → dừng; quay lại KHÔNG tự phát =====
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.reload({ waitUntil: 'load' });
+  await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+  await bam('play');
+  await doi(400);
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await doi(500);
+  const v1 = await mau(); await doi(500); const v2 = await mau();
+  kq.thu.roiViewport = {
+    statusNgoai: v1.status,
+    dungThat: v1.transform === v2.transform && v1.d === v2.d,
+  };
+  await page.evaluate(() => document.querySelector('[data-bhc-root]').scrollIntoView());
+  await doi(700);
+  const v3 = await mau(); await doi(500); const v4 = await mau();
+  kq.thu.troLaiViewport = {
+    khongTuPhat: v3.transform === v4.transform && v3.d === v4.d,
+    status: v4.status,
+  };
+  // người dùng chủ động bấm Phát lại → chạy tiếp
+  await bam('play');
+  const v5 = await mau(); await doi(400); const v6 = await mau();
+  kq.thu.phatLaiThuCong = { chay: v5.transform !== v6.transform, status: v6.status };
+
+  // ===== 4) MÔ PHỎNG SỰ KIỆN tab ẩn (defineProperty document.hidden + phát visibilitychange bằng script — KHÔNG phải chuyển tab thật): đang phát → dừng; hiện lại không tự phát =====
+  await page.reload({ waitUntil: 'load' });
+  await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+  await bam('play');
+  await doi(400);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await doi(400);
+  const t1 = await mau(); await doi(500); const t2 = await mau();
+  kq.thu.tabAnMoPhong = { ghiChu: 'mô phỏng sự kiện bằng script', status: t1.status, dungThat: t1.transform === t2.transform && t1.d === t2.d };
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => false });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await doi(600);
+  const t3 = await mau(); await doi(500); const t4 = await mau();
+  kq.thu.tabHienLaiMoPhong = { ghiChu: 'mô phỏng sự kiện bằng script', khongTuPhat: t3.transform === t4.transform && t3.d === t4.d, status: t4.status };
+  // dọn get override để trang về trạng thái thường
+  await page.evaluate(() => { delete document.hidden; });
+
+  kq.tatDat = kq.thu.rmTruoc.dungThat && kq.thu.rmBuoc.thayDoiHuuHan && kq.thu.rmBuoc.dungSau &&
+    kq.thu.rmGiuaPhien.dungSauKhiBật && kq.thu.roiViewport.dungThat && kq.thu.troLaiViewport.khongTuPhat &&
+    kq.thu.phatLaiThuCong.chay && kq.thu.tabAnMoPhong.dungThat && kq.thu.tabHienLaiMoPhong.khongTuPhat;
+  return kq;
+}

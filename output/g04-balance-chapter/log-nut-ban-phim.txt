@@ -1,0 +1,97 @@
+### Result
+{"thoiGian":"2026-09-12T15:36:56.511Z","moTruong":"astro preview cục bộ","phap":[{"route":"vi","url":"http://localhost:4321/co-che/day-toc-banh-lac/","thu":{"khoiTao":{"transform":"rotate(0.00 320 215)","dDau":"M 336.0 215.0 L 335.5 222.0 L 331.9 228.","d":"M 336.0 215.0 L 335.5 222.0 L 331.9 228.6 L 325.6 233.3 L 317.4 235.0 L 308.8 233.1 L 301.4 227.4 L 296.9 218.8 L 296.4 208.7 L 300.3 198.8 L 308.3 191.2 L 319.1 187.4 L 331.0 188.5 L 341.7 194.7 L 349.1 205.1 L 351.7 218.1 L 348.5 231.4 L 339.8 242.6 L 326.8 249.3 L 311.8 250.1 L 297.4 244.4 L 286.3 233.0 L 280.9 217.6 L 282.3 200.8 L 290.8 185.8 L 305.1 175.3 L 322.8 171.6 L 341.0 175.8 L 356.1 187.3 L 365.4 204.4 L 366.8 224.3 L 359.6 243.4 L 344.9 258.1 L 325.0 265.6 L 303.3 264.1 L 283.8 253.6 L 270.1 235.7 L 265.0 213.2 L 269.7 190.2 L 283.7 170.8 L 304.9 158.8 L 329.7 156.5 L 353.5 164.8 L 372.1 182.6 L 381.9 206.8 L 380.8 233.4 L 368.5 257.6 L 347.1 274.8 L 320.0 281.7 L 292.1 276.7 L 268.3 260.3 L 253.2 235.3 L 249.7 205.7 L 258.9 177.0 L 279.4 154.3 L 307.9 141.9 L 339.4 142.4 L 368.3 156.1 L 389.3 180.8 L 398.2 212.4 L 393.3 245.4 L 375.0 273.7 L 346.2 292.1 L 311.9 297.1 L 278.2 287.4 L 251.2 264.3 L 236.0 231.7 L 235.5 195.3 L 250.4 161.6 L 278.1 136.7 L 314.1 125.3 L 352.0 129.9 L 385.1 149.9","status":"Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2","pressed":"false","roiVat":"rotate(0.00 320 215)"},"phat":{"m1":"rotate(0.00 320 215)","m2":"rotate(24.79 320 215)","m3":"rotate(39.02 320 215)","doiBit":true,"dayTocThayDoi":true,"status":"Trạng thái: Đang phát · dao động thứ 1 · lần rung 1/2","pressed":"true"},"tamDung":{"dungY":true,"status":"Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2","pressed":"false","pha":"rotate(39.43 320 215)"},"buoc1":{"thayDoi":true,"status":"Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2"},"buoc12":{"status":"Trạng thái: Tạm dừng · dao động thứ 2 · lần rung 1/2"},"tinh":{"veGoc":true,"status":"Trạng thái: Tĩnh · dao động thứ 2 · lần rung 1/2"},"datLai":{"veGoc":true,"status":"Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2","pressed":"false"},"banPhimEnter":{"focus":"step","thayDoi":true,"status":"Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2"},"banPhimTab":{"shiftTabToi":"pause","tabVeLai":"step"}}},{"route":"en","url":"http://localhost:4321/en/mechanisms/balance-and-hairspring/","thu":{"khoiTao":{"transform":"rotate(0.00 320 215)","dDau":"M 336.0 215.0 L 335.5 222.0 L 331.9 228.","d":"M 336.0 215.0 L 335.5 222.0 L 331.9 228.6 L 325.6 233.3 L 317.4 235.0 L 308.8 233.1 L 301.4 227.4 L 296.9 218.8 L 296.4 208.7 L 300.3 198.8 L 308.3 191.2 L 319.1 187.4 L 331.0 188.5 L 341.7 194.7 L 349.1 205.1 L 351.7 218.1 L 348.5 231.4 L 339.8 242.6 L 326.8 249.3 L 311.8 250.1 L 297.4 244.4 L 286.3 233.0 L 280.9 217.6 L 282.3 200.8 L 290.8 185.8 L 305.1 175.3 L 322.8 171.6 L 341.0 175.8 L 356.1 187.3 L 365.4 204.4 L 366.8 224.3 L 359.6 243.4 L 344.9 258.1 L 325.0 265.6 L 303.3 264.1 L 283.8 253.6 L 270.1 235.7 L 265.0 213.2 L 269.7 190.2 L 283.7 170.8 L 304.9 158.8 L 329.7 156.5 L 353.5 164.8 L 372.1 182.6 L 381.9 206.8 L 380.8 233.4 L 368.5 257.6 L 347.1 274.8 L 320.0 281.7 L 292.1 276.7 L 268.3 260.3 L 253.2 235.3 L 249.7 205.7 L 258.9 177.0 L 279.4 154.3 L 307.9 141.9 L 339.4 142.4 L 368.3 156.1 L 389.3 180.8 L 398.2 212.4 L 393.3 245.4 L 375.0 273.7 L 346.2 292.1 L 311.9 297.1 L 278.2 287.4 L 251.2 264.3 L 236.0 231.7 L 235.5 195.3 L 250.4 161.6 L 278.1 136.7 L 314.1 125.3 L 352.0 129.9 L 385.1 149.9","status":"Status: Static · oscillation 1 · vibration 1/2","pressed":"false","roiVat":"rotate(0.00 320 215)"},"phat":{"m1":"rotate(0.00 320 215)","m2":"rotate(24.82 320 215)","m3":"rotate(39.03 320 215)","doiBit":true,"dayTocThayDoi":true,"status":"Status: Playing · oscillation 1 · vibration 1/2","pressed":"true"},"tamDung":{"dungY":true,"status":"Status: Paused · oscillation 1 · vibration 1/2","pressed":"false","pha":"rotate(39.43 320 215)"},"buoc1":{"thayDoi":true,"status":"Status: Paused · oscillation 1 · vibration 1/2"},"buoc12":{"status":"Status: Paused · oscillation 2 · vibration 1/2"},"tinh":{"veGoc":true,"status":"Status: Static · oscillation 2 · vibration 1/2"},"datLai":{"veGoc":true,"status":"Status: Static · oscillation 1 · vibration 1/2","pressed":"false"},"banPhimEnter":{"focus":"step","thayDoi":true,"status":"Status: Paused · oscillation 1 · vibration 1/2"},"banPhimTab":{"shiftTabToi":"pause","tabVeLai":"step"}}}]}
+### Ran Playwright code
+```js
+await (// Thử từng nút điều khiển bằng chuột và bàn phím trên cả 2 route.
+// Chứng minh chuyển động thật: đọc attr transform của nhóm bánh lắc và attr d
+// của dây tóc ở các mẫu thời gian — không suy từ aria-pressed.
+async (page) => {
+  const BASE = 'http://localhost:4321';
+  const ketqua = { thoiGian: new Date().toISOString(), moTruong: 'astro preview cục bộ', phap: [] };
+
+  const layTrangThai = () => page.evaluate(() => {
+    const root = document.querySelector('[data-bhc-root]');
+    const rot = root.querySelector('[data-bhc-rot]');
+    const spring = root.querySelector('[data-bhc-spring]');
+    return {
+      transform: rot.getAttribute('transform'),
+      dDau: spring.getAttribute('d').slice(0, 40),
+      d: spring.getAttribute('d'),
+      status: root.querySelector('[data-bhc-status]').textContent,
+      pressed: root.querySelector('[data-bhc-action="play"]').getAttribute('aria-pressed'),
+    };
+  });
+
+  const bam = (action) => page.locator(`[data-bhc-root] [data-bhc-action="${action}"]`).click();
+  const doi = (ms) => page.waitForTimeout(ms);
+
+  for (const r of [{ lang: 'vi', url: BASE + '/co-che/day-toc-banh-lac/' }, { lang: 'en', url: BASE + '/en/mechanisms/balance-and-hairspring/' }]) {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(r.url, { waitUntil: 'load' });
+    await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+    await doi(300);
+    const p = { route: r.lang, url: r.url, thu: {} };
+
+    // 0) khởi tạo tĩnh
+    p.thu.khoiTao = { ...(await layTrangThai()), roiVat: await page.evaluate(() => document.querySelector('[data-bhc-root]').querySelector('[data-bhc-rot]').getAttribute('transform')) };
+
+    // 1) Phát — 3 mẫu thời gian phải khác nhau (chuyển động thật của SVG)
+    await bam('play');
+    const m1 = await layTrangThai(); await doi(420); const m2 = await layTrangThai(); await doi(420); const m3 = await layTrangThai();
+    p.thu.phat = {
+      m1: m1.transform, m2: m2.transform, m3: m3.transform,
+      doiBit: m1.transform !== m2.transform && m2.transform !== m3.transform,
+      dayTocThayDoi: m1.d !== m2.d && m2.d !== m3.d,
+      status: m3.status, pressed: m3.pressed,
+    };
+
+    // 2) Tạm dừng — đóng băng tại pha hiện tại
+    await bam('pause');
+    const d1 = await layTrangThai(); await doi(500); const d2 = await layTrangThai();
+    p.thu.tamDung = { dungY: d1.transform === d2.transform && d1.d === d2.d, status: d2.status, pressed: d2.pressed, pha: d1.transform };
+
+    // 3) Bước — tiến một pha hữu hạn, xác định
+    const truocStep = await layTrangThai();
+    await bam('step');
+    const sauStep = await layTrangThai();
+    p.thu.buoc1 = { thayDoi: truocStep.transform !== sauStep.transform, status: sauStep.status };
+
+    // 4) Bước ×11 nữa → tròn một dao động (12 pha)
+    for (let i = 0; i < 11; i++) await bam('step');
+    const sau12 = await layTrangThai();
+    p.thu.buoc12 = { status: sau12.status };
+
+    // 5) Tĩnh — về tư thế đầu, GIỮ bộ đếm
+    await bam('static');
+    const sauTinh = await layTrangThai();
+    p.thu.tinh = { veGoc: sauTinh.transform === p.thu.khoiTao.roiVat, status: sauTinh.status };
+
+    // 6) Phát rồi Đặt lại — về trạng thái đầu, bộ đếm về 0
+    await bam('play'); await doi(600);
+    await bam('reset');
+    const sauReset = await layTrangThai();
+    p.thu.datLai = { veGoc: sauReset.transform === p.thu.khoiTao.roiVat, status: sauReset.status, pressed: sauReset.pressed };
+
+    // 7) Bàn phím: Tab tới nút Bước rồi Enter — pha phải tiến hữu hạn
+    await bam('static');
+    const stepBtn = page.locator(`[data-bhc-root] [data-bhc-action="step"]`);
+    await stepBtn.focus();
+    const fTruoc = await layTrangThai();
+    await page.keyboard.press('Enter');
+    const fSau = await layTrangThai();
+    p.thu.banPhimEnter = { focus: await page.evaluate(() => document.activeElement?.getAttribute('data-bhc-action')), thayDoi: fTruoc.transform !== fSau.transform, status: fSau.status };
+    // Tab giữa các nút điều khiển — focus di chuyển trong nhóm
+    await page.keyboard.press('Shift+Tab');
+    const tab1 = await page.evaluate(() => document.activeElement?.getAttribute('data-bhc-action'));
+    await page.keyboard.press('Tab');
+    const tab2 = await page.evaluate(() => document.activeElement?.getAttribute('data-bhc-action'));
+    p.thu.banPhimTab = { shiftTabToi: tab1, tabVeLai: tab2 };
+
+    ketqua.phap.push(p);
+  }
+  return ketqua;
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-09-12T15-22-10-226Z.log#L151-L154

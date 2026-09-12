@@ -1,0 +1,46 @@
+{
+  "thoiGian": "2026-09-12T15:35:53.418Z",
+  "quyUoc": "\"dao động thứ n\" = đang ở lần thứ n (đã hoàn thành n−1); \"dao động thứ 1\" = đã hoàn thành 0",
+  "thu": {
+    "a": {
+      "truocTinh": {
+        "status": "Trạng thái: Tạm dừng · dao động thứ 3 · lần rung 1/2",
+        "daoDong": 3,
+        "tf": "rotate(39.92 320 215)"
+      },
+      "sauTinh": {
+        "status": "Trạng thái: Tĩnh · dao động thứ 3 · lần rung 1/2",
+        "daoDong": 3,
+        "tf": "rotate(0.00 320 215)"
+      },
+      "giuDem": true,
+      "veTuTheDau": true
+    },
+    "b": {
+      "status": "Trạng thái: Tạm dừng · dao động thứ 3 · lần rung 1/2",
+      "dungY": true,
+      "tuTheDoi": true
+    },
+    "c": {
+      "sau26Buoc": {
+        "status": "Trạng thái: Tạm dừng · dao động thứ 5 · lần rung 1/2",
+        "daoDong": 5
+      },
+      "sauTinh": {
+        "status": "Trạng thái: Tĩnh · dao động thứ 5 · lần rung 1/2",
+        "daoDong": 5,
+        "giuDem": true
+      },
+      "phatTiep": {
+        "status": "Trạng thái: Đang phát · dao động thứ 5 · lần rung 1/2",
+        "chay": true
+      }
+    },
+    "d": {
+      "status": "Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2",
+      "daoDong": 1,
+      "tf": "rotate(0.00 320 215)"
+    }
+  },
+  "tatDat": true
+}

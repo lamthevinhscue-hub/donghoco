@@ -6,8 +6,11 @@
 // Chạy trong `npm run check`. Quét đúng 10 bài vi/en của cụm:
 //
 //   R1. 6 bài EN (5 nội dung + 1 trang legacy tương thích) frontmatter hợp lệ
-//       (custom_slug khớp slug tệp; has_infographic/interactive = false;
-//       enum category/difficulty; ≥2 nguồn HTTPS).
+//       (custom_slug khớp slug tệp; hai cờ has_infographic/interactive theo
+//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring
+//       phải true theo quyết định GPT Work ở vòng sửa G04-B
+//       TXN-20260912-23 vì có chương tương tác riêng; enum category/difficulty;
+//       ≥2 nguồn HTTPS).
 //   R2. Đủ 3 cặp route mới trong src/i18n/contentRoutes.ts.
 //   R3. Mọi liên kết nội bộ bắt buộc cụm (vi + en) có trong bài và đích tồn tại;
 //       trang legacy /en/glossary/escapement/ phải trỏ tới /en/glossary/escape-wheel/.
@@ -153,6 +156,12 @@ const FRONTMATTER_RULES = {
   'src/content/tuDien/en/escapement.md': ['category', 'infographic', 'interactive'],
 };
 
+// G04-B (TXN-20260912-23, quyết định GPT Work): DUY NHẤT bài EN
+// balance-and-hairspring có chương tương tác riêng (nhánh G04-B trong
+// MechanismArticle) → hai cờ phải là true. Các bài EN khác vẫn false.
+// R1 không được bỏ kiểm cờ và không miễn nguyên tệp khỏi R1.
+const FLAG_TRUE_FILES = new Set(['src/content/coChe/en/balance-and-hairspring.md']);
+
 const ROUTE_PAIRS = [
   { vi: '/co-che/day-toc-banh-lac', en: '/en/mechanisms/balance-and-hairspring/' },
   { vi: '/tu-dien/banh-thoat', en: '/en/glossary/escape-wheel/' },
@@ -221,18 +230,21 @@ for (const [f, slug] of Object.entries(EN_SLUGS)) {
     const diff = fm.match(/^difficulty:\s*"?([^"\n]+)"?/m)?.[1];
     if (!diff || !VALID_DIFFICULTIES.includes(diff)) fail('R1', f, 0, `difficulty không hợp lệ: ${diff}`);
   }
-  if (rules.includes('infographic') && !/^has_infographic:\s*false/m.test(fm)) {
-    fail('R1', f, 0, 'has_infographic phải là false');
+  const flagTrue = FLAG_TRUE_FILES.has(f);
+  const expectInfo = flagTrue ? 'true' : 'false';
+  const expectInter = flagTrue ? 'true' : 'false';
+  if (rules.includes('infographic') && !new RegExp(`^has_infographic:[ \\t]*${expectInfo}`, 'm').test(fm)) {
+    fail('R1', f, 0, `has_infographic phải là ${expectInfo}`);
   }
-  if (rules.includes('interactive') && !/^interactive:\s*false/m.test(fm)) {
-    fail('R1', f, 0, 'interactive phải là false');
+  if (rules.includes('interactive') && !new RegExp(`^interactive:[ \\t]*${expectInter}`, 'm').test(fm)) {
+    fail('R1', f, 0, `interactive phải là ${expectInter}`);
   }
   const sourceUrls = [...fm.matchAll(/url:\s*"(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
   const https = sourceUrls.filter((u) => u.startsWith('https://'));
   if (https.length < 2) fail('R1', f, 0, `chỉ ${https.length} nguồn HTTPS (tối thiểu 2)`);
 }
 if (!errors.some((e) => e.includes('[R1]'))) {
-  report.push('6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)');
+  report.push('6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, cờ theo quy tắc từng tệp, enum, ≥2 nguồn HTTPS)');
 }
 
 // ===== R2: 3 cặp route mới =====

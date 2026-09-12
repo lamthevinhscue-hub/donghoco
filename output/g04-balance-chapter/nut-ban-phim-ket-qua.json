@@ -1,0 +1,114 @@
+{
+  "thoiGian": "2026-09-12T15:36:56.511Z",
+  "moTruong": "astro preview cục bộ",
+  "phap": [
+    {
+      "route": "vi",
+      "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+      "thu": {
+        "khoiTao": {
+          "transform": "rotate(0.00 320 215)",
+          "dDau": "M 336.0 215.0 L 335.5 222.0 L 331.9 228.",
+          "d": "M 336.0 215.0 L 335.5 222.0 L 331.9 228.6 L 325.6 233.3 L 317.4 235.0 L 308.8 233.1 L 301.4 227.4 L 296.9 218.8 L 296.4 208.7 L 300.3 198.8 L 308.3 191.2 L 319.1 187.4 L 331.0 188.5 L 341.7 194.7 L 349.1 205.1 L 351.7 218.1 L 348.5 231.4 L 339.8 242.6 L 326.8 249.3 L 311.8 250.1 L 297.4 244.4 L 286.3 233.0 L 280.9 217.6 L 282.3 200.8 L 290.8 185.8 L 305.1 175.3 L 322.8 171.6 L 341.0 175.8 L 356.1 187.3 L 365.4 204.4 L 366.8 224.3 L 359.6 243.4 L 344.9 258.1 L 325.0 265.6 L 303.3 264.1 L 283.8 253.6 L 270.1 235.7 L 265.0 213.2 L 269.7 190.2 L 283.7 170.8 L 304.9 158.8 L 329.7 156.5 L 353.5 164.8 L 372.1 182.6 L 381.9 206.8 L 380.8 233.4 L 368.5 257.6 L 347.1 274.8 L 320.0 281.7 L 292.1 276.7 L 268.3 260.3 L 253.2 235.3 L 249.7 205.7 L 258.9 177.0 L 279.4 154.3 L 307.9 141.9 L 339.4 142.4 L 368.3 156.1 L 389.3 180.8 L 398.2 212.4 L 393.3 245.4 L 375.0 273.7 L 346.2 292.1 L 311.9 297.1 L 278.2 287.4 L 251.2 264.3 L 236.0 231.7 L 235.5 195.3 L 250.4 161.6 L 278.1 136.7 L 314.1 125.3 L 352.0 129.9 L 385.1 149.9",
+          "status": "Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2",
+          "pressed": "false",
+          "roiVat": "rotate(0.00 320 215)"
+        },
+        "phat": {
+          "m1": "rotate(0.00 320 215)",
+          "m2": "rotate(24.79 320 215)",
+          "m3": "rotate(39.02 320 215)",
+          "doiBit": true,
+          "dayTocThayDoi": true,
+          "status": "Trạng thái: Đang phát · dao động thứ 1 · lần rung 1/2",
+          "pressed": "true"
+        },
+        "tamDung": {
+          "dungY": true,
+          "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2",
+          "pressed": "false",
+          "pha": "rotate(39.43 320 215)"
+        },
+        "buoc1": {
+          "thayDoi": true,
+          "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2"
+        },
+        "buoc12": {
+          "status": "Trạng thái: Tạm dừng · dao động thứ 2 · lần rung 1/2"
+        },
+        "tinh": {
+          "veGoc": true,
+          "status": "Trạng thái: Tĩnh · dao động thứ 2 · lần rung 1/2"
+        },
+        "datLai": {
+          "veGoc": true,
+          "status": "Trạng thái: Tĩnh · dao động thứ 1 · lần rung 1/2",
+          "pressed": "false"
+        },
+        "banPhimEnter": {
+          "focus": "step",
+          "thayDoi": true,
+          "status": "Trạng thái: Tạm dừng · dao động thứ 1 · lần rung 1/2"
+        },
+        "banPhimTab": {
+          "shiftTabToi": "pause",
+          "tabVeLai": "step"
+        }
+      }
+    },
+    {
+      "route": "en",
+      "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+      "thu": {
+        "khoiTao": {
+          "transform": "rotate(0.00 320 215)",
+          "dDau": "M 336.0 215.0 L 335.5 222.0 L 331.9 228.",
+          "d": "M 336.0 215.0 L 335.5 222.0 L 331.9 228.6 L 325.6 233.3 L 317.4 235.0 L 308.8 233.1 L 301.4 227.4 L 296.9 218.8 L 296.4 208.7 L 300.3 198.8 L 308.3 191.2 L 319.1 187.4 L 331.0 188.5 L 341.7 194.7 L 349.1 205.1 L 351.7 218.1 L 348.5 231.4 L 339.8 242.6 L 326.8 249.3 L 311.8 250.1 L 297.4 244.4 L 286.3 233.0 L 280.9 217.6 L 282.3 200.8 L 290.8 185.8 L 305.1 175.3 L 322.8 171.6 L 341.0 175.8 L 356.1 187.3 L 365.4 204.4 L 366.8 224.3 L 359.6 243.4 L 344.9 258.1 L 325.0 265.6 L 303.3 264.1 L 283.8 253.6 L 270.1 235.7 L 265.0 213.2 L 269.7 190.2 L 283.7 170.8 L 304.9 158.8 L 329.7 156.5 L 353.5 164.8 L 372.1 182.6 L 381.9 206.8 L 380.8 233.4 L 368.5 257.6 L 347.1 274.8 L 320.0 281.7 L 292.1 276.7 L 268.3 260.3 L 253.2 235.3 L 249.7 205.7 L 258.9 177.0 L 279.4 154.3 L 307.9 141.9 L 339.4 142.4 L 368.3 156.1 L 389.3 180.8 L 398.2 212.4 L 393.3 245.4 L 375.0 273.7 L 346.2 292.1 L 311.9 297.1 L 278.2 287.4 L 251.2 264.3 L 236.0 231.7 L 235.5 195.3 L 250.4 161.6 L 278.1 136.7 L 314.1 125.3 L 352.0 129.9 L 385.1 149.9",
+          "status": "Status: Static · oscillation 1 · vibration 1/2",
+          "pressed": "false",
+          "roiVat": "rotate(0.00 320 215)"
+        },
+        "phat": {
+          "m1": "rotate(0.00 320 215)",
+          "m2": "rotate(24.82 320 215)",
+          "m3": "rotate(39.03 320 215)",
+          "doiBit": true,
+          "dayTocThayDoi": true,
+          "status": "Status: Playing · oscillation 1 · vibration 1/2",
+          "pressed": "true"
+        },
+        "tamDung": {
+          "dungY": true,
+          "status": "Status: Paused · oscillation 1 · vibration 1/2",
+          "pressed": "false",
+          "pha": "rotate(39.43 320 215)"
+        },
+        "buoc1": {
+          "thayDoi": true,
+          "status": "Status: Paused · oscillation 1 · vibration 1/2"
+        },
+        "buoc12": {
+          "status": "Status: Paused · oscillation 2 · vibration 1/2"
+        },
+        "tinh": {
+          "veGoc": true,
+          "status": "Status: Static · oscillation 2 · vibration 1/2"
+        },
+        "datLai": {
+          "veGoc": true,
+          "status": "Status: Static · oscillation 1 · vibration 1/2",
+          "pressed": "false"
+        },
+        "banPhimEnter": {
+          "focus": "step",
+          "thayDoi": true,
+          "status": "Status: Paused · oscillation 1 · vibration 1/2"
+        },
+        "banPhimTab": {
+          "shiftTabToi": "pause",
+          "tabVeLai": "step"
+        }
+      }
+    }
+  ]
+}

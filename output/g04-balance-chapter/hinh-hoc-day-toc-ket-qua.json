@@ -1,0 +1,327 @@
+{
+  "thoiGian": "2026-09-12T15:35:49.300Z",
+  "stud": [
+    385.1,
+    149.9
+  ],
+  "lechPhaNhoNhat": 0,
+  "lechPhat": 0,
+  "dauKhapColletMoiPha": true,
+  "khongGay": true,
+  "lechDuBaoCongThucCu": 183.2,
+  "batDuocCongThucCu": true,
+  "tatDat": true,
+  "mauPha": [
+    {
+      "pha": 0,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 24.6,
+      "doDaiNhoNhat": 7.02
+    },
+    {
+      "pha": 1,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.1,
+      "doDaiNhoNhat": 8.05
+    },
+    {
+      "pha": 2,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 30.8,
+      "doDaiNhoNhat": 8.84
+    },
+    {
+      "pha": 3,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.9,
+      "doDaiNhoNhat": 9.08
+    },
+    {
+      "pha": 4,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 30.8,
+      "doDaiNhoNhat": 8.84
+    },
+    {
+      "pha": 5,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.1,
+      "doDaiNhoNhat": 8.05
+    },
+    {
+      "pha": 6,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 24.6,
+      "doDaiNhoNhat": 7.02
+    },
+    {
+      "pha": 7,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.6,
+      "doDaiNhoNhat": 6.07
+    },
+    {
+      "pha": 8,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.7,
+      "doDaiNhoNhat": 5.22
+    },
+    {
+      "pha": 9,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 32.8,
+      "doDaiNhoNhat": 5.02
+    },
+    {
+      "pha": 10,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.7,
+      "doDaiNhoNhat": 5.22
+    },
+    {
+      "pha": 11,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.6,
+      "doDaiNhoNhat": 6.07
+    },
+    {
+      "pha": 12,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 24.6,
+      "doDaiNhoNhat": 7.02
+    },
+    {
+      "pha": 13,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.1,
+      "doDaiNhoNhat": 8.05
+    },
+    {
+      "pha": 14,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 30.8,
+      "doDaiNhoNhat": 8.84
+    },
+    {
+      "pha": 15,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.9,
+      "doDaiNhoNhat": 9.08
+    },
+    {
+      "pha": 16,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 30.8,
+      "doDaiNhoNhat": 8.84
+    },
+    {
+      "pha": 17,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.1,
+      "doDaiNhoNhat": 8.05
+    },
+    {
+      "pha": 18,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 24.6,
+      "doDaiNhoNhat": 7.02
+    },
+    {
+      "pha": 19,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.6,
+      "doDaiNhoNhat": 6.07
+    },
+    {
+      "pha": 20,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.7,
+      "doDaiNhoNhat": 5.22
+    },
+    {
+      "pha": 21,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 32.8,
+      "doDaiNhoNhat": 5.02
+    },
+    {
+      "pha": 22,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 31.7,
+      "doDaiNhoNhat": 5.22
+    },
+    {
+      "pha": 23,
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0,
+      "dauKhopCollet": true,
+      "rTangDonDieu": true,
+      "gocLonNhatDeg": 28.6,
+      "doDaiNhoNhat": 6.07
+    }
+  ],
+  "mauPhat": [
+    {
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0
+    },
+    {
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0
+    },
+    {
+      "cuoi": [
+        385.1,
+        149.9
+      ],
+      "lechStud": 0
+    }
+  ]
+}

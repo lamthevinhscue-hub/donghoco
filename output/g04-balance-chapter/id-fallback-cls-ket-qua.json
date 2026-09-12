@@ -1,0 +1,80 @@
+{
+  "thoiGian": "2026-09-12T15:37:20.953Z",
+  "phap": {
+    "vi-coldload": {
+      "soRequestLocal": 2,
+      "tongByteLocal": 73579,
+      "requests": [
+        {
+          "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+          "status": 200,
+          "type": "document",
+          "bytes": 73579
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bytes": 0
+        }
+      ],
+      "anh": [],
+      "cls": {
+        "cls": 0,
+        "logs": []
+      }
+    },
+    "en-coldload": {
+      "soRequestLocal": 2,
+      "tongByteLocal": 68103,
+      "requests": [
+        {
+          "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+          "status": 200,
+          "type": "document",
+          "bytes": 68103
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bytes": 0
+        }
+      ],
+      "anh": [],
+      "cls": {
+        "cls": 0,
+        "logs": []
+      }
+    },
+    "vi-id": {
+      "soId": 29,
+      "trung": [],
+      "urlRefs": [],
+      "refThieu": []
+    },
+    "en-id": {
+      "soId": 27,
+      "trung": [],
+      "urlRefs": [],
+      "refThieu": []
+    },
+    "fallbackAnhLoi": {
+      "anhAn": true,
+      "boxHien": true,
+      "chuThich": "Minh họa AI tái dựng — không phải ảnh tư liệu"
+    },
+    "khongJs": {
+      "coChuong": true,
+      "coDuongXoanTinh": true,
+      "soLegend": 4,
+      "soNut": 5,
+      "anh": true,
+      "h2": [
+        "Từ con lắc đến bánh lắc – dây tóc",
+        "Nguyên lý: bánh lắc và dây tóc cùng nhau"
+      ]
+    }
+  },
+  "tatDat": true
+}

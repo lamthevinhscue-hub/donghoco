@@ -4,11 +4,11 @@ custom_slug: "balance-and-hairspring"
 excerpt: "The oscillating wheel and the fine spring that together divide time into strictly equal parts — and what determines the duration of each swing, per FHH."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: false
-interactive: false
+has_infographic: true
+interactive: true
 date: "2026-09-04"
 draft: false
-updated: "2026-09-04"
+updated: "2026-09-12"
 
 relatedModels: []
 

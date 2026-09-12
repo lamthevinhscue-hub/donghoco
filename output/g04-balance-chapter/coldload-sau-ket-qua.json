@@ -1,0 +1,149 @@
+{
+  "thoiGian": "2026-09-12T14:33:15.332Z",
+  "phap": {
+    "vi": {
+      "soRequestLocal": 10,
+      "tongByteLocal": 304669,
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/co-che/day-toc-banh-lac/",
+          "status": 200,
+          "type": "document",
+          "bytes": 73596
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 48885
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 6305
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DDssamkX.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 9838
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bytes": 87456
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 55869
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DbV4SqDq.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 344
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DX0x34b4.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 17731
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.ByYIA-8S.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 4645
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bytes": 0
+        }
+      ],
+      "anh": {
+        "complete": true,
+        "w": 1200,
+        "h": 675
+      },
+      "soRequestTatCa": 25
+    },
+    "en": {
+      "soRequestLocal": 10,
+      "tongByteLocal": 299178,
+      "chiTiet": [
+        {
+          "url": "http://localhost:4321/en/mechanisms/balance-and-hairspring/",
+          "status": 200,
+          "type": "document",
+          "bytes": 68105
+        },
+        {
+          "url": "http://localhost:4321/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg",
+          "status": 200,
+          "type": "image",
+          "bytes": 87456
+        },
+        {
+          "url": "http://localhost:4321/_astro/ban-quyen.JCfVF3vO.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 48885
+        },
+        {
+          "url": "http://localhost:4321/_astro/index.DW2_qSIC.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 55869
+        },
+        {
+          "url": "http://localhost:4321/_astro/_slug_.DnFbWJND.css",
+          "status": 200,
+          "type": "stylesheet",
+          "bytes": 6305
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DDssamkX.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 9838
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DbV4SqDq.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 344
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.ByYIA-8S.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 4645
+        },
+        {
+          "url": "http://localhost:4321/_astro/hoisted.DX0x34b4.js",
+          "status": 200,
+          "type": "script",
+          "bytes": 17731
+        },
+        {
+          "url": "http://localhost:4321/_vercel/insights/script.js",
+          "status": 404,
+          "type": "script",
+          "bytes": 0
+        }
+      ],
+      "anh": {
+        "complete": true,
+        "w": 1200,
+        "h": 675
+      },
+      "soRequestTatCa": 17
+    }
+  }
+}

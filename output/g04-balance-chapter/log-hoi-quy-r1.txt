@@ -1,0 +1,7 @@
+ĐẠT  C0 nguyên trạng — checker phải PASS — exit=0, bắt R1=false
+ĐẠT  C1 bài đích has_infographic:false — R1 phải BẮT — exit=1, bắt R1=true
+ĐẠT  C2 bài đích interactive:false — R1 phải BẮT — exit=1, bắt R1=true
+ĐẠT  C3 bài EN khác (escapement) interactive:true — R1 phải BẮT — exit=1, bắt R1=true
+ĐẠT  C4 bài EN khác (escapement) has_infographic:true — R1 phải BẮT — exit=1, bắt R1=true
+Khôi phục xong — checker nguyên trạng PASS: true
+TẤT CẢ CA ĐẠT

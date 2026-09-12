@@ -11,7 +11,7 @@ draft: false
 relatedModels:
   - slug: "laurent-ferrier-galet-classic"
     relation: "Mẫu Laurent Ferrier Galet Classic có bài riêng trên site — chi tiết về mẫu nằm ở bài đó; bài này không mô tả cấu tạo bộ máy của mẫu"
-updated: "2026-09-04"
+updated: "2026-09-12"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Balance (bộ điều tiết, oscillation/vibration)"
@@ -22,9 +22,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/escapement"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Hai bộ phận, một vai trò
 

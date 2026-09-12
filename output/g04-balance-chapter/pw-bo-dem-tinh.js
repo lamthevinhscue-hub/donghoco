@@ -1,0 +1,72 @@
+// Chuỗi bộ đếm (vòng sửa TXN-20260912-23): thống nhất lưu số chu kỳ.
+// Quy ước hiển thị: "dao động thứ n" = đang ở lần thứ n (đã hoàn thành n−1).
+//   a) Phát ≥2 chu kỳ → Tạm dừng → Tĩnh: Tĩnh giữ đếm đang hiển thị, về tư thế đầu
+//   b) Phát → Bước (tự tạm dừng, tiến hữu hạn)
+//   c) Bước nhiều chu kỳ (26 bước ≈ 2,17 dao động) → Tĩnh → Phát (tiếp từ đếm)
+//   d) Đặt lại: về "dao động thứ 1" (đã hoàn thành 0) + tư thế đầu
+async (page) => {
+  const URL = 'http://localhost:4321/co-che/day-toc-banh-lac/';
+  const bam = (a) => page.locator(`[data-bhc-action="${a}"]`).click();
+  const trangThai = () => page.evaluate(() => ({
+    status: document.querySelector('[data-bhc-status]').textContent,
+    tf: document.querySelector('[data-bhc-rot]').getAttribute('transform'),
+  }));
+  const doi = (ms) => page.waitForTimeout(ms);
+  const soDaoDong = (s) => Number(s.match(/dao động thứ (\d+)/)?.[1] ?? -1);
+
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(URL, { waitUntil: 'load' });
+  await page.locator('[data-bhc-root]').scrollIntoViewIfNeeded();
+  await bam('reset');
+  const kq = { thoiGian: new Date().toISOString(), quyUoc: '"dao động thứ n" = đang ở lần thứ n (đã hoàn thành n−1); "dao động thứ 1" = đã hoàn thành 0', thu: {} };
+
+  // a) Phát 9 giây (2,25 chu kỳ ở 4s/chu kỳ) → Tạm dừng → Tĩnh
+  await bam('play');
+  await doi(9000);
+  await bam('pause');
+  const a1 = await trangThai();
+  await bam('static');
+  const a2 = await trangThai();
+  kq.thu.a = {
+    truocTinh: { status: a1.status, daoDong: soDaoDong(a1.status), tf: a1.tf },
+    sauTinh: { status: a2.status, daoDong: soDaoDong(a2.status), tf: a2.tf },
+    giuDem: soDaoDong(a2.status) === soDaoDong(a1.status) && soDaoDong(a2.status) >= 3,
+    veTuTheDau: a2.tf === 'rotate(0.00 320 215)',
+  };
+
+  // b) Phát → Bước
+  await bam('play');
+  await doi(700);
+  await bam('step');
+  const b1 = await trangThai();
+  await doi(400);
+  const b2 = await trangThai();
+  kq.thu.b = { status: b1.status, dungY: b1.tf === b2.tf, tuTheDoi: b1.tf !== a2.tf };
+
+  // c) Bước 26 lần (≈2,17 dao động) → Tĩnh → Phát tiếp
+  for (let i = 0; i < 26; i++) await bam('step');
+  const c1 = await trangThai();
+  await bam('static');
+  const c2 = await trangThai();
+  await bam('play');
+  await doi(500);
+  const c3 = await trangThai();
+  await bam('pause');
+  kq.thu.c = {
+    sau26Buoc: { status: c1.status, daoDong: soDaoDong(c1.status) },
+    sauTinh: { status: c2.status, daoDong: soDaoDong(c2.status), giuDem: soDaoDong(c2.status) === soDaoDong(c1.status) },
+    phatTiep: { status: c3.status, chay: c3.tf !== c2.tf },
+  };
+
+  // d) Đặt lại
+  await bam('reset');
+  const d1 = await trangThai();
+  kq.thu.d = { status: d1.status, daoDong: soDaoDong(d1.status), tf: d1.tf };
+
+  kq.tatDat =
+    kq.thu.a.giuDem && kq.thu.a.veTuTheDau &&
+    kq.thu.b.dungY && kq.thu.b.tuTheDoi &&
+    kq.thu.c.sauTinh.giuDem && kq.thu.c.phatTiep.chay &&
+    kq.thu.d.daoDong === 1 && kq.thu.d.tf === 'rotate(0.00 320 215)';
+  return kq;
+}

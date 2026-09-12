@@ -1,0 +1,41 @@
+{
+  "thoiGian": "2026-09-12T08:03:08.597Z",
+  "beaconProduction": [],
+  "beaconPreview": {
+    "requests": [
+      {
+        "url": "http://localhost:4321/_vercel/insights/script.js",
+        "method": "GET"
+      }
+    ],
+    "responses": [
+      {
+        "url": "http://localhost:4321/_vercel/insights/script.js",
+        "status": 404
+      }
+    ]
+  },
+  "blocker": [
+    {
+      "beme": "Google Search Console",
+      "urlYeuCau": "https://search.google.com/search-console",
+      "urlCuoi": "https://search.google.com/search-console/about",
+      "tieuDeTrang": "Google Search Console",
+      "ghiChu": "Context không có phiên đăng nhập — không thử đăng nhập, không dùng cookie/session có sẵn"
+    },
+    {
+      "beme": "Google Analytics",
+      "urlYeuCau": "https://analytics.google.com/",
+      "urlCuoi": "https://accounts.google.com/v3/signin/identifier",
+      "tieuDeTrang": "Google Analytics",
+      "ghiChu": "Context không có phiên đăng nhập — không thử đăng nhập, không dùng cookie/session có sẵn"
+    },
+    {
+      "beme": "Vercel dashboard",
+      "urlYeuCau": "https://vercel.com/dashboard",
+      "urlCuoi": "https://vercel.com/login",
+      "tieuDeTrang": "Login – Vercel",
+      "ghiChu": "Context không có phiên đăng nhập — không thử đăng nhập, không dùng cookie/session có sẵn"
+    }
+  ]
+}

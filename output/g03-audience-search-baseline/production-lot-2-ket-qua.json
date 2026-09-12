@@ -1,0 +1,27 @@
+{
+  "thoiGian": "2026-09-12T08:23:17.388Z",
+  "ghiChu": "Truy cập mức xem công khai, không đăng nhập, không cookie/session; lắng nghe request Analytics trong 8 giây mỗi domain; 1 lượt mỗi domain (giới hạn số lượt kiểm đã ghi trong biên bản)",
+  "cacDomain": [
+    {
+      "domain": "https://www.kienthucdonghoco.vn",
+      "httpTrangChu": 200,
+      "canonical": "https://www.kienthucdonghoco.vn/",
+      "scriptAnalyticsTrongHtml": false,
+      "requestAnalytics": [],
+      "consoleLoi": [
+        {
+          "loai": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 ()"
+        }
+      ]
+    },
+    {
+      "domain": "https://donghoco1.vercel.app",
+      "httpTrangChu": 200,
+      "canonical": "https://www.kienthucdonghoco.vn/",
+      "scriptAnalyticsTrongHtml": false,
+      "requestAnalytics": [],
+      "consoleLoi": []
+    }
+  ]
+}

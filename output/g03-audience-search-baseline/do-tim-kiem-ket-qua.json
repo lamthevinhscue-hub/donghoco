@@ -1,0 +1,46 @@
+{
+  "thoiGian": "2026-09-12T08:06:02.492Z",
+  "moiTruong": "astro preview cục bộ, dist build nền 02309e6",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "phap": [
+    {
+      "lang": "vi",
+      "truyVan": "bộ thoát",
+      "url": "http://localhost:4321/",
+      "thoiGian": "2026-09-12T08:06:02.992Z",
+      "lanTaiDau": {
+        "ms": 452,
+        "soKetQua": 8
+      },
+      "lanTiep1": {
+        "ms": 222,
+        "soKetQua": 8
+      },
+      "lanTiep2": {
+        "ms": 223,
+        "soKetQua": 8
+      }
+    },
+    {
+      "lang": "en",
+      "truyVan": "escapement",
+      "url": "http://localhost:4321/en/",
+      "thoiGian": "2026-09-12T08:06:04.986Z",
+      "lanTaiDau": {
+        "ms": 326,
+        "soKetQua": 8
+      },
+      "lanTiep1": {
+        "ms": 204,
+        "soKetQua": 8
+      },
+      "lanTiep2": {
+        "ms": 219,
+        "soKetQua": 8
+      }
+    }
+  ]
+}

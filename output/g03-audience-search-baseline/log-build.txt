@@ -1,0 +1,777 @@
+
+> dong-ho-co@0.1.0 build
+> npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-3d-loading-budget.mjs && node scripts/check-links.mjs && node scripts/check-evolution-routes.mjs && node scripts/check-g01-navigation.mjs && node scripts/check-g02-history-timeline.mjs dist
+
+
+> dong-ho-co@0.1.0 check
+> node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs && node scripts/check-keyboard-accessibility.mjs && node scripts/check-semantic-accessibility.mjs && node scripts/check-motion-accessibility.mjs && node scripts/check-content-accessibility.mjs && node scripts/check-evolution-data.mjs && node scripts/check-learning-paths.mjs && node scripts/check-first-watch-cluster.mjs && node scripts/check-editorial-links.mjs && node scripts/check-care-cluster.mjs && node scripts/check-gmt-source-integrity.mjs && node scripts/check-chronograph-cluster.mjs && node scripts/check-daily-care-cluster.mjs && node scripts/check-automatic-energy-cluster.mjs && node scripts/check-protection-cluster.mjs && node scripts/check-precision-certification-cluster.mjs && node scripts/check-regulating-cluster.mjs && node scripts/check-calendar-complications-cluster.mjs && node scripts/check-high-complications-cluster.mjs && node scripts/check-movement-finishing-cluster.mjs && node scripts/check-brand-value-retention.mjs && node scripts/check-financial-claims-cluster.mjs && npm run check:types && node scripts/check-g02-history-timeline.mjs
+
+OK: Không phát hiện ký tự ngoài tiếng Việt/Anh trong src/.
+   Đã quét 375 file.
+OK: Không còn class trùng nào.
+OK: Không phát hiện văn bản ẩn trong src/content/.
+Kiểm tra tương phản WCAG 2.2 AA — các cặp token bắt buộc
+
+ĐẠT  SÁNG  primary/page                               17.04:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  secondary/page                              6.90:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  primary/surface                            17.67:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  secondary/surface                           7.15:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   primary/page                               16.00:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary/page                              9.93:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   primary/surface                            13.19:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary/surface                           8.18:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary 70% trên page (nhãn phụ)          5.43:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   placeholder (secondary 70% trên surface)    4.78:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  placeholder (secondary 90% trên surface)    5.51:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  link(alloy)/page                            4.83:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  link(steel)/page                            8.81:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(alloy sáng)/page                       9.03:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(alloy sáng)/surface                    7.44:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(steel sáng)/page                       8.28:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  chữ cream/80 trên navy               6.33:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  link cream/80 trên navy              6.33:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  heading + hover brass-light trên navy  5.01:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  mô tả cream/75 trên navy             5.78:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  mô tả cream/70 trên navy             5.25:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   chữ cream/80 trên đen-pha           12.00:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   link cream/80 trên đen-pha          12.00:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   heading brass-light trên đen-pha    10.69:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   mô tả cream/75 trên đen-pha         10.67:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  link brass-light trên nền khung bản tin  5.01:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  chữ khung bản tin cream/75 trên navy  5.78:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  CTA cream trên steel(navy)                  8.81:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   CTA chữ tối trên steel sáng                 7.97:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  focus steel trên page                       8.81:1  (cần ≥ 3.0:1)
+ĐẠT  SÁNG  focus steel trên surface                    9.14:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   focus steel trên page                       8.28:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   viền line trên page                         3.91:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   viền line trên bề mặt (input dark)          3.22:1  (cần ≥ 3.0:1)
+ĐẠT  SÁNG  viền input (ink-soft 70% trên page)         3.38:1  (cần ≥ 3.0:1)
+
+35/35 cặp đạt chuẩn.
+Tất cả cặp token khai báo đạt ngưỡng AA.
+ĐẠT  BaseLayout: skip link trỏ tới #main-content
+ĐẠT  BaseLayout: <main> có id="main-content"
+ĐẠT  BaseLayout: <main> có tabindex="-1"
+ĐẠT  Header: nút hamburger có aria-controls="mobile-menu"
+ĐẠT  Header: 2 dropdown có aria-controls khớp id menu (nav-dropdown-knowledge, nav-dropdown-explore)
+ĐẠT  Header: có aria-expanded trên nút menu
+ĐẠT  SearchBox: nút mở có aria-controls="search-overlay"
+ĐẠT  SearchBox: nút mở có aria-expanded
+ĐẠT  SearchBox: dialog có role="dialog"
+ĐẠT  SearchBox: dialog có aria-modal="true"
+ĐẠT  SearchBox: dialog có aria-labelledby
+ĐẠT  SearchBox: có focus trap (keydown Tab trong overlay)
+ĐẠT  Không có outline-none thiếu cơ chế focus thay thế trong src/
+
+Tất cả kiểm tra bàn phím tĩnh đạt. (Hành vi phím thật cần kiểm thủ công trên trình duyệt.)
+ĐẠT  BaseLayout: <html> có thuộc tính lang
+ĐẠT  BaseLayout: có skip link tới #main-content
+ĐẠT  BaseLayout: có <main>
+ĐẠT  Mọi template trang có tối đa 1 <h1> (36 trang)
+ĐẠT  Không có heading nhảy quá một cấp trong template
+ĐẠT  Mọi input/textarea/select đều có label hoặc aria-label
+ĐẠT  Form liên hệ: 3 field required đều nối aria-describedby với phần tử lỗi
+ĐẠT  Form liên hệ: mọi field required đều có text "bắt buộc/required" trong label
+ĐẠT  Không có thẻ mở/đóng heading-div không khớp trong src/
+ĐẠT  Mọi nút icon-only đều có aria-label hoặc nội dung sr-only
+
+Tất cả kiểm tra ngữ nghĩa tĩnh đạt. (Nội dung Markdown/bảng JS render cần kiểm thủ công.)
+ĐẠT  global.css: có khối @media (prefers-reduced-motion: reduce)
+ĐẠT  MechanismAnimation: nút Play/Pause có aria-label + aria-pressed
+ĐẠT  MechanismAnimation: không tự phát khi tải trang (isPlaying mặc định false)
+ĐẠT  MechanismAnimation: legend tên bộ phận là text thay thế (sr-only trên desktop)
+ĐẠT  exploded3d.ts: đọc prefers-reduced-motion (không auto-rotate/tự tách lớp)
+ĐẠT  WatchExplodedView3D: có nút "Chuyển động 3D" toggle (aria-pressed)
+ĐẠT  WatchExplodedView3D: đủ nút thay thế thao tác kéo (xoay trái/phải, phóng to, thu nhỏ, đặt lại)
+ĐẠT  WatchExplodedView3D: có danh sách bộ phận dạng button (text fallback, không phụ thuộc WebGL)
+ĐẠT  giai-phau: giữ bản 2D làm chế độ mặc định + phương án thay thế 3D
+ĐẠT  WatchExplodedView 2D: panel chi tiết aria-live="polite" (text HTML thật)
+ĐẠT  WatchExplodedView 2D: nút chọn bộ phận + aria-pressed
+ĐẠT  WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)
+ĐẠT  Không có animation infinite lọt ngoài cơ chế reduced-motion toàn cục
+ĐẠT  Mọi SVG minh họa được phân loại đúng: aria-hidden (trang trí) hoặc role="img" + aria-label (có ý nghĩa)
+
+Tất cả kiểm tra hoạt ảnh tĩnh đạt. (Cảm giác chuyển động thật cần kiểm thủ công trên trình duyệt.)
+ĐẠT  Mọi <img> (7) đều có thuộc tính alt
+ĐẠT  Không có alt là tên file hoặc nhãn chung "image/ảnh/photo"
+ĐẠT  Meta viewport không chặn zoom (không có user-scalable=no / maximum-scale=1)
+ĐẠT  Không có CSS chặn zoom trên html/body (touch-action:none trên control kéo riêng là hợp lệ)
+ĐẠT  Không có overflow-hidden + chiều cao cố định trên vùng văn bản (1 trường hợp không phải văn bản)
+ĐẠT  Không có link nhãn chung chung đọc độc lập (71 link trong template)
+ĐẠT  rehype-wrap-tables: wrapper có tabIndex 0 + role region + ariaLabel
+ĐẠT  BaseLayout: bù tabindex/role/aria-label cho .table-scroll-wrap thiếu
+ĐẠT  BaseLayout: .table-scroll-wrap xử lý ArrowLeft/ArrowRight/Home/End bằng bàn phím
+
+Tất cả kiểm tra nội dung tĩnh đạt. (Reflow/zoom thật ở 320px/200% cần kiểm thủ công trên trình duyệt.)
+Sơ đồ tiến hóa hợp lệ (song ngữ theo publishedLangs):
+  - Rolex GMT-Master: 8 mốc · xuất bản: vi+en
+  - Rolex Submariner: 8 mốc · xuất bản: vi+en
+Lộ trình học hợp lệ:
+  - bat-dau-choi: 5 bước
+  - hieu-bo-may: 6 bước
+  - tu-duy-suu-tam: 6 bước
+  Tổng: 3 lộ trình, 17 bước — mọi route nội bộ đều tồn tại.
+KIỂM TRA CỤM "CHỌN ĐỒNG HỒ CƠ ĐẦU TIÊN":
+  Bài trụ cột tồn tại đúng slug: chon-dong-ho-dau-tien
+  Frontmatter đầy đủ (title/excerpt/difficulty/date) + 2 nguồn HTTPS
+  Đủ 9 liên kết bắt buộc, tất cả route tồn tại
+  Không còn bảng giá/ngân sách, "giữ giá/đầu tư", chu kỳ bảo dưỡng cố định hay bảng kích thước tuyệt đối
+  URL ngoài (0) đều dùng HTTPS hoặc bài không link ngoài
+  DecisionMap hợp lệ: 8 link nội bộ đều tồn tại (/huong-dan/chon-co-dong-ho, /huong-dan/muc-chong-nuoc, /co-che/len-day-tu-dong, /co-che/chuyen-dong-co, /huong-dan/len-day-dong-ho, /giai-phau, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/bao-duong-dong-ho)
+  src/components/DecisionMap.astro: wrapper là <section>
+  DecisionMap: aria-labelledby trỏ đúng id danh nghĩa dm-${map.slug}-title
+  DecisionMap: tiêu đề khối là <h2> mang đúng id (thứ bậc H1 → H2 map → H3 nhánh)
+  DecisionMap: ngữ nghĩa heading + aria-labelledby hợp lệ
+  Đủ 5 bài hỗ trợ có liên kết quay lại bài trụ cột
+  KẾT LUẬN: ĐẠT — cụm nội dung people-first hợp lệ, mọi route đều tồn tại.
+KIỂM TRA LIÊN KẾT BIÊN TẬP (cơ chế ↔ mẫu iconic)
+  Bài cơ chế (coChe/vi):        18
+  Bài mẫu iconic (mauIconic/vi): 69
+  Cặp quan hệ cơ chế ↔ mẫu iconic hợp lệ hai chiều: 29
+
+ĐẠT — không có slug hỏng, trùng lặp, thiếu relation hay thiếu chiều ngược.
+KIỂM TRA CỤM "BẢO DƯỠNG & SỬ DỤNG AN TOÀN":
+  4 bài tồn tại, frontmatter đủ title/excerpt/difficulty/date/updated
+  "bao-duong-dong-ho": 4 nguồn HTTPS, trong đó 4 nguồn chính hãng
+  "chon-co-dong-ho": 2 nguồn HTTPS
+  "hop-xoay-dong-ho": 2 nguồn HTTPS
+  "nhan-biet-dong-ho-gia": 2 nguồn HTTPS
+  Đủ 8 liên kết bắt buộc trong bài bảo dưỡng, mọi route tồn tại
+  DecisionMap bao-duong: heading đúng theo đề
+  DecisionMap bao-duong: đúng 3 nhánh
+  DecisionMap bao-duong: 7 link nội bộ đều tồn tại (/huong-dan/do-sai-so, /huong-dan/muc-chong-nuoc, /huong-dan/len-day-dong-ho, /co-che/chong-tu, /co-che/chong-soc, /huong-dan/nhan-biet-dong-ho-gia, /huong-dan/hop-xoay-dong-ho)
+  DecisionMap chon-dong-ho-dau-tien: nguyên vẹn với 8 link
+  Bài bảo dưỡng: sạch chu kỳ cố định, chi phí, "X tuần", "gấp X lần", xà phòng, sai số tuyệt đối và các khái quát vượt nguồn
+  Bài chon-co: không còn bảng tra, số mm khuyến nghị, nhận định cổ tay người Việt/Á hay quy tắc vấu tuyệt đối
+  Bài hop-xoay: khung quyết định trung tính, không còn claim lợi ích/cách cài/thời gian
+  Bài nhan-biet: không còn claim tự kiểm bằng mắt (kim giây/tiếng máy/trọng lượng/hoàn thiện/giá)
+  Bài nhan-biet: có "không tự chứng minh" + phần giới hạn tự kiểm + mô tả đúng vai trò FH
+  Không có link vòng (bài/map không tự trỏ chính nó)
+  DecisionMap.astro: <section> + H2 mang id + aria-labelledby + H3 nhánh — semantics nguyên vẹn
+  URL ngoài trong cả 4 bài đều dùng HTTPS
+  KẾT LUẬN: ĐẠT — cụm nội dung theo nguồn hợp lệ, mọi route đều tồn tại.
+KIỂM TRA NGUỒN CỤM GMT (check-gmt-source-integrity):
+  Quét 15 tệp phạm vi (13 nội dung chặt tuyệt đối + 2 hồ sơ với nhận diện ngữ cảnh lịch sử)
+  R1 1954: sạch · R2 1983: sạch · R3 Caller/Flyer: sạch · R4 Pan Am: sạch · R5 khái quát hóa: sạch · R6 2:1: sạch
+  Hồ sơ nguồn ghi nhận chuẩn hóa GmtReader + infographic GMT.astro
+  KẾT LUẬN: ĐẠT — cụm GMT thống nhất với hồ sơ nguồn (Rolex Newsroom, FHH).
+KIỂM TRA CỤM CHRONOGRAPH & TACHYMETER SONG NGỮ:
+  18 liên kết bắt buộc cụm (vi+en) đều có trong bài và đích tồn tại
+  Frontmatter 4 bài EN: custom_slug khớp, has_infographic/interactive = false, enum + ≥2 nguồn HTTPS
+  4 cặp route có trong contentRoutes.ts (/co-che/chronograph, /huong-dan/dung-tachymeter, /tu-dien/chronograph, /tu-dien/tachymeter)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  R1: không khái quát hóa cấu trúc (mọi/every/all chronograph)
+  R2: dữ kiện lịch sử khớp hồ sơ nguồn (1821, không Hamilton/calibre phân khúc/9 cột/40°/3 dự án)
+  R3: mọi claim "đầu tiên" đều có marker nguồn trên cùng dòng
+  R4: tachymeter luôn "tốc độ trung bình" có điều kiện quãng đường/đơn vị
+  R5: 4 bài EN không có link nội bộ về route tiếng Việt
+  R6: hình học vạch đúng chiều (ngắn→gần, dài→xa), không khẳng định tuyệt đối chronograph, không title cũ
+  R11: component infographic (1 tệp, quét cả comment) sạch xếp hạng, cảm giác bấm, hãng/calibre, mốc lịch sử, hơn kém
+  KẾT LUẬN: ĐẠT — cụm Chronograph & Tachymeter khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM SỬ DỤNG AN TOÀN HẰNG NGÀY SONG NGỮ:
+  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  6 cặp route có trong contentRoutes.ts (/huong-dan/len-day-dong-ho, /huong-dan/muc-chong-nuoc, /huong-dan/chinh-lich-an-toan, /co-che/chong-nuoc, /tu-dien/num-van, /tu-dien/day-cot)
+  42 liên kết bắt buộc cụm (vi+en, kể cả first-mechanical-watch EN) đều có và đích tồn tại
+  R5b: DateSafety là mô phỏng nguyên lý (nhãn "vùng minh họa", dẫn về manual, không còn nhãn kết luận)
+  R5c: component chống nước (1 tệp) sạch các khẳng định cấm — không ma trận mét↔hoạt động, không chu kỳ/gioăng cố định, không thông số thử như quy tắc chung
+  R4: 6 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  KẾT LUẬN: ĐẠT — cụm sử dụng an toàn khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM AUTOMATIC & NĂNG LƯỢNG CƠ HỌC SONG NGỮ:
+  6 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  3 cặp route mới có trong contentRoutes.ts (/co-che/len-day-tu-dong, /tu-dien/thung-cot, /huong-dan/hop-xoay-dong-ho)
+  59 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: 6 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (lịch sử không nguồn, khái quát, lời hứa đeo/lên tay, một chiều/declutch, bảng giờ trữ cót, weekend, barrel-gắn-mốc, đắt-hơn, vòng-tròn-lớn-nhất, hãng rotor, hộp xoay hứa hẹn, TPD, 8 giờ/ngày, dải mức chung)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  R7: component infographic (2 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 12 bài Markdown
+  KẾT LUẬN: ĐẠT — cụm automatic & năng lượng khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM BẢO VỆ BỘ MÁY (CHỐNG TỪ, CHỐNG SỐC & INCABLOC) SONG NGỮ:
+  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  3 cặp route mới có trong contentRoutes.ts (/co-che/chong-tu, /co-che/chong-soc, /tu-dien/incabloc)
+  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: 3 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (lịch sử/hãng không nguồn, bảng/dải gauss, 15.000 gauss ngoài cửa sổ chứng nhận, thiết bị+rủi ro, khử từ/chi phí, tự chẩn đoán, "toàn ngành/mọi đồng hồ", "majority" không attribution, lời hứa độ bền, 0,1 mm, "vài nghìn G", 5.000 g không attribution, cơ chế nhiễm từ chi tiết, nhận biết bằng mắt, khuyến nghị mua)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  R7: component infographic (1 tệp) sạch các khẳng định cấm — cùng quy tắc nội dung như 6 bài Markdown
+  KẾT LUẬN: ĐẠT — cụm bảo vệ bộ máy khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM ĐỘ CHÍNH XÁC & CHỨNG NHẬN (COSC / MASTER CHRONOMETER) SONG NGỮ:
+  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới
+  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  3 cặp route mới có trong contentRoutes.ts (/huong-dan/do-sai-so, /tu-dien/chronometer, /tu-dien/metas)
+  16 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: 3 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (app/timegrapher, amplitude/beat error, ± số, lịch đo cố định, nhãn ngưỡng, chẩn đoán, khử từ/tự chỉnh, thiết bị từ trường, xếp hạng chứng nhận, −4/+6 không COSC, 15.000 G không METAS/N001, "mọi đồng hồ")
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  KẾT LUẬN: ĐẠT — cụm độ chính xác & chứng nhận khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM BỘ ĐIỀU CHỈNH NHỊP & BỘ THOÁT SONG NGỮ:
+  Phạm vi: 5 bài vi + 6 bài en; 3 cặp route mới
+  6 bài EN tồn tại (5 nội dung + 1 legacy tương thích), frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  3 cặp route mới có trong contentRoutes.ts (/co-che/day-toc-banh-lac, /tu-dien/banh-thoat, /tu-dien/vph)
+  32 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: các bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (tên riêng/năm, siêulative ngoài cửa sổ FHH, số tần số ngoài cửa sổ FHH, tần số→chính xác ngoài cửa sổ FHH, bảng tần số, số bộ phận/vật liệu, âm thanh theo hãng/nhận biết, khái quát cấu trúc)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  R7: route legacy /en/glossary/escapement/ tạo HTML sau build và trang trỏ tới /en/glossary/escape-wheel/
+  KẾT LUẬN: ĐẠT — cụm bộ điều chỉnh nhịp & bộ thoát khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM LỊCH VẠN NIÊN & PHA TRĂNG SONG NGỮ:
+  Phạm vi: 3 bài vi + 3 bài en; 3 cặp route mới
+  3 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  3 cặp route mới có trong contentRoutes.ts (/co-che/perpetual-calendar, /co-che/pha-trang, /tu-dien/perpetual-calendar)
+  17 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: 3 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (tên người/hãng/năm, số perpetual/moon ngoài cửa sổ FHH, bảng, "mãi mãi/không cần chỉnh", giá/phân khúc, hướng dẫn chỉnh, lịch sử công dụng, thẩm mỹ chủ quan, nhận biết bằng mắt)
+  R8: component infographic (1 tệp, quét cả comment) sạch lời hứa "đúng mãi", claim 2100/"400 năm", hãng/quảng cáo, xếp hạng, hướng dẫn chỉnh
+  R6: 3 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)
+  R6b: bài pha trăng Việt dùng đúng 2 thuật ngữ bốn pha (thượng huyền/hạ huyền)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  KẾT LUẬN: ĐẠT — cụm lịch vạn niên & pha trăng khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM TOURBILLON & ĐIỂM CHUÔNG SONG NGỮ:
+  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới
+  4 bài EN tồn tại, frontmatter hợp lệ (slug, false-flags, enum, ≥2 nguồn HTTPS)
+  4 cặp route mới có trong contentRoutes.ts (/co-che/tourbillon, /co-che/diem-chuong, /tu-dien/tourbillon, /tu-dien/minute-repeater)
+  21 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R4: 4 bài EN không có link nội bộ về route tiếng Việt
+  R5: sạch các khẳng định cấm (biến thể/vật liệu tourbillon, số đo "về 0", hiệu quả cổ tay, claim FHH ngoài cửa sổ, lịch sử repeater, gong/búa/cam/rack, chất âm, thương hiệu thân bài, giá/xếp hạng/thẩm mỹ, nhận biết bằng mắt, khuyến nghị mua/nghe, bảng)
+  R6: 4 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  KẾT LUẬN: ĐẠT — cụm tourbillon & điểm chuông khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỤM HOÀN THIỆN BỘ MÁY SONG NGỮ:
+  Phạm vi: 4 bài vi + 4 bài en; 4 cặp route mới
+  4 bài VI + 4 bài EN đều tồn tại
+  4 bài EN frontmatter hợp lệ (custom_slug khớp tệp, false-flags, enum, ≥2 nguồn HTTPS)
+  4 cặp route mới có trong contentRoutes.ts (/huong-dan/hoan-thien-thu-cong-dong-ho, /tu-dien/guilloche, /tu-dien/perlage, /tu-dien/cotes-de-geneve); tổng 63 cặp
+  33 liên kết bắt buộc cụm (vi+en) đều có và đích tồn tại
+  R5: 4 bài EN không có link nội bộ về route tiếng Việt
+  R6: 8 bài không có bảng Markdown
+  R7: sạch claim giá/phân khúc/chất lượng tổng thể/chính xác/bền/đầu tư/làm tay-máy tuyệt đối/mua bán/nhận biết bằng ảnh
+  R8: sạch claim lịch sử/kỹ thuật chưa có nguồn (Breguet, thế kỷ, chống chói, dầu/bụi, "thật/giả", ba chiều, chạm tay, số tiêu chí Poinçon, tên hãng)
+  R9: 0 relation Việt đều trung tính (không claim kỹ thuật/hãng/số)
+  Hồ sơ nguồn + biên bản nghiệm thu tồn tại (2 tệp)
+  KẾT LUẬN: ĐẠT — cụm hoàn thiện bộ máy khớp hồ sơ nguồn, không hồi quy.
+KIỂM TRA CỘT SO SÁNH TÙY CHỌN TRANG THƯƠNG HIỆU (P1.3):
+  R1: BrandLayout không còn nhãn/fallback "Giá trị giữ giá"
+  R2: 29/73 tệp có nhãn riêng; mọi tệp còn ô value_retention đều có nhãn
+  R3: 87 ô và nhãn còn lại sạch các cụm tài chính (giữ giá, thị trường thứ cấp, giá niêm yết, giá bán lại, thanh khoản, đầu tư, tăng giá, mất giá)
+  KẾT LUẬN: ĐẠT — cột giá trị giữ giá đã gỡ sạch, không hồi quy.
+KIỂM TRA NHẬN ĐỊNH TÀI CHÍNH CÒN SÓT (P1.4):
+  Phạm vi: 6 bài VI, 290 trường collectorNote/positioning trên 73 thương hiệu (kèm YAML nhiều dòng), title/detail Patek, 2 tệp EN
+  R1: sạch giữ giá/mất giá/bán lại/thanh khoản/thị trường thứ cấp trong phạm vi đã xử lý
+  R2: sạch đầu tư/tăng giá (miễn trừ disclaimer chỉ theo câu)
+  R3: sạch đáng tiền/khả năng chi trả/so sánh giá — gồm nhóm ngân sách, "sẵn sàng chi thêm", khung tầm giá/tầm tiền, phân khúc giá
+  R4: movement EN không còn "needs no servicing"
+  R5: seiko EN sạch diễn đạt tôn vinh quảng bá đã nêu
+  KẾT LUẬN: ĐẠT — không hồi quy nhận định tài chính trong phạm vi P1.4.
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+15:26:59 [types] Generated 682ms
+15:26:59 [check] Getting diagnostics for Astro files in D:\Watch web build...
+[96moutput/p3.1-image-audit/do-dinh-dang.mjs[0m:[93m16[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'basename' is declared but its value is never read.
+
+[7m16[0m import { join, basename, extname } from 'node:path';
+[7m  [0m [93m               ~~~~~~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/phan-nhom.cjs[0m:[93m10[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'sig' is declared but its value is never read.
+
+[7m10[0m const nhomList = Object.entries(nhom).map(([sig, n], idx) => ({ nhom: 'N' + (idx + 1), ...n }));
+[7m  [0m [93m                                            ~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/quet-gradient.cjs[0m:[93m27[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'lines' is declared but its value is never read.
+
+[7m27[0m   const lines = text.split('\n');
+[7m  [0m [93m        ~~~~~[0m
+
+[96moutput/p3.3-cluster-script-audit/kiem-thu-hoi-quy.cjs[0m:[93m239[0m:[93m13[0m - [93mwarning[0m[90m ts(6133): [0m'duongDan' is declared but its value is never read.
+
+[7m239[0m       const duongDan = path.join(SB, c.fixture);
+[7m   [0m [93m            ~~~~~~~~[0m
+
+Result (193 files):
+- 0 errors
+- 0 warnings
+- 4 hints
+
+  ĐẠT [G2-1a] Đúng 28 mốc
+  ĐẠT [G2-1b] Slug duy nhất
+  ĐẠT [G2-1c] year là số nguyên, thứ tự không giảm
+  ĐẠT [G2-2] timeLabel nhãn hiển thị hợp lệ (giữ ~, khoảng năm)
+  ĐẠT [G2-3] Loại ngày + mức claim có phạm vi + nguồn cấp mốc HTTPS có ngày kiểm
+  ĐẠT [G2-4] Mốc ~1510 giữ nhãn xấp xỉ, year số 1510 (điều hướng được)
+  ĐẠT [G2-5] Chữ "đầu tiên" chỉ xuất hiện khi mốc có mức claim + phạm vi
+  ĐẠT [G2-6] readMore: null hoặc route nội bộ "/"
+  KẾT LUẬN: ĐẠT — 8/8 ca
+✓ Đã sinh 33 thuật ngữ → src/data/glossary-terms.json
+15:27:57 [types] Generated 985ms
+15:27:57 [build] output: "static"
+15:27:57 [build] directory: D:\Watch web build\dist\
+15:27:57 [build] Collecting build info...
+15:27:57 [build] ✓ Completed in 1.05s.
+15:27:57 [build] Building static entrypoints...
+15:28:07 [vite] [32m✓ built in 9.76s[39m
+15:28:07 [build] ✓ Completed in 9.80s.
+
+ building client (vite)
+15:28:07 [vite] transforming...
+15:28:08 [vite] [32m✓[39m 46 modules transformed.
+15:28:08 [vite] rendering chunks...
+15:28:09 [vite] computing gzip size...
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.DbV4SqDq.js        [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.bqiZLele.js        [39m[1m[2m  0.65 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.84vUU5CD.js        [39m[1m[2m  0.87 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.D-D0yqab.js        [39m[1m[2m  1.57 kB[22m[1m[22m[2m │ gzip:   0.76 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.BnBIbZL5.js        [39m[1m[2m  1.78 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.BVMbbEgg.js        [39m[1m[2m  2.00 kB[22m[1m[22m[2m │ gzip:   0.90 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.IMtYRj5O.js        [39m[1m[2m  2.44 kB[22m[1m[22m[2m │ gzip:   0.98 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.ByYIA-8S.js        [39m[1m[2m  4.61 kB[22m[1m[22m[2m │ gzip:   1.80 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.BSF1ch-T.js        [39m[1m[2m  6.70 kB[22m[1m[22m[2m │ gzip:   1.14 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.BaW7HtHK.js        [39m[1m[2m  8.55 kB[22m[1m[22m[2m │ gzip:   3.69 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.Cv1MuWIR.js        [39m[1m[2m 10.95 kB[22m[1m[22m[2m │ gzip:   4.12 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/hoisted.DX0x34b4.js        [39m[1m[2m 17.66 kB[22m[1m[22m[2m │ gzip:   5.96 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/OrbitControls.RWMGWMk0.js  [39m[1m[2m 19.80 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+15:28:09 [vite] [2mdist/[22m[36m_astro/exploded3d.CdKMMlnX.js     [39m[1m[33m525.62 kB[39m[22m[2m │ gzip: 134.51 kB[22m
+15:28:09 [WARN] [vite] [33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+15:28:09 [vite] [32m✓ built in 1.92s[39m
+
+ generating static routes
+15:28:09 ▶ src/pages/404.astro
+15:28:09   └─ /404.html (+20ms)
+15:28:09 ▶ src/pages/ban-quyen.astro
+15:28:09   └─ /ban-quyen/index.html (+13ms)
+15:28:09 ▶ src/pages/co-che/[slug].astro
+15:28:09   ├─ /co-che/bo-thoat-dong-truc/index.html (+147ms)
+15:28:09   ├─ /co-che/chong-soc/index.html (+8ms)
+15:28:09   ├─ /co-che/da-quang/index.html (+10ms)
+15:28:09   ├─ /co-che/diem-chuong/index.html (+9ms)
+15:28:09   ├─ /co-che/hien-thi-ngay/index.html (+10ms)
+15:28:09   ├─ /co-che/kinh-dong-ho/index.html (+10ms)
+15:28:09   ├─ /co-che/pha-trang/index.html (+19ms)
+15:28:09   ├─ /co-che/bo-thoat/index.html (+9ms)
+15:28:09   ├─ /co-che/chronograph/index.html (+11ms)
+15:28:09   ├─ /co-che/day-toc-banh-lac/index.html (+9ms)
+15:28:09   ├─ /co-che/gmt/index.html (+13ms)
+15:28:09   ├─ /co-che/perpetual-calendar/index.html (+10ms)
+15:28:10   ├─ /co-che/tourbillon/index.html (+20ms)
+15:28:10   ├─ /co-che/chong-tu/index.html (+9ms)
+15:28:10   ├─ /co-che/tru-cot/index.html (+9ms)
+15:28:10   ├─ /co-che/chong-nuoc/index.html (+9ms)
+15:28:10   ├─ /co-che/chuyen-dong-co/index.html (+8ms)
+15:28:10   └─ /co-che/len-day-tu-dong/index.html (+9ms)
+15:28:10 ▶ src/pages/co-che/index.astro
+15:28:10   └─ /co-che/index.html (+4ms)
+15:28:10 ▶ src/pages/en/about.astro
+15:28:10   └─ /en/about/index.html (+4ms)
+15:28:10 ▶ src/pages/en/accessibility.astro
+15:28:10   └─ /en/accessibility/index.html (+3ms)
+15:28:10 ▶ src/pages/en/brands/[slug].astro
+15:28:10   ├─ /en/brands/omega/index.html (+7ms)
+15:28:10   ├─ /en/brands/rolex/index.html (+7ms)
+15:28:10   └─ /en/brands/seiko/index.html (+7ms)
+15:28:10 ▶ src/pages/en/brands/index.astro
+15:28:10   └─ /en/brands/index.html (+3ms)
+15:28:10 ▶ src/pages/en/contact.astro
+15:28:10   └─ /en/contact/index.html (+2ms)
+15:28:10 ▶ src/pages/en/copyright.astro
+15:28:10   └─ /en/copyright/index.html (+2ms)
+15:28:10 ▶ src/pages/en/glossary/[slug].astro
+15:28:10   ├─ /en/glossary/barrel/index.html (+7ms)
+15:28:10   ├─ /en/glossary/beat-rate/index.html (+8ms)
+15:28:10   ├─ /en/glossary/chronometer/index.html (+7ms)
+15:28:10   ├─ /en/glossary/escape-wheel/index.html (+6ms)
+15:28:10   ├─ /en/glossary/escapement/index.html (+7ms)
+15:28:10   ├─ /en/glossary/geneva-stripes/index.html (+6ms)
+15:28:10   ├─ /en/glossary/guilloche/index.html (+19ms)
+15:28:10   ├─ /en/glossary/incabloc/index.html (+7ms)
+15:28:10   ├─ /en/glossary/master-chronometer/index.html (+6ms)
+15:28:10   ├─ /en/glossary/minute-repeater/index.html (+6ms)
+15:28:10   ├─ /en/glossary/perlage/index.html (+6ms)
+15:28:10   ├─ /en/glossary/perpetual-calendar/index.html (+8ms)
+15:28:10   ├─ /en/glossary/tourbillon/index.html (+9ms)
+15:28:10   ├─ /en/glossary/gmt/index.html (+8ms)
+15:28:10   ├─ /en/glossary/crown/index.html (+9ms)
+15:28:10   ├─ /en/glossary/mainspring/index.html (+7ms)
+15:28:10   ├─ /en/glossary/tachymeter/index.html (+8ms)
+15:28:10   ├─ /en/glossary/hairspring/index.html (+8ms)
+15:28:10   ├─ /en/glossary/calibre/index.html (+10ms)
+15:28:10   ├─ /en/glossary/chronograph/index.html (+7ms)
+15:28:10   ├─ /en/glossary/movement/index.html (+9ms)
+15:28:10   ├─ /en/glossary/power-reserve/index.html (+10ms)
+15:28:10   └─ /en/glossary/rotor/index.html (+11ms)
+15:28:10 ▶ src/pages/en/glossary/index.astro
+15:28:10   └─ /en/glossary/index.html (+12ms)
+15:28:10 ▶ src/pages/en/guides/[slug].astro
+15:28:10   ├─ /en/guides/accuracy-tracking/index.html (+7ms)
+15:28:10   ├─ /en/guides/movement-finishing/index.html (+8ms)
+15:28:10   ├─ /en/guides/watch-winders/index.html (+7ms)
+15:28:10   ├─ /en/guides/reading-and-setting-gmt/index.html (+10ms)
+15:28:10   ├─ /en/guides/setting-the-date-safely/index.html (+10ms)
+15:28:10   ├─ /en/guides/using-a-tachymeter/index.html (+8ms)
+15:28:10   ├─ /en/guides/water-resistance/index.html (+6ms)
+15:28:10   ├─ /en/guides/first-mechanical-watch/index.html (+8ms)
+15:28:10   └─ /en/guides/winding-a-mechanical-watch/index.html (+6ms)
+15:28:10 ▶ src/pages/en/guides/index.astro
+15:28:10   └─ /en/guides/index.html (+3ms)
+15:28:10 ▶ src/pages/en/iconic-watches/[slug].astro
+15:28:10   ├─ /en/iconic-watches/rolex-gmt-master/index.html (+9ms)
+15:28:10   ├─ /en/iconic-watches/cartier-tank/index.html (+7ms)
+15:28:10   ├─ /en/iconic-watches/omega-speedmaster/index.html (+5ms)
+15:28:10   └─ /en/iconic-watches/rolex-submariner/index.html (+6ms)
+15:28:10 ▶ src/pages/en/iconic-watches/index.astro
+15:28:10   └─ /en/iconic-watches/index.html (+2ms)
+15:28:10 ▶ src/pages/en/index.astro
+15:28:10   └─ /en/index.html (+3ms)
+15:28:10 ▶ src/pages/en/learning-path.astro
+15:28:10   └─ /en/learning-path/index.html (+2ms)
+15:28:10 ▶ src/pages/en/mechanisms/[slug].astro
+15:28:10   ├─ /en/mechanisms/anti-magnetism/index.html (+7ms)
+15:28:10   ├─ /en/mechanisms/automatic-winding/index.html (+5ms)
+15:28:10   ├─ /en/mechanisms/balance-and-hairspring/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/minute-repeater/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/moon-phase/index.html (+5ms)
+15:28:10   ├─ /en/mechanisms/perpetual-calendar/index.html (+7ms)
+15:28:10   ├─ /en/mechanisms/shock-protection/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/tourbillon/index.html (+5ms)
+15:28:10   ├─ /en/mechanisms/gmt/index.html (+7ms)
+15:28:10   ├─ /en/mechanisms/chronograph/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/escapement/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/power-reserve/index.html (+6ms)
+15:28:10   ├─ /en/mechanisms/how-a-mechanical-watch-works/index.html (+6ms)
+15:28:10   └─ /en/mechanisms/water-resistance/index.html (+6ms)
+15:28:10 ▶ src/pages/en/mechanisms/index.astro
+15:28:10   └─ /en/mechanisms/index.html (+3ms)
+15:28:10 ▶ src/pages/giai-phau.astro
+15:28:10   └─ /giai-phau/index.html (+11ms)
+15:28:10 ▶ src/pages/huong-dan/[slug].astro
+15:28:10   ├─ /huong-dan/hoan-thien-thu-cong-dong-ho/index.html (+6ms)
+15:28:10   ├─ /huong-dan/microbrand-la-gi/index.html (+7ms)
+15:28:10   ├─ /huong-dan/chinh-lich-an-toan/index.html (+8ms)
+15:28:10   ├─ /huong-dan/chon-co-dong-ho/index.html (+7ms)
+15:28:10   ├─ /huong-dan/doc-va-chinh-gmt/index.html (+9ms)
+15:28:10   ├─ /huong-dan/dung-tachymeter/index.html (+9ms)
+15:28:10   ├─ /huong-dan/dung-vanh-lan/index.html (+8ms)
+15:28:10   ├─ /huong-dan/hop-xoay-dong-ho/index.html (+7ms)
+15:28:10   ├─ /huong-dan/muc-chong-nuoc/index.html (+10ms)
+15:28:10   ├─ /huong-dan/nhan-biet-dong-ho-gia/index.html (+7ms)
+15:28:10   ├─ /huong-dan/bao-duong-dong-ho/index.html (+9ms)
+15:28:10   ├─ /huong-dan/chon-dong-ho-dau-tien/index.html (+8ms)
+15:28:10   ├─ /huong-dan/do-sai-so/index.html (+12ms)
+15:28:10   └─ /huong-dan/len-day-dong-ho/index.html (+8ms)
+15:28:10 ▶ src/pages/huong-dan/index.astro
+15:28:10   └─ /huong-dan/index.html (+4ms)
+15:28:10 ▶ src/pages/index.astro
+15:28:10   └─ /index.html (+10ms)
+15:28:10 ▶ src/pages/kha-nang-tiep-can.astro
+15:28:10   └─ /kha-nang-tiep-can/index.html (+3ms)
+15:28:10 ▶ src/pages/lich-su.astro
+15:28:10   └─ /lich-su/index.html (+17ms)
+15:28:10 ▶ src/pages/lien-he.astro
+15:28:10   └─ /lien-he/index.html (+4ms)
+15:28:10 ▶ src/pages/lo-trinh-hoc-dong-ho.astro
+15:28:10   └─ /lo-trinh-hoc-dong-ho/index.html (+3ms)
+15:28:10 ▶ src/pages/mau-iconic/[slug].astro
+15:28:10   ├─ /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/patek-philippe-grandmaster-chime/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/rolex-gmt-master/index.html (+8ms)
+15:28:10   ├─ /mau-iconic/arnold-and-son-perpetual-moon/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/baume-mercier-riviera/index.html (+8ms)
+15:28:10   ├─ /mau-iconic/carl-f-bucherer-manero-peripheral/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/corum-golden-bridge/index.html (+15ms)
+15:28:10   ├─ /mau-iconic/franck-muller-crazy-hours/index.html (+8ms)
+15:28:10   ├─ /mau-iconic/bell-ross-br-01/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/breitling-navitimer/index.html (+8ms)
+15:28:10   ├─ /mau-iconic/bvlgari-octo-finissimo/index.html (+8ms)
+15:28:10   ├─ /mau-iconic/chanel-j12/index.html (+6ms)
+15:28:10   ├─ /mau-iconic/chopard-luc/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/credor-eichi-2/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/de-bethune-db28/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/doxa-sub-300/index.html (+7ms)
+15:28:10   ├─ /mau-iconic/eterna-matic-1948/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/girard-perregaux-tourbillon-ba-cau/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/h-moser-streamliner/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/hajime-asaoka-project-t/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/hublot-big-bang/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/junghans-max-bill/index.html (+9ms)
+15:28:11   ├─ /mau-iconic/laurent-ferrier-galet-classic/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/mbf-horological-machine-1/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/mido-multifort/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/minase-horizon/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/montblanc-minerva-monopusher/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/nomos-tangente/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/oris-aquis-depth-gauge/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/panerai-luminor/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/parmigiani-toric/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/piaget-altiplano/index.html (+19ms)
+15:28:11   ├─ /mau-iconic/rado-diastar/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/richard-mille-rm-001/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/roger-dubuis-excalibur/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/seagull-1963/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/stowa-flieger/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/swatch-sistem51/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/timex-marlin/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/universal-geneve-polerouter/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/urwerk-ur-105/index.html (+12ms)
+15:28:11   ├─ /mau-iconic/vostok-amphibia/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/voutilainen-vingt-8/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/breguet-type-xx/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/dufour-simplicity/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/fc-heart-beat/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/fpjourne-chronometre-bleu/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/glashuette-seaq/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/greubel-double-tourbillon/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/hamilton-ventura/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/longines-lindbergh/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/orient-bambino/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/tissot-prx/index.html (+8ms)
+15:28:11   ├─ /mau-iconic/fifty-fathoms/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/freak/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/monaco/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/cartier-tank/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/grand-seiko-snowflake/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/iwc-mark-xi/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/lange-1/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/omega-speedmaster/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/patek-nautilus/index.html (+5ms)
+15:28:11   ├─ /mau-iconic/reverso/index.html (+7ms)
+15:28:11   ├─ /mau-iconic/rolex-submariner/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/royal-oak/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/seiko-62mas/index.html (+6ms)
+15:28:11   ├─ /mau-iconic/tudor-black-bay/index.html (+5ms)
+15:28:11   ├─ /mau-iconic/vc-overseas/index.html (+6ms)
+15:28:11   └─ /mau-iconic/zenith-el-primero/index.html (+7ms)
+15:28:11 ▶ src/pages/mau-iconic/index.astro
+15:28:11   └─ /mau-iconic/index.html (+14ms)
+15:28:11 ▶ src/pages/so-sanh.astro
+15:28:11   └─ /so-sanh/index.html (+4ms)
+15:28:11 ▶ src/pages/thuong-hieu/[slug].astro
+15:28:11   ├─ /thuong-hieu/arnold-and-son/index.html (+9ms)
+15:28:11   ├─ /thuong-hieu/baume-et-mercier/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/carl-f-bucherer/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/corum/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/franck-muller/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/alpina/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/beijing-watch-factory/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/bell-and-ross/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/breitling/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/bvlgari/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/certina/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/chanel/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/chopard/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/christopher-ward/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/citizen/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/credor/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/de-bethune/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/doxa/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/eterna/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/girard-perregaux/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/h-moser/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/hajime-asaoka/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/hublot/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/junghans/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/laurent-ferrier/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/mb-and-f/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/mido/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/minase/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/montblanc/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/muehle-glashuette/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/nomos-glashuette/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/oris/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/panerai/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/parmigiani-fleurier/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/piaget/index.html (+9ms)
+15:28:11   ├─ /thuong-hieu/rado/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/richard-mille/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/roger-dubuis/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/seagull/index.html (+20ms)
+15:28:11   ├─ /thuong-hieu/sinn/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/stowa/index.html (+5ms)
+15:28:11   ├─ /thuong-hieu/swatch/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/timex/index.html (+5ms)
+15:28:11   ├─ /thuong-hieu/universal-geneve/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/urwerk/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/vostok/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/voutilainen/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/orient/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/tissot/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/blancpain/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/tag-heuer/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/ulysse-nardin/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/a-lange-soehne/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/audemars-piguet/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/breguet/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/cartier/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/fp-journe/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/frederique-constant/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/glashuette-original/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/grand-seiko/index.html (+10ms)
+15:28:11   ├─ /thuong-hieu/greubel-forsey/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/hamilton/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/iwc/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/jaeger-lecoultre/index.html (+8ms)
+15:28:11   ├─ /thuong-hieu/longines/index.html (+10ms)
+15:28:11   ├─ /thuong-hieu/omega/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/patek-philippe/index.html (+11ms)
+15:28:11   ├─ /thuong-hieu/philippe-dufour/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/rolex/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/seiko/index.html (+6ms)
+15:28:11   ├─ /thuong-hieu/tudor/index.html (+7ms)
+15:28:11   ├─ /thuong-hieu/vacheron-constantin/index.html (+7ms)
+15:28:11   └─ /thuong-hieu/zenith/index.html (+6ms)
+15:28:11 ▶ src/pages/thuong-hieu/index.astro
+15:28:11   └─ /thuong-hieu/index.html (+6ms)
+15:28:11 ▶ src/pages/tu-dien/[slug].astro
+15:28:11   ├─ /tu-dien/microbrand/index.html (+5ms)
+15:28:11   ├─ /tu-dien/banh-thoat/index.html (+6ms)
+15:28:11   ├─ /tu-dien/cau-may/index.html (+5ms)
+15:28:11   ├─ /tu-dien/chan-kinh/index.html (+6ms)
+15:28:11   ├─ /tu-dien/chronometer/index.html (+7ms)
+15:28:11   ├─ /tu-dien/day-cot/index.html (+6ms)
+15:28:11   ├─ /tu-dien/day-vo/index.html (+6ms)
+15:28:11   ├─ /tu-dien/guilloche/index.html (+6ms)
+15:28:11   ├─ /tu-dien/khoa-day/index.html (+6ms)
+15:28:11   ├─ /tu-dien/lo-may/index.html (+7ms)
+15:28:11   ├─ /tu-dien/metas/index.html (+6ms)
+15:28:11   ├─ /tu-dien/ngua/index.html (+6ms)
+15:28:12   ├─ /tu-dien/num-van/index.html (+7ms)
+15:28:12   ├─ /tu-dien/perlage/index.html (+6ms)
+15:28:12   ├─ /tu-dien/poincon-de-geneve/index.html (+6ms)
+15:28:12   ├─ /tu-dien/tachymeter/index.html (+6ms)
+15:28:12   ├─ /tu-dien/thung-cot/index.html (+5ms)
+15:28:12   ├─ /tu-dien/vat-canh/index.html (+6ms)
+15:28:12   ├─ /tu-dien/vau-day/index.html (+5ms)
+15:28:12   ├─ /tu-dien/day-toc-banh-lac/index.html (+6ms)
+15:28:12   ├─ /tu-dien/bezel/index.html (+6ms)
+15:28:12   ├─ /tu-dien/calibre/index.html (+6ms)
+15:28:12   ├─ /tu-dien/chronograph/index.html (+6ms)
+15:28:12   ├─ /tu-dien/cotes-de-geneve/index.html (+7ms)
+15:28:12   ├─ /tu-dien/gmt/index.html (+11ms)
+15:28:12   ├─ /tu-dien/incabloc/index.html (+7ms)
+15:28:12   ├─ /tu-dien/minute-repeater/index.html (+6ms)
+15:28:12   ├─ /tu-dien/movement/index.html (+6ms)
+15:28:12   ├─ /tu-dien/perpetual-calendar/index.html (+7ms)
+15:28:12   ├─ /tu-dien/power-reserve/index.html (+6ms)
+15:28:12   ├─ /tu-dien/rotor/index.html (+7ms)
+15:28:12   ├─ /tu-dien/tourbillon/index.html (+7ms)
+15:28:12   └─ /tu-dien/vph/index.html (+7ms)
+15:28:12 ▶ src/pages/tu-dien/index.astro
+15:28:12   └─ /tu-dien/index.html (+4ms)
+15:28:12 ▶ src/pages/ve-chung-toi.astro
+15:28:12   └─ /ve-chung-toi/index.html (+2ms)
+15:28:12 ✓ Completed in 2.52s.
+
+15:28:15 [build] Waiting for integration "pagefind", hook "astro:build:done"...
+15:28:18 [pagefind] Pagefind indexed 286 pages
+15:28:19 [pagefind] Pagefind wrote index to D:\Watch web build\dist\pagefind
+15:28:19 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+15:28:19 [build] 286 page(s) built in 22.76s
+15:28:19 [build] Complete!
+KIỂM TRA NGÂN SÁCH TẢI 3D (/giai-phau):
+  OK  exploded3d.ts: dùng named imports, không có import namespace THREE
+  OK  giai-phau.astro: engine chỉ mở bằng dynamic import (import tĩnh duy nhất là import type — đã xóa lúc biên dịch)
+  OK  Chỉ src/scripts/exploded3d.ts import Three.js runtime
+  OK  Tập chunk 3D (exploded3d + OrbitControls + chunk chứa three): OrbitControls.RWMGWMk0.js, exploded3d.CdKMMlnX.js
+      OrbitControls.RWMGWMk0.js — raw 19.3 KB · gzip 4.4 KB
+      exploded3d.CdKMMlnX.js — raw 513.5 KB · gzip 131.4 KB
+      Tổng gzip các chunk 3D: 135.7 KB (chỉ tải khi người dùng mở tab 3D)
+  OK  Trang chủ (index.html): không tham chiếu chunk 3D, bundle tải ban đầu không chứa mã three (1 chunk)
+  OK  Trang thương hiệu (Rolex) (thuong-hieu/rolex/index.html): không tham chiếu chunk 3D, bundle tải ban đầu không chứa mã three (1 chunk)
+  OK  Mẫu iconic (rolex-submariner) (mau-iconic/rolex-submariner/index.html): không tham chiếu chunk 3D, bundle tải ban đầu không chứa mã three (1 chunk)
+  OK  Bài cơ chế (bo-thoat) (co-che/bo-thoat/index.html): không tham chiếu chunk 3D, bundle tải ban đầu không chứa mã three (1 chunk)
+  OK  Giải phẫu — 2D mặc định (giai-phau/index.html): không tham chiếu chunk 3D, bundle tải ban đầu không chứa mã three (1 chunk)
+  OK  /giai-phau/ HTML ban đầu: không khởi tạo engine 3D — chỉ bấm tab mới tải
+  KẾT LUẬN: ĐẠT — Three.js chỉ tải khi người dùng chủ động mở tab 3D; không route nào tải chunk 3D ban đầu.
+OK: Không phát hiện link nội bộ hỏng.
+   Đã quét 286 trang HTML, 20622 link.
+KIỂM TRA ROUTE SƠ ĐỒ TIẾN HÓA (theo publishedLangs):
+  - rolex-gmt-master (vi+en, 8 mốc): VI 8 mốc · EN 8 mốc — khớp dataset
+  - rolex-submariner (vi+en, 8 mốc): VI 8 mốc · EN 8 mốc — khớp dataset
+  KẾT LUẬN: ĐẠT — mọi dataset song ngữ render đúng route, ngôn ngữ và số mốc.
+G01 — LỚP 1: LOGIC ÁNH XẠ NGÔN NGỮ (gọi thẳng src/i18n/contentRoutes.ts):
+  ĐẠT root: "/" có bản EN là "/en/"
+  ĐẠT root: "/en/" có bản VI là "/"
+  ĐẠT root: "/en" (không slash cuối) vẫn nhận cặp → "/"
+  ĐẠT slash cuối: "/thuong-hieu/" tra được cặp EN
+  ĐẠT bài có cặp: /huong-dan/muc-chong-nuoc → /en/guides/water-resistance/
+  ĐẠT chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc
+  ĐẠT trang chưa dịch: /lich-su không có URL EN giả
+  ĐẠT localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch
+  ĐẠT localizedHref("/", "vi") = "/"
+  ĐẠT localizedHref("/lich-su", "en") = undefined — không chế URL
+  ĐẠT isEnglishPath: "/en" và "/en/" là EN
+  ĐẠT isEnglishPath: "/en/brands/rolex/" là EN
+  ĐẠT isEnglishPath: "/english" KHÔNG phải EN (ranh giới segment)
+  ĐẠT isEnglishPath: "/en-other" KHÔNG phải EN
+  ĐẠT isEnglishPath: "/thuong-hieu" không phải EN
+  ĐẠT switcherTarget("/") → "/en/", translated=true (trang chủ là cặp thật)
+  ĐẠT switcherTarget("/en/") → "/", translated=true
+  ĐẠT switcherTarget("/lich-su/") → "/en/", translated=false (chưa dịch)
+  ĐẠT switcherTarget("/english") KHÔNG bị coi là khu vực EN
+  ĐẠT switcherTarget("/co-che/bo-thoat") → bài EN tương ứng
+  ĐẠT getAlternates("/"): đủ vi "/" + en "/en/" (hreflang hai chiều)
+  ĐẠT getAlternates("/en/"): đủ vi "/" + en "/en/"
+  ĐẠT getAlternates("/en") chuẩn hóa về "/en/" (không khai báo URL không tồn tại)
+  ĐẠT getAlternates("/lich-su"): en=undefined — không hreflang giả
+G01 — LỚP 2: ĐẦU RA HTML TRONG DIST:
+  ĐẠT Trang chủ VI: nav desktop và nav mobile đều được tìm thấy trong HTML
+  ĐẠT Trang chủ VI: Home desktop có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: Home mobile có aria-current="page" (1 mục)
+  ĐẠT Trang chủ VI: không mục nào khác mang aria-current ngoài Home
+  ĐẠT Trang chủ VI: hreflang đủ vi + en "/en/" + x-default → "/"
+  ĐẠT Trang chủ VI: nút nhóm xổ không mang aria-current
+  ĐẠT Danh sách VI /thuong-hieu: Home desktop KHÔNG có aria-current
+  ĐẠT Danh sách VI /thuong-hieu: Home mobile KHÔNG có aria-current
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu desktop aria-current="page" (1)
+  ĐẠT Danh sách VI /thuong-hieu: mục Thương hiệu mobile aria-current="page" (1)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu desktop aria-current="location" (không phải page)
+  ĐẠT Bài con VI /thuong-hieu/rolex: mục Thương hiệu mobile aria-current="location"
+  ĐẠT Bài con VI /thuong-hieu/rolex: Home desktop KHÔNG active
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục Cơ chế (trong dropdown) aria-current="location"
+  ĐẠT Bài cơ chế /co-che/bo-thoat: nút nhóm cha đổi màu nhưng KHÔNG gạch active, KHÔNG aria-current
+  ĐẠT Bài cơ chế /co-che/bo-thoat: mục dropdown active có gạch chân (underline)
+  ĐẠT Bài cơ chế /co-che/bo-thoat: Home mobile KHÔNG active
+  ĐẠT Trang chủ EN: Home desktop (href="/en/") aria-current="page"
+  ĐẠT Trang chủ EN: Home mobile aria-current="page"
+  ĐẠT Trang chủ EN: hreflang đủ vi "/" + en "/en/" + x-default → "/"
+  ĐẠT Explore EN (desktop): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (desktop): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/lich-su" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/giai-phau" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Explore EN (mobile): link "/so-sanh" có nhãn hiển thị "Vietnamese only"
+  ĐẠT Trang chủ EN: bộ chuyển ngôn ngữ là link thẳng (không có data-lang-switch)
+  ĐẠT Trang chủ EN: switcher href="/" với hreflang="vi"
+  ĐẠT Bài EN /en/mechanisms/escapement: Home EN KHÔNG active
+  ĐẠT Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 3 link VI có nhãn
+  ĐẠT Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 3 link VI có nhãn
+  ĐẠT Chưa dịch /lich-su: CẢ HAI bộ chuyển ngôn ngữ (header + mobile) đều đánh dấu mở hộp thoại
+  ĐẠT Chưa dịch /lich-su: hộp thoại #lang-panel có link "/en/" (trang chủ đích)
+  ĐẠT Chưa dịch /lich-su: KHÔNG có hreflang en giả
+  ĐẠT Chưa dịch /lich-su: có chú thích noscript giải thích đường chuyển ngôn ngữ
+  ĐẠT 404: Trang chủ KHÔNG active chỉ vì pathname bắt đầu bằng "/"
+  ĐẠT Toàn dist (286 trang): aria-current chỉ nhận "page"/"location"
+  ĐẠT Toàn dist: nút nhóm xổ không bao giờ mang aria-current
+  KẾT LUẬN: ĐẠT — 63/63 ca
+  ĐẠT [G2-1a] Đúng 28 mốc
+  ĐẠT [G2-1b] Slug duy nhất
+  ĐẠT [G2-1c] year là số nguyên, thứ tự không giảm
+  ĐẠT [G2-2] timeLabel nhãn hiển thị hợp lệ (giữ ~, khoảng năm)
+  ĐẠT [G2-3] Loại ngày + mức claim có phạm vi + nguồn cấp mốc HTTPS có ngày kiểm
+  ĐẠT [G2-4] Mốc ~1510 giữ nhãn xấp xỉ, year số 1510 (điều hướng được)
+  ĐẠT [G2-5] Chữ "đầu tiên" chỉ xuất hiện khi mốc có mức claim + phạm vi
+  ĐẠT [G2-6] readMore: null hoặc route nội bộ "/"
+  ĐẠT [G2-7] HTML /lich-su render đủ 28 thẻ mốc
+  ĐẠT [G2-8] Nguồn hiển thị trên trang (52 link nguồn từ JSON)
+  ĐẠT [G2-8b] Nhãn giới hạn hiển thị đúng 19 mốc
+  ĐẠT [G2-9] Nhãn "Chưa có bài đọc thêm" xuất hiện đúng 3 lần
+  ĐẠT [G2-10] Nút điều hướng đầu tiên data-jump-to="0" và thẻ mốc 0 tồn tại
+  ĐẠT [G2-11] Không link nội bộ hỏng trong /lich-su
+  ĐẠT [G2-12] Dải lịch sử trang chủ hiển thị timeLabel
+  ĐẠT [G2-13] Không còn trường cũ "internalLink" trong JSON
+  KẾT LUẬN: ĐẠT — 16/16 ca

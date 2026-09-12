@@ -1,0 +1,42 @@
+{
+  "thoiGian": "2026-09-12T07:38:31.057Z",
+  "sandbox": "C:\\Users\\Admin\\AppData\\Local\\Temp\\g02-sandbox-ZD40HJ",
+  "cacCa": [
+    {
+      "ca": "S1 bản sạch (đủ ~, khoảng năm vẫn qua — A1)",
+      "exitBuild": 0,
+      "exitCheck": 0,
+      "kyVong": "exit 0 cả build và check",
+      "dat": true
+    },
+    {
+      "ca": "M1 xóa sources mốc harwood",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0, bắt [G2-3]",
+      "dat": true
+    },
+    {
+      "ca": "M2 chuỗi thời gian lọt vào trường year số",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0, bắt [G2-1c]",
+      "dat": true
+    },
+    {
+      "ca": "M3 claim \"đầu tiên\" không có trạng thái/phạm vi",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0, bắt [G2-5]",
+      "dat": true
+    },
+    {
+      "ca": "M4 link nội bộ hỏng",
+      "exitBuild": 0,
+      "exitCheck": 1,
+      "kyVong": "exit != 0, bắt [G2-11]",
+      "dat": true
+    }
+  ],
+  "tongKet": "ĐẠT — cả 5 ca đúng kỳ vọng"
+}

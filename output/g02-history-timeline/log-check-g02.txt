@@ -1,0 +1,18 @@
+  ĐẠT [G2-1a] Đúng 28 mốc
+  ĐẠT [G2-1b] Slug duy nhất
+  ĐẠT [G2-1c] year là số nguyên, thứ tự không giảm
+  ĐẠT [G2-2] timeLabel nhãn hiển thị hợp lệ (giữ ~, khoảng năm)
+  ĐẠT [G2-3] Loại ngày + mức claim có phạm vi + nguồn cấp mốc HTTPS có ngày kiểm
+  ĐẠT [G2-4] Mốc ~1510 giữ nhãn xấp xỉ, year số 1510 (điều hướng được)
+  ĐẠT [G2-5] Chữ "đầu tiên" chỉ xuất hiện khi mốc có mức claim + phạm vi
+  ĐẠT [G2-6] readMore: null hoặc route nội bộ "/"
+  ĐẠT [G2-7] HTML /lich-su render đủ 28 thẻ mốc
+  ĐẠT [G2-8] Nguồn hiển thị trên trang (52 link nguồn từ JSON)
+  ĐẠT [G2-8b] Nhãn giới hạn hiển thị đúng 19 mốc
+  ĐẠT [G2-9] Nhãn "Chưa có bài đọc thêm" xuất hiện đúng 3 lần
+  ĐẠT [G2-10] Nút điều hướng đầu tiên data-jump-to="0" và thẻ mốc 0 tồn tại
+  ĐẠT [G2-11] Không link nội bộ hỏng trong /lich-su
+  ĐẠT [G2-12] Dải lịch sử trang chủ hiển thị timeLabel
+  ĐẠT [G2-13] Không còn trường cũ "internalLink" trong JSON
+  KẾT LUẬN: ĐẠT — 16/16 ca
+  Đã ghi JSON: D:\Watch web build\output\g02-history-timeline\check-g02-ket-qua.json

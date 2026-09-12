@@ -1,226 +1,734 @@
 [
   {
-    "year": "~1510",
+    "year": 1510,
+    "timeLabel": "~1510",
     "type": "mechanism",
-    "title": "Peter Henlein — những cỗ máy thời gian bỏ túi đầu tiên",
-    "description": "Peter Henlein (Nuremberg) chế tạo những cỗ máy thời gian bỏ túi đầu tiên. Thời gian lần đầu rời khỏi tháp chuông để đi theo con người.",
     "slug": "peter-henlein",
-    "internalLink": null
+    "title": "Peter Henlein — những cỗ máy thời gian bỏ túi đầu tiên",
+    "description": "Từ khoảng 1510, tại Nuremberg, Peter Henlein được ghi nhận chế tạo những cỗ máy thời gian nhỏ bỏ túi được — thời gian lần đầu rời tháp chuông để đi theo con người. Tiểu sử quốc gia Đức (NDB) ghi nhận với bảo lưu; chữ khắc \"1510\" trên chiếc đồng hồ trống ở Bảo tàng Quốc gia Đức còn đang tranh chấp.",
+    "dayType": "Thời điểm được ghi nhận (xấp xỉ)",
+    "claimLevel": "first-known",
+    "claimScope": "theo tiểu sử quốc gia Đức (NDB) và Bảo tàng Quốc gia Đức (GNM)",
+    "limit": "Niên đại chưa chắc: chiếc \"Henlein-Uhr\" hiện được bảo tàng định niên đại khoảng 1530; chữ khắc 1510 bị nghi ngờ là giả mạo",
+    "sources": [
+      {
+        "name": "Germanisches Nationalmuseum — Henlein pocket watch dispute",
+        "url": "https://www.gnm.de/your-museum-in-nuremberg/research/archive-research-projects/the-henlein-pocket-watch-dispute",
+        "checked": "2026-09-12",
+        "proves": "\"Since 1510 or so\" — bảo tàng ghi khoảng 1510 cho việc thu nhỏ đồng hồ theo nguồn đương thời; hiện vật \"Henlein-Uhr\" được định niên đại khoảng 1530, chữ khắc 1510 có thể là giả mạo"
+      },
+      {
+        "name": "Deutsche Biographie (NDB) — Peter Henlein",
+        "url": "https://www.deutsche-biographie.de/gnd118710443.html",
+        "checked": "2026-09-12",
+        "proves": "\"Erfinder der tragbaren Kleinuhr\" — NDB ghi nhận Henlein là người phát minh đồng hồ nhỏ bỏ túi được, kèm bảo lưu \"in gewissem Sinne\" (theo nghĩa nào đó)"
+      }
+    ],
+    "readMore": null
   },
   {
-    "year": "1657–1675",
+    "year": 1657,
+    "timeLabel": "1657–1675",
     "type": "mechanism",
-    "title": "Huygens phát minh dây tóc kết hợp bánh lắc",
-    "description": "Christiaan Huygens phát minh dây tóc kết hợp bánh lắc. Sai số từ hàng giờ giảm xuống hàng phút — nền tảng của mọi đồng hồ cơ đến nay.",
     "slug": "huygens-hairspring",
-    "internalLink": null
+    "title": "Huygens — con lắc (1657) và dây tóc-bánh lắc (1675)",
+    "description": "Christiaan Huygens áp dụng con lắc vào đồng hồ (1657), rồi áp dụng dây tóc xoắn lên bánh lắc của đồng hồ bỏ túi (1675). Theo Bảo tàng Khoa học Anh, phút từ đó được chỉ báo đáng tin cậy trên cả đồng hồ để bàn lẫn bỏ túi. Quyền phát minh dây tóc bị Robert Hooke tranh chấp mạnh.",
+    "dayType": "Giai đoạn — hai bước cải tiến (phát minh)",
+    "claimLevel": "recorded",
+    "claimScope": "Science Museum Group (Anh) và FHH",
+    "limit": "Quyền phát minh dây tóc bị Robert Hooke tranh chấp — Science Museum ghi rõ \"strongly contested\"",
+    "sources": [
+      {
+        "name": "Science Museum Group — Early balance-spring watch by Thomas Tompion",
+        "url": "https://collection.sciencemuseumgroup.org.uk/objects/co33/early-balance-spring-watch-by-thomas-tompion",
+        "checked": "2026-09-12",
+        "proves": "\"When Christiaan Huygens applied the spiral spring to the balance of a watch in 1675... Minutes were now able to be reliably indicated\"; kèm ghi chú \"Robert Hooke strongly contested Huygens' claim\""
+      },
+      {
+        "name": "Fondation Haute Horlogerie — History",
+        "url": "https://www.hautehorlogerie.org/en/watches-and-culture/history",
+        "checked": "2026-09-12",
+        "proves": "Mục 1657: \"Christiaan Huygens adapts the pendulum to the clock\"; mục 1675: \"Christiaan Huygens invents the balance spring for the watch\""
+      }
+    ],
+    "readMore": "/co-che/day-toc-banh-lac"
   },
   {
-    "year": "1735",
+    "year": 1735,
+    "timeLabel": "1735",
     "type": "brand",
-    "title": "Blancpain lập xưởng tại Villeret",
-    "description": "Jehan-Jacques Blancpain lập xưởng tại Villeret — thương hiệu đồng hồ lâu đời nhất còn hoạt động liên tục.",
     "slug": "blancpain",
-    "internalLink": "/thuong-hieu/blancpain"
+    "title": "Blancpain lập xưởng tại Villeret",
+    "description": "Jehan-Jacques Blancpain ghi tên mình làm thợ đồng hồ trong sổ bộ làng Villeret (1735). Hãng tự nhận là thương hiệu đồng hồ lâu đời nhất thế giới.",
+    "dayType": "Đăng ký thợ đồng hồ (sổ bộ làng)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo hồ sơ và tuyên bố của Blancpain",
+    "limit": "1735 là năm ghi nhận trong sổ bộ làng Villeret, không phải hợp đồng thành lập; \"lâu đời nhất thế giới\" là tự tuyên bố của hãng (Vacheron Constantin cũng tự nhận danh hiệu tương đương cho chế tác vận hành liên tục)",
+    "sources": [
+      {
+        "name": "Blancpain — History",
+        "url": "https://www.blancpain.com/en/history",
+        "checked": "2026-09-12",
+        "proves": "\"Jehan-Jacques Blancpain registers himself as a watchmaker in the Villeret village records\"; \"Since 1735, Blancpain has been contributing to the development of mechanical watchmaking\""
+      },
+      {
+        "name": "Blancpain — Métiers d'Art (thông cáo hãng)",
+        "url": "https://www.blancpain.com/en/news/metiers-dart-blancpain-honoring-great-beauties-ancient-china",
+        "checked": "2026-09-12",
+        "proves": "\"Blancpain, the world's oldest watchmaking brand\" — tuyên bố tự nhận của hãng"
+      }
+    ],
+    "readMore": "/thuong-hieu/blancpain"
   },
   {
-    "year": "1755",
+    "year": 1755,
+    "timeLabel": "1755",
     "type": "brand",
-    "title": "Vacheron mở xưởng tại Geneva",
-    "description": "Jean-Marc Vacheron mở xưởng tại Geneva. Khởi đầu Vacheron Constantin — nhà chế tác vận hành liên tục lâu đời nhất.",
     "slug": "vacheron-constantin",
-    "internalLink": "/thuong-hieu/vacheron-constantin"
+    "title": "Vacheron mở xưởng tại Geneva",
+    "description": "Năm 1755, Jean-Marc Vacheron ký hợp đồng học việc đầu tiên của xưởng — hãng gọi đây là \"giấy khai sinh\" của Maison và tự nhận là nhà chế tác vận hành liên tục lâu đời nhất kể từ khi thành lập.",
+    "dayType": "Hợp đồng học việc đầu tiên (điểm ghi nhận)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo hồ sơ và tuyên bố của Vacheron Constantin",
+    "limit": "\"Vận hành liên tục lâu đời nhất\" là tự tuyên bố của hãng — Blancpain cũng tự nhận \"thương hiệu đồng hồ lâu đời nhất thế giới\" theo nghĩa khác",
+    "sources": [
+      {
+        "name": "Vacheron Constantin — Maison timeline",
+        "url": "https://www.vacheron-constantin.com/us/en/maison/timeline.html",
+        "checked": "2026-09-12",
+        "proves": "\"In 1755... Jean-Marc Vacheron signs on the first apprentice to his workshop... This contract can therefore be regarded as the Maison's birth certificate, making Vacheron Constantin the oldest watch manufacturer in continuous operation\""
+      }
+    ],
+    "readMore": "/thuong-hieu/vacheron-constantin"
   },
   {
-    "year": "1795",
+    "year": 1801,
+    "timeLabel": "1801",
     "type": "mechanism",
-    "title": "Breguet sáng chế tourbillon",
-    "description": "Abraham-Louis Breguet sáng chế tourbillon (cấp bằng 1801). 'Cơn lốc' xoay cả bộ thoát để triệt tiêu ảnh hưởng trọng lực.",
     "slug": "breguet-tourbillon",
-    "internalLink": "/tu-dien/tourbillon"
+    "title": "Breguet sáng chế tourbillon",
+    "description": "Breguet được cấp bằng sáng chế cho tourbillon — bộ điều tốc xoay toàn bộ bộ thoát để bù sai lệch do trọng lực gây ra — ngày 26/6/1801; ý tưởng hình thành giai đoạn 1793–1795 khi ông lưu trú tại Thụy Sĩ.",
+    "dayType": "Cấp bằng sáng chế",
+    "claimLevel": "recorded",
+    "claimScope": "hồ sơ Breguet và Swatch Group",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Breguet — Patent granted: the Tourbillon",
+        "url": "https://www.breguet.com/en/breguet-house/1801-1823/patent-granted-completely-new-type-regulator-called-tourbillon",
+        "checked": "2026-09-12",
+        "proves": "\"On June 26, 1801, or rather on 7 Messidor, year IX\" — bằng sáng chế cho \"a new type of regulator called the 'Tourbillon'\", \"designed to compensate for the operating errors and fluctuations caused by the effects of Earth's gravity\""
+      },
+      {
+        "name": "Swatch Group — Breguet, inventor of the tourbillon",
+        "url": "https://www.swatchgroup.com/en/services/archive/2021/breguet-inventor-tourbillon",
+        "checked": "2026-09-12",
+        "proves": "\"the idea for the Tourbillon sprouted in Breguet's mind between 1793 and 1795 (during his time in Switzerland)\""
+      }
+    ],
+    "readMore": "/tu-dien/tourbillon"
   },
   {
-    "year": "1810",
+    "year": 1810,
+    "timeLabel": "1810",
     "type": "brand",
-    "title": "Breguet chế tác đồng hồ đeo tay đầu tiên",
-    "description": "Breguet chế tác chiếc đồng hồ đeo tay đầu tiên cho Hoàng hậu Naples Caroline Murat — chiếc đồng hồ đeo tay đầu tiên được ghi nhận trong lịch sử.",
     "slug": "breguet-naples",
-    "internalLink": null
+    "title": "Breguet chế tác đồng hồ đeo tay cho Hoàng hậu Naples",
+    "description": "Nữ hoàng Naples Caroline Murat đặt Breguet chiếc số 2639 ngày 8/6/1810 — giao năm 1812. Theo hồ sơ hãng, đây là chiếc đồng hồ đầu tiên được thiết kế để đeo trên cổ tay.",
+    "dayType": "Đặt hàng (giao hàng 1812)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo hồ sơ hãng Breguet",
+    "limit": "\"Đầu tiên\" là cách gọi của hồ sơ hãng Breguet (\"the first watch designed to be worn on the wrist\")",
+    "sources": [
+      {
+        "name": "Breguet — Order of the first watch designed to be worn on the wrist",
+        "url": "https://www.breguet.com/en/breguet-house/1801-1823/order-first-watch-designed-be-worn-wrist",
+        "checked": "2026-09-12",
+        "proves": "\"On June 8th 1810, Caroline Murat, Queen of Naples... orders what will be the first watch designed to be worn on the wrist\"; \"Breguet conceived and made the first wristwatch ever known, the Breguet watch number 2639\""
+      },
+      {
+        "name": "Breguet — First purchase of Caroline Murat",
+        "url": "https://www.breguet.com/en/breguet-house/1801-1823/first-purchase-caroline-murat-queen-naples",
+        "checked": "2026-09-12",
+        "proves": "\"Commissioned in 1810, paid for in 1811 and delivered in 1812\""
+      }
+    ],
+    "readMore": "/thuong-hieu/breguet"
   },
   {
-    "year": "1868",
+    "year": 1868,
+    "timeLabel": "1868",
     "type": "brand",
-    "title": "Patek Philippe làm đồng hồ đeo tay đầu tiên",
-    "description": "Patek Philippe làm đồng hồ đeo tay cho Nữ bá tước Koscowicz (Hungary) — khi ấy còn bị coi là trang sức nữ.",
     "slug": "patek-first-wristwatch",
-    "internalLink": "/thuong-hieu/patek-philippe"
+    "title": "Patek Philippe làm đồng hồ đeo tay cho Nữ bá tước Koscowicz",
+    "description": "Patek Philippe chế tác chiếc đồng hồ đeo tay cho Nữ bá tước Koscowicz (Hungary) năm 1868 — theo hãng là chiếc đồng hồ đeo tay Thụy Sĩ đầu tiên; hiện vật trưng bày tại Bảo tàng Patek Philippe ở Geneva.",
+    "dayType": "Chế tác",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo tuyên bố của Patek Philippe",
+    "limit": "\"Đầu tiên\" giới hạn trong phạm vi đồng hồ đeo tay Thụy Sĩ, theo trang của hãng",
+    "sources": [
+      {
+        "name": "Patek Philippe — The First Wristwatch (mục Bracelets)",
+        "url": "https://www.patek.com/en/manufacture/quality-and-fine-workmanship/bracelets",
+        "checked": "2026-09-12",
+        "proves": "\"The first ever Swiss wristwatch was created by Patek Philippe in 1868\"; \"Our timepiece, made for Countess Koscowicz of Hungary, is exhibited at the Patek Philippe Museum in Geneva\""
+      }
+    ],
+    "readMore": "/thuong-hieu/patek-philippe"
   },
   {
-    "year": "1904",
+    "year": 1904,
+    "timeLabel": "1904",
     "type": "brand",
-    "title": "Cartier Santos ra đời",
-    "description": "Cartier Santos ra đời theo đặt hàng của phi công Santos-Dumont. Đồng hồ đeo tay nam hiện đại đầu tiên — sinh ra từ nhu cầu xem giờ khi lái máy bay.",
     "slug": "cartier-santos",
-    "internalLink": "/thuong-hieu/cartier"
+    "title": "Cartier Santos ra đời",
+    "description": "Louis Cartier chế tác chiếc đồng hồ cho phi công Alberto Santos-Dumont (1904) — theo hãng là một trong những chiếc đồng hồ đeo tay đầu tiên và là chiếc Cartier đầu tiên dành cho nam đeo tay; bán ra công khai từ 1911 (FHH).",
+    "dayType": "Chế tác theo đặt hàng (bán ra 1911)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Cartier và FHH",
+    "limit": "Cartier nói \"one of the first ever wristwatches\" — không phải \"chiếc đầu tiên\"; năm bán ra 1911 dẫn FHH, trang hãng không ghi",
+    "sources": [
+      {
+        "name": "Cartier — Santos-Dumont watch",
+        "url": "https://www.cartier.com/en-gb/watches/collections/santos-de-cartier/santos-dumont-watch-CRWGSA0124",
+        "checked": "2026-09-12",
+        "proves": "\"1904. Louis Cartier granted the wish of the famous Brazilian aviator Alberto Santos Dumont: to be able to tell the time while flying\"; \"The birth of one of the first ever wristwatches\""
+      },
+      {
+        "name": "FHH — Santos de Cartier, the modern icon",
+        "url": "https://www.hautehorlogerie.org/en/watches-and-culture/library/santos-de-cartier-the-modern-icon",
+        "checked": "2026-09-12",
+        "proves": "\"went on sale to the public as of 1911\"; \"in 1904, the first Cartier watch for men designed specifically to be worn on the wrist\""
+      }
+    ],
+    "readMore": "/thuong-hieu/cartier"
   },
   {
-    "year": "1914–1918",
+    "year": 1914,
+    "timeLabel": "1914–1918",
     "type": "culture",
-    "title": "Thế chiến I — trench watch phổ biến",
-    "description": "Thế chiến I: 'trench watch' phổ biến trong quân đội. Đồng hồ đeo tay từ trang sức nữ thành công cụ sống còn của đàn ông — thay thế hẳn đồng hồ bỏ túi.",
     "slug": "trench-watch",
-    "internalLink": null
+    "title": "Thế chiến I — đồng hồ đeo tay lan rộng trong quân đội",
+    "description": "Trong Thế chiến I, binh lính chuyển từ đồng hồ bỏ túi sang đeo tay để xem giờ khi hai tay phải giữ vũ khí; đồng hồ đeo tay dành cho nam lan rộng — Bộ Chiến tranh Anh còn phát đồng hồ đeo tay cho binh lính.",
+    "dayType": "Giai đoạn (Thế chiến I)",
+    "claimLevel": "context",
+    "claimScope": "Science Museum Group (Anh)",
+    "limit": "Nguồn bảo tàng ghi đồng hồ đeo tay \"lan rộng\" (proliferation) và mất ưu thế của đồng hồ bỏ túi trong chiến đấu — không ghi việc \"thay thế hẳn\"",
+    "sources": [
+      {
+        "name": "Science Museum Group Blog — The Radium Girls",
+        "url": "https://blog.sciencemuseumgroup.org.uk/the-radium-girls/",
+        "checked": "2026-09-12",
+        "proves": "\"The outbreak of the First World War led to the proliferation of wristwatches for men\"; \"the British War Office ended up distributing them to soldiers\""
+      },
+      {
+        "name": "Science Museum Group — Ingersoll 'Sterling' watch converted for the wrist",
+        "url": "https://collection.sciencemuseumgroup.org.uk/objects/co8558607/sterling-watch-by-ingersoll-converted-for-use-on-the-wrist",
+        "checked": "2026-09-12",
+        "proves": "Hiện vật đồng hồ Ingersoll (vỏ bạc hallmark 1915) cải biến từ bỏ túi sang đeo tay: \"soldiers started to wear their watch on the wrist... to easily consult the time whilst keeping their hands free\""
+      }
+    ],
+    "readMore": null
   },
   {
-    "year": "1923",
+    "year": 1923,
+    "timeLabel": "1923",
     "type": "mechanism",
-    "title": "John Harwood — cơ chế tự động lên cót",
-    "description": "John Harwood cấp bằng cơ chế tự động lên cót cho đồng hồ đeo tay. Chiếc đồng hồ tự nạp năng lượng từ cử động cổ tay đầu tiên.",
     "slug": "harwood-automatic",
-    "internalLink": "/co-che/len-day-tu-dong"
+    "title": "John Harwood — cơ chế tự động lên cót",
+    "description": "John Harwood nộp đơn bằng sáng chế cơ chế tự động lên cót cho đồng hồ đeo tay (Anh ngày 7/7/1923, Thụy Sĩ ngày 16/10/1923; bằng Thụy Sĩ cấp 1924). Sản xuất hàng loạt từ 13/7/1926 tại Fortis — được ghi nhận là đồng hồ đeo tay tự động sản xuất hàng loạt đầu tiên.",
+    "dayType": "Nộp đơn bằng sáng chế (sản xuất hàng loạt 1926)",
+    "claimLevel": "first-known",
+    "claimScope": "hồ sơ bằng sáng chế, Fortis và Sotheby's",
+    "limit": "Một số tài liệu phổ biến ghi \"sản xuất 1928\" — hồ sơ Fortis cho xuất xưởng 13/7/1926",
+    "sources": [
+      {
+        "name": "Google Patents — US1576120A (John Harwood)",
+        "url": "https://patents.google.com/patent/US1576120A/en",
+        "checked": "2026-09-12",
+        "proves": "\"Priority date 1923-07-07\" (đơn Anh GB17662/23A \"Improvements relating to wrist watches\"); \"1923-10-16 Priority to CH106583D\" (đơn Thụy Sĩ \"Self-winding watch\")"
+      },
+      {
+        "name": "Fortis — The first automatic wristwatch",
+        "url": "https://www.fortis-swiss.com/pages/the-first-automatic-wristwatch",
+        "checked": "2026-09-12",
+        "proves": "\"In 1924, John Harwood patented his self-winding wristwatch system in Switzerland\"; \"On 13 July 1926, the first Fortis Harwood automatic wristwatches began leaving the manufacture\""
+      },
+      {
+        "name": "Sotheby's — George Daniels collection, lot 29 (Harwood)",
+        "url": "https://www.sothebys.com/en/auctions/ecatalogue/2012/george-daniels-so-l12313/lot.29.html",
+        "checked": "2026-09-12",
+        "proves": "\"It was the world's first automatic wristwatch in serial production\""
+      }
+    ],
+    "readMore": "/co-che/len-day-tu-dong"
   },
   {
-    "year": "1926",
+    "year": 1926,
+    "timeLabel": "1926",
     "type": "mechanism",
-    "title": "Rolex Oyster — vỏ chống nước đầu tiên",
-    "description": "Rolex Oyster — vỏ chống nước đầu tiên sản xuất hàng loạt. Núm vặn ren xoắn kín như vỏ hàu; Mercedes Gleitze đeo bơi qua eo biển Manche 1927.",
     "slug": "rolex-oyster",
-    "internalLink": null
+    "title": "Rolex Oyster — vỏ chống nước đầu tiên",
+    "description": "Rolex Oyster — theo hãng, đồng hồ đeo tay chống nước và chống bụi đầu tiên, với vỏ kín khí bảo vệ bộ máy. Năm 1927, Mercedes Gleitze đeo bơi qua eo biển Manche hơn 10 giờ; khi lên bờ, đồng hồ vẫn hoạt động hoàn hảo (theo Rolex).",
+    "dayType": "Ra mắt (Gleitze vượt eo biển Manche 1927)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Rolex",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Rolex — History 1926–1945",
+        "url": "https://www.rolex.com/en-us/about-rolex/history/1926-1945",
+        "checked": "2026-09-12",
+        "proves": "\"In 1926, the creation by Rolex of the first waterproof and dustproof wristwatch\"; \"In 1927 a Rolex Oyster crossed the English Channel, worn by... Mercedes Gleitze... the watch remained in perfect working order\""
+      }
+    ],
+    "readMore": "/thuong-hieu/rolex"
   },
   {
-    "year": "1931",
+    "year": 1931,
+    "timeLabel": "1931",
     "type": "mechanism",
-    "title": "Rolex Perpetual — rotor tự động xoay 360°",
-    "description": "Rolex Perpetual — rotor tự động xoay 360°. Chuẩn mực cơ chế tự động dùng đến tận hôm nay.",
     "slug": "rolex-perpetual",
-    "internalLink": "/co-che/len-day-tu-dong"
+    "title": "Rolex Perpetual — rotor tự động xoay 360°",
+    "description": "Rolex Perpetual — hãng ghi nhận đã sáng chế và cấp bằng cơ chế tự động với rotor trung tâm đầu tiên thế giới (1931); theo Rolex, hệ thống này ngày nay là lõi của mọi đồng hồ tự động hiện đại.",
+    "dayType": "Ra mắt (cấp bằng sáng chế)",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Rolex",
+    "limit": "Câu \"lõi của mọi đồng hồ tự động hiện đại\" (\"at the heart of every modern automatic watch\") là diễn đạt của hãng Rolex",
+    "sources": [
+      {
+        "name": "Rolex — History 1926–1945",
+        "url": "https://www.rolex.com/en-us/about-rolex/history/1926-1945",
+        "checked": "2026-09-12",
+        "proves": "\"In 1931, Rolex invented and patented the world's first self-winding mechanism with a Perpetual rotor... is today at the heart of every modern automatic watch\""
+      }
+    ],
+    "readMore": "/co-che/len-day-tu-dong"
   },
   {
-    "year": "1931",
+    "year": 1931,
+    "timeLabel": "1931",
     "type": "brand",
-    "title": "Jaeger-LeCoultre Reverso",
-    "description": "Jaeger-LeCoultre Reverso — mặt số lật để bảo vệ kính khi chơi polo. Biểu tượng Art Deco, đồng hồ hai mặt định danh một thể loại.",
     "slug": "jlc-reverso",
-    "internalLink": "/mau-iconic/reverso"
+    "title": "Jaeger-LeCoultre Reverso",
+    "description": "Reverso — mặt số lật để bảo vệ kính khi chơi polo; đơn bằng sáng chế nộp tại Paris ngày 4/3/1931 (thiết kế René-Alfred Chauvot), lô hàng đầu có mặt trên thị trường chưa đầy 9 tháng sau. Phong cách Art Deco đặc trưng.",
+    "dayType": "Cấp bằng sáng chế (nộp đơn 4/3/1931)",
+    "claimLevel": "recorded",
+    "claimScope": "hồ sơ Jaeger-LeCoultre",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Jaeger-LeCoultre — Reverso history",
+        "url": "https://www.jaeger-lecoultre.com/us-en/jaeger-lecoultre-reverso-history",
+        "checked": "2026-09-12",
+        "proves": "\"On 4 March 1931, the Paris patent office received an application to register 'a watch capable of sliding in its support and being completely turned over'\"; \"The first pieces were on sale less than nine months after the patent application\""
+      }
+    ],
+    "readMore": "/mau-iconic/reverso"
   },
   {
-    "year": "1936",
+    "year": 1936,
+    "timeLabel": "1936",
     "type": "brand",
-    "title": "IWC ra mắt dòng Pilot's Watch",
-    "description": "IWC ra mắt dòng Pilot's Watch (Special Pilot's Watch). Khai sinh thể loại đồng hồ phi công chuyên dụng.",
     "slug": "iwc-pilot",
-    "internalLink": "/mau-iconic/iwc-mark-xi"
+    "title": "IWC ra mắt dòng Pilot's Watch",
+    "description": "IWC Special Pilot's Watch (1936) — dòng phi công đầu của hãng: bộ thoát chống từ, kính chống vỡ, vành xoay có vạch đo thời gian ngắn, kim và chữ số phát quang. IWC tự xếp mình vào số hãng tiên phong về đồng hồ hàng không.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-first",
+    "claimScope": "theo IWC (Ref. IW436)",
+    "limit": "\"Tiên phong\" (\"early pioneer\") là tự đánh giá của IWC trên trang báo chí hãng",
+    "sources": [
+      {
+        "name": "IWC Press — The 85-Year Legacy of Pilot's Watches",
+        "url": "https://press.iwc.com/the-85-year-legacy-of-pilots-watches/",
+        "checked": "2026-09-12",
+        "proves": "\"In 1936, the 'Special Pilot's Watch' (Ref. IW436) was developed in Schaffhausen\"; \"antimagnetic movement and shatterproof front glass\"; \"IWC was an early pioneer\""
+      },
+      {
+        "name": "IWC Press — Pilot's Watches Historical References",
+        "url": "https://press.iwc.com/iwc-sihh2019-historicalreferences-en/",
+        "checked": "2026-09-12",
+        "proves": "\"a rotating bezel with an index for recording short periods of time, an antimagnetic escapement, together with high-contrast luminescent hands and numerals\""
+      }
+    ],
+    "readMore": "/mau-iconic/iwc-mark-xi"
   },
   {
-    "year": "1945",
+    "year": 1945,
+    "timeLabel": "1945",
     "type": "mechanism",
-    "title": "Rolex Datejust — lịch ngày tự nhảy",
-    "description": "Rolex Datejust — ô lịch ngày tự nhảy đầu tiên trên đồng hồ đeo tay. Chức năng lịch ngày trở thành tiêu chuẩn của đồng hồ hiện đại.",
     "slug": "rolex-datejust",
-    "internalLink": null
+    "title": "Rolex Datejust — lịch ngày trên cửa sổ mặt số",
+    "description": "Rolex Datejust — theo hãng, chiếc chronometer tự động chống nước đầu tiên hiển thị ngày trong cửa sổ trên mặt số (1945).",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Rolex",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Rolex — Datejust",
+        "url": "https://www.rolex.com/en-us/watches/datejust",
+        "checked": "2026-09-12",
+        "proves": "\"Launched in 1945, the Datejust was the first self-winding waterproof chronometer wristwatch with a window displaying the date at 3 o'clock on the dial\""
+      }
+    ],
+    "readMore": "/thuong-hieu/rolex"
   },
   {
-    "year": "1953",
+    "year": 1953,
+    "timeLabel": "1953",
     "type": "brand",
-    "title": "Blancpain Fifty Fathoms — đồng hồ lặn hiện đại đầu tiên",
-    "description": "Blancpain Fifty Fathoms — đồng hồ lặn hiện đại đầu tiên. Vành xoay một chiều, chống nước 91m — chuẩn mực mọi đồng hồ lặn sau này.",
     "slug": "fifty-fathoms",
-    "internalLink": "/mau-iconic/fifty-fathoms"
+    "title": "Blancpain Fifty Fathoms — đồng hồ lặn hiện đại đầu tiên",
+    "description": "Blancpain Fifty Fathoms — theo hãng là đồng hồ lặn hiện đại đầu tiên, trình làng năm 1953; chuẩn nước 50 fathoms (tương đương khoảng 91 m — quy đổi đơn vị) và vành xoay có khóa để thợ lặn đo thời gian lặn.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Blancpain",
+    "limit": "Vành của bản đầu là vành có khóa (ấn mới xoay được) — nguồn hãng không ghi rõ xoay một chiều; 91 m là quy đổi đơn vị, không có trong nguồn hãng",
+    "sources": [
+      {
+        "name": "Blancpain — Fifty Fathoms collection",
+        "url": "https://www.blancpain.com/en-us/collections/fifty-fathoms-collection",
+        "checked": "2026-09-12",
+        "proves": "\"originally expressed in 1953 with the presentation of the first modern diver's watch\""
+      },
+      {
+        "name": "Lettres du Brassus số 13 — History and legend",
+        "url": "https://lettresdubrassus.blancpain.com/en/issue-13/history-and-legend",
+        "checked": "2026-09-12",
+        "proves": "\"fifty fathoms was thought... as the maximum depth he and other divers might achieve\"; \"His original locking system required a push on the bezel in order for it to rotate\""
+      }
+    ],
+    "readMore": "/mau-iconic/fifty-fathoms"
   },
   {
-    "year": "1953–54",
+    "year": 1953,
+    "timeLabel": "1953",
     "type": "brand",
-    "title": "Rolex Explorer & Submariner ra đời",
-    "description": "Rolex Explorer (chinh phục Everest) và Submariner ra đời. Đồng hồ công cụ (tool watch) bước vào thời hoàng kim.",
     "slug": "rolex-submariner",
-    "internalLink": "/mau-iconic/rolex-submariner"
+    "title": "Rolex Explorer & Submariner ra đời",
+    "description": "Rolex Explorer ra mắt 1953 để kỷ niệm chuyến chinh phục Everest (đoàn leo được trang bị đồng hồ Oyster Perpetual); cùng năm, theo Rolex, Submariner là đồng hồ lặn đầu tiên chống nước tới 100 m.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Rolex",
+    "limit": "Một số nguồn ngoài ghi Submariner ra mắt 1954 — trang lịch sử Rolex ghi \"Launched in 1953\"",
+    "sources": [
+      {
+        "name": "Rolex — History 1953–1967",
+        "url": "https://www.rolex.com/en-us/about-rolex/history/1953-1967",
+        "checked": "2026-09-12",
+        "proves": "\"the Explorer, launched in 1953 to celebrate the historic ascent of Everest\" (đoàn Everest \"equipped with Oyster Perpetual watches\"); \"Launched in 1953, the Submariner was the first divers' watch waterproof to a depth of 100 metres\""
+      }
+    ],
+    "readMore": "/mau-iconic/rolex-submariner"
   },
   {
-    "year": "1955",
+    "year": 1955,
+    "timeLabel": "1955",
     "type": "mechanism",
-    "title": "Rolex GMT-Master — kim 24 giờ",
-    "description": "Rolex GMT-Master ra mắt với kim 24 giờ, khai sinh chức năng hai múi giờ cho kỷ nguyên bay xuyên lục địa; sau này trở thành đồng hồ chính thức của hãng hàng không Pan Am.",
     "slug": "rolex-gmt",
-    "internalLink": "/tu-dien/gmt"
+    "title": "Rolex GMT-Master — kim 24 giờ",
+    "description": "Rolex GMT-Master ra mắt 1955 với kim 24 giờ và vành hai màu phân biệt ngày đêm — thiết kế như công cụ trợ điều hướng cho phi công bay đường dài; về sau là đồng hồ chính thức của nhiều hãng hàng không, trong đó có Pan Am (theo Rolex).",
+    "dayType": "Ra mắt",
+    "claimLevel": "recorded",
+    "claimScope": "theo Rolex",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Rolex — History 1953–1967",
+        "url": "https://www.rolex.com/en-us/about-rolex/history/1953-1967",
+        "checked": "2026-09-12",
+        "proves": "Mục 1955: \"the GMT-Master became the official watch of several airlines, among them the famous Pan American World Airways\"; \"two-tone bezel which marked daytime from night-time hours\""
+      }
+    ],
+    "readMore": "/tu-dien/gmt"
   },
   {
-    "year": "1957",
+    "year": 1957,
+    "timeLabel": "1957",
     "type": "brand",
-    "title": "Omega Speedmaster ra mắt",
-    "description": "Omega Speedmaster ra mắt. Chronograph huyền thoại, sau này là đồng hồ đầu tiên lên Mặt Trăng (1969).",
     "slug": "omega-speedmaster",
-    "internalLink": "/mau-iconic/omega-speedmaster"
+    "title": "Omega Speedmaster ra mắt",
+    "description": "Omega Speedmaster ra mắt 1957, cùng dòng Professional với Seamaster 300 và Railmaster. Sau khi được NASA chọn cho các nhiệm vụ có người lái (1965), Speedmaster trở thành chiếc đồng hồ đầu tiên được đeo trên Mặt Trăng (1969) — theo Omega.",
+    "dayType": "Ra mắt (Mặt Trăng 1969)",
+    "claimLevel": "first-known",
+    "claimScope": "theo Omega; NASA chọn năm 1965",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Omega — Chronicle 1957",
+        "url": "https://www.omegawatches.com/chronicle/1957-three-legends-are-born",
+        "checked": "2026-09-12",
+        "proves": "\"In 1957 OMEGA introduced its Professional line of watches... the Speedmaster, the Seamaster 300 and the Railmaster\""
+      },
+      {
+        "name": "Omega — Speedmaster '57 (heritage)",
+        "url": "https://www.omegawatches.com/en-us/watches/speedmaster/heritage-models/speedmaster-57/catalog",
+        "checked": "2026-09-12",
+        "proves": "\"becoming the first watch worn on the moon in 1969\""
+      },
+      {
+        "name": "Omega — Chronicle 1969",
+        "url": "https://www.omegawatches.com/chronicle/1969-the-first-journey-to-the-moon",
+        "checked": "2026-09-12",
+        "proves": "\"Qualified by NASA in 1965 as the only watch for all manned space missions and Extravehicular Activity (EVA)\""
+      }
+    ],
+    "readMore": "/mau-iconic/omega-speedmaster"
   },
   {
-    "year": "1963",
+    "year": 1963,
+    "timeLabel": "1963",
     "type": "brand",
-    "title": "Heuer Carrera ra đời",
-    "description": "Heuer Carrera ra đời từ đam mê đua xe. Chronograph đua xe thuần khiết, định hình ngôn ngữ thiết kế thể thao.",
     "slug": "heuer-carrera",
-    "internalLink": "/thuong-hieu/tag-heuer"
+    "title": "Heuer Carrera ra đời",
+    "description": "Heuer Carrera ra mắt 1963 — Jack Heuer thiết kế, lấy tên từ đường đua Carrera Panamericana; theo hãng là chiếc chronograph đầu tiên được thiết kế sẵn cho việc đua xe.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo TAG Heuer",
+    "limit": null,
+    "sources": [
+      {
+        "name": "TAG Heuer — Carrera Panamericana",
+        "url": "https://www.tagheuer.com/us/en/partnerships/carrera-panamericana.html",
+        "checked": "2026-09-12",
+        "proves": "\"Jack Heuer's famous Carrera chronograph - released in 1963 - paid homage to this one-of-a-kind event\"; \"leading him to design the first racing-ready chronograph\""
+      }
+    ],
+    "readMore": "/thuong-hieu/tag-heuer"
   },
   {
-    "year": "1969",
+    "year": 1969,
+    "timeLabel": "1969",
     "type": "mechanism",
-    "title": "Cuộc đua chronograph tự động",
-    "description": "Cuộc đua chronograph tự động: Zenith El Primero, Calibre 11 (Heuer–Breitling–Hamilton), Seiko 6139. Ba dự án về đích cùng năm — El Primero 36.000 vph vẫn sản xuất đến nay.",
     "slug": "automatic-chronograph-race",
-    "internalLink": "/mau-iconic/zenith-el-primero"
+    "title": "Cuộc đua chronograph tự động",
+    "description": "Ba dự án chronograph tự động cùng ra mắt năm 1969: Zenith El Primero (theo hãng là calibre chronograph tự động tần số cao đầu tiên thế giới), Calibre 11 của liên minh Project 99 do Heuer dẫn xướng (công bố 3/3/1969) và Seiko 6139 (mùa xuân 1969, theo bảo tàng Seiko). Thế hệ El Primero mới vẫn chạy 36.000 vph đến nay.",
+    "dayType": "Ra mắt (cùng năm 1969)",
+    "claimLevel": "brand-claim",
+    "claimScope": "mỗi hãng tuyên bố về sản phẩm của mình",
+    "limit": "Breitling thường được nêu trong liên minh Project 99 nhưng không có trong nguồn TAG Heuer đã kiểm; Seiko 6139 chỉ xác nhận \"mùa xuân 1969\" (bảo tàng Seiko), chưa đủ căn cứ ghi tháng 5",
+    "sources": [
+      {
+        "name": "Zenith — Icons 1969",
+        "url": "https://www.zenith-watches.com/en_us/products/icons-1969",
+        "checked": "2026-09-12",
+        "proves": "\"In 1969, Zenith forever changed the world of watchmaking with the unveiling of the El Primero, the world's first automatic high-frequency chronograph calibre\""
+      },
+      {
+        "name": "TAG Heuer Magazine — History of the Calibre 11",
+        "url": "https://magazine.tagheuer.com/en/2024/12/09/the-history-of-the-calibre-11-and-the-tag-heuer-monaco-chronomatic/",
+        "checked": "2026-09-12",
+        "proves": "\"had fixed a launch date of March 3rd, 1969\"; \"The consortium of four firms worked together under the codename Project 99\""
+      },
+      {
+        "name": "Seiko — Chronograph historical collection",
+        "url": "https://www.seikowatches.com/global-en/special/chronograph_historical",
+        "checked": "2026-09-12",
+        "proves": "\"the 1969 release of Caliber 6139, the world's first automatic chronograph with a column wheel and vertical clutch\""
+      },
+      {
+        "name": "Zenith — Chronomaster Original",
+        "url": "https://www.zenith-watches.com/en_us/products/chronomaster-original",
+        "checked": "2026-09-12",
+        "proves": "\"El Primero 3600 automatic high-frequency chronograph movement\"; thông số \"36,000 VpH (5 Hz)\" — thế hệ El Primero hiện hành vẫn chạy 36.000 vph"
+      }
+    ],
+    "readMore": "/mau-iconic/zenith-el-primero"
   },
   {
-    "year": "1969",
+    "year": 1969,
+    "timeLabel": "1969",
     "type": "culture",
-    "title": "Seiko Astron — đồng hồ quartz thương mại đầu tiên",
-    "description": "Seiko Astron — đồng hồ quartz thương mại đầu tiên. Phát súng mở màn Khủng hoảng Quartz làm rung chuyển cả ngành Thụy Sĩ.",
     "slug": "seiko-astron",
-    "internalLink": null
+    "title": "Seiko Astron — đồng hồ quartz thương mại đầu tiên",
+    "description": "Seiko Quartz Astron bán ra ngày 25/12/1969 — đồng hồ quartz đeo tay đầu tiên thế giới, giá 450.000 yên. FHH gọi cú chấn động với ngành đồng hồ Thụy Sĩ sau đó là cuộc cách mạng quartz.",
+    "dayType": "Ra mắt thương mại (25/12/1969)",
+    "claimLevel": "type-first",
+    "claimScope": "theo Seiko và FHH",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Seiko — 100 Stories: Innovation",
+        "url": "https://www.seikowatches.com/us-en/special/100stories/innovation",
+        "checked": "2026-09-12",
+        "proves": "\"On December 25, 1969, Seiko was the first in the world to introduce a quartz wristwatch, the Quartz Astron\"; \"its price tag of JPY 450,000\""
+      },
+      {
+        "name": "FHH — A Brief History of Quartz",
+        "url": "https://www.hautehorlogerie.org/en/watches-and-culture/library/a-brief-history-of-quartz-1",
+        "checked": "2026-09-12",
+        "proves": "\"The quartz revolution traumatised the Swiss watch industry to such a degree it is rarely documented\"; \"on December 25th 1969, the first ever high-frequency analog watch to be driven by a quartz crystal went on sale\""
+      }
+    ],
+    "readMore": "/thuong-hieu/seiko"
   },
   {
-    "year": "1972",
+    "year": 1972,
+    "timeLabel": "1972",
     "type": "brand",
-    "title": "Audemars Piguet Royal Oak",
-    "description": "Audemars Piguet Royal Oak (thiết kế Gérald Genta). Đồng hồ thể thao thép cao cấp đầu tiên — cứu cả phân khúc haute horlogerie.",
     "slug": "ap-royal-oak",
-    "internalLink": "/mau-iconic/royal-oak"
+    "title": "Audemars Piguet Royal Oak",
+    "description": "Audemars Piguet Royal Oak ra mắt 1972 tại hội chợ Basel — Gérald Genta vẽ thiết kế trong một đêm; chiếc đồng hồ thép giá 3.300 franc Thụy Sĩ thời đó gây hoài nghi với giới chuyên môn, đưa \"casual chic\" vào haute horlogerie (theo AP Chronicles).",
+    "dayType": "Ra mắt",
+    "claimLevel": "recorded",
+    "claimScope": "AP Chronicles (hồ sơ hãng)",
+    "limit": "Cách nói phổ biến \"đồng hồ thể thao thép cao cấp đầu tiên\" không có nguyên văn trong các trang AP đã kiểm — dùng diễn đạt của hãng (\"casual chic\", \"reinvented the codes of luxury watchmaking\")",
+    "sources": [
+      {
+        "name": "AP Chronicles — Royal Oak 5402",
+        "url": "https://apchronicles.audemarspiguet.com/en/model/5402",
+        "checked": "2026-09-12",
+        "proves": "\"Designed in one night by Gérald Genta, the first Royal Oak model was presented in 1972 at the Basel Fair\"; \"it opened a chapter... in Haute Horlogerie\""
+      },
+      {
+        "name": "AP Chronicles — Birth of an Icon",
+        "url": "https://apchronicles.audemarspiguet.com/en/article/birth-of-an-icon",
+        "checked": "2026-09-12",
+        "proves": "\"In 1972, the Royal Oak sold CHF 3,300\"; \"The professional world reacted with scepticism to... this stainless steel wristwatch\"; \"it reinvented the codes of luxury watchmaking\""
+      }
+    ],
+    "readMore": "/mau-iconic/royal-oak"
   },
   {
-    "year": "1976",
+    "year": 1976,
+    "timeLabel": "1976",
     "type": "brand",
-    "title": "Patek Philippe Nautilus",
-    "description": "Patek Philippe Nautilus (cũng của Gérald Genta). Cặp song sinh định hình thể loại sport-luxury thống trị đến hôm nay.",
     "slug": "patek-nautilus",
-    "internalLink": "/mau-iconic/patek-nautilus"
+    "title": "Patek Philippe Nautilus",
+    "description": "Patek Philippe Nautilus ra mắt 1976 — thiết kế cùng Gérald Genta, lấy cảm hứng từ cửa sổ hầm tàu; theo hãng là chiếc đồng hồ thể thao đầu tiên trong 137 năm lịch sử hãng, làm bằng thép.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-first",
+    "claimScope": "theo Patek Philippe",
+    "limit": null,
+    "sources": [
+      {
+        "name": "Patek Philippe — Thông cáo 40 năm Nautilus (PDF)",
+        "url": "https://static.patek.com/pdf/pressreleases/en/2016_PatekPhilippe_Nautilus_40th_Anniversary.pdf",
+        "checked": "2026-09-12",
+        "proves": "\"to launch a sports wristwatch for the first time in the 137-year history of the manufacture. In close collaboration with Gérald Genta... the Nautilus Ref. 3700/1A... made of steel\""
+      },
+      {
+        "name": "Patek Philippe — Nautilus collection",
+        "url": "https://www.patek.com/en/collection/nautilus",
+        "checked": "2026-09-12",
+        "proves": "\"Inspired by the shape of a ship's porthole... the Nautilus has epitomized the elegant sports watch since its launch in 1976\""
+      }
+    ],
+    "readMore": "/mau-iconic/patek-nautilus"
   },
   {
-    "year": "1983",
+    "year": 1983,
+    "timeLabel": "1983",
     "type": "culture",
-    "title": "Swatch ra đời — Nicolas Hayek tái cấu trúc",
-    "description": "Swatch ra đời, Nicolas Hayek tái cấu trúc ngành Thụy Sĩ. Lợi nhuận từ đồng hồ nhựa giá rẻ nuôi sống và hồi sinh đồng hồ cơ truyền thống.",
     "slug": "swatch-1983",
-    "internalLink": null
+    "title": "Swatch ra đời, ngành Thụy Sĩ tái cấu trúc",
+    "description": "Swatch ra mắt 1983 (họp báo ngày 1/3/1983). Nicolas G. Hayek được giao xây chiến lược cứu SSIH và ASUAG, hợp nhất hai hãng — nền của Swatch Group ngày nay; Swatch được tập đoàn gọi là \"tia lửa\" của bước phục hưng đồng hồ Thụy Sĩ.",
+    "dayType": "Ra mắt thương hiệu",
+    "claimLevel": "context",
+    "claimScope": "Swatch Group và Europa Star",
+    "limit": "Hayek làm CEO SMH ở giai đoạn giữa thập niên 1980 (khối 1983–1985 trên trang Swatch Group), không phải ngay 1983; vai trò trình bày Swatch ngày ra mắt thuộc về Ernst Thomke (Europa Star)",
+    "sources": [
+      {
+        "name": "Swatch Group — History",
+        "url": "https://www.swatchgroup.com/en/swatch-group/swatch-group-history",
+        "checked": "2026-09-12",
+        "proves": "\"Nicolas G. Hayek was given the task of developing a strategy to secure the future of the two firms. He merged the two companies\"; \"THE FIRST SWATCH IS BORN... the initial spark for the remarkable upswing in the Swiss watch industry\""
+      },
+      {
+        "name": "Europa Star — From the archives: our first look at the Swatch",
+        "url": "https://www.europastar.com/the-watch-files/archives-heritage/1004094117-from-the-archives-our-first-look-at-the-swatch.html",
+        "checked": "2026-09-12",
+        "proves": "\"The Swatch was officially introduced by Ernst Thomke at a press conference on March 1, 1983\""
+      }
+    ],
+    "readMore": null
   },
   {
-    "year": "1999",
+    "year": 1999,
+    "timeLabel": "1999",
     "type": "mechanism",
-    "title": "Omega thương mại hóa bộ thoát Co-Axial",
-    "description": "Omega thương mại hóa bộ thoát Co-Axial của George Daniels. Cải tiến bộ thoát quan trọng nhất sau 250 năm — giảm ma sát, tăng bền.",
     "slug": "omega-coaxial",
-    "internalLink": null
+    "title": "Omega thương mại hóa bộ thoát Co-Axial",
+    "description": "Omega đưa vào sản xuất bộ thoát Co-Axial do George Daniels phát minh (Calibre 2500, 1999) — theo Swatch Group: bộ thoát cơ khí thực dụng mới đầu tiên được tung ra sau 250 năm.",
+    "dayType": "Thương mại hóa",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Swatch Group (tập đoàn mẹ của Omega)",
+    "limit": "Hồ sơ bằng sáng chế Daniels: đơn ưu tiên 30/4/1979, nộp EPO 25/4/1980, cấp 1984 — năm phát minh chính xác không ghi trong các nguồn đã kiểm",
+    "sources": [
+      {
+        "name": "Swatch Group — Omega's Co-Axial story",
+        "url": "https://www.swatchgroup.com/en/services/archive/2010/omegas-co-axial-story",
+        "checked": "2026-09-12",
+        "proves": "\"Master watchmaker George Daniels, who invented the Co-Axial Escapement\"; \"When Omega launched its Co-Axial calibre 2500 in 1999...\"; \"the first practical new mechanical watch escapement to be launched in 250 years\""
+      },
+      {
+        "name": "Google Patents — EP0018796A2 (George Daniels)",
+        "url": "https://patents.google.com/patent/EP0018796A2/en",
+        "checked": "2026-09-12",
+        "proves": "Hồ sơ bằng sáng chế escapement của George Daniels: \"Priority date 1979-04-30\", nộp EPO 25/4/1980, cấp 1984"
+      }
+    ],
+    "readMore": "/thuong-hieu/omega"
   },
   {
-    "year": "2001",
+    "year": 2001,
+    "timeLabel": "2001",
     "type": "mechanism",
-    "title": "Ulysse Nardin Freak — kỷ nguyên silicon",
-    "description": "Ulysse Nardin Freak — không kim, không mặt số, lần đầu dùng silicium trong bộ thoát. Mở kỷ nguyên vật liệu silicon: nhẹ, không nhiễm từ, không cần dầu bôi trơn.",
     "slug": "un-freak",
-    "internalLink": "/mau-iconic/freak"
+    "title": "Ulysse Nardin Freak — kỷ nguyên silicon",
+    "description": "Ulysse Nardin Freak (2001) — không mặt số, không kim, không núm vặn; theo hãng là chiếc đồng hồ cơ đầu tiên dùng silicium, với Dual Direct Escapement do Ludwig Oechslin hiện thực hóa.",
+    "dayType": "Ra mắt",
+    "claimLevel": "brand-claim",
+    "claimScope": "theo Ulysse Nardin",
+    "limit": "\"Đầu tiên dùng silicium\" là tuyên bố của hãng (\"the first mechanical watch to use silicon\")",
+    "sources": [
+      {
+        "name": "Ulysse Nardin — Heritage",
+        "url": "https://www.ulysse-nardin.com/about-us/heritage",
+        "checked": "2026-09-12",
+        "proves": "\"the introduction of the Freak in 2001... innovative mechanism, and pioneering use of silicon technology\"; Oechslin \"created... the Freak\""
+      },
+      {
+        "name": "Ulysse Nardin — Freak",
+        "url": "https://www.ulysse-nardin.com/about-us/unvrs/ulysse-nardin-freak",
+        "checked": "2026-09-12",
+        "proves": "\"The Ulysse Nardin Freak was the first mechanical watch to use silicon\"; \"Ludwig Oechslin was finally able to bring Ulysse Nardin's Dual Direct Escapement to life\""
+      }
+    ],
+    "readMore": "/mau-iconic/freak"
   },
   {
-    "year": "2013–nay",
+    "year": 2013,
+    "timeLabel": "2013–nay",
     "type": "mechanism",
-    "title": "Silicon phổ cập — cơ khí phục hưng",
-    "description": "Omega đạt chuẩn chống từ >15.000 gauss; dây tóc silicon phổ cập toàn ngành; cơ khí phục hưng trong kỷ nguyên smartwatch. Đồng hồ cơ không còn là công cụ đo giờ — mà là di sản chế tác trên cổ tay.",
     "slug": "silicon-revival",
-    "internalLink": "/co-che/chong-tu"
+    "title": "Silicon trong bộ máy — cơ khí phục hưng",
+    "description": "Năm 2013, Omega ra mắt bộ máy chống từ hơn 15.000 gauss; chứng nhận Master Chronometer cùng METAS ra mắt 2015. Dây tóc và bộ thoát silicon được nhiều hãng lớn ứng dụng (Patek Philippe Spiromax, Rolex Syloxi, Ulysse Nardin). Đồng hồ cơ tiếp tục phát triển như di sản chế tác trong kỷ nguyên smartwatch.",
+    "dayType": "Giai đoạn (2013–nay)",
+    "claimLevel": "context",
+    "claimScope": "Omega, METAS, Patek Philippe, Rolex, Ulysse Nardin",
+    "limit": "Ngưỡng 15.000 gauss gắn với chứng nhận METAS-N001; năm ra mắt dây tóc Syloxi của Rolex chưa xác minh được từ trang hãng nên không ghi năm",
+    "sources": [
+      {
+        "name": "Omega — Chronicle 2013",
+        "url": "https://www.omegawatches.com/en-ca/chronicle/2013-solving-a-modern-problem",
+        "checked": "2026-09-12",
+        "proves": "\"In 2013, OMEGA released the Co-Axial 8508, an anti-magnetic watch movement that was resistant to more than 15,000 gauss\""
+      },
+      {
+        "name": "METAS — Watch certification (METAS-N001)",
+        "url": "https://www.metas.admin.ch/en/watch-certification",
+        "checked": "2026-09-12",
+        "proves": "\"MASTER CHRONOMETER certification... Requirements for the certification of movements and mechanical watches resistant to magnetic fields of 1.5 T (15,000 G)\""
+      },
+      {
+        "name": "Patek Philippe — Advanced Research",
+        "url": "https://www.patek.com/en/manufacture/a-tradition-of-innovation/advanced-research",
+        "checked": "2026-09-12",
+        "proves": "\"The Spiromax® hairspring in Silinvar® (2006)\"; Silinvar® \"lightweight properties, no need for lubrication, and non-magnetism\""
+      }
+    ],
+    "readMore": "/co-che/chong-tu"
   }
 ]

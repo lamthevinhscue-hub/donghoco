@@ -1,0 +1,111 @@
+{
+  "thoiGian": "2026-09-12T06:51:48.124Z",
+  "root": "D:\\Watch web build",
+  "dist": "D:\\Watch web build\\dist",
+  "json": [
+    {
+      "id": "G2-1a",
+      "ten": "Đúng 28 mốc",
+      "dat": true,
+      "chiTiet": "thực tế 28"
+    },
+    {
+      "id": "G2-1b",
+      "ten": "Slug duy nhất",
+      "dat": true,
+      "chiTiet": "trùng: không"
+    },
+    {
+      "id": "G2-1c",
+      "ten": "year là số nguyên, thứ tự không giảm",
+      "dat": true,
+      "chiTiet": "không"
+    },
+    {
+      "id": "G2-2",
+      "ten": "timeLabel nhãn hiển thị hợp lệ (giữ ~, khoảng năm)",
+      "dat": true,
+      "chiTiet": "không"
+    },
+    {
+      "id": "G2-3",
+      "ten": "Loại ngày + mức claim có phạm vi + nguồn cấp mốc HTTPS có ngày kiểm",
+      "dat": true,
+      "chiTiet": "không"
+    },
+    {
+      "id": "G2-4",
+      "ten": "Mốc ~1510 giữ nhãn xấp xỉ, year số 1510 (điều hướng được)",
+      "dat": true,
+      "chiTiet": "year=1510, timeLabel=\"~1510\""
+    },
+    {
+      "id": "G2-5",
+      "ten": "Chữ \"đầu tiên\" chỉ xuất hiện khi mốc có mức claim + phạm vi",
+      "dat": true,
+      "chiTiet": "không"
+    },
+    {
+      "id": "G2-6",
+      "ten": "readMore: null hoặc route nội bộ \"/\"",
+      "dat": true,
+      "chiTiet": "không"
+    }
+  ],
+  "distChecks": [
+    {
+      "id": "G2-7",
+      "ten": "HTML /lich-su render đủ 28 thẻ mốc",
+      "dat": true,
+      "chiTiet": "thực tế 28"
+    },
+    {
+      "id": "G2-8",
+      "ten": "Nguồn hiển thị trên trang (52 link nguồn từ JSON)",
+      "dat": true,
+      "chiTiet": "thực tế 52"
+    },
+    {
+      "id": "G2-8b",
+      "ten": "Nhãn giới hạn hiển thị đúng 19 mốc",
+      "dat": true,
+      "chiTiet": "thực tế 19"
+    },
+    {
+      "id": "G2-9",
+      "ten": "Nhãn \"Chưa có bài đọc thêm\" xuất hiện đúng 3 lần",
+      "dat": true,
+      "chiTiet": "thực tế 3"
+    },
+    {
+      "id": "G2-10",
+      "ten": "Nút điều hướng đầu tiên data-jump-to=\"0\" và thẻ mốc 0 tồn tại",
+      "dat": true,
+      "chiTiet": "nút đầu=0"
+    },
+    {
+      "id": "G2-11",
+      "ten": "Không link nội bộ hỏng trong /lich-su",
+      "dat": true,
+      "chiTiet": "không"
+    },
+    {
+      "id": "G2-12",
+      "ten": "Dải lịch sử trang chủ hiển thị timeLabel",
+      "dat": true,
+      "chiTiet": "đủ"
+    },
+    {
+      "id": "G2-13",
+      "ten": "Không còn trường cũ \"internalLink\" trong JSON",
+      "dat": true,
+      "chiTiet": "còn sót"
+    }
+  ],
+  "tongKet": {
+    "tongCa": 16,
+    "tongDat": 16,
+    "loi": 0,
+    "dat": true
+  }
+}

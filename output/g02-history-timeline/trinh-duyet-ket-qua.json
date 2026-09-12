@@ -1,0 +1,202 @@
+[
+  {
+    "ten": "[320-light] đủ 28 mốc",
+    "dat": true,
+    "chiTiet": "soThe=28"
+  },
+  {
+    "ten": "[320-light] không tràn ngang",
+    "dat": true,
+    "chiTiet": "scroll=320 client=320"
+  },
+  {
+    "ten": "[320-light] ảnh timeline không hỏng (28 ảnh)",
+    "dat": true,
+    "chiTiet": "hỏng=không"
+  },
+  {
+    "ten": "[320-light] nguồn hiển thị trên thẻ",
+    "dat": true,
+    "chiTiet": "soLinkNguon=52"
+  },
+  {
+    "ten": "[320-light] nhãn giới hạn hiển thị",
+    "dat": true,
+    "chiTiet": "soGioiHan=19"
+  },
+  {
+    "ten": "[320-light] đọc tiếp/chưa có bài (25 link + 3 nhãn)",
+    "dat": true,
+    "chiTiet": "docChiTiet=25 chuaCo=3"
+  },
+  {
+    "ten": "[320-light] theme thật từ DOM",
+    "dat": true,
+    "chiTiet": "dark=false"
+  },
+  {
+    "ten": "[320-light] mốc đầu hiển thị nhãn ~1510",
+    "dat": true,
+    "chiTiet": "label=\"~1510\""
+  },
+  {
+    "ten": "[320-light] nút điều hướng đầu → thẻ Peter Henlein ~1510",
+    "dat": true,
+    "chiTiet": "{\"cardLabel\":\"~1510\",\"trongManHinh\":true,\"panelDong\":true,\"top\":-140}"
+  },
+  {
+    "ten": "[320-light] bàn phím: focus nút + Enter nhảy tới mốc",
+    "dat": true,
+    "chiTiet": "{\"co\":true,\"focusTrenNut\":true,\"trongManHinh\":true}"
+  },
+  {
+    "ten": "[1440-light] đủ 28 mốc",
+    "dat": true,
+    "chiTiet": "soThe=28"
+  },
+  {
+    "ten": "[1440-light] không tràn ngang",
+    "dat": true,
+    "chiTiet": "scroll=1440 client=1440"
+  },
+  {
+    "ten": "[1440-light] ảnh timeline không hỏng (28 ảnh)",
+    "dat": true,
+    "chiTiet": "hỏng=không"
+  },
+  {
+    "ten": "[1440-light] nguồn hiển thị trên thẻ",
+    "dat": true,
+    "chiTiet": "soLinkNguon=52"
+  },
+  {
+    "ten": "[1440-light] nhãn giới hạn hiển thị",
+    "dat": true,
+    "chiTiet": "soGioiHan=19"
+  },
+  {
+    "ten": "[1440-light] đọc tiếp/chưa có bài (25 link + 3 nhãn)",
+    "dat": true,
+    "chiTiet": "docChiTiet=25 chuaCo=3"
+  },
+  {
+    "ten": "[1440-light] theme thật từ DOM",
+    "dat": true,
+    "chiTiet": "dark=false"
+  },
+  {
+    "ten": "[1440-light] mốc đầu hiển thị nhãn ~1510",
+    "dat": true,
+    "chiTiet": "label=\"~1510\""
+  },
+  {
+    "ten": "[1440-light] nút điều hướng đầu → thẻ Peter Henlein ~1510",
+    "dat": true,
+    "chiTiet": "{\"cardLabel\":\"~1510\",\"trongManHinh\":true,\"top\":-22}"
+  },
+  {
+    "ten": "[1440-light] bàn phím: focus nút + Enter nhảy tới mốc",
+    "dat": true,
+    "chiTiet": "{\"co\":true,\"focusTrenNut\":true,\"trongManHinh\":true}"
+  },
+  {
+    "ten": "[320-dark] đủ 28 mốc",
+    "dat": true,
+    "chiTiet": "soThe=28"
+  },
+  {
+    "ten": "[320-dark] không tràn ngang",
+    "dat": true,
+    "chiTiet": "scroll=320 client=320"
+  },
+  {
+    "ten": "[320-dark] ảnh timeline không hỏng (28 ảnh)",
+    "dat": true,
+    "chiTiet": "hỏng=không"
+  },
+  {
+    "ten": "[320-dark] nguồn hiển thị trên thẻ",
+    "dat": true,
+    "chiTiet": "soLinkNguon=52"
+  },
+  {
+    "ten": "[320-dark] nhãn giới hạn hiển thị",
+    "dat": true,
+    "chiTiet": "soGioiHan=19"
+  },
+  {
+    "ten": "[320-dark] đọc tiếp/chưa có bài (25 link + 3 nhãn)",
+    "dat": true,
+    "chiTiet": "docChiTiet=25 chuaCo=3"
+  },
+  {
+    "ten": "[320-dark] theme thật từ DOM",
+    "dat": true,
+    "chiTiet": "dark=true"
+  },
+  {
+    "ten": "[320-dark] mốc đầu hiển thị nhãn ~1510",
+    "dat": true,
+    "chiTiet": "label=\"~1510\""
+  },
+  {
+    "ten": "[320-dark] nút điều hướng đầu → thẻ Peter Henlein ~1510",
+    "dat": true,
+    "chiTiet": "{\"cardLabel\":\"~1510\",\"trongManHinh\":true,\"panelDong\":true,\"top\":-140}"
+  },
+  {
+    "ten": "[320-dark] bàn phím: focus nút + Enter nhảy tới mốc",
+    "dat": true,
+    "chiTiet": "{\"co\":true,\"focusTrenNut\":true,\"trongManHinh\":true}"
+  },
+  {
+    "ten": "[1440-dark] đủ 28 mốc",
+    "dat": true,
+    "chiTiet": "soThe=28"
+  },
+  {
+    "ten": "[1440-dark] không tràn ngang",
+    "dat": true,
+    "chiTiet": "scroll=1440 client=1440"
+  },
+  {
+    "ten": "[1440-dark] ảnh timeline không hỏng (28 ảnh)",
+    "dat": true,
+    "chiTiet": "hỏng=không"
+  },
+  {
+    "ten": "[1440-dark] nguồn hiển thị trên thẻ",
+    "dat": true,
+    "chiTiet": "soLinkNguon=52"
+  },
+  {
+    "ten": "[1440-dark] nhãn giới hạn hiển thị",
+    "dat": true,
+    "chiTiet": "soGioiHan=19"
+  },
+  {
+    "ten": "[1440-dark] đọc tiếp/chưa có bài (25 link + 3 nhãn)",
+    "dat": true,
+    "chiTiet": "docChiTiet=25 chuaCo=3"
+  },
+  {
+    "ten": "[1440-dark] theme thật từ DOM",
+    "dat": true,
+    "chiTiet": "dark=true"
+  },
+  {
+    "ten": "[1440-dark] mốc đầu hiển thị nhãn ~1510",
+    "dat": true,
+    "chiTiet": "label=\"~1510\""
+  },
+  {
+    "ten": "[1440-dark] nút điều hướng đầu → thẻ Peter Henlein ~1510",
+    "dat": true,
+    "chiTiet": "{\"cardLabel\":\"~1510\",\"trongManHinh\":true,\"top\":-22}"
+  },
+  {
+    "ten": "[1440-dark] bàn phím: focus nút + Enter nhảy tới mốc",
+    "dat": true,
+    "chiTiet": "{\"co\":true,\"focusTrenNut\":true,\"trongManHinh\":true}"
+  }
+]

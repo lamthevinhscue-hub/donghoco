@@ -26,21 +26,47 @@ const layers = [
   { id: 'culture', label: '🌍 Bối cảnh & văn hóa', labelShort: 'Văn hóa', color: '#9B2C2C', bgColor: '#9B2C2C' },
 ];
 
-const milestones = timelineData as Array<{
-  year: string;
+interface TimelineSource {
+  name: string;
+  url: string;
+  checked: string;
+  proves: string;
+}
+interface Milestone {
+  year: number;
+  timeLabel: string;
   type: string;
+  slug: string;
   title: string;
   description: string;
-  slug: string;
-  internalLink: string | null;
-}>;
+  dayType: string;
+  claimLevel: 'first-known' | 'brand-first' | 'brand-claim' | 'type-first' | 'recorded' | 'context';
+  claimScope: string | null;
+  limit: string | null;
+  sources: TimelineSource[];
+  readMore: string | null;
+}
+const milestones = timelineData as Milestone[];
 
-// Tạo các mốc nhảy theo thập niên cho thanh điều hướng
+// Nhãn mức chứng minh của từng mốc — hiển thị cạnh thẻ để người đọc biết
+// dữ kiện được nói ở mức nào (theo nguồn hãng, được ghi nhận, bối cảnh...).
+const claimLabels: Record<Milestone['claimLevel'], string> = {
+  'first-known': 'Đầu tiên được ghi nhận',
+  'brand-first': 'Đầu tiên của hãng',
+  'brand-claim': 'Theo tuyên bố hãng',
+  'type-first': 'Đầu tiên trong loại',
+  'recorded': 'Dữ kiện có nguồn',
+  'context': 'Bối cảnh lịch sử',
+};
+
+// Tạo các mốc nhảy theo thập niên cho thanh điều hướng — dùng trường year SỐ
+// (trước đây parseInt("~1510") trả NaN làm mốc đầu tiên bị loại khỏi điều hướng
+// và nút đầu tiên nhảy nhầm tới mốc thứ hai).
 const decadeMarks: { label: string; index: number }[] = [];
 let lastDecade = '';
 milestones.forEach((m, i) => {
-  const yearNum = parseInt(m.year);
-  if (isNaN(yearNum)) return;
+  const yearNum = m.year;
+  if (!Number.isFinite(yearNum)) return;
   const decade = Math.floor(yearNum / 50) * 50; // nhóm 50 năm
   const label = decade === Math.floor(yearNum / 100) * 100
     ? `${decade}s`
@@ -124,9 +150,9 @@ milestones.forEach((m, i) => {
               <!-- Thẻ nội dung -->
               <div class="milestone-content rounded-lg border-l-4 bg-white dark:bg-dark-surface p-5 shadow-sm"
                    style={`border-left-color: ${layer.color};`}>
-                <!-- Năm -->
+                <!-- Nhãn thời gian hiển thị (giữ dấu ~, khoảng năm) — year số chỉ dùng cho điều hướng -->
                 <div class="milestone-year" style={`color: ${layer.color};`}>
-                  {m.year}
+                  {m.timeLabel}
                 </div>
 
                 <h2 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{m.title}</h2>
@@ -136,14 +162,53 @@ milestones.forEach((m, i) => {
 
                 <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{m.description}</p>
 
-                {m.internalLink && (
+                <!-- Hàng meta: loại ngày + mức chứng minh -->
+                <div class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
+                  <span class="font-medium" style={`color: ${layer.color};`}>{m.dayType}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{claimLabels[m.claimLevel]}{m.claimScope ? ` (${m.claimScope})` : ''}</span>
+                </div>
+
+                <!-- Giới hạn nguồn (nếu mốc bị thu hẹp do giới hạn nguồn) -->
+                {m.limit && (
+                  <p class="mt-2 rounded border border-cream-dark/70 bg-cream-dark/20 px-2.5 py-1.5 text-xs leading-relaxed text-ink-soft dark:border-dark-border/60 dark:bg-dark-border/20 dark:text-dark-text-soft">
+                    <strong class="font-semibold">Giới hạn:</strong> {m.limit}
+                  </p>
+                )}
+
+                <!-- Nguồn cấp mốc — link thật, mở được, không chỉ tooltip/ảnh -->
+                <div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                  <span class="text-ink-soft/80 dark:text-dark-text-soft/60">Nguồn:</span>
+                  {m.sources.map((nguon, k) => (
+                    <>
+                      {k > 0 && <span aria-hidden="true" class="text-ink-soft/50 dark:text-dark-text-soft/40">·</span>}
+                      <a
+                        href={nguon.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="underline decoration-dotted underline-offset-2 transition-colors hover:text-brass dark:hover:text-dark-brass"
+                        style={`color: ${layer.color};`}
+                      >
+                        {nguon.name}
+                      </a>
+                      <span class="text-ink-soft/60 dark:text-dark-text-soft/50">(kiểm {nguon.checked})</span>
+                    </>
+                  ))}
+                </div>
+
+                <!-- Đường đọc tiếp: link thật hoặc ghi rõ chưa có bài -->
+                {m.readMore ? (
                   <a
-                    href={m.internalLink}
+                    href={m.readMore}
                     class="mt-3 inline-block text-xs font-medium transition-colors hover:underline"
                     style={`color: ${layer.color};`}
                   >
                     Đọc chi tiết →
                   </a>
+                ) : (
+                  <p class="mt-3 text-xs italic text-ink-soft/70 dark:text-dark-text-soft/60">
+                    Chưa có bài đọc thêm cho mốc này
+                  </p>
                 )}
               </div>
             </article>

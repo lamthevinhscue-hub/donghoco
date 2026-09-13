@@ -1,0 +1,108 @@
+
+== 0. Tệp hồ sơ ==
+  ĐẠT  bang-anh-xa-28-moc.md
+  ĐẠT  storyboard-6-chuong.md
+  ĐẠT  tai-san-va-khoi-luong.md
+  ĐẠT  pham-vi-g05b-du-kien.md
+  ĐẠT  ma-tran-nghiem-thu-g05b-du-kien.md
+
+== 1. timeline.json (nguồn sự thật G02) ==
+  ĐẠT  28 mốc
+  ĐẠT  slug duy nhất
+  ĐẠT  year không giảm
+  ĐẠT  tổng nguồn 52
+  ĐẠT  19 mốc có Giới hạn
+  ĐẠT  3 mốc readMore null
+  ĐẠT  type: mechanism 12 / brand 13 / culture 3 (đếm động từ JSON)
+  ĐẠT  đoạn dẫn trang đếm đúng 53 token (khớp hồ sơ)
+  ĐẠT  ghi chú cuối trang đếm đúng 44 token (khớp hồ sơ)
+  ĐẠT  4/52 name nguồn có phần tiếng Việt (khớp hồ sơ)
+  ĐẠT  proves không được render trong lich-su.astro (hồ sơ nguồn, không phải UI)
+
+== 2. contentRoutes.ts (cặp route) ==
+  ĐẠT  /lich-su chưa có cặp (G05-A không sửa src/)
+
+== 3. Bảng ánh xạ 28 mốc ==
+  ĐẠT  28 dòng dữ liệu trong bảng
+  ĐẠT  28 dòng khớp timeline.json + contentRoutes (VI 25 route, EN 12 route)
+  ĐẠT  mọi route đọc tiếp VI/EN có trong dist của build 2f322dc
+  ĐẠT  khung 6 chương đúng danh sách + thứ tự slug (5+4+6+6+4+3)
+  ĐẠT  bảng ghi đúng tổng 28
+
+== 4. Storyboard 6 chương ==
+  ĐẠT  có mục chương C1
+  ĐẠT  có mục chương C2
+  ĐẠT  có mục chương C3
+  ĐẠT  có mục chương C4
+  ĐẠT  có mục chương C5
+  ĐẠT  có mục chương C6
+  ĐẠT  6 câu hỏi VI + 6 câu hỏi EN draft (khuôn nhãn thống nhất)
+  ĐẠT  6 câu giữ chương (thời gian khác nhân quả)
+  ĐẠT  ghi anchor hiện hành + ID chung chương + route EN đề xuất
+  ĐẠT  số mốc từng lớp sửa đúng 12/13/3 (khớp đếm động)
+  ĐẠT  hành vi lọc + nav chương ghi đề nghị k/N
+  ĐẠT  hành vi switcher ghi rõ là đề nghị, chưa quan sát
+  ĐẠT  gọi đúng: giữ route VI, thêm 1 route EN
+
+== 5. Tài sản và khối lượng ==
+  ĐẠT  khuyến nghị 0 hình mới rõ ràng
+  ĐẠT  tùy chọn T1 đủ alt + ngân sách + fallback
+  ĐẠT  số token description khớp đếm thật (1231)
+  ĐẠT  5 trường dữ liệu đo động = 2.200 token, hồ sơ tách đúng 2.200 đo + ~372 alt dự kiến
+  ĐẠT  đơn vị đếm gọi đúng tên: token tách theo khoảng trắng
+  ĐẠT  ước lượng EN ghi rõ là giả định dự phòng chưa hiệu chuẩn, không phải chỉ tiêu phải viết đủ
+  ĐẠT  tổng VI gọi đúng tên "khối lượng ước tính"
+  ĐẠT  tổng VI ≈ 3.060 + ước lượng EN 3.400–4.000 có trong hồ sơ
+  ĐẠT  timeLabel hai ngôn ngữ ghi đủ (VI "2013–nay" / EN "2013–present")
+  ĐẠT  phạm vi dịch ghi 4 name tiếng Việt + phân biệt proves
+  ĐẠT  đã bỏ mốc 2.950 cũ
+
+== 6. Phạm vi G05-B + ma trận nghiệm thu ==
+  ĐẠT  phạm vi ghi route + contentRoutes
+  ĐẠT  phạm vi liệt kê bộ kiểm ảnh hưởng
+  ĐẠT  rủi ro sticky/scroll ghi riêng
+  ĐẠT  phạm vi dữ liệu ghi timeLabel_en + name nguồn
+  ĐẠT  ma trận 31 ca (đếm theo dòng dữ liệu), mọi cột trạng thái = CHƯA KIỂM
+  ĐẠT  đủ 7 nhóm M1–M7 (nếu không có LỖI phía trên)
+  ĐẠT  M1-4 ghi timeLabel theo ngôn ngữ hai bản
+  ĐẠT  M2-5/M2-7 tách kiểm nội bộ vs 52 nguồn ngoài + dẫn bằng chứng check-links.mjs:47
+
+== 7. Chuỗi sửa theo TXN-20260913-04 (presence check — ý nghĩa do GPT Work thẩm định) ==
+  ĐẠT  9 chuỗi cũ đã bỏ sạch khỏi hồ sơ
+  ĐẠT  10 chuỗi mới đúng nguyên văn (giữ khung gốc, đồng bộ giới hạn timeline.json)
+
+== 8. KIỂM THỦ CÔNG (script KHÔNG chứng minh được ý nghĩa — chờ GPT Work thẩm định) ==
+  - C1 câu giữ chương mới (VI+EN) đúng tinh thần "bối cảnh, không nhân quả"
+  - C3 câu hỏi mới không ngụ ý "không cần chăm sóc"
+  - C5 câu hỏi + luồng + câu giữ chương không gán phản ứng/nhân quả với quartz
+  - C6 phân biệt brand-claim (Co-Axial, Freak) với context (silicon-revival)
+  - swatch-1983: bảng + storyboard khớp giới hạn nguyên văn timeline.json
+  - tourbillon: mô tả trung tính về mốc cấp bằng 1801, không xếp hạng
+  - Hệ số EN/VI 1,1–1,3: script chỉ xác nhận hồ sơ ghi đúng nhãn "giả định dự phòng, chưa hiệu chuẩn" — tính hợp lý của hệ số do GPT Work thẩm định, script không chứng minh phương pháp
+  - M2-7 (52 nguồn ngoài): script không truy cập HTTP — ca kiểm ghi đúng khuôn (bảo toàn so G02 + nếu truy cập thì ghi thời điểm/URL cuối/trạng thái thật) do GPT Work thẩm định
+  - Đối chiếu presence ở mục 7 chỉ xác nhận chuỗi xuất hiện, không xác nhận ngữ nghĩa
+
+== 9. Giới hạn chặng A ==
+  ĐẠT  src/, public/, package.json, scripts/ không bị thay đổi
+
+==========
+KẾT QUẢ: TẤT CẢ ĐẠT
+{
+  "ketQua": "DAT",
+  "vong": "TXN-20260913-04",
+  "moc": 28,
+  "chuong": 6,
+  "nguon": 52,
+  "gioiHan": 19,
+  "readMoreNull": 3,
+  "type": {
+    "mechanism": 12,
+    "brand": 13,
+    "culture": 3
+  },
+  "descTokens": 1231,
+  "leadTokens": 53,
+  "noteTokens": 44,
+  "nameNguonTiengViet": 4,
+  "maTranCa": 31
+}

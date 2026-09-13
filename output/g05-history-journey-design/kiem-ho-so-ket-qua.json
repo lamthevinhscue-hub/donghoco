@@ -1,0 +1,26 @@
+{
+  "ketQua": "DAT",
+  "vong": "TXN-20260913-04",
+  "moc": 28,
+  "chuong": 6,
+  "nguon": 52,
+  "gioiHan": 19,
+  "readMoreNull": 3,
+  "type": {
+    "mechanism": 12,
+    "brand": 13,
+    "culture": 3
+  },
+  "descTokens": 1231,
+  "leadTokens": 53,
+  "noteTokens": 44,
+  "nameNguonTiengViet": 4,
+  "maTranCa": 31,
+  "soLoi": 0,
+  "exitCode": 0,
+  "script": "kiem-ho-so.mjs (vòng hoàn thiện TXN-20260913-06)",
+  "soKiemMayDat": 57,
+  "chayLuc": "2026-09-13 00:13 (giờ local)",
+  "bangChung": "log-kiem-ho-so.txt; dist đối chiếu = build kế thừa commit 2f322dc",
+  "ghiChu": "Hệ số 1,1–1,3 = giả định dự phòng chưa hiệu chuẩn (script không chứng minh); M2-5/M2-7 tách kiểm nội bộ/nguồn ngoài theo check-links.mjs:47"
+}

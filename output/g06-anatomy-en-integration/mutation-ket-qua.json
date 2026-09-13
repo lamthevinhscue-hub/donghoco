@@ -1,0 +1,72 @@
+{
+  "ketQua": "DAT",
+  "ca": [
+    {
+      "ca": "C0-bản sạch (nguồn)",
+      "kyVong": "exit 0",
+      "exit": 0,
+      "dat": true
+    },
+    {
+      "ca": "C-b thiếu bản dịch (xóa en.role bộ thoát)",
+      "kyVong": "exit 1, bắt G6-1",
+      "exit": 1,
+      "bat": "G6-1",
+      "dat": true
+    },
+    {
+      "ca": "C-c render lệch nguồn (data-role chữ cứng)",
+      "kyVong": "exit 1, bắt G6-7",
+      "exit": 1,
+      "bat": "G6-7",
+      "dat": true
+    },
+    {
+      "ca": "C-d1 cặp route bị xóa",
+      "kyVong": "exit 1, bắt G6-3",
+      "exit": 1,
+      "bat": "G6-3",
+      "dat": true
+    },
+    {
+      "ca": "C-d2 đích nội bộ giả (dist)",
+      "kyVong": "exit 1 lớp dist, bắt G6-D4",
+      "exit": 1,
+      "bat": "G6-D4",
+      "dat": true
+    },
+    {
+      "ca": "C-e claim \"80%\" tái xuất hiện",
+      "kyVong": "exit 1, bắt G6-4",
+      "exit": 1,
+      "bat": "G6-4",
+      "dat": true
+    },
+    {
+      "ca": "C-f tải sớm engine 3D (chèn exploded3d.B99CKVQq.js)",
+      "kyVong": "exit 1 lớp dist, bắt G6-D6",
+      "exit": 1,
+      "bat": "G6-D6",
+      "dat": true
+    },
+    {
+      "ca": "C-g1 aria-label rỗng (VI)",
+      "kyVong": "exit 1 lớp dist, bắt G6-D1",
+      "exit": 1,
+      "bat": "G6-D1",
+      "dat": true
+    },
+    {
+      "ca": "C-g2 aria-label rỗng (EN)",
+      "kyVong": "exit 1 lớp dist, bắt G6-D2",
+      "exit": 1,
+      "bat": "G6-D2",
+      "dat": true
+    },
+    {
+      "ca": "dọn sandbox",
+      "kyVong": "thư mục đã xóa",
+      "dat": true
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+---
+// =============================================================================
+// ANATOMY EXPERIENCE — khuôn chung trang giải phẫu (2D + 3D), VI và EN
+// =============================================================================
+// G06-A chặng 2 (TXN-20260913-27). Hai route là wrapper mỏng gọi component này
+// với `lang` tường minh:
+//   /giai-phau/  → lang="vi"      /en/anatomy/  → lang="en"
+// Toàn bộ chuỗi tĩnh render theo lang ở build; chuỗi runtime (tách/ghép, thẻ
+// chi tiết về mặc định…) đi qua JSON blob #anatomy-i18n cho script + engine.
+// Không nhân đôi engine: dynamic import exploded3d một lần, nhận lang.
+// C5: không có đường năng lượng #wev-energy — ba vai bộ truyền/bộ thoát/bộ
+// điều tiết do khối chữ ba cột dưới sơ đồ phân biệt (câu đã duyệt).
+// =============================================================================
+
+import type { Lang } from '../../i18n/ui';
+import { ANATOMY_UI } from '../../data/anatomy-parts';
+import WatchExplodedView from '../WatchExplodedView.astro';
+import WatchExplodedView3D from '../WatchExplodedView3D.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props as Props;
+const ui = ANATOMY_UI[lang];
+const vi = lang === 'vi';
+
+// Blob chuỗi runtime — script trang + engine đọc (thêm lang để engine biết ngôn ngữ)
+const blob = JSON.stringify({ lang, ...ui });
+---
+
+<div class="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+  <!-- ====== HERO ====== -->
+  <header class="mb-10 text-center">
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">
+      {vi ? 'Giải phẫu một chiếc đồng hồ cơ' : 'The anatomy of a mechanical watch'}
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-soft dark:text-dark-text-soft sm:text-lg">
+      {vi
+        ? <>Bấm <strong class="text-navy dark:text-dark-text">"Tách lớp"</strong> để phân rã đồng hồ thành <strong class="text-navy dark:text-dark-text">12 bộ phận được chọn</strong> từ kính đến đáy vỏ. Chạm hoặc bấm từng bộ phận để hiểu vai trò và đọc bài chi tiết.</>
+        : <>Press <strong class="text-navy dark:text-dark-text">"Explode"</strong> to spread the watch into its <strong class="text-navy dark:text-dark-text">12 selected parts</strong>, from the crystal to the caseback. Tap any part to see its role and read the full article.</>}
+    </p>
+  </header>
+
+  <!-- ====== BỘ CHỌN CHẾ ĐỘ: SƠ ĐỒ 2D (mặc định) / MÔ HÌNH 3D (tùy chọn) ====== -->
+  <div
+    id="anatomy-tabs"
+    role="tablist"
+    aria-label={vi ? 'Chế độ minh họa' : 'Illustration mode'}
+    class="mb-5 flex flex-wrap items-center gap-2"
+  >
+    <button
+      type="button"
+      id="tab-anatomy-2d"
+      role="tab"
+      aria-selected="true"
+      aria-controls="view-2d-wrapper"
+      class="flex min-h-11 items-center gap-2 rounded-full bg-navy px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:hover:bg-dark-brass"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v14H4zM4 12h16M12 5v14"/></svg>
+      {vi ? 'Sơ đồ 2D' : '2D diagram'}
+    </button>
+    <button
+      type="button"
+      id="tab-anatomy-3d"
+      role="tab"
+      aria-selected="false"
+      aria-controls="view-3d-wrapper"
+      tabindex="-1"
+      class="flex min-h-11 items-center gap-2 rounded-full border border-cream-dark px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:bg-brass/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft"
+    >
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-9-9m9 9a9 9 0 01-9 9m9-9H3m9-9a9 9 0 019 9m-9-9v18"/></svg>
+      {vi ? 'Mô hình 3D' : '3D model'}
+    </button>
+    <!-- Thông báo khi mô hình 3D không mở được — tự quay về sơ đồ 2D.
+         Ẩn/hiện bằng class "hidden" (Tailwind) ĐỒNG THỜI attribute "hidden":
+         class "flex" ghi đè display:none của attribute, còn trong CSS Tailwind
+         ".hidden" đứng sau ".flex" nên luôn thắng khi cả hai cùng có mặt. -->
+    <div
+      id="anatomy-3d-error"
+      hidden
+      role="alert"
+      class="hidden w-full flex flex-wrap items-center gap-2 rounded-lg border border-[#9B2C2C]/40 bg-[#9B2C2C]/10 px-4 py-2 text-sm text-ink-soft dark:text-dark-text-soft"
+    >
+      <span>{vi
+        ? 'Không mở được mô hình 3D (mạng chậm hoặc thiết bị không hỗ trợ). Đang xem sơ đồ 2D.'
+        : 'The 3D model could not load (slow network or unsupported device). Showing the 2D diagram instead.'}</span>
+      <button
+        type="button"
+        id="anatomy-3d-retry"
+        class="min-h-11 rounded-full border border-cream-dark px-3 py-1 text-xs font-medium text-ink-soft transition-colors hover:bg-cream-dark dark:border-dark-border dark:text-dark-text-soft"
+      >{vi ? 'Thử lại' : 'Retry'}</button>
+    </div>
+  </div>
+
+  <!-- ====== PANEL 2D (mặc định — không cần tải gì thêm) ====== -->
+  <div id="view-2d-wrapper" role="tabpanel" aria-labelledby="tab-anatomy-2d">
+    <WatchExplodedView lang={lang} />
+  </div>
+
+  <!-- ====== PANEL 3D (tùy chọn — Three.js chỉ tải khi mở tab này) ====== -->
+  <div id="view-3d-wrapper" role="tabpanel" aria-labelledby="tab-anatomy-3d" hidden>
+    <WatchExplodedView3D lang={lang} />
+  </div>
+
+  <!-- ====== PHẦN GIẢI THÍCH BỔ SUNG ====== -->
+  <section class="mt-16 space-y-8">
+    <div class="border-t border-cream-dark dark:border-dark-border pt-10">
+      <h2 class="font-serif text-2xl text-navy dark:text-dark-text">
+        {vi ? 'Đồng hồ cơ = 12 lớp xếp chồng' : 'A mechanical watch = 12 stacked layers'}
+      </h2>
+      <p class="mt-3 max-w-3xl leading-relaxed text-ink-soft dark:text-dark-text-soft">
+        {vi
+          ? <>Một chiếc đồng hồ cơ không phải là một khối đặc — nó là <strong>tòa tháp xếp lớp</strong> các chi tiết được vít chặt vào nhau. <strong>Sơ đồ tách lớp minh họa 12 bộ phận được chọn để giải thích cấu trúc; không đại diện đầy đủ cho một calibre cụ thể.</strong> Năng lượng đi từ thùng cót qua bộ bánh răng tới bộ thoát — nơi chuyển động của bộ bánh răng bị chặn và nhả theo từng nhịp để nuôi bộ điều tiết; kim ở trên cùng là phần hiển thị giờ-phút-giây của cùng một cỗ máy.</>
+          : <>A mechanical watch is not a solid block — it is a <strong>tower of parts</strong> screwed tightly together. <strong>This exploded diagram shows 12 selected parts to explain the structure; it is not a complete representation of any specific calibre.</strong> Energy flows from the mainspring barrel, through the gear train to the escapement — where the gears' motion is stopped and released beat by beat to keep the regulator swinging. The hands at the top are the display end of the same machine.</>}
+      </p>
+    </div>
+
+    <!-- 3 cột: Dòng năng lượng / Dòng thời gian / Dòng thông tin — phân biệt ba vai
+         bộ truyền / bộ thoát + bộ điều tiết / hiển thị (thay đường năng lượng đã bỏ) -->
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-lg border-l-4 border-brass bg-white dark:bg-dark-surface p-5">
+        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{vi ? '⚡ Dòng năng lượng' : '⚡ Power flow'}</h3>
+        <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          {vi
+            ? <>Rotor → thùng cót → bộ bánh răng → bộ thoát — đường đi của năng lượng cơ học trong bộ máy.</>
+            : <>Rotor → mainspring barrel → gear train → escapement — the path of mechanical energy through the movement.</>}
+        </p>
+      </div>
+      <div class="rounded-lg border-l-4 border-[#3182CE] bg-white dark:bg-dark-surface p-5">
+        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{vi ? '⏱ Dòng thời gian' : '⏱ How time flows'}</h3>
+        <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          {vi
+            ? <>Bộ thoát chặn và nhả chuyển động của bộ bánh răng theo từng nhịp, cấp năng lượng cho bánh lắc; bộ điều tiết chia thời gian thành các phần bằng nhau, và các kim hiển thị kết quả.</>
+            : <>The escapement stops and releases the gear train's motion beat by beat and supplies energy to the balance; the regulator divides time into equal parts, and the hands display the result.</>}
+        </p>
+      </div>
+      <div class="rounded-lg border-l-4 border-[#9B2C2C] bg-white dark:bg-dark-surface p-5">
+        <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{vi ? '💡 Dòng thông tin' : '💡 The information flow'}</h3>
+        <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+          {vi
+            ? <>Mặt số + kim là "giao diện người dùng" — biến chuyển động vô hình của bộ máy thành <strong>thông tin đọc được</strong>. Sub-dials mở rộng thêm chức năng (chronograph, lịch).</>
+            : <>The dial and hands are the user interface — they turn the movement's invisible motion into <strong>readable information</strong>. Sub-dials add functions (chronograph, calendar).</>}
+        </p>
+      </div>
+    </div>
+
+    <!-- Bảng tổng kết nhanh (đã bỏ cột vật liệu — TXN-20260913-25) -->
+    <div class="overflow-hidden rounded-lg border border-cream-dark dark:border-dark-border">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-navy text-cream">
+          <tr>
+            <th class="px-4 py-3 font-medium">{vi ? 'Lớp' : 'Layer'}</th>
+            <th class="px-4 py-3 font-medium">{vi ? 'Bộ phận' : 'Part'}</th>
+            <th class="px-4 py-3 font-medium">{vi ? 'Vai trò cốt lõi' : 'Core role'}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-cream-dark bg-white dark:bg-dark-surface">
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">0</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Kính' : 'Crystal'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Bảo vệ' : 'Protection'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">1</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Kim' : 'Hands'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Hiển thị giờ' : 'Shows the time'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">2</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Mặt số' : 'Dial'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Giao diện' : 'Interface'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">3</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Thùng cót + bánh răng' : 'Barrel + gear train'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Dự trữ + truyền năng lượng' : 'Power store and transmission'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">4</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Bộ thoát + bánh lắc' : 'Escapement + balance'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Điều tiết' : 'Regulation'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">5</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Rotor' : 'Rotor'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Lên dây tự động' : 'Automatic winding'}</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">6</td>
+            <td class="px-4 py-2 font-medium text-navy dark:text-dark-text">{vi ? 'Đáy vỏ' : 'Caseback'}</td>
+            <td class="px-4 py-2 text-ink-soft dark:text-dark-text-soft">{vi ? 'Đóng vỏ' : 'Case closure'}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA cuối -->
+    <div class="rounded-lg bg-gradient-to-br from-navy to-[#152030] p-8 text-center text-cream">
+      <h3 class="font-serif text-2xl">{vi ? 'Muốn hiểu sâu hơn từng bộ phận?' : 'Want to go deeper into each part?'}</h3>
+      <p class="mx-auto mt-3 max-w-xl text-sm text-cream/80">
+        {vi
+          ? 'Mỗi cơ chế đều có một bài viết chuyên sâu riêng — với infographic tương tác. Bắt đầu từ bộ thoát — cơ chế chia năng lượng thành nhịp.'
+          : 'Every mechanism has its own in-depth article — with an interactive infographic. Start with the escapement, the mechanism that splits energy into beats.'}
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href={vi ? '/co-che/bo-thoat' : '/en/mechanisms/escapement/'} class="rounded-full bg-brass px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brass-dark">
+          {vi ? '♥ Bộ thoát' : '♥ The escapement'}
+        </a>
+        <a href={vi ? '/co-che/tru-cot' : '/en/mechanisms/power-reserve/'} class="rounded-full border border-cream/40 px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-navy dark:text-dark-text">
+          {vi ? '⚡ Thùng cót' : '⚡ The mainspring barrel'}
+        </a>
+        <a href={vi ? '/co-che' : '/en/mechanisms/'} class="rounded-full border border-cream/40 px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-cream hover:text-navy dark:text-dark-text">
+          {vi ? 'Tất cả cơ chế →' : 'All mechanisms →'}
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Blob chuỗi runtime cho script trang + engine (theo ngôn ngữ trang) -->
+<script is:inline type="application/json" id="anatomy-i18n" set:html={blob} />
+
+<script>
+  // =============================================================================
+  // BỘ CHỌN CHẾ ĐỘ 2D / 3D trên trang giải phẫu (khuôn chung VI/EN)
+  // =============================================================================
+  // - Sơ đồ 2D là mặc định, hoạt động độc lập.
+  // - Tab "Mô hình 3D" chỉ dynamic import engine Three.js NGAY LÚC người dùng
+  //   bấm — chunk 3D không được tải trước đó (kiểm chứng bằng Network; checker
+  //   check-3d-loading-budget bảo vệ cả hai route).
+  // - Khi 3D lỗi (mạng/WebGL): tự quay về 2D + hiện thông báo + nút thử lại.
+  // - Ngôn ngữ đọc từ JSON blob #anatomy-i18n (render theo lang của trang) —
+  //   engine mountExploded3D(root, lang) nhận tường minh, không dò đường dẫn.
+  // =============================================================================
+  import type { Exploded3DHandle } from '../../scripts/exploded3d';
+
+  const blobEl = document.getElementById('anatomy-i18n');
+  const i18n = JSON.parse(blobEl?.textContent ?? '{}') as { lang: 'vi' | 'en' };
+  const lang = i18n.lang ?? 'vi';
+
+  const tablist = document.getElementById('anatomy-tabs');
+  const tab2d = document.getElementById('tab-anatomy-2d') as HTMLButtonElement | null;
+  const tab3d = document.getElementById('tab-anatomy-3d') as HTMLButtonElement | null;
+  const panel2d = document.getElementById('view-2d-wrapper');
+  const panel3d = document.getElementById('view-3d-wrapper');
+  const errorBox = document.getElementById('anatomy-3d-error');
+  const retryBtn = document.getElementById('anatomy-3d-retry') as HTMLButtonElement | null;
+
+  let engine: Exploded3DHandle | null = null;
+  let loading3d = false;
+
+  const tabs = [tab2d, tab3d].filter(Boolean) as HTMLButtonElement[];
+
+  // Đồng bộ trạng thái khối thông báo lỗi: class "hidden" (thắng "flex") +
+  // attribute "hidden" (loại khỏi cây accessibility). Phải đổi cả hai cùng lúc.
+  function showError(show: boolean) {
+    if (!errorBox) return;
+    errorBox.classList.toggle('hidden', !show);
+    errorBox.hidden = !show;
+  }
+
+  // Hình thức tab — đồng bộ tuyệt đối với aria-selected/tabIndex/panel.
+  // Gán lại toàn bộ className (base + trạng thái) để không bao giờ dư class cũ.
+  const TAB_BASE =
+    'flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass';
+  const TAB_ACTIVE = 'bg-navy text-cream hover:bg-brass dark:hover:bg-dark-brass';
+  const TAB_INACTIVE =
+    'border border-cream-dark text-ink-soft hover:border-brass hover:bg-brass/5 dark:border-dark-border dark:text-dark-text-soft';
+
+  function styleTab(tab: HTMLButtonElement, selected: boolean) {
+    tab.className = `${TAB_BASE} ${selected ? TAB_ACTIVE : TAB_INACTIVE}`;
+  }
+
+  function activateTab(index: number, focusTab = true) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+      tab.tabIndex = selected ? 0 : -1;
+      styleTab(tab, selected);
+      if (selected && focusTab) tab.focus();
+    });
+    if (panel2d) panel2d.hidden = index !== 0;
+    if (panel3d) panel3d.hidden = index !== 1;
+
+    if (index === 0) {
+      // Về 2D: dừng render loop 3D (giữ nguyên instance cho lần sau)
+      engine?.pause();
+    } else {
+      void open3D();
+    }
+  }
+
+  // Trang vừa tải: 2D active, 3D inactive — hình thức khớp aria-selected sẵn trong HTML
+  tabs.forEach((tab, i) => styleTab(tab, i === 0));
+
+  async function open3D() {
+    if (engine) {
+      engine.resume();
+      return;
+    }
+    if (loading3d) return;
+    loading3d = true;
+    // Báo trạng thái bận ngay trên tab — AT đọc được rằng thao tác đang xử lý,
+    // tab không tạo cảm giác "bấm không phản hồi" trong lúc tải engine.
+    tab3d?.setAttribute('aria-busy', 'true');
+    try {
+      // Dynamic import: chunk chứa Three.js chỉ được tải ở đây
+      const mod = await import('../../scripts/exploded3d');
+      const rootEl = document.querySelector('[data-exploded-3d-root]');
+      if (!rootEl) throw new Error('missing 3D root');
+      engine = await mod.mountExploded3D(rootEl as HTMLElement, lang);
+    } catch (err) {
+      engine = null;
+      console.error('3D failed:', err);
+      // Quay về sơ đồ 2D, focus về tab 2D và thông báo cho người dùng
+      activateTab(0);
+      showError(true);
+    } finally {
+      loading3d = false;
+      tab3d?.removeAttribute('aria-busy');
+    }
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      showError(false);
+      activateTab(i, false);
+    });
+    tab.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); activateTab((i + 1) % tabs.length); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); activateTab((i - 1 + tabs.length) % tabs.length); }
+      else if (e.key === 'Home') { e.preventDefault(); activateTab(0); }
+      else if (e.key === 'End') { e.preventDefault(); activateTab(tabs.length - 1); }
+    });
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    showError(false);
+    // Module đã fail bị browser ghi vĩnh viễn vào module map của trang này —
+    // import lại cùng URL không bao giờ thành công. Cách duy nhất: tải lại
+    // trang (document mới) rồi tự mở lại tab 3D qua cờ sessionStorage.
+    try {
+      sessionStorage.setItem('anatomy-retry-3d', '1');
+    } catch {
+      // sessionStorage bị chặn — vẫn tải lại trang, người dùng bấm 3D lại
+    }
+    location.reload();
+  });
+
+  // Sau khi tải lại từ nút "Thử lại": tự mở lại mô hình 3D (người dùng đã chủ động yêu cầu)
+  try {
+    if (sessionStorage.getItem('anatomy-retry-3d') === '1') {
+      sessionStorage.removeItem('anatomy-retry-3d');
+      activateTab(1, false);
+    }
+  } catch {
+    // bỏ qua nếu sessionStorage bị chặn
+  }
+
+  // Giải phóng WebGL khi rời trang (component bị hủy)
+  window.addEventListener('pagehide', () => {
+    engine?.destroy();
+    engine = null;
+  });
+
+  // Tránh cảnh báo unused khi tablist không tồn tại (trang khác)
+  void tablist;
+</script>

@@ -1,0 +1,83 @@
+{
+  "soLink": 9,
+  "loi": 0,
+  "ketQua": [
+    {
+      "tu": "2D/3D detail-link (kim giây, bộ thoát)",
+      "vi": "/co-che/bo-thoat",
+      "viTonTai": true,
+      "en": "/en/mechanisms/escapement/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "2D/3D detail-link (kim phút, kim giờ, bánh răng)",
+      "vi": "/co-che/chuyen-dong-co",
+      "viTonTai": true,
+      "en": "/en/mechanisms/how-a-mechanical-watch-works/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "2D/3D detail-link (thùng cót)",
+      "vi": "/co-che/tru-cot",
+      "viTonTai": true,
+      "en": "/en/mechanisms/power-reserve/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "2D/3D detail-link (bánh lắc + dây tóc)",
+      "vi": "/tu-dien/day-toc-banh-lac",
+      "viTonTai": true,
+      "en": "/en/glossary/hairspring/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "2D/3D detail-link (mặt số phụ)",
+      "vi": "/tu-dien/perpetual-calendar",
+      "viTonTai": true,
+      "en": "/en/glossary/perpetual-calendar/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "2D/3D detail-link (rotor)",
+      "vi": "/co-che/len-day-tu-dong",
+      "viTonTai": true,
+      "en": "/en/mechanisms/automatic-winding/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "CTA cuối trang (Bộ thoát)",
+      "vi": "/co-che/bo-thoat",
+      "viTonTai": true,
+      "en": "/en/mechanisms/escapement/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "CTA cuối trang (Thùng cót)",
+      "vi": "/co-che/tru-cot",
+      "viTonTai": true,
+      "en": "/en/mechanisms/power-reserve/",
+      "enTonTai": true,
+      "dat": true
+    },
+    {
+      "tu": "CTA cuối trang (Tất cả cơ chế)",
+      "vi": "/co-che",
+      "viTonTai": true,
+      "en": "/en/mechanisms/",
+      "enTonTai": true,
+      "dat": true
+    }
+  ],
+  "kinhDongHo": {
+    "tonTaiVi": true,
+    "capEn": "KHÔNG CÓ CẶP",
+    "duocLinkTuGiaiPhau": false
+  }
+}

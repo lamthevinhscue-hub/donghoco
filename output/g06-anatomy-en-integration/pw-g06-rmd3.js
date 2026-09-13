@@ -1,0 +1,112 @@
+// G06-A vòng sửa 2 (TXN-20260913-34) — RM-D VI/EN: gỡ reduce giữa phiên
+// (reduce → no-preference trong CÙNG context), đo bằng SO PIXEL GIẢI MÃ.
+// Đặt viewport/vùng chụp ổn định MỘT LẦN — không cuộn trong khi lấy mẫu.
+// Chụp chuỗi mốc performance.now() thực; ghi matchMedia trước/sau.
+// Kỳ vọng: trung gian (~200ms) khác điểm đầu (ghép) VÀ khác đích (tween đang chạy);
+// 2 mẫu cuối giống nhau (đích ổn định). Mỗi ca timeout hữu hạn, đóng context trong finally.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const NGUONG_GIONG = 0.002;
+  const NGUONG_KHAC = 0.02;
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+
+  for (const LANG of ['vi', 'en']) {
+    let ctx;
+    try {
+      const duong = LANG === 'en' ? '/en/anatomy/' : '/giai-phau/';
+      ctx = await browser.newContext({ reducedMotion: 'reduce' });
+      const p = await ctx.newPage();
+      await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+      await p.setViewportSize({ width: 900, height: 900 });
+      await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+      await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+      await p.waitForTimeout(400);
+
+      // Mở 3D dưới reduce
+      await p.click('#tab-anatomy-3d');
+      const mo = await p.waitForFunction(() => {
+        const an = document.getElementById('three-loading')?.classList.contains('hidden');
+        const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+        return an ? 'mo' : (loi ? 'loi' : null);
+      }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+      if (mo !== 'mo') { them('RM-D (' + LANG + ')', '3D không mở: ' + mo); continue; }
+
+      // CDP + vùng chụp ổn định MỘT LẦN (không cuộn trong khi lấy mẫu)
+      await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+      await p.waitForTimeout(500);
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const clip = await p.evaluate(() => { // debug
+        const r = document.querySelector('#three-canvas-container canvas').getBoundingClientRect();
+        return { x: Math.max(0, Math.round(r.left)), y: Math.max(0, Math.round(r.top)), width: Math.max(1, Math.min(Math.round(r.width), 380)), height: Math.max(1, Math.min(Math.round(r.height), 300)) };
+      });
+
+      const tyLe = (a, b) => p.evaluate(async ([x, y]) => {
+        const tai = (u) => new Promise((res, rej) => {
+          const im = new Image();
+          im.src = u;
+          im.decode().then(() => res(im), () => rej(new Error('decode lỗi')));
+        });
+        const ia = await tai('data:image/png;base64,' + x);
+        const ib = await tai('data:image/png;base64,' + y);
+        const w = Math.min(ia.width, ib.width), h = Math.min(ia.height, ib.height);
+        const ca = document.createElement('canvas'); ca.width = w; ca.height = h;
+        const cb2 = document.createElement('canvas'); cb2.width = w; cb2.height = h;
+        ca.getContext('2d').drawImage(ia, 0, 0);
+        const da = ca.getContext('2d').getImageData(0, 0, w, h).data;
+        cb2.getContext('2d').drawImage(ib, 0, 0);
+        const db = cb2.getContext('2d').getImageData(0, 0, w, h).data;
+        let khac = 0;
+        for (let i = 0; i < da.length; i += 4) {
+          if (Math.abs(da[i] - db[i]) + Math.abs(da[i+1] - db[i+1]) + Math.abs(da[i+2] - db[i+2]) > 24) khac++;
+        }
+        return khac / (w * h);
+      }, [a, b]);
+      const chup = () => cdp.send('Page.captureScreenshot', { format: 'png', clip }).then((s) => s.data);
+
+      // Ghi matchMedia TRƯỚC gỡ
+      const rmTruoc = await p.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+      // ===== GỠ reduce giữa phiên =====
+      await p.emulateMedia({ reducedMotion: 'no-preference' });
+      const rmSau = await p.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches);
+      await p.waitForTimeout(800); // đợi damping/tween từ trước chạy nốt
+
+      // ===== Điểm đầu ổn định (2 mốc cách 1s) =====
+      const dau = await chup();
+      await p.waitForTimeout(1000);
+      const dau2 = await chup();
+      const dauOn = await tyLe(dau, dau2) <= NGUONG_GIONG;
+
+      // ===== Click tách → chuỗi mốc thời gian thực =====
+      const tClick = await p.evaluate(() => performance.now());
+      await p.click('#toggle-explode-3d');
+      const mau = [];
+      for (const delay of [150, 300, 600, 1000, 2000, 3000]) {
+        const hienTai = await p.evaluate(() => performance.now());
+        const con = tClick + delay - hienTai;
+        if (con > 0) await p.waitForTimeout(con);
+        const data = await chup();
+        mau.push({ delay, data });
+      }
+      // 2 mẫu cuối giống nhau → đích ổn định
+      const onDinhDich = await tyLe(mau[4].data, mau[5].data) <= NGUONG_GIONG;
+      // trung gian khác đầu và khác đích
+      const khacDau = await tyLe(dau, mau[1].data);
+      const khacDich = await tyLe(mau[1].data, mau[5].data);
+      const giongDich = await tyLe(mau[0].data, mau[5].data);
+
+      const ok = dauOn && rmTruoc === true && rmSau === false
+        && khacDau >= NGUONG_KHAC && khacDich >= NGUONG_KHAC
+        && onDinhDich <= NGUONG_GIONG;
+      ghi('RM-D (' + LANG + ', gỡ reduce giữa phiên, matchMedia ' + rmTruoc + '→' + rmSau + '): tách có TRUNG GIAN khác điểm đầu (' + (khacDau * 100).toFixed(2) + '%) và khác đích (' + (khacDich * 100).toFixed(2) + '%); đích ổn định (' + (onDinhDich * 100).toFixed(2) + '%)', ok,
+        'đầu-ổn=' + dauOn + '; khac(đầu,trung-300)=' + (khacDau * 100).toFixed(2) + '%; khac(trung-300,đích-3000)=' + (khacDich * 100).toFixed(2) + '%; khac(150,3000)=' + (giongDich * 100).toFixed(2) + '%');
+    } catch (e) { them('RM-D (' + LANG + ')', 'lỗi: ' + String(e).slice(0, 160)); }
+    finally { if (ctx) await ctx.close(); }
+  }
+
+  return K;
+}

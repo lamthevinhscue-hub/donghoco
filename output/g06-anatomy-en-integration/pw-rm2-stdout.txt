@@ -1,0 +1,256 @@
+### Result
+{"ketQua":"DAT","tong":"6 đạt / 0 không đạt / 0 CHUA_KIEM / 4 QUAN_SAT-GIỚI HẠN","tuKiemTongKet":[{"ten":"a: đạt + CHUA_KIEM → không DAT","dung":true,"ketQua":"DAT_MOT_PHAN"},{"ten":"b: tất cả đạt → DAT","dung":true,"ketQua":"DAT"},{"ten":"c: tất cả CHUA_KIEM → CHUA_KIEM","dung":true,"ketQua":"CHUA_KIEM"},{"ten":"d: có ca sai → KHONG_DAT","dung":true,"ketQua":"KHONG_DAT"},{"ten":"e: rỗng → không DAT","dung":true,"ketQua":"KHONG_CO_CA"},{"ten":"f: quan-sát tách riêng","dung":true,"ketQua":"DAT"}],"tuKiemOk":true,"ca":[{"ca":"RM-A (vi) trước tải, motion TẮT: tách vẽ đúng 1 đợt rồi đứng yên (không tween) + mode/nhãn/aria đúng","dat":true,"chiTiet":"draw 40 → +20 → +0; {\"mode\":\"Đang tách\",\"nhan\":\"Ghép lại\",\"pressed\":\"true\"}"},{"ca":"RM-B (vi) chuyển động đang chạy → reduce giữa phiên — GIỚI HẠN ĐƯỢC CHẤP THUẬN: chuyển động người-dùng-bật TIẾP TỤC sau reduce; không chứng nhận tự dừng theo thay đổi tùy chọn","trangThai":"QUAN_SAT_GIOI_HAN","chiTiet":"draw/1.5s: đang chạy +81880 → sau reduce +327680"},{"ca":"RM-C (vi) tắt motion → tách kế: vẽ cho thao tác rồi đứng yên + nhãn đúng","dat":true,"chiTiet":"draw 1311960 → +20 → +0; {\"mode\":\"Đang tách\",\"nhan\":\"Ghép lại\"}"},{"ca":"RM-D (vi) gỡ reduce → thao tác tách kế: draw bổ trợ — KHÔNG chứng minh tween; không tính vào số ca ĐẠT","trangThai":"QUAN_SAT_GIOI_HAN","chiTiet":"draw +9900/200ms → +25200/1s (số lệnh vẽ, không gọi là frames)"},{"ca":"RM-A (en) trước tải, motion TẮT: tách vẽ đúng 1 đợt rồi đứng yên (không tween) + mode/nhãn/aria đúng","dat":true,"chiTiet":"draw 40 → +20 → +0; {\"mode\":\"Exploded\",\"nhan\":\"Assemble\",\"pressed\":\"true\"}"},{"ca":"RM-B (en) chuyển động đang chạy → reduce giữa phiên — GIỚI HẠN ĐƯỢC CHẤP THUẬN: chuyển động người-dùng-bật TIẾP TỤC sau reduce; không chứng nhận tự dừng theo thay đổi tùy chọn","trangThai":"QUAN_SAT_GIOI_HAN","chiTiet":"draw/1.5s: đang chạy +81880 → sau reduce +327680"},{"ca":"RM-C (en) tắt motion → tách kế: vẽ cho thao tác rồi đứng yên + nhãn đúng","dat":true,"chiTiet":"draw 1311960 → +20 → +0; {\"mode\":\"Exploded\",\"nhan\":\"Assemble\"}"},{"ca":"RM-D (en) gỡ reduce → thao tác tách kế: draw bổ trợ — KHÔNG chứng minh tween; không tính vào số ca ĐẠT","trangThai":"QUAN_SAT_GIOI_HAN","chiTiet":"draw +9900/200ms → +25200/1s (số lệnh vẽ, không gọi là frames)"},{"ca":"Rời viewport (cuộn thật, chuyển động bật): render DỪNG khi ngoài cuộn (draw +0) và hoạt động lại khi vào (draw tăng)","dat":true,"chiTiet":"draw ngoài cuộn +0 → vào lại +61440; rect ngoài={\"top\":-2025,\"bottom\":-1607,\"vh\":900}"},{"ca":"Ẩn trang (MÔ PHỎNG document.hidden + bắn visibilitychange): render DỪNG khi ẩn và hoạt động lại khi gỡ","dat":true,"chiTiet":"draw khi ẩn +0 → gỡ +81880"}]}
+### Ran Playwright code
+```js
+await (// G06-A vòng sửa 2 (TXN-20260913-32) — phép thử reduced-motion 3D A/B/C/D theo
+// đối tượng đo đúng: đếm lệnh vẽ WebGL (instrumentation trong phiên cô lập —
+// KHÔNG sửa mã sản phẩm) thay vì hash/PNG. Mỗi ca timeout hữu hạn, context
+// đóng trong finally.
+//   A: RM trước tải, motion TẮT → tách có vẽ 1 lần rồi đứng yên (không tween)
+//   B: motion đang chạy → reduce giữa phiên → QUAN SÁT hành vi thật
+//   C: tắt motion → thao tác tách kế có vẽ rồi đứng yên
+//   D: gỡ reduce → thao tác kế có tween lại (nhiều frame)
+// Chạy cho cả VI và EN.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+
+  const INSTRUMENT = `
+    window.__draw = 0;
+    const g06w = (proto) => {
+      if (!proto) return;
+      for (const m of ['drawArrays', 'drawElements', 'drawArraysInstanced', 'drawElementsInstanced']) {
+        const goc = proto[m];
+        if (typeof goc === 'function') {
+          proto[m] = function (...a) { window.__draw++; return goc.apply(this, a); };
+        }
+      }
+    };
+    if (window.WebGLRenderingContext) g06w(WebGLRenderingContext.prototype);
+    if (window.WebGL2RenderingContext) g06w(WebGL2RenderingContext.prototype);
+  `;
+
+  for (const LANG of ['vi', 'en']) {
+    const duong = LANG === 'en' ? '/en/anatomy/' : '/giai-phau/';
+
+    // ===== A) RM trước tải: motion TẮT, tách → vẽ 1 lần rồi đứng yên =====
+    let ctxA;
+    try {
+      ctxA = await browser.newContext({ reducedMotion: 'reduce' });
+      const p = await ctxA.newPage();
+      await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+      await p.addInitScript(INSTRUMENT);
+      await p.setViewportSize({ width: 900, height: 900 });
+      await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+      await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+      await p.waitForTimeout(400);
+      await p.click('#tab-anatomy-3d');
+      const mo = await p.waitForFunction(() => {
+        const an = document.getElementById('three-loading')?.classList.contains('hidden');
+        const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+        return an ? 'mo' : (loi ? 'loi' : null);
+      }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+      if (mo !== 'mo') { them('RM-A trước tải (' + LANG + ')', '3D không mở: ' + mo); }
+      else {
+        await p.waitForTimeout(900);
+        const d0 = await p.evaluate(() => window.__draw);
+        await p.click('#toggle-explode-3d');
+        await p.waitForTimeout(500);
+        const d1 = await p.evaluate(() => window.__draw);
+        await p.waitForTimeout(1000);
+        const d2 = await p.evaluate(() => window.__draw);
+        const st = await p.evaluate(() => ({
+          mode: document.getElementById('mode-label-3d')?.textContent,
+          nhan: document.getElementById('toggle-label-3d')?.textContent,
+          pressed: document.getElementById('toggle-explode-3d')?.getAttribute('aria-pressed'),
+        }));
+        const modeMongDoi = LANG === 'vi' ? 'Đang tách' : 'Exploded';
+        const nhanMongDoi = LANG === 'vi' ? 'Ghép lại' : 'Assemble';
+        ghi('RM-A (' + LANG + ') trước tải, motion TẮT: tách vẽ đúng 1 đợt rồi đứng yên (không tween) + mode/nhãn/aria đúng',
+          (d1 - d0) >= 1 && (d2 - d1) <= 2 && st.mode === modeMongDoi && st.nhan === nhanMongDoi && st.pressed === 'true',
+          'draw ' + d0 + ' → +' + (d1 - d0) + ' → +' + (d2 - d1) + '; ' + JSON.stringify(st));
+      }
+    } catch (e) { them('RM-A (' + LANG + ')', 'lỗi: ' + String(e).slice(0, 130)); }
+    finally { if (ctxA) await ctxA.close(); }
+
+    // ===== B/C/D) Context thường: motion đang chạy → reduce giữa phiên → tắt → gỡ reduce =====
+    let ctxB;
+    try {
+      ctxB = await browser.newContext();
+      const p = await ctxB.newPage();
+      await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+      await p.addInitScript(INSTRUMENT);
+      await p.setViewportSize({ width: 900, height: 900 });
+      await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+      await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+      await p.waitForTimeout(400);
+      await p.click('#tab-anatomy-3d');
+      const mo = await p.waitForFunction(() => {
+        const an = document.getElementById('three-loading')?.classList.contains('hidden');
+        const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+        return an ? 'mo' : (loi ? 'loi' : null);
+      }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+      if (mo !== 'mo') { them('RM-B/C/D (' + LANG + ')', '3D không mở: ' + mo); }
+      else {
+        await p.waitForTimeout(800);
+        // B: bật chuyển động (mô phỏng el.click) → đang chạy; đổi reduce GIỮA PHIÊN → quan sát
+        await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+        const b0 = await p.evaluate(() => window.__draw);
+        await p.waitForTimeout(1500);
+        const b1 = await p.evaluate(() => window.__draw);
+        await p.emulateMedia({ reducedMotion: 'reduce' });
+        const b2 = await p.evaluate(() => window.__draw);
+        await p.waitForTimeout(1500);
+        const b3 = await p.evaluate(() => window.__draw);
+        const sauDoi = (b3 - b2);
+        // TXN-20260913-30: RM-B là QUAN SÁT-GIỚI HẠN — không đưa vào tổng ĐẠT của tiêu chí tự dừng
+        K.push({ ca: 'RM-B (' + LANG + ') chuyển động đang chạy → reduce giữa phiên — GIỚI HẠN ĐƯỢC CHẤP THUẬN: chuyển động người-dùng-bật ' + (sauDoi > 5 ? 'TIẾP TỤC' : 'DỪNG') + ' sau reduce; không chứng nhận tự dừng theo thay đổi tùy chọn', trangThai: 'QUAN_SAT_GIOI_HAN', chiTiet: 'draw/1.5s: đang chạy +' + (b1 - b0) + ' → sau reduce +' + (b3 - b2) });
+        // C: tắt motion → thao tác tách kế có vẽ đúng 1 đợt rồi đứng yên
+        await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+        await p.waitForTimeout(500);
+        const c0 = await p.evaluate(() => window.__draw);
+        await p.click('#toggle-explode-3d');
+        await p.waitForTimeout(600);
+        const c1 = await p.evaluate(() => window.__draw);
+        await p.waitForTimeout(1200);
+        const c2 = await p.evaluate(() => window.__draw);
+        const stC = await p.evaluate(() => ({
+          mode: document.getElementById('mode-label-3d')?.textContent,
+          nhan: document.getElementById('toggle-label-3d')?.textContent,
+        }));
+        const modeC = LANG === 'vi' ? 'Đang tách' : 'Exploded';
+        const nhanC = LANG === 'vi' ? 'Ghép lại' : 'Assemble';
+        ghi('RM-C (' + LANG + ') tắt motion → tách kế: vẽ cho thao tác rồi đứng yên + nhãn đúng',
+          (c1 - c0) >= 1 && (c2 - c1) <= 2 && stC.mode === modeC && stC.nhan === nhanC,
+          'draw ' + c0 + ' → +' + (c1 - c0) + ' → +' + (c2 - c1) + '; ' + JSON.stringify(stC));
+        // D: gỡ reduce → thao tác kế có tween lại (nhiều frame trong 200ms đầu)
+        await p.emulateMedia({ reducedMotion: 'no-preference' });
+        await p.click('#reset-view-3d');
+        await p.waitForTimeout(400);
+        const d0 = await p.evaluate(() => window.__draw);
+        await p.click('#toggle-explode-3d');
+        await p.waitForTimeout(200);
+        const d1 = await p.evaluate(() => window.__draw);
+        await p.waitForTimeout(1000);
+        const d2 = await p.evaluate(() => window.__draw);
+        // [TXN-20260913-36: RM-D draw-count KHÔNG đủ chứng minh tween/vị trí lớp —
+        //  ghi QUAN_SAT_GIOI_HAN, không tính vào số ca ĐẠT; giữ số draw trong chiTiet]
+        K.push({ ca: 'RM-D (' + LANG + ') gỡ reduce → thao tác tách kế: draw bổ trợ — KHÔNG chứng minh tween; không tính vào số ca ĐẠT', trangThai: 'QUAN_SAT_GIOI_HAN', chiTiet: 'draw +' + (d1 - d0) + '/200ms → +' + (d2 - d1) + '/1s (số lệnh vẽ, không gọi là frames)' });
+      }
+    } catch (e) { them('RM-B/C/D (' + LANG + ')', 'lỗi: ' + String(e).slice(0, 130)); }
+    finally { if (ctxB) await ctxB.close(); }
+  }
+
+  // ===== Rời viewport + Ẩn trang (VI đại diện) — đếm draw =====
+  let ctxV;
+  try {
+    ctxV = await browser.newContext();
+    const p = await ctxV.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.addInitScript(INSTRUMENT);
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(400);
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 90000 }).then(() => true).catch(() => false);
+    if (!mo) { them('Rời viewport + ẩn trang (VI)', '3D không mở'); }
+    else {
+      // bật chuyển động (mô phỏng el.click) — luôn có việc vẽ khi in-view
+      await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+      await p.waitForTimeout(300);
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const dem = async () => p.evaluate(() => window.__draw);
+      const giao = async () => p.evaluate(() => {
+        const r = document.querySelector('#three-canvas-container').getBoundingClientRect();
+        return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: window.innerHeight };
+      });
+      // cuộn thật ra ngoài
+      await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await p.waitForTimeout(500);
+      const o0 = await dem();
+      const giaoOut = await giao();
+      await p.waitForTimeout(2000);
+      const o1 = await dem();
+      // cuộn thật vào lại
+      await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+      await p.waitForTimeout(500);
+      const i0 = await dem();
+      await p.waitForTimeout(1500);
+      const i1 = await dem();
+      const outDelta = o1 - o0;
+      const inDeltaLai = i1 - i0;
+      ghi('Rời viewport (cuộn thật, chuyển động bật): render DỪNG khi ngoài cuộn (draw +0) và hoạt động lại khi vào (draw tăng)',
+        outDelta === 0 && inDeltaLai > 5, 'draw ngoài cuộn +' + outDelta + ' → vào lại +' + inDeltaLai + '; rect ngoài=' + JSON.stringify(giaoOut));
+
+      // Ẩn trang — MÔ PHỎNG document.hidden trong phiên (ghi rõ)
+      await p.evaluate(() => Object.defineProperty(document, 'hidden', { configurable: true, get: () => true }));
+      const h0 = await dem();
+      await p.waitForTimeout(2000);
+      const h1 = await dem();
+      await p.evaluate(() => { delete document.hidden; });
+      // mô phỏng đầy đủ: bắn visibilitychange như trình duyệt thật khi tab quay lại
+      await p.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
+      const h2 = await dem();
+      await p.waitForTimeout(1500);
+      const h3 = await dem();
+      ghi('Ẩn trang (MÔ PHỎNG document.hidden + bắn visibilitychange): render DỪNG khi ẩn và hoạt động lại khi gỡ',
+        (h1 - h0) === 0 && (h3 - h2) > 5, 'draw khi ẩn +' + (h1 - h0) + ' → gỡ +' + (h3 - h2));
+    }
+  } catch (e) { them('Rời viewport + ẩn trang (VI)', 'lỗi: ' + String(e).slice(0, 130)); }
+  finally { if (ctxV) await ctxV.close(); }
+
+  // ===== Tổng kết phân loại + TỰ KIỂM bộ tổng kết (TXN-20260913-32) =====
+  const phanLoai = (danhSach) => {
+    const thucThi = danhSach.filter((k) => k.trangThai !== 'CHUA_KIEM' && k.trangThai !== 'QUAN_SAT_GIOI_HAN');
+    const dat = thucThi.filter((k) => k.dat === true).length;
+    const khongDat = thucThi.filter((k) => k.dat === false).length;
+    const chua = danhSach.filter((k) => k.trangThai === 'CHUA_KIEM').length;
+    const quanSat = danhSach.filter((k) => k.trangThai === 'QUAN_SAT_GIOI_HAN').length;
+    // DAT chỉ khi: có ca đạt, không ca sai, không ca chưa kiểm
+    const ketLuan = khongDat > 0 ? 'KHONG_DAT'
+      : (dat > 0 && chua === 0 ? 'DAT'
+      : (dat > 0 && chua > 0 ? 'DAT_MOT_PHAN'
+      : (chua > 0 ? 'CHUA_KIEM' : 'KHONG_CO_CA')));
+    return { dat, khongDat, chua, quanSat, ketLuan };
+  };
+  // tự kiểm TRỰC TIẾP hàm phanLoai — 6 tình huống a-f
+  const tuKiem = (() => {
+    const kq = [];
+    // a) Đạt + chưa kiểm → không được DAT
+    const a = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', trangThai: 'CHUA_KIEM' }]);
+    kq.push({ ten: 'a: đạt + CHUA_KIEM → không DAT', dung: a.ketLuan !== 'DAT', ketQua: a.ketLuan });
+    // b) Tất cả đạt → DAT
+    const b = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', dat: true }]);
+    kq.push({ ten: 'b: tất cả đạt → DAT', dung: b.ketLuan === 'DAT', ketQua: b.ketLuan });
+    // c) Tất cả chưa kiểm → CHUA_KIEM
+    const c = phanLoai([{ ca: 'x', trangThai: 'CHUA_KIEM' }]);
+    kq.push({ ten: 'c: tất cả CHUA_KIEM → CHUA_KIEM', dung: c.ketLuan === 'CHUA_KIEM', ketQua: c.ketLuan });
+    // d) Có ca không đạt → KHONG_DAT
+    const d = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', dat: false }]);
+    kq.push({ ten: 'd: có ca sai → KHONG_DAT', dung: d.ketLuan === 'KHONG_DAT', ketQua: d.ketLuan });
+    // e) Danh sách rỗng → không DAT
+    const e = phanLoai([]);
+    kq.push({ ten: 'e: rỗng → không DAT', dung: e.ketLuan !== 'DAT', ketQua: e.ketLuan });
+    // f) Quan sát/giới hạn tách riêng, không tính thành ca đạt
+    const f = phanLoai([{ ca: 'x', dat: true }, { ca: 'q', trangThai: 'QUAN_SAT_GIOI_HAN' }]);
+    kq.push({ ten: 'f: quan-sát tách riêng', dung: f.dat === 1 && f.quanSat === 1, ketQua: f.ketLuan });
+    return kq;
+  })();
+  const tuKiemOk = tuKiem.every((k) => k.dung);
+
+  const pl = phanLoai(K);
+  return {
+    ketQua: pl.ketLuan,
+    tong: pl.dat + ' đạt / ' + pl.khongDat + ' không đạt / ' + pl.chua + ' CHUA_KIEM / ' + pl.quanSat + ' QUAN_SAT-GIỚI HẠN',
+    tuKiemTongKet: tuKiem,
+    tuKiemOk,
+    ca: K,
+  };
+}
+)(page);
+```

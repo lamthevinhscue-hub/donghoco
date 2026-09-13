@@ -1,0 +1,108 @@
+### Result
+{"ketQua":"TREO","tong":"qua 4 phut","ca":[{"ca":"TREO-PHIEN","chiTiet":"phien qua 4 phut - cac ca sau chua chay"}]}
+### Ran Playwright code
+```js
+await (async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+  const pGiu = await browser.newContext().then((c) => c.newPage());
+  const baoCao = await Promise.race([
+    (async () => {
+  // ===== C) Rời viewport + D) Ẩn trang — VI, chuyển động bật, đo pixel render ngoài cuộn =====
+  {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 60000 }).then(() => true).catch(() => false);
+    if (!mo) { them('Rời viewport + ẩn trang (VI)', '3D không mở'); }
+    else {
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      await p.evaluate(() => document.getElementById('motion-toggle-3d').click()); // bật (mô phỏng)
+      // hash canvas theo TỌA ĐỘ TÀI LIỆU (captureBeyondViewport) — chụp được cả vùng ngoài cuộn
+      const hashDoc = async () => {
+        const box = await p.evaluate(() => {
+          const el = document.querySelector('#three-canvas-container canvas');
+          const r = el.getBoundingClientRect();
+          return { x: Math.round(r.left + window.scrollX), y: Math.round(r.top + window.scrollY), w: Math.round(Math.min(r.width, 380)), h: Math.round(Math.min(r.height, 300)) };
+        });
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: box.x, y: box.y, width: box.w, height: box.h, scale: 1 }, captureBeyondViewport: true });
+        let h = 0; for (let i = 0; i < shot.data.length; i += 997) h = (h * 31 + shot.data.charCodeAt(i)) % 1000000007;
+        return h;
+      };
+      // đối chứng in-view: canvas đang đổi khung liên tục
+      const in0 = await hashDoc(); await p.waitForTimeout(700); const in1 = await hashDoc();
+      // rời viewport (cuộn thật) → chờ → 2 mốc ngoài cuộn
+      await p.evaluate(() => window.scrollTo(0, 0));
+      await p.waitForTimeout(600);
+      const out0 = await hashDoc(); await p.waitForTimeout(2000); const out1 = await hashDoc();
+      // quay lại in-view
+      await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+      await p.waitForTimeout(700);
+      const in2 = await hashDoc(); await p.waitForTimeout(700); const in3 = await hashDoc();
+      const inChay = in0 !== in1;
+      const outDung = out0 === out1;
+      const inChayLai = in2 !== in3;
+      ghi('Rời viewport (cuộn thật, chuyển động bật): canvas NGOÀI cuộn giữ nguyên khung (loop dừng) — vào lại tiếp tục đổi (IO wake)',
+        inChay && outDung && inChayLai, 'in ' + in0 + '/' + in1 + ' đổi=' + inChay + '; out ' + out0 + ' vs ' + out1 + ' đổi=' + (out0 !== out1) + '; in-lại ' + in2 + ' vs ' + in3 + ' đổi=' + inChayLai);
+
+      // Ẩn trang: override document.hidden trong phiên (MÔ PHỎNG — ghi rõ)
+      await p.evaluate(() => {
+        Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+      });
+      const hid0 = await hashDoc(); await p.waitForTimeout(1200); const hid1 = await hashDoc();
+      await p.evaluate(() => { delete document.hidden; });
+      ghi('Ẩn trang (MÔ PHỎNG document.hidden=true trong phiên): canvas đứng yên — canRun() chặn render', hid0 === hid1, 'hash ' + hid0 + ' vs ' + hid1);
+    }
+    await ctx.close();
+  }
+
+
+  // ===== E) WebGL không khả dụng — override getContext (MÔ PHỎNG môi trường) =====
+  {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    // tiêm lỗi môi trường TRƯỚC mã trang: getContext trả null cho webgl/webgl2
+    await p.addInitScript(() => {
+      const goc = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (loai, ...a) {
+        if (/webgl/.test(String(loai))) return null;
+        return goc.apply(this, [loai, ...a]);
+      };
+    });
+    await p.setViewportSize({ width: 1280, height: 800 });
+    await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-2d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    await p.click('#tab-anatomy-3d');
+    await p.waitForSelector('#anatomy-3d-error:not(.hidden)', { timeout: 20000 });
+    const kq = await p.evaluate(() => ({
+      alert: document.getElementById('anatomy-3d-error')?.getAttribute('role'),
+      canvas: !!document.querySelector('#three-canvas-container canvas'),
+      tab2d: document.getElementById('tab-anatomy-2d')?.getAttribute('aria-selected'),
+      p2d: document.getElementById('view-2d-wrapper')?.hidden === false,
+    }));
+    await ctx.close();
+    ghi('WebGL không khả dụng (MÔ PHỎNG getContext→null): engine ném lỗi → role=alert + tự về 2D, không canvas',
+      kq.alert === 'alert' && kq.canvas === false && kq.tab2d === 'true' && kq.p2d, JSON.stringify(kq));
+  }
+
+      const thucThi = K.filter((k) => k.trangThai !== 'CHUA_KIEM');
+      const dat = thucThi.filter((k) => k.dat).length;
+      return { ketQua: dat === thucThi.length ? 'DAT' : 'KHONG_DAT', tong: dat + '/' + thucThi.length + ' (+' + (K.length - thucThi.length) + ' CHUA_KIEM)', ca: K };
+    })(),
+    pGiu.waitForTimeout(240000).then(() => ({ ketQua: 'TREO', tong: 'qua 4 phut', ca: K.concat([{ ca: 'TREO-PHIEN', chiTiet: 'phien qua 4 phut - cac ca sau chua chay' }]) })),
+  ]);
+  return baoCao;
+}
+)(page);
+```

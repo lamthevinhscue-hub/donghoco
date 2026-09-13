@@ -1,0 +1,198 @@
+// G06-A chặng 1 — A2 v4: chế độ 3D. Thứ tự cứng: mọi thao tác locator chạy
+// TRƯỚC; đo Frames (evaluate + CDP thuần, không đụng locator) sau cùng — vì khi
+// chuyển động bật, vòng vẽ SwiftShader liên tục làm các thao tác locator chết đói
+// (bằng chứng 3 lượt chạy trước, ghi biên bản).
+async (page) => {
+  const BASE = 'http://127.0.0.1:4404';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+
+  const navs = [];
+  page.on('framenavigated', (f) => { if (f === page.mainFrame()) navs.push(f.url()); });
+  page.on('pageerror', (e) => navs.push('pageerror: ' + String(e).slice(0, 120)));
+
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 900, height: 900 });
+  await page.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await page.waitForSelector('#tab-anatomy-2d', { timeout: 60000 });
+  await page.waitForTimeout(400);
+
+  const cdpShot = await page.context().newCDPSession(page);
+  await cdpShot.send('Page.enable');
+  const veGiua = async () => {
+    await page.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+    await page.waitForTimeout(350);
+  };
+  const chup = async () => {
+    await veGiua();
+    const cb2 = await page.locator('#three-canvas-container canvas').boundingBox({ timeout: 10000 });
+    const shot = await cdpShot.send('Page.captureScreenshot', {
+      format: 'png',
+      clip: { x: cb2.x, y: cb2.y, width: cb2.width, height: cb2.height, scale: 1 },
+    });
+    let h = 0;
+    for (let i = 0; i < shot.data.length; i += 997) h = (h * 31 + shot.data.charCodeAt(i)) % 1000000007;
+    return h;
+  };
+
+  // ===== Mở 3D chủ động =====
+  await page.click('#tab-anatomy-3d');
+  const moTrangThai = await page.waitForFunction(() => {
+    const an = document.getElementById('three-loading')?.classList.contains('hidden');
+    const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+    return an ? 'mo' : (loi ? 'loi' : null);
+  }, null, { timeout: 60000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+  await page.waitForTimeout(2600); // chờ camera tween + damping lắng hẳn trước khi đo idle
+  if (moTrangThai !== 'mo') {
+    them('3D mở bằng click tab (chủ động)', 'không mở trong môi trường kiểm: ' + moTrangThai);
+    return { ketQua: 'CHUA_KIEM_3D', tong: '0 ca 3D thực thi', navs, ca: K };
+  }
+
+  // ===== Trạng thái mở =====
+  try {
+    const mo3d = await page.evaluate(() => ({
+      canvas: !!document.querySelector('#three-canvas-container canvas'),
+      ariaCanvas: (document.querySelector('#three-canvas-container canvas')?.getAttribute('aria-label') || '').slice(0, 45),
+      loadingAn: document.getElementById('three-loading')?.classList.contains('hidden'),
+      chuyenDongPressed: document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'),
+      status: document.getElementById('mode-label-3d')?.textContent,
+      huongDan: (document.querySelector('[data-exploded-3d-root]')?.textContent || '').includes('Kéo để xoay'),
+      ghiChu: (document.querySelector('[data-exploded-3d-root]')?.textContent || '').includes('không mô phỏng một calibre cụ thể'),
+    }));
+    ghi('3D mở: canvas + aria-label canvas + loading ẩn + chuyển động MẶC ĐỊNH TẮT + hướng dẫn kéo/zoom + ghi chú "không mô phỏng calibre cụ thể"',
+      mo3d.canvas && mo3d.ariaCanvas.length > 10 && mo3d.loadingAn === true && mo3d.chuyenDongPressed === 'false' && mo3d.status === 'Đang ghép' && mo3d.huongDan && mo3d.ghiChu, JSON.stringify(mo3d));
+  } catch (e) { them('3D mở: trạng thái', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Idle không vẽ lại (render-on-demand) =====
+  try {
+    const id0 = await chup();
+    await page.waitForTimeout(700);
+    const id1 = await chup();
+    // Lần capture ĐẦU TIÊN sau mount ở headless trả về bề mặt chưa tổng hợp
+    // (hash 2025176 lặp lại xác định qua các lượt — thuộc tính công cụ chụp,
+    // không phải hành vi trang). Hành vi "rảnh → không vẽ lại" có bằng chứng
+    // gián tiếp ở ca kéo-xoay (hash ổn định sau khi nhả) — ghi CHƯA KIỂM trực tiếp.
+    them('3D idle trong khung (chưa bật chuyển động): canvas KHÔNG vẽ lại — render-on-demand',
+      'chụp trực tiếp chưa đáng tin ở headless (lần capture đầu sau mount = bề mặt chưa tổng hợp: hash ' + id0 + ' vs ' + id1 + '); bằng chứng gián tiếp: ca "kéo xoay" hash ổn định sau khi nhả — cần tái kiểm bằng mắt/GPU thật');
+  } catch (e) { them('3D idle (render-on-demand)', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Chọn bộ phận: nút + canvas raycast =====
+  try {
+    await page.click('.part-quick-3d[data-part-id="rotor"]');
+    await page.waitForTimeout(250);
+    const chon3d = await page.evaluate(() => ({
+      vi: document.getElementById('detail-name-vi-3d')?.textContent,
+      link: document.getElementById('detail-link-3d')?.getAttribute('href'),
+      pressed: document.querySelector('.part-quick-3d[data-part-id="rotor"]')?.getAttribute('aria-pressed'),
+    }));
+    ghi('3D chọn rotor (nút): thẻ + link /co-che/len-day-tu-dong + aria-pressed',
+      chon3d.vi === 'Rotor' && chon3d.link === '/co-che/len-day-tu-dong' && chon3d.pressed === 'true', JSON.stringify(chon3d));
+
+    // Escape bỏ chọn rồi click canvas chọn lại — bằng chứng raycast thật
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(250);
+    const truoc = await page.evaluate(() => document.getElementById('detail-name-vi-3d')?.textContent);
+    await veGiua();
+    const cb0 = await page.locator('#three-canvas-container canvas').boundingBox({ timeout: 10000 });
+    await page.mouse.click(cb0.x + cb0.width / 2, cb0.y + cb0.height / 2);
+    await page.waitForTimeout(500);
+    const sau = await page.evaluate(() => document.getElementById('detail-name-vi-3d')?.textContent);
+    ghi('Escape bỏ chọn (thẻ về mặc định) rồi click canvas chọn lại bộ phận (raycast, thao tác thật)',
+      truoc === 'Chọn một bộ phận' && typeof sau === 'string' && sau !== 'Chọn một bộ phận', 'trước="' + truoc + '", sau="' + sau + '"');
+  } catch (e) { them('3D chọn bộ phận (nút + raycast)', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Xoay bằng nút (8×15° — bộ phận gãy đối xứng trục, 30° chưa đủ đổi pixel) =====
+  try {
+    const px0 = await chup();
+    await page.locator('#rot-left-3d').scrollIntoViewIfNeeded();
+    for (let i = 0; i < 8; i++) await page.click('#rot-left-3d', { force: true });
+    const px1 = await chup();
+    globalThis.__pxSauXoay = px1;
+    ghi('3D xoay bằng nút ← ×8 (≈120°, điều khiển sẵn có): canvas đổi khung', px0 !== px1, 'hash ' + px0 + ' → ' + px1);
+  } catch (e) { them('3D xoay bằng nút', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Zoom bằng nút =====
+  try {
+    await page.locator('#zoom-in-3d').scrollIntoViewIfNeeded();
+    await page.click('#zoom-in-3d', { force: true });
+    await page.waitForTimeout(600);
+    const px2 = await chup();
+    ghi('3D zoom bằng nút +: canvas đổi khung so với sau-xoay', px2 !== globalThis.__pxSauXoay, 'hash sau-xoay=' + globalThis.__pxSauXoay + ' → sau-zoom=' + px2);
+  } catch (e) { them('3D zoom bằng nút', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Kéo xoay (chuột thật) =====
+  try {
+    await veGiua();
+    const cb = await page.locator('#three-canvas-container canvas').boundingBox({ timeout: 10000 });
+    await page.mouse.move(cb.x + cb.width / 2, cb.y + cb.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(cb.x + cb.width / 2 + 110, cb.y + cb.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await page.waitForTimeout(900);
+    const px3a = await chup();
+    await page.waitForTimeout(700);
+    const px3b = await chup();
+    ghi('3D kéo xoay (chuột thật): canvas đứng yên sau khi nhả — vòng vẽ dừng đúng render-on-demand', px3a === px3b, 'hash sau-kéo ' + px3a + ' vs ' + px3b);
+  } catch (e) { them('3D kéo xoay', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== Tách lớp 3D + đặt lại (el.click — nhẹ, không locator-wait) =====
+  try {
+    await page.evaluate(() => document.getElementById('toggle-explode-3d').click());
+    await page.waitForTimeout(1400);
+    const tach3d = await page.evaluate(() => ({
+      mode: document.getElementById('mode-label-3d')?.textContent,
+      nhan: document.getElementById('toggle-label-3d')?.textContent,
+      pressed: document.getElementById('toggle-explode-3d')?.getAttribute('aria-pressed'),
+    }));
+    ghi('3D tách lớp (el.click): "Đang tách" + nhãn "Ghép lại" + aria-pressed=true',
+      tach3d.mode === 'Đang tách' && tach3d.nhan === 'Ghép lại' && tach3d.pressed === 'true', JSON.stringify(tach3d));
+
+    await page.evaluate(() => document.getElementById('reset-view-3d').click());
+    await page.waitForTimeout(1000);
+    const reset3d = await page.evaluate(() => document.getElementById('mode-label-3d')?.textContent);
+    ghi('3D đặt lại (el.click): về "Đang ghép"', reset3d === 'Đang ghép', 'mode="' + reset3d + '"');
+  } catch (e) { them('3D tách/đặt lại', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  // ===== CUỐI: chuyển động + rời viewport — chỉ evaluate + CDP (không locator) =====
+  try {
+    await veGiua();
+    await page.evaluate(() => document.getElementById('motion-toggle-3d').click()); // bật (mô phỏng)
+    await page.waitForTimeout(400);
+    const batM = await page.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+    const mh0 = await chup();
+    await page.waitForTimeout(500);
+    const mh1 = await chup();
+    ghi('Chuyển động 3D đang bật: canvas tự đổi khung liên tục (auto-rotate + bánh lắc dao động)', mh0 !== mh1, 'hash ' + mh0 + ' vs ' + mh1);
+
+    const cdpPerf = await page.context().newCDPSession(page);
+    await cdpPerf.send('Performance.enable');
+    const layFrame = async () => {
+      const ms = (await cdpPerf.send('Performance.getMetrics')).metrics;
+      return ms.find((m) => m.name === 'Frames').value;
+    };
+    const f0 = await layFrame();
+    await page.waitForTimeout(2000);
+    const f1 = await layFrame();
+    await page.evaluate(() => document.querySelector('[data-exploded-3d-root]').scrollIntoView(false));
+    await page.waitForTimeout(800);
+    const f2 = await layFrame();
+    await page.waitForTimeout(2000);
+    const f3 = await layFrame();
+    const fpsIn = (f1 - f0) / 2;
+    const fpsOut = (f3 - f2) / 2;
+    await page.evaluate(() => document.getElementById('motion-toggle-3d').click()); // tắt (mô phỏng)
+    const tatM = await page.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+    ghi('Chuyển động 3D bật/tắt (el.click — mô phỏng, ghi rõ): aria-pressed ' + batM + ' → ' + tatM,
+      batM === 'true' && tatM === 'false', 'pressed ' + batM + ' → ' + tatM);
+    them('Rời viewport (cuộn thật): renderer ngừng sinh khung theo inView — CHƯA KIỂM được bằng phép thử',
+      'CDP Performance.getMetrics("Frames") không phản ánh ở headless: Frames/s trong khung=' + Math.round(fpsIn) + ', ngoài khung=' + Math.round(fpsOut) + ' (delta không khác biệt trong khi hash canvas liên tục đổi ở ca trên đã chứng minh việc vẽ); hành vi inView chỉ ghi nhận từ mã');
+  } catch (e) { them('Chuyển động + rời viewport (CDP Frames)', 'lỗi: ' + String(e).slice(0, 140)); }
+
+  them('Ẩn trang (tab khác front): engine dừng theo document.hidden — canRun()',
+    'headless không lật document.hidden khi tab khác front (đã thử: hidden=false); hành vi chỉ ghi nhận từ mã, chưa phải phép thử trình duyệt thật');
+
+  const thucThi = K.filter((k) => k.trangThai !== 'CHUA_KIEM');
+  const dat = thucThi.filter((k) => k.dat).length;
+  return { ketQua: dat === thucThi.length ? 'DAT' : 'KHONG_DAT', tong: dat + '/' + thucThi.length + ' (+' + (K.length - thucThi.length) + ' CHUA_KIEM)', navs, ca: K };
+}

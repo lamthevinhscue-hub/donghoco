@@ -1,0 +1,231 @@
+### Result
+{"phanLoai":{"dat":4,"khongDat":2,"chua":0,"quanSat":0,"ketLuan":"KHONG_DAT"},"tuKiemOk":true,"ca":[{"ca":"RM-A (vi): tách dưới reduce — khung@150ms KHÁC khung ghép (45.33% pixel) và GIỐNG khung@1200ms (0.00%) → đến đích ngay, không tween","dat":true,"chiTiet":"khác-ghép=45.33%, chênh-150-vs-1200=0.00%"},{"ca":"RM-C (vi): ghép → tách lại dưới reduce — khung@150ms khác ghép-lại (45.33%) và GIỐNG khung@1200ms (0.00%)","dat":true,"chiTiet":"khác-ghép=45.33%, chênh-150-vs-1200=0.00%"},{"ca":"RM-A (en): tách dưới reduce — khung@150ms KHÁC khung ghép (45.33% pixel) và GIỐNG khung@1200ms (0.00%) → đến đích ngay, không tween","dat":true,"chiTiet":"khác-ghép=45.33%, chênh-150-vs-1200=0.00%"},{"ca":"RM-C (en): ghép → tách lại dưới reduce — khung@150ms khác ghép-lại (45.33%) và GIỐNG khung@1200ms (0.00%)","dat":true,"chiTiet":"khác-ghép=45.33%, chênh-150-vs-1200=0.00%"},{"ca":"RM-D (vi, motion TẮT, reset ổn định): tách có khung TRUNG GIAN 150ms khác điểm đầu và khác đích, tới đích ổn định","dat":false,"chiTiet":"reset ổn định=3.14%; khac(ghép,trung)=3.39%; khac(trung,đích)=0.00%; khac(ghép,đích)=3.39%"},{"ca":"RM-D (en, motion TẮT, reset ổn định): tách có khung TRUNG GIAN 150ms khác điểm đầu và khác đích, tới đích ổn định","dat":false,"chiTiet":"reset ổn định=2.81%; khac(ghép,trung)=3.34%; khac(trung,đích)=0.00%; khac(ghép,đích)=3.34%"}]}
+### Ran Playwright code
+```js
+await (// G06-A vòng sửa 2 (TXN-20260913-34) — RM A/C/D bằng SO PIXEL GIẢI MÃ
+// (decode PNG → getImageData → đếm pixel khác), không dùng hash base64/PNG size.
+//   A: RM trước tải, motion TẮT — tách: khung tới đích NGAY (H@150ms == H@1200ms),
+//      khác khung ghép ban đầu → "đến đích, không tween" chứng minh bằng hình học render.
+//   C: (tiếp A) ghép về → tách lại — giống A, về cùng trạng thái exploded.
+//   D: gỡ reduce (no-preference), reset ỔN ĐỊNH trước (2 mốc giống nhau), motion TẮT —
+//      click tách: khung TRUNG GIAN (150ms) khác ĐIỂM ĐẦU và khác ĐÍCH (tween đang chạy),
+//      tới đích ổn định ở 1.5s (== đích exploded của RM-A).
+// Mỗi mốc chụp qua CDP clip vùng canvas trong viewport; "khác" = số pixel giải mã
+// có chênh kênh > 24 chia tổng pixel (tỷ lệ), không dùng dung lượng PNG.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+  const NGUONG_GIONG = 0.002;  // ≤0,2% pixel khác → coi là cùng khung
+  const NGUONG_KHAC = 0.02;    // ≥2% pixel khác → khac rõ ràng
+
+  for (const LANG of ['vi', 'en']) {
+    const duong = LANG === 'en' ? '/en/anatomy/' : '/giai-phau/';
+    const ctxRM = await browser.newContext({ reducedMotion: 'reduce' });
+    const pRM = await ctxRM.newPage();
+    await pRM.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await pRM.setViewportSize({ width: 900, height: 900 });
+    await pRM.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+    await pRM.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await pRM.waitForTimeout(400);
+    await pRM.click('#tab-anatomy-3d');
+    const mo = await pRM.waitForFunction(() => {
+      const an = document.getElementById('three-loading')?.classList.contains('hidden');
+      const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+      return an ? 'mo' : (loi ? 'loi' : null);
+    }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+    if (mo !== 'mo') { them('RM A/C (' + LANG + ')', '3D không mở: ' + mo); await ctxRM.close(); continue; }
+
+    const cdp = await pRM.context().newCDPSession(pRM);
+    await cdp.send('Page.enable');
+    const boxCanvas = async () => {
+      for (let lan = 0; lan < 3; lan++) {
+        const box = await pRM.evaluate(() => {
+          const el = document.querySelector('#three-canvas-container canvas');
+          if (!el) return null;
+          const r = el.getBoundingClientRect();
+          return { x: r.left, y: r.top, width: r.width, height: r.height };
+        });
+        if (box && box.width > 10 && box.height > 10) return box;
+        await pRM.waitForTimeout(500);
+      }
+      return null;
+    };
+    const chup = async () => {
+      const box = await boxCanvas();
+      if (!box) throw new Error('clip rỗng — canvas chưa layout');
+      const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: box.x, y: box.y, width: Math.min(box.width, 380), height: Math.min(box.height, 300), scale: 1 } });
+      return shot.data;
+    };
+    const tyLeKhac = async (dataA, dataB) => {
+      return await pRM.evaluate(async ([a, b]) => {
+        const tai = (u) => new Promise((res, rej) => {
+          const im = new Image();
+          im.src = u;
+          im.decode().then(() => res(im), () => rej(new Error('decode lỗi')));
+        });
+        const ia = await tai('data:image/png;base64,' + a);
+        const ib = await tai('data:image/png;base64,' + b);
+        const w = Math.min(ia.width, ib.width), h = Math.min(ia.height, ib.height);
+        const ca = document.createElement('canvas'); ca.width = w; ca.height = h;
+        const cb = document.createElement('canvas'); cb.width = w; cb.height = h;
+        ca.getContext('2d').drawImage(ia, 0, 0);
+        const da = ca.getContext('2d').getImageData(0, 0, w, h).data;
+        cb.getContext('2d').drawImage(ib, 0, 0);
+        const db = cb.getContext('2d').getImageData(0, 0, w, h).data;
+        let khac = 0;
+        for (let i = 0; i < da.length; i += 4) {
+          if (Math.abs(da[i] - db[i]) + Math.abs(da[i+1] - db[i+1]) + Math.abs(da[i+2] - db[i+2]) > 24) khac++;
+        }
+        return khac / (w * h);
+      }, [dataA, dataB]);
+    };
+    // chụp trả DATA (base64) thay shot object để so khớp tyLeKhac
+
+    // ===== A) RM: tách — khung tới đích NGAY =====
+    {
+      const ghep = await chup();
+      await pRM.click('#toggle-explode-3d');
+      await pRM.waitForTimeout(150);
+      const e150 = await chup();
+      await pRM.waitForTimeout(1050);
+      const e1200 = await chup();
+      const khacGhep = await tyLeKhac(ghep, e150);
+      const khacTween = await tyLeKhac(e150, e1200);
+      const okKhac = khacGhep >= NGUONG_KHAC;
+      const okOnDinh = khacTween <= NGUONG_GIONG;
+      ghi('RM-A (' + LANG + '): tách dưới reduce — khung@150ms KHÁC khung ghép (' + (khacGhep * 100).toFixed(2) + '% pixel) và GIỐNG khung@1200ms (' + (khacTween * 100).toFixed(2) + '%) → đến đích ngay, không tween',
+        okKhac && okOnDinh, 'khác-ghép=' + (khacGhep * 100).toFixed(2) + '%, chênh-150-vs-1200=' + (khacTween * 100).toFixed(2) + '%');
+    }
+
+    // ===== C) ghép về → tách lại — giống A, về cùng exploded =====
+    {
+      await pRM.click('#toggle-explode-3d'); // ghép lại
+      await pRM.waitForTimeout(400);
+      const ghepLai = await chup();
+      await pRM.click('#toggle-explode-3d'); // tách lại
+      await pRM.waitForTimeout(150);
+      const e150 = await chup();
+      await pRM.waitForTimeout(1050);
+      const e1200 = await chup();
+      const khacGhepLai = await tyLeKhac(ghepLai, e150);
+      const khacTween = await tyLeKhac(e150, e1200);
+      ghi('RM-C (' + LANG + '): ghép → tách lại dưới reduce — khung@150ms khác ghép-lại (' + (khacGhepLai * 100).toFixed(2) + '%) và GIỐNG khung@1200ms (' + (khacTween * 100).toFixed(2) + '%)',
+        khacGhepLai >= NGUONG_KHAC && khacTween <= NGUONG_GIONG,
+        'khác-ghép=' + (khacGhepLai * 100).toFixed(2) + '%, chênh-150-vs-1200=' + (khacTween * 100).toFixed(2) + '%');
+    }
+    await ctxRM.close();
+  }
+
+  // ===== D) gỡ reduce: reset ỔN ĐỊNH → tách có TRUNG GIAN khác đầu/đích rồi tới đích =====
+  for (const LANG of ['vi', 'en']) {
+    let ctx;
+    try {
+      ctx = await browser.newContext();
+      const p = await ctx.newPage();
+      await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+      await p.setViewportSize({ width: 900, height: 900 });
+      await p.goto(BASE + (LANG === 'en' ? '/en/anatomy/' : '/giai-phau/'), { waitUntil: 'commit', timeout: 60000 });
+      await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+      await p.waitForTimeout(400);
+      await p.click('#tab-anatomy-3d');
+      const mo = await p.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 90000 }).then(() => true).catch(() => false);
+      if (!mo) { them('RM-D (' + LANG + ')', '3D không mở'); continue; }
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const chupData = async () => {
+        await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+        await p.waitForTimeout(250);
+        const box = await p.evaluate(() => {
+          const el = document.querySelector('#three-canvas-container canvas');
+          if (!el) return null;
+          const r = el.getBoundingClientRect();
+          if (r.width < 10 || r.height < 10) return null;
+          return { x: r.left, y: r.top, width: Math.min(r.width, 380), height: Math.min(r.height, 300) };
+        });
+        if (!box) throw new Error('clip rỗng');
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } });
+        return shot.data;
+      };
+      const tyLeData = (a, b) => p.evaluate(async ([x, y]) => {
+        const tai = (u) => new Promise((res, rej) => {
+          const im = new Image();
+          im.src = u;
+          im.decode().then(() => res(im), () => rej(new Error('decode lỗi')));
+        });
+        const ia = await tai('data:image/png;base64,' + x);
+        const ib = await tai('data:image/png;base64,' + y);
+        const w = Math.min(ia.width, ib.width), h = Math.min(ia.height, ib.height);
+        const ca = document.createElement('canvas'); ca.width = w; ca.height = h;
+        const cb = document.createElement('canvas'); cb.width = w; cb.height = h;
+        ca.getContext('2d').drawImage(ia, 0, 0);
+        const da = ca.getContext('2d').getImageData(0, 0, w, h).data;
+        cb.getContext('2d').drawImage(ib, 0, 0);
+        const db = cb.getContext('2d').getImageData(0, 0, w, h).data;
+        let khac = 0;
+        for (let i = 0; i < da.length; i += 4) {
+          if (Math.abs(da[i] - db[i]) + Math.abs(da[i+1] - db[i+1]) + Math.abs(da[i+2] - db[i+2]) > 24) khac++;
+        }
+        return khac / (w * h);
+      }, [a, b]);
+      // motion TẮT — reset ỔN ĐỊNH trước khi đo
+      await p.evaluate(() => document.getElementById('reset-view-3d').click());
+      await p.waitForTimeout(1800);
+      const gh = await chupData();
+      const gh2 = await chupData();
+      const onDinh = await tyLeData(gh, gh2);
+      // tách khi KHÔNG reduce — khung 150ms là TRUNG GIAN
+      await p.click('#toggle-explode-3d');
+      await p.waitForTimeout(150);
+      const mid = await chupData();
+      await p.waitForTimeout(1350);
+      const dich = await chupData();
+      const khacDau = await tyLeData(gh, mid);
+      const khacDich = await tyLeData(mid, dich);
+      const giongDich = await tyLeData(gh, dich);
+      const ok = onDinh <= 0.002 && khacDau >= 0.02 && khacDich >= 0.02 && giongDich >= 0.02;
+      ghi('RM-D (' + LANG + ', motion TẮT, reset ổn định): tách có khung TRUNG GIAN 150ms khác điểm đầu và khác đích, tới đích ổn định', ok,
+        'reset ổn định=' + (onDinh * 100).toFixed(2) + '%; khac(ghép,trung)=' + (khacDau * 100).toFixed(2) + '%; khac(trung,đích)=' + (khacDich * 100).toFixed(2) + '%; khac(ghép,đích)=' + (giongDich * 100).toFixed(2) + '%');
+    } catch (e) { them('RM-D (' + LANG + ')', 'lỗi: ' + String(e).slice(0, 160)); }
+    finally { if (ctx) await ctx.close(); }
+  }
+
+  // ===== Bộ tổng kết phân loại + tự kiểm (đồng bộ pw-g06-rm2.js) =====
+  const phanLoai = (danhSach) => {
+    const thucThi = danhSach.filter((k) => k.trangThai !== 'CHUA_KIEM' && k.trangThai !== 'QUAN_SAT_GIOI_HAN');
+    const dat = thucThi.filter((k) => k.dat === true).length;
+    const khongDat = thucThi.filter((k) => k.dat === false).length;
+    const chua = danhSach.filter((k) => k.trangThai === 'CHUA_KIEM').length;
+    const quanSat = danhSach.filter((k) => k.trangThai === 'QUAN_SAT_GIOI_HAN').length;
+    const ketLuan = khongDat > 0 ? 'KHONG_DAT'
+      : (dat > 0 && chua === 0 ? 'DAT'
+      : (dat > 0 && chua > 0 ? 'DAT_MOT_PHAN'
+      : (chua > 0 ? 'CHUA_KIEM' : 'KHONG_CO_CA')));
+    return { dat, khongDat, chua, quanSat, ketLuan };
+  };
+  const tuKiem = (() => {
+    const kq = [];
+    const a = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', trangThai: 'CHUA_KIEM' }]);
+    kq.push({ ten: 'a: đạt + CHUA_KIEM → không DAT', dung: a.ketLuan !== 'DAT', ketQua: a.ketLuan });
+    const b = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', dat: true }]);
+    kq.push({ ten: 'b: tất cả đạt → DAT', dung: b.ketLuan === 'DAT', ketQua: b.ketLuan });
+    const c = phanLoai([{ ca: 'x', trangThai: 'CHUA_KIEM' }]);
+    kq.push({ ten: 'c: tất cả CHUA_KIEM → CHUA_KIEM', dung: c.ketLuan === 'CHUA_KIEM', ketQua: c.ketLuan });
+    const d = phanLoai([{ ca: 'x', dat: true }, { ca: 'y', dat: false }]);
+    kq.push({ ten: 'd: có ca sai → KHONG_DAT', dung: d.ketLuan === 'KHONG_DAT', ketQua: d.ketLuan });
+    const e = phanLoai([]);
+    kq.push({ ten: 'e: rỗng → không DAT', dung: e.ketLuan !== 'DAT', ketQua: e.ketLuan });
+    const f = phanLoai([{ ca: 'x', dat: true }, { ca: 'q', trangThai: 'QUAN_SAT_GIOI_HAN' }]);
+    kq.push({ ten: 'f: quan-sát tách riêng', dung: f.dat === 1 && f.quanSat === 1, ketQua: f.ketLuan });
+    return kq;
+  })();
+  const tuKiemOk = tuKiem.every((k) => k.dung);
+  const pl = phanLoai(K);
+
+  return { phanLoai: pl, tuKiemOk, ca: K };
+}
+
+)(page);
+```

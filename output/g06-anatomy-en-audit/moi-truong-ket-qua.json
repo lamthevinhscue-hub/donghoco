@@ -1,0 +1,32 @@
+{
+  "ketQua": "DAT",
+  "tong": "5/5",
+  "ca": [
+    {
+      "ca": "Reduced motion trước tải: tách tức thì (≤120ms), các lớp tới đích (maxY≥900)",
+      "dat": true,
+      "chiTiet": "độ trễ=39ms, maxY=958.6103897094727"
+    },
+    {
+      "ca": "Reduced motion đổi giữa phiên: lần tách kế tiếp nhảy thẳng (không stagger), nhãn đúng",
+      "dat": true,
+      "chiTiet": "{\"daDich\":true,\"mode\":\"Đang tách (exploded)\"}"
+    },
+    {
+      "ca": "No-JS: sơ đồ 2D + thẻ mặc định đọc được (SVG hiện, nhãn ghép, 12 bộ phận); tab 3D không mở (panel ẩn, không canvas)",
+      "dat": true,
+      "chiTiet": "{\"svgHien\":true,\"p3dHidden\":true,\"card\":\"Chọn một bộ phận\",\"nhanTach\":\"Tách lớp\",\"mode\":\"Đang ghép (assembled)\",\"bang12\":true,\"p3dVanHidden\":true,\"canvas\":false}"
+    },
+    {
+      "ca": "Lỗi tải engine (chặn chunk — phép thử cô lập): hộp role=alert hiện đúng chữ + TỰ về 2D + có nút Thử lại",
+      "dat": true,
+      "chiTiet": "{\"role\":\"alert\",\"chu\":true,\"coNutLai\":true,\"tab2dSel\":\"true\",\"p2dHien\":true}"
+    },
+    {
+      "ca": "Luồng Thử lại: reload → tự mở lại 3D → vẫn lỗi khi còn chặn; gỡ chặn thì mở được thật",
+      "dat": true,
+      "chiTiet": "{\"errHien\":true,\"tab2dSel\":\"true\",\"retryOk\":true}"
+    }
+  ],
+  "nguon": "playwright-cli run-code pw-g06-b-stdout.txt (stdout nguyên văn cùng thư mục)"
+}

@@ -1,0 +1,75 @@
+### Result
+{"ketQua":"DAT","ca":[{"ca":"TREO-CA","trangThai":"CHUA_KIEM","chiTiet":"ca quá 4 phút — treo ở bước nào đó (chưa định vị được), các ca sau không chạy"}]}
+### Ran Playwright code
+```js
+await (// Template RM 3D đơn ca — placeholder en giua do bash thay
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+  const pGio = await browser.newContext().then((c) => c.newPage());
+  const baoCao = await Promise.race([
+    (async () => {
+      const LANG = 'en';
+      const MODE = 'giua';
+      const duong = LANG === 'en' ? '/en/anatomy/' : '/giai-phau/';
+      const ctx = await browser.newContext(MODE === 'truoc' ? { reducedMotion: 'reduce' } : {});
+      const p = await ctx.newPage();
+      await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+      await p.setViewportSize({ width: 900, height: 900 });
+      await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+      await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+      await p.waitForTimeout(400);
+      await p.click('#tab-anatomy-3d');
+      const mo = await p.waitForFunction(() => {
+        const an = document.getElementById('three-loading')?.classList.contains('hidden');
+        const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+        return an ? 'mo' : (loi ? 'loi' : null);
+      }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+      if (mo !== 'mo') { them('RM 3D ' + MODE + ' (' + LANG + ')', '3D không mở: ' + mo); return K; }
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const hashCanvas = async () => {
+        await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+        await p.waitForTimeout(300);
+        const cb = await p.evaluate(() => {
+          const r = document.querySelector('#three-canvas-container canvas').getBoundingClientRect();
+          return { x: r.left, y: r.top, width: r.width, height: r.height };
+        });
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: cb.x, y: cb.y, width: Math.min(cb.width, 380), height: Math.min(cb.height, 300), scale: 1 } });
+        let h = 0; for (let i = 0; i < shot.data.length; i += 997) h = (h * 31 + shot.data.charCodeAt(i)) % 1000000007;
+        return h;
+      };
+      if (MODE === 'truoc') {
+        // RM trước tải: bật chuyển động chủ động (mô phỏng el.click) → vẫn chạy; tách nhảy thẳng
+        await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+        const m0 = await hashCanvas(); await p.waitForTimeout(700); const m1 = await hashCanvas();
+        ghi('RM 3D trước tải (' + LANG + '): chuyển động bật chủ động VẪN CHẠY (thiết kế RM không chặn thao tác người dùng)', m0 !== m1, 'hash ' + m0 + ' vs ' + m1);
+        await p.evaluate(() => document.getElementById('toggle-explode-3d').click());
+        const t1 = await hashCanvas(); await p.waitForTimeout(600); const t2 = await hashCanvas();
+        ghi('RM 3D trước tải (' + LANG + '): tách nhảy thẳng — khung ổn định ngay', t1 === t2, 'hash ' + t1 + ' vs ' + t2);
+      } else {
+        // RM giữa phiên: chuyển động đang chạy → reduce giữa phiên → vẫn chạy; tách nhảy thẳng
+        await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+        await p.waitForTimeout(300);
+        const m0 = await hashCanvas(); await p.waitForTimeout(700); const m1 = await hashCanvas();
+        await p.emulateMedia({ reducedMotion: 'reduce' });
+        await p.waitForTimeout(300);
+        const m2 = await hashCanvas(); await p.waitForTimeout(700); const m3 = await hashCanvas();
+        const pressed = await p.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+        ghi('RM 3D GIỮA PHIÊN (' + LANG + ', chuyển động đang chạy): reduce KHÔNG tự tắt chuyển động — canvas tiếp tục đổi khung',
+          pressed === 'true' && m2 !== m3, 'pressed=' + pressed + ', hash ' + m2 + ' vs ' + m3);
+        await p.evaluate(() => document.getElementById('toggle-explode-3d').click());
+        const t1 = await hashCanvas(); await p.waitForTimeout(600); const t2 = await hashCanvas();
+        ghi('RM 3D GIỮA PHIÊN (' + LANG + '): thao tác kế (tách) khung ổn định ngay sau đích', t1 === t2, 'hash ' + t1 + ' vs ' + t2);
+      }
+      return K;
+    })(),
+    pGio.waitForTimeout(240000).then(() => K.concat([{ ca: 'TREO-CA', trangThai: 'CHUA_KIEM', chiTiet: 'ca quá 4 phút — treo ở bước nào đó (chưa định vị được), các ca sau không chạy' }])),
+  ]);
+  return { ketQua: K.every((k) => k.trangThai !== 'CHUA_KIEM' && k.dat !== false) ? 'DAT' : 'KHONG_DAT', ca: baoCao };
+}
+)(page);
+```

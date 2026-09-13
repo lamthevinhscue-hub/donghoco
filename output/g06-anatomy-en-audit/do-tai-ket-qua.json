@@ -1,0 +1,89 @@
+{
+  "cold": [
+    {
+      "url": "/giai-phau/",
+      "loai": "document",
+      "giaiMa": 104859,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_astro/index.D0i-n8ul.css",
+      "loai": "stylesheet",
+      "giaiMa": 56041,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_astro/ban-quyen.CrdVTz2p.css",
+      "loai": "stylesheet",
+      "giaiMa": 49057,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_astro/hoisted.BaW7HtHK.js",
+      "loai": "script",
+      "giaiMa": 8714,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_astro/hoisted.DX0x34b4.js",
+      "loai": "script",
+      "giaiMa": 17731,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_vercel/insights/script.js",
+      "loai": "script",
+      "giaiMa": null,
+      "contentLength": null,
+      "nen": "gzip",
+      "ghiChu": "request lỗi (404 trên preview, beacon production) — CHƯA ĐO được body"
+    }
+  ],
+  "sau3d": [
+    {
+      "url": "/_astro/exploded3d.CdKMMlnX.js",
+      "loai": "script",
+      "giaiMa": 525814,
+      "contentLength": null,
+      "nen": "gzip"
+    },
+    {
+      "url": "/_astro/OrbitControls.RWMGWMk0.js",
+      "loai": "script",
+      "giaiMa": 19798,
+      "contentLength": null,
+      "nen": "gzip"
+    }
+  ],
+  "tongKet": {
+    "cold_soRequest": 6,
+    "cold_giaiMaTong": 236402,
+    "cold_ghiChu": "request lỗi duy nhất: /_vercel/insights/script.js (beacon production, tiền tồn tại) — body chưa đo được, KHÔNG cộng 0 vào tổng",
+    "sau3d_soRequest": 2,
+    "chunk3D": {
+      "exploded3d": {
+        "raw": 525814,
+        "gzip": 133302
+      },
+      "OrbitControls": {
+        "raw": 19798,
+        "gzip": 4438
+      },
+      "gzipTong": 137740,
+      "doanKhoan": "gzip -9 tính từ dist; khớp check-3d-loading-budget (131.4 + 4.4 KB)"
+    },
+    "cachDo": "Phép đo CÓ CHẶN font ngoài (route abort fonts.googleapis/gstatic trong kịch bản playwright) — KHÔNG phải tổng tải trang bình thường. Ba kích thước phân biệt: (1) body giải mã = response.body().length; (2) gzip tính từ dist (gzip -9 trên tệp chunk) — chỉ áp dụng cho 2 chunk 3D; (3) byte truyền thực tế CHƯA ĐO được (content-length null do transfer-encoding chunked). Server phát header content-encoding: gzip cho văn bản. Số request đếm từ sự kiện response; cold-load dùng context mới.",
+    "trangThai": "0 request Three.js/chunk 3D trong cold load — engine chỉ tải sau khi người dùng bấm tab 3D",
+    "gioiHan": {
+      "chanFont": "Google Fonts bị chặn chủ động — mọi tài nguyên font ngoài KHÔNG nằm trong phép đo",
+      "thoiGianQuanSat": "cold: chờ 2,5s sau khi phần tử gốc xuất hiện; sau-3D: chờ loading ẩn + 1,5s — tài nguyên nạp SAU các mốc này không nằm trong bản ghi",
+      "taiNguyenLoai": "font ngoài (chặn), request không khớp bộ lọc (fetch/xhr/prefetch không có đuôi tệp), favicon",
+      "byteTruyen": "chưa đo được (chunked) — không suy từ body giải mã"
+    }
+  }
+}

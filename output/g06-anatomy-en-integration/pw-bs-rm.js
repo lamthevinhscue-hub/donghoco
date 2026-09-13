@@ -1,0 +1,123 @@
+// [ĐÃ THAY THẾ ở vòng sửa 2 TXN-20260913-32 — phần RM dùng pw-g06-rm2.js (đếm draw WebGL);
+//  dòng có '|| true' đã bỏ; các kết quả từng dựa vào điều kiện luôn-đúng là KHÔNG ĐỦ CHỨNG MINH.]
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+  const buoc = ['start'];
+  const moc = (t) => { buoc.push(t); };
+  const pGiu = await browser.newContext().then((c) => c.newPage());
+  // đồng hồ bảo hiểm toàn phiên: treo quá 4 phút vẫn trả kết quả phần đã chạy
+  const baoCao = await Promise.race([
+    (async () => {
+  // ===== B) RM 3D: trước tải + giữa phiên (chuyển động đang chạy), VI + EN =====
+  for (const [ten, duong] of [['VI', '/giai-phau/'], ['EN', '/en/anatomy/']]) {
+    const ctx = await browser.newContext({ reducedMotion: 'reduce' });
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    moc('click-3d');
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => {
+      const an = document.getElementById('three-loading')?.classList.contains('hidden');
+      const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+      return an ? 'mo' : (loi ? 'loi' : null);
+    }, null, { timeout: 60000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+    moc('mo=' + mo);
+    if (mo !== 'mo') { them('RM 3D trước tải (' + ten + ')', '3D không mở: ' + mo); }
+    else {
+      await p.waitForTimeout(900);
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const hashCanvas = async () => {
+        await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+        await p.waitForTimeout(300);
+        const cb = await p.evaluate(() => {
+          const r = document.querySelector('#three-canvas-container canvas').getBoundingClientRect();
+          return { x: r.left, y: r.top, width: r.width, height: r.height };
+        });
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: cb.x, y: cb.y, width: Math.min(cb.width, 380), height: Math.min(cb.height, 300), scale: 1 } });
+        let h = 0; for (let i = 0; i < shot.data.length; i += 997) h = (h * 31 + shot.data.charCodeAt(i)) % 1000000007;
+        return h;
+      };
+      // bật chuyển động thủ công → trong RM nó vẫn chạy (thiết kế: RM không chặn thao tác người dùng)
+      await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+      moc('m0-truoc'); const m0 = await hashCanvas(); moc('m0-ok'); await p.waitForTimeout(700); const m1 = await hashCanvas(); moc('m1-ok');
+      ghi('RM 3D trước tải (' + ten + '): chuyển động bật chủ động VẪN CHẠY (canvas đổi khung) — thiết kế RM không chặn thao tác người dùng',
+        m0 !== m1, 'hash ' + m0 + ' vs ' + m1);
+      // tách lớp trong RM: nhảy thẳng (không tween) — đo bằng hash chớm sau click
+      await p.evaluate(() => document.getElementById('toggle-explode-3d').click());
+      const t1 = await hashCanvas(); await p.waitForTimeout(700); const t2 = await hashCanvas();
+      ghi('RM 3D (' + ten + '): tách nhảy thẳng tới đích — khung ổn định ngay sau click', t1 === t2, 'hash ' + t1 + ' vs ' + t2);
+      // GIỮA PHIÊN: tắt reduce trong phiên đang chạy (emulateMedia về no-preference)
+      await p.emulateMedia({ reducedMotion: 'no-preference' });
+      await p.evaluate(() => document.getElementById('reset-view-3d').click());
+      await p.waitForTimeout(1200);
+      const r0 = await hashCanvas(); await p.waitForTimeout(700); const r1 = await hashCanvas();
+      ghi('RM (' + ten + ') gỡ giữa phiên: thao tác kế có tween lại — khung thay đổi trong lúc chuyển tiếp rồi ổn định',
+        r0 !== r1, 'hash sau reset ' + r0 + ' vs ' + r1 + ' (quan sát — kết luận tween chỉ có giá trị kèm đếm draw, xem pw-g06-rm2.js)');
+    }
+    await ctx.close();
+  }
+
+  // RM 3D GIỮA PHIÊN khi chuyển động đang chạy — đo riêng VI + EN
+  for (const [ten, duong] of [['VI', '/giai-phau/'], ['EN', '/en/anatomy/']]) {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => {
+      const an = document.getElementById('three-loading')?.classList.contains('hidden');
+      const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+      return an ? 'mo' : (loi ? 'loi' : null);
+    }, null, { timeout: 60000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+    if (mo !== 'mo') { them('RM 3D giữa phiên (' + ten + ')', '3D không mở: ' + mo); }
+    else {
+      const cdp = await p.context().newCDPSession(p);
+      await cdp.send('Page.enable');
+      const hashCanvas = async () => {
+        await p.evaluate(() => document.querySelector('#three-canvas-container').scrollIntoView({ block: 'center' }));
+        await p.waitForTimeout(300);
+        const cb = await p.evaluate(() => {
+          const r = document.querySelector('#three-canvas-container canvas').getBoundingClientRect();
+          return { x: r.left, y: r.top, width: r.width, height: r.height };
+        });
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: cb.x, y: cb.y, width: Math.min(cb.width, 380), height: Math.min(cb.height, 300), scale: 1 } });
+        let h = 0; for (let i = 0; i < shot.data.length; i += 997) h = (h * 31 + shot.data.charCodeAt(i)) % 1000000007;
+        return h;
+      };
+      // bật chuyển động (el.click — mô phỏng) rồi GIỮA PHIÊN chuyển reduce
+      await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+      await p.waitForTimeout(300);
+      await hashCanvas(); await p.waitForTimeout(700); await hashCanvas();
+      await p.emulateMedia({ reducedMotion: 'reduce' });
+      await p.waitForTimeout(300);
+      const m2 = await hashCanvas(); await p.waitForTimeout(700); const m3 = await hashCanvas();
+      const pressed = await p.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+      ghi('RM 3D GIỮA PHIÊN (' + ten + ', chuyển động đang chạy): reduce KHÔNG tự tắt chuyển động người-dùng-bật — canvas tiếp tục đổi khung',
+        pressed === 'true' && m2 !== m3, 'pressed=' + pressed + ', hash ' + m2 + ' vs ' + m3);
+      // thao tác kế (tách) trong reduce: nhảy thẳng — khung ổn định ngay
+      await p.evaluate(() => document.getElementById('toggle-explode-3d').click());
+      const t1 = await hashCanvas(); await p.waitForTimeout(600); const t2 = await hashCanvas();
+      ghi('RM 3D GIỮA PHIÊN (' + ten + '): thao tác kế (tách) áp dụng reduce — khung ổn định ngay sau khi tới đích', t1 === t2, 'hash ' + t1 + ' vs ' + t2);
+    }
+    await ctx.close();
+  }
+
+
+  return { ketQua: 'CHAY-XONG', ca: K };
+
+    })(),
+    pGiu.waitForTimeout(240000).then(() => ({ ketQua: 'TREO', tong: 'quá 4 phút', ca: K.concat([{ ca: 'TREO-PHIEN', chiTiet: 'phiên quá 4 phút — các ca sau chưa chạy' }]) })),
+  ]);
+  return baoCao;
+}

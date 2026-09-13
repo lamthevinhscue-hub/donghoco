@@ -1,0 +1,18 @@
+---
+// =============================================================================
+// TRANG /en/anatomy — THE ANATOMY OF A MECHANICAL WATCH (wrapper mỏng, bản EN)
+// =============================================================================
+// G06-A chặng 2: khuôn chung AnatomyExperience với lang="en". Cặp route
+// /giai-phau ↔ /en/anatomy/ khai báo trong src/i18n/contentRoutes.ts.
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnatomyExperience from '../../components/anatomy/AnatomyExperience.astro';
+---
+
+<BaseLayout
+  title="The anatomy of a mechanical watch"
+  description="An interactive exploded-view diagram: spread a mechanical watch into its 12 selected parts (crystal, hands, dial, barrel, gears, escapement, balance, rotor...). Tap each part to understand its role."
+>
+  <AnatomyExperience lang="en" />
+</BaseLayout>

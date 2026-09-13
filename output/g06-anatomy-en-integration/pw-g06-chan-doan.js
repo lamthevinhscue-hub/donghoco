@@ -1,0 +1,39 @@
+// Probe: decode PNG base64 trong page qua Image vs fetch+createImageBitmap
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const ctx = await page.context().browser().newContext();
+  const p = await ctx.newPage();
+  await p.setViewportSize({ width: 900, height: 900 });
+  await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+  await p.waitForTimeout(300);
+  await p.click('#tab-anatomy-3d');
+  await p.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 90000 }).then(() => true).catch(() => false);
+  await p.waitForTimeout(600);
+  const cdp = await p.context().newCDPSession(p);
+  await cdp.send('Page.enable');
+  const box = await p.evaluate(() => {
+    const r = document.querySelector('#three-canvas-container canvas').getBoundingClientRect();
+    return { x: r.left, y: r.top, width: Math.min(r.width, 380), height: Math.min(r.height, 300) };
+  });
+  const shot = await cdp.send('Page.captureScreenshot', { format: 'png', clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } });
+  const doDai = shot.data.length;
+  const ketQua = await p.evaluate(async (b64) => {
+    const u = 'data:image/png;base64,' + b64;
+    const kq = { image: 'chua', bitmap: 'chua' };
+    try {
+      const im = new Image();
+      im.src = u;
+      await im.decode();
+      kq.image = 'ok ' + im.width + 'x' + im.height;
+    } catch (e) { kq.image = 'loi: ' + String(e).slice(0, 60); }
+    try {
+      const blob = await (await fetch(u)).blob();
+      const bmp = await createImageBitmap(blob);
+      kq.bitmap = 'ok ' + bmp.width + 'x' + bmp.height;
+    } catch (e) { kq.bitmap = 'loi: ' + String(e).slice(0, 60); }
+    return kq;
+  }, shot.data);
+  await ctx.close();
+  return { doDai, ketQua };
+}

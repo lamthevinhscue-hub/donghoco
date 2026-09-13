@@ -1,0 +1,127 @@
+### Result
+{"ketQua":"DAT","tong":"5/5","ca":[{"ca":"Reduced motion trước tải: tách tức thì (≤120ms), các lớp tới đích (maxY≥900)","dat":true,"chiTiet":"độ trễ=39ms, maxY=958.6103897094727"},{"ca":"Reduced motion đổi giữa phiên: lần tách kế tiếp nhảy thẳng (không stagger), nhãn đúng","dat":true,"chiTiet":"{\"daDich\":true,\"mode\":\"Đang tách (exploded)\"}"},{"ca":"No-JS: sơ đồ 2D + thẻ mặc định đọc được (SVG hiện, nhãn ghép, 12 bộ phận); tab 3D không mở (panel ẩn, không canvas)","dat":true,"chiTiet":"{\"svgHien\":true,\"p3dHidden\":true,\"card\":\"Chọn một bộ phận\",\"nhanTach\":\"Tách lớp\",\"mode\":\"Đang ghép (assembled)\",\"bang12\":true,\"p3dVanHidden\":true,\"canvas\":false}"},{"ca":"Lỗi tải engine (chặn chunk — phép thử cô lập): hộp role=alert hiện đúng chữ + TỰ về 2D + có nút Thử lại","dat":true,"chiTiet":"{\"role\":\"alert\",\"chu\":true,\"coNutLai\":true,\"tab2dSel\":\"true\",\"p2dHien\":true}"},{"ca":"Luồng Thử lại: reload → tự mở lại 3D → vẫn lỗi khi còn chặn; gỡ chặn thì mở được thật","dat":true,"chiTiet":"{\"errHien\":true,\"tab2dSel\":\"true\",\"retryOk\":true}"}]}
+### Ran Playwright code
+```js
+await (// G06-A chặng 1 — B: reduced-motion (trước tải + đổi giữa phiên), no-JS,
+// lỗi tải engine (cô lập: chặn chunk exploded3d) + luồng Thử lại.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4404';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const browser = page.context().browser();
+
+  // ===== 1. Reduced motion TRƯỚC tải: tách là tức thì, không stagger =====
+  const ctxRM = await browser.newContext({ reducedMotion: 'reduce' });
+  const pageRM = await ctxRM.newPage();
+  await pageRM.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pageRM.setViewportSize({ width: 1280, height: 800 });
+  await pageRM.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await pageRM.waitForSelector('#toggle-explode', { timeout: 60000 });
+  await pageRM.waitForTimeout(400);
+  const tR0 = await pageRM.evaluate(() => performance.now());
+  await pageRM.click('#toggle-explode');
+  const tR1 = await pageRM.evaluate(() => new Promise((res) => {
+    const kiem = () => {
+      const m = document.getElementById('mode-label')?.textContent;
+      if (m === 'Đang tách (exploded)') res(performance.now());
+      else setTimeout(kiem, 30);
+    };
+    kiem();
+  }));
+  const doTre = tR1 - tR0;
+  const viTriRM = await pageRM.evaluate(() => Math.max(...[...document.querySelectorAll('.layer-group')].map((l) => parseFloat((l.getAttribute('transform') || '').match(/translate\(0, ([\d.]+)\)/)?.[1] ?? '0'))));
+  await ctxRM.close();
+  ghi('Reduced motion trước tải: tách tức thì (≤120ms), các lớp tới đích (maxY≥900)',
+    doTre <= 120 && viTriRM >= 900, 'độ trễ=' + Math.round(doTre) + 'ms, maxY=' + viTriRM);
+
+  // ===== 2. Reduced motion ĐỔI GIỮA PHIÊN: lần tách kế tiếp áp dụng ngay =====
+  const ctxRM2 = await browser.newContext();
+  const pageRM2 = await ctxRM2.newPage();
+  await pageRM2.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pageRM2.setViewportSize({ width: 1280, height: 800 });
+  await pageRM2.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await pageRM2.waitForSelector('#toggle-explode', { timeout: 60000 });
+  await pageRM2.waitForTimeout(400);
+  await pageRM2.emulateMedia({ reducedMotion: 'reduce' });
+  await pageRM2.click('#toggle-explode');
+  await pageRM2.waitForTimeout(150);
+  const doiGiua = await pageRM2.evaluate(() => {
+    const ls = [...document.querySelectorAll('.layer-group')];
+    const daDich = ls.every((l) => {
+      const m = (l.getAttribute('transform') || '').match(/translate\(0, ([\d.]+)\)/);
+      return m && parseFloat(m[1]) >= 90;
+    });
+    return { daDich, mode: document.getElementById('mode-label')?.textContent };
+  });
+  await ctxRM2.close();
+  ghi('Reduced motion đổi giữa phiên: lần tách kế tiếp nhảy thẳng (không stagger), nhãn đúng',
+    doiGiua.daDich && doiGiua.mode === 'Đang tách (exploded)', JSON.stringify(doiGiua));
+
+  // ===== 3. No-JS: sơ đồ 2D đọc được; tab 3D không mở =====
+  const ctxNJ = await browser.newContext({ javaScriptEnabled: false });
+  const pageNJ = await ctxNJ.newPage();
+  await pageNJ.setViewportSize({ width: 1280, height: 800 });
+  await pageNJ.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await pageNJ.waitForSelector('#exploded-svg', { timeout: 60000 });
+  await pageNJ.waitForTimeout(500);
+  const nojs = await pageNJ.evaluate(() => ({
+    svgHien: !!document.getElementById('exploded-svg') && document.getElementById('exploded-svg').getBoundingClientRect().height > 100,
+    p3dHidden: document.getElementById('view-3d-wrapper')?.hidden,
+    card: document.getElementById('detail-name-vi')?.textContent,
+    nhanTach: document.getElementById('toggle-label')?.textContent,
+    mode: document.getElementById('mode-label')?.textContent,
+    bang12: (document.body.textContent || '').includes('12 bộ phận'),
+  }));
+  await pageNJ.click('#tab-anatomy-3d').catch(() => {});
+  await pageNJ.waitForTimeout(400);
+  const nojsTab = await pageNJ.evaluate(() => ({
+    p3dVanHidden: document.getElementById('view-3d-wrapper')?.hidden,
+    canvas: !!document.querySelector('#three-canvas-container canvas'),
+  }));
+  await ctxNJ.close();
+  ghi('No-JS: sơ đồ 2D + thẻ mặc định đọc được (SVG hiện, nhãn ghép, 12 bộ phận); tab 3D không mở (panel ẩn, không canvas)',
+    nojs.svgHien && nojs.p3dHidden === true && nojs.card === 'Chọn một bộ phận' && nojs.mode === 'Đang ghép (assembled)' && nojs.bang12 && nojsTab.p3dVanHidden === true && nojsTab.canvas === false,
+    JSON.stringify({ ...nojs, ...nojsTab }));
+
+  // ===== 4. Lỗi tải engine (cô lập: chặn chunk exploded3d) =====
+  const ctxErr = await browser.newContext();
+  const pageErr = await ctxErr.newPage();
+  await pageErr.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pageErr.route(/exploded3d[^/]*\.js/, (r) => r.abort());
+  await pageErr.setViewportSize({ width: 1280, height: 800 });
+  await pageErr.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await pageErr.waitForSelector('#tab-anatomy-2d', { timeout: 60000 });
+  await pageErr.waitForTimeout(300);
+  await pageErr.click('#tab-anatomy-3d');
+  await pageErr.waitForSelector('#anatomy-3d-error:not(.hidden)', { timeout: 20000 });
+  const loi = await pageErr.evaluate(() => ({
+    role: document.getElementById('anatomy-3d-error')?.getAttribute('role'),
+    chu: (document.getElementById('anatomy-3d-error')?.textContent || '').includes('Không mở được mô hình 3D'),
+    coNutLai: !!document.getElementById('anatomy-3d-retry'),
+    tab2dSel: document.getElementById('tab-anatomy-2d')?.getAttribute('aria-selected'),
+    p2dHien: document.getElementById('view-2d-wrapper')?.hidden === false,
+  }));
+  ghi('Lỗi tải engine (chặn chunk — phép thử cô lập): hộp role=alert hiện đúng chữ + TỰ về 2D + có nút Thử lại',
+    loi.role === 'alert' && loi.chu && loi.coNutLai && loi.tab2dSel === 'true' && loi.p2dHien, JSON.stringify(loi));
+
+  // Thử lại: reload + tự mở lại 3D qua cờ phiên → vẫn lỗi (route vẫn chặn) → hộp hiện lại
+  await pageErr.click('#anatomy-3d-retry');
+  await pageErr.waitForSelector('#anatomy-3d-error:not(.hidden)', { timeout: 30000 });
+  const retry = await pageErr.evaluate(() => ({
+    errHien: !document.getElementById('anatomy-3d-error')?.classList.contains('hidden'),
+    tab2dSel: document.getElementById('tab-anatomy-2d')?.getAttribute('aria-selected'),
+  }));
+  // gỡ chặn → Thử lại lần nữa → 3D mở thật (canvas + loading ẩn)
+  await pageErr.unroute(/exploded3d[^/]*\.js/);
+  await pageErr.click('#anatomy-3d-retry');
+  await pageErr.waitForSelector('#three-canvas-container canvas', { timeout: 30000 });
+  const retryOk = await pageErr.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 30000 }).then(() => true).catch(() => false);
+  await ctxErr.close();
+  ghi('Luồng Thử lại: reload → tự mở lại 3D → vẫn lỗi khi còn chặn; gỡ chặn thì mở được thật',
+    retry.errHien && retry.tab2dSel === 'true' && retryOk === true, JSON.stringify({ ...retry, retryOk }));
+
+  const dat = K.filter((k) => k.dat).length;
+  return { ketQua: dat === K.length ? 'DAT' : 'KHONG_DAT', tong: dat + '/' + K.length, ca: K };
+}
+)(page);
+```

@@ -1,154 +1,45 @@
 ---
 // =============================================================================
-// WATCH EXPLODED VIEW — Giải phẫu một chiếc đồng hồ cơ
+// WATCH EXPLODED VIEW — Giải phẫu một chiếc đồng hồ cơ (sơ đồ 2D)
 // =============================================================================
-// SVG exploded view: 12 bộ phận xếp thành các lớp (từ trên xuống dưới):
-//   1. Kính crystal          7. Thùng cót (mainspring barrel)
-//   2. Kim giây (second hand) 8. Bánh răng trung gian (gear train)
-//   3. Kim phút (minute hand) 9. Bộ thoát (escapement)
-//   4. Kim giờ (hour hand)    10. Bánh lắc + dây tóc (balance & hairspring)
-//   5. Mặt số (dial)          11. Rotor (thủiston lên dây tự động)
-//   6. Kim 24h / phụ (sub-dial) 12. Đáy vỏ (caseback)
+// G06-A chặng 2: nhận `lang` tường minh, dữ liệu 12 bộ phận từ nguồn duy nhất
+// src/data/anatomy-parts.ts (trước đây mảng frontmatter và data-role SVG lệch
+// chữ). Chuỗi runtime (tách/ghép, thẻ chi tiết về mặc định…) đọc từ JSON blob
+// `#anatomy-i18n` do component khuôn AnatomyExperience render.
 //
-// Tương tác:
-//   - Click/hover bộ phận → sáng lên + thẻ chú thích (tên Vi/Anh, vai trò, link)
-//   - Nút "Tách lớp" / "Ghép lại" → animation translate các lớp ra/trở vào
-//   - Mỗi lớp có link tới bài cơ chế chi tiết (nếu có)
+// C5 (TXN-20260913-25): đã BỎ đường năng lượng #wev-energy (markup + CSS +
+// marker wevArrowUp) — vai bộ truyền/bộ thoát/bộ điều tiết do khối chữ cạnh
+// sơ đồ đảm nhận. Giữ #wev-axis và các gradient còn dùng.
 //
-// Tuân thủ KẾ HOẠCH HOÀN THIỆN Bước 1.4.
+// Tương tác giữ nguyên khuôn chặng 1: click/hover bộ phận, nút nhanh,
+// "Tách lớp"/"Ghép lại", "Đặt lại", tooltip (Escape đóng), reduced-motion.
 // =============================================================================
 
-// Dữ liệu 12 bộ phận — đơn nguồn, dễ sửa
-const parts = [
-  {
-    id: 'crystal',
-    layer: 0,
-    nameVi: 'Kính cường lực',
-    nameEn: 'Crystal',
-    role: 'Lớp trong suốt bảo vệ mặt số. Thường là sapphire (độ cứng 9/10, chống xước gần như tuyệt đối).',
-    link: null,
-    color: '#A8C5E2',
-    icon: '◈',
-  },
-  {
-    id: 'second-hand',
-    layer: 1,
-    nameVi: 'Kim giây',
-    nameEn: 'Second hand',
-    role: 'Kim dài nhất, mỏng nhất — quay 1 vòng mỗi 60 giây. Liên kết trực tiếp với bộ thoát.',
-    link: '/co-che/bo-thoat',
-    color: '#9B2C2C',
-    icon: '→',
-  },
-  {
-    id: 'minute-hand',
-    layer: 1,
-    nameVi: 'Kim phút',
-    nameEn: 'Minute hand',
-    role: 'Quay 1 vòng mỗi 60 phút — truyền động từ bánh răng phút của chuỗi truyền động.',
-    link: '/co-che/chuyen-dong-co',
-    color: '#1F2D3D',
-    icon: '↛',
-  },
-  {
-    id: 'hour-hand',
-    layer: 1,
-    nameVi: 'Kim giờ',
-    nameEn: 'Hour hand',
-    role: 'Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ. Tỷ lệ 12:1 so với kim phút.',
-    link: '/co-che/chuyen-dong-co',
-    color: '#1F2D3D',
-    icon: '⏰',
-  },
-  {
-    id: 'dial',
-    layer: 2,
-    nameVi: 'Mặt số',
-    nameEn: 'Dial',
-    role: '"Gương mặt" của đồng hồ — hiển thị các chữ số, vạch khắc và thương hiệu. Quyết định 80% diện mạo.',
-    link: null,
-    color: '#FAF7F2',
-    icon: '◔',
-  },
-  {
-    id: 'subdial',
-    layer: 2,
-    nameVi: 'Mặt số phụ',
-    nameEn: 'Sub-dial',
-    role: 'Mặt số nhỏ hiển thị chức năng phụ: giây chronograph, bộ đếm phút, hay ngày/tháng (lịch vạn niên).',
-    link: '/tu-dien/perpetual-calendar',
-    color: '#E8E2D6',
-    icon: '○',
-  },
-  {
-    id: 'mainspring-barrel',
-    layer: 3,
-    nameVi: 'Thùng cót',
-    nameEn: 'Mainspring barrel',
-    role: 'Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót, đồng hồ chạy là nhả cót từ từ.',
-    link: '/co-che/tru-cot',
-    color: '#B8893C',
-    icon: '◎',
-  },
-  {
-    id: 'gear-train',
-    layer: 3,
-    nameVi: 'Bánh răng trung gian',
-    nameEn: 'Gear train / Going train',
-    role: 'Chuỗi 4 bánh răng truyền năng lượng từ thùng cót đến bộ thoát, đồng thời chia tỷ lệ cho kim giờ/phút/giây.',
-    link: '/co-che/chuyen-dong-co',
-    color: '#4A5568',
-    icon: '⚙',
-  },
-  {
-    id: 'escapement',
-    layer: 4,
-    nameVi: 'Bộ thoát',
-    nameEn: 'Escapement',
-    role: 'TRÁI TIM ĐẬP! Chia nhỏ năng lượng thành nhịp, nuôi bánh lắc dao động. Nguồn gốc tiếng "tíc-tắc".',
-    link: '/co-che/bo-thoat',
-    color: '#2E86AB',
-    icon: '♥',
-  },
-  {
-    id: 'balance',
-    layer: 4,
-    nameVi: 'Bánh lắc + dây tóc',
-    nameEn: 'Balance wheel & Hairspring',
-    role: 'Hệ dao động điều hòa — biến năng lượng thành nhịp thời gian đều đặn. Quyết định độ chính xác.',
-    link: '/tu-dien/day-toc-banh-lac',
-    color: '#9B2C2C',
-    icon: '✺',
-  },
-  {
-    id: 'rotor',
-    layer: 5,
-    nameVi: 'Rotor (lên dây tự động)',
-    nameEn: 'Rotor',
-    role: 'Quả nặng xoay tự do theo chuyển động cổ tay → tự động lên dây cót. Đặc trưng của đồng hồ automatic.',
-    link: '/co-che/len-day-tu-dong',
-    color: '#5A6878',
-    icon: '◐',
-  },
-  {
-    id: 'caseback',
-    layer: 6,
-    nameVi: 'Đáy vỏ',
-    nameEn: 'Caseback',
-    role: 'Nắp đáy — có loại kín (bảo vệ, chống nước tốt) hoặc lộ máy (sapphire, ngắm bộ máy đẹp).',
-    link: null,
-    color: '#2D3748',
-    icon: '▣',
-  },
-];
+import type { Lang } from '../i18n/ui';
+import { ANATOMY_PARTS, ANATOMY_LAYERS, ANATOMY_UI } from '../data/anatomy-parts';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props as Props;
+const ui = ANATOMY_UI[lang];
+
+// Dữ liệu render theo ngôn ngữ trang; name-alt chỉ dùng trên bản VI (học chéo tên Anh)
+const view = ANATOMY_PARTS.map((p) => ({
+  ...p,
+  name: p[lang].name,
+  role: p[lang].role,
+  link: p.link ? p.link[lang] : '',
+  nameAlt: lang === 'vi' ? p.en.name : '',
+}));
+const byId = (id: string) => view.find((p) => p.id === id)!;
+const tenLop = (i: number) => (lang === 'vi' ? `Lớp ${i} · ${ANATOMY_LAYERS[i].vi}` : `Layer ${i} · ${ANATOMY_LAYERS[i].en}`);
 ---
 
 <section class="my-6" data-exploded-root>
   <!-- ====== Thanh điều khiển trên ====== -->
   <div class="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/20 dark:bg-dark-border/20 p-4">
     <div class="flex items-center gap-2">
-      <span class="text-sm font-medium text-navy dark:text-dark-text">🔧 Trạng thái:</span>
-      <span id="mode-label" class="text-sm font-bold text-brass dark:text-dark-brass">Đang ghép (assembled)</span>
+      <span class="text-sm font-medium text-navy dark:text-dark-text">{lang === 'vi' ? '🔧 Trạng thái:' : '🔧 Status:'}</span>
+      <span id="mode-label" class="text-sm font-bold text-brass dark:text-dark-brass">{ui.mode2d.assembled}</span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
       <button
@@ -158,13 +49,13 @@ const parts = [
         aria-pressed="false"
       >
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-        <span id="toggle-label">Tách lớp</span>
+        <span id="toggle-label">{ui.toggle.explode}</span>
       </button>
       <button
         type="button"
         id="reset-view"
         class="min-h-11 rounded-full border border-cream-dark dark:border-dark-border px-4 py-2 text-xs font-medium text-ink-soft dark:text-dark-text-soft transition-colors hover:bg-cream-dark"
-      >Đặt lại</button>
+      >{lang === 'vi' ? 'Đặt lại' : 'Reset'}</button>
     </div>
   </div>
 
@@ -172,7 +63,9 @@ const parts = [
   <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
     <!-- Cột trái: SVG -->
     <div class="rounded-lg border border-cream-dark bg-gradient-to-b from-white to-cream-dark/10 p-3 sm:p-6 dark:border-dark-border dark:from-dark-surface dark:to-dark-bg">
-      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg" role="img" aria-label="Sơ đồ giải phẫu đồng hồ cơ với 12 bộ phận trên trục calibre — dùng danh sách bộ phận bên dưới để chọn từng chi tiết">
+      <svg viewBox="0 0 500 860" xmlns="http://www.w3.org/2000/svg" class="mx-auto w-full max-w-lg" id="exploded-svg" role="img" aria-label={lang === 'vi'
+        ? 'Sơ đồ giải phẫu đồng hồ cơ với 12 bộ phận trên trục calibre — dùng danh sách bộ phận bên dưới để chọn từng chi tiết'
+        : 'Anatomy diagram of a mechanical watch with 12 parts along the calibre axis — use the parts list below to pick each component'}>
         <!-- ====== VẬT LIỆU (điểm dừng bằng token --obs-* — tự đổi theo .dark) ====== -->
         <defs>
           <!-- Thép chải: vỏ, kim, cầu máy, bánh răng -->
@@ -181,7 +74,7 @@ const parts = [
             <stop offset="0.55" style="stop-color:var(--obs-steel)" />
             <stop offset="1" style="stop-color:var(--obs-steel-deep)" />
           </linearGradient>
-          <!-- Đồng thau: thùng cót + đường năng lượng — dải phản chiếu hẹp ở 1/3 -->
+          <!-- Đồng thau: thùng cót — dải phản chiếu hẹp ở 1/3 -->
           <linearGradient id="wevBrass" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" style="stop-color:var(--obs-brass-deep)" />
             <stop offset="0.3" style="stop-color:var(--obs-brass-soft)" />
@@ -227,22 +120,11 @@ const parts = [
         <!-- ====== TRỤC CALIBRE: các tầng lắp trên cùng một trục kỹ thuật ====== -->
         <line id="wev-axis" style="stroke:var(--ig-stroke-soft)" x1="250" y1="40" x2="250" y2="960" stroke-width="0.5" stroke-dasharray="3 4" />
 
-        <!-- ====== ĐƯỜNG NĂNG LƯỢNG (đồng thau): rotor → bánh răng → bộ thoát → kim.
-             Nằm DƯỚI các lớp nên chỉ lộ ở khoảng trống giữa các tầng khi tách.
-             Độ mờ/hiện do CSS quản (0 khi ghép, 0.9 khi tách). ====== -->
-        <g id="wev-energy" pointer-events="none">
-          <path d="M 250 950 L 250 132" fill="none" style="stroke:var(--obs-brass)" stroke-width="1.5" stroke-dasharray="4 5" stroke-linecap="round" marker-end="url(#wevArrowUp)" />
-          <marker id="wevArrowUp" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 10 L 5 0 L 10 10 z" style="fill:var(--obs-brass)" />
-          </marker>
-        </g>
-
         <!-- ====== MỖI LỚP (layer group) — vị trí Y do JS điều khiển ====== -->
-        <!-- LỚP 0: KÍNH (crystal) -->
         <!-- LỚP 0: KÍNH (crystal) — metadata chọn bộ phận nằm ngay layer-group
-             (lớp này không có phần tử con mang data-name-vi như các lớp khác) -->
-        <g class="layer-group" data-part="crystal" data-name-vi="Kính cường lực" data-name-en="Crystal" data-role="Lớp trong suốt bảo vệ mặt số. Thường là sapphire — độ cứng 9/10, chống xước gần như tuyệt đối." data-link="" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 0 · Kính</text>
+             (lớp này không có phần tử con mang data-name) -->
+        <g class="layer-group" data-part="crystal" data-name={byId('crystal').name} data-name-alt="" data-role={byId('crystal').role} data-link="" data-layer="0" data-target-y="100" data-assembled-y="280" transform="translate(0, 280)">
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(0)}</text>
           <ellipse cx="250" cy="0" rx="140" ry="22" fill="url(#wevSapphire)" style="stroke:var(--obs-steel)" stroke-width="1" opacity="0.85"/>
           <ellipse cx="250" cy="-4" rx="135" ry="18" style="fill:var(--obs-ivory)" opacity="0.08"/>
           <!-- Vệt phản chiếu chéo — không che chi tiết dưới kính -->
@@ -250,35 +132,35 @@ const parts = [
             <path d="M 150 26 L 250 -30 L 285 -30 L 185 26 Z" style="fill:var(--obs-ivory)" opacity="0.14"/>
             <path d="M 295 26 L 360 -22 L 372 -14 L 320 26 Z" style="fill:var(--obs-ivory)" opacity="0.09"/>
           </g>
-          <text style="fill:var(--ig-stroke)" x="250" y="3" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">SAPPHIRE CRYSTAL</text>
+          <text style="fill:var(--ig-stroke)" x="250" y="3" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">{lang === 'vi' ? 'KÍNH' : 'CRYSTAL'}</text>
         </g>
 
         <!-- LỚP 1: KIM (hands) -->
         <g class="layer-group" data-part="hands" data-layer="1" data-target-y="251" data-assembled-y="320" transform="translate(0, 320)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 1 · Kim</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(1)}</text>
           <!-- Kim giờ -->
-          <g data-part="hour-hand" data-name-vi="Kim giờ" data-name-en="Hour hand" data-role="Ngắn và dày nhất — quay 1 vòng mỗi 12 giờ." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+          <g data-part="hour-hand" data-name={byId('hour-hand').name} data-name-alt={byId('hour-hand').nameAlt} data-role={byId('hour-hand').role} data-link={byId('hour-hand').link} style="cursor: pointer;">
             <rect fill="url(#wevSteel)" x="248" y="-55" width="4" height="60" rx="2"/>
           </g>
           <!-- Kim phút -->
-          <g data-part="minute-hand" data-name-vi="Kim phút" data-name-en="Minute hand" data-role="Quay 1 vòng mỗi 60 phút." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+          <g data-part="minute-hand" data-name={byId('minute-hand').name} data-name-alt={byId('minute-hand').nameAlt} data-role={byId('minute-hand').role} data-link={byId('minute-hand').link} style="cursor: pointer;">
             <rect fill="url(#wevSteel)" x="249" y="-90" width="2.5" height="95" rx="1.5"/>
           </g>
           <!-- Kim giây — ruby (quy ước kim giây mạ đỏ) -->
-          <g data-part="second-hand" data-name-vi="Kim giây" data-name-en="Second hand" data-role="Quay 1 vòng mỗi 60 giây — liên kết với bộ thoát." data-link="/co-che/bo-thoat" style="cursor: pointer;">
+          <g data-part="second-hand" data-name={byId('second-hand').name} data-name-alt={byId('second-hand').nameAlt} data-role={byId('second-hand').role} data-link={byId('second-hand').link} style="cursor: pointer;">
             <rect fill="url(#wevRuby)" x="249.5" y="-105" width="1.5" height="115"/>
             <circle fill="url(#wevRuby)" cx="250" cy="-95" r="5"/>
           </g>
           <circle fill="url(#wevSteel)" cx="250" cy="0" r="4"/>
           <!-- Nhãn -->
-          <text style="fill:var(--ig-label)" x="250" y="30" text-anchor="middle" font-size="9" class="svg-label">KIM (hands)</text>
+          <text style="fill:var(--ig-label)" x="250" y="30" text-anchor="middle" font-size="9" class="svg-label">{lang === 'vi' ? 'KIM (hands)' : 'HANDS'}</text>
         </g>
 
         <!-- LỚP 2: MẶT SỐ (dial) -->
         <g class="layer-group" data-part="dial" data-layer="2" data-target-y="428" data-assembled-y="360" transform="translate(0, 360)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 2 · Mặt số</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(2)}</text>
           <!-- Mặt số chính -->
-          <g data-part="dial" data-name-vi="Mặt số" data-name-en="Dial" data-role="Hiển thị chữ số, vạch, thương hiệu. Quyết định 80% diện mạo." data-link="" style="cursor: pointer;">
+          <g data-part="dial" data-name={byId('dial').name} data-name-alt={byId('dial').nameAlt} data-role={byId('dial').role} data-link="" style="cursor: pointer;">
             <circle fill="url(#wevDial)" style="stroke:var(--obs-steel-deep)" cx="250" cy="0" r="120" stroke-width="2"/>
             <!-- Vạch giờ (chi tiết 1 / tham chiếu 0.5) -->
             {Array.from({ length: 60 }).map((_, i) => {
@@ -294,11 +176,11 @@ const parts = [
               const rad = (a * Math.PI) / 180;
               return <text style="fill:var(--ig-stroke)" x={250 + Math.cos(rad) * 90} y={Math.sin(rad) * 90 + 5} text-anchor="middle" font-size="16" font-weight="bold" font-family="Be Vietnam Pro, sans-serif">{n}</text>;
             })}
-            {/* Logo giả */}
+            {/* Tên trang (tên riêng — giữ nguyên hai ngôn ngữ) */}
             <text x="250" y="-40" text-anchor="middle" font-size="9" fill="#B8893C" font-weight="bold" letter-spacing="2" class="svg-label">ĐỒNG HỒ CƠ</text>
           </g>
           <!-- Sub-dial (mặt phụ) -->
-          <g data-part="subdial" data-name-vi="Mặt số phụ" data-name-en="Sub-dial" data-role="Hiển thị chức năng phụ: giây chạy, lịch, v.v." data-link="/tu-dien/perpetual-calendar" style="cursor: pointer;">
+          <g data-part="subdial" data-name={byId('subdial').name} data-name-alt={byId('subdial').nameAlt} data-role={byId('subdial').role} data-link={byId('subdial').link} style="cursor: pointer;">
             <circle fill="url(#wevDial)" style="stroke:var(--obs-steel-deep)" cx="250" cy="50" r="28" stroke-width="1"/>
             {Array.from({ length: 12 }).map((_, i) => {
               const a = (i * 360) / 12 - 90;
@@ -312,19 +194,19 @@ const parts = [
 
         <!-- LỚP 3: THÙNG CÓT + BÁNH RĂNG (movement top) -->
         <g class="layer-group" data-part="movement-top" data-layer="3" data-target-y="613" data-assembled-y="410" transform="translate(0, 410)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 3 · Bộ máy</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(3)}</text>
           <!-- Thùng cót — đồng thau (nguồn năng lượng) -->
-          <g data-part="mainspring-barrel" data-name-vi="Thùng cót" data-name-en="Mainspring barrel" data-role="Nguồn năng lượng! Chứa dây cót xoắn — lên dây là vặn cót." data-link="/co-che/tru-cot" style="cursor: pointer;">
+          <g data-part="mainspring-barrel" data-name={byId('mainspring-barrel').name} data-name-alt={byId('mainspring-barrel').nameAlt} data-role={byId('mainspring-barrel').role} data-link={byId('mainspring-barrel').link} style="cursor: pointer;">
             <circle cx="180" cy="0" r="38" fill="url(#wevBrass)" opacity="0.9" style="stroke:var(--obs-brass-deep)" stroke-width="2"/>
             <circle cx="180" cy="0" r="30" fill="none" style="stroke:var(--obs-brass-deep)" stroke-width="1"/>
             {/* Dây cót xoắn bên trong */}
             <path style="stroke:var(--ig-stroke-soft)" d="M 180 0 m -22 0 a 22 22 0 1 1 44 0 a 16 16 0 1 0 -32 0 a 10 10 0 1 1 20 0"
                   fill="none" stroke-width="1" opacity="0.7"/>
             <circle style="fill:var(--ig-edge)" cx="180" cy="0" r="5"/>
-            <text x="180" y="55" text-anchor="middle" font-size="10" style="fill:var(--obs-brass-deep)" font-weight="bold" class="svg-label">Thùng cót</text>
+            <text x="180" y="55" text-anchor="middle" font-size="10" style="fill:var(--obs-brass-deep)" font-weight="bold" class="svg-label">{lang === 'vi' ? 'Thùng cót' : 'Mainspring barrel'}</text>
           </g>
-          <!-- Bánh răng trung gian (3 bánh) — thép chải -->
-          <g data-part="gear-train" data-name-vi="Bánh răng trung gian" data-name-en="Gear train" data-role="Chuỗi 4 bánh răng truyền năng lượng + chia tỷ lệ cho kim." data-link="/co-che/chuyen-dong-co" style="cursor: pointer;">
+          <!-- Bánh răng trung gian (2 bánh vẽ) — thép chải -->
+          <g data-part="gear-train" data-name={byId('gear-train').name} data-name-alt={byId('gear-train').nameAlt} data-role={byId('gear-train').role} data-link={byId('gear-train').link} style="cursor: pointer;">
             {/* Bánh 1 */}
             <g transform="translate(250, -15)">
               <g fill="url(#wevSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
@@ -347,15 +229,15 @@ const parts = [
               <circle fill="url(#wevSteel)" style="stroke:var(--obs-steel-deep)" r="16" stroke-width="1"/>
               <circle style="fill:var(--ig-edge)" r="2.5"/>
             </g>
-            <text style="fill:var(--ig-steel)" x="265" y="55" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Chuỗi truyền động</text>
+            <text style="fill:var(--ig-steel)" x="265" y="55" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">{lang === 'vi' ? 'Chuỗi truyền động' : 'Gear train'}</text>
           </g>
         </g>
 
         <!-- LỚP 4: BỘ THOÁT + BÁNH LẮC -->
         <g class="layer-group" data-part="escapement-balance" data-layer="4" data-target-y="729" data-assembled-y="460" transform="translate(0, 460)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 4 · Bộ thoát</text>
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(4)}</text>
           <!-- Bộ thoát (escape wheel thép + pallet đồng thau + chân kính ruby) -->
-          <g data-part="escapement" data-name-vi="Bộ thoát" data-name-en="Escapement" data-role="TRÁI TIM ĐẬP — chia năng lượng thành nhịp, nuôi bánh lắc." data-link="/co-che/bo-thoat" style="cursor: pointer;">
+          <g data-part="escapement" data-name={byId('escapement').name} data-name-alt={byId('escapement').nameAlt} data-role={byId('escapement').role} data-link={byId('escapement').link} style="cursor: pointer;">
             <g transform="translate(190, 0)">
               {/* Escape wheel */}
               <g fill="url(#wevSteel)" style="stroke:var(--obs-steel-deep)" stroke-width="1">
@@ -373,11 +255,11 @@ const parts = [
                 <circle fill="url(#wevRuby)" cx="-8" cy="-11" r="1.8"/>
                 <circle fill="url(#wevRuby)" cx="8" cy="-11" r="1.8"/>
               </g>
-              <text x="0" y="40" text-anchor="middle" font-size="10" style="fill:var(--obs-steel-deep)" font-weight="bold" class="svg-label">Bộ thoát</text>
+              <text x="0" y="40" text-anchor="middle" font-size="10" style="fill:var(--obs-steel-deep)" font-weight="bold" class="svg-label">{lang === 'vi' ? 'Bộ thoát' : 'Escapement'}</text>
             </g>
           </g>
           <!-- Bánh lắc + dây tóc — ruby/Glucydur -->
-          <g data-part="balance" data-name-vi="Bánh lắc + dây tóc" data-name-en="Balance & Hairspring" data-role="Hệ dao động điều hòa — biến năng lượng thành nhịp thời gian." data-link="/tu-dien/day-toc-banh-lac" style="cursor: pointer;">
+          <g data-part="balance" data-name={byId('balance').name} data-name-alt={byId('balance').nameAlt} data-role={byId('balance').role} data-link={byId('balance').link} style="cursor: pointer;">
             <g transform="translate(310, 0)">
               <circle stroke="url(#wevRuby)" r="32" fill="none" stroke-width="2"/>
               <line stroke="url(#wevRuby)" x1="-32" y1="0" x2="32" y2="0" stroke-width="1"/>
@@ -390,15 +272,15 @@ const parts = [
                 <path d="M 310 0 m -6 0 a 6 6 0 1 1 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 1 24 0"
                       fill="none" style="stroke:var(--obs-steel)" stroke-width="1" transform="translate(-310, 0)"/>
               </g>
-              <text style="fill:var(--obs-ruby-deep)" x="0" y="50" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">Bánh lắc</text>
+              <text style="fill:var(--obs-ruby-deep)" x="0" y="50" text-anchor="middle" font-size="10" font-weight="bold" class="svg-label">{lang === 'vi' ? 'Bánh lắc' : 'Balance'}</text>
             </g>
           </g>
         </g>
 
         <!-- LỚP 5: ROTOR -->
         <g class="layer-group" data-part="rotor" data-layer="5" data-target-y="866" data-assembled-y="510" transform="translate(0, 510)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 5 · Rotor</text>
-          <g data-part="rotor" data-name-vi="Rotor (lên dây tự động)" data-name-en="Rotor" data-role="Quả nặng xoay theo cổ tay → tự động lên dây cót." data-link="/co-che/len-day-tu-dong" style="cursor: pointer;">
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(5)}</text>
+          <g data-part="rotor" data-name={byId('rotor').name} data-name-alt={byId('rotor').nameAlt} data-role={byId('rotor').role} data-link={byId('rotor').link} style="cursor: pointer;">
             {/* Hình bán nguyệt đặc trưng của rotor — thép chải */}
             <path fill="url(#wevSteel)" style="stroke:var(--obs-steel-deep)" d="M 250 -55 A 75 75 0 0 1 325 20 L 320 25 A 80 80 0 0 0 250 -60 Z"
                   stroke-width="2"/>
@@ -412,8 +294,8 @@ const parts = [
 
         <!-- LỚP 6: ĐÁY VỎ (caseback) -->
         <g class="layer-group" data-part="caseback" data-layer="6" data-target-y="956" data-assembled-y="570" transform="translate(0, 570)">
-          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">Lớp 6 · Đáy vỏ</text>
-          <g data-part="caseback" data-name-vi="Đáy vỏ" data-name-en="Caseback" data-role="Nắp đáy — kín (chống nước tốt) hoặc lộ máy (đẹp)." data-link="" style="cursor: pointer;">
+          <text style="fill:var(--ig-label)" x="5" y="0" font-size="10" font-family="Be Vietnam Pro, sans-serif" class="svg-label">{tenLop(6)}</text>
+          <g data-part="caseback" data-name={byId('caseback').name} data-name-alt={byId('caseback').nameAlt} data-role={byId('caseback').role} data-link="" style="cursor: pointer;">
             <ellipse fill="url(#wevSteel)" style="stroke:var(--obs-steel-deep)" cx="250" cy="0" rx="135" ry="18" stroke-width="2"/>
             <ellipse style="stroke:var(--obs-steel)" cx="250" cy="-2" rx="120" ry="14" fill="none" stroke-width="1"/>
             <text x="250" y="3" text-anchor="middle" font-size="9" style="fill:var(--obs-ivory)" font-weight="bold" class="svg-label">CASEBACK</text>
@@ -437,25 +319,23 @@ const parts = [
         <div class="mb-2 flex items-center gap-3">
           <span id="detail-icon" class="text-3xl">👆</span>
           <div>
-            <div id="detail-name-vi" class="font-serif text-lg text-navy dark:text-dark-text">Chọn một bộ phận</div>
-            <p id="detail-name-en" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">Chạm hoặc bấm vào bất kỳ bộ phận nào trong sơ đồ bên cạnh</p>
+            <div id="detail-name-vi" class="font-serif text-lg text-navy dark:text-dark-text">{ui.detail.title}</div>
+            <p id="detail-name-en" class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">{ui.detail.hint2d}</p>
           </div>
         </div>
-        <p id="detail-role" class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
-          Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ —
-          từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt,
-          hoặc click trực tiếp vào bộ phận để đọc vai trò và link bài chi tiết.
-        </p>
+        <p id="detail-role" class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft" set:html={ui.detail.role2d} />
         <a id="detail-link" href="#" class="mt-4 hidden inline-flex items-center gap-1 rounded-full bg-navy px-4 py-2 text-xs font-medium text-cream hover:bg-brass dark:hover:bg-dark-brass">
-          Đọc bài chi tiết →
+          {lang === 'vi' ? 'Đọc bài chi tiết →' : 'Read the full article →'}
         </a>
       </div>
 
       <!-- Danh sách nhanh các bộ phận -->
       <div class="rounded-lg border border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 p-4">
-        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">12 bộ phận — chạm hoặc bấm để chọn</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">
+          {lang === 'vi' ? '12 bộ phận — chạm hoặc bấm để chọn' : '12 parts — tap or click to pick'}
+        </p>
         <div class="grid grid-cols-2 gap-2 text-xs">
-          {parts.map((p) => (
+          {view.map((p) => (
             <button
               type="button"
               class="part-quick flex min-h-11 items-center gap-2 rounded border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface p-2 text-left transition-colors hover:border-brass hover:bg-brass/5 dark:bg-dark-brass/10"
@@ -463,7 +343,7 @@ const parts = [
               data-part-id={p.id}
             >
               <span class="text-base">{p.icon}</span>
-              <span class="text-navy dark:text-dark-text">{p.nameVi}</span>
+              <span class="text-navy dark:text-dark-text">{p.name}</span>
             </button>
           ))}
         </div>
@@ -473,7 +353,9 @@ const parts = [
 
   <!-- Hướng dẫn -->
   <p class="mt-4 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
-    💡 Mẹo: Bấm <strong>"Tách lớp"</strong> để xem đồng hồ phân rã thành các lớp • Chạm hoặc bấm bộ phận để xem chi tiết • Mũi tên ↓ chỉ hướng trọng lực
+    {lang === 'vi'
+      ? '💡 Mẹo: Bấm "Tách lớp" để xem đồng hồ phân rã thành các lớp • Chạm hoặc bấm bộ phận để xem chi tiết • Mũi tên ↓ chỉ hướng trọng lực'
+      : '💡 Tip: Press "Explode" to spread the watch into its layers • Tap a part for details • The ↓ arrow marks gravity'}
   </p>
 </section>
 
@@ -481,8 +363,8 @@ const parts = [
   /*
     Chuyển động tách/ghép: mỗi lớp 380ms + trễ tuần tự 36ms/lớp → tổng
     ~600ms, easing cơ học dứt khoát. Bóng lớp: ghép rất nhẹ, tách rõ hơn
-    chút (4 filter: 2 mức × bản nhạt cho chế tối). Trục calibre và đường
-    năng lượng mờ khi ghép, rõ khi tách.
+    chút (4 filter: 2 mức × bản nhạt cho chế tối). Trục calibre mờ khi
+    ghép, rõ khi tách. (Đường năng lượng #wev-energy đã bỏ — C5.)
   */
   .layer-group {
     transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1), filter 0.38s ease;
@@ -504,13 +386,6 @@ const parts = [
   #exploded-svg.exploded #wev-axis {
     opacity: 0.7;
   }
-  #wev-energy {
-    opacity: 0;
-    transition: opacity 0.38s ease;
-  }
-  #exploded-svg.exploded #wev-energy {
-    opacity: 0.9;
-  }
   [data-part] {
     transition: filter 0.3s ease;
   }
@@ -524,8 +399,7 @@ const parts = [
   /*
     Mobile: ẩn nhãn chữ trong SVG — khi khung co lại (320-375px) chữ chỉ còn
     5-7px, không đọc được. Thông tin đầy đủ đã có ở panel "12 bộ phận" và
-    thẻ chi tiết bên dưới SVG. Bỏ bóng trên mobile để tránh giật khi cuộn
-    (7 filter SVG là chi phí lớn nhất của hiệu ứng).
+    thẻ chi tiết bên dưới SVG. Bỏ bóng trên mobile để tránh giật khi cuộn.
   */
   @media (max-width: 767px) {
     .svg-label {
@@ -536,13 +410,15 @@ const parts = [
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .layer-group, #wev-axis, #wev-energy, [data-part] { transition: none; }
+    .layer-group, #wev-axis, [data-part] { transition: none; }
   }
 </style>
 
 <script>
   // =============================================================================
   // EXPLODED VIEW — điều khiển tách/ghép + chọn bộ phận
+  // Chuỗi runtime đọc từ JSON blob #anatomy-i18n (render bởi AnatomyExperience
+  // theo ngôn ngữ trang) — không hard-code nhãn trong script.
   // =============================================================================
   const root = document.querySelector('[data-exploded-root]');
   if (root) {
@@ -565,28 +441,37 @@ const parts = [
     const detailLink = document.getElementById('detail-link') as HTMLAnchorElement | null;
     const quickButtons = document.querySelectorAll<HTMLElement>('.part-quick');
 
+    // Chuỗi runtime theo ngôn ngữ trang — đọc từ blob do component khuôn render
+    const blob = document.getElementById('anatomy-i18n');
+    const ui = JSON.parse(blob?.textContent ?? '{}') as {
+      toggle: { explode: string; assemble: string };
+      mode2d: { assembled: string; exploded: string };
+      detail: { icon: string; title: string; hint2d: string; role2d: string };
+      tipLink: string;
+    };
+
     let isExploded = false;
 
-    // Map part id -> thông tin chi tiết (lấy từ data attributes)
+    // Map part id -> thông tin chi tiết (lấy từ data attributes, đúng ngôn ngữ trang)
     interface PartInfo {
       id: string;
-      nameVi: string;
-      nameEn: string;
+      name: string;
+      nameAlt: string;
       role: string;
       link: string;
     }
     const partMap: Record<string, PartInfo> = {};
     svg?.querySelectorAll('[data-part]').forEach((el) => {
-      // Bỏ qua layer-group cha (có data-part nhưng không có data-name-vi) —
-      // nếu không tên bộ phận fallback thành id thô (VD: "rotor" thay vì tên tiếng Việt)
-      if (!el.getAttribute('data-name-vi')) return;
+      // Bỏ qua layer-group cha (có data-part nhưng không có data-name) —
+      // nếu không tên bộ phận fallback thành id thô (VD: "rotor" thay vì tên bộ phận)
+      if (!el.getAttribute('data-name')) return;
       const id = el.getAttribute('data-part');
       if (!id) return;
       if (!partMap[id]) {
         partMap[id] = {
           id,
-          nameVi: el.getAttribute('data-name-vi') || id,
-          nameEn: el.getAttribute('data-name-en') || '',
+          name: el.getAttribute('data-name') || id,
+          nameAlt: el.getAttribute('data-name-alt') || '',
           role: el.getAttribute('data-role') || '',
           link: el.getAttribute('data-link') || '',
         };
@@ -702,7 +587,7 @@ const parts = [
 
     function applyMode() {
       if (!layers) return;
-      // Cờ trạng thái cho CSS: bóng lớp, trục calibre, đường năng lượng
+      // Cờ trạng thái cho CSS: bóng lớp, trục calibre
       svg?.classList.toggle('exploded', isExploded);
       // Khung đổi theo trạng thái: thu khi ghép, nới khi tách (mượt, tôn trọng RM)
       animateViewBox(isExploded ? explode.explodedVB : explode.assembledVB);
@@ -716,8 +601,8 @@ const parts = [
           layer.setAttribute('transform', `translate(0, ${targetY})`);
         }, rmQuery.matches ? 0 : i * 36);
       });
-      toggleLabel && (toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp');
-      modeLabel && (modeLabel.textContent = isExploded ? 'Đang tách (exploded)' : 'Đang ghép (assembled)');
+      toggleLabel && (toggleLabel.textContent = isExploded ? ui.toggle.assemble : ui.toggle.explode);
+      modeLabel && (modeLabel.textContent = isExploded ? ui.mode2d.exploded : ui.mode2d.assembled);
       toggleBtn?.setAttribute('aria-pressed', isExploded ? 'true' : 'false');
       // Đổi chiều mũi tên icon
       const arrow = toggleBtn?.querySelector('svg path');
@@ -746,11 +631,11 @@ const parts = [
       quickButtons.forEach((b) => b.classList.remove('active'));
 
       if (!id || !partMap[id]) {
-        // Reset detail card
-        detailIcon.textContent = '👆';
-        detailNameVi.textContent = 'Chọn một bộ phận';
-        detailNameEn.textContent = 'Chạm hoặc bấm vào bất kỳ bộ phận nào trong sơ đồ bên cạnh';
-        detailRole.innerHTML = 'Sơ đồ giải phẫu này cho thấy <strong>12 bộ phận chính</strong> của một chiếc đồng hồ cơ — từ lớp ngoài cùng (kính) đến đáy vỏ. Bấm <strong>"Tách lớp"</strong> để xem từng lớp riêng biệt, hoặc chạm/bấm trực tiếp bộ phận để đọc vai trò và link bài chi tiết.';
+        // Reset detail card về mặc định (chuỗi theo ngôn ngữ trang từ blob)
+        detailIcon.textContent = ui.detail.icon;
+        detailNameVi.textContent = ui.detail.title;
+        detailNameEn.textContent = ui.detail.hint2d;
+        detailRole.innerHTML = ui.detail.role2d;
         detailLink.classList.add('hidden');
         // Trạng thái accessibility: không nút bộ phận nào còn "đang chọn"
         quickButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
@@ -764,10 +649,12 @@ const parts = [
       document.querySelector(`.part-quick[data-part-id="${id}"]`)?.classList.add('active');
       quickButtons.forEach((b) => b.setAttribute('aria-pressed', b.dataset.partId === id ? 'true' : 'false'));
 
-      // Cập nhật detail card
+      // Cập nhật detail card: dòng phụ chỉ hiện khi có tên thứ hai
+      // (bản VI: tên tiếng Anh; bản EN: ẩn — không lẫn ngôn ngữ)
       detailIcon.textContent = iconMap[id] || '•';
-      detailNameVi.textContent = p.nameVi;
-      detailNameEn.textContent = p.nameEn;
+      detailNameVi.textContent = p.name;
+      detailNameEn.textContent = p.nameAlt;
+      detailNameEn.style.display = p.nameAlt ? '' : 'none';
       detailRole.textContent = p.role;
       if (p.link) {
         detailLink.href = p.link;
@@ -780,25 +667,27 @@ const parts = [
     // Click trên SVG — chạm/chuột trực tiếp chọn bộ phận; bàn phím và trình
     // đọc màn hình dùng danh sách nút HTML (part-quick) như ở Prompt 1.
     // [data-part] KHÔNG nhận tabindex/role — SVG tổng thể là hình minh họa.
-    // Phần tử mang metadata (data-name-vi) xử lý click và CHẶN LAN TRUYỀN để
+    // Phần tử mang metadata (data-name) xử lý click và CHẶN LAN TRUYỀN để
     // layer-group cha (hands, movement-top... — id không có trong partMap)
     // không chạy selectPart lần hai làm reset bảng thông tin.
     svg?.querySelectorAll('[data-part]').forEach((el) => {
       el.addEventListener('click', (e) => {
-        if (!el.getAttribute('data-name-vi')) return;
+        if (!el.getAttribute('data-name')) return;
         e.stopPropagation();
         selectPart(el.getAttribute('data-part'));
       });
       el.addEventListener('mouseenter', () => {
-        if (!el.getAttribute('data-name-vi')) return;
+        if (!el.getAttribute('data-name')) return;
         const id = el.getAttribute('data-part');
         if (!id) return;
         const p = partMap[id];
         if (!p || !tooltip || !tipVi || !tipEn || !tipLink || !tipBg) return;
-        tipVi.textContent = p.nameVi;
-        tipEn.textContent = p.nameEn;
-        tipLink.textContent = p.link ? '→ Chạm hoặc bấm để đọc bài' : '';
-        tipBg.setAttribute('width', String(Math.max(p.nameVi.length, p.nameEn.length) * 7 + 30));
+        tipVi.textContent = p.name;
+        // Dòng phụ tooltip: chỉ bản VI có tên tiếng Anh; bản EN ẩn dòng này
+        tipEn.textContent = p.nameAlt;
+        tipEn.style.display = p.nameAlt ? '' : 'none';
+        tipLink.textContent = p.link ? ui.tipLink : '';
+        tipBg.setAttribute('width', String(Math.max(p.name.length, (p.nameAlt || p.name).length) * 7 + 30));
         tooltip.setAttribute('opacity', '1');
       });
       el.addEventListener('mouseleave', () => {

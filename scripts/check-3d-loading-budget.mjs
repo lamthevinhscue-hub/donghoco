@@ -1,5 +1,5 @@
 // =============================================================================
-// check-3d-loading-budget.mjs — Chống hồi quy hiệu năng phần 3D /giai-phau
+// check-3d-loading-budget.mjs — Chống hồi quy hiệu năng phần 3D giải phẫu (/giai-phau + /en/anatomy)
 // =============================================================================
 // Chạy SAU `astro build` (đọc dist/) — nằm trong chuỗi `npm run build`,
 // KHÔNG nằm trong `npm run check` chạy trước build.
@@ -37,18 +37,18 @@ if (/import\s*\*\s*as\s*THREE/.test(engineSrc)) {
 }
 
 // ===== 2. Trang giải phẫu chỉ mở engine bằng dynamic import =====
-const giaiPhauSrc = readFileSync('src/pages/giai-phau.astro', 'utf8');
-const hasDynamic = /import\(\s*['"]\.\.\/scripts\/exploded3d['"]\s*\)/.test(giaiPhauSrc);
+const expSrc = readFileSync('src/components/anatomy/AnatomyExperience.astro', 'utf8');
+const hasDynamic = /import\(\s*['"]\.\.\/\.\.\/scripts\/exploded3d['"]\s*\)/.test(expSrc);
 // import tĩnh bị cấm, TRỪ import type (biên dịch xóa — không tạo dependency runtime)
-const staticImport = giaiPhauSrc.match(/^[ \t]*import\s+(?!type\b)[^;]*from\s+['"][^'"]*exploded3d['"]/m);
+const staticImport = expSrc.match(/^[ \t]*import\s+(?!type\b)[^;]*from\s+['"][^'"]*exploded3d['"]/m);
 if (!hasDynamic) {
-  errors.push('giai-phau.astro: không tìm thấy dynamic import "../scripts/exploded3d" — engine có thể bị tải tĩnh');
+  errors.push('AnatomyExperience.astro: không tìm thấy dynamic import "../../scripts/exploded3d" — engine có thể bị tải tĩnh');
 }
 if (staticImport) {
-  errors.push(`giai-phau.astro: phát hiện import tĩnh (không phải import type): ${staticImport[0].trim()}`);
+  errors.push(`AnatomyExperience.astro: phát hiện import tĩnh (không phải import type): ${staticImport[0].trim()}`);
 }
 if (hasDynamic && !staticImport) {
-  report.push('OK  giai-phau.astro: engine chỉ mở bằng dynamic import (import tĩnh duy nhất là import type — đã xóa lúc biên dịch)');
+  report.push('OK  AnatomyExperience.astro: engine chỉ mở bằng dynamic import (import tĩnh duy nhất là import type — đã xóa lúc biên dịch)');
 }
 
 // ===== 3. Không file nào khác import runtime Three.js =====
@@ -145,6 +145,7 @@ const ROUTES = [
   ['Mẫu iconic (rolex-submariner)', 'mau-iconic/rolex-submariner/index.html'],
   ['Bài cơ chế (bo-thoat)', 'co-che/bo-thoat/index.html'],
   ['Giải phẫu — 2D mặc định', 'giai-phau/index.html'],
+  ['Giải phẫu EN — 2D mặc định', 'en/anatomy/index.html'],
 ];
 
 if (explodedEntry.length === 1) {
@@ -170,12 +171,14 @@ if (explodedEntry.length === 1) {
     }
   }
 
-  // ===== 5. /giai-phau ban đầu: không khởi tạo engine trước khi chọn tab =====
-  const giaiPhauHtml = readFileSync(join(DIST, 'giai-phau/index.html'), 'utf8');
-  if (giaiPhauHtml.includes('mountExploded3D')) {
-    errors.push('giai-phau/index.html: có khởi tạo/tên hàm mountExploded3D trong HTML ban đầu (phải nằm trong chunk động)');
-  } else {
-    report.push('OK  /giai-phau/ HTML ban đầu: không khởi tạo engine 3D — chỉ bấm tab mới tải');
+  // ===== 5. Giải phẫu ban đầu (VI + EN): không khởi tạo engine trước khi chọn tab =====
+  for (const route of ['giai-phau/index.html', 'en/anatomy/index.html']) {
+    const html = readFileSync(join(DIST, route), 'utf8');
+    if (html.includes('mountExploded3D')) {
+      errors.push(`${route}: có khởi tạo/tên hàm mountExploded3D trong HTML ban đầu (phải nằm trong chunk động)`);
+    } else {
+      report.push(`OK  /${route.replace('/index.html', '/')}/ HTML ban đầu: không khởi tạo engine 3D — chỉ bấm tab mới tải`);
+    }
   }
 }
 

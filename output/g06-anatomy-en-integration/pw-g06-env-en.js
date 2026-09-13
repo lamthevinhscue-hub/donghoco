@@ -1,0 +1,112 @@
+// G06-A chặng 2 — môi trường bản EN: reduced-motion (2D trước tải + giữa phiên;
+// 3D trước tải + hành vi chuyển động khi đang chạy), no-JS.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const browser = page.context().browser();
+
+  // ===== RM EN — 2D trước tải =====
+  const ctxRM = await browser.newContext({ reducedMotion: 'reduce' });
+  const pRM = await ctxRM.newPage();
+  await pRM.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pRM.setViewportSize({ width: 1280, height: 800 });
+  await pRM.goto(BASE + '/en/anatomy/', { waitUntil: 'commit', timeout: 60000 });
+  await pRM.waitForSelector('#toggle-explode', { timeout: 60000 });
+  await pRM.waitForTimeout(400);
+  await pRM.click('#toggle-explode');
+  // RM đúng = các lớp KHÔNG transition: đến đích ngay trên khung đầu sau click
+  // (không RM: transition 380ms + stagger 36ms/lớp → lớp cuối tới đích sau ~600ms+)
+  const thoiGianVeDich = await pRM.evaluate(() => new Promise((res) => {
+    const batDau = performance.now();
+    const dich = 950; // tầng cuối (lớp 6) target-y khi tách ≥ 900
+    const kiem = () => {
+      const cuoi = [...document.querySelectorAll('.layer-group')].pop();
+      const m = (cuoi?.getAttribute('transform') || '').match(/translate\(0, ([\d.]+)\)/);
+      if (m && parseFloat(m[1]) >= dich) res(performance.now() - batDau);
+      else if (performance.now() - batDau > 3000) res(-1);
+      else requestAnimationFrame(kiem);
+    };
+    requestAnimationFrame(kiem);
+  }));
+  const maxY = await pRM.evaluate(() => Math.max(...[...document.querySelectorAll('.layer-group')].map((l) => parseFloat((l.getAttribute('transform') || '').match(/translate\(0, ([\d.]+)\)/)?.[1] ?? '0'))));
+  await ctxRM.close();
+  ghi('RM EN — 2D trước tải: không transition — lớp cuối tới đích ngay (≤150ms)',
+    thoiGianVeDich >= 0 && thoiGianVeDich <= 150 && maxY >= 900, 'thời gian lớp cuối tới đích=' + Math.round(thoiGianVeDich) + 'ms, maxY=' + Math.round(maxY));
+
+  // ===== RM EN — 2D giữa phiên =====
+  const ctxRM2 = await browser.newContext();
+  const pRM2 = await ctxRM2.newPage();
+  await pRM2.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pRM2.setViewportSize({ width: 1280, height: 800 });
+  await pRM2.goto(BASE + '/en/anatomy/', { waitUntil: 'commit', timeout: 60000 });
+  await pRM2.waitForSelector('#toggle-explode', { timeout: 60000 });
+  await pRM2.waitForTimeout(400);
+  await pRM2.emulateMedia({ reducedMotion: 'reduce' });
+  await pRM2.click('#toggle-explode');
+  await pRM2.waitForTimeout(150);
+  const mid = await pRM2.evaluate(() => {
+    const ls = [...document.querySelectorAll('.layer-group')];
+    return { daDich: ls.every((l) => { const m = (l.getAttribute('transform') || '').match(/translate\(0, ([\d.]+)\)/); return m && parseFloat(m[1]) >= 90; }), mode: document.getElementById('mode-label')?.textContent };
+  });
+  await ctxRM2.close();
+  ghi('RM EN — 2D giữa phiên: lần tách kế tiếp nhảy thẳng', mid.daDich && mid.mode === 'Exploded', JSON.stringify(mid));
+
+  // ===== RM EN — 3D trước tải: tách nhảy thẳng + ghi hành vi chuyển động chạy =====
+  const ctxR3 = await browser.newContext({ reducedMotion: 'reduce' });
+  const pR3 = await ctxR3.newPage();
+  await pR3.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await pR3.setViewportSize({ width: 900, height: 900 });
+  await pR3.goto(BASE + '/en/anatomy/', { waitUntil: 'commit', timeout: 60000 });
+  await pR3.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+  await pR3.waitForTimeout(300);
+  await pR3.click('#tab-anatomy-3d');
+  const mo = await pR3.waitForFunction(() => {
+    const an = document.getElementById('three-loading')?.classList.contains('hidden');
+    const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+    return an ? 'mo' : (loi ? 'loi' : null);
+  }, null, { timeout: 60000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+  if (mo !== 'mo') {
+    ghi('RM EN — 3D trước tải', false, '3D không mở: ' + mo);
+  } else {
+    await pR3.waitForTimeout(800);
+    // bật chuyển động thủ công (thiết kế: RM không chặn thao tác chủ động) rồi tách
+    await pR3.evaluate(() => document.getElementById('motion-toggle-3d').click());
+    await pR3.waitForTimeout(200);
+    const motionBat = await pR3.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+    await pR3.evaluate(() => document.getElementById('toggle-explode-3d').click());
+    const tTo = await pR3.evaluate(() => new Promise((res) => {
+      const start = performance.now();
+      const kiem = () => {
+        const m = document.getElementById('mode-label-3d')?.textContent;
+        if (m === 'Exploded') res(performance.now() - start);
+        else if (start && performance.now() - start > 5000) res(-1);
+        else setTimeout(kiem, 30);
+      };
+      kiem();
+    }));
+    await pR3.evaluate(() => document.getElementById('motion-toggle-3d').click());
+    ghi('RM EN — 3D trước tải: tách nhảy thẳng tới đích (≤150ms) + chuyển động chạy khi bật chủ động (thiết kế: RM không chặn thao tác người dùng)',
+      tTo >= 0 && tTo <= 150 && motionBat === 'true', 'độ trễ mode="Exploded"=' + Math.round(tTo) + 'ms, motion bật chủ động=' + motionBat);
+  }
+  await ctxR3.close();
+
+  // ===== No-JS EN =====
+  const ctxNJ = await browser.newContext({ javaScriptEnabled: false });
+  const pNJ = await ctxNJ.newPage();
+  await pNJ.setViewportSize({ width: 1280, height: 800 });
+  await pNJ.goto(BASE + '/en/anatomy/', { waitUntil: 'commit', timeout: 60000 });
+  await pNJ.waitForSelector('#exploded-svg', { timeout: 60000 });
+  await pNJ.waitForTimeout(400);
+  const nojs = await pNJ.evaluate(() => ({
+    svg: !!document.getElementById('exploded-svg') && document.getElementById('exploded-svg').getBoundingClientRect().height > 100,
+    p3d: document.getElementById('view-3d-wrapper')?.hidden,
+    card: document.getElementById('detail-name-vi')?.textContent,
+    mode: document.getElementById('mode-label')?.textContent,
+  }));
+  await ctxNJ.close();
+  ghi('No-JS EN: sơ đồ + thẻ mặc định đọc được, 3D không mở', nojs.svg && nojs.p3d === true && nojs.card === 'Pick a part' && nojs.mode === 'Assembled', JSON.stringify(nojs));
+
+  const dat = K.filter((k) => k.dat).length;
+  return { ketQua: dat === K.length ? 'DAT' : 'KHONG_DAT', tong: dat + '/' + K.length, ca: K };
+}

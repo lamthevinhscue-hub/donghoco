@@ -39,7 +39,7 @@ import { join } from 'node:path';
 
 const DATA_DIR = 'src/data';
 // Tệp hạ tầng và dataset thuộc script kiểm khác — không phải dataset sơ đồ tiến hóa
-const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts', 'decisionMaps.ts', 'historyChapters.ts']); // historyChapters: dữ liệu chương lịch sử G05-B, không phải sơ đồ tiến hóa
+const SKIP_FILES = new Set(['modelEvolution.ts', 'learningPaths.ts', 'decisionMaps.ts', 'historyChapters.ts', 'anatomy-parts.ts']); // historyChapters: chương lịch sử G05-B; anatomy-parts: dữ liệu 12 bộ phận giải phẫu G06-A — đều không phải sơ đồ tiến hóa
 const COMPONENT_PATH = 'src/components/ModelEvolution.astro';
 
 const REQUIRED_STRINGS = ['reference', 'sourceUrl', 'sourceName'];

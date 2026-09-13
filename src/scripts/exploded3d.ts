@@ -39,6 +39,7 @@ import {
   WebGLRenderer,
 } from 'three';
 import type { BufferGeometry, Material, MeshStandardMaterialParameters } from 'three';
+import type { Lang } from '../i18n/ui';
 
 export interface Exploded3DHandle {
   /** Dừng render loop (khi người dùng chuyển về sơ đồ 2D) */
@@ -50,8 +51,7 @@ export interface Exploded3DHandle {
 }
 
 interface PartInfo {
-  nameVi: string;
-  nameEn: string;
+  name: string;
   role: string;
   link: string;
   icon: string;
@@ -60,10 +60,45 @@ interface PartInfo {
 const CAM_DIR = new Vector3(60, 40, 80).normalize(); // hướng nhìn chuẩn lúc mở/đặt lại
 const FRAME_PADDING = 1.25; // khoảng đệm quanh mô hình khi tự lấy khung
 
-export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHandle> {
+// Chuỗi hiển thị/trạng thái theo ngôn ngữ trang (G06-A chặng 2) — canvas aria,
+// thẻ chi tiết mặc định, nhãn tách/ghép/mode, thông báo lỗi.
+const ENGINE_UI: Record<Lang, {
+  canvasAria: string;
+  defaultTitle: string;
+  defaultHint: string;
+  defaultRole: string;
+  toggle: { explode: string; assemble: string };
+  mode: { assembled: string; exploded: string };
+  errNoRoot: string;
+  errNoWebGL: string;
+}> = {
+  vi: {
+    canvasAria: 'Mô hình 3D khái niệm của một chiếc đồng hồ cơ — kéo để xoay, cuộn hoặc chụm để thu phóng, chạm một bộ phận để xem chi tiết. Các nút danh sách bộ phận và nút điều khiển bằng HTML bên cạnh là phương thức điều khiển thay thế.',
+    defaultTitle: 'Chọn một bộ phận',
+    defaultHint: 'Chạm hoặc bấm vào bộ phận trong mô hình, hoặc chọn từ danh sách',
+    defaultRole: 'Kéo để xoay mô hình 360 độ. Bấm "Tách lớp" để phân rã thành từng lớp. Chạm hoặc bấm từng bộ phận (trong mô hình hoặc trong danh sách) để hiểu vai trò.',
+    toggle: { explode: 'Tách lớp', assemble: 'Ghép lại' },
+    mode: { assembled: 'Đang ghép', exploded: 'Đang tách' },
+    errNoRoot: 'Không tìm thấy khung chứa mô hình 3D.',
+    errNoWebGL: 'Trình duyệt hoặc thiết bị không hỗ trợ WebGL.',
+  },
+  en: {
+    canvasAria: 'A conceptual 3D model of a mechanical watch — drag to rotate, scroll or pinch to zoom, tap a part for details. The parts list and control buttons in HTML beside it are alternative ways to control the model.',
+    defaultTitle: 'Pick a part',
+    defaultHint: 'Tap or click a part in the model, or pick one from the list',
+    defaultRole: 'Drag to spin the model 360 degrees. Press "Explode" to pull the layers apart. Tap any part (in the model or in the list) to learn its role.',
+    toggle: { explode: 'Explode', assemble: 'Assemble' },
+    mode: { assembled: 'Assembled', exploded: 'Exploded' },
+    errNoRoot: 'Could not find the 3D model frame.',
+    errNoWebGL: 'Your browser or device does not support WebGL.',
+  },
+};
+
+export async function mountExploded3D(root: HTMLElement, lang: Lang = 'vi'): Promise<Exploded3DHandle> {
+  const t = ENGINE_UI[lang];
   const container = root.querySelector<HTMLElement>('#three-canvas-container');
   const loadingEl = root.querySelector<HTMLElement>('#three-loading');
-  if (!container) throw new Error('Không tìm thấy khung chứa mô hình 3D.');
+  if (!container) throw new Error(t.errNoRoot);
   const host = container;
 
   // ---- Dữ liệu 12 bộ phận đọc từ các nút chọn nhanh trong DOM ----
@@ -72,8 +107,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     const id = btn.dataset.partId || '';
     if (!id) return;
     partMap[id] = {
-      nameVi: btn.dataset.nameVi || id,
-      nameEn: btn.dataset.nameEn || '',
+      name: btn.dataset.name || id,
       role: btn.dataset.role || '',
       link: btn.dataset.link || '',
       icon: btn.dataset.icon || '•',
@@ -88,17 +122,14 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
   try {
     renderer = new WebGLRenderer({ antialias: true, alpha: true });
   } catch {
-    throw new Error('Trình duyệt hoặc thiết bị không hỗ trợ WebGL.');
+    throw new Error(t.errNoWebGL);
   }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); // ≤2 — tránh nóng máy
 
   const w = container.clientWidth || 1;
   const h = container.clientHeight || 1;
   renderer.setSize(w, h);
-  renderer.domElement.setAttribute(
-    'aria-label',
-    'Mô hình 3D khái niệm của một chiếc đồng hồ cơ — kéo để xoay, cuộn hoặc chụm để thu phóng, chạm một bộ phận để xem chi tiết. Các nút danh sách bộ phận và nút điều khiển bằng HTML bên cạnh là phương thức điều khiển thay thế.',
-  );
+  renderer.domElement.setAttribute('aria-label', t.canvasAria);
   renderer.domElement.tabIndex = 0;
   renderer.domElement.className = 'block h-full w-full';
   container.appendChild(renderer.domElement);
@@ -530,9 +561,6 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     wake();
   }
 
-  const DETAIL_DEFAULT_ROLE =
-    'Kéo để xoay mô hình 360 độ. Bấm "Tách lớp" để phân rã thành từng lớp. Chạm hoặc bấm từng bộ phận (trong mô hình hoặc trong danh sách) để hiểu vai trò.';
-
   function setMotion(on: boolean) {
     motionOn = on;
     controls.autoRotate = on;
@@ -560,9 +588,9 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
 
     if (!id || !partMap[id]) {
       if (detailIcon) detailIcon.textContent = '👆';
-      if (detailNameVi) detailNameVi.textContent = 'Chọn một bộ phận';
-      if (detailNameEn) detailNameEn.textContent = 'Chạm hoặc bấm vào bộ phận trong mô hình, hoặc chọn từ danh sách';
-      if (detailRole) detailRole.textContent = DETAIL_DEFAULT_ROLE;
+      if (detailNameVi) detailNameVi.textContent = t.defaultTitle;
+      if (detailNameEn) detailNameEn.textContent = t.defaultHint;
+      if (detailRole) detailRole.textContent = t.defaultRole;
       detailLink?.classList.add('hidden');
       return;
     }
@@ -584,8 +612,7 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
     qb?.setAttribute('aria-pressed', 'true');
 
     if (detailIcon) detailIcon.textContent = p.icon;
-    if (detailNameVi) detailNameVi.textContent = p.nameVi;
-    if (detailNameEn) detailNameEn.textContent = p.nameEn;
+    if (detailNameVi) detailNameVi.textContent = p.name;
     if (detailRole) detailRole.textContent = p.role;
     if (detailLink) {
       if (p.link) {
@@ -600,8 +627,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
 
   toggleBtn?.addEventListener('click', () => {
     isExploded = !isExploded;
-    if (toggleLabel) toggleLabel.textContent = isExploded ? 'Ghép lại' : 'Tách lớp';
-    if (modeLabel) modeLabel.textContent = isExploded ? 'Đang tách' : 'Đang ghép';
+    if (toggleLabel) toggleLabel.textContent = isExploded ? t.toggle.assemble : t.toggle.explode;
+    if (modeLabel) modeLabel.textContent = isExploded ? t.mode.exploded : t.mode.assembled;
     toggleBtn.setAttribute('aria-pressed', isExploded ? 'true' : 'false');
     applyMode();
   });
@@ -610,8 +637,8 @@ export async function mountExploded3D(root: HTMLElement): Promise<Exploded3DHand
 
   resetBtn?.addEventListener('click', () => {
     isExploded = false;
-    if (toggleLabel) toggleLabel.textContent = 'Tách lớp';
-    if (modeLabel) modeLabel.textContent = 'Đang ghép';
+    if (toggleLabel) toggleLabel.textContent = t.toggle.explode;
+    if (modeLabel) modeLabel.textContent = t.mode.assembled;
     toggleBtn?.setAttribute('aria-pressed', 'false');
     // applyMode() đã bao gồm frameModel về hướng nhìn chuẩn + khung mô hình đã ghép
     applyMode();

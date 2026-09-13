@@ -31,6 +31,8 @@ export const STATIC_PAIRS: RoutePair[] = [
   { vi: '/lo-trinh-hoc-dong-ho', en: '/en/learning-path/' },
   // G05-B: trang lịch sử — khuôn chung HistoryTimeline, anchor ID chung hai ngôn ngữ
   { vi: '/lich-su', en: '/en/history/' },
+  // G06-A: trang giải phẫu — khuôn chung AnatomyExperience (2D/3D), cặp EN duyệt TXN-20260913-27
+  { vi: '/giai-phau', en: '/en/anatomy/' },
 ];
 
 // Trang danh sách (index) từng khu vực nội dung

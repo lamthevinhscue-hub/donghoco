@@ -1,0 +1,47 @@
+{
+  "ketQua": "DAT",
+  "tong": "8/8",
+  "ca": [
+    {
+      "ca": "2D mặc định: tab 2D selected, 3D tabIndex=-1, panel 3D hidden, 12 nút nhanh + 12 phần tử data-name-vi, trạng thái \"Đang ghép\"",
+      "dat": true,
+      "chiTiet": "{\"tab2d\":\"true\",\"tab3dSel\":\"false\",\"tab3dIdx\":-1,\"p2dHidden\":false,\"p3dHidden\":true,\"quick\":12,\"svgParts\":12,\"mode\":\"Đang ghép (assembled)\",\"cardVi\":\"Chọn một bộ phận\",\"tocDo\":\"Chế độ minh họa\"}"
+    },
+    {
+      "ca": "Chọn kim giây (nút nhanh): thẻ chi tiết VI/EN + role + link /co-che/bo-thoat + aria-pressed + highlight SVG",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"Kim giây\",\"en\":\"Second hand\",\"role\":\"Quay 1 vòng mỗi 60 giây — liên kết với bộ thoát.\",\"link\":\"/co-che/bo-thoat\",\"linkHien\":true,\"pressed\":\"true\",\"activeSvg\":1}"
+    },
+    {
+      "ca": "Tách lớp: nhãn \"Đang tách (exploded)\" + aria-pressed=true + lớp dời sâu (maxY≥900) + khung nới (≥860) + class exploded",
+      "dat": true,
+      "chiTiet": "{\"mode\":\"Đang tách (exploded)\",\"nhan\":\"Ghép lại\",\"pressed\":\"true\",\"maxY\":958.6103897094727,\"vbH\":999,\"exploded\":true}"
+    },
+    {
+      "ca": "Đặt lại: về \"Đang ghép\", thẻ chi tiết về mặc định, lớp thu về (maxY≤620)",
+      "dat": true,
+      "chiTiet": "{\"mode\":\"Đang ghép (assembled)\",\"card\":\"Chọn một bộ phận\",\"maxY\":570}"
+    },
+    {
+      "ca": "Chọn qua SVG (thùng cót, force click phần tử SVG): thẻ cập nhật + link /co-che/tru-cot",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"Thùng cót\",\"link\":\"/co-che/tru-cot\"}"
+    },
+    {
+      "ca": "Bàn phím tablist: ArrowRight → tab 3D selected + nhận focus",
+      "dat": true,
+      "chiTiet": "{\"sel3d\":\"true\",\"focus3d\":\"tab-anatomy-3d\"}"
+    },
+    {
+      "ca": "Bàn phím tablist: ArrowLeft → về 2D (selected + focus), panel 3D ẩn",
+      "dat": true,
+      "chiTiet": "{\"sel2d\":\"true\",\"focus2d\":\"tab-anatomy-2d\",\"p3dHidden\":true,\"trangThai3D\":\"mo\"}"
+    },
+    {
+      "ca": "Bàn phím danh sách bộ phận: Enter chọn bánh lắc + link /tu-dien/day-toc-banh-lac",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"Bánh lắc + dây tóc\",\"link\":\"/tu-dien/day-toc-banh-lac\",\"pressed\":\"true\"}"
+    }
+  ],
+  "nguon": "playwright-cli run-code pw-g06-a1-stdout.txt (stdout nguyên văn cùng thư mục)"
+}

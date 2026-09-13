@@ -107,10 +107,14 @@ function walk(dir, out = []) {
   if (/part-quick-3d/.test(s)) ok('WatchExplodedView3D: có danh sách bộ phận dạng button (text fallback, không phụ thuộc WebGL)');
   else fail('WatchExplodedView3D: thiếu danh sách bộ phận text fallback');
 
-  // Bản 2D vẫn còn là phương án thay thế
-  const g = read('src/pages/giai-phau.astro');
-  if (/WatchExplodedView(\s|\/>)/.test(g) && /tab-anatomy-2d/.test(g)) {
-    ok('giai-phau: giữ bản 2D làm chế độ mặc định + phương án thay thế 3D');
+  // Bản 2D vẫn còn là phương án thay thế (G06-A: logic chuyển vào khuôn chung
+  // AnatomyExperience — kiểm khuôn + xác nhận cả hai wrapper gọi khuôn)
+  const g = read('src/components/anatomy/AnatomyExperience.astro');
+  const wVi = read('src/pages/giai-phau.astro');
+  const wEn = read('src/pages/en/anatomy.astro');
+  if (/WatchExplodedView(\s|\/>)/.test(g) && /tab-anatomy-2d/.test(g)
+      && /AnatomyExperience/.test(wVi) && /AnatomyExperience/.test(wEn)) {
+    ok('giai-phau: giữ bản 2D làm chế độ mặc định + phương án thay thế 3D (khuôn chung, cả VI/EN)');
   } else {
     fail('giai-phau: thiếu bản 2D mặc định');
   }
@@ -126,7 +130,7 @@ function walk(dir, out = []) {
   // 2D exploded giờ là svg THÔNG TIN (role=img + aria-label) vì bên trong có bộ phận
   // focus được (tooltip theo focus) — không được aria-hidden. Text fallback: danh sách nút.
   if (/id="exploded-svg"[^>]*aria-hidden="true"/.test(s)) fail('WatchExplodedView 2D: SVG đang aria-hidden trong khi chứa phần tử focus được — mâu thuẫn');
-  else if (/id="exploded-svg"[^>]*role="img"[^>]*aria-label="[^"]+"/.test(s) || /id="exploded-svg"[^>]*aria-label="[^"]+"[^>]*role="img"/.test(s)) ok('WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)');
+  else if (/id="exploded-svg"[^>]*role="img"[^>]*aria-label=("[^"]+"|\{)/.test(s) || /id="exploded-svg"[^>]*aria-label=("[^"]+"|\{)[^>]*role="img"/.test(s)) ok('WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)');
   else fail('WatchExplodedView 2D: SVG chưa phân loại — cần role="img" + aria-label');
 }
 

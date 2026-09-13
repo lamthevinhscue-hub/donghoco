@@ -1,0 +1,121 @@
+{
+  "VI": {
+    "cold_soRequest": 6,
+    "cold": [
+      {
+        "url": "/giai-phau/",
+        "loai": "document",
+        "giaiMa": 104467,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/ban-quyen.DT3s_s_2.css",
+        "loai": "stylesheet",
+        "giaiMa": 49022,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/index.CU0WJmnS.css",
+        "loai": "stylesheet",
+        "giaiMa": 56006,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/hoisted.C6Uw97WC.js",
+        "loai": "script",
+        "giaiMa": 8476,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/hoisted.DX0x34b4.js",
+        "loai": "script",
+        "giaiMa": 17731,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_vercel/insights/script.js",
+        "loai": "script",
+        "giaiMa": 0,
+        "nen": "gzip"
+      }
+    ],
+    "sau3d_soRequest": 2,
+    "sau3d": [
+      {
+        "url": "/_astro/exploded3d.B99CKVQq.js",
+        "loai": "script",
+        "giaiMa": 526732,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/OrbitControls.Cy0-_xG3.js",
+        "loai": "script",
+        "giaiMa": 19798,
+        "nen": "gzip"
+      }
+    ],
+    "chunk3dTruocThaoTac": 0
+  },
+  "EN": {
+    "cold_soRequest": 6,
+    "cold": [
+      {
+        "url": "/en/anatomy/",
+        "loai": "document",
+        "giaiMa": 102819,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/ban-quyen.DT3s_s_2.css",
+        "loai": "stylesheet",
+        "giaiMa": 49022,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/index.CU0WJmnS.css",
+        "loai": "stylesheet",
+        "giaiMa": 56006,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/hoisted.C6Uw97WC.js",
+        "loai": "script",
+        "giaiMa": 8476,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/hoisted.DX0x34b4.js",
+        "loai": "script",
+        "giaiMa": 17731,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_vercel/insights/script.js",
+        "loai": "script",
+        "giaiMa": 0,
+        "nen": "gzip"
+      }
+    ],
+    "sau3d_soRequest": 2,
+    "sau3d": [
+      {
+        "url": "/_astro/exploded3d.B99CKVQq.js",
+        "loai": "script",
+        "giaiMa": 526732,
+        "nen": "gzip"
+      },
+      {
+        "url": "/_astro/OrbitControls.Cy0-_xG3.js",
+        "loai": "script",
+        "giaiMa": 19798,
+        "nen": "gzip"
+      }
+    ],
+    "chunk3dTruocThaoTac": 0
+  },
+  "tongKet": {
+    "gioiHan": "Phép đo CÓ chặn Google Fonts — không phải tổng tải trang bình thường; thời gian quan sát 2,5s (cold) + 1,5s (sau 3D); tài nguyên loại: font ngoài, request ngoài bộ lọc, favicon; byte truyền thực tế chưa đo được (chunked)",
+    "phanBiet": "body giải mã = response.body().length; gzip = gzip -9 từ dist (chunk 3D: exploded3d 133665 B, OrbitControls 4440 B); header content-encoding: gzip do server phát",
+    "ketLuan": "0 chunk 3D trong cold load CẢ HAI bản — engine chỉ tải sau thao tác mở 3D (điều kiện duyệt: không nạp sớm 3D)"
+  }
+}

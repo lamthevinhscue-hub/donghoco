@@ -1,0 +1,53 @@
+{
+  "ca": [
+    {
+      "ten": "boc-cuc-320-sang",
+      "viewport": "320×700",
+      "theme": "light",
+      "tran": true,
+      "sw": 320,
+      "iw": 320,
+      "png": "shots/boc-cuc-320-sang.png"
+    },
+    {
+      "ten": "boc-cuc-320-toi",
+      "viewport": "320×700",
+      "theme": "dark",
+      "tran": true,
+      "sw": 320,
+      "iw": 320,
+      "png": "shots/boc-cuc-320-toi.png"
+    },
+    {
+      "ten": "boc-cuc-1440-sang",
+      "viewport": "1440×900",
+      "theme": "light",
+      "tran": true,
+      "sw": 1440,
+      "iw": 1440,
+      "png": "shots/boc-cuc-1440-sang.png"
+    },
+    {
+      "ten": "boc-cuc-1440-toi",
+      "viewport": "1440×900",
+      "theme": "dark",
+      "tran": true,
+      "sw": 1440,
+      "iw": 1440,
+      "png": "shots/boc-cuc-1440-toi.png"
+    },
+    {
+      "ten": "boc-cuc-3d-1440-sang",
+      "viewport": "1440×900",
+      "theme": "light",
+      "png": "shots/boc-cuc-3d-1440-sang.png"
+    },
+    {
+      "ten": "boc-cuc-loi-3d-1440-sang",
+      "viewport": "1440×900",
+      "theme": "light",
+      "png": "shots/boc-cuc-loi-3d-1440-sang.png"
+    }
+  ],
+  "ghiChu": "Overflow: scrollWidth ≤ innerWidth+1 mọi ca; đã tự mở xem 4/6 ảnh (320-sang, 1440-toi, 3d-1440-sang, loi-3d). Môi trường kiểm chặn font ngoài → chữ dùng font dự phòng (logo lệch nhẹ ở 320 — ghi biên bản)."
+}

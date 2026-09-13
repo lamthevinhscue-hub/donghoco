@@ -1,0 +1,96 @@
+// G06-A vòng sửa 1 — RM 3D và vòng đời, chạy từng nhóm có đồng hồ bảo hiểm.
+// Nhóm 1: RM 3D trước tải — VI (khuôn env-en: không CDP).
+// Nhóm 2: RM 3D giữa phiên (chuyển động đang chạy) — VI + EN: đo thời điểm
+//   mode/nhãn/aria sau thao tác tách (không dùng CDP hash — đã biết treo trong
+//   ngữ cảnh reduce); phần hash ngoài cuộn ghi CHƯA KIỂM riêng ở bs-life.
+async (page) => {
+  const BASE = 'http://127.0.0.1:4405';
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => { K.push({ ca, dat: dat === true, chiTiet }); };
+  const them = (ca, chiTiet) => { K.push({ ca, trangThai: 'CHUA_KIEM', chiTiet }); };
+  const browser = page.context().browser();
+
+  // ===== Nhóm 1: RM 3D trước tải — VI =====
+  {
+    const ctx = await browser.newContext({ reducedMotion: 'reduce' });
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => {
+      const an = document.getElementById('three-loading')?.classList.contains('hidden');
+      const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+      return an ? 'mo' : (loi ? 'loi' : null);
+    }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+    if (mo !== 'mo') {
+      them('RM 3D trước tải (VI)', '3D không mở: ' + mo);
+    } else {
+      await p.waitForTimeout(800);
+      await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+      await p.waitForTimeout(200);
+      const bat = await p.evaluate(() => document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'));
+      const td = await p.evaluate(() => new Promise((res) => {
+        const b = performance.now();
+        const kiem = () => {
+          if (document.getElementById('mode-label-3d')?.textContent === 'Đang tách') res(performance.now() - b);
+          else if (performance.now() - b > 5000) res(-1);
+          else setTimeout(kiem, 20);
+        };
+        kiem();
+      }));
+      ghi('RM 3D trước tải (VI): bật chuyển động chủ động + tách flip tức thì (≤150ms)',
+        bat === 'true' && td >= 0 && td <= 150, 'flip=' + Math.round(td) + 'ms, motion=' + bat);
+    }
+    await ctx.close();
+  }
+
+  // ===== Nhóm 2: RM 3D giữa phiên (chuyển động đang chạy) — VI + EN =====
+  for (const [ten, duong] of [['VI', '/giai-phau/'], ['EN', '/en/anatomy/']]) {
+    const ctx = await browser.newContext();
+    const p = await ctx.newPage();
+    await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p.setViewportSize({ width: 900, height: 900 });
+    await p.goto(BASE + duong, { waitUntil: 'commit', timeout: 60000 });
+    await p.waitForSelector('#tab-anatomy-3d', { timeout: 60000 });
+    await p.waitForTimeout(300);
+    await p.click('#tab-anatomy-3d');
+    const mo = await p.waitForFunction(() => {
+      const an = document.getElementById('three-loading')?.classList.contains('hidden');
+      const loi = !document.getElementById('anatomy-3d-error')?.classList.contains('hidden');
+      return an ? 'mo' : (loi ? 'loi' : null);
+    }, null, { timeout: 90000 }).then((h) => h.jsonValue()).catch(() => 'treo');
+    if (mo !== 'mo') { them('RM 3D giữa phiên (' + ten + ')', '3D không mở: ' + mo); await ctx.close(); continue; }
+    // bật chuyển động (el.click — mô phỏng) rồi đổi reduce GIỮA PHIÊN
+    await p.evaluate(() => document.getElementById('motion-toggle-3d').click());
+    await p.waitForTimeout(300);
+    await p.emulateMedia({ reducedMotion: 'reduce' });
+    await p.waitForTimeout(200);
+    // thao tác kế (tách): đo thời điểm mode flip + trạng thái nhãn/aria
+    const tFlip = await p.evaluate(() => new Promise((res) => {
+      const b = performance.now();
+      const kiem = () => {
+        if (document.getElementById('mode-label-3d')?.textContent === 'Đang tách') res(performance.now() - b);
+        else if (performance.now() - b > 5000) res(-1);
+        else setTimeout(kiem, 20);
+      };
+      kiem();
+    }));
+    const sauTach = await p.evaluate(() => ({
+      mode: document.getElementById('mode-label-3d')?.textContent,
+      nhan: document.getElementById('toggle-label-3d')?.textContent,
+      pressed: document.getElementById('toggle-explode-3d')?.getAttribute('aria-pressed'),
+      motionVanBat: document.getElementById('motion-toggle-3d')?.getAttribute('aria-pressed'),
+    }));
+    ghi('RM 3D giữa phiên (' + ten + ', chuyển động đang chạy): tách áp dụng ngay — mode "Đang tách" ≤150ms + nhãn "Ghép lại" + aria-pressed=true',
+      tFlip >= 0 && tFlip <= 150 && sauTach.mode === 'Đang tách' && sauTach.nhan === 'Ghép lại' && sauTach.pressed === 'true',
+      'flip=' + Math.round(tFlip) + 'ms, ' + JSON.stringify(sauTach));
+    ghi('RM 3D giữa phiên (' + ten + '): chuyển động người-dùng-bật GIỮ NGUYÊN trạng thái sau reduce (engine không có listener reduced-motion — hành vi hiện hành, ghi từ mã + aria)',
+      sauTach.motionVanBat === 'true', 'motion aria-pressed=' + sauTach.motionVanBat + ' sau reduce');
+    await ctx.close();
+  }
+
+  return K;
+}

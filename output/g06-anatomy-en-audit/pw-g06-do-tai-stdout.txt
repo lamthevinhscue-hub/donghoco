@@ -1,0 +1,48 @@
+### Result
+{"cold":[{"url":"/giai-phau/","loai":"document","giaiMa":104859,"contentLength":null,"nen":"gzip"},{"url":"/_astro/index.D0i-n8ul.css","loai":"stylesheet","giaiMa":56041,"contentLength":null,"nen":"gzip"},{"url":"/_astro/ban-quyen.CrdVTz2p.css","loai":"stylesheet","giaiMa":49057,"contentLength":null,"nen":"gzip"},{"url":"/_astro/hoisted.BaW7HtHK.js","loai":"script","giaiMa":8714,"contentLength":null,"nen":"gzip"},{"url":"/_astro/hoisted.DX0x34b4.js","loai":"script","giaiMa":17731,"contentLength":null,"nen":"gzip"},{"url":"/_vercel/insights/script.js","loai":"script","giaiMa":0,"contentLength":null,"nen":"gzip"}],"sau3d":[{"url":"/_astro/exploded3d.CdKMMlnX.js","loai":"script","giaiMa":525814,"contentLength":null,"nen":"gzip"},{"url":"/_astro/OrbitControls.RWMGWMk0.js","loai":"script","giaiMa":19798,"contentLength":null,"nen":"gzip"}]}
+### Ran Playwright code
+```js
+await (// G06-A chặng 1 — đo mạng /giai-phau/: cold load (context mới, cache riêng của
+// context) → danh sách request; sau đó mở 3D chủ động → tài nguyên tải thêm.
+// Cách đo: mỗi response ghi (a) dung lượng body giải mã (response.body().length),
+// (b) header content-length (độ lớn trên dây nếu server không nén — astro preview
+// phục vụ KHÔNG nén), (c) header content-encoding. Gzip tham chiếu từ
+// check-3d-loading-budget trong log-build-nen.txt (raw/gzip từng chunk 3D).
+async (page) => {
+  const BASE = 'http://127.0.0.1:4404';
+  const ctx = await page.context().browser().newContext();
+  const p = await ctx.newPage();
+  const banGhi = [];
+  p.on('response', async (res) => {
+    try {
+      const yeuCau = res.request();
+      if (yeuCau.resourceType() === 'document' || /\.(js|css|json|woff2?|svg|png|jpg|webp|ico)(\?|$)/.test(res.url()) || res.url().includes('pagefind')) {
+        let decoded = -1;
+        try { const b = await res.body(); decoded = b.length; } catch { decoded = -1; }
+        banGhi.push({
+          url: res.url().replace(BASE, ''),
+          loai: yeuCau.resourceType(),
+         giaiMa: decoded,
+          contentLength: res.headers()['content-length'] ? Number(res.headers()['content-length']) : null,
+          nen: res.headers()['content-encoding'] ?? 'không',
+        });
+      }
+    } catch {}
+  });
+  await p.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await p.setViewportSize({ width: 1440, height: 900 });
+  await p.goto(BASE + '/giai-phau/', { waitUntil: 'commit', timeout: 60000 });
+  await p.waitForSelector('#exploded-svg', { timeout: 60000 });
+  await p.waitForTimeout(2500);
+  const cold = banGhi.slice();
+  // mở 3D chủ động
+  banGhi.length = 0;
+  await p.click('#tab-anatomy-3d');
+  await p.waitForFunction(() => document.getElementById('three-loading')?.classList.contains('hidden'), null, { timeout: 60000 });
+  await p.waitForTimeout(1500);
+  const sau3d = banGhi.slice();
+  await ctx.close();
+  return { cold, sau3d };
+}
+)(page);
+```

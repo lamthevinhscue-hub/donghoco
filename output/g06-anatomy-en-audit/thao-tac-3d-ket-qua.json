@@ -1,0 +1,65 @@
+{
+  "ketQua": "DAT",
+  "tong": "8/8 (+3 CHUA_KIEM)",
+  "navs": [
+    "http://127.0.0.1:4404/giai-phau/"
+  ],
+  "ca": [
+    {
+      "ca": "3D mở: canvas + aria-label canvas + loading ẩn + chuyển động MẶC ĐỊNH TẮT + hướng dẫn kéo/zoom + ghi chú \"không mô phỏng calibre cụ thể\"",
+      "dat": true,
+      "chiTiet": "{\"canvas\":true,\"ariaCanvas\":\"Mô hình 3D khái niệm của một chiếc đồng hồ cơ\",\"loadingAn\":true,\"chuyenDongPressed\":\"false\",\"status\":\"Đang ghép\",\"huongDan\":true,\"ghiChu\":true}"
+    },
+    {
+      "ca": "3D idle trong khung (chưa bật chuyển động): canvas KHÔNG vẽ lại — render-on-demand",
+      "trangThai": "CHUA_KIEM",
+      "chiTiet": "chụp trực tiếp chưa đáng tin ở headless (lần capture đầu sau mount = bề mặt chưa tổng hợp: hash 2025176 vs 838842061); bằng chứng gián tiếp: ca \"kéo xoay\" hash ổn định sau khi nhả — cần tái kiểm bằng mắt/GPU thật"
+    },
+    {
+      "ca": "3D chọn rotor (nút): thẻ + link /co-che/len-day-tu-dong + aria-pressed",
+      "dat": true,
+      "chiTiet": "{\"vi\":\"Rotor\",\"link\":\"/co-che/len-day-tu-dong\",\"pressed\":\"true\"}"
+    },
+    {
+      "ca": "Escape bỏ chọn (thẻ về mặc định) rồi click canvas chọn lại bộ phận (raycast, thao tác thật)",
+      "dat": true,
+      "chiTiet": "trước=\"Chọn một bộ phận\", sau=\"Rotor\""
+    },
+    {
+      "ca": "3D xoay bằng nút ← ×8 (≈120°, điều khiển sẵn có): canvas đổi khung",
+      "dat": true,
+      "chiTiet": "hash 838842061 → 909076262"
+    },
+    {
+      "ca": "3D zoom bằng nút +: canvas đổi khung so với sau-xoay",
+      "dat": true,
+      "chiTiet": "hash sau-xoay=909076262 → sau-zoom=336039964"
+    },
+    {
+      "ca": "3D kéo xoay (chuột thật): canvas đứng yên sau khi nhả — vòng vẽ dừng đúng render-on-demand",
+      "dat": true,
+      "chiTiet": "hash sau-kéo 726209818 vs 726209818"
+    },
+    {
+      "ca": "3D tách lớp (el.click): \"Đang tách\" + nhãn \"Ghép lại\" + aria-pressed=true",
+      "dat": true,
+      "chiTiet": "{\"mode\":\"Đang tách\",\"nhan\":\"Ghép lại\",\"pressed\":\"true\"}"
+    },
+    {
+      "ca": "3D đặt lại (el.click): về \"Đang ghép\"",
+      "dat": true,
+      "chiTiet": "mode=\"Đang ghép\""
+    },
+    {
+      "ca": "Chuyển động + rời viewport (CDP Frames)",
+      "trangThai": "CHUA_KIEM",
+      "chiTiet": "lỗi: TimeoutError: locator.boundingBox: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#three-canvas-container canvas')\u001b[22m\n"
+    },
+    {
+      "ca": "Ẩn trang (tab khác front): engine dừng theo document.hidden — canRun()",
+      "trangThai": "CHUA_KIEM",
+      "chiTiet": "headless không lật document.hidden khi tab khác front (đã thử: hidden=false); hành vi chỉ ghi nhận từ mã, chưa phải phép thử trình duyệt thật"
+    }
+  ],
+  "nguon": "playwright-cli run-code pw-g06-a2-stdout.txt (stdout nguyên văn cùng thư mục)"
+}

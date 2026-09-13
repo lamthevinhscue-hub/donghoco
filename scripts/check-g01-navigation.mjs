@@ -72,6 +72,8 @@ const logicCases = [
   ['chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc', () => vietnamesePathFor('/en/guides/water-resistance/') === '/huong-dan/muc-chong-nuoc', () => String(vietnamesePathFor('/en/guides/water-resistance/'))],
   ['cặp lịch sử (G05-B): /lich-su → /en/history/', () => englishPathFor('/lich-su') === '/en/history/', () => String(englishPathFor('/lich-su'))],
   ['cặp lịch sử chiều ngược: /en/history/ → /lich-su', () => vietnamesePathFor('/en/history/') === '/lich-su', () => String(vietnamesePathFor('/en/history/'))],
+  ['cặp giải phẫu (G06-A): /giai-phau → /en/anatomy/', () => englishPathFor('/giai-phau') === '/en/anatomy/', () => String(englishPathFor('/giai-phau'))],
+  ['cặp giải phẫu chiều ngược: /en/anatomy/ → /giai-phau', () => vietnamesePathFor('/en/anatomy/') === '/giai-phau', () => String(vietnamesePathFor('/en/anatomy/'))],
   ['localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch', () => localizedHref('/', 'en') === '/en/', () => String(localizedHref('/', 'en'))],
   ['localizedHref("/", "vi") = "/"', () => localizedHref('/', 'vi') === '/', () => String(localizedHref('/', 'vi'))],
   ['localizedHref("/lich-su", "en") = "/en/history/" — cặp thật, không chế URL', () => localizedHref('/lich-su', 'en') === '/en/history/', () => String(localizedHref('/lich-su', 'en'))],
@@ -234,7 +236,7 @@ if (has('/en/index.html')) {
     const m = block.match(new RegExp(`<a\\b[^>]*href="${href}"[^>]*>[\\s\\S]*?</a>`));
     return m ? m[0] : null;
   };
-  const exploreViOnly = ['/giai-phau', '/so-sanh'];
+  const exploreViOnly = ['/so-sanh']; // /lich-su (/en/history/) và /giai-phau (/en/anatomy/) đã có bản EN — G05-B/G06-A
   for (const [tenNav, block] of [['desktop', desktop], ['mobile', mobile]]) {
     for (const target of exploreViOnly) {
       const re = new RegExp(`<a\\b[^>]*href="${target}"[^>]*>[\\s\\S]*?Vietnamese only[\\s\\S]*?</a>`);
@@ -243,6 +245,9 @@ if (has('/en/index.html')) {
     // Kiểm TỪNG thẻ anchor: mục lịch sử trỏ route EN và thẻ ĐÓ không mang nhãn VI-only
     const hisA = anchorWithHref(block, '/en/history/');
     kiemDauRa(`Explore EN (${tenNav}): mục lịch sử trỏ route EN "/en/history/" (thẻ không mang nhãn VI-only)`, hisA !== null && !hisA.includes('Vietnamese only'), hisA === null ? 'không tìm thấy thẻ /en/history/' : 'thẻ còn nhãn VI-only');
+
+    const anaA = anchorWithHref(block, '/en/anatomy/');
+    kiemDauRa(`Explore EN (${tenNav}): mục Anatomy trỏ route EN "/en/anatomy/" (thẻ không mang nhãn VI-only)`, anaA !== null && !anaA.includes('Vietnamese only'), anaA === null ? 'không tìm thấy thẻ /en/anatomy/' : 'thẻ còn nhãn VI-only');
   }
   // Bộ chuyển ngôn ngữ trên trang chủ EN: có cặp → link thẳng về "/" không mở hộp
   const swCount = (html.match(/data-lang-switch=/g) ?? []).length;
@@ -260,8 +265,8 @@ if (has('/en/mechanisms/escapement/index.html')) {
   const mobile = mobileOf(html);
   kiemDauRa('Bài EN /en/mechanisms/escapement: Home EN KHÔNG active', countAnyCurrent(desktop, '/en/') === 0, `count=${countAnyCurrent(desktop, '/en/')}`);
   kiemDauRa('Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"', countCurrent(desktop, '/en/mechanisms/', 'location') === 1, `count=${countCurrent(desktop, '/en/mechanisms/', 'location')}`);
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 2 link VI có nhãn (lịch sử đã có cặp EN)', ['/giai-phau', '/so-sanh'].every((t) => desktop !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(desktop)) && desktop !== null && /href="\/en\/history\/"/.test(desktop), 'thiếu link hoặc nhãn');
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 2 link VI có nhãn (lịch sử đã có cặp EN)', ['/giai-phau', '/so-sanh'].every((t) => mobile !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(mobile)) && mobile !== null && /href="\/en\/history\/"/.test(mobile), 'thiếu link hoặc nhãn');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop chỉ còn /so-sanh mang nhãn; đủ /en/history/ và /en/anatomy/', desktop !== null && new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(desktop) && /href="\/en\/history\/"/.test(desktop) && /href="\/en\/anatomy\/"/.test(desktop) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(desktop), 'thiếu link hoặc nhãn');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile chỉ còn /so-sanh mang nhãn; đủ /en/history/ và /en/anatomy/', mobile !== null && new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(mobile) && /href="\/en\/history\/"/.test(mobile) && /href="\/en\/anatomy\/"/.test(mobile) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(mobile), 'thiếu link hoặc nhãn');
 }
 
 // ---- Cặp lịch sử G05-B: /lich-su đã có bản dịch — switcher link thẳng + hreflang thật ----
@@ -303,6 +308,43 @@ if (has('/en/history/index.html')) {
   kiemDauRa('Cặp lịch sử /en/history: mục History mobile aria-current="page" (1)', countCurrent(mobile, '/en/history/', 'page') === 1, `count=${countCurrent(mobile, '/en/history/', 'page')}`);
 } else {
   kiemDauRa('Cặp lịch sử /en/history (dist/en/history/index.html)', false, 'thiếu tệp');
+}
+
+// ---- Cặp giải phẫu G06-A: /giai-phau đã có bản dịch — switcher thẳng + hreflang thật ----
+if (has('/giai-phau/index.html')) {
+  const html = read('/giai-phau/index.html');
+  const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
+  kiemDauRa('Cặp giải phẫu /giai-phau: bộ chuyển ngôn ngữ là link thẳng (không data-lang-switch)', swCount === 0, `count=${swCount}`);
+  kiemDauRa('Cặp giải phẫu /giai-phau: switcher trỏ "/en/anatomy/"', /href="\/en\/anatomy\/"/.test(html), 'không tìm thấy link /en/anatomy/');
+  kiemDauRa('Cặp giải phẫu /giai-phau: hreflang đủ vi "/giai-phau/" + en "/en/anatomy/" + x-default → "/giai-phau/"', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/giai-phau\/">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/anatomy\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/giai-phau\/">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  kiemDauRa('Cặp giải phẫu /giai-phau: không còn noscript "chưa có bản tiếng Anh"', !/<noscript>[\s\S]*?chưa có bản tiếng Anh[\s\S]*?<\/noscript>/.test(html), 'vẫn còn noscript trang chưa dịch');
+}
+
+// ---- Cặp giải phẫu G06-A: trang EN mới /en/anatomy/ ----
+if (has('/en/anatomy/index.html')) {
+  const html = read('/en/anatomy/index.html');
+  const desktop = desktopOf(html);
+  const mobile = mobileOf(html);
+  const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
+  kiemDauRa('Cặp giải phẫu /en/anatomy: bộ chuyển ngôn ngữ là link thẳng về "/giai-phau"', swCount === 0 && /href="\/giai-phau"/.test(html), `count=${swCount}`);
+  // Khuôn hreflang hiện hành: chiều VI phát vi theo pathname ("/giai-phau/"),
+  // chiều EN phát vi theo giá trị bảng ("/giai-phau" không slash) — tiền tồn tại toàn site.
+  kiemDauRa('Cặp giải phẫu /en/anatomy: hreflang đủ vi "/giai-phau" + en "/en/anatomy/" + x-default → "/giai-phau" (khuôn getAlternates hiện hành)', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/giai-phau">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/anatomy\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/giai-phau">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  kiemDauRa('Cặp giải phẫu /en/anatomy: không noscript trang chưa dịch (tiếng Việt hoặc tiếng Anh)', !/<noscript>[\s\S]*?(chưa có bản tiếng Anh|not translated yet)[\s\S]*?<\/noscript>/.test(html), 'vẫn còn noscript trang chưa dịch');
+  kiemDauRa('Cặp giải phẫu /en/anatomy: mục Anatomy desktop aria-current="page" (1)', countCurrent(desktop, '/en/anatomy/', 'page') === 1, `count=${countCurrent(desktop, '/en/anatomy/', 'page')}`);
+  kiemDauRa('Cặp giải phẫu /en/anatomy: mục Anatomy mobile aria-current="page" (1)', countCurrent(mobile, '/en/anatomy/', 'page') === 1, `count=${countCurrent(mobile, '/en/anatomy/', 'page')}`);
+} else {
+  kiemDauRa('Cặp giải phẫu /en/anatomy (dist/en/anatomy/index.html)', false, 'thiếu tệp');
 }
 
 // ---- 404: Home không active ----

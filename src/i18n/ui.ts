@@ -57,6 +57,8 @@ export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
   { match: '/lich-su', image: '/images/og/og-lich-su.jpg' },
   { match: '/en/history', image: '/images/og/og-lich-su.jpg' },
   { match: '/giai-phau', image: '/images/og/og-lich-su.jpg' },
+  // G06-A: bản EN giải phẫu dùng chung ảnh OG hiện có (quyết TXN-20260913-23 — không tạo ảnh mới)
+  { match: '/en/anatomy', image: '/images/og/og-lich-su.jpg' },
 ];
 
 export const OG_DEFAULT_IMAGE = '/og-default.jpg';

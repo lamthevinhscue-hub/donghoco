@@ -1,0 +1,213 @@
+### Result
+{"tong":20,"dat":20,"chiTiet":[{"ca":"Nhãn thời gian mốc 27: VI \"2013–nay\" / EN \"2013–present\"","dat":true,"chiTiet":"{\"vi27\":\"2013–nay\",\"en27\":\"2013–present\"}"},{"ca":"Tắt lớp mechanism: còn 16 mốc (brand+culture), đếm \"16 / 28 mốc\", k/N cập nhật","dat":true,"chiTiet":"{\"hien\":16,\"count\":\"16 / 28 mốc\",\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\",\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"},{"ca":"\"Tất cả\" khôi phục: 28 mốc + k/N rỗng theo thiết kế đã duyệt","dat":true,"chiTiet":"{\"hien\":28,\"knTrong\":true}"},{"ca":"k/N mobile VI (panel mở): tắt mechanism → C1 2/5, C2 đủ(rỗng), C3 2/6, C4 4/6, C5 đủ(rỗng), C6 0/3","dat":true,"chiTiet":"{\"mo\":true,\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"},{"ca":"k/N mobile EN (panel mở): cùng số với VI","dat":true,"chiTiet":"{\"mo\":true,\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"},{"ca":"Nhảy mốc bị lọc ẩn (mốc 4): bỏ qua (không cuộn, không tự bật lớp)","dat":true,"chiTiet":"{\"truocNhay\":{\"y\":0,\"an\":12},\"sauNhay\":{\"y\":0,\"an\":12,\"m4an\":true}}"},{"ca":"Nhảy chương C4: tiêu đề không bị che","dat":true,"chiTiet":"{\"top\":2907,\"header\":84,\"thay\":true}"},{"ca":"Switcher: không hash → /en/history/ đầu trang","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"},{"ca":"Switcher: #milestone-12 hợp lệ → giữ hash + cuộn tới mốc","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/#milestone-12\",\"thucTe\":{\"url\":\"/en/history/#milestone-12\",\"y\":6376}}"},{"ca":"Switcher: #chuong-c5 hợp lệ → giữ hash","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/#chuong-c5\",\"thucTe\":{\"url\":\"/en/history/#chuong-c5\",\"y\":10965}}"},{"ca":"Switcher: #hash-sai → bỏ hash về đầu trang đích","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"},{"ca":"Switcher: #milestone-999 (ID không tồn tại) → bỏ hash","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"},{"ca":"Switcher: #milestone-028 (số 0 dẫn đầu — anchor không tồn tại) → bỏ hash","dat":true,"chiTiet":"{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"},{"ca":"Switcher EN→VI: #milestone-20 hợp lệ → giữ hash (khuôn bảng \"/lich-su\")","dat":true,"chiTiet":"{\"kyVongUrl\":\"/lich-su#milestone-20\",\"thucTe\":{\"url\":\"/lich-su#milestone-20\",\"y\":9836}}"},{"ca":"Bàn phím: link nav chương nhận focus","dat":true,"chiTiet":""},{"ca":"No-JS (VI): 28/28 thẻ computed opacity=1, visible, không display:none; mốc cuối có chữ + nguồn + hình","dat":true,"chiTiet":"{\"noJsStyle\":{\"tong\":28,\"trongSuot\":0},\"noJsCuoi\":{\"opacity\":\"1\",\"coChu\":true,\"coNguon\":true,\"anhHien\":true}}"},{"ca":"No-JS (EN): 28/28 thẻ hiển thị","dat":true,"chiTiet":"{\"tong\":28,\"trongSuot\":0}"},{"ca":"Reduced-motion: thẻ mốc hiện ngay","dat":true,"chiTiet":"{\"opacity\":\"1\",\"transform\":\"matrix(1, 0, 0, 1, 0, 0)\"}"},{"ca":"Ảnh lỗi (context mới): img ẩn + technical plate hiện (khuôn WatchImage)","dat":true,"chiTiet":"{\"imgAn\":true,\"plateHien\":true}"},{"ca":"Nguồn mốc 0 hiển thị trong card + nhãn \"chưa có bài\" hiện diện","dat":true,"chiTiet":"{\"inCard\":true,\"noArticle\":true}"}]}
+### Ran Playwright code
+```js
+await (// G05-B vòng sửa TXN-20260913-11 — kiểm thao tác trên preview 4399.
+// (một biểu thức hàm cho run-code; mọi window.* nằm trong page.evaluate)
+async (page) => {
+const PORT = 4399;
+const ketQua = [];
+const SHOTS = 'output/g05-history-journey/shots';
+  const ghi = (ca, dat, chiTiet = '') => { ketQua.push({ ca, dat, chiTiet }); };
+
+  // ===== 0. TIME LABEL theo ngôn ngữ =====
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  const vi27 = await page.evaluate(() => document.querySelector('#milestone-27 .milestone-year').textContent.trim());
+  await page.goto(`http://localhost:${PORT}/en/history/`, { waitUntil: 'networkidle' });
+  const en27 = await page.evaluate(() => document.querySelector('#milestone-27 .milestone-year').textContent.trim());
+  ghi('Nhãn thời gian mốc 27: VI "2013–nay" / EN "2013–present"', vi27 === '2013–nay' && en27 === '2013–present', JSON.stringify({ vi27, en27 }));
+
+  // ===== 1. LỌC + ĐẾM + k/N DESKTOP (trang VI) =====
+  await page.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  await page.click('[data-layer-toggle="mechanism"]');
+  await page.waitForTimeout(120);
+  const sauMech = await page.evaluate(() => ({
+    hien: document.querySelectorAll('.milestone-card:not(.layer-hidden)').length,
+    count: document.getElementById('milestone-count').textContent,
+    kn: [...document.querySelectorAll('[data-chapter-kn]')].map((s) => s.textContent),
+  }));
+  ghi('Tắt lớp mechanism: còn 16 mốc (brand+culture), đếm "16 / 28 mốc", k/N cập nhật', sauMech.hien === 16 && sauMech.count.includes('16') && sauMech.kn.join('|').includes('/'), JSON.stringify(sauMech));
+  await page.click('#toggle-all');
+  await page.waitForTimeout(120);
+  const sauTatCa = await page.evaluate(() => ({
+    hien: document.querySelectorAll('.milestone-card:not(.layer-hidden)').length,
+    knTrong: [...document.querySelectorAll('[data-chapter-kn]')].every((s) => s.textContent === ''),
+  }));
+  ghi('"Tất cả" khôi phục: 28 mốc + k/N rỗng theo thiết kế đã duyệt', sauTatCa.hien === 28 && sauTatCa.knTrong, JSON.stringify(sauTatCa));
+
+  // ===== 2. k/N MOBILE — VI và EN, panel thực sự mở, từng chương =====
+  const docPanel = async (langPath) => {
+    await page.setViewportSize({ width: 375, height: 812 }); // nút nav mobile chỉ hiện < lg
+    await page.goto(`http://localhost:${PORT}${langPath}`, { waitUntil: 'networkidle' });
+    await page.click('[data-layer-toggle="mechanism"]'); // lọc trước (panel mở sẽ đè nút)
+    await page.waitForTimeout(150);
+    await page.click('#timeline-nav-toggle');
+    await page.waitForTimeout(200);
+    const mo = await page.evaluate(() => !document.getElementById('timeline-nav-mobile').classList.contains('hidden'));
+    const kn = await page.evaluate(() => {
+      const panel = document.getElementById('timeline-nav-mobile');
+      return [...panel.querySelectorAll('[data-chapter-kn]')].map((s) => s.textContent);
+    });
+    // đóng panel = mô phỏng bấm ra ngoài (listener document đóng panel; nút toggle
+    // bị chính panel fixed đè nên không click trực tiếp được)
+    await page.evaluate(() => document.getElementById('timeline-nav-mobile').classList.add('hidden'));
+    await page.setViewportSize({ width: 1280, height: 900 });
+    return { mo, kn };
+  };
+  const viM = await docPanel('/lich-su/');
+  const knVong = JSON.stringify(['2/5', '', '2/6', '4/6', '', '0/3']); // C2/C5 đủ (4/4, 4/4) → rỗng theo thiết kế
+  ghi('k/N mobile VI (panel mở): tắt mechanism → C1 2/5, C2 đủ(rỗng), C3 2/6, C4 4/6, C5 đủ(rỗng), C6 0/3', viM.mo && JSON.stringify(viM.kn) === knVong, JSON.stringify(viM));
+  const enM = await docPanel('/en/history/');
+  ghi('k/N mobile EN (panel mở): cùng số với VI', enM.mo && JSON.stringify(enM.kn) === knVong, JSON.stringify(enM));
+
+  // ===== 3. NHẢY MỐC BỊ LỌC ẨN: bỏ qua =====
+  await page.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  await page.click('[data-layer-toggle="mechanism"]');
+  await page.waitForTimeout(120);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(120);
+  const truocNhay = await page.evaluate(() => ({ y: Math.round(window.scrollY), an: document.querySelectorAll('.layer-hidden').length }));
+  await page.click('[data-jump-to="4"]');
+  await page.waitForTimeout(500);
+  const sauNhay = await page.evaluate(() => ({
+    y: Math.round(window.scrollY),
+    an: document.querySelectorAll('.layer-hidden').length,
+    m4an: document.querySelector('#milestone-4').classList.contains('layer-hidden'),
+  }));
+  ghi('Nhảy mốc bị lọc ẩn (mốc 4): bỏ qua (không cuộn, không tự bật lớp)', sauNhay.y === truocNhay.y && sauNhay.an === truocNhay.an && sauNhay.m4an, JSON.stringify({ truocNhay, sauNhay }));
+
+  // ===== 4. NHẢY CHƯƠNG: tiêu đề không bị che =====
+  await page.click('#toggle-all');
+  await page.waitForTimeout(100);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(100);
+  await page.click('a[data-chapter-link="c4"]');
+  await page.waitForTimeout(500);
+  const nhayC4 = await page.evaluate(() => {
+    const r = document.querySelector('#chuong-c4-title').getBoundingClientRect();
+    const hr = document.querySelector('header').getBoundingClientRect();
+    return { top: Math.round(r.top), header: Math.round(hr.bottom), thay: r.top >= hr.bottom - 2 };
+  });
+  ghi('Nhảy chương C4: tiêu đề không bị che', nhayC4.thay, JSON.stringify(nhayC4));
+
+  // ===== 5. SWITCHER — 7 tình huống, ghi URL + hash + vị trí cuộn =====
+  const chuyen = async (tu, ghiTen, kyVongUrl, cuon) => {
+    await page.goto(`http://localhost:${PORT}${tu}`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(400);
+    await page.click('header a[data-lang-hash-keep]');
+    await page.waitForTimeout(700);
+    let pos = null;
+    for (let i = 0; i < 8; i++) {
+      const st = await page.evaluate(() => Math.round(window.scrollY));
+      if (st === pos) break;
+      pos = st;
+      await page.waitForTimeout(300);
+    }
+    const kq = await page.evaluate(() => ({ url: location.pathname + location.hash, y: Math.round(window.scrollY) }));
+    ghi(ghiTen, kq.url === kyVongUrl && (!cuon || kq.y > 0), JSON.stringify({ kyVongUrl, thucTe: kq }));
+  };
+  await chuyen('/lich-su/', 'Switcher: không hash → /en/history/ đầu trang', '/en/history/', false);
+  await chuyen('/lich-su/#milestone-12', 'Switcher: #milestone-12 hợp lệ → giữ hash + cuộn tới mốc', '/en/history/#milestone-12', true);
+  await chuyen('/lich-su/#chuong-c5', 'Switcher: #chuong-c5 hợp lệ → giữ hash', '/en/history/#chuong-c5', false);
+  await chuyen('/lich-su/#hash-sai', 'Switcher: #hash-sai → bỏ hash về đầu trang đích', '/en/history/', false);
+  await chuyen('/lich-su/#milestone-999', 'Switcher: #milestone-999 (ID không tồn tại) → bỏ hash', '/en/history/', false);
+  await chuyen('/lich-su/#milestone-028', 'Switcher: #milestone-028 (số 0 dẫn đầu — anchor không tồn tại) → bỏ hash', '/en/history/', false);
+  await chuyen('/en/history/#milestone-20', 'Switcher EN→VI: #milestone-20 hợp lệ → giữ hash (khuôn bảng "/lich-su")', '/lich-su#milestone-20', true);
+
+  // ===== 6. BÀN PHÍM =====
+  await page.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  const focusDuoc = await page.evaluate(() => {
+    const link = document.querySelector('a[data-chapter-link="c2"]');
+    link.focus();
+    return document.activeElement === link;
+  });
+  ghi('Bàn phím: link nav chương nhận focus', focusDuoc);
+
+  // ===== 7. NO-JS: computed style thật + chụp đầu/cuối timeline =====
+  const ctxNoJs = await page.context().browser().newContext({ javaScriptEnabled: false });
+  const p2 = await ctxNoJs.newPage();
+  await p2.setViewportSize({ width: 1280, height: 900 });
+  await p2.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  const noJsStyle = await p2.evaluate(() => {
+    const cards = [...document.querySelectorAll('.milestone-card')];
+    const xau = cards.filter((c) => {
+      const cs = getComputedStyle(c);
+      return cs.opacity !== '1' || cs.visibility === 'hidden' || cs.display === 'none';
+    });
+    return { tong: cards.length, trongSuot: xau.length };
+  });
+  await p2.evaluate(() => document.querySelector('#milestone-0').scrollIntoView({ block: 'center' }));
+  await p2.waitForTimeout(300);
+  await p2.screenshot({ path: `${SHOTS}/nojs-dau-lich-su.png` });
+  await p2.evaluate(() => document.querySelector('#milestone-27').scrollIntoView({ block: 'center' }));
+  await p2.waitForTimeout(300);
+  const noJsCuoi = await p2.evaluate(() => {
+    const card = document.querySelector('#milestone-27');
+    const cs = getComputedStyle(card);
+    return {
+      opacity: cs.opacity,
+      coChu: card.innerText.length > 50,
+      coNguon: card.querySelectorAll('a[rel="noopener noreferrer"]').length > 0,
+      anhHien: (() => { const i = card.querySelector('img, .placeholder'); const r = i.getBoundingClientRect(); return r.height > 20; })(),
+    };
+  });
+  await p2.screenshot({ path: `${SHOTS}/nojs-cuoi-lich-su.png` });
+  ghi('No-JS (VI): 28/28 thẻ computed opacity=1, visible, không display:none; mốc cuối có chữ + nguồn + hình',
+    noJsStyle.tong === 28 && noJsStyle.trongSuot === 0 && noJsCuoi.opacity === '1' && noJsCuoi.coChu && noJsCuoi.coNguon && noJsCuoi.anhHien,
+    JSON.stringify({ noJsStyle, noJsCuoi }));
+  await p2.goto(`http://localhost:${PORT}/en/history/`, { waitUntil: 'networkidle' });
+  const noJsEn = await p2.evaluate(() => {
+    const cards = [...document.querySelectorAll('.milestone-card')];
+    const xau = cards.filter((c) => getComputedStyle(c).opacity !== '1');
+    return { tong: cards.length, trongSuot: xau.length };
+  });
+  ghi('No-JS (EN): 28/28 thẻ hiển thị', noJsEn.tong === 28 && noJsEn.trongSuot === 0, JSON.stringify(noJsEn));
+  await ctxNoJs.close();
+
+  // ===== 8. REDUCED-MOTION =====
+  const ctxRm = await page.context().browser().newContext({ reducedMotion: 'reduce' });
+  const p3 = await ctxRm.newPage();
+  await p3.setViewportSize({ width: 1280, height: 900 });
+  await p3.goto(`http://localhost:${PORT}/lich-su/`, { waitUntil: 'networkidle' });
+  const rm = await p3.evaluate(() => {
+    const cs = getComputedStyle(document.querySelector('#milestone-0'));
+    return { opacity: cs.opacity, transform: cs.transform };
+  });
+  ghi('Reduced-motion: thẻ mốc hiện ngay', rm.opacity === '1' && (rm.transform === 'none' || rm.transform === 'matrix(1, 0, 0, 1, 0, 0)'), JSON.stringify(rm));
+  await ctxRm.close();
+
+  // ===== 9. ẢNH LỖI (context mới — không cache) =====
+  const ctxAnhLoi = await page.context().browser().newContext();
+  const p4 = await ctxAnhLoi.newPage();
+  await p4.route('**/images/timeline/rolex-oyster.svg*', (route) => route.abort());
+  await p4.setViewportSize({ width: 1280, height: 900 });
+  await p4.goto(`http://localhost:${PORT}/lich-su/#milestone-10`, { waitUntil: 'networkidle' });
+  await p4.waitForTimeout(700);
+  const anhLoi = await p4.evaluate(() => {
+    const card = document.querySelector('#milestone-10');
+    const img = card.querySelector('img');
+    const plate = card.querySelector('.placeholder');
+    return {
+      imgAn: img ? getComputedStyle(img).display === 'none' : true,
+      plateHien: plate ? getComputedStyle(plate).display !== 'none' : false,
+    };
+  });
+  ghi('Ảnh lỗi (context mới): img ẩn + technical plate hiện (khuôn WatchImage)', anhLoi.imgAn && anhLoi.plateHien, JSON.stringify(anhLoi));
+  await ctxAnhLoi.close();
+
+  // ===== 10. Nguồn + trạng thái không bị giấu sau hình =====
+  const khaDoc = await page.evaluate(() => {
+    const card = document.querySelector('#milestone-0');
+    const r = card.querySelector('a[rel="noopener noreferrer"]').getBoundingClientRect();
+    const noArticle = [...document.querySelectorAll('.milestone-card')].some((c) => c.textContent.includes('Chưa có bài đọc thêm cho mốc này'));
+    return { inCard: r.width > 0 && r.height > 0, noArticle };
+  });
+  ghi('Nguồn mốc 0 hiển thị trong card + nhãn "chưa có bài" hiện diện', khaDoc.inCard && khaDoc.noArticle, JSON.stringify(khaDoc));
+
+  return { tong: ketQua.length, dat: ketQua.filter((k) => k.dat).length, chiTiet: ketQua };
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-09-13T01-50-43-661Z.log#L148-L187

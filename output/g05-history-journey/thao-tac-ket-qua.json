@@ -1,0 +1,106 @@
+{
+  "tong": 20,
+  "dat": 20,
+  "chiTiet": [
+    {
+      "ca": "Nhãn thời gian mốc 27: VI \"2013–nay\" / EN \"2013–present\"",
+      "dat": true,
+      "chiTiet": "{\"vi27\":\"2013–nay\",\"en27\":\"2013–present\"}"
+    },
+    {
+      "ca": "Tắt lớp mechanism: còn 16 mốc (brand+culture), đếm \"16 / 28 mốc\", k/N cập nhật",
+      "dat": true,
+      "chiTiet": "{\"hien\":16,\"count\":\"16 / 28 mốc\",\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\",\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"
+    },
+    {
+      "ca": "\"Tất cả\" khôi phục: 28 mốc + k/N rỗng theo thiết kế đã duyệt",
+      "dat": true,
+      "chiTiet": "{\"hien\":28,\"knTrong\":true}"
+    },
+    {
+      "ca": "k/N mobile VI (panel mở): tắt mechanism → C1 2/5, C2 đủ(rỗng), C3 2/6, C4 4/6, C5 đủ(rỗng), C6 0/3",
+      "dat": true,
+      "chiTiet": "{\"mo\":true,\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"
+    },
+    {
+      "ca": "k/N mobile EN (panel mở): cùng số với VI",
+      "dat": true,
+      "chiTiet": "{\"mo\":true,\"kn\":[\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"]}"
+    },
+    {
+      "ca": "Nhảy mốc bị lọc ẩn (mốc 4): bỏ qua (không cuộn, không tự bật lớp)",
+      "dat": true,
+      "chiTiet": "{\"truocNhay\":{\"y\":0,\"an\":12},\"sauNhay\":{\"y\":0,\"an\":12,\"m4an\":true}}"
+    },
+    {
+      "ca": "Nhảy chương C4: tiêu đề không bị che",
+      "dat": true,
+      "chiTiet": "{\"top\":2907,\"header\":84,\"thay\":true}"
+    },
+    {
+      "ca": "Switcher: không hash → /en/history/ đầu trang",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"
+    },
+    {
+      "ca": "Switcher: #milestone-12 hợp lệ → giữ hash + cuộn tới mốc",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/#milestone-12\",\"thucTe\":{\"url\":\"/en/history/#milestone-12\",\"y\":6376}}"
+    },
+    {
+      "ca": "Switcher: #chuong-c5 hợp lệ → giữ hash",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/#chuong-c5\",\"thucTe\":{\"url\":\"/en/history/#chuong-c5\",\"y\":10965}}"
+    },
+    {
+      "ca": "Switcher: #hash-sai → bỏ hash về đầu trang đích",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"
+    },
+    {
+      "ca": "Switcher: #milestone-999 (ID không tồn tại) → bỏ hash",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"
+    },
+    {
+      "ca": "Switcher: #milestone-028 (số 0 dẫn đầu — anchor không tồn tại) → bỏ hash",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/en/history/\",\"thucTe\":{\"url\":\"/en/history/\",\"y\":0}}"
+    },
+    {
+      "ca": "Switcher EN→VI: #milestone-20 hợp lệ → giữ hash (khuôn bảng \"/lich-su\")",
+      "dat": true,
+      "chiTiet": "{\"kyVongUrl\":\"/lich-su#milestone-20\",\"thucTe\":{\"url\":\"/lich-su#milestone-20\",\"y\":9836}}"
+    },
+    {
+      "ca": "Bàn phím: link nav chương nhận focus",
+      "dat": true,
+      "chiTiet": ""
+    },
+    {
+      "ca": "No-JS (VI): 28/28 thẻ computed opacity=1, visible, không display:none; mốc cuối có chữ + nguồn + hình",
+      "dat": true,
+      "chiTiet": "{\"noJsStyle\":{\"tong\":28,\"trongSuot\":0},\"noJsCuoi\":{\"opacity\":\"1\",\"coChu\":true,\"coNguon\":true,\"anhHien\":true}}"
+    },
+    {
+      "ca": "No-JS (EN): 28/28 thẻ hiển thị",
+      "dat": true,
+      "chiTiet": "{\"tong\":28,\"trongSuot\":0}"
+    },
+    {
+      "ca": "Reduced-motion: thẻ mốc hiện ngay",
+      "dat": true,
+      "chiTiet": "{\"opacity\":\"1\",\"transform\":\"matrix(1, 0, 0, 1, 0, 0)\"}"
+    },
+    {
+      "ca": "Ảnh lỗi (context mới): img ẩn + technical plate hiện (khuôn WatchImage)",
+      "dat": true,
+      "chiTiet": "{\"imgAn\":true,\"plateHien\":true}"
+    },
+    {
+      "ca": "Nguồn mốc 0 hiển thị trong card + nhãn \"chưa có bài\" hiện diện",
+      "dat": true,
+      "chiTiet": "{\"inCard\":true,\"noArticle\":true}"
+    }
+  ]
+}

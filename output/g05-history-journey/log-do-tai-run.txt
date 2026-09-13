@@ -1,0 +1,64 @@
+### Result
+[{"nhan":"SAU G05-B v2 /lich-su/","path":"http://localhost:4399/lich-su/","tongReq":26,"tongByte":883461,"bodyNull":0,"nhom":{"html":{"n":1,"byte":288889},"css":{"n":3,"byte":111591},"js":{"n":2,"byte":22013},"anh":{"n":20,"byte":460968},"khac":{"n":0,"byte":0}},"loi":["http://localhost:4399/_vercel/insights/script.js → 404"],"anhAI":[],"clNull":12},{"nhan":"SAU G05-B /en/history/ (route mới — số tuyệt đối)","path":"http://localhost:4399/en/history/","tongReq":17,"tongByte":678772,"bodyNull":0,"nhom":{"html":{"n":1,"byte":288296},"css":{"n":3,"byte":111591},"js":{"n":2,"byte":22013},"anh":{"n":11,"byte":256872},"khac":{"n":0,"byte":0}},"loi":["http://localhost:4399/_vercel/insights/script.js → 404"],"anhAI":[],"clNull":12}]
+### Ran Playwright code
+```js
+await (// G05-B — đo tải (một biểu thức hàm)
+async (page) => {
+const ketQua = [];
+  const doMotLan = async (base, path, nhan) => {
+    const ctx = await page.context().browser().newContext();
+    const p = await ctx.newPage();
+    const responses = [];
+    p.on('response', async (r) => {
+      let len = null;
+      try { const b = await r.body(); len = b.length; } catch { len = null; }
+      let cl = null;
+      try { cl = r.headers()['content-length'] ?? null; } catch { cl = null; }
+      let ct = '';
+      try { ct = r.headers()['content-type'] ?? ''; } catch { ct = ''; }
+      responses.push({ url: r.url(), status: r.status(), len, cl, ct });
+    });
+    await p.goto(base + path, { waitUntil: 'networkidle' });
+    await p.evaluate(async () => {
+      const cao = document.body.scrollHeight;
+      for (let y = 0; y <= cao; y += 600) { window.scrollTo(0, y); await new Promise((r2) => setTimeout(r2, 50)); }
+      window.scrollTo(0, 0);
+    });
+    await p.waitForLoadState('networkidle');
+    await p.waitForTimeout(800);
+    const phanLoai = (u, ct) => {
+      if (ct.includes('text/css') || /\.css(\?|$)/.test(u)) return 'css';
+      if (/\.mjs(\?|$)|\.js(\?|$)/.test(u)) return 'js';
+      if (/\.(png|jpe?g|svg|webp|ico|woff2?)(\?|$)/.test(u)) return 'anh';
+      if (ct.includes('html')) return 'html';
+      if (/\/$/.test(new URL(u).pathname)) return 'html';
+      return 'khac';
+    };
+    const nhom = { html: { n: 0, byte: 0 }, css: { n: 0, byte: 0 }, js: { n: 0, byte: 0 }, anh: { n: 0, byte: 0 }, khac: { n: 0, byte: 0 } };
+    let tongByte = 0, tongReq = 0, bodyNull = 0;
+    const loi = [];
+    const anhAI = [];
+    for (const r of responses) {
+      if (r.status >= 400) { loi.push(`${r.url} → ${r.status}`); continue; }
+      if (/\/images\/history\//.test(r.url)) anhAI.push(r.url);
+      const loai = phanLoai(r.url, r.ct);
+      nhom[loai].n++;
+      if (r.len === null) { bodyNull++; continue; }
+      nhom[loai].byte += r.len;
+      tongByte += r.len;
+      tongReq++;
+    }
+    await ctx.close();
+    const row = { nhan, path: base + path, tongReq, tongByte, bodyNull, nhom, loi, anhAI, clNull: responses.filter((r) => r.cl === null).length };
+    ketQua.push(row);
+    return row;
+  };
+
+  // lượt nền 4398 đo ở vòng trước (dist aba250c — không đổi giữa các vòng sửa; bằng chứng giữ trong JSON hợp nhất)
+  await doMotLan('http://localhost:4399', '/lich-su/', 'SAU G05-B v2 /lich-su/');
+  await doMotLan('http://localhost:4399', '/en/history/', 'SAU G05-B /en/history/ (route mới — số tuyệt đối)');
+  return ketQua;
+
+}
+)(page);
+```

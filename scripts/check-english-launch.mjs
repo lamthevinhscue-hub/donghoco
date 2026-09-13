@@ -72,6 +72,7 @@ const REQUIRED_EN = [
   '/en/contact/',
   '/en/copyright/',
   '/en/learning-path/',
+  '/en/history/',
   '/en/brands/',
   '/en/brands/rolex/',
   '/en/brands/omega/',

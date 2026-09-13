@@ -1,0 +1,789 @@
+---
+// =============================================================================
+// HistoryTimeline — Hành trình lịch sử 28 mốc × 6 chương (G05-B, khuôn chung)
+// =============================================================================
+// Dùng chung cho /lich-su/ (lang="vi") và /en/history/ (lang="en") — hai wrapper
+// trang chỉ còn BaseLayout + component này; logic lọc/nav/reveal KHÔNG nhân đôi.
+//
+// Kế thừa từ trang /lich-su cũ (nền aba250c):
+//   - 28 thẻ milestone-card, anchor #milestone-0…27, class và data-* giữ nguyên
+//     tên để các ca check-g02 lớp dist vẫn khớp.
+//   - Lọc 3 lớp + "Tất cả", nav thập niên data-jump-to, reveal khi cuộn,
+//     reduced-motion hiển thị ngay.
+// Bổ sung G05-B:
+//   - 6 section chương theo historyChapters.ts (ranh giới đã duyệt ở G05-A).
+//   - Nav chương là liên kết neo thật (#chuong-c1…6, ID chung hai ngôn ngữ) —
+//     hoạt động khi tắt JS; hiển thị k/N khi lọc ẩn bớt mốc trong chương.
+//   - Đề mục chương luôn hiển thị (không tham gia lọc); nhảy tới mốc bị ẩn
+//     vẫn giữ hành vi cũ: bỏ qua, không tự bật lại lớp.
+//   - Đọc tiếp: mốc có cặp EN → link bản EN; chỉ có VI → link VI kèm nhãn
+//     "Vietnamese only"; không có bài → thông báo rõ. sources[].proves không
+//     được hiển thị (hồ sơ nguồn — không mở UI mới).
+// =============================================================================
+
+import WatchImage from '../WatchImage.astro';
+import timelineData from '../../data/timeline.json';
+import { HISTORY_CHAPTERS } from '../../data/historyChapters';
+import { englishPathFor } from '../../i18n/contentRoutes';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  lang: 'vi' | 'en';
+}
+const { lang } = Astro.props;
+const isVi = lang === 'vi';
+
+interface TimelineSource {
+  name: string;
+  name_en?: string;
+  url: string;
+  checked: string;
+  proves: string;
+}
+interface Milestone {
+  year: number;
+  timeLabel: string;
+  timeLabel_en?: string;
+  type: string;
+  slug: string;
+  title: string;
+  title_en: string;
+  description: string;
+  description_en: string;
+  dayType: string;
+  dayType_en: string;
+  claimLevel: 'first-known' | 'brand-first' | 'brand-claim' | 'type-first' | 'recorded' | 'context';
+  claimScope: string | null;
+  claimScope_en?: string;
+  limit: string | null;
+  limit_en?: string;
+  sources: TimelineSource[];
+  readMore: string | null;
+}
+const milestones = timelineData as Milestone[];
+
+// ===== Nhãn song ngữ của trang (riêng component — không đụng ui.ts) =====
+const S = isVi ? {
+  pageTitle: '500 năm chế tác đồng hồ cơ',
+  pageLead: 'Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. <strong>28 mốc</strong> định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử.',
+  chapterWord: 'Chương',
+  filterLabel: 'Lọc theo lớp:',
+  all: 'Tất cả',
+  count: (n: number) => `${n} mốc`,
+  countPart: (k: number, n: number) => `${k} / ${n} mốc`,
+  navLabel: 'Điều hướng dòng thời gian',
+  navTitle: 'Điều hướng',
+  navChapters: 'Chương',
+  navDecades: 'Thập niên',
+  mobileNavOpen: 'Mở điều hướng dòng thời gian',
+  layers: [
+    { id: 'mechanism', label: '⚙️ Máy móc & cơ chế', short: 'Máy móc', color: '#2E86AB' },
+    { id: 'brand', label: '🏛 Thương hiệu & mẫu', short: 'Thương hiệu', color: '#B8893C' },
+    { id: 'culture', label: '🌍 Bối cảnh & văn hóa', short: 'Văn hóa', color: '#9B2C2C' },
+  ],
+  claimLabels: {
+    'first-known': 'Đầu tiên được ghi nhận',
+    'brand-first': 'Đầu tiên của hãng',
+    'brand-claim': 'Theo tuyên bố hãng',
+    'type-first': 'Đầu tiên trong loại',
+    'recorded': 'Dữ kiện có nguồn',
+    'context': 'Bối cảnh lịch sử',
+  } as Record<Milestone['claimLevel'], string>,
+  limitLabel: 'Giới hạn:',
+  sourcesLabel: 'Nguồn:',
+  checkedLabel: '(kiểm',
+  readMore: 'Đọc chi tiết →',
+  noArticle: 'Chưa có bài đọc thêm cho mốc này',
+  viOnly: 'Bài tiếng Việt — chưa có bản tiếng Anh',
+  altSuffix: ' — minh họa cho mốc này',
+  note: '<strong class="text-brass">💡 Ghi chú của nhà sưu tầm:</strong>\n      500 năm này không phải đường thẳng — mà là chuỗi <em>phát minh → khủng hoảng → phục hưng</em>.\n      Khi đọc, hãy để ý cách các mốc <strong>văn hóa</strong> (chiến tranh, khủng hoảng quartz)\n      định hình lại toàn bộ <strong>máy móc</strong> và <strong>thương hiệu</strong>.',
+} : {
+  pageTitle: 'Five centuries of mechanical watchmaking',
+  pageLead: 'The flow of time from a Nuremberg pocket movement to the silicon era — how the mechanical watch travelled from the pocket to the wrist. <strong>28 milestones</strong> that shaped the industry, told the way a collector would walk you down the corridor of history.',
+  chapterWord: 'Chapter',
+  filterLabel: 'Filter by type:',
+  all: 'All',
+  count: (n: number) => (n === 1 ? '1 milestone' : `${n} milestones`),
+  countPart: (k: number, n: number) => `${k} / ${n} milestones`,
+  navLabel: 'Timeline navigation',
+  navTitle: 'Navigate',
+  navChapters: 'Chapters',
+  navDecades: 'Decades',
+  mobileNavOpen: 'Open timeline navigation',
+  layers: [
+    { id: 'mechanism', label: '⚙️ Movement & mechanics', short: 'Movement', color: '#2E86AB' },
+    { id: 'brand', label: '🏛 Brands & models', short: 'Brands', color: '#B8893C' },
+    { id: 'culture', label: '🌍 Context & culture', short: 'Culture', color: '#9B2C2C' },
+  ],
+  claimLabels: {
+    'first-known': 'First on record',
+    'brand-first': 'First by the brand',
+    'brand-claim': 'Per the brand\u2019s claim',
+    'type-first': 'First of its type',
+    'recorded': 'Sourced fact',
+    'context': 'Historical context',
+  } as Record<Milestone['claimLevel'], string>,
+  limitLabel: 'Limit:',
+  sourcesLabel: 'Sources:',
+  checkedLabel: '(checked',
+  readMore: 'Read more →',
+  noArticle: 'No further reading for this milestone yet',
+  viOnly: 'Vietnamese only — no English version yet',
+  altSuffix: ' — illustration for this milestone',
+  note: '<strong class="text-brass">💡 A collector\u2019s note:</strong>\n      These five centuries are not a straight line — they are a chain of <em>invention → crisis → revival</em>.\n      As you read, watch how the <strong>cultural</strong> milestones (war, the quartz shock)\n      reshape the whole of the <strong>mechanical</strong> and <strong>brand</strong> story.',
+};
+
+// Nav chương theo thập niên — giữ nguyên khuôn cũ (trường year số)
+const decadeMarks: { label: string; index: number }[] = [];
+let lastDecade = '';
+milestones.forEach((m, i) => {
+  const yearNum = m.year;
+  if (!Number.isFinite(yearNum)) return;
+  const decade = Math.floor(yearNum / 50) * 50;
+  const label = decade === Math.floor(yearNum / 100) * 100
+    ? `${decade}s`
+    : `${decade}–${decade + 49}`;
+  if (label !== lastDecade) {
+    decadeMarks.push({ label, index: i });
+    lastDecade = label;
+  }
+});
+
+const altFor = (m: Milestone) => (isVi ? m.title : m.title_en) + S.altSuffix;
+const timeLabelOf = (m: Milestone) => (isVi ? m.timeLabel : m.timeLabel_en ?? m.timeLabel);
+const dayTypeOf = (m: Milestone) => (isVi ? m.dayType : m.dayType_en);
+const scopeOf = (m: Milestone) => (isVi ? m.claimScope : m.claimScope_en) ?? '';
+const limitOf = (m: Milestone) => (isVi ? m.limit : m.limit_en) ?? null;
+const nameOf = (s: TimelineSource) => (isVi ? s.name : s.name_en ?? s.name);
+const hasImage = (slug: string) => existsSync(join(process.cwd(), 'public', 'images', 'timeline', `${slug}.jpg`));
+// Đọc tiếp: bản EN trỏ cặp EN thật khi có; chỉ có VI thì giữ link VI kèm nhãn rõ
+const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
+  if (!isVi) {
+    const en = englishPathFor(m.readMore ?? '');
+    if (m.readMore && en) return { href: en, kind: 'en' };
+    return { href: m.readMore ?? '', kind: 'vi' };
+  }
+  return { href: m.readMore ?? '', kind: 'vi' };
+};
+---
+
+<section class="mx-auto max-w-6xl px-4 py-12">
+  <!-- Tiêu đề -->
+  <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+  <h1 class="timeline-heading font-serif text-3xl text-navy dark:text-dark-text sm:text-5xl">
+    {S.pageTitle}
+  </h1>
+  <p class="mt-4 max-w-3xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft" set:html={S.pageLead} />
+
+  <!-- Thanh điều khiển 3 lớp -->
+  <div class="sticky top-16 z-40 mt-8 flex flex-wrap items-center gap-2 rounded-lg border border-cream-dark dark:border-dark-border bg-cream/95 p-3 backdrop-blur">
+    <span class="mr-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{S.filterLabel}</span>
+    <button
+      type="button"
+      id="toggle-all"
+      class="layer-btn-all flex items-center gap-1.5 rounded-full border-2 px-3 py-1.5 text-xs font-medium transition-all"
+      aria-pressed="true"
+    >
+      {S.all}
+    </button>
+    {S.layers.map((layer) => (
+      <button
+        type="button"
+        data-layer-toggle={layer.id}
+        class="layer-btn flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-xs font-medium transition-all"
+        style={`--layer-color: ${layer.color}; --layer-bg: ${layer.color};`}
+        aria-pressed="true"
+      >
+        <span class="layer-dot h-2.5 w-2.5 rounded-full" style={`background-color: ${layer.color};`}></span>
+        <span class="hidden sm:inline">{layer.label}</span>
+        <span class="sm:hidden">{layer.short}</span>
+      </button>
+    ))}
+    <span class="ml-auto text-xs font-medium text-ink-soft/90 dark:text-dark-text-soft/70" id="milestone-count" data-unit={isVi ? 'mốc' : 'milestones'}>{S.count(milestones.length)}</span>
+  </div>
+</section>
+
+<!-- Layout chính: 6 chương + thanh điều hướng dính -->
+<div class="mx-auto max-w-6xl px-4 lg:flex lg:gap-8 lg:px-4">
+  <div class="timeline-track pb-20 flex-1 lg:min-w-0" id="timeline">
+    <div class="timeline-line"></div>
+
+    {HISTORY_CHAPTERS.map((ch, ci) => {
+      const t = isVi ? ch.vi : ch.en;
+      const ms = milestones.slice(ch.range[0], ch.range[1]).map((m, k) => ({ m, i: ch.range[0] + k }));
+      return (
+        <section id={`chuong-${ch.id}`} class="chuong-section" data-chapter={ch.id} aria-labelledby={`chuong-${ch.id}-title`}>
+          <!-- Đề mục chương: luôn hiển thị, không tham gia lọc -->
+          <div class="chuong-head">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brass dark:text-dark-brass">{S.chapterWord} {ci + 1}</p>
+            <h2 id={`chuong-${ch.id}-title`} class="mt-1 font-serif text-2xl text-navy dark:text-dark-text sm:text-3xl">{t.title}</h2>
+            <p class="mt-2 max-w-3xl text-lg font-medium leading-snug text-ink dark:text-dark-text">{t.question}</p>
+            <p class="mt-2 max-w-3xl text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{t.lead}</p>
+          </div>
+
+          <div class="timeline-items">
+            {ms.map(({ m, i }) => {
+              const layer = S.layers.find((l) => l.id === m.type) ?? S.layers[0];
+              const imageSrc = hasImage(m.slug)
+                ? `/images/timeline/${m.slug}.jpg`
+                : `/images/timeline/${m.slug}.svg`;
+              const scopeTxt = scopeOf(m);
+              const limitTxt = limitOf(m);
+              const rm = readMoreOf(m);
+              return (
+                <article
+                  class="milestone-card"
+                  data-anim="card"
+                  data-type={m.type}
+                  data-index={i}
+                  id={`milestone-${i}`}
+                >
+                  <div class="milestone-dot" style={`background-color: ${layer.color};`}></div>
+
+                  <div class="milestone-content rounded-lg border-l-4 bg-white dark:bg-dark-surface p-5 shadow-sm"
+                       style={`border-left-color: ${layer.color};`}>
+                    <div class="milestone-year" style={`color: ${layer.color};`}>
+                      {timeLabelOf(m)}
+                    </div>
+
+                    <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{isVi ? m.title : m.title_en}</h3>
+
+                    <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />
+
+                    <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{isVi ? m.description : m.description_en}</p>
+
+                    <div class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
+                      <span class="font-medium" style={`color: ${layer.color};`}>{dayTypeOf(m)}</span>
+                      <span aria-hidden="true">·</span>
+                      <span>{S.claimLabels[m.claimLevel]}{scopeTxt ? ` (${scopeTxt})` : ''}</span>
+                    </div>
+
+                    {limitTxt && (
+                      <p class="mt-2 rounded border border-cream-dark/70 bg-cream-dark/20 px-2.5 py-1.5 text-xs leading-relaxed text-ink-soft dark:border-dark-border/60 dark:bg-dark-border/20 dark:text-dark-text-soft">
+                        <strong class="font-semibold">{S.limitLabel}</strong> {limitTxt}
+                      </p>
+                    )}
+
+                    <div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                      <span class="text-ink-soft/80 dark:text-dark-text-soft/60">{S.sourcesLabel}</span>
+                      {m.sources.map((nguon, k) => (
+                        <>
+                          {k > 0 && <span aria-hidden="true" class="text-ink-soft/50 dark:text-dark-text-soft/40">·</span>}
+                          <a
+                            href={nguon.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="underline decoration-dotted underline-offset-2 transition-colors hover:text-brass dark:hover:text-dark-brass"
+                            style={`color: ${layer.color};`}
+                          >
+                            {nameOf(nguon)}
+                          </a>
+                          <span class="text-ink-soft/60 dark:text-dark-text-soft/50">{S.checkedLabel} {nguon.checked})</span>
+                        </>
+                      ))}
+                    </div>
+
+                    <!-- Đường đọc tiếp: link đúng ngôn ngữ, hoặc trạng thái rõ khi chưa có -->
+                    {m.readMore ? (
+                      <div class="mt-3 text-xs">
+                        <a
+                          href={rm.href}
+                          class="inline-block font-medium transition-colors hover:underline"
+                          style={`color: ${layer.color};`}
+                        >
+                          {S.readMore}
+                        </a>
+                        {rm.kind === 'vi' && !isVi && <span class="ml-2 italic text-ink-soft/70 dark:text-dark-text-soft/60">{S.viOnly}</span>}
+                      </div>
+                    ) : (
+                      <p class="mt-3 text-xs italic text-ink-soft/70 dark:text-dark-text-soft/60">
+                        {S.noArticle}
+                      </p>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <!-- Thanh điều hướng dính (desktop): Chương (anchor thật, không-JS dùng được) + thập niên -->
+  <aside class="hidden lg:block lg:w-44 lg:shrink-0">
+    <nav class="timeline-nav sticky top-32" id="timeline-nav" aria-label={S.navLabel}>
+      <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{S.navChapters}</p>
+      <ul class="mb-4 space-y-1">
+        {HISTORY_CHAPTERS.map((ch, ci) => {
+          const t = isVi ? ch.vi : ch.en;
+          return (
+            <li>
+              <a
+                href={`#chuong-${ch.id}`}
+                data-chapter-link={ch.id}
+                class="timeline-chapter-btn block w-full text-left text-xs text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+              >
+                <span class="font-semibold">{ci + 1}.</span> {t.short}
+                <span data-chapter-kn={ch.id} class="ml-1 tabular-nums text-ink-soft/60 dark:text-dark-text-soft/50"></span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <p class="mb-3 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{S.navDecades}</p>
+      <ul class="space-y-1">
+        {decadeMarks.map((dm) => (
+          <li>
+            <button
+              type="button"
+              class="timeline-nav-btn block w-full text-left text-xs text-ink-soft transition-colors hover:text-brass dark:text-dark-text-soft dark:hover:text-dark-brass"
+              data-jump-to={dm.index}
+            >
+              {dm.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </aside>
+</div>
+
+<!-- Nút điều hướng (mobile) -->
+<button type="button" id="timeline-nav-toggle" class="fixed bottom-20 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream shadow-lg lg:hidden dark:bg-dark-surface dark:text-dark-text dark:border dark:border-dark-border" aria-label={S.mobileNavOpen}>
+  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+<div id="timeline-nav-mobile" class="fixed bottom-20 right-4 z-50 hidden w-48 rounded-lg border border-cream-dark bg-white p-3 shadow-xl lg:hidden dark:border-dark-border dark:bg-dark-surface">
+  <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{S.navChapters}</p>
+  <ul class="mb-3 space-y-1">
+    {HISTORY_CHAPTERS.map((ch, ci) => {
+      const t = isVi ? ch.vi : ch.en;
+      return (
+        <li>
+          <a
+            href={`#chuong-${ch.id}`}
+            data-chapter-link-mobile={ch.id}
+            class="block w-full text-left text-xs text-ink-soft dark:text-dark-text-soft"
+          >
+            <span class="font-semibold">{ci + 1}.</span> {t.short}
+            <span data-chapter-kn={ch.id} class="ml-1 tabular-nums text-ink-soft/60 dark:text-dark-text-soft/50"></span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <p class="mb-2 text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70">{S.navDecades}</p>
+  <ul class="max-h-60 space-y-1 overflow-y-auto">
+    {decadeMarks.map((dm) => (
+      <li>
+        <button
+          type="button"
+          class="timeline-nav-btn-mobile block w-full text-left text-xs text-ink-soft dark:text-dark-text-soft"
+          data-jump-to={dm.index}
+        >
+          {dm.label}
+        </button>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<!-- Chú thích cuối -->
+<section class="mx-auto max-w-3xl px-4 pb-20">
+  <div class="rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-sm text-ink-soft dark:text-dark-text-soft" set:html={S.note} />
+</section>
+
+<style>
+  /* =============================================================================
+     LAYOUT TIMELINE — kế thừa khuôn trang /lich-su cũ (đường dọc, so le, reveal)
+     ============================================================================= */
+  .timeline-track {
+    position: relative;
+    padding: 1rem 0 2rem;
+  }
+  .timeline-items {
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 3px;
+    background: linear-gradient(to bottom, #B8893C, #F0EAE0);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .milestone-card {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 3rem;
+    max-width: 100%;
+    /* Anchor #milestone-X từ liên kết ngoài: không bị header + thanh lọc che */
+    scroll-margin-top: 7rem;
+  }
+  /* Anchor chương: header (64px) + thanh lọc dính (~56px) + khoảng thở */
+  .chuong-section {
+    scroll-margin-top: 7.5rem;
+    padding-top: 2rem;
+  }
+  .chuong-section:first-of-type {
+    padding-top: 0;
+  }
+  .chuong-head {
+    position: relative;
+    z-index: 1;
+    padding-left: 50px;
+    margin-bottom: 1.5rem;
+  }
+  .milestone-dot {
+    position: absolute;
+    left: 11px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid #FAF7F2;
+    box-shadow: 0 0 0 2px currentColor;
+    z-index: 2;
+  }
+  .milestone-year {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-heading {
+    font-variant-numeric: lining-nums;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-line {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .chuong-head {
+      padding-left: 0;
+    }
+    .timeline-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .milestone-card:nth-child(odd) {
+      padding-left: 0;
+      padding-right: 3rem;
+      text-align: right;
+      grid-column: 1;
+    }
+    .milestone-card:nth-child(even) {
+      padding-left: 3rem;
+      padding-right: 0;
+      grid-column: 2;
+    }
+    .milestone-card:nth-child(odd):last-child {
+      grid-column: 1;
+    }
+    .milestone-dot {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 2px;
+    }
+    .milestone-card:nth-child(odd) .milestone-content {
+      border-left: none;
+      border-right: 4px solid;
+      border-right-color: inherit;
+    }
+  }
+
+  /* Reveal khi cuộn — progressive enhancement (sửa sau nghiệm thu TXN-20260913-09):
+     mặc định nội dung HIỂN THỊ; chỉ ẩn (.reveal-pending) khi JS đã khởi tạo an toàn
+     (không reduced-motion). No-JS/reduced-motion đọc được ngay, không phụ thuộc
+     bộ hẹn giờ JS. */
+  .milestone-card {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .milestone-card.reveal-pending {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .milestone-card.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Nút lọc lớp */
+  .layer-btn {
+    background: var(--layer-bg);
+    border-color: var(--layer-color);
+    color: #FAF7F2;
+  }
+  .layer-btn[aria-pressed="false"] {
+    background: transparent;
+    border-color: rgba(31, 45, 61, 0.25);
+    color: rgba(31, 45, 61, 0.45);
+  }
+  .layer-btn[aria-pressed="false"] .layer-dot {
+    background: transparent !important;
+    border: 1.5px solid rgba(31, 45, 61, 0.35);
+    box-sizing: border-box;
+  }
+  .layer-btn-all {
+    background: #1F2D3D;
+    border-color: #1F2D3D;
+    color: #FAF7F2;
+  }
+  .layer-btn-all[aria-pressed="false"] {
+    background: transparent;
+    border-color: rgba(31, 45, 61, 0.25);
+    color: rgba(31, 45, 61, 0.45);
+  }
+  .milestone-card.layer-hidden {
+    display: none;
+  }
+
+  /* Nav chương + thập niên — mốc/chương đang xem nổi bật */
+  .timeline-chapter-btn.active,
+  .timeline-nav-btn.active,
+  .timeline-nav-btn-mobile.active {
+    color: #B8893C !important;
+    font-weight: 600;
+  }
+  :global(.dark) .timeline-chapter-btn.active,
+  :global(.dark) .timeline-nav-btn.active,
+  :global(.dark) .timeline-nav-btn-mobile.active {
+    color: #D4A85A !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .milestone-card {
+      transition: none;
+    }
+    .milestone-card.reveal-pending {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // G05-B — cặp lịch sử (/lich-su ↔ /en/history): giữ hash khi chuyển ngôn ngữ.
+  // Hai trang dùng chung ID anchor (#milestone-N, #chuong-cX) nên hash hợp lệ ở
+  // cả hai bản; hash không khớp khuôn → không đụng href, trình duyệt về đầu
+  // trang như mặc định. Đặt trong script CỦA component (bundle trang lịch sử,
+  // nạp cùng lúc script Header) để chỉ áp dụng cho đúng cặp này; hành vi
+  // switcher toàn site không đổi. Khi tắt JS hash không được giữ (giới hạn
+  // ghi trong biên bản G05-B) — link switcher vẫn tới trang đích thật.
+  (function keepHistoryHash() {
+    const path = location.pathname.replace(/\/+$/, '') || '/';
+    if (path !== '/lich-su' && path !== '/en/history') return;
+    // Chỉ giữ hash có ID THẬT trong tập anchor chung: #milestone-0…27, #chuong-c1…6.
+    // Số viết không chuẩn bị loại: "00"/"01" (zero dẫn đầu — ID thật là milestone-0/1),
+    // "028" (zero dẫn đầu + vượt 27), "999" (vượt tập anchor) → bỏ hash, switcher
+    // về đầu trang đích như mặc định. Không đổi hành vi toàn site.
+    const hashHopLe = () => {
+      if (/^#chuong-c[1-6]$/.test(location.hash)) return true;
+      const m = location.hash.match(/^#milestone-(\d+)$/);
+      // Dạng chuẩn: String(Number(chuỗi)) phải trùng chuỗi gốc → "00"/"028" bị loại
+      // tại đây; điều kiện >27 chặn phần còn lại ("999").
+      return m !== null && String(Number(m[1])) === m[1] && Number(m[1]) <= 27;
+    };
+    const apDung = () => {
+      document.querySelectorAll<HTMLAnchorElement>('[data-lang-hash-keep]').forEach((a) => {
+        if (!a.dataset.langHashBase) a.dataset.langHashBase = a.getAttribute('href') ?? '';
+        a.setAttribute('href', a.dataset.langHashBase + (hashHopLe() ? location.hash : ''));
+      });
+    };
+    // hashchange: cùng-trang điều hướng anchor (không reload) cũng phải cập nhật
+    apDung();
+    window.addEventListener('hashchange', apDung);
+  })();
+
+  function initTimeline() {
+    const track = document.getElementById('timeline');
+    if (!track) return;
+
+    const cards = track.querySelectorAll<HTMLElement>('.milestone-card');
+    const toggles = document.querySelectorAll<HTMLButtonElement>('[data-layer-toggle]');
+    const toggleAll = document.getElementById('toggle-all') as HTMLButtonElement | null;
+    const countEl = document.getElementById('milestone-count');
+    const total = cards.length;
+
+    // ---- 1. Bật/tắt lớp + cập nhật k/N nav chương ----
+    const activeLayers = new Set(['mechanism', 'brand', 'culture']);
+    const chapterLinks = document.querySelectorAll<HTMLElement>('[data-chapter-link], [data-chapter-link-mobile]');
+    const chapterKn = document.querySelectorAll<HTMLElement>('[data-chapter-kn]');
+
+    function chapterVisibleCounts(): Record<string, { k: number; n: number }> {
+      const out: Record<string, { k: number; n: number }> = {};
+      cards.forEach((card) => {
+        const idx = parseInt(card.dataset.index ?? '-1', 10);
+        const link = Array.from(chapterLinks).find((a) => {
+          const id = a.getAttribute('data-chapter-link') ?? a.getAttribute('data-chapter-link-mobile');
+          const section = document.getElementById(`chuong-${id}`);
+          if (!section) return false;
+          const first = parseInt(section.querySelector('.milestone-card')?.getAttribute('data-index') ?? '-1', 10);
+          const all = section.querySelectorAll('.milestone-card');
+          const last = parseInt(all[all.length - 1]?.getAttribute('data-index') ?? '-1', 10);
+          return idx >= first && idx <= last;
+        });
+        if (!link) return;
+        const id = link.getAttribute('data-chapter-link') ?? link.getAttribute('data-chapter-link-mobile') ?? '';
+        out[id] = out[id] ?? { k: 0, n: 0 };
+        out[id].n++;
+        if (!card.classList.contains('layer-hidden')) out[id].k++;
+      });
+      return out;
+    }
+
+    function updateChapterCounts() {
+      const counts = chapterVisibleCounts();
+      chapterKn.forEach((span) => {
+        const id = span.getAttribute('data-chapter-kn') ?? '';
+        const c = counts[id];
+        if (!c) return;
+        span.textContent = c.k === c.n ? '' : `${c.k}/${c.n}`;
+      });
+    }
+
+    function updateVisibility() {
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const type = card.dataset.type ?? '';
+        const visible = activeLayers.has(type);
+        card.classList.toggle('layer-hidden', !visible);
+        if (visible) visibleCount++;
+      });
+      if (countEl) {
+        const unit = countEl.dataset.unit ?? '';
+        countEl.textContent = visibleCount === total ? `${total} ${unit}` : `${visibleCount} / ${total} ${unit}`;
+      }
+      const allOn = activeLayers.size === 3;
+      toggleAll?.setAttribute('aria-pressed', String(allOn));
+      updateChapterCounts();
+    }
+
+    toggles.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const layerId = btn.dataset.layerToggle ?? '';
+        if (activeLayers.has(layerId)) {
+          activeLayers.delete(layerId);
+          btn.setAttribute('aria-pressed', 'false');
+        } else {
+          activeLayers.add(layerId);
+          btn.setAttribute('aria-pressed', 'true');
+        }
+        updateVisibility();
+      });
+    });
+
+    toggleAll?.addEventListener('click', () => {
+      activeLayers.clear();
+      activeLayers.add('mechanism');
+      activeLayers.add('brand');
+      activeLayers.add('culture');
+      toggles.forEach((btn) => btn.setAttribute('aria-pressed', 'true'));
+      updateVisibility();
+    });
+
+    // ---- 2. Reveal khi cuộn tới — chỉ ẩn khi JS chạy an toàn (progressive enhancement) ----
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      // Reduced-motion: không ẩn, không chuyển động — nội dung đọc được ngay
+      cards.forEach((c) => c.classList.add('reveal-visible'));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('reveal-pending');
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      cards.forEach((card) => {
+        card.classList.add('reveal-pending');
+        observer.observe(card);
+      });
+    }
+
+    // ---- 3. Nhảy tới mốc (thập niên) — mốc bị lọc ẩn: giữ hành vi cũ, bỏ qua ----
+    function jumpToMilestone(index: number) {
+      const target = cards[index] as HTMLElement | undefined;
+      if (!target || target.classList.contains('layer-hidden')) return;
+      target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-jump-to]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.jumpTo ?? '0');
+        jumpToMilestone(idx);
+        document.getElementById('timeline-nav-mobile')?.classList.add('hidden');
+      });
+    });
+
+    // ---- 4. Scroll spy: chương + thập niên đang xem ----
+    const navBtns = document.querySelectorAll<HTMLButtonElement>('.timeline-nav-btn, .timeline-nav-btn-mobile');
+    const chapterBtns = document.querySelectorAll<HTMLAnchorElement>('.timeline-chapter-btn');
+
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = (entry.target as HTMLElement).dataset.index;
+            if (!idx) return;
+            navBtns.forEach((btn) => {
+              const jumpIdx = parseInt(btn.dataset.jumpTo ?? '0');
+              const nextBtn = btn.nextElementSibling?.querySelector('[data-jump-to]') as HTMLElement | null;
+              const nextIdx = nextBtn ? parseInt(nextBtn.dataset.jumpTo ?? '999') : 999;
+              if (parseInt(idx) >= jumpIdx && parseInt(idx) < nextIdx) {
+                btn.classList.add('active');
+              } else {
+                btn.classList.remove('active');
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    cards.forEach((card) => spyObserver.observe(card));
+
+    const chapterSpy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = (entry.target as HTMLElement).dataset.chapter;
+          chapterBtns.forEach((btn) => {
+            btn.classList.toggle('active', btn.getAttribute('data-chapter-link') === id);
+          });
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+    track.querySelectorAll<HTMLElement>('.chuong-section').forEach((s) => chapterSpy.observe(s));
+
+    // ---- 5. Nút điều hướng mobile ----
+    const navToggle = document.getElementById('timeline-nav-toggle');
+    const navMobile = document.getElementById('timeline-nav-mobile');
+    navToggle?.addEventListener('click', () => {
+      navMobile?.classList.toggle('hidden');
+    });
+    // Đóng khi bấm ra ngoài
+    document.addEventListener('click', (e) => {
+      if (navMobile?.classList.contains('hidden')) return;
+      if (navToggle?.contains(e.target as Node)) return;
+      if (navMobile?.contains(e.target as Node)) return;
+      navMobile?.classList.add('hidden');
+    });
+
+    updateVisibility();
+  }
+
+  initTimeline();
+</script>

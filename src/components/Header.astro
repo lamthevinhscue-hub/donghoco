@@ -238,6 +238,7 @@ const exploreActive = exploreNav.some((i) => !i.viOnly && matchState(i.href) !==
       <a
         href={sw.href}
         data-pagefind-ignore
+        data-lang-hash-keep=""
         {...(!sw.translated ? { 'data-lang-switch': 'untranslated' } : {})}
         class="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-cream-dark px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
         aria-label={switcherLabel}
@@ -345,6 +346,7 @@ const exploreActive = exploreNav.some((i) => !i.viOnly && matchState(i.href) !==
       <a
         href={sw.href}
         data-pagefind-ignore
+        data-lang-hash-keep=""
         {...(!sw.translated ? { 'data-lang-switch': 'untranslated' } : {})}
         class="mt-4 flex min-h-11 items-center gap-2 rounded-lg border border-cream-dark px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:text-dark-brass"
         aria-label={switcherLabel}
@@ -575,6 +577,9 @@ const exploreActive = exploreNav.some((i) => !i.viOnly && matchState(i.href) !==
       openLangPanel(a);
     });
   });
+  // G05-B: giữ hash khi đổi ngôn ngữ cho cặp lịch sử nằm trong script của
+  // HistoryTimeline.astro (component có bundle riêng — xem ghi chú ở đó);
+  // Header chỉ cung cấp attribute data-lang-hash-keep làm điểm nối.
   document.getElementById('lang-panel-stay')?.addEventListener('click', closeLangPanel);
   langPanel?.addEventListener('click', (e) => {
     if (e.target === langPanel) closeLangPanel(); // bấm nền mờ = đóng

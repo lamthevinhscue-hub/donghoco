@@ -1,0 +1,267 @@
+{
+  "dienGiai": "Ma trận 31 ca kế hoạch G05-A (ma-tran-nghiem-thu-g05b-du-kien.md, commit aba250c) — cập nhật thành kết quả thật G05-B — cập nhật vòng sửa TXN-20260913-11: 5 ca M1-4/M2-2/M3-3/M3-4/M5-2 thay kết quả sau sửa lỗi (kết quả cũ giữ trong ketQuaCu), M6-2 đo lại; build v2 exit 0 (log-build-sau-v2.txt), mutation mở rộng 10/10, thao tác 20/20, bố cục 20/20 — cập nhật vòng sửa 2 TXN-20260913-14: M3-4 thay bằng chứng hash hai chiều 24/24 (cũ giữ ketQuaCu), M2-7 ghi chú cơ chế fixture; build v4 exit 0 (log-build-sau-v4.txt), mutation 10/10 (mutation-ket-qua-v4.json), proof G5-4b 7/7, kiểm trình duyệt hash 24/24 + G5-8b hồi quy",
+  "thoiGian": "2026-09-13",
+  "nen": "aba250c",
+  "sau": "working tree (chưa commit)",
+  "tongCa": 31,
+  "dat": 31,
+  "ca": [
+    {
+      "ma": "M1-1",
+      "ca": "JSON VI giữ nguyên 28 mốc, 52 nguồn, 19 giới hạn, 3 readMore null",
+      "trangThai": "ĐẠT",
+      "bangChung": "python đối chiếu git show HEAD:src/data/timeline.json vs working: bảo toàn VI OK (0 lệch); npm run build chuỗi check đạt — G2 16/16 trong output/g05-history-journey/log-build-sau.txt",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M1-2",
+      "ca": "Bản EN đủ trường dịch: 28 title/description/claimScope/dayType, 19 limit, timeLabel_en, name_en ×4",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-2][G5-3][G5-4] ĐẠT trong output/g05-history-journey/log-build-sau.txt; alt ghép từ title_en tại component (khuôn trung tính) — hiển thị cả 2 bản (grep dist alt=)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M1-3",
+      "ca": "Dist VI và EN mỗi trang 28 card, 52 nguồn, 19 khối Giới hạn/Limit",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G2-7/8/8b] + [G5-D1][G5-D2] ĐẠT: VI 28/52/19, EN 28/52/19",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M1-4",
+      "ca": "Nhãn ngày loại, mức chứng minh + phạm vi, xấp xỉ/khoảng năm cả hai bản; timeLabel theo ngôn ngữ",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-D1 v2] trang VI: \"2013–nay\" có + \"2013–present\" vắng; [G5-D2] EN \"2013–present\" có; runtime thao-tac ca 0: VI27=\"2013–nay\", EN27=\"2013–present\" (thao-tac-ket-qua.json)",
+      "ghiChu": "timeLabelOf cũ ưu tiên timeLabel_en cả VI — đã sửa: VI dùng timeLabel, EN dùng timeLabel_en ?? timeLabel; kiểm dist CẢ HAI bản (G5-D1 v2)",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "grep dist: \"~1510\" có ở cả 2 trang; EN \"2013–present\" có + \"2013–nay\" vắng [G5-D2]; 6 nhãn claim EN hiển thị (ảnh đại diện shots/)",
+        "ghiChu": "kết quả cũ ĐÃ THAY THẾ sau TXN-20260913-11 — lỗi bị GPT Work bắt độc lập bằng trình duyệt"
+      }
+    },
+    {
+      "ma": "M2-1",
+      "ca": "Trang EN không rò chữ Việt hiển thị",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-D2] ròVI=false (quét body đã strip script/style/comment, loại tên riêng + nhãn chức năng được duyệt)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M2-2",
+      "ca": "Trang VI không rò nhãn EN mới",
+      "trangThai": "ĐẠT",
+      "bangChung": "grep dist/lich-su/index.html: \"Read more →\"/\">Limit:\"/\"milestones\"/\"2013–present\" = 0; [G5-D1 v2] nhãn \"2013–nay\" khớp",
+      "ghiChu": "mở rộng sau TXN-20260913-11: thêm rò \"2013–present\" trên trang VI (lỗi cũ bị bắt)",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "grep dist/lich-su/index.html: \"Read more →\"/\">Limit:\"/\"milestones\" = 0",
+        "ghiChu": "kết quả cũ ĐÃ THAY THẾ sau TXN-20260913-11 — lỗi bị GPT Work bắt độc lập bằng trình duyệt"
+      }
+    },
+    {
+      "ma": "M2-3",
+      "ca": "Alt ảnh 28 mốc hai bản, mô tả trung tính",
+      "trangThai": "ĐẠT",
+      "bangChung": "grep alt=: VI \"… — minh họa cho mốc này\", EN \"… — illustration for this milestone\"",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M2-4",
+      "ca": "Trạng thái đọc tiếp EN đúng số 12/13/3",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-D2] linkEN=12, viOnly=13, noArticle=3; nguồn 52",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M2-5",
+      "ca": "Link đọc tiếp nội bộ không hỏng trên dist",
+      "trangThai": "ĐẠT",
+      "bangChung": "check-links: 287 trang / 20.846 link, 0 hỏng (output/g05-history-journey/log-build-sau.txt); [G5-D4] hai trang lịch sử không link hỏng. Giới hạn: check-links chỉ kiểm href nội bộ (scripts/check-links.mjs:47 bỏ qua http/https)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M2-6",
+      "ca": "Tên nguồn EN: 4 name dịch phần mô tả; proves không xuất hiện UI",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-4] 4/4 name_en đúng; grep dist/en/history: 4 name dịch hiển thị; proves chỉ trong JSON nguồn, không render",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M2-7",
+      "ca": "52 lần dẫn nguồn ngoài bảo toàn so với G02",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-4b] 52 nguồn + mọi trường VI khớp fixture baseline scripts/fixtures/timeline-baseline-aba250c.json (trích nguyên văn git show aba250c — sha256 762d461c43ec406f6061be66baded42952ec2b9f0cec72d4f577fe367316a465 hai phía) — không phụ thuộc Git: đạt cả trên bản sao không .git (proof-g54b-ket-qua.json 7/7). Giới hạn đã nói: KHÔNG truy cập HTTP nguồn ngoài; không coi kiểm nội bộ là kiểm HTTP nguồn ngoài",
+      "ghiChu": "Vòng sửa 2 TXN-20260913-14: đối chiếu chuyển từ gọi git show sang fixture cố định (cơ chế cũ: đối chiếu git show aba250c trực tiếp — kết quả không đổi). Nếu G05-B sau này thử truy cập: ghi thời điểm, URL cuối, trạng thái thật; 403/timeout là giới hạn truy cập"
+    },
+    {
+      "ma": "M3-1",
+      "ca": "28 anchor #milestone-0…27 còn hiệu lực",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G5-D1] 28 card id=milestone-i; bố cục 20/20 scrollIntoView chương/thẻ OK (output/g05-history-journey/boc-cuc-ket-qua.json)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M3-2",
+      "ca": "Lọc 3 lớp + \"Tất cả\" + đếm",
+      "trangThai": "ĐẠT",
+      "bangChung": "Thao tác: tắt mechanism 16 hiển thị, tắt thêm brand còn 3, \"Tất cả\" 28 — output/g05-history-journey/thao-tac-ket-qua.json",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M3-3",
+      "ca": "Nav chương + scroll-margin-top + k/N khi lọc",
+      "trangThai": "ĐẠT",
+      "bangChung": "thao-tac-ket-qua.json: k/N mobile VI/EN với panel THỰC SỰ MỞ (viewport 375, bấm toggle) = [\"2/5\",\"\",\"2/6\",\"4/6\",\"\",\"0/3\"] (C2/C5 đủ 4/4 → rỗng theo thiết kế); desktop cùng số; [G5-D1 v2] data-chapter-kn ×12",
+      "ghiChu": "mở rộng sau TXN-20260913-11: k/N mobile mới thêm; kiểm từng chương, không chỉ tìm \"/\" trên trang",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "Thao tác: nhảy C4 tiêu đề không che (top ≥ header bottom); k/N \"2/5…\" khi lọc, rỗng khi đủ; bố cục jump.thay 20/20",
+        "ghiChu": "kết quả cũ ĐÃ THAY THẾ sau TXN-20260913-11 — lỗi bị GPT Work bắt độc lập bằng trình duyệt"
+      }
+    },
+    {
+      "ma": "M3-4",
+      "ca": "Switcher hai chiều + hash mốc/chương/sai/không-hash",
+      "trangThai": "ĐẠT",
+      "bangChung": "pw-hash-keep-ket-qua.json 24/24 ca khẳng định ĐẠT: 12 tình huống × 2 chiều qua click switcher thật — hợp lệ (milestone-0/12/27, chuong-c1/c6) giữ hash + ID đích tồn tại + cuộn tới đích (scrollY 349–14099); không hợp lệ (milestone-00/01/028/999, chuong-c7, hash-sai) + không hash → hash bị bỏ khỏi URL đích, scrollY=0. +2 quan sát tải trực tiếp #milestone-00 (không khẳng định — hành vi mặc định trình duyệt). Hồi quy nguồn [G5-8b] 12/12 trên đúng hàm trong component (check-g05 nguồn 11/11)",
+      "ghiChu": "Vòng sửa 2 TXN-20260913-14: whitelist hash siết dạng chuẩn (không số 0 dẫn đầu) sau khi GPT Work bắt #milestone-00/01 vẫn được giữ; kết quả 7 tình huống của vòng trước giữ trong ketQuaCu (chưa phủ zero dẫn đầu)",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "Thao tác 5 ca: giữ #milestone-12, #chuong-c5, #milestone-20 (ổn định); hash sai → về đầu; không hash → đầu trang. URL VI dùng giá trị bảng \"/lich-su\" (không slash) theo khuôn switcher hiện hành",
+        "ghiChu": "kết quả cũ ĐÃ THAY THẾ sau TXN-20260913-11 — lỗi bị GPT Work bắt độc lập bằng trình duyệt"
+      }
+    },
+    {
+      "ma": "M3-5",
+      "ca": "Lối vào lịch sử 2 trang chủ",
+      "trangThai": "ĐẠT",
+      "bangChung": "VI: dải hiện hành giữ nguyên [G2-12] ĐẠT; EN: [G5-D3] homeEntry — khối \"Open the history journey\" trỏ /en/history/",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M4-1",
+      "ca": "Không tràn ngang 320/375",
+      "trangThai": "ĐẠT",
+      "bangChung": "Bố cục 20/20: overflow=false mọi tổ hợp (output/g05-history-journey/boc-cuc-ket-qua.json)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M4-2",
+      "ca": "Bố cục 768/1024/1440 + nav đúng breakpoint",
+      "trangThai": "ĐẠT",
+      "bangChung": "Bố cục 20/20 + 8 ảnh đại diện (shots/dai-dien-*.png) đã tự xem: so le 2 cột desktop, nav chương + thập niên desktop, panel mobile",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M4-3",
+      "ca": "Tương phản đề mục chương 2 theme",
+      "trangThai": "ĐẠT",
+      "bangChung": "check-color-contrast (chuỗi npm run check) ĐẠT; đề mục dùng token brass/ink hiện hành; xem bằng mắt 8 ảnh đại diện sáng/tối",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M5-1",
+      "ca": "Bàn phím: focus nav chương + thứ tự DOM",
+      "trangThai": "ĐẠT",
+      "bangChung": "Thao tác: link nav chương nhận focus; chip/nav là <a> tĩnh theo DOM",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M5-2",
+      "ca": "No-JS đọc được 28 mốc + 6 chương",
+      "trangThai": "ĐẠT",
+      "bangChung": "thao-tac-ket-qua.json (javaScriptEnabled:false): 28/28 thẻ computed opacity=1, visibility visible, không display:none (VI + EN); ảnh shots/nojs-dau-lich-su.png + nojs-cuoi-lich-su.png (đầu/cuối timeline, anchor #milestone-27) — đã tự mở xem: chữ/khung hình/nguồn hiển thị thật",
+      "ghiChu": "sửa progressive enhancement: .reveal-pending chỉ do JS thêm khi !reduced-motion; bỏ bộ hẹn giờ 3000ms; kiểm bằng computed style + ảnh, không chỉ DOM/innerText",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "Thao tác (javaScriptEnabled:false): 28 card, nguồn 52, 6 nav chương là anchor thật; click #chuong-c6 cuộn đúng + hash",
+        "ghiChu": "kết quả cũ ĐÃ THAY THẾ sau TXN-20260913-11 — lỗi bị GPT Work bắt độc lập bằng trình duyệt"
+      }
+    },
+    {
+      "ma": "M5-3",
+      "ca": "Ảnh lỗi → plate fallback",
+      "trangThai": "ĐẠT",
+      "bangChung": "Thao tác (context mới, route abort SVG): img display:none + placeholder hiện — khuôn WatchImage",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M5-4",
+      "ca": "Reduced-motion hiển thị ngay",
+      "trangThai": "ĐẠT",
+      "bangChung": "Thao tác (reducedMotion reduce): opacity 1, transform none",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M5-5",
+      "ca": "Không thêm chuyển động mới",
+      "trangThai": "ĐẠT",
+      "bangChung": "git diff src/components/history/: chỉ section tĩnh + kế thừa reveal cũ; không animation mới; [G5-8] khuôn",
+      "ghiChu": "Kiểm thủ công: đọc diff"
+    },
+    {
+      "ma": "M6-1",
+      "ca": "Byte đĩa dist",
+      "trangThai": "ĐẠT",
+      "bangChung": "stat: dist/lich-su/index.html 288.001 B; dist/en/history/index.html 287.404 B; asset _astro 17 tệp",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M6-2",
+      "ca": "Byte mạng trước/sau cùng điều kiện",
+      "trangThai": "ĐẠT",
+      "bangChung": "TRƯỚC 4398 /lich-su/ (aba250c): 26 req / 869.850 B; SAU v2 4399 /lich-su/: 26 req / 883.461 B (+13.611 B ≈ +1,6%); /en/history/: 17 req / 678.772 B. content-length null ghi riêng; 0 ảnh AI; output/g05-history-journey/do-tai-ket-qua.json",
+      "ghiChu": "output/g05-history-journey/do-tai-ket-qua.json",
+      "ketQuaCu": {
+        "trangThai": "ĐẠT",
+        "bangChung": "đo lần 1 (JS/CSS cũ của vòng G05-B đầu)",
+        "ghiChu": "đo lại sau vòng sửa TXN-20260913-11 vì CSS/JS/HTML thay đổi"
+      }
+    },
+    {
+      "ma": "M6-3",
+      "ca": "Không phát sinh JS/CSS file mới ngoài khuôn",
+      "trangThai": "ĐẠT",
+      "bangChung": "Số request JS (2) và CSS (3) như nền; chênh byte: JS +1.749 B, CSS +344 B; 0 request ảnh AI (không /images/history/)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M7-1",
+      "ca": "npm run build exit 0, không diagnostics mới",
+      "trangThai": "ĐẠT",
+      "bangChung": "log-build-sau.txt: EXIT 0; astro check 4 hints = baseline aba250c (log-build-nen.txt)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M7-2",
+      "ca": "check-g01 các ca lịch sử cập nhật đạt",
+      "trangThai": "ĐẠT",
+      "bangChung": "G01 ĐẠT trong build (logic + dist; gồm 2 ca hreflang + switcher + menu Explore mới)",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M7-3",
+      "ca": "check-g02 16 ca cũ đạt; dist EN mới do check-g05 giữ",
+      "trangThai": "ĐẠT",
+      "bangChung": "[G2-1a…G2-13] 16/16 ĐẠT; lớp dist EN thuộc check-g05 G5-D2",
+      "ghiChu": ""
+    },
+    {
+      "ma": "M7-4",
+      "ca": "Sitemap đủ /lich-su/ + /en/history/ (+1 URL)",
+      "trangThai": "ĐẠT",
+      "bangChung": "sitemap-0.xml: 285 → 286 <loc>; [G5-D5] ĐẠT",
+      "ghiChu": ""
+    }
+  ],
+  "capNhat": {
+    "vong": "TXN-20260913-14",
+    "thoiGian": "2026-09-13T04:59:41.297Z",
+    "tepMoi": [
+      "pw-hash-keep-ket-qua.json",
+      "proof-g54b-ket-qua.json",
+      "mutation-ket-qua-v4.json",
+      "log-build-sau-v4.txt"
+    ]
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "ketQua": "DAT",
+  "tong": "24/24 ca khẳng định đạt + 2 quan sát",
+  "thoiGian": "2026-09-13T04:55:16.924Z",
+  "ca": [
+    {
+      "loai": "hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-0",
+      "hrefTruocClick": "/en/history/#milestone-0",
+      "urlCuoi": "http://localhost:4402/en/history/#milestone-0",
+      "hashCuoi": "#milestone-0",
+      "idDichTonTai": true,
+      "scrollY": 545,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-12",
+      "hrefTruocClick": "/en/history/#milestone-12",
+      "urlCuoi": "http://localhost:4402/en/history/#milestone-12",
+      "hashCuoi": "#milestone-12",
+      "idDichTonTai": true,
+      "scrollY": 6376,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-27",
+      "hrefTruocClick": "/en/history/#milestone-27",
+      "urlCuoi": "http://localhost:4402/en/history/#milestone-27",
+      "hashCuoi": "#milestone-27",
+      "idDichTonTai": true,
+      "scrollY": 14099,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#chuong-c1",
+      "hrefTruocClick": "/en/history/#chuong-c1",
+      "urlCuoi": "http://localhost:4402/en/history/#chuong-c1",
+      "hashCuoi": "#chuong-c1",
+      "idDichTonTai": true,
+      "scrollY": 359,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#chuong-c6",
+      "hrefTruocClick": "/en/history/#chuong-c6",
+      "urlCuoi": "http://localhost:4402/en/history/#chuong-c6",
+      "hashCuoi": "#chuong-c6",
+      "idDichTonTai": true,
+      "scrollY": 12999,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-00",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-01",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-028",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#milestone-999",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#chuong-c7",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "VI→EN",
+      "tu": "/lich-su#hash-sai",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hash",
+      "chieu": "VI→EN",
+      "tu": "/lich-su",
+      "hrefTruocClick": "/en/history/",
+      "urlCuoi": "http://localhost:4402/en/history/",
+      "hashCuoi": "",
+      "idDichTonTai": null,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-0",
+      "hrefTruocClick": "/lich-su#milestone-0",
+      "urlCuoi": "http://localhost:4402/lich-su#milestone-0",
+      "hashCuoi": "#milestone-0",
+      "idDichTonTai": true,
+      "scrollY": 560,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-12",
+      "hrefTruocClick": "/lich-su#milestone-12",
+      "urlCuoi": "http://localhost:4402/lich-su#milestone-12",
+      "hashCuoi": "#milestone-12",
+      "idDichTonTai": true,
+      "scrollY": 6334,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-27",
+      "hrefTruocClick": "/lich-su#milestone-27",
+      "urlCuoi": "http://localhost:4402/lich-su#milestone-27",
+      "hashCuoi": "#milestone-27",
+      "idDichTonTai": true,
+      "scrollY": 13900,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#chuong-c1",
+      "hrefTruocClick": "/lich-su#chuong-c1",
+      "urlCuoi": "http://localhost:4402/lich-su#chuong-c1",
+      "hashCuoi": "#chuong-c1",
+      "idDichTonTai": true,
+      "scrollY": 349,
+      "dat": true
+    },
+    {
+      "loai": "hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#chuong-c6",
+      "hrefTruocClick": "/lich-su#chuong-c6",
+      "urlCuoi": "http://localhost:4402/lich-su#chuong-c6",
+      "hashCuoi": "#chuong-c6",
+      "idDichTonTai": true,
+      "scrollY": 12801,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-00",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-01",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-028",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#milestone-999",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#chuong-c7",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hợp lệ",
+      "chieu": "EN→VI",
+      "tu": "/en/history#hash-sai",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": false,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "không hash",
+      "chieu": "EN→VI",
+      "tu": "/en/history",
+      "hrefTruocClick": "/lich-su",
+      "urlCuoi": "http://localhost:4402/lich-su",
+      "hashCuoi": "",
+      "idDichTonTai": null,
+      "scrollY": 0,
+      "dat": true
+    },
+    {
+      "loai": "quan sát tải trực tiếp (không khẳng định)",
+      "chieu": "VI tải #milestone-00",
+      "urlCuoi": "http://localhost:4402/lich-su#milestone-00",
+      "hashCuoi": "#milestone-00",
+      "idDichTonTai": false,
+      "scrollY": 0
+    },
+    {
+      "loai": "quan sát tải trực tiếp (không khẳng định)",
+      "chieu": "EN tải #milestone-00",
+      "urlCuoi": "http://localhost:4402/en/history#milestone-00",
+      "hashCuoi": "#milestone-00",
+      "idDichTonTai": false,
+      "scrollY": 0
+    }
+  ],
+  "ghiChu": "Kết quả trả về từ playwright-cli run-code (file pw-hash-keep.js); stdout nguyên văn ở pw-hash-keep-stdout.txt"
+}

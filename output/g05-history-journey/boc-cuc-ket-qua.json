@@ -1,0 +1,326 @@
+{
+  "tong": 20,
+  "dat": 20,
+  "chiTiet": [
+    {
+      "toHop": "lich-su 320x700 light",
+      "lang": "vi",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-320-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 320x700 dark",
+      "lang": "vi",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-320-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 375x812 light",
+      "lang": "vi",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-375-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 375x812 dark",
+      "lang": "vi",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-375-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 768x1024 light",
+      "lang": "vi",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-768-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 768x1024 dark",
+      "lang": "vi",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-768-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 1024x768 light",
+      "lang": "vi",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 84,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-1024-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 1024x768 dark",
+      "lang": "vi",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 84,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-1024-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 1440x900 light",
+      "lang": "vi",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 84,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-1440-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "lich-su 1440x900 dark",
+      "lang": "vi",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 84,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-lich-su-1440-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 320x700 light",
+      "lang": "en",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 86,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-320-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 320x700 dark",
+      "lang": "en",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 86,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-320-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 375x812 light",
+      "lang": "en",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 99,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-375-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 375x812 dark",
+      "lang": "en",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 99,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-375-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 768x1024 light",
+      "lang": "en",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-768-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 768x1024 dark",
+      "lang": "en",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 82,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-768-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 1024x768 light",
+      "lang": "en",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 124,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-1024-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 1024x768 dark",
+      "lang": "en",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 183,
+        "headerBottom": 124,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-1024-dark.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 1440x900 light",
+      "lang": "en",
+      "theme": "sang",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 95,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-1440-light.png",
+      "dat": true
+    },
+    {
+      "toHop": "history 1440x900 dark",
+      "lang": "en",
+      "theme": "toi",
+      "overflow": false,
+      "cards": 28,
+      "chuong": 6,
+      "navChapter": 6,
+      "jump": {
+        "top": 182,
+        "headerBottom": 95,
+        "thay": true
+      },
+      "shot": "output/g05-history-journey/shots/boc-cuc-history-1440-dark.png",
+      "dat": true
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "ketQua": "DAT",
+  "thoiGian": "2026-09-13T04:40:27.612Z",
+  "ca": [
+    {
+      "ca": "P1-repo chính (có .git)",
+      "kyVong": "exit 0, G5-4b ĐẠT",
+      "exit": 0,
+      "g5_4b": true,
+      "dat": true,
+      "coGit": true
+    },
+    {
+      "ca": "P2-bản sao KHÔNG .git (tmp ngoài repo, không Git thư mục cha)",
+      "kyVong": "exit 0, G5-4b ĐẠT",
+      "exit": 0,
+      "g5_4b": true,
+      "dat": true,
+      "coGit": false
+    },
+    {
+      "ca": "P3-sửa trường VI (title mốc 0)",
+      "kyVong": "exit 1, bắt G5-4b",
+      "exit": 1,
+      "bat": "G5-4b",
+      "dat": true
+    },
+    {
+      "ca": "P3b-sửa URL nguồn (mốc 0, nguồn 0 — còn https)",
+      "kyVong": "exit 1, bắt G5-4b (G5-4 vẫn đạt)",
+      "exit": 1,
+      "bat": "G5-4b",
+      "g5_4_van_dat": true,
+      "dat": true
+    },
+    {
+      "ca": "P4-thiếu fixture",
+      "kyVong": "exit 1, thông báo rõ \"thiếu fixture\" (không bỏ qua)",
+      "exit": 1,
+      "thongBao": true,
+      "dat": true
+    },
+    {
+      "ca": "P5-khôi phục fixture + dữ liệu sạch (cùng thư mục bản sao)",
+      "kyVong": "exit 0 trở lại",
+      "exit": 0,
+      "dat": true
+    },
+    {
+      "ca": "P6-hồi quy zero dẫn đầu",
+      "kyVong": "hàm cũ bị bắt (giữ nhầm 00/01/028/999…), hàm mới đạt 12/12",
+      "hamCuBiBat": true,
+      "hamCuGiuNham": [
+        "#milestone-00",
+        "#milestone-01"
+      ],
+      "hamMoiDat": true,
+      "dat": true
+    }
+  ]
+}

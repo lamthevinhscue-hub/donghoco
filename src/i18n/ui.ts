@@ -55,6 +55,7 @@ export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
   { match: '/tu-dien', image: '/images/og/og-co-che.jpg' },
   { match: '/huong-dan', image: '/images/og/og-co-che.jpg' },
   { match: '/lich-su', image: '/images/og/og-lich-su.jpg' },
+  { match: '/en/history', image: '/images/og/og-lich-su.jpg' },
   { match: '/giai-phau', image: '/images/og/og-lich-su.jpg' },
 ];
 

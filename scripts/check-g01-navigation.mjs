@@ -70,10 +70,11 @@ const logicCases = [
   ['slash cuối: "/thuong-hieu/" tra được cặp EN', () => englishPathFor('/thuong-hieu/') === '/en/brands/', () => String(englishPathFor('/thuong-hieu/'))],
   ['bài có cặp: /huong-dan/muc-chong-nuoc → /en/guides/water-resistance/', () => englishPathFor('/huong-dan/muc-chong-nuoc') === '/en/guides/water-resistance/', () => String(englishPathFor('/huong-dan/muc-chong-nuoc'))],
   ['chiều ngược: /en/guides/water-resistance/ → /huong-dan/muc-chong-nuoc', () => vietnamesePathFor('/en/guides/water-resistance/') === '/huong-dan/muc-chong-nuoc', () => String(vietnamesePathFor('/en/guides/water-resistance/'))],
-  ['trang chưa dịch: /lich-su không có URL EN giả', () => englishPathFor('/lich-su') === undefined, () => String(englishPathFor('/lich-su'))],
+  ['cặp lịch sử (G05-B): /lich-su → /en/history/', () => englishPathFor('/lich-su') === '/en/history/', () => String(englishPathFor('/lich-su'))],
+  ['cặp lịch sử chiều ngược: /en/history/ → /lich-su', () => vietnamesePathFor('/en/history/') === '/lich-su', () => String(vietnamesePathFor('/en/history/'))],
   ['localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch', () => localizedHref('/', 'en') === '/en/', () => String(localizedHref('/', 'en'))],
   ['localizedHref("/", "vi") = "/"', () => localizedHref('/', 'vi') === '/', () => String(localizedHref('/', 'vi'))],
-  ['localizedHref("/lich-su", "en") = undefined — không chế URL', () => localizedHref('/lich-su', 'en') === undefined, () => String(localizedHref('/lich-su', 'en'))],
+  ['localizedHref("/lich-su", "en") = "/en/history/" — cặp thật, không chế URL', () => localizedHref('/lich-su', 'en') === '/en/history/', () => String(localizedHref('/lich-su', 'en'))],
   ['isEnglishPath: "/en" và "/en/" là EN', () => isEnglishPath('/en') === true && isEnglishPath('/en/') === true, () => `${isEnglishPath('/en')}/${isEnglishPath('/en/')}`],
   ['isEnglishPath: "/en/brands/rolex/" là EN', () => isEnglishPath('/en/brands/rolex/') === true, () => String(isEnglishPath('/en/brands/rolex/'))],
   ['isEnglishPath: "/english" KHÔNG phải EN (ranh giới segment)', () => isEnglishPath('/english') === false, () => String(isEnglishPath('/english'))],
@@ -81,13 +82,15 @@ const logicCases = [
   ['isEnglishPath: "/thuong-hieu" không phải EN', () => isEnglishPath('/thuong-hieu') === false, () => String(isEnglishPath('/thuong-hieu'))],
   ['switcherTarget("/") → "/en/", translated=true (trang chủ là cặp thật)', () => { const s = switcherTarget('/'); return s.href === '/en/' && s.translated === true; }, () => JSON.stringify(switcherTarget('/'))],
   ['switcherTarget("/en/") → "/", translated=true', () => { const s = switcherTarget('/en/'); return s.href === '/' && s.translated === true; }, () => JSON.stringify(switcherTarget('/en/'))],
-  ['switcherTarget("/lich-su/") → "/en/", translated=false (chưa dịch)', () => { const s = switcherTarget('/lich-su/'); return s.href === '/en/' && s.translated === false; }, () => JSON.stringify(switcherTarget('/lich-su/'))],
+  ['switcherTarget("/lich-su/") → "/en/history/", translated=true (cặp thật G05-B)', () => { const s = switcherTarget('/lich-su/'); return s.href === '/en/history/' && s.translated === true; }, () => JSON.stringify(switcherTarget('/lich-su/'))],
+  ['switcherTarget("/en/history/") → "/lich-su", translated=true', () => { const s = switcherTarget('/en/history/'); return s.href === '/lich-su' && s.translated === true; }, () => JSON.stringify(switcherTarget('/en/history/'))],
   ['switcherTarget("/english") KHÔNG bị coi là khu vực EN', () => { const s = switcherTarget('/english'); return s.href === '/en/' && s.translated === false; }, () => JSON.stringify(switcherTarget('/english'))],
   ['switcherTarget("/co-che/bo-thoat") → bài EN tương ứng', () => switcherTarget('/co-che/bo-thoat').href === '/en/mechanisms/escapement/', () => JSON.stringify(switcherTarget('/co-che/bo-thoat'))],
   ['getAlternates("/"): đủ vi "/" + en "/en/" (hreflang hai chiều)', () => { const a = getAlternates('/'); return a.vi === '/' && a.en === '/en/'; }, () => JSON.stringify(getAlternates('/'))],
   ['getAlternates("/en/"): đủ vi "/" + en "/en/"', () => { const a = getAlternates('/en/'); return a.vi === '/' && a.en === '/en/'; }, () => JSON.stringify(getAlternates('/en/'))],
   ['getAlternates("/en") chuẩn hóa về "/en/" (không khai báo URL không tồn tại)', () => { const a = getAlternates('/en'); return a.vi === '/' && a.en === '/en/'; }, () => JSON.stringify(getAlternates('/en'))],
-  ['getAlternates("/lich-su"): en=undefined — không hreflang giả', () => getAlternates('/lich-su').en === undefined, () => JSON.stringify(getAlternates('/lich-su'))],
+  ['getAlternates("/lich-su"): đủ vi "/lich-su" + en "/en/history/" (cặp G05-B)', () => { const a = getAlternates('/lich-su'); return a.vi === '/lich-su' && a.en === '/en/history/'; }, () => JSON.stringify(getAlternates('/lich-su'))],
+  ['getAlternates("/en/history/"): đủ vi "/lich-su" + en "/en/history/"', () => { const a = getAlternates('/en/history/'); return a.vi === '/lich-su' && a.en === '/en/history/'; }, () => JSON.stringify(getAlternates('/en/history/'))],
 ];
 
 console.log('G01 — LỚP 1: LOGIC ÁNH XẠ NGÔN NGỮ (gọi thẳng src/i18n/contentRoutes.ts):');
@@ -224,13 +227,22 @@ if (has('/en/index.html')) {
     const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/">/.test(html);
     return vi && en && xd;
   }, 'cần 3 thẻ link alternate đúng URL');
-  // Explore EN: 3 link VI kèm nhãn hiển thị "Vietnamese only" — kiểm CẢ HAI nav
-  const exploreTargets = ['/lich-su', '/giai-phau', '/so-sanh'];
+  // Explore EN sau G05-B: /lich-su đã có cặp → menu EN trỏ /en/history/ không nhãn;
+  // 2 mục chưa dịch (/giai-phau, /so-sanh) vẫn hiện nhãn "Vietnamese only" — cả HAI nav
+  const anchorWithHref = (block, href) => {
+    if (block === null) return null;
+    const m = block.match(new RegExp(`<a\\b[^>]*href="${href}"[^>]*>[\\s\\S]*?</a>`));
+    return m ? m[0] : null;
+  };
+  const exploreViOnly = ['/giai-phau', '/so-sanh'];
   for (const [tenNav, block] of [['desktop', desktop], ['mobile', mobile]]) {
-    for (const target of exploreTargets) {
+    for (const target of exploreViOnly) {
       const re = new RegExp(`<a\\b[^>]*href="${target}"[^>]*>[\\s\\S]*?Vietnamese only[\\s\\S]*?</a>`);
       kiemDauRa(`Explore EN (${tenNav}): link "${target}" có nhãn hiển thị "Vietnamese only"`, block !== null && re.test(block), block === null ? 'không tìm thấy khối nav' : undefined);
     }
+    // Kiểm TỪNG thẻ anchor: mục lịch sử trỏ route EN và thẻ ĐÓ không mang nhãn VI-only
+    const hisA = anchorWithHref(block, '/en/history/');
+    kiemDauRa(`Explore EN (${tenNav}): mục lịch sử trỏ route EN "/en/history/" (thẻ không mang nhãn VI-only)`, hisA !== null && !hisA.includes('Vietnamese only'), hisA === null ? 'không tìm thấy thẻ /en/history/' : 'thẻ còn nhãn VI-only');
   }
   // Bộ chuyển ngôn ngữ trên trang chủ EN: có cặp → link thẳng về "/" không mở hộp
   const swCount = (html.match(/data-lang-switch=/g) ?? []).length;
@@ -248,18 +260,49 @@ if (has('/en/mechanisms/escapement/index.html')) {
   const mobile = mobileOf(html);
   kiemDauRa('Bài EN /en/mechanisms/escapement: Home EN KHÔNG active', countAnyCurrent(desktop, '/en/') === 0, `count=${countAnyCurrent(desktop, '/en/')}`);
   kiemDauRa('Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"', countCurrent(desktop, '/en/mechanisms/', 'location') === 1, `count=${countCurrent(desktop, '/en/mechanisms/', 'location')}`);
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 3 link VI có nhãn', ['/lich-su', '/giai-phau', '/so-sanh'].every((t) => desktop !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(desktop)), 'thiếu link hoặc nhãn');
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 3 link VI có nhãn', ['/lich-su', '/giai-phau', '/so-sanh'].every((t) => mobile !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(mobile)), 'thiếu link hoặc nhãn');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop vẫn đủ 2 link VI có nhãn (lịch sử đã có cặp EN)', ['/giai-phau', '/so-sanh'].every((t) => desktop !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(desktop)) && desktop !== null && /href="\/en\/history\/"/.test(desktop), 'thiếu link hoặc nhãn');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile vẫn đủ 2 link VI có nhãn (lịch sử đã có cặp EN)', ['/giai-phau', '/so-sanh'].every((t) => mobile !== null && new RegExp(`href="${t}"[\\s\\S]*?Vietnamese only`).test(mobile)) && mobile !== null && /href="\/en\/history\/"/.test(mobile), 'thiếu link hoặc nhãn');
 }
 
-// ---- Trang VI chưa dịch: switcher mở hộp thoại + không hreflang giả ----
+// ---- Cặp lịch sử G05-B: /lich-su đã có bản dịch — switcher link thẳng + hreflang thật ----
 if (has('/lich-su/index.html')) {
   const html = read('/lich-su/index.html');
   const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
-  kiemDauRa('Chưa dịch /lich-su: CẢ HAI bộ chuyển ngôn ngữ (header + mobile) đều đánh dấu mở hộp thoại', swCount === 2, `count=${swCount}`);
-  kiemDauRa('Chưa dịch /lich-su: hộp thoại #lang-panel có link "/en/" (trang chủ đích)', /id="lang-panel"[\s\S]*?id="lang-panel-go"\s+href="\/en\/"[\s\S]*?<\/div>\s*<\/header>/.test(html) || /id="lang-panel-go"\s+href="\/en\/"/.test(html), 'thiếu #lang-panel-go href="/en/"');
-  kiemDauRa('Chưa dịch /lich-su: KHÔNG có hreflang en giả', !/<link rel="alternate" hreflang="en"/.test(html), 'không được có hreflang en');
-  kiemDauRa('Chưa dịch /lich-su: có chú thích noscript giải thích đường chuyển ngôn ngữ', /<noscript>[\s\S]*?chưa có bản tiếng Anh[\s\S]*?<\/noscript>/.test(html), 'thiếu noscript');
+  kiemDauRa('Cặp lịch sử /lich-su: bộ chuyển ngôn ngữ là link thẳng (không data-lang-switch)', swCount === 0, `count=${swCount}`);
+  kiemDauRa('Cặp lịch sử /lich-su: switcher trỏ "/en/history/"', /href="\/en\/history\/"/.test(html), 'không tìm thấy link /en/history/');
+  kiemDauRa('Cặp lịch sử /lich-su: hreflang đủ vi "/lich-su/" + en "/en/history/" + x-default → "/lich-su/"', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/lich-su\/">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/history\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/lich-su\/">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  // Chỉ quét thẻ <noscript> — hộp thoại #lang-panel (hidden, không mở trên trang
+  // đã dịch) vẫn chứa chuỗi tiêu đề theo khuôn hiện hành, không phải noscript.
+  kiemDauRa('Cặp lịch sử /lich-su: không còn noscript "chưa có bản tiếng Anh"', !/<noscript>[\s\S]*?chưa có bản tiếng Anh[\s\S]*?<\/noscript>/.test(html), 'vẫn còn noscript trang chưa dịch');
+  kiemDauRa('Cặp lịch sử /lich-su: cả hai switcher có đánh dấu giữ hash (data-lang-hash-keep)', (html.match(/data-lang-hash-keep/g) ?? []).length >= 2, `count=${(html.match(/data-lang-hash-keep/g) ?? []).length}`);
+}
+
+// ---- Cặp lịch sử G05-B: trang EN mới /en/history/ ----
+if (has('/en/history/index.html')) {
+  const html = read('/en/history/index.html');
+  const desktop = desktopOf(html);
+  const mobile = mobileOf(html);
+  const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
+  kiemDauRa('Cặp lịch sử /en/history: bộ chuyển ngôn ngữ là link thẳng về "/lich-su"', swCount === 0 && /href="\/lich-su"/.test(html), `count=${swCount}`);
+  // Khuôn hreflang hiện hành: chiều VI phát vi theo pathname thực ("/lich-su/"),
+  // chiều EN phát vi theo giá trị bảng ("/lich-su" không slash) — không nhất quán
+  // dấu slash cuối là tiền tồn tại toàn site, không phải lỗi G05-B.
+  kiemDauRa('Cặp lịch sử /en/history: hreflang đủ vi "/lich-su" + en "/en/history/" + x-default → "/lich-su" (khuôn getAlternates hiện hành)', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/lich-su">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/history\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/lich-su">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  kiemDauRa('Cặp lịch sử /en/history: không noscript trang chưa dịch (tiếng Việt hoặc tiếng Anh)', !/<noscript>[\s\S]*?(chưa có bản tiếng Anh|not translated yet)[\s\S]*?<\/noscript>/.test(html), 'vẫn còn noscript trang chưa dịch');
+  kiemDauRa('Cặp lịch sử /en/history: mục History desktop aria-current="page" (1)', countCurrent(desktop, '/en/history/', 'page') === 1, `count=${countCurrent(desktop, '/en/history/', 'page')}`);
+  kiemDauRa('Cặp lịch sử /en/history: mục History mobile aria-current="page" (1)', countCurrent(mobile, '/en/history/', 'page') === 1, `count=${countCurrent(mobile, '/en/history/', 'page')}`);
+} else {
+  kiemDauRa('Cặp lịch sử /en/history (dist/en/history/index.html)', false, 'thiếu tệp');
 }
 
 // ---- 404: Home không active ----

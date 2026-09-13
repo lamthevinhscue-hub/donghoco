@@ -1,0 +1,72 @@
+{
+  "ketQua": "DAT",
+  "ca": [
+    {
+      "ca": "C0-bản sạch",
+      "kyVong": "exit 0",
+      "exit": 0,
+      "dat": true
+    },
+    {
+      "ca": "C1-thiếu dịch (xóa description_en mốc 0)",
+      "kyVong": "exit 1, bắt G5-2",
+      "exit": 1,
+      "bat": "G5-2",
+      "dat": true
+    },
+    {
+      "ca": "C2-lệch chương (range c5 = [21,26] chồng c6)",
+      "kyVong": "exit 1, bắt G5-5",
+      "exit": 1,
+      "bat": "G5-5",
+      "dat": true
+    },
+    {
+      "ca": "C3-nguồn VI hỏng (url http://)",
+      "kyVong": "exit 1, bắt G5-4",
+      "exit": 1,
+      "bat": "G5-4",
+      "dat": true
+    },
+    {
+      "ca": "C4-cặp EN giả (xóa cặp rolex)",
+      "kyVong": "exit 1, bắt G5-6",
+      "exit": 1,
+      "bat": "G5-6",
+      "dat": true
+    },
+    {
+      "ca": "C5-lệch timeLabel (xóa timeLabel_en mốc 27)",
+      "kyVong": "exit 1, bắt G5-3",
+      "exit": 1,
+      "bat": "G5-3",
+      "dat": true
+    },
+    {
+      "ca": "M6-ranh giới lệch duyệt (c2 [5,10], c3 [10,15] — vẫn phủ 28)",
+      "kyVong": "exit 1, bắt G5-5",
+      "exit": 1,
+      "bat": "G5-5",
+      "dat": true
+    },
+    {
+      "ca": "M7-đích EN giả (dist /en/not-a-real-page/, giữ số cặp)",
+      "kyVong": "exit 1 lớp dist, bắt G5-D4",
+      "exit": 1,
+      "bat": "G5-D4",
+      "dat": true
+    },
+    {
+      "ca": "M8-VI hiển thị \"2013–present\" (dist)",
+      "kyVong": "exit 1 lớp dist, bắt G5-D1",
+      "exit": 1,
+      "bat": "G5-D1",
+      "dat": true
+    },
+    {
+      "ca": "dọn sandbox",
+      "kyVong": "thư mục đã xóa",
+      "dat": true
+    }
+  ]
+}

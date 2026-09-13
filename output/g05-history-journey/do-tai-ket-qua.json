@@ -1,0 +1,104 @@
+[
+  {
+    "nhan": "TRUOC nen aba250c /lich-su/",
+    "path": "http://localhost:4398/lich-su/",
+    "tongReq": 26,
+    "tongByte": 869850,
+    "bodyNull": 0,
+    "nhom": {
+      "html": {
+        "n": 1,
+        "byte": 286237
+      },
+      "css": {
+        "n": 3,
+        "byte": 111247
+      },
+      "js": {
+        "n": 2,
+        "byte": 20172
+      },
+      "anh": {
+        "n": 20,
+        "byte": 452194
+      },
+      "khac": {
+        "n": 0,
+        "byte": 0
+      }
+    },
+    "loi": [
+      "http://localhost:4398/_vercel/insights/script.js → 404"
+    ],
+    "anhAI": [],
+    "clNull": 13
+  },
+  {
+    "nhan": "SAU G05-B v2 /lich-su/",
+    "path": "http://localhost:4399/lich-su/",
+    "tongReq": 26,
+    "tongByte": 883461,
+    "bodyNull": 0,
+    "nhom": {
+      "html": {
+        "n": 1,
+        "byte": 288889
+      },
+      "css": {
+        "n": 3,
+        "byte": 111591
+      },
+      "js": {
+        "n": 2,
+        "byte": 22013
+      },
+      "anh": {
+        "n": 20,
+        "byte": 460968
+      },
+      "khac": {
+        "n": 0,
+        "byte": 0
+      }
+    },
+    "loi": [
+      "http://localhost:4399/_vercel/insights/script.js → 404"
+    ],
+    "anhAI": [],
+    "clNull": 12
+  },
+  {
+    "nhan": "SAU G05-B /en/history/ (route mới — số tuyệt đối)",
+    "path": "http://localhost:4399/en/history/",
+    "tongReq": 17,
+    "tongByte": 678772,
+    "bodyNull": 0,
+    "nhom": {
+      "html": {
+        "n": 1,
+        "byte": 288296
+      },
+      "css": {
+        "n": 3,
+        "byte": 111591
+      },
+      "js": {
+        "n": 2,
+        "byte": 22013
+      },
+      "anh": {
+        "n": 11,
+        "byte": 256872
+      },
+      "khac": {
+        "n": 0,
+        "byte": 0
+      }
+    },
+    "loi": [
+      "http://localhost:4399/_vercel/insights/script.js → 404"
+    ],
+    "anhAI": [],
+    "clNull": 12
+  }
+]

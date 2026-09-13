@@ -37,7 +37,7 @@
     "@vercel/analytics": "^2.0.1",
     "astro": "^4.16.18",
     "astro-pagefind": "^2.0.1",
-    "three": "^0.185.1"
+    "three": "^0.186.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

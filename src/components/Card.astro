@@ -10,6 +10,7 @@
 // =============================================================================
 
 import { getLangFromUrl, t, localizedPath } from '../i18n/ui';
+import { localizedHref } from '../i18n/contentRoutes';
 
 interface Props {
   href: string;          // Đường dẫn gốc (chưa có tiền tố ngôn ngữ), ví dụ: "/thuong-hieu/rolex"
@@ -32,7 +33,11 @@ const tr = t(lang);
 const { href, title, excerpt, image, meta, badge, logo, tierLabel, tierAccent, featureYear, compareSlug, compact = false } = Astro.props;
 // Path tiếng Anh (/en/...) đã là địa chỉ cuối — chỉ cộng tiền tố cho path tiếng Việt
 const fullHref = href.startsWith('/en') ? href : localizedPath(href, lang);
-const compareHref = compareSlug ? localizedPath(`/so-sanh?m=${compareSlug}`, lang) : null;
+// Lối vào so sánh qua bảng cặp route (G06-B chặng 2): VI → /so-sanh?m=…,
+// EN → /en/compare/?m=…; localizedHref trả undefined khi cặp không tồn tại —
+// không tự ghép /en/so-sanh.
+const compareBase = localizedHref('/so-sanh', lang);
+const compareHref = compareSlug && compareBase ? `${compareBase}?m=${compareSlug}` : null;
 
 // Lớp màu cho nhãn phân hạng: nền nhạt + chữ đậm theo màu tier.
 // tierAccent là khóa (VD 'tier-haute'); hậu tố -light là biến thể sáng cho dark mode.

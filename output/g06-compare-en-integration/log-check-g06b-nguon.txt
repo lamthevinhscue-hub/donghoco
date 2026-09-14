@@ -1,0 +1,27 @@
+== G06-B chặng 2 — kiểm NGUỒN ==
+ĐẠT [S1] Hai wrapper dùng chung CompareExperience (lang vi/en)
+ĐẠT [S2] Component truyền dữ liệu + chuỗi + cặp bài + kho slug + lang vào script (define:vars)
+ĐẠT [S3] CỔNG-1: câu giới hạn đủ VI + EN trong component
+ĐẠT [S4] Nhãn hàng năm: VI "Mốc năm" (không "Năm ra mắt" trong nhãn), EN "Year"; hàng cuối EN "Model overview"
+ĐẠT [S5] Tank: yearNote Thiết kế/Designed + che ba thông số (daCheThongSo)
+ĐẠT [S6] Nhãn thiếu dữ liệu VI/EN nguyên văn trong component
+ĐẠT [S7] Câu Speedmaster/Tank (4.1) nguyên văn cả hai ngôn ngữ — chỉ trong component
+ĐẠT [S8-lim] Câu chốt công cụ KHÔNG lọt frontmatter bài gốc (kiểm GIỚI HẠN — phạm vi toàn bài đối chiếu Git khi bàn giao, không phải chứng minh nguyên trạng)
+ĐẠT [S9] Khối chia sẻ không emoji (không 🔗 trong component)
+ĐẠT [S10] Nút bỏ mang tên mẫu trong aria-label (nutBo + title)
+ĐẠT [S11] Vùng cuộn tự quản: .table-scroll-wrap + tabindex + role ngay trong markup; không gọi markOverflowTables
+ĐẠT [S12] Hàng bảng có biến dark (không bg-white thuần trong dark)
+ĐẠT [S13] Focus sau bỏ: focus tới nút kế/trước/select, không về BODY
+ĐẠT [S14] Chuyển ngôn ngữ: dùng data-lang-hash-keep + sessionStorage một lần, cấm dropped
+ĐẠT [S15] Khôi phục URL chuẩn hóa (lọc + loại trùng + giới hạn ba)
+ĐẠT [S16] Nhãn thể loại qua getIconicCategoryLabel; không bảng nhãn cạnh tranh
+ĐẠT [S17] contentRoutes có cặp /so-sanh ↔ /en/compare/; ui.ts OG hai route
+ĐẠT [S18] Không chuyển động nội dung: không rAF/setInterval/animation (RM-C2)
+ĐẠT [S19] No-JS: noscript ẩn điều khiển + giải thích tĩnh + liên kết bài thật
+ĐẠT [S20] Lối vào danh sách EN: EnCollectionIndex có prop footerLink; wrapper truyền /en/compare/ + "Compare iconic models"
+ĐẠT [S21] Cặp bài lấy từ ARTICLE_PAIRS qua hàm thuần dungCapBai đối chiếu kho xuất bản — KHÔNG chép cứng
+ĐẠT [S22] Vòng đời storage: apDung chỉ đổi href (không setItem); ghi chỉ trong trình nghe click switcher có chặn phím bổ trợ
+ĐẠT [S23] Đích đọc bản ghi: xóa ngay sau đọc + kiểm from/to hợp lệ theo cặp vi/en + slug nguồn trong kho + đối chiếu URL hiện tại
+ĐẠT [S24] Tự kiểm capBai chạy LÚC BUILD trên chính dungCapBai, có ca cô lập route EN sai khu (slug có trong kho) + đối chứng đúng khu; KHÔNG expose tự kiểm ra trang người đọc
+ĐẠT [S25] Link chia sẻ khởi tạo chuẩn hóa theo lựa chọn hiển thị
+KẾT LUẬN: ĐẠT — 25/25 ca

@@ -1,0 +1,14 @@
+== G06-B chặng 2 — kiểm DIST: dist ==
+ĐẠT [D1] Hai route tồn tại trong dist
+ĐẠT [D2] Sitemap có /so-sanh/ và /en/compare/
+ĐẠT [D3] Trang VI: h1 + câu giới hạn + chú thích gạch ngang hiển thị tĩnh
+ĐẠT [D4] Trang EN: 0 chuỗi UI VI lọt; đủ h1 EN + câu giới hạn EN + nhãn thiếu dữ liệu EN
+ĐẠT [D5] Dữ liệu hiển thị Tank: ba thông số rỗng trong blob (chống giá trị lọt dù nhãn còn) + yearNote đúng
+ĐẠT [D6] Dữ liệu Speedmaster trong blob là câu đã duyệt (cả hai ngôn ngữ)
+ĐẠT [D7] Không có link /en/so-sanh trong toàn dist
+ĐẠT [D8] Cặp route: switcher thẳng + hreflang + og-image (VI và EN)
+ĐẠT [D9] Vùng cuộn bảng: tabindex + role="region" + aria-label trong HTML tĩnh (cả hai trang)
+ĐẠT [D10] No-JS: noscript ẩn điều khiển + giải thích + liên kết bài thật tồn tại
+ĐẠT [D11] Menu EN: Explore có /en/compare/ không VI-only (desktop, đã lọc comment HTML)
+ĐẠT [D12] Câu mô tả trong bài iconic EN dẫn đúng /en/compare/?m= (không /en/so-sanh)
+KẾT LUẬN: ĐẠT — 12/12 ca

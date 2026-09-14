@@ -1,0 +1,6 @@
+MUTATION: 5/5 ca ĐẠT
+ĐẠT T0 bản sạch: checker ĐẠT trong sandbox (14/14 ca dist sau khi thêm D13/D14) — exit=0
+ĐẠT T1 chuỗi VI lọt EN → D4 bắt — exit=1, có D4=true
+ĐẠT T2 link /en/so-sanh → D7 bắt — exit=1, có D7=true
+ĐẠT T3a gỡ câu giới hạn → D3 bắt — exit=1, có D3=true
+ĐẠT T3b giá trị Tank lọt lại (nhãn vẫn còn) → D5 bắt — exit=1, có D5=true, nhãn vẫn còn=true

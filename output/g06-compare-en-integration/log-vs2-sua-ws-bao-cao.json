@@ -1,0 +1,161 @@
+[
+  {
+    "tep": "log-build-cuoi-v2.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v3.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v4.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v5.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v6.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v7.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi-v8.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-cuoi.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-nen-chang2.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-truoc-sandbox.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs1-final.txt",
+    "dongWsTruoc": 0,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs1-v2.txt",
+    "dongWsTruoc": 3,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs1.txt",
+    "dongWsTruoc": 3,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs2-final.txt",
+    "dongWsTruoc": 3,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs2.txt",
+    "dongWsTruoc": 3,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs3-v2.txt",
+    "dongWsTruoc": 3,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-build-vs3.txt",
+    "dongWsTruoc": 1,
+    "dongWsSau": 0,
+    "doiSoDong": false,
+    "doiNoiDungSauCat": false
+  },
+  {
+    "tep": "log-preview-c2.txt",
+    "eofTruoc": {
+      "ketThucNhieuNewline": true,
+      "khongNewline": false
+    },
+    "eofSau": {
+      "chuanMotNewline": true
+    }
+  },
+  {
+    "tep": "log-preview-vs1.txt",
+    "eofTruoc": {
+      "ketThucNhieuNewline": true,
+      "khongNewline": false
+    },
+    "eofSau": {
+      "chuanMotNewline": true
+    }
+  },
+  {
+    "tep": "log-preview-vs2.txt",
+    "eofTruoc": {
+      "ketThucNhieuNewline": true,
+      "khongNewline": false
+    },
+    "eofSau": {
+      "chuanMotNewline": true
+    }
+  },
+  {
+    "tep": "log-preview-vs3.txt",
+    "eofTruoc": {
+      "ketThucNhieuNewline": true,
+      "khongNewline": false
+    },
+    "eofSau": {
+      "chuanMotNewline": true
+    }
+  }
+]

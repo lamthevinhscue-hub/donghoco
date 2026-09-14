@@ -1,0 +1,3 @@
+MUTATION CAPBAI: 2/2 ca ĐẠT
+ĐẠT M-a slug EN trích từ route VI: build THẤT BẠI đúng lý do (tự kiểm capBai — ca khác slug) — exit=3221226505, đúng lý do=true
+ĐẠT M-b bỏ lọc kho đích: build THẤT BẠI đúng lý do (tự kiểm capBai — đích không xuất bản bị giữ) — exit=3221226505, đúng lý do=true

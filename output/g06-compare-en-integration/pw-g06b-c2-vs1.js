@@ -1,0 +1,197 @@
+// G06-B chặng 2 vòng sửa 1 — kiểm bổ sung:
+// A) Lối vào từ nội dung danh sách EN (footerLink): link trong phần nội dung
+//    (không tính menu), Tab tới được, hai theme.
+// B) Đối chiếu TỪNG Ô theo quyết định đã duyệt (VI + EN) trên DOM — EN tách hai
+//    lượt vì công cụ giới hạn tối đa ba mẫu.
+// C) Vòng đời storage mở rộng: không chuyển mà mở trực tiếp; chọn rồi bỏ hết;
+//    bản ghi giả/trùng/sai ngôn ngữ (đều phải bị xóa); refresh đọc lại;
+//    Ctrl-click không ghi; hai chiều chuyển thật.
+async (page) => {
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => K.push({ ca, dat: dat === true, chiTiet: String(chiTiet) });
+  const BASE = 'http://localhost:4321';
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+
+  // ===== A. Footer link trong danh sách EN =====
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(BASE + '/en/iconic-watches/', { waitUntil: 'load' });
+  const a1 = await page.evaluate(() => {
+    const bodyKhongHeader = (() => {
+      const clone = document.body.cloneNode(true);
+      const h = clone.querySelector('header');
+      if (h) h.remove();
+      return clone;
+    })();
+    const link = Array.from(bodyKhongHeader.querySelectorAll('a[href="/en/compare/"]'));
+    return {
+      soLinkNoiDung: link.length,
+      nhan: link[0]?.textContent?.trim() ?? '',
+      trongKhoiNoiDung: Boolean(link[0] && link[0].closest('section')),
+    };
+  });
+  ghi('A1 danh sách EN: link /en/compare/ trong NỘI DUNG (ngoài header) + nhãn "Compare iconic models"', a1.soLinkNoiDung >= 1 && a1.nhan.startsWith('Compare iconic models') && a1.trongKhoiNoiDung, JSON.stringify(a1));
+  await page.evaluate(() => { document.body.focus(); });
+  let gapFooter = false;
+  for (let i = 0; i < 120; i++) {
+    await page.keyboard.press('Tab');
+    if (await page.evaluate(() => document.activeElement?.getAttribute('href') === '/en/compare/')) { gapFooter = true; break; }
+  }
+  ghi('A2 footer link vào được bằng Tab thật', gapFooter, 'tabVao=' + gapFooter);
+  for (const scheme of ['light', 'dark']) {
+    await page.emulateMedia({ colorScheme: scheme });
+    await page.goto(BASE + '/en/iconic-watches/', { waitUntil: 'load' });
+    await page.waitForTimeout(100);
+    const a3 = await page.evaluate(() => {
+      const link = Array.from(document.querySelectorAll('main a[href="/en/compare/"]'))[0];
+      if (!link) return null;
+      const nen = (() => { let c = link; while (c && c !== document.documentElement) { const b = getComputedStyle(c).backgroundColor; if (b && !b.startsWith('rgba(0, 0, 0, 0)')) return b; c = c.parentElement; } return 'rgb(255,255,255)'; })();
+      const mau = getComputedStyle(link).color;
+      return { nen, mau };
+    });
+    ghi('A3 footer link theme ' + scheme + ': có màu/link rõ', a3 !== null, JSON.stringify(a3));
+  }
+  await page.emulateMedia({ colorScheme: 'light' });
+
+  // ===== B. Đối chiếu TỪNG Ô theo quyết định duyệt =====
+  // EN lượt 1: 3 mẫu (Submariner, Speedmaster, Tank)
+  await page.goto(BASE + '/en/compare/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const kyVongEn1 = [
+    ['Year', ['1953', '1957', '1917 — Designed']],
+    ['Brand', ['Rolex', 'Omega', 'Cartier']],
+    ['Category', ['Diver', 'Chronograph', 'Dress']],
+    ['Movement', ['Calibre 3230 / 3235', 'Calibre 3861', 'Not enough data to compare']],
+    ['Power reserve', ['70 hours', '50 hours', 'Not enough data to compare']],
+    ['Water resistance', ['300m', '50m', 'Not enough data to compare']],
+    ['Model overview', [
+      'The dive watch that defined an entire category — and became a symbol far beyond the underwater world.',
+      "The chronograph associated with NASA's Apollo programme — one of the watches that went to the Moon.",
+      'A rectangular watch inspired by tanks of World War I.',
+    ]],
+  ];
+  const bEn1 = await page.evaluate(() => ({
+    nhan: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => tr.cells[0]?.textContent),
+    on: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => Array.from(tr.cells).slice(1).map((c) => c.textContent.trim())),
+  }));
+  const chiTietEn1 = [];
+  kyVongEn1.forEach(([ten, giaTri], hang) => {
+    const thucTe = bEn1.on[hang] ?? [];
+    if (JSON.stringify(thucTe) !== JSON.stringify(giaTri)) chiTietEn1.push(ten + ': [' + thucTe.join(' | ') + ']');
+  });
+  ghi('B-EN lượt 1 đối chiếu từng ô 3 mẫu × 7 hàng', chiTietEn1.length === 0 && bEn1.nhan.length === 7, chiTietEn1.join(' ; ') || 'khớp toàn bộ');
+
+  // EN lượt 2: GMT + Submariner (GMT 3 ô "—") — kỳ vọng đủ 7 hàng
+  await page.goto(BASE + '/en/compare/?m=rolex-gmt-master,rolex-submariner', { waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const kyVongEn2 = [
+    ['Year', ['1955', '1953']],
+    ['Brand', ['Rolex', 'Rolex']],
+    ['Category', ['Pilot', 'Diver']],
+    ['Movement', ['—', 'Calibre 3230 / 3235']],
+    ['Power reserve', ['—', '70 hours']],
+    ['Water resistance', ['—', '300m']],
+    ['Model overview', [
+      'Created for civil aviation, reading two time zones at once with a GMT hand and a two-colour 24-hour bezel. Its successor, the GMT-Master II (1982), added an independently adjustable local hour hand.',
+      'The dive watch that defined an entire category — and became a symbol far beyond the underwater world.',
+    ]],
+  ];
+  const bEn2 = await page.evaluate(() => ({
+    nhan: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => tr.cells[0]?.textContent),
+    on: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => Array.from(tr.cells).slice(1).map((c) => c.textContent.trim())),
+  }));
+  const chiTietEn2 = [];
+  kyVongEn2.forEach(([ten, giaTri], hang) => {
+    const thucTe = bEn2.on[hang] ?? [];
+    if (JSON.stringify(thucTe) !== JSON.stringify(giaTri)) chiTietEn2.push(ten + ': [' + thucTe.join(' | ') + ']');
+  });
+  ghi('B-EN lượt 2: GMT các ô trống đúng "—", Submariner đúng thông số', chiTietEn2.length === 0, chiTietEn2.join(' ; ') || 'khớp toàn bộ');
+
+  // VI: 3 mẫu (GMT trống "—", Speedmaster câu VI)
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,omega-speedmaster,rolex-gmt-master', { waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const kyVongVi = [
+    ['Mốc năm', ['1953', '1957', '1955']],
+    ['Thương hiệu', ['Rolex', 'Omega', 'Rolex']],
+    ['Thể loại', ['Lặn', 'Chronograph', 'Phi công']],
+    ['Bộ máy', ['Calibre 3230 / 3235', 'Calibre 3861', '—']],
+    ['Trữ cót', ['70 giờ', '50 giờ', '—']],
+    ['Chống nước', ['300m', '50m', '—']],
+    ['Câu chuyện định danh', [
+      'Mẫu đồng hồ lặn đã định hình cả một thể loại — và trở thành biểu tượng vượt ra khỏi giới hạn dưới nước.',
+      'Chronograph gắn với chương trình Apollo của NASA — một trong những chiếc đồng hồ đã lên Mặt Trăng.',
+      'Sinh ra cho phi công hàng không dân dụng, dùng kim 24 giờ và vành xoay hai màu để đọc hai múi giờ cùng lúc. Người kế nhiệm GMT-Master II (1982) bổ sung kim giờ chỉnh độc lập.',
+    ]],
+  ];
+  const bVi = await page.evaluate(() => ({
+    nhan: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => tr.cells[0]?.textContent),
+    on: Array.from(document.querySelectorAll('#compare-body tr')).map((tr) => Array.from(tr.cells).slice(1).map((c) => c.textContent.trim())),
+  }));
+  const chiTietVi = [];
+  kyVongVi.forEach(([ten, giaTri], hang) => {
+    const thucTe = bVi.on[hang] ?? [];
+    if (JSON.stringify(thucTe) !== JSON.stringify(giaTri)) chiTietVi.push(ten + ': [' + thucTe.join(' | ') + ']');
+  });
+  ghi('B-VI đối chiếu từng ô 3 mẫu × 7 hàng theo quyết định duyệt', chiTietVi.length === 0, chiTietVi.join(' ; ') || 'khớp toàn bộ');
+
+  // ===== C. Vòng đời storage mở rộng =====
+  // C1: chọn mẫu NHƯNG KHÔNG chuyển → mở trực tiếp trang EN: không thông báo
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  const c1a = await page.evaluate(() => sessionStorage.getItem('compare-lang-switch'));
+  ghi('C1a chỉ nạp trang (không bấm switcher): KHÔNG có bản ghi storage', c1a === null, 'storage=' + c1a);
+  await page.goto(BASE + '/en/compare/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const c1b = await page.evaluate(() => ({ noteAn: document.getElementById('compare-missing-note')?.classList.contains('hidden'), cot: document.querySelectorAll('#compare-header th').length }));
+  ghi('C1b vào trực tiếp sau khi "chọn nhưng không chuyển": không thông báo mất', c1b.noteAn === true && c1b.cot === 3, JSON.stringify(c1b));
+
+  // C2: chọn rồi bỏ hết → switcher không ghi (selected rỗng)
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner', { waitUntil: 'load' });
+  await page.selectOption('#model-select', 'omega-speedmaster');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.waitForTimeout(60);
+  await page.evaluate(() => {
+    document.querySelectorAll('#compare-header [data-remove]').forEach((b) => b.click());
+  });
+  await page.waitForTimeout(60);
+  const c2 = await page.evaluate(() => ({ storage: sessionStorage.getItem('compare-lang-switch'), swHref: Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href') }));
+  ghi('C2 chọn rồi bỏ hết: không ghi bản ghi (selected rỗng), href đích không query', c2.storage === null && c2.swHref === '/en/compare/', JSON.stringify(c2));
+
+  // C3: bản ghi giả (slug trùng lặp + không tồn tại) → bị bỏ qua VÀ xóa
+  await page.goto(BASE + '/en/compare/', { waitUntil: 'load' });
+  await page.evaluate(() => {
+    sessionStorage.setItem('compare-lang-switch', JSON.stringify({ slugs: ['slug-khong-ton-tai', 'slug-khong-ton-tai'], from: 'vi', to: 'en', target: '/en/compare/' }));
+  });
+  await page.reload({ waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const c3 = await page.evaluate(() => ({ note: document.getElementById('compare-missing-note')?.textContent ?? '', storage: sessionStorage.getItem('compare-lang-switch') }));
+  ghi('C3 bản ghi slug giả TRÙNG: KHÔNG báo mất 2 mẫu; bản ghi bị xóa', c3.note === '' && c3.storage === null, JSON.stringify(c3));
+
+  // C4: from sai ngôn ngữ → bỏ qua + xóa
+  await page.evaluate(() => {
+    sessionStorage.setItem('compare-lang-switch', JSON.stringify({ slugs: ['rolex-submariner'], from: 'invalid', to: 'en', target: '/en/compare/' }));
+  });
+  await page.reload({ waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const c4 = await page.evaluate(() => ({ note: document.getElementById('compare-missing-note')?.textContent ?? '', storage: sessionStorage.getItem('compare-lang-switch') }));
+  ghi('C4 from="invalid": bỏ qua (không báo mất) + xóa', c4.note === '' && c4.storage === null, JSON.stringify(c4));
+
+  // C5: refresh đọc lại — bản ghi đã xóa nên không thông báo lần hai
+  await page.reload({ waitUntil: 'load' });
+  await page.waitForTimeout(100);
+  const c5 = await page.evaluate(() => document.getElementById('compare-missing-note')?.textContent ?? '');
+  ghi('C5 refresh đọc lại: không còn thông báo (đã xóa sau đọc lần trước)', c5 === '', 'note="' + c5 + '"');
+
+  // C6: Ctrl-click switcher → KHÔNG ghi bản ghi (mở tab mới)
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  const sw = page.locator('header a[data-lang-hash-keep]').first();
+  await sw.click({ modifiers: ['Control'] });
+  await page.waitForTimeout(80);
+  const c6 = await page.evaluate(() => sessionStorage.getItem('compare-lang-switch'));
+  ghi('C6 Ctrl-click switcher: không ghi bản ghi', c6 === null, 'storage=' + c6);
+
+  // C7: hai chiều chuyển thật — đọc lại cuối phiên
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  const c7 = await page.evaluate(() => Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href'));
+  ghi('C7 đọc lại cuối phiên: switcher VI→EN vẫn giữ 2 mẫu', c7 === '/en/compare/?m=rolex-submariner,omega-speedmaster', 'href=' + c7);
+
+  return { tong: K.length, dat: K.filter((x) => x.dat).length, khongDat: K.filter((x) => !x.dat).length, ketQua: K };
+}

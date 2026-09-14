@@ -1,0 +1,27 @@
+[
+  {
+    "ca": "T0 bản sạch: checker ĐẠT trong sandbox (14/14 ca dist sau khi thêm D13/D14)",
+    "dat": true,
+    "chiTiet": "exit=0"
+  },
+  {
+    "ca": "T1 chuỗi VI lọt EN → D4 bắt",
+    "dat": true,
+    "chiTiet": "exit=1, có D4=true"
+  },
+  {
+    "ca": "T2 link /en/so-sanh → D7 bắt",
+    "dat": true,
+    "chiTiet": "exit=1, có D7=true"
+  },
+  {
+    "ca": "T3a gỡ câu giới hạn → D3 bắt",
+    "dat": true,
+    "chiTiet": "exit=1, có D3=true"
+  },
+  {
+    "ca": "T3b giá trị Tank lọt lại (nhãn vẫn còn) → D5 bắt",
+    "dat": true,
+    "chiTiet": "exit=1, có D5=true, nhãn vẫn còn=true"
+  }
+]

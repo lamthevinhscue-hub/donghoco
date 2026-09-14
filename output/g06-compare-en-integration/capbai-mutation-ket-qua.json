@@ -1,0 +1,12 @@
+[
+  {
+    "ca": "M-a slug EN trích từ route VI: build THẤT BẠI đúng lý do (tự kiểm capBai — ca khác slug)",
+    "dat": true,
+    "chiTiet": "exit=3221226505, đúng lý do=true"
+  },
+  {
+    "ca": "M-b bỏ lọc kho đích: build THẤT BẠI đúng lý do (tự kiểm capBai — đích không xuất bản bị giữ)",
+    "dat": true,
+    "chiTiet": "exit=3221226505, đúng lý do=true"
+  }
+]

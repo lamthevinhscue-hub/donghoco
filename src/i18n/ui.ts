@@ -59,6 +59,9 @@ export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
   { match: '/giai-phau', image: '/images/og/og-lich-su.jpg' },
   // G06-A: bản EN giải phẫu dùng chung ảnh OG hiện có (quyết TXN-20260913-23 — không tạo ảnh mới)
   { match: '/en/anatomy', image: '/images/og/og-lich-su.jpg' },
+  // G06-B chặng 2: cặp công cụ so sánh dùng og-mau-iconic.jpg hiện có (duyệt TXN-20260914-10)
+  { match: '/so-sanh', image: '/images/og/og-mau-iconic.jpg' },
+  { match: '/en/compare', image: '/images/og/og-mau-iconic.jpg' },
 ];
 
 export const OG_DEFAULT_IMAGE = '/og-default.jpg';

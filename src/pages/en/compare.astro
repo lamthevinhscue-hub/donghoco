@@ -1,0 +1,19 @@
+---
+// =============================================================================
+// TRANG /en/compare — Compare tool (wrapper tiếng Anh)
+// =============================================================================
+// Khuôn chung ở src/components/compare/CompareExperience.astro (vi/en) —
+// G06-B chặng 2. Cặp route /so-sanh ↔ /en/compare khai báo trong
+// src/i18n/contentRoutes.ts (STATIC_PAIRS).
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CompareExperience from '../../components/compare/CompareExperience.astro';
+---
+
+<BaseLayout
+  title="Compare iconic models"
+  description="Pick two to three iconic watches and compare year, brand, category, movement, power reserve and water resistance."
+>
+  <CompareExperience lang="en" />
+</BaseLayout>

@@ -1,0 +1,633 @@
+---
+// =============================================================================
+// COMPARE EXPERIENCE — khuôn chung công cụ so sánh mẫu iconic (vi/en)
+// =============================================================================
+// Wrappers: vi = /so-sanh (src/pages/so-sanh.astro), en = /en/compare
+// (src/pages/en/compare.astro). Dữ liệu lấy từ frontmatter collection
+// mauIconic theo ngôn ngữ; không nhập tay. Trạng thái lựa chọn lưu trên URL
+// (?m=slug1,slug2,slug3) để chia sẻ.
+//
+// Quyết định nội dung đã duyệt (hồ sơ G06-B chặng 1, docs/nghiem-thu/
+// G06-B-kiem-ke-so-sanh-en-2026-09-14.md):
+//   - Nhãn hàng năm "Mốc năm"/"Year"; Tank 1917 kèm "Thiết kế"/"Designed"
+//     (mốc thiết kế, không chứng nhận năm thương mại hóa — N10).
+//   - Ba ô Tank bộ máy/trữ cót/chống nước hiển thị "Chưa đủ dữ liệu để đối
+//     chiếu"/"Not enough data to compare" (dữ liệu gốc giữ nguyên, chỉ che ở
+//     công cụ). GMT trống thật hiển thị "—" kèm chú thích.
+//   - Câu mô tả Speedmaster/Tank áp dụng CHỈ trong công cụ (mục 4.1), không
+//     sửa excerpt/frontmatter bài gốc.
+//   - Nhãn thể loại qua getIconicCategoryLabel — không bảng dịch cạnh tranh.
+//   - Khối chia sẻ không emoji; nút bỏ mang tên mẫu trong aria-label.
+//
+// Vùng cuộn bảng do component TỰ QUẢN: bọc sẵn .table-scroll-wrap với
+// tabindex/role/aria-label ngay từ render — markOverflowTables của BaseLayout
+// bỏ qua bảng đã có bọc (table.closest('.table-scroll-wrap')), nên không bao
+// giờ bị bọc lồng và cả hai luồng (nạp ?m= / thêm mẫu sau tải) đều có vùng
+// cuộn bàn phím như nhau. KHÔNG gọi hàm riêng của BaseLayout.
+//
+// Chuyển ngôn ngữ giữ lựa chọn: script scoped theo pathname /so-sanh ↔
+// /en/compare, nối qua attribute data-lang-hash-keep có sẵn của Header (khuôn
+// G05-B). Ánh xạ qua bảng cặp bài thật; số mẫu không chuyển được được tính
+// LẠI tại trang đích từ sessionStorage một lần — không dùng query để mang số
+// mẫu đã bỏ, không tin số nhập tay, xóa bản ghi sau đọc.
+// =============================================================================
+
+import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
+import { ARTICLE_PAIRS } from '../../i18n/contentRoutes';
+import { getIconicCategoryLabel, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// Câu mô tả đã duyệt — áp dụng CHỈ trong công cụ, không đụng frontmatter bài gốc
+const moTaTrongCongCu: Record<string, { vi: string; en: string }> = {
+  'omega-speedmaster': {
+    vi: 'Chronograph gắn với chương trình Apollo của NASA — một trong những chiếc đồng hồ đã lên Mặt Trăng.',
+    en: "The chronograph associated with NASA's Apollo programme — one of the watches that went to the Moon.",
+  },
+  'cartier-tank': {
+    vi: 'Mẫu đồng hồ chữ nhật lấy cảm hứng từ xe tăng trong Thế chiến thứ nhất.',
+    en: 'A rectangular watch inspired by tanks of World War I.',
+  },
+};
+
+const entries = (await getEntriesByLang('mauIconic', lang)).filter(isEntryOf('mauIconic'));
+
+const models = entries.map((e) => {
+  const slug = getSlug(e);
+  const d = e.data;
+  // Tank: che ba thông số chưa đủ căn cứ ở tầng hiển thị công cụ (hồ sơ 2.6);
+  // GMT và các mẫu thật sự trống hiển thị "—" — hai trạng thái khác nhau.
+  const laTank = slug === 'cartier-tank';
+  return {
+    slug,
+    title: d.title,
+    excerpt: moTaTrongCongCu[slug]?.[lang] ?? d.excerpt,
+    year: d.year ? String(d.year) : '',
+    yearNote: laTank ? (lang === 'vi' ? 'Thiết kế' : 'Designed') : '',
+    brand: d.brand ?? '',
+    categoryLabel: d.category ? getIconicCategoryLabel(d.category, lang) : '',
+    movement: laTank ? '' : (d.movement ?? ''),
+    power_reserve: laTank ? '' : (d.power_reserve ?? ''),
+    water_resistance: laTank ? '' : (d.water_resistance ?? ''),
+    daCheThongSo: laTank,
+  };
+});
+
+// Cặp bài VI/EN lấy từ ARTICLE_PAIRS hiện hành (contentRoutes) — KHÔNG chép
+// cứng; trích slug riêng từng phía từ route, đối chiếu bài đã xuất bản ở cả
+// hai ngôn ngữ (bài draft đã bị getEntriesByLang loại theo mức PROD ở phía
+// tương ứng). Dùng chung cho: chuyển ngôn ngữ, kiểm nguồn/đích của thông báo,
+// link bài no-JS. Không tạo nguồn dữ liệu cặp thứ hai.
+const khoXuatBan = {
+  vi: new Set((await getEntriesByLang('mauIconic', 'vi')).filter(isEntryOf('mauIconic')).map((e) => getSlug(e))),
+  en: new Set((await getEntriesByLang('mauIconic', 'en')).filter(isEntryOf('mauIconic')).map((e) => getSlug(e))),
+};
+
+// Hàm thuần dựng cặp — tách để tự kiểm build-time chạy ĐÚNG logic sản phẩm
+// trên dữ liệu giả (khác slug, đích không xuất bản, route EN sai khu).
+// Kiểm ĐÚNG KHU VỰC của cả hai route trước khi trích slug: VI thuộc
+// /mau-iconic/, EN thuộc /en/iconic-watches/.
+function dungCapBai(pairs: { vi: string; en: string }[], khoVi: Set<string>, khoEn: Set<string>) {
+  const trich = (duong: string): string => duong.split('/').filter(Boolean).pop() ?? '';
+  return pairs
+    .filter((p) => p.vi.startsWith('/mau-iconic/') && p.en.startsWith('/en/iconic-watches/'))
+    .map((p) => ({ vi: trich(p.vi), en: trich(p.en) }))
+    .filter((c) => khoVi.has(c.vi) && khoEn.has(c.en));
+}
+
+const capBai = dungCapBai(ARTICLE_PAIRS, khoXuatBan.vi, khoXuatBan.en);
+
+// TỰ KIỂM BUILD-TIME trên chính dungCapBai (chạy mỗi lần build — sai thì
+// build thất bại tại đây). Không đưa dữ liệu giả này vào trang người đọc.
+{
+  // 'khong-cap' CÓ trong cả hai kho — dùng để cô lập điều kiện KHU VỰC route
+  const viGia = new Set(['vi-khac', 'rolex-submariner', 'chua-xuat-ban', 'khong-cap']);
+  const enGia = new Set(['en-khac', 'rolex-submariner', 'khong-cap']);
+  const ca = [
+    [
+      'khác slug: trích đúng slug riêng từng phía từ route',
+      dungCapBai([{ vi: '/mau-iconic/vi-khac', en: '/en/iconic-watches/en-khac/' }], viGia, enGia).some((c) => c.vi === 'vi-khac' && c.en === 'en-khac'),
+    ],
+    [
+      'đích EN không xuất bản: bị loại',
+      dungCapBai([{ vi: '/mau-iconic/chua-xuat-ban', en: '/en/iconic-watches/chua-xuat-ban/' }], viGia, enGia).length === 0,
+    ],
+    [
+      // slug CÓ trong cả hai kho nhưng route EN SAI KHU → phải bị loại
+      'route EN sai khu (slug có trong kho): bị loại',
+      dungCapBai([{ vi: '/mau-iconic/khong-cap', en: '/en/khu-khac/khong-cap/' }], viGia, enGia).length === 0,
+    ],
+    [
+      // đối chứng: cùng slug 'khong-cap', ĐÚNG khu → được nhận
+      'đối chứng cùng slug đúng khu: được nhận',
+      dungCapBai([{ vi: '/mau-iconic/khong-cap', en: '/en/iconic-watches/khong-cap/' }], viGia, enGia).some((c) => c.vi === 'khong-cap' && c.en === 'khong-cap'),
+    ],
+    [
+      'chuẩn hóa: không phát sinh cặp ngoài kho',
+      dungCapBai(
+        [
+          { vi: '/mau-iconic/vi-khac', en: '/en/iconic-watches/en-khac/' },
+          { vi: '/mau-iconic/rolex-submariner', en: '/en/iconic-watches/rolex-submariner/' },
+        ],
+        viGia,
+        enGia
+      ).every((c) => viGia.has(c.vi) && enGia.has(c.en)),
+    ],
+  ];
+  const ketLuanSai = ca.filter(([, dung]) => !dung);
+  if (ketLuanSai.length > 0) throw new Error('tự kiểm capBai thất bại: ' + JSON.stringify(ketLuanSai));
+}
+
+const chuoiUi =
+  lang === 'en'
+    ? {
+        h1: 'Compare iconic models',
+        moTa: 'Pick two to three iconic watches to compare their details and stories.',
+        gioiHan: "Years and specifications are drawn from each model's article and may refer to different periods or variants. Do not treat values in one column as the specification of a single reference unless explicitly identified.",
+        phamViEn: 'Only models with published English articles appear here.',
+        chonLabel: 'Add a model to compare:',
+        placeholder: '— Pick a model —',
+        nutThem: 'Add',
+        huongDan: "Up to 3 models. Use the Remove button beside a model's name to remove it.",
+        tbRong: 'No models selected yet. Add at least two to start comparing.',
+        daChon: 'Selected',
+        moiThem: 'Add at least one more model to start comparing. ↑',
+        tieuChi: 'Criteria',
+        hang: ['Year', 'Brand', 'Category', 'Movement', 'Power reserve', 'Water resistance', 'Model overview'],
+        nutBo: 'Remove',
+        chiaSe: 'Share link:',
+        chuaDuLieu: 'Not enough data to compare',
+        gachNgang: '—',
+        chuThichGachNgang: "— = not stated in the model's article; it does not mean zero or that the feature is absent.",
+        vungCuonAria: 'Data table — use the left and right arrow keys to see more columns',
+        goiYCuon: '← Scroll sideways to see the full table →',
+        noJsTieuDe: 'The comparison tool needs JavaScript.',
+        noJsMoTa: 'Enable JavaScript to use the comparison tool. You can still read the model profiles:',
+        noJsDanhSach: 'Browse all iconic watches',
+        thongBaoKhongChuyenMot: '1 model without an English article was not carried over.',
+        thongBaoKhongChuyenNhieu: 'models without an English article were not carried over.',
+      }
+    : {
+        h1: 'So sánh mẫu iconic',
+        moTa: 'Chọn 2–3 mẫu đồng hồ để đối chiếu thông số và câu chuyện. Dữ liệu lấy trực tiếp từ hồ sơ từng mẫu.',
+        gioiHan: 'Năm và thông số được trích từ hồ sơ từng mẫu; chúng có thể thuộc các giai đoạn hoặc phiên bản khác nhau. Không coi các giá trị trong cùng cột là cấu hình của một reference cụ thể nếu chưa được ghi rõ.',
+        phamViEn: '',
+        chonLabel: 'Thêm mẫu để so sánh:',
+        placeholder: '— Chọn một mẫu —',
+        nutThem: 'Thêm',
+        huongDan: 'Tối đa 3 mẫu. Dùng nút Bỏ bên cạnh tên mẫu để bỏ khỏi bảng.',
+        tbRong: 'Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.',
+        daChon: 'Đã chọn',
+        moiThem: 'Thêm ít nhất 1 mẫu nữa để bắt đầu so sánh. ↑',
+        tieuChi: 'Tiêu chí',
+        hang: ['Mốc năm', 'Thương hiệu', 'Thể loại', 'Bộ máy', 'Trữ cót', 'Chống nước', 'Câu chuyện định danh'],
+        nutBo: 'Bỏ',
+        chiaSe: 'Link chia sẻ:',
+        chuaDuLieu: 'Chưa đủ dữ liệu để đối chiếu',
+        gachNgang: '—',
+        chuThichGachNgang: '— = bài chưa ghi thông số này; không phải 0 và không có nghĩa là tính năng không tồn tại.',
+        vungCuonAria: 'Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột',
+        goiYCuon: '← Kéo ngang để xem hết bảng →',
+        noJsTieuDe: 'Công cụ so sánh cần JavaScript.',
+        noJsMoTa: 'Bật JavaScript để dùng công cụ so sánh. Bạn vẫn có thể đọc hồ sơ từng mẫu:',
+        noJsDanhSach: 'Xem tất cả mẫu iconic',
+        thongBaoKhongChuyenMot: 'mẫu chưa có bản tiếng Việt nên không chuyển kèm.',
+      };
+
+// Link danh sách + các bài có cặp cho khối no-JS (liên kết bài thật, đúng ngôn ngữ)
+const linkDanhSach = lang === 'vi' ? '/mau-iconic' : '/en/iconic-watches/';
+const linkBai = capBai.map((c) => (lang === 'vi' ? `/mau-iconic/${c.vi}/` : `/en/iconic-watches/${c.en}/`));
+
+// Kho slug xuất bản của TỪNG ngôn ngữ — blob cho script kiểm slug nguồn của
+// bản ghi storage (slug nguồn phải tồn tại trong kho bài xuất bản của ngôn ngữ nguồn)
+const khoSlug = { vi: [...khoXuatBan.vi], en: [...khoXuatBan.en] };
+---
+
+<section class="mx-auto max-w-6xl px-4 py-12" data-compare-root>
+  <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+  <h1 class="font-serif text-3xl text-navy dark:text-dark-text sm:text-4xl">{chuoiUi.h1}</h1>
+  <p class="mt-3 max-w-2xl text-ink-soft dark:text-dark-text-soft">
+    {chuoiUi.moTa} {chuoiUi.gioiHan}
+  </p>
+  {chuoiUi.phamViEn && (
+    <p class="mt-2 max-w-2xl text-sm text-ink-soft/90 dark:text-dark-text-soft/70">{chuoiUi.phamViEn}</p>
+  )}
+
+  <p id="compare-missing-note" class="mt-4 hidden rounded-lg border border-brass/40 bg-brass/5 px-4 py-3 text-sm text-navy dark:border-dark-brass/40 dark:bg-dark-brass/5 dark:text-dark-text"></p>
+
+  <div id="compare-controls" class="mt-8">
+    <label for="model-select" class="mb-2 block text-sm font-medium text-navy dark:text-dark-text">{chuoiUi.chonLabel}</label>
+    <div class="flex flex-wrap gap-3">
+      <select
+        id="model-select"
+        class="min-w-0 flex-1 rounded-lg border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2.5 text-sm text-navy dark:text-dark-text focus:border-brass focus:outline-none"
+      >
+        <option value="">{chuoiUi.placeholder}</option>
+        {models.map((m) => (
+          <option value={m.slug}>{m.title}</option>
+        ))}
+      </select>
+      <button
+        type="button"
+        id="add-model"
+        class="shrink-0 rounded-lg bg-navy px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-brass"
+      >
+        {chuoiUi.nutThem}
+      </button>
+    </div>
+    <p class="mt-2 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">{chuoiUi.huongDan}</p>
+  </div>
+
+  <div id="compare-empty" class="mt-12 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 py-12 text-center">
+    <div id="compare-empty-content"></div>
+  </div>
+
+  <div
+    id="compare-table-wrap"
+    class="table-scroll-wrap overflow-x-auto mt-8 rounded-lg"
+    tabindex="0"
+    role="region"
+    aria-label={chuoiUi.vungCuonAria}
+  >
+    <table class="w-full min-w-[640px] border-collapse text-sm">
+      <thead>
+        <tr id="compare-header"></tr>
+      </thead>
+      <tbody id="compare-body"></tbody>
+    </table>
+  </div>
+  <p id="compare-scroll-hint" class="mt-2 hidden text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70" aria-hidden="true">{chuoiUi.goiYCuon}</p>
+
+  <p class="mt-3 text-xs text-ink-soft/90 dark:text-dark-text-soft/70">{chuoiUi.chuThichGachNgang}</p>
+
+  <div id="share-link-wrap" class="mt-6 hidden">
+    <p class="text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
+      {chuoiUi.chiaSe} <span id="share-link" class="font-mono text-brass"></span>
+    </p>
+  </div>
+
+  <noscript>
+    <style>
+      #compare-controls,
+      #compare-empty,
+      #compare-table-wrap,
+      #compare-scroll-hint,
+      #share-link-wrap,
+      #compare-missing-note {
+        display: none !important;
+      }
+    </style>
+    <div class="mt-10 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 p-6">
+      <h2 class="font-serif text-lg font-semibold text-navy dark:text-dark-text">{chuoiUi.noJsTieuDe}</h2>
+      <p class="mt-2 text-sm text-ink-soft dark:text-dark-text-soft">{chuoiUi.noJsMoTa}</p>
+      <ul class="mt-3 space-y-1 text-sm">
+        <li>
+          <a class="text-steel underline underline-offset-4 hover:text-brass dark:text-dark-brass" href={linkDanhSach}>{chuoiUi.noJsDanhSach}</a>
+        </li>
+        {linkBai.map((href) => (
+          <li><a class="text-steel underline underline-offset-4 hover:text-brass dark:text-dark-brass" href={href}>{href}</a></li>
+        ))}
+      </ul>
+    </div>
+  </noscript>
+</section>
+
+<script is:inline define:vars={{ modelsData: models, ui: chuoiUi, capBai, khoSlug, LANG: lang, tbKhongChuyenMot: chuoiUi.thongBaoKhongChuyenMot, tbKhongChuyenNhieu: chuoiUi.thongBaoKhongChuyenNhieu }}>
+  // ====== State ======
+  let selected = [];
+  const MAX = 3;
+  const $ = (id) => document.getElementById(id);
+  const selectEl = $('model-select');
+  const addBtn = $('add-model');
+  const emptyEl = $('compare-empty');
+  const tableWrap = $('compare-table-wrap');
+  const headerRow = $('compare-header');
+  const bodyEl = $('compare-body');
+  const shareWrap = $('share-link-wrap');
+  const shareLink = $('share-link');
+  const hintEl = $('compare-scroll-hint');
+  const missingNote = $('compare-missing-note');
+
+  const timMau = (slug) => modelsData.find((m) => m.slug === slug);
+
+  // Chuẩn hóa theo KHO tùy chọn: lọc slug có trong kho, loại trùng, giữ thứ tự, tối đa ba
+  const chuanHoaTrongKho = (danhSach, kho) => {
+    const bo = new Set(kho);
+    const ketQua = [];
+    for (const s of danhSach) {
+      if (bo.has(s) && !ketQua.includes(s)) ketQua.push(s);
+      if (ketQua.length >= MAX) break;
+    }
+    return ketQua;
+  };
+  const chuanHoa = (danhSach) => chuanHoaTrongKho(danhSach, modelsData.map((m) => m.slug));
+
+  // ====== URL ?m= ======
+  function restoreFromUrl() {
+    const m = new URLSearchParams(window.location.search).get('m');
+    if (m) selected = chuanHoa(m.split(','));
+  }
+
+  function hienChiaSe(link) {
+    shareLink.textContent = link;
+    shareWrap.classList.remove('hidden');
+  }
+  function anChiaSe() {
+    shareWrap.classList.add('hidden');
+  }
+
+  function saveToUrl() {
+    const url = new URL(window.location);
+    if (selected.length > 0) {
+      url.searchParams.set('m', selected.join(','));
+      window.history.replaceState(null, '', url);
+      hienChiaSe(url.toString());
+    } else {
+      url.searchParams.delete('m');
+      window.history.replaceState(null, '', url);
+      anChiaSe();
+    }
+    apDungChuyenNgonNgu();
+  }
+
+  // ====== Nút bỏ + focus quay về vị trí tương ứng (không rơi về BODY) ======
+  // Chỉ tính nút đang HIỂN THỊ (offsetParent khác null) — khi bảng ẩn (dưới hai
+  // mẫu) thì không còn nút bỏ trong giao diện → focus về select.
+  function focusSauBo(viTriCu) {
+    const dangHien = (el) => Boolean(el && el.offsetParent !== null);
+    const cacNut = Array.from(document.querySelectorAll('#compare-header [data-remove]')).filter(dangHien);
+    const nutCungViTri = cacNut[viTriCu];
+    const nutTruoc = cacNut[viTriCu - 1];
+    if (nutCungViTri) nutCungViTri.focus();
+    else if (nutTruoc) nutTruoc.focus();
+    else selectEl.focus();
+  }
+
+  // ====== Render ======
+  function render() {
+    const emptyContent = $('compare-empty-content');
+    if (selected.length < 2) {
+      emptyEl.classList.remove('hidden');
+      tableWrap.classList.add('hidden');
+      hintEl.classList.add('hidden');
+      if (selected.length === 1) {
+        const m = timMau(selected[0]);
+        const label = document.createElement('p');
+        label.className = 'mb-2 text-xs font-medium uppercase tracking-wider text-brass';
+        label.textContent = ui.daChon;
+        const title = document.createElement('p');
+        title.className = 'font-serif text-2xl text-navy dark:text-dark-text';
+        title.textContent = m.title;
+        const meta = document.createElement('p');
+        meta.className = 'mt-1 text-sm text-ink-soft dark:text-dark-text-soft';
+        meta.textContent = (m.brand || '') + (m.year ? ' • ' + m.year : '');
+        const hintP = document.createElement('p');
+        hintP.className = 'mt-4 text-sm text-ink-soft dark:text-dark-text-soft';
+        hintP.textContent = ui.moiThem;
+        emptyContent.replaceChildren(label, title, meta, hintP);
+      } else {
+        const p = document.createElement('p');
+        p.className = 'text-ink-soft dark:text-dark-text-soft';
+        p.textContent = ui.tbRong;
+        emptyContent.replaceChildren(p);
+      }
+    } else {
+      emptyEl.classList.add('hidden');
+      tableWrap.classList.remove('hidden');
+    }
+
+    // Header — DOM API thay vì ghép innerHTML
+    const labelTh = document.createElement('th');
+    labelTh.scope = 'col';
+    labelTh.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left text-xs font-medium uppercase tracking-wider text-ink-soft/90 dark:text-dark-text-soft/70';
+    labelTh.textContent = ui.tieuChi;
+    const headerFrag = document.createDocumentFragment();
+    headerFrag.appendChild(labelTh);
+
+    selected.forEach((slug) => {
+      const m = timMau(slug);
+      if (!m) return;
+      const th = document.createElement('th');
+      th.scope = 'col';
+      th.className = 'border-b-2 border-cream-dark dark:border-dark-border p-3 text-left';
+      const div = document.createElement('div');
+      div.className = 'flex items-start justify-between gap-2';
+      const span = document.createElement('span');
+      span.className = 'font-serif text-base text-navy dark:text-dark-text';
+      span.textContent = m.title;
+      const btn = document.createElement('button');
+      btn.className = 'shrink-0 text-xs text-ink-soft dark:text-dark-text-soft hover:text-brass dark:hover:text-dark-brass';
+      btn.setAttribute('data-remove', slug);
+      btn.setAttribute('aria-label', ui.nutBo + ' ' + m.title);
+      btn.textContent = '✕';
+      div.appendChild(span);
+      div.appendChild(btn);
+      th.appendChild(div);
+      headerFrag.appendChild(th);
+    });
+    headerRow.replaceChildren(headerFrag);
+
+    // Body — 7 hàng; hàng chẵn/lẻ có biến dark: (dark mode đọc được cả hai theme)
+    const rows = [
+      { key: 'year', label: ui.hang[0], val: (m) => (m.year ? (m.yearNote ? m.year + ' — ' + m.yearNote : m.year) : ui.gachNgang) },
+      { key: 'brand', label: ui.hang[1], val: (m) => m.brand || ui.gachNgang },
+      { key: 'category', label: ui.hang[2], val: (m) => m.categoryLabel || ui.gachNgang },
+      { key: 'movement', label: ui.hang[3], val: (m) => m.movement || ui.gachNgang },
+      { key: 'power', label: ui.hang[4], val: (m) => m.power_reserve || ui.gachNgang },
+      { key: 'water', label: ui.hang[5], val: (m) => m.water_resistance || ui.gachNgang },
+      { key: 'excerpt', label: ui.hang[6], val: (m) => m.excerpt || ui.gachNgang },
+    ];
+
+    bodyEl.replaceChildren();
+    rows.forEach((row, ri) => {
+      const tr = document.createElement('tr');
+      // Nền hàng có biến dark: — hàng chẵn trắng (sáng)/nền nổi (tối); hàng lẻ kề (sáng)/trong suốt (tối)
+      tr.className = ri % 2 === 0 ? 'bg-white dark:bg-dark-surface' : 'bg-cream-dark/5 dark:bg-transparent';
+
+      const labelTd = document.createElement('td');
+      labelTd.scope = 'row';
+      labelTd.className = 'border-b border-cream-dark dark:border-dark-border p-3 font-medium text-ink-soft dark:text-dark-text-soft';
+      labelTd.textContent = row.label;
+      tr.appendChild(labelTd);
+
+      selected.forEach((slug) => {
+        const m = timMau(slug);
+        const td = document.createElement('td');
+        td.className = 'border-b border-cream-dark dark:border-dark-border p-3';
+        if (!m) { td.textContent = ui.gachNgang; tr.appendChild(td); return; }
+        const val = row.val(m);
+        const laTruongChe = m.daCheThongSo && row.key !== 'year' && row.key !== 'brand' && row.key !== 'category' && row.key !== 'excerpt';
+        if (laTruongChe) {
+          td.className += ' italic text-ink-soft dark:text-dark-text-soft';
+          td.textContent = ui.chuaDuLieu;
+        } else if (row.key === 'excerpt') {
+          td.className += ' italic text-ink-soft dark:text-dark-text-soft';
+          td.textContent = val;
+        } else {
+          td.className += ' text-navy dark:text-dark-text';
+          const strong = document.createElement('strong');
+          strong.textContent = val;
+          td.appendChild(strong);
+        }
+        tr.appendChild(td);
+      });
+      bodyEl.appendChild(tr);
+    });
+
+    document.querySelectorAll('#compare-header [data-remove]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const slug = btn.getAttribute('data-remove');
+        const viTriCu = selected.indexOf(slug);
+        selected = selected.filter((s) => s !== slug);
+        render();
+        saveToUrl();
+        focusSauBo(viTriCu);
+      });
+    });
+    capNhatGoiYCuon();
+  }
+
+  function capNhatGoiYCuon() {
+    const tran = tableWrap.scrollWidth - tableWrap.clientWidth;
+    if (!tableWrap.classList.contains('hidden') && tran > 4) hintEl.classList.remove('hidden');
+    else hintEl.classList.add('hidden');
+  }
+
+  // Thêm mẫu — nút và change cùng chặn trùng/vượt giới hạn
+  addBtn.addEventListener('click', () => {
+    const slug = selectEl.value;
+    if (!slug) return;
+    if (selected.length >= MAX) return;
+    if (!selected.includes(slug)) {
+      selected.push(slug);
+      render();
+      saveToUrl();
+    }
+    selectEl.value = '';
+  });
+  selectEl.addEventListener('change', () => {
+    if (selectEl.value && selected.length < MAX && !selected.includes(selectEl.value)) {
+      selected.push(selectEl.value);
+      render();
+      saveToUrl();
+      selectEl.value = '';
+    }
+  });
+
+  // ====== Chuyển ngôn ngữ giữ lựa chọn (khuôn G05-B — attribute của Header) ======
+  // Chỉ áp dụng cho cặp /so-sanh ↔ /en/compare; không đụng switcher toàn site.
+  const duongDan = window.location.pathname.replace(/\/+$/, '') || '/';
+  const laTrangSoSanh = duongDan === '/so-sanh' || duongDan === '/en/compare';
+  const nguonLang = duongDan === '/so-sanh' ? 'vi' : 'en';
+  const dichLang = nguonLang === 'vi' ? 'en' : 'vi';
+  const mapSangDich = new Map(capBai.map((c) => (nguonLang === 'vi' ? [c.vi, c.en] : [c.en, c.vi])));
+  const KHOA_STORAGE = 'compare-lang-switch';
+  const tbKhongChuyen = (n) => (LANG === 'en' ? (n === 1 ? tbKhongChuyenMot : n + ' ' + tbKhongChuyenNhieu) : n + ' ' + tbKhongChuyenMot);
+
+  // Cập nhật href của switcher theo lựa chọn hiện tại. KHÔNG ghi storage ở đây —
+  // cập nhật href đơn thuần (kể cả khi khởi tạo) không được tạo thông báo chờ.
+  function apDungChuyenNgonNgu() {
+    if (!laTrangSoSanh) return;
+    document.querySelectorAll('a[data-lang-hash-keep]').forEach((a) => {
+      if (!a.dataset.langHashBase) a.dataset.langHashBase = a.getAttribute('href') ?? '';
+      let dich = a.dataset.langHashBase;
+      if (selected.length > 0) {
+        const giu = [];
+        for (const s of selected) {
+          const dichSlug = mapSangDich.get(s);
+          if (dichSlug) giu.push(dichSlug);
+        }
+        if (giu.length > 0) {
+          dich = dich + (dich.includes('?') ? '&' : '?') + 'm=' + giu.join(',');
+        }
+      }
+      a.setAttribute('href', dich);
+    });
+  }
+
+  // Ghi bản ghi nguồn CHỈ khi người dùng kích hoạt chuyển ngôn ngữ cùng tab
+  // (click thường hoặc Enter/Space — không ghi cho Ctrl/Cmd/Shift/Alt-click,
+  // mở tab mới hoặc nút chuột giữa). Bản ghi chứa lựa chọn nguồn đã chuẩn hóa
+  // để trang đích TỰ TÍNH lại số không chuyển được.
+  function ngheKichHoatChuyenNgonNgu() {
+    if (!laTrangSoSanh) return;
+    document.querySelectorAll('a[data-lang-hash-keep]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // mở tab mới: không ghi
+        if (selected.length === 0) return;
+        const dich = a.getAttribute('href') ?? '';
+        try {
+          sessionStorage.setItem(
+            KHOA_STORAGE,
+            JSON.stringify({ slugs: selected.slice(), from: nguonLang, to: dichLang, target: dich.split('#')[0] })
+          );
+        } catch (err) { /* storage lỗi: bỏ qua — đích chỉ hiện thông báo phạm vi chung */ }
+      });
+    });
+  }
+
+  // ====== Đích: đọc bản ghi MỘT LẦN (luôn xóa sau đọc, kể cả sai), tự tính ======
+  // ====== số không chuyển được và đối chiếu với lựa chọn trong URL hiện tại ======
+  function docThongBaoMatLuaChon() {
+    if (!laTrangSoSanh) return;
+    let raw = null;
+    try { raw = sessionStorage.getItem(KHOA_STORAGE); } catch (e) { return; }
+    if (raw === null) return;
+    // Xóa ngay sau đọc — kể cả JSON sai / cấu trúc sai / không liên quan
+    try { sessionStorage.removeItem(KHOA_STORAGE); } catch (e) { /* bỏ qua */ }
+    let obj = null;
+    try { obj = JSON.parse(raw); } catch (e) { return; }
+    if (!obj || typeof obj !== 'object') return;
+    // from/to phải là cặp vi/en hợp lệ, đúng chiều với trang hiện tại;
+    // target đúng đường đích (so theo pathname, bỏ query/fragment)
+    const langHopLe = (x) => x === 'vi' || x === 'en';
+    const hienTaiPath = nguonLang === 'en' ? '/en/compare' : '/so-sanh';
+    const dichPath = typeof obj.target === 'string' ? obj.target.split('?')[0].split('#')[0].replace(/\/+$/, '') : '';
+    if (!langHopLe(obj.from) || !langHopLe(obj.to) || obj.to !== nguonLang || obj.from !== dichLang) return;
+    if (dichPath !== hienTaiPath) return;
+    // slug nguồn phải tồn tại trong kho bài xuất bản của ngôn ngữ NGUỒN;
+    // chuẩn hóa: lọc sai + loại trùng + tối đa ba
+    const slugsNguon = chuanHoaTrongKho(Array.isArray(obj.slugs) ? obj.slugs : [], khoSlug[obj.from] ?? []);
+    if (slugsNguon.length === 0) return;
+    // Tính lại kết quả ánh xạ from → to từ bảng cặp; đối chiếu với lựa chọn
+    // trong URL hiện tại — không khớp thì bản ghi không liên quan, bỏ qua.
+    const mapCuaBanGhi = obj.from === 'vi'
+      ? new Map(capBai.map((c) => [c.vi, c.en]))
+      : new Map(capBai.map((c) => [c.en, c.vi]));
+    const kept = slugsNguon.map((s) => mapCuaBanGhi.get(s)).filter(Boolean);
+    if (JSON.stringify(kept) !== JSON.stringify(selected)) return;
+    let mat = slugsNguon.length - kept.length;
+    if (mat > 0 && missingNote) {
+      missingNote.textContent = tbKhongChuyen(mat);
+      missingNote.classList.remove('hidden');
+    }
+  }
+
+  // ====== Init ======
+  restoreFromUrl();
+  render();
+  docThongBaoMatLuaChon();
+  apDungChuyenNgonNgu();
+  ngheKichHoatChuyenNgonNgu();
+  // Tự kiểm ánh xạ đã CHUYỂN sang tầng build (tự kiểm build-time trên
+  // dungCapBai trong frontmatter — chạy mỗi build, sai thì build thất bại).
+  // Trang phục vụ người đọc không chứa dữ liệu/dữ liệu giả của tự kiểm.
+  // Link chia sẻ đúng ngay khi khởi tạo: chứa đúng lựa chọn ĐANG hiển thị
+  // (đã lọc slug sai, loại trùng, tối đa ba) — nếu URL chưa chuẩn thì chuẩn hóa.
+  const urlKhoiTao = new URL(window.location);
+  if (selected.length > 0) {
+    urlKhoiTao.searchParams.set('m', selected.join(','));
+    if (urlKhoiTao.toString() !== window.location.href) window.history.replaceState(null, '', urlKhoiTao);
+    hienChiaSe(urlKhoiTao.toString());
+  } else if (urlKhoiTao.searchParams.has('m')) {
+    // không còn mẫu hợp lệ: dọn ?m=rác khỏi URL và ẩn link chia sẻ
+    urlKhoiTao.searchParams.delete('m');
+    if (urlKhoiTao.toString() !== window.location.href) window.history.replaceState(null, '', urlKhoiTao);
+    anChiaSe();
+  }
+  window.addEventListener('resize', capNhatGoiYCuon);
+</script>

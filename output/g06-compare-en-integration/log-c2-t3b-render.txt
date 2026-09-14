@@ -1,0 +1,47 @@
+### Result
+{"tong":4,"dat":4,"ketQua":[{"ca":"T3b-render bản vá: ô Tank Movement hiển thị thông số sai (Calibre 430 MC) — mutation tái hiện trên DOM","dat":true,"chiTiet":"ô Movement Tank=\"Calibre 430 MC\""},{"ca":"T3b-render bản sạch: ô đúng nhãn \"Not enough data to compare\"","dat":true,"chiTiet":"ô Movement Tank=\"Not enough data to compare\""},{"ca":"T3b-render kết luận: DOM checker phân biệt bản vá/bản sạch","dat":true,"chiTiet":"vá=\"Calibre 430 MC\" ≠ sạch=\"Not enough data to compare\""},{"ca":"Tự kiểm runtime __compareTuKiem: đủ 3 ca, tất cả ĐẠT (khác slug / không có cặp / chuẩn hóa)","dat":true,"chiTiet":"[{\"ten\":\"khác slug: ánh xạ đúng qua cùng đường dựng Map (cặp giả khác slug)\",\"dung\":true},{\"ten\":\"slug không có cặp: không ánh xạ được\",\"dung\":true},{\"ten\":\"chuẩn hóa theo kho nguồn: lọc sai + loại trùng + tối đa ba\",\"dung\":true}]"}]}
+### Ran Playwright code
+```js
+await (// G06-B chặng 2 vòng sửa 1 — T3b-render (DOM) + tự kiểm runtime ánh xạ.
+// Server tĩnh 4599 phục vụ t3b-render (blob có giá trị + render bỏ nhánh che);
+// preview 4321 phục vụ bản sạch.
+async (page) => {
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => K.push({ ca, dat: dat === true, chiTiet: String(chiTiet) });
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+
+  // T3b-render: trên bản vá, ô Movement của Tank hiển thị 'Calibre 430 MC'
+  // thay vì nhãn chốt → bộ kiểm DOM sau tương tác phải phân biệt được.
+  await page.goto('http://127.0.0.1:4599/en/compare/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(120);
+  const va = await page.evaluate(() => {
+    const hang = Array.from(document.querySelectorAll('#compare-body tr'));
+    const movement = hang.find((tr) => tr.cells[0]?.textContent === 'Movement');
+    return movement?.cells[3]?.textContent ?? '(không)';
+  });
+  ghi('T3b-render bản vá: ô Tank Movement hiển thị thông số sai (Calibre 430 MC) — mutation tái hiện trên DOM', va === 'Calibre 430 MC', `ô Movement Tank="${va}"`);
+
+  // Bản sạch: ô đúng nhãn chốt
+  await page.goto('http://localhost:4321/en/compare/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(120);
+  const sach = await page.evaluate(() => {
+    const hang = Array.from(document.querySelectorAll('#compare-body tr'));
+    const movement = hang.find((tr) => tr.cells[0]?.textContent === 'Movement');
+    return movement?.cells[3]?.textContent ?? '(không)';
+  });
+  ghi('T3b-render bản sạch: ô đúng nhãn "Not enough data to compare"', sach === 'Not enough data to compare', `ô Movement Tank="${sach}"`);
+  ghi('T3b-render kết luận: DOM checker phân biệt bản vá/bản sạch', va !== sach, `vá="${va}" ≠ sạch="${sach}"`);
+
+  // Tự kiểm runtime ánh xạ (window.__compareTuKiem — logic sản phẩm tự kiểm)
+  await page.goto('http://localhost:4321/en/compare/', { waitUntil: 'load' });
+  await page.waitForTimeout(120);
+  const tk = await page.evaluate(() => window.__compareTuKiem ?? null);
+  const soCa = Array.isArray(tk) ? tk.length : 0;
+  const tatCa = Array.isArray(tk) && tk.every((k) => k.dung === true);
+  ghi('Tự kiểm runtime __compareTuKiem: đủ 3 ca, tất cả ĐẠT (khác slug / không có cặp / chuẩn hóa)', tatCa && soCa === 3, JSON.stringify(tk));
+  return { tong: K.length, dat: K.filter((x) => x.dat).length, ketQua: K };
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-09-14T05-04-42-836Z.log#L437-L445

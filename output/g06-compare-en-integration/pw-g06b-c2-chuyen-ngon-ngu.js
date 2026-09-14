@@ -1,0 +1,118 @@
+// G06-B chặng 2 — M3: switcher giữ lựa chọn + sessionStorage một lần + no-JS (M13).
+// Cần preview tại localhost:4321 phục vụ dist MỚI.
+async (page) => {
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => K.push({ ca, dat: dat === true, chiTiet: String(chiTiet) });
+  const BASE = 'http://localhost:4321';
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  // ===== CN1: đủ cặp — VI 2 mẫu → EN href giữ đủ + storage ghi nguồn =====
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  const cn1 = await page.evaluate(() => {
+    const sw = Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0];
+    return { href: sw?.getAttribute('href'), storage: sessionStorage.getItem('compare-lang-switch') };
+  });
+  // Giao thức MỚI (vòng sửa 1): cập nhật href KHÔNG ghi storage — bản ghi chỉ
+  // được ghi khi người dùng KÍCH HOẠT switcher (click thật; Ctrl-click không ghi).
+  ghi('CN1 đủ cặp: switcher VI→EN giữ 2 mẫu qua bảng cặp; CHƯA có bản ghi storage (chỉ ghi khi click)', cn1.href === '/en/compare/?m=rolex-submariner,omega-speedmaster' && cn1.storage === null, `href=${cn1.href}, storage=${cn1.storage}`);
+
+  // ===== CN2: CLICK THẬT switcher — đích 2 cột, không thông báo (0 thiếu), bản ghi đã tiêu thụ =====
+  await page.click('header a[data-lang-hash-keep]');
+  await page.waitForLoadState('load');
+  await page.waitForTimeout(150);
+  const cn2 = await page.evaluate(() => ({
+    url: location.pathname + location.search,
+    cot: document.querySelectorAll('#compare-header th').length,
+    noteAn: document.getElementById('compare-missing-note')?.classList.contains('hidden'),
+    storageVeHopLe: (() => { try { const o = JSON.parse(sessionStorage.getItem('compare-lang-switch') ?? 'null'); return o === null || (o.from === 'en' && o.to === 'vi'); } catch { return false; } })(),
+    swVe: Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href'),
+  }));
+  // storage sau đích: bản ghi vào (vi→en) đã đọc+xóa; bản ghi còn lại (nếu có) là bản ghi CHIỀU VỀ do trang đích ghi khi click switcher của nó (ở đây chưa click → null)
+  ghi('CN2 click thật → đích EN: 2 cột, không thông báo mất, bản ghi đã tiêu thụ, switcher về VI giữ lựa chọn', decodeURIComponent(cn2.url) === '/en/compare/?m=rolex-submariner,omega-speedmaster' && cn2.cot === 3 && cn2.noteAn === true && cn2.storageVeHopLe === true && cn2.swVe === '/so-sanh?m=rolex-submariner,omega-speedmaster', JSON.stringify(cn2));
+
+  // ===== CN3: một phần — 1 mẫu VI-only + CLICK THẬT → đích giữ 1 + thông báo "1 model…" =====
+  await page.goto(BASE + '/so-sanh/?m=rolex-submariner,fifty-fathoms', { waitUntil: 'load' });
+  const href3 = await page.evaluate(() => Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href'));
+  ghi('CN3a một phần: href đích chỉ giữ mẫu có cặp', href3 === '/en/compare/?m=rolex-submariner', `href=${href3}`);
+  await page.click('header a[data-lang-hash-keep]');
+  await page.waitForLoadState('load');
+  await page.waitForTimeout(150);
+  const cn3 = await page.evaluate(() => ({
+    cot: document.querySelectorAll('#compare-header th').length,
+    note: document.getElementById('compare-missing-note')?.textContent,
+    noteHien: !document.getElementById('compare-missing-note')?.classList.contains('hidden'),
+    storageCon: sessionStorage.getItem('compare-lang-switch'),
+  }));
+  ghi('CN3b đích sau click thật: 1 cột + thông báo "1 model without an English article…" + bản ghi tiêu thụ (không ghi mới)', cn3.cot === 2 && cn3.noteHien === true && cn3.note === '1 model without an English article was not carried over.' && cn3.storageCon === null, JSON.stringify(cn3));
+
+  // ===== CN4: không còn mẫu hợp lệ — đích không query, trạng thái rỗng EN =====
+  await page.goto(BASE + '/so-sanh/?m=fifty-fathoms,vostok-amphibia', { waitUntil: 'load' });
+  const href4 = await page.evaluate(() => Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href'));
+  await page.goto(BASE + href4, { waitUntil: "load" });
+  await page.waitForTimeout(120);
+  const cn4 = await page.evaluate(() => ({
+    url: location.pathname + location.search,
+    tbRong: document.getElementById('compare-empty-content')?.textContent ?? '',
+  }));
+  ghi('CN4 0 mẫu hợp lệ: đích không query, trạng thái rỗng đúng EN', href4 === '/en/compare/' && cn4.url === '/en/compare/' && cn4.tbRong.includes('No models selected yet'), `href=${href4}`);
+
+  // ===== CN5: chiều ngược EN→VI giữ lựa chọn =====
+  await page.goto(BASE + '/en/compare/?m=rolex-submariner,omega-speedmaster', { waitUntil: 'load' });
+  const cn5 = await page.evaluate(() => Array.from(document.querySelectorAll('header a[data-lang-hash-keep]'))[0]?.getAttribute('href'));
+  ghi('CN5 EN→VI: giữ lựa chọn (các mẫu đều có bài VI)', cn5 === '/so-sanh?m=rolex-submariner,omega-speedmaster', `href=${cn5}`);
+
+  // ===== CN6: link chia sẻ trực tiếp — không storage → không bịa thông báo =====
+  await page.goto(BASE + '/en/compare/?m=rolex-submariner', { waitUntil: 'load' });
+  await page.waitForTimeout(120);
+  const cn6 = await page.evaluate(() => ({ noteAn: document.getElementById('compare-missing-note')?.classList.contains('hidden'), cot: document.querySelectorAll('#compare-header th').length }));
+  ghi('CN6 vào trực tiếp bằng link: 1 cột, không thông báo bịa', cn6.noteAn === true && cn6.cot === 2, JSON.stringify(cn6));
+
+  // ===== CN7: storage dữ liệu SAI — bỏ qua an toàn, không crash, không thông báo =====
+  await page.goto(BASE + '/en/compare/', { waitUntil: 'load' });
+  await page.evaluate(() => { sessionStorage.setItem('compare-lang-switch', '{"slugs":"khong-phai-mang","from":"vi","to":"en","target":"/khong-phai"}'); });
+  await page.reload({ waitUntil: 'load' });
+  await page.waitForTimeout(120);
+  const cn7 = await page.evaluate(() => ({ noteAn: document.getElementById('compare-missing-note')?.classList.contains('hidden'), loi: document.getElementById('compare-empty-content')?.textContent === null }));
+  ghi('CN7 storage sai cấu trúc: bỏ qua, không thông báo, trang vẫn chạy', cn7.noteAn === true, JSON.stringify(cn7));
+
+  // ===== CN8: storage KHÔNG DÙNG ĐƯỢC (ném lỗi) — context riêng để init script không dính các ca khác =====
+  {
+    const ctx = await page.context().browser().newContext({ viewport: { width: 1280, height: 900 } });
+    await ctx.addInitScript(() => {
+      const nem = () => { throw new Error("storage blocked"); };
+      Object.defineProperty(window, "sessionStorage", {
+        value: { getItem: nem, setItem: nem, removeItem: nem, key: () => null, clear: () => {} },
+        configurable: true,
+      });
+    });
+    const p2 = await ctx.newPage();
+    await p2.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+    await p2.goto(BASE + "/en/compare/?m=rolex-submariner", { waitUntil: "load" });
+    await p2.waitForTimeout(120);
+    const cn8 = await p2.evaluate(() => ({
+      cot: document.querySelectorAll("#compare-header th").length,
+      phamVi: document.body.innerText.includes("Only models with published English articles"),
+    }));
+    ghi("CN8 storage bị chặn: công cụ vẫn chạy (1 cột) + thông báo phạm vi EN chung hiện", cn8.cot === 2 && cn8.phamVi === true, JSON.stringify(cn8));
+    await ctx.close();
+  }
+  // ===== NJS: no-JS (M13) =====
+  const ctxNoJs = await page.context().browser().newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 900 } });
+  const p2 = await ctxNoJs.newPage();
+  await p2.goto(BASE + '/so-sanh/', { waitUntil: 'load' });
+  const njs = await p2.evaluate(() => {
+    const controls = document.getElementById('compare-controls');
+    const noiDung = document.querySelector('noscript')?.textContent ?? '';
+    const links = Array.from(document.querySelectorAll('noscript a')).map((a) => a.getAttribute('href'));
+    return {
+      controlsAn: controls && getComputedStyle(controls).display === 'none',
+      giaiThich: noiDung.includes('Công cụ so sánh cần JavaScript.'),
+      links,
+    };
+  });
+  ghi('NJS no-JS: điều khiển ẩn, giải thích tĩnh hiện, liên kết bài thật (5 link)', njs.controlsAn === true && njs.giaiThich === true && njs.links.length >= 5, JSON.stringify(njs));
+  await ctxNoJs.close();
+
+  return { tong: K.length, dat: K.filter((x) => x.dat).length, khongDat: K.filter((x) => !x.dat).length, ketQua: K };
+}

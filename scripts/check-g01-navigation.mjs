@@ -74,6 +74,9 @@ const logicCases = [
   ['cặp lịch sử chiều ngược: /en/history/ → /lich-su', () => vietnamesePathFor('/en/history/') === '/lich-su', () => String(vietnamesePathFor('/en/history/'))],
   ['cặp giải phẫu (G06-A): /giai-phau → /en/anatomy/', () => englishPathFor('/giai-phau') === '/en/anatomy/', () => String(englishPathFor('/giai-phau'))],
   ['cặp giải phẫu chiều ngược: /en/anatomy/ → /giai-phau', () => vietnamesePathFor('/en/anatomy/') === '/giai-phau', () => String(vietnamesePathFor('/en/anatomy/'))],
+  ['cặp so sánh (G06-B chặng 2): /so-sanh → /en/compare/', () => englishPathFor('/so-sanh') === '/en/compare/', () => String(englishPathFor('/so-sanh'))],
+  ['cặp so sánh chiều ngược: /en/compare/ → /so-sanh', () => vietnamesePathFor('/en/compare/') === '/so-sanh', () => String(vietnamesePathFor('/en/compare/'))],
+  ['không còn route giả /en/so-sanh trong bảng', () => englishPathFor('/so-sanh') !== '/en/so-sanh' && englishPathFor('/so-sanh') !== undefined, () => String(englishPathFor('/so-sanh'))],
   ['localizedHref("/", "en") = "/en/" — trang chủ hai chiều có bản dịch', () => localizedHref('/', 'en') === '/en/', () => String(localizedHref('/', 'en'))],
   ['localizedHref("/", "vi") = "/"', () => localizedHref('/', 'vi') === '/', () => String(localizedHref('/', 'vi'))],
   ['localizedHref("/lich-su", "en") = "/en/history/" — cặp thật, không chế URL', () => localizedHref('/lich-su', 'en') === '/en/history/', () => String(localizedHref('/lich-su', 'en'))],
@@ -229,14 +232,14 @@ if (has('/en/index.html')) {
     const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/">/.test(html);
     return vi && en && xd;
   }, 'cần 3 thẻ link alternate đúng URL');
-  // Explore EN sau G05-B: /lich-su đã có cặp → menu EN trỏ /en/history/ không nhãn;
-  // 2 mục chưa dịch (/giai-phau, /so-sanh) vẫn hiện nhãn "Vietnamese only" — cả HAI nav
+  // Explore EN sau G06-B chặng 2: cả ba mục Khám phá (/en/history/, /en/anatomy/,
+  // /en/compare/) đều có đích thật — Explore EN không còn mục nào mang nhãn VI-only
   const anchorWithHref = (block, href) => {
     if (block === null) return null;
     const m = block.match(new RegExp(`<a\\b[^>]*href="${href}"[^>]*>[\\s\\S]*?</a>`));
     return m ? m[0] : null;
   };
-  const exploreViOnly = ['/so-sanh']; // /lich-su (/en/history/) và /giai-phau (/en/anatomy/) đã có bản EN — G05-B/G06-A
+  const exploreViOnly = []; // /lich-su, /giai-phau và /so-sanh (/en/compare/) đều đã có bản EN — G05-B/G06-A/G06-B
   for (const [tenNav, block] of [['desktop', desktop], ['mobile', mobile]]) {
     for (const target of exploreViOnly) {
       const re = new RegExp(`<a\\b[^>]*href="${target}"[^>]*>[\\s\\S]*?Vietnamese only[\\s\\S]*?</a>`);
@@ -248,6 +251,9 @@ if (has('/en/index.html')) {
 
     const anaA = anchorWithHref(block, '/en/anatomy/');
     kiemDauRa(`Explore EN (${tenNav}): mục Anatomy trỏ route EN "/en/anatomy/" (thẻ không mang nhãn VI-only)`, anaA !== null && !anaA.includes('Vietnamese only'), anaA === null ? 'không tìm thấy thẻ /en/anatomy/' : 'thẻ còn nhãn VI-only');
+
+    const cmpA = anchorWithHref(block, '/en/compare/');
+    kiemDauRa(`Explore EN (${tenNav}): mục Compare trỏ route EN "/en/compare/" (thẻ không mang nhãn VI-only)`, cmpA !== null && !cmpA.includes('Vietnamese only'), cmpA === null ? 'không tìm thấy thẻ /en/compare/' : 'thẻ còn nhãn VI-only');
   }
   // Bộ chuyển ngôn ngữ trên trang chủ EN: có cặp → link thẳng về "/" không mở hộp
   const swCount = (html.match(/data-lang-switch=/g) ?? []).length;
@@ -265,8 +271,8 @@ if (has('/en/mechanisms/escapement/index.html')) {
   const mobile = mobileOf(html);
   kiemDauRa('Bài EN /en/mechanisms/escapement: Home EN KHÔNG active', countAnyCurrent(desktop, '/en/') === 0, `count=${countAnyCurrent(desktop, '/en/')}`);
   kiemDauRa('Bài EN /en/mechanisms/escapement: mục Mechanisms (dropdown) aria-current="location"', countCurrent(desktop, '/en/mechanisms/', 'location') === 1, `count=${countCurrent(desktop, '/en/mechanisms/', 'location')}`);
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop chỉ còn /so-sanh mang nhãn; đủ /en/history/ và /en/anatomy/', desktop !== null && new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(desktop) && /href="\/en\/history\/"/.test(desktop) && /href="\/en\/anatomy\/"/.test(desktop) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(desktop), 'thiếu link hoặc nhãn');
-  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile chỉ còn /so-sanh mang nhãn; đủ /en/history/ và /en/anatomy/', mobile !== null && new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(mobile) && /href="\/en\/history\/"/.test(mobile) && /href="\/en\/anatomy\/"/.test(mobile) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(mobile), 'thiếu link hoặc nhãn');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN desktop đủ 3 route EN, không còn mục VI-only', desktop !== null && /href="\/en\/history\/"/.test(desktop) && /href="\/en\/anatomy\/"/.test(desktop) && /href="\/en\/compare\/"/.test(desktop) && !/href="\/so-sanh"/.test(desktop) && !new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(desktop) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(desktop), 'thiếu route EN hoặc còn nhãn VI-only');
+  kiemDauRa('Bài EN /en/mechanisms/escapement: Explore EN mobile đủ 3 route EN, không còn mục VI-only', mobile !== null && /href="\/en\/history\/"/.test(mobile) && /href="\/en\/anatomy\/"/.test(mobile) && /href="\/en\/compare\/"/.test(mobile) && !/href="\/so-sanh"/.test(mobile) && !new RegExp(`href="/so-sanh"[\\s\\S]*?Vietnamese only`).test(mobile) && !new RegExp(`href="/giai-phau"[\\s\\S]*?Vietnamese only`).test(mobile), 'thiếu route EN hoặc còn nhãn VI-only');
 }
 
 // ---- Cặp lịch sử G05-B: /lich-su đã có bản dịch — switcher link thẳng + hreflang thật ----
@@ -345,6 +351,54 @@ if (has('/en/anatomy/index.html')) {
   kiemDauRa('Cặp giải phẫu /en/anatomy: mục Anatomy mobile aria-current="page" (1)', countCurrent(mobile, '/en/anatomy/', 'page') === 1, `count=${countCurrent(mobile, '/en/anatomy/', 'page')}`);
 } else {
   kiemDauRa('Cặp giải phẫu /en/anatomy (dist/en/anatomy/index.html)', false, 'thiếu tệp');
+}
+
+// ---- Cặp so sánh G06-B chặng 2: /so-sanh ↔ /en/compare/ ----
+// Lưu ý: bỏ comment HTML trước khi kiểm chuỗi hiển thị ("Vietnamese only" còn
+// xuất hiện trong comment khuôn của Header, không phải nội dung hiển thị).
+const boComment = (s) => (typeof s === 'string' ? s.replace(/<!--[\s\S]*?-->/g, '') : s);
+if (has('/so-sanh/index.html')) {
+  const html = boComment(read('/so-sanh/index.html'));
+  const desktop = desktopOf(html);
+  const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
+  kiemDauRa('Cặp so sánh /so-sanh: bộ chuyển ngôn ngữ là link thẳng (không data-lang-switch)', swCount === 0, `count=${swCount}`);
+  kiemDauRa('Cặp so sánh /so-sanh: switcher trỏ "/en/compare/"', /href="\/en\/compare\/"/.test(html), 'không tìm thấy link /en/compare/');
+  kiemDauRa('Cặp so sánh /so-sanh: hreflang đủ vi "/so-sanh/" + en "/en/compare/" + x-default → "/so-sanh/"', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/so-sanh\/">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/compare\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/so-sanh\/">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  kiemDauRa('Cặp so sánh /so-sanh: og:image là og-mau-iconic.jpg', /property="og:image" content="[^"]*\/images\/og\/og-mau-iconic\.jpg"/.test(html), 'og:image không phải og-mau-iconic.jpg');
+  kiemDauRa('Cặp so sánh /so-sanh: vùng cuộn bảng tự quản (tabindex + role="region" ngay trong HTML)', /id="compare-table-wrap"[\s\S]{0,200}?tabindex="0"[\s\S]{0,60}?role="region"/.test(html), 'vùng cuộn không có tabindex/role trong HTML tĩnh');
+  kiemDauRa('Cặp so sánh /so-sanh: Explore VI mục so sánh KHÔNG mang nhãn VI-only', (() => {
+    const m = desktop ? desktop.match(/<a\b[^>]*href="\/so-sanh"[^>]*>[\s\S]*?<\/a>/) : null;
+    return m !== null && !m[0].includes('Vietnamese only');
+  })(), 'thẻ /so-sanh còn nhãn VI-only hoặc thiếu');
+  kiemDauRa('Cặp so sánh /so-sanh: không còn "Vietnamese only" trong header hiển thị', !desktop.includes('Vietnamese only'), 'còn mục VI-only trong header');
+} else {
+  kiemDauRa('Cặp so sánh /so-sanh (dist/so-sanh/index.html)', false, 'thiếu tệp');
+}
+
+if (has('/en/compare/index.html')) {
+  const html = boComment(read('/en/compare/index.html'));
+  const desktop = desktopOf(html);
+  const mobile = mobileOf(html);
+  const swCount = (html.match(/data-lang-switch="untranslated"/g) ?? []).length;
+  // Khuôn hiện hành: chiều EN switcher về VI dùng giá trị bảng không slash cuối
+  kiemDauRa('Cặp so sánh /en/compare: bộ chuyển ngôn ngữ là link thẳng về "/so-sanh"', swCount === 0 && /href="\/so-sanh"/.test(html), `count=${swCount}`);
+  kiemDauRa('Cặp so sánh /en/compare: hreflang đủ vi "/so-sanh" + en "/en/compare/" + x-default → "/so-sanh" (khuôn getAlternates hiện hành)', () => {
+    const vi = /<link rel="alternate" hreflang="vi" href="https:\/\/www\.kienthucdonghoco\.vn\/so-sanh">/.test(html);
+    const en = /<link rel="alternate" hreflang="en" href="https:\/\/www\.kienthucdonghoco\.vn\/en\/compare\/">/.test(html);
+    const xd = /<link rel="alternate" hreflang="x-default" href="https:\/\/www\.kienthucdonghoco\.vn\/so-sanh">/.test(html);
+    return vi && en && xd;
+  }, 'cần 3 thẻ link alternate đúng URL');
+  kiemDauRa('Cặp so sánh /en/compare: mục Compare desktop aria-current="page" (1)', countCurrent(desktop, '/en/compare/', 'page') === 1, `count=${countCurrent(desktop, '/en/compare/', 'page')}`);
+  kiemDauRa('Cặp so sánh /en/compare: mục Compare mobile aria-current="page" (1)', countCurrent(mobile, '/en/compare/', 'page') === 1, `count=${countCurrent(mobile, '/en/compare/', 'page')}`);
+  kiemDauRa('Cặp so sánh /en/compare: og:image là og-mau-iconic.jpg', /property="og:image" content="[^"]*\/images\/og\/og-mau-iconic\.jpg"/.test(html), 'og:image không phải og-mau-iconic.jpg');
+  kiemDauRa('Cặp so sánh /en/compare: header không còn "Vietnamese only"', !desktop.includes('Vietnamese only'), 'còn mục VI-only trong header');
+} else {
+  kiemDauRa('Cặp so sánh /en/compare (dist/en/compare/index.html)', false, 'thiếu tệp');
 }
 
 // ---- 404: Home không active ----

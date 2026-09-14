@@ -1,0 +1,143 @@
+{
+  "mutationDat": true,
+  "ketQua": {
+    "sach": {
+      "vi": {
+        "lang": "vi",
+        "dat": true,
+        "ca": [
+          {
+            "hang": "Bộ máy",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          },
+          {
+            "hang": "Trữ cót",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          },
+          {
+            "hang": "Chống nước",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          }
+        ],
+        "chiTiet": "Bộ máy: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\" ; Trữ cót: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\" ; Chống nước: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\""
+      },
+      "en": {
+        "lang": "en",
+        "dat": true,
+        "ca": [
+          {
+            "hang": "Movement",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          },
+          {
+            "hang": "Power reserve",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          },
+          {
+            "hang": "Water resistance",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          }
+        ],
+        "chiTiet": "Movement: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\" ; Power reserve: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\" ; Water resistance: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\""
+      }
+    },
+    "loi": {
+      "vi": {
+        "lang": "vi",
+        "dat": false,
+        "ca": [
+          {
+            "hang": "Bộ máy",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "—"
+          },
+          {
+            "hang": "Trữ cót",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "—"
+          },
+          {
+            "hang": "Chống nước",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "—"
+          }
+        ],
+        "chiTiet": "Bộ máy: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"—\" ; Trữ cót: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"—\" ; Chống nước: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"—\""
+      },
+      "en": {
+        "lang": "en",
+        "dat": false,
+        "ca": [
+          {
+            "hang": "Movement",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "—"
+          },
+          {
+            "hang": "Power reserve",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "—"
+          },
+          {
+            "hang": "Water resistance",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "—"
+          }
+        ],
+        "chiTiet": "Movement: kỳ vọng=\"Not enough data to compare\" thực tế=\"—\" ; Power reserve: kỳ vọng=\"Not enough data to compare\" thực tế=\"—\" ; Water resistance: kỳ vọng=\"Not enough data to compare\" thực tế=\"—\""
+      }
+    },
+    "khoiPhuc": {
+      "vi": {
+        "lang": "vi",
+        "dat": true,
+        "ca": [
+          {
+            "hang": "Bộ máy",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          },
+          {
+            "hang": "Trữ cót",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          },
+          {
+            "hang": "Chống nước",
+            "kyVong": "Chưa đủ dữ liệu để đối chiếu",
+            "thucTe": "Chưa đủ dữ liệu để đối chiếu"
+          }
+        ],
+        "chiTiet": "Bộ máy: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\" ; Trữ cót: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\" ; Chống nước: kỳ vọng=\"Chưa đủ dữ liệu để đối chiếu\" thực tế=\"Chưa đủ dữ liệu để đối chiếu\""
+      },
+      "en": {
+        "lang": "en",
+        "dat": true,
+        "ca": [
+          {
+            "hang": "Movement",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          },
+          {
+            "hang": "Power reserve",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          },
+          {
+            "hang": "Water resistance",
+            "kyVong": "Not enough data to compare",
+            "thucTe": "Not enough data to compare"
+          }
+        ],
+        "chiTiet": "Movement: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\" ; Power reserve: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\" ; Water resistance: kỳ vọng=\"Not enough data to compare\" thực tế=\"Not enough data to compare\""
+      }
+    }
+  }
+}

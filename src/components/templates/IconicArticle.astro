@@ -15,8 +15,8 @@ import ModelEvolution from '../../components/ModelEvolution.astro';
 import { getEvolutionDataset } from '../../data/modelEvolution';
 import { getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
 import { render } from 'astro:content';
-import { localizedPath, t, getIconicCategoryLabel } from '../../i18n/ui';
-import { collectionHref } from '../../i18n/contentRoutes';
+import { t, getIconicCategoryLabel } from '../../i18n/ui';
+import { collectionHref, localizedHref } from '../../i18n/contentRoutes';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 
@@ -128,8 +128,11 @@ for (const rm of data.relatedMechanisms ?? []) {
 }
 
 const backHref = lang === 'vi' ? '/mau-iconic' : '/en/iconic-watches';
-// Link so sánh chỉ cho tiếng Việt (/so-sanh chưa có bản tiếng Anh)
-const compareHref = lang === 'vi' ? localizedPath(`/so-sanh?m=${slug}`, lang) : undefined;
+// Link so sánh hai ngôn ngữ qua bảng cặp (G06-B chặng 2): VI → /so-sanh?m=…,
+// EN → /en/compare/?m=…; localizedHref trả undefined khi cặp không tồn tại —
+// không tự ghép /en/so-sanh.
+const compareBase = localizedHref('/so-sanh', lang);
+const compareHref = compareBase ? `${compareBase}?m=${slug}` : undefined;
 ---
 
 <ArticleLayout

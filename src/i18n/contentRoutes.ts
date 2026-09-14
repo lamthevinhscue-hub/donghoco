@@ -33,6 +33,8 @@ export const STATIC_PAIRS: RoutePair[] = [
   { vi: '/lich-su', en: '/en/history/' },
   // G06-A: trang giải phẫu — khuôn chung AnatomyExperience (2D/3D), cặp EN duyệt TXN-20260913-27
   { vi: '/giai-phau', en: '/en/anatomy/' },
+  // G06-B chặng 2: công cụ so sánh song ngữ — khuôn chung CompareExperience, duyệt TXN-20260914-10
+  { vi: '/so-sanh', en: '/en/compare/' },
 ];
 
 // Trang danh sách (index) từng khu vực nội dung

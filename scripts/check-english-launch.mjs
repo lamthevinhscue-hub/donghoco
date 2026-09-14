@@ -74,6 +74,7 @@ const REQUIRED_EN = [
   '/en/learning-path/',
   '/en/history/',
   '/en/anatomy/',
+  '/en/compare/',
   '/en/brands/',
   '/en/brands/rolex/',
   '/en/brands/omega/',
@@ -188,6 +189,23 @@ if (!errors.some((e) => e.includes('Canonical VI lệch'))) {
 // Regex ký tự tiếng Việt có dấu; tên riêng trong PROPER_NOUNS được loại trước.
 // Nội dung <script>/<style> được loại — kiểm đúng VĂN BẢN HIỂN THỊ cho người đọc.
 const viCharRe = /[ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ]/i;
+// Ngoại lệ HẸP được duyệt (TXN-20260914-13): cụm tên riêng "Métiers d'Art" có
+// trong nguồn lịch sử đã nghiệm thu — loại ĐÚNG CỤM (phân biệt chữ hoa/thường)
+// trước kiểm dấu; KHÔNG bỏ dấu é khỏi regex toàn cục, không bỏ trang history,
+// không miễn toàn bộ anchor. Văn bản tiếng Việt thật đặt cạnh cụm vẫn bị bắt.
+const CUM_RIENG_DUOC_PHEP = "Métiers d'Art";
+function boCumRiengDuocPhep(text) {
+  // Hai biến thể: nháy thẳng và nháy đã được HTML-encode thành &#39;
+  return text.split(CUM_RIENG_DUOC_PHEP).join('').split("Métiers d&#39;Art").join('');
+}
+// Tự kiểm ngoại lệ chạy mỗi lần — sai thì checker báo lỗi ngay
+{
+  const qua = !viCharRe.test(boCumRiengDuocPhep("Métiers d'Art (brand press release)"))
+    && !viCharRe.test(boCumRiengDuocPhep('Métiers d&#39;Art (brand press release)'));
+  const vanBat = viCharRe.test(boCumRiengDuocPhep("Métiers d'Art của hãng đồng hồ"))
+    && viCharRe.test(boCumRiengDuocPhep('bài viết tiếng Việt kèm Métiers d&#39;Art'));
+  if (!qua || !vanBat) errors.push('Tự kiểm ngoại lệ "Métiers d\'Art" sai: qua=' + qua + ', vẫn-bắt-VI=' + vanBat);
+}
 function stripProperNouns(text) {
   let t = text;
   for (const noun of PROPER_NOUNS) t = t.split(noun).join('');
@@ -211,7 +229,7 @@ for (const file of enHtml) {
     .filter((s) => !s.includes('Tiếng Việt')) // nhãn switcher theo đề
     .join(' ');
   const visible = stripProperNouns([header, footer, title, h1, buttons].join(' ').replace(/<[^>]*>/g, ' '));
-  if (viCharRe.test(visible)) {
+  if (viCharRe.test(boCumRiengDuocPhep(visible))) {
     const sample = visible.match(/[^\s]*[ăâđêôơưáàảãạéèẻẽẹíìỉĩịóòỏõọúùủũụýỳỵ][^\s]*/i)?.[0] ?? '?';
     viLeak.push(`${rel} (từ mẫu: "${sample}")`);
   }

@@ -1,0 +1,47 @@
+### Result
+{"cauTruc":{"coVungTrong":false,"tabindex":null},"focusOkBangMa":true,"phim":"ArrowRight ×2","scrollLeftTruoc":0,"sau":75,"cuonKhiFocusBangMa":true}
+### Ran Playwright code
+```js
+await (// G06-B vòng sửa 1 — bổ sung: Arrow trên wrap NGOÀI sau focus() bằng mã (luồng chọn tay)
+async (page) => {
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto('http://localhost:4321/so-sanh/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(250);
+  // Đưa về cấu trúc "luồng chọn tay": ở đây đã nạp ?m= nên có vùng trong;
+  // để đo wrap NGOÀI, tháo vùng trong khỏi chuỗi focus là đủ — nhưng không được
+  // sửa DOM thật khi đo bằng chứng. Thay vào đó đo trên trang nạp KHÔNG ?m= rồi
+  // chọn mẫu bằng mã (mô phỏng đường mã, ghi rõ).
+  await page.goto('http://localhost:4321/so-sanh/', { waitUntil: 'load' });
+  await page.waitForTimeout(200);
+  await page.selectOption('#model-select', 'rolex-submariner');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.selectOption('#model-select', 'omega-speedmaster');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.selectOption('#model-select', 'cartier-tank');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.waitForTimeout(200);
+  const cauTruc = await page.evaluate(() => ({
+    coVungTrong: Boolean(document.querySelector('#compare-table-wrap .table-scroll-wrap')),
+    tabindex: document.getElementById('compare-table-wrap').getAttribute('tabindex'),
+  }));
+  const focusOk = await page.evaluate(() => {
+    const el = document.getElementById('compare-table-wrap');
+    el.focus();
+    return document.activeElement === el;
+  });
+  const truoc = await page.evaluate(() => document.getElementById('compare-table-wrap').scrollLeft);
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
+  await page.waitForTimeout(120);
+  const sau = await page.evaluate(() => document.getElementById('compare-table-wrap').scrollLeft);
+  return { cauTruc, focusOkBangMa: focusOk, phim: 'ArrowRight ×2', scrollLeftTruoc: truoc, sau: sau, cuonKhiFocusBangMa: sau > truoc };
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4321/so-sanh/?m=rolex-submariner%2Comega-speedmaster%2Ccartier-tank
+- Page Title: So sánh mẫu iconic — Đồng Hồ Cơ
+- Console: 2 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-14T01-11-23-447Z.log#L13-L18

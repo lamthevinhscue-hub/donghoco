@@ -1,0 +1,61 @@
+### Result
+{"luongUrl":{"coInner":true,"innerTabindex":"0","innerRole":"region","innerAria":"Bảng dữ liệu — dùng phím mũi tên trái và","innerCuonDuoc":354,"outerCuonDuoc":0,"goiYKeoNgang":"← Kéo ngang để xem hết bảng →","hintTrongWrap":true},"luongChonTay":{"coInner":false,"outerTabindex":null,"outerRole":null,"outerCuonDuoc":354,"goiYKeoNgang":"(không có)"}}
+### Ran Playwright code
+```js
+await (// G06-B chặng 1 — so sánh hai luồng: khôi phục ?m= (bọc lại lúc load) vs chọn tay sau load
+async (page) => {
+  const K = {};
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 320, height: 900 });
+
+  // Luồng 1: khôi phục từ URL trước load
+  await page.goto('http://localhost:4321/so-sanh/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(250);
+  K.luongUrl = await page.evaluate(() => {
+    const inner = document.querySelector('#compare-table-wrap .table-scroll-wrap');
+    const outer = document.getElementById('compare-table-wrap');
+    const cuon = (el) => { if (!el) return null; el.scrollLeft = 99999; const s = el.scrollLeft; el.scrollLeft = 0; return s; };
+    return {
+      coInner: Boolean(inner),
+      innerTabindex: inner?.getAttribute('tabindex'),
+      innerRole: inner?.getAttribute('role'),
+      innerAria: inner?.getAttribute('aria-label')?.slice(0, 40),
+      innerCuonDuoc: cuon(inner),
+      outerCuonDuoc: cuon(outer),
+      goiYKeoNgang: document.querySelector('#compare-table-wrap ~ p.table-scroll-hint, #compare-table-wrap p.table-scroll-hint')?.textContent ?? '(không có)',
+      hintTrongWrap: Boolean(document.querySelector('#compare-table-wrap > p.table-scroll-hint')),
+    };
+  });
+
+  // Luồng 2: nạp không ?m= rồi chọn tay (render sau load)
+  await page.goto('http://localhost:4321/so-sanh/', { waitUntil: 'load' });
+  await page.waitForTimeout(250);
+  await page.selectOption('#model-select', 'rolex-submariner');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.selectOption('#model-select', 'omega-speedmaster');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.selectOption('#model-select', 'cartier-tank');
+  await page.dispatchEvent('#model-select', 'change');
+  await page.waitForTimeout(250);
+  K.luongChonTay = await page.evaluate(() => {
+    const inner = document.querySelector('#compare-table-wrap .table-scroll-wrap');
+    const outer = document.getElementById('compare-table-wrap');
+    const cuon = (el) => { if (!el) return null; el.scrollLeft = 99999; const s = el.scrollLeft; el.scrollLeft = 0; return s; };
+    return {
+      coInner: Boolean(inner),
+      outerTabindex: outer?.getAttribute('tabindex'),
+      outerRole: outer?.getAttribute('role'),
+      outerCuonDuoc: cuon(outer),
+      goiYKeoNgang: document.querySelector('p.table-scroll-hint')?.textContent ?? '(không có)',
+    };
+  });
+  return K;
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4321/so-sanh/?m=rolex-submariner%2Comega-speedmaster%2Ccartier-tank
+- Page Title: So sánh mẫu iconic — Đồng Hồ Cơ
+- Console: 2 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-13T18-25-12-542Z.log#L46-L51

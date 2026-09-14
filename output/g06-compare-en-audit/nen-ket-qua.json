@@ -1,0 +1,248 @@
+{
+  "tong": 40,
+  "soDat": 25,
+  "soKhongDat": 0,
+  "soQuanSat": 15,
+  "ketQua": [
+    {
+      "ca": "A1 select có 70 option (69 mẫu + placeholder rỗng)",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "option=70, value đầu=\"\""
+    },
+    {
+      "ca": "A2 0 mẫu: có thông báo mời chọn",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "text=\"Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.\""
+    },
+    {
+      "ca": "A3 0 mẫu: bảng ẩn",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "hidden=true"
+    },
+    {
+      "ca": "A4 1 mẫu: panel Đã chọn + tên mẫu, bảng ẩn",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "panel=\"Đã chọnRolex Submariner — Huyền thoại lặn sâuRol…\""
+    },
+    {
+      "ca": "A5 1 mẫu: URL có ?m=rolex-submariner",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "url=\"?m=rolex-submariner\""
+    },
+    {
+      "ca": "A6 3 mẫu: bảng 4 cột × 7 hàng, hàng Năm đúng",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "cột=4 hàng=7 năm=[1953|1957|1917]"
+    },
+    {
+      "ca": "A7 cột Submariner: 1953/Rolex/Lặn/3230-3235/70 giờ/300m",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "1953 | Rolex | Lặn | Calibre 3230 / 3235 | 70 giờ | 300m | Mẫu đồng hồ lặn đã định hình cả một thể loại — và trở thành biểu tượng vượt ra khỏi giới hạn dưới nước."
+    },
+    {
+      "ca": "A8 chọn trùng: không tăng cột",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "cột=4"
+    },
+    {
+      "ca": "A9 vượt 3 mẫu: chặn cả hai đường (nút + change)",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "cột=4, url=\"?m=rolex-submariner%2Comega-speedmaster%2Ccartier-tank\""
+    },
+    {
+      "ca": "A10 URL slug sai: lọc bỏ, còn 2 cột đúng",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "cột=3 [Rolex Submariner — Huyền thoại lặn sâu | Omega Speedmaster — Chiếc đồng hồ của Mặt Trăng]"
+    },
+    {
+      "ca": "A11 URL trùng lặp: QUAN SÁT — số cột/nút bỏ sinh ra",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "cột=4, nút bỏ=3, url=\"?m=rolex-submariner,rolex-submariner,omega-speedmaster\""
+    },
+    {
+      "ca": "A12 bấm bỏ khi còn trùng: QUAN SÁT hệ quả",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "còn cột=2, url=\"?m=omega-speedmaster\""
+    },
+    {
+      "ca": "A13 URL 5 slug: chỉ lấy 3 đầu",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "cột=4"
+    },
+    {
+      "ca": "A14 URL toàn sai: trạng thái rỗng hiện lại",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "hidden=true"
+    },
+    {
+      "ca": "A15 khôi phục từ URL: link chia sẻ ẩn (chỉ hiện sau thao tác)",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "hiện=false"
+    },
+    {
+      "ca": "A16 sau thao tác: link chia sẻ hiện và khớp URL",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "link=\"http://localhost:4321/so-sanh/?m=omega-speedmaster\""
+    },
+    {
+      "ca": "A17 aria-label nút bỏ: QUAN SÁT — có phân biệt mẫu không",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "nhãn=[Bỏ | Bỏ | Bỏ]"
+    },
+    {
+      "ca": "A18 focus sau bỏ mẫu: QUAN SÁT vị trí focus",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "trước=remove(rolex-submariner), sau=BODY#(không id)"
+    },
+    {
+      "ca": "A19 ô bảng chỉ chứa phần tử an toàn (strong/div/span)",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "kiểm cấu trúc DOM"
+    },
+    {
+      "ca": "A20 không lỗi JS trong suốt phiên A",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "sạch"
+    },
+    {
+      "ca": "B1 no-JS: QUAN SÁT — select/nút còn, hộp trạng thái trống chữ, bảng ẩn",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "select=true, nút=true, hộp=\"\", bảng ẩn=true"
+    },
+    {
+      "ca": "C light 320px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C light 320px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(79, 89, 98) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(35, 74, 115) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C light 768px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C light 768px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(79, 89, 98) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(35, 74, 115) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C light 1024px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C light 1024px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(79, 89, 98) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(35, 74, 115) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C light 1440px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C light 1440px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(79, 89, 98) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(35, 74, 115) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C dark 320px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C dark 320px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(183, 192, 198) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(238, 240, 237) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C dark 768px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C dark 768px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(183, 192, 198) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(238, 240, 237) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C dark 1024px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C dark 1024px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(183, 192, 198) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(238, 240, 237) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "C dark 1440px: trang không tràn ngang",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "tràn=0px"
+    },
+    {
+      "ca": "C dark 1440px: QUAN SÁT nền hàng + cuộn bảng",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "hàng chẵn=rgba(0, 0, 0, 0) chữ=rgb(183, 192, 198) | lẻ=rgba(0, 0, 0, 0) | giá trị chữ=rgb(238, 240, 237) | cuộn wrap ngoài=0px (cuộn thật đo ở log-hai-luong.txt)"
+    },
+    {
+      "ca": "D1 /so-sanh không nạp chunk 3D",
+      "dat": true,
+      "trangThai": "DAT",
+      "chiTiet": "scripts _astro: ban-quyen.DT3s_s_2.css, index.CU0WJmnS.css, hoisted.DX0x34b4.js"
+    },
+    {
+      "ca": "D2 switcher trên /so-sanh?m=…: QUAN SÁT đích",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "href=\"/en/\", giữ ?m=false, cờ untranslated=true"
+    },
+    {
+      "ca": "E1 /so-sanh: canonical + hreflang QUAN SÁT (chưa có cặp EN)",
+      "dat": null,
+      "trangThai": "QUAN_SAT",
+      "chiTiet": "{\"canonical\":\"https://www.kienthucdonghoco.vn/so-sanh/\",\"title\":\"So sánh mẫu iconic — Đồng Hồ Cơ\"}"
+    }
+  ]
+}

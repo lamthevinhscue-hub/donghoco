@@ -1,0 +1,362 @@
+{
+  "HEAD": "ref: refs/heads/main",
+  "thoiGian": "2026-09-13T23:39:48.290Z",
+  "mauIconic": {
+    "vi": {
+      "xuatBan": 69,
+      "draftDaLoai": 0
+    },
+    "en": {
+      "xuatBan": 4,
+      "draftDaLoai": 0
+    },
+    "slugVi": [
+      "audemars-piguet-royal-oak-perpetual-calendar",
+      "patek-philippe-grandmaster-chime",
+      "rolex-gmt-master",
+      "arnold-and-son-perpetual-moon",
+      "baume-mercier-riviera",
+      "carl-f-bucherer-manero-peripheral",
+      "corum-golden-bridge",
+      "franck-muller-crazy-hours",
+      "bell-ross-br-01",
+      "breitling-navitimer",
+      "bvlgari-octo-finissimo",
+      "chanel-j12",
+      "chopard-luc",
+      "credor-eichi-2",
+      "de-bethune-db28",
+      "doxa-sub-300",
+      "eterna-matic-1948",
+      "girard-perregaux-tourbillon-ba-cau",
+      "h-moser-streamliner",
+      "hajime-asaoka-project-t",
+      "hublot-big-bang",
+      "junghans-max-bill",
+      "laurent-ferrier-galet-classic",
+      "mbf-horological-machine-1",
+      "mido-multifort",
+      "minase-horizon",
+      "montblanc-minerva-monopusher",
+      "nomos-tangente",
+      "oris-aquis-depth-gauge",
+      "panerai-luminor",
+      "parmigiani-toric",
+      "piaget-altiplano",
+      "rado-diastar",
+      "richard-mille-rm-001",
+      "roger-dubuis-excalibur",
+      "seagull-1963",
+      "stowa-flieger",
+      "swatch-sistem51",
+      "timex-marlin",
+      "universal-geneve-polerouter",
+      "urwerk-ur-105",
+      "vostok-amphibia",
+      "voutilainen-vingt-8",
+      "breguet-type-xx",
+      "dufour-simplicity",
+      "fc-heart-beat",
+      "fpjourne-chronometre-bleu",
+      "glashuette-seaq",
+      "greubel-double-tourbillon",
+      "hamilton-ventura",
+      "longines-lindbergh",
+      "orient-bambino",
+      "tissot-prx",
+      "fifty-fathoms",
+      "freak",
+      "monaco",
+      "cartier-tank",
+      "grand-seiko-snowflake",
+      "iwc-mark-xi",
+      "lange-1",
+      "omega-speedmaster",
+      "patek-nautilus",
+      "reverso",
+      "rolex-submariner",
+      "royal-oak",
+      "seiko-62mas",
+      "tudor-black-bay",
+      "vc-overseas",
+      "zenith-el-primero"
+    ],
+    "slugEn": [
+      "rolex-gmt-master",
+      "cartier-tank",
+      "omega-speedmaster",
+      "rolex-submariner"
+    ]
+  },
+  "capMauIconic": {
+    "soCapTrongBang": 4,
+    "chiTiet": [
+      {
+        "slugVi": "rolex-submariner",
+        "routeEn": "/en/iconic-watches/rolex-submariner/",
+        "distVi": true,
+        "distEn": true
+      },
+      {
+        "slugVi": "omega-speedmaster",
+        "routeEn": "/en/iconic-watches/omega-speedmaster/",
+        "distVi": true,
+        "distEn": true
+      },
+      {
+        "slugVi": "cartier-tank",
+        "routeEn": "/en/iconic-watches/cartier-tank/",
+        "distVi": true,
+        "distEn": true
+      },
+      {
+        "slugVi": "rolex-gmt-master",
+        "routeEn": "/en/iconic-watches/rolex-gmt-master/",
+        "distVi": true,
+        "distEn": true
+      }
+    ],
+    "enThieuCap": [],
+    "viThieuCapSoVOiEn": 65
+  },
+  "doiChieuTruong": [
+    {
+      "slug": "rolex-submariner",
+      "routeEn": "/en/iconic-watches/rolex-submariner/",
+      "soSanh": {
+        "title": {
+          "vi": "Rolex Submariner — Huyền thoại lặn sâu",
+          "en": "Rolex Submariner — the archetypal dive watch",
+          "gionhChuoi": false
+        },
+        "excerpt": {
+          "vi": "Mẫu đồng hồ lặn đã định hình cả một thể loại — và trở thành biểu tượng vượt ra khỏi giới hạn dưới nước.",
+          "en": "The dive watch that defined an entire category — and became a symbol far beyond the underwater world.",
+          "gionhChuoi": false
+        },
+        "year": {
+          "vi": "1953",
+          "en": "1953",
+          "gionhChuoi": true
+        },
+        "brand": {
+          "vi": "Rolex",
+          "en": "Rolex",
+          "gionhChuoi": true
+        },
+        "category": {
+          "vi": "lặn",
+          "en": "lặn",
+          "gionhChuoi": true
+        },
+        "movement": {
+          "vi": "Calibre 3230 / 3235",
+          "en": "Calibre 3230 / 3235",
+          "gionhChuoi": true
+        },
+        "power_reserve": {
+          "vi": "70 giờ",
+          "en": "70 hours",
+          "gionhChuoi": false
+        },
+        "water_resistance": {
+          "vi": "300m",
+          "en": "300m",
+          "gionhChuoi": true
+        },
+        "references": {
+          "vi": "[\"6204\", \"5513\", \"14060M\", \"114060\", \"126610LV\"]",
+          "en": "[\"6204\", \"5513\", \"14060M\", \"114060\", \"126610LV\"]",
+          "gionhChuoi": true
+        }
+      },
+      "ghiChu": null
+    },
+    {
+      "slug": "omega-speedmaster",
+      "routeEn": "/en/iconic-watches/omega-speedmaster/",
+      "soSanh": {
+        "title": {
+          "vi": "Omega Speedmaster — Chiếc đồng hồ của Mặt Trăng",
+          "en": "Omega Speedmaster — the Moonwatch",
+          "gionhChuoi": false
+        },
+        "excerpt": {
+          "vi": "Đồng hồ chuyên nghiệp duy nhất từng lên Mặt Trăng — và là biểu tượng của kỷ nguyên chinh phục không gian.",
+          "en": "The only professional watch ever worn on the Moon — and the symbol of the space age.",
+          "gionhChuoi": false
+        },
+        "year": {
+          "vi": "1957",
+          "en": "1957",
+          "gionhChuoi": true
+        },
+        "brand": {
+          "vi": "Omega",
+          "en": "Omega",
+          "gionhChuoi": true
+        },
+        "category": {
+          "vi": "chronograph",
+          "en": "chronograph",
+          "gionhChuoi": true
+        },
+        "movement": {
+          "vi": "Calibre 3861",
+          "en": "Calibre 3861",
+          "gionhChuoi": true
+        },
+        "power_reserve": {
+          "vi": "50 giờ",
+          "en": "50 hours",
+          "gionhChuoi": false
+        },
+        "water_resistance": {
+          "vi": "50m",
+          "en": "50m",
+          "gionhChuoi": true
+        },
+        "references": {
+          "vi": "[\"CK2915\", \"105.012\", \"145.012\", \"3570.50\", \"310.30.42\"]",
+          "en": "[\"CK2915\", \"105.012\", \"145.012\", \"3570.50\", \"310.30.42\"]",
+          "gionhChuoi": true
+        }
+      },
+      "ghiChu": null
+    },
+    {
+      "slug": "cartier-tank",
+      "routeEn": "/en/iconic-watches/cartier-tank/",
+      "soSanh": {
+        "title": {
+          "vi": "Cartier Tank — Thanh lịch vượt thời gian",
+          "en": "Cartier Tank — timeless elegance",
+          "gionhChuoi": false
+        },
+        "excerpt": {
+          "vi": "Mẫu chữ nhật lấy cảm hứng từ xe tăng Renault FT-17 trong Thế chiến thứ nhất — đồng hồ thanh lịch được nhận diện nhiều nhất mọi thời đại.",
+          "en": "The rectangular watch inspired by the Renault FT-17 tank of World War I — the most recognizable dress watch of all time.",
+          "gionhChuoi": false
+        },
+        "year": {
+          "vi": "1917",
+          "en": "1917",
+          "gionhChuoi": true
+        },
+        "brand": {
+          "vi": "Cartier",
+          "en": "Cartier",
+          "gionhChuoi": true
+        },
+        "category": {
+          "vi": "dress",
+          "en": "dress",
+          "gionhChuoi": true
+        },
+        "movement": {
+          "vi": "Calibre 430 MC",
+          "en": "Calibre 430 MC",
+          "gionhChuoi": true
+        },
+        "power_reserve": {
+          "vi": "38 giờ",
+          "en": "38 hours",
+          "gionhChuoi": false
+        },
+        "water_resistance": {
+          "vi": "30m",
+          "en": "30m",
+          "gionhChuoi": true
+        },
+        "references": {
+          "vi": "[\"Tank Normale\", \"Tank Cintrée\", \"Tank Louis\", \"Tank Française\", \"Tank Must\"]",
+          "en": "[\"Tank Normale\", \"Tank Cintrée\", \"Tank Louis\", \"Tank Française\", \"Tank Must\"]",
+          "gionhChuoi": true
+        }
+      },
+      "ghiChu": null
+    },
+    {
+      "slug": "rolex-gmt-master",
+      "routeEn": "/en/iconic-watches/rolex-gmt-master/",
+      "soSanh": {
+        "title": {
+          "vi": "Rolex GMT-Master — Đồng hồ của phi công vượt múi giờ",
+          "en": "Rolex GMT-Master — the watch built for long-haul pilots",
+          "gionhChuoi": false
+        },
+        "excerpt": {
+          "vi": "Sinh ra cho phi công hàng không dân dụng, dùng kim 24 giờ và vành xoay hai màu để đọc hai múi giờ cùng lúc. Người kế nhiệm GMT-Master II (1982) bổ sung kim giờ chỉnh độc lập.",
+          "en": "Created for civil aviation, reading two time zones at once with a GMT hand and a two-colour 24-hour bezel. Its successor, the GMT-Master II (1982), added an independently adjustable local hour hand.",
+          "gionhChuoi": false
+        },
+        "year": {
+          "vi": "1955",
+          "en": "1955",
+          "gionhChuoi": true
+        },
+        "brand": {
+          "vi": "Rolex",
+          "en": "Rolex",
+          "gionhChuoi": true
+        },
+        "category": {
+          "vi": "pilot",
+          "en": "pilot",
+          "gionhChuoi": true
+        },
+        "movement": {
+          "vi": null,
+          "en": null,
+          "gionhChuoi": true
+        },
+        "power_reserve": {
+          "vi": null,
+          "en": null,
+          "gionhChuoi": true
+        },
+        "water_resistance": {
+          "vi": null,
+          "en": null,
+          "gionhChuoi": true
+        },
+        "references": {
+          "vi": null,
+          "en": null,
+          "gionhChuoi": true
+        }
+      },
+      "ghiChu": null
+    }
+  ],
+  "chuoiRuntime": {
+    "title": "So sánh mẫu iconic",
+    "description": "Chọn 2-3 mẫu đồng hồ iconic để đối chiếu thông số: năm, thương hiệu, thể loại, bộ máy, trữ cót, chống nước.",
+    "h1": "So sánh mẫu iconic",
+    "nhanChon": "Thêm mẫu để so sánh:",
+    "placeholder": "— Chọn một mẫu —",
+    "nutThem": "Thêm",
+    "gioiHan": "Tối đa 3 mẫu. Bấm tên mẫu trong bảng để bỏ.",
+    "tbRong": "Chưa chọn mẫu nào. Thêm ít nhất 2 mẫu để bắt đầu so sánh.",
+    "daChon": "Đã chọn",
+    "moiThem": "Thêm ít nhất 1 mẫu nữa để bắt đầu so sánh. ↑",
+    "tieuChi": "Tiêu chí",
+    "nutBo": "Bỏ",
+    "hang": [
+      "Năm ra mắt",
+      "Thương hiệu",
+      "Thể loại",
+      "Bộ máy",
+      "Trữ cót",
+      "Chống nước",
+      "Câu chuyện định danh"
+    ],
+    "chiaSe": "🔗 Link chia sẻ:",
+    "categoryLabels": "const categoryLabels: Record<string, string> = {\n  'lặn': 'Lặn',\n  'chronograph': 'Chronograph',\n  'dress': 'Dress',\n  'pilot': 'Phi công',\n  'sport-luxury': 'Sport-luxury',\n  'chế tác độc lập': 'Chế tác độc lập',\n  'siêu mỏng': 'Siêu mỏng',\n  'vật liệu': 'Vật liệu',\n  'phức tạp cao cấp': 'Phức tạp cao cấp',\n};"
+  },
+  "dist": {
+    "soSanhVi": true,
+    "soSanhEn": false,
+    "sitemapCoSoSanh": true
+  }
+}

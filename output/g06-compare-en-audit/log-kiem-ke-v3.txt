@@ -1,0 +1,12 @@
+VI xuất bản: 69 | EN xuất bản: 4
+Cặp mauIconic trong bảng: 4 | EN thiếu cặp: (không)
+Đích dist đủ: true
+dist/so-sanh: true | dist/en/so-sanh (không được có): false | sitemap có /so-sanh: true
+ĐẠT a: cặp VI/EN khác slug — tìm đúng bài EN — slugEn="en-khac", title EN="translated entry"
+ĐẠT b: cặp trỏ bài EN không tồn tại — báo lỗi — slugEn="khong-ton-tai", loi="thiếu bài VI hoặc EN (tra theo slugEn từ routeEn)"
+ĐẠT c: bài EN không có cặp — được liệt kê — enThieuCap=[en-loi]
+ĐẠT d: đủ cặp khác slug — enThieuCap rỗng (cách cũ so slugVi sai) — mới=[] | cách cũ=[en-khac]
+Cặp rolex-submariner (slugEn=rolex-submariner): khác chuỗi ở [title, excerpt, power_reserve]
+Cặp omega-speedmaster (slugEn=omega-speedmaster): khác chuỗi ở [title, excerpt, power_reserve]
+Cặp cartier-tank (slugEn=cartier-tank): khác chuỗi ở [title, excerpt, power_reserve]
+Cặp rolex-gmt-master (slugEn=rolex-gmt-master): khác chuỗi ở [title, excerpt]

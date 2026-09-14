@@ -1,0 +1,31 @@
+### Result
+{"conCuaWrap":["DIV","P"],"chaCuaBang":"DIV#-","chaCuaBangLaWrap":false,"soBangTrongWrap":1,"soBangTrongTaiLieu":1,"viTriBang":"TABLE < DIV < DIV#compare-table-wrap < SECTION < MAIN#main-content"}
+### Ran Playwright code
+```js
+await (// G06-B chặng 1 — nhìn cấu trúc DOM quanh bảng ở trạng thái sống
+async (page) => {
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto('http://localhost:4321/so-sanh/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(200);
+  return await page.evaluate(() => {
+    const wrap = document.getElementById('compare-table-wrap');
+    const bang = wrap.querySelector('table');
+    return {
+      conCuaWrap: Array.from(wrap.children).map((c) => c.tagName + (c.id ? '#' + c.id : '')),
+      chaCuaBang: bang.parentElement ? bang.parentElement.tagName + '#' + (bang.parentElement.id || '-') : 'null',
+      chaCuaBangLaWrap: bang.parentElement === wrap,
+      soBangTrongWrap: wrap.querySelectorAll('table').length,
+      soBangTrongTaiLieu: document.querySelectorAll('table').length,
+      viTriBang: (function () {
+        let e = bang; const d = [];
+        while (e && e !== document.body) { d.push(e.tagName + (e.id ? '#' + e.id : '')); e = e.parentElement; }
+        return d.join(' < ');
+      })(),
+    };
+  });
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-09-13T18-25-12-542Z.log#L82-L84

@@ -1,0 +1,2 @@
+OK: Không phát hiện link nội bộ hỏng.
+   Đã quét 288 trang HTML, 20967 link.

@@ -1,0 +1,36 @@
+### Result
+{"wrapDisplay":"block","wrapOverflow":"auto/auto","tableDisplay":"table","tableParent":"","scrollWidthSauReflow":286,"dayCha":[{"the":"DIV#compare-table-wrap","display":"block","overflowX":"auto","width":"286px","maxWidth":"none"},{"the":"SECTION","display":"block","overflowX":"visible","width":"320px","maxWidth":"1224px"},{"the":"MAIN#main-content","display":"block","overflowX":"visible","width":"320px","maxWidth":"none"}]}
+### Ran Playwright code
+```js
+await (// G06-B chặng 1 — khai thác vì sao wrap không cuộn dù bảng 640px
+async (page) => {
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto('http://localhost:4321/so-sanh/?m=rolex-submariner,omega-speedmaster,cartier-tank', { waitUntil: 'load' });
+  await page.waitForTimeout(200);
+  return await page.evaluate(() => {
+    const wrap = document.getElementById('compare-table-wrap');
+    const bang = wrap.querySelector('table');
+    const cs = getComputedStyle(wrap);
+    // dòng cha tới body — ai đặt overflow?
+    const day = [];
+    let el = wrap;
+    while (el && el !== document.body) {
+      const s = getComputedStyle(el);
+      day.push({ the: el.tagName + (el.id ? '#' + el.id : ''), display: s.display, overflowX: s.overflowX, width: s.width, maxWidth: s.maxWidth });
+      el = el.parentElement;
+    }
+    return {
+      wrapDisplay: cs.display,
+      wrapOverflow: cs.overflowX + '/' + cs.overflowY,
+      tableDisplay: getComputedStyle(bang).display,
+      tableParent: bang.parentElement.id,
+      scrollWidthSauReflow: (wrap.getBoundingClientRect(), wrap.scrollWidth),
+      dayCha: day,
+    };
+  });
+}
+)(page);
+```
+### Events
+- New console entries: .playwright-cli\console-2026-09-13T18-25-12-542Z.log#L79-L81

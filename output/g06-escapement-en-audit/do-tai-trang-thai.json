@@ -1,0 +1,15 @@
+{
+  "dieuKien": "Lượt đo thành công duy nhất: script chặn Google Fonts (giới hạn đã ghi); đếm request + byte giải nén theo phần mở rộng; KHÔNG có requestfailed listener",
+  "ketQuaThanhCong": {
+    "request": 9,
+    "thatBai": "CHƯA ĐO (không có requestfailed listener trong lượt chạy thành công — không được ghi 0)",
+    "html": 1,
+    "css": 3,
+    "js": 5,
+    "tongByteGiaiNen": 234045,
+    "khongChunk3D": true
+  },
+  "blockerVongSua2": "script đo lại (pw-g06c-tai-v2.js) nhất quán làm sập phiên playwright — lỗi quan sát được: Session closed; NGUYÊN NHÂN CHƯA XÁC ĐỊNH (chưa có bằng chứng quy về Chrome cá nhân hay nguyên nhân khác)",
+  "trangThai": "CHƯA KIỂM (đo lại bằng script mới); số có được từ lượt chạy thành công trước — cùng trang, cùng preview, phương pháp chặn-font đã ghi; chặng 1 CHẤP NHẬN không đo lại tải đầy đủ",
+  "kyLuatVongSua2": "không thử đo lại bằng cách đóng Chrome cá nhân của người dùng"
+}

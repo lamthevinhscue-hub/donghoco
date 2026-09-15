@@ -1,0 +1,136 @@
+// G06-C chặng 1 — kiểm hành vi nền infographic Bộ thoát: VI (/co-che/bo-thoat/)
+// và EN đối chứng (/en/mechanisms/escapement/ — hiện KHÔNG có infographic).
+// Trả JSON: tương tác enhanced, điều khiển, khung cũ, tràn, ID trùng, tooltip.
+async (page) => {
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => K.push({ ca, dat: dat === true, chiTiet: String(chiTiet) });
+  const BASE = 'http://localhost:4321';
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  // ============ VI: trang có infographic enhanced ============
+  await page.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  await page.waitForTimeout(250);
+
+  // V1: cấu trúc khung enhanced + SVG
+  const v1 = await page.evaluate(() => ({
+    khung: Boolean(document.querySelector('[data-mechanism][data-enhanced="true"]')),
+    svg: Boolean(document.getElementById('escapement-svg')),
+    nutTruoc: Boolean(document.querySelector('.mechanism-animation .prev-btn')),
+    nutPhat: Boolean(document.querySelector('.mechanism-animation .play-btn')),
+    nutSau: Boolean(document.querySelector('.mechanism-animation .next-btn')),
+    nutReset: Boolean(document.querySelector('.mechanism-animation .reset-btn')),
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+    stepTitle: document.querySelector('.mechanism-animation .step-title')?.textContent?.trim()?.slice(0, 40),
+    legendNut: document.querySelectorAll('.mechanism-animation .mech-legend button').length,
+    panelName: document.getElementById('esc-part-name')?.textContent?.slice(0, 40),
+    idTrung: (() => {
+      const ids = {};
+      let trung = 0;
+      document.querySelectorAll('[id]').forEach((el) => {
+        const id = el.id;
+        ids[id] = (ids[id] ?? 0) + 1;
+        if (ids[id] === 2) trung += 1;
+      });
+      return trung;
+    })(),
+  }));
+  ghi('V1 khung enhanced: đủ SVG + 4 nút + counter "Bước 1/5" + legend + panel, không ID trùng', v1.khung && v1.svg && v1.nutTruoc && v1.nutPhat && v1.nutSau && v1.nutReset && (v1.counter ?? '').startsWith('Bước 1/5') && v1.legendNut > 0 && v1.idTrung === 0, JSON.stringify({ counter: v1.counter, legend: v1.legendNut, idTrung: v1.idTrung, stepTitle: v1.stepTitle }));
+
+  // V2: bước trước/sau thật
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(350);
+  const v2sau1 = await page.evaluate(() => ({
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+    title: document.querySelector('.mechanism-animation .step-title')?.textContent?.trim()?.slice(0, 50),
+  }));
+  await page.click('.mechanism-animation .prev-btn');
+  await page.waitForTimeout(350);
+  const v2ve = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  ghi('V2 next→bước 2/5, prev→về 1/5', (v2sau1.counter ?? '').startsWith('Bước 2/5') && (v2ve ?? '').startsWith('Bước 1/5'), JSON.stringify({ sau: v2sau1, ve: v2ve }));
+
+  // V3: Phát → tự chuyển bước; Tạm dừng → đứng
+  await page.click('.mechanism-animation .play-btn');
+  await page.waitForTimeout(100);
+  const playState = await page.evaluate(() => document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'));
+  const c0 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page.waitForTimeout(2600);
+  const c1 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page.click('.mechanism-animation .play-btn');
+  await page.waitForTimeout(100);
+  const pauseState = await page.evaluate(() => document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'));
+  const c2 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page.waitForTimeout(2600);
+  const c3 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  ghi('V3 Phát: aria-pressed=true, bước tự tăng; Tạm dừng: đứng yên', playState === 'true' && c0 !== c1 && pauseState === 'false' && c2 === c3, JSON.stringify({ playState, pauseState, c0, c1, c2, c3 }));
+
+  // V4: chọn bộ phận bằng nút legend → panel + tooltip giả lập không cần
+  await page.evaluate(() => {
+    const nut = Array.from(document.querySelectorAll('.mechanism-animation .mech-legend button'));
+    const target = nut.find((b) => (b.textContent ?? '').includes('Bánh thoát')) ?? nut[0];
+    target?.click();
+  });
+  await page.waitForTimeout(200);
+  const v4 = await page.evaluate(() => ({
+    panel: document.getElementById('esc-part-name')?.textContent,
+    en: document.getElementById('esc-part-en')?.textContent,
+    role: document.getElementById('esc-part-role')?.textContent?.slice(0, 40),
+  }));
+  ghi('V4 chọn bộ phận: panel hiện tên VI + EN + vai trò', (v4.panel ?? '').includes('Bánh thoát') && (v4.en ?? '').length > 0 && (v4.role ?? '').length > 10, JSON.stringify(v4));
+
+  // V5: tooltip chuột trên SVG
+  const v5box = await page.locator('#escape-wheel').boundingBox();
+  if (v5box) await page.mouse.move(v5box.x + v5box.width / 2, v5box.y + 10);
+  await page.waitForTimeout(150);
+  const v5 = await page.evaluate(() => ({
+    opacity: document.getElementById('tooltip')?.getAttribute('opacity'),
+    vi: document.getElementById('tooltip-vi')?.textContent,
+  }));
+  ghi('V5 tooltip hover SVG: hiện tên VI', v5.opacity === '1' && (v5.vi ?? '').length > 0, JSON.stringify(v5));
+
+  // V6: tiếng "tíc"/TÍC-TẮC — beat indicator tồn tại
+  const v6 = await page.evaluate(() => document.getElementById('beat-indicator')?.textContent?.trim());
+  ghi('V6 beat indicator hiện "● TÍC/TẮC"', /[●]\s*(TÍC|TẮC)/.test(v6 ?? ''), `text="${v6}"`);
+
+  // ============ EN: đối chứng — hiện KHÔNG có infographic ============
+  await page.goto(BASE + '/en/mechanisms/escapement/', { waitUntil: 'load' });
+  await page.waitForTimeout(200);
+  const e1 = await page.evaluate(() => ({
+    khung: Boolean(document.querySelector('[data-mechanism]')),
+    escSvg: Boolean(document.getElementById('escapement-svg')),
+    thongBao: (document.querySelector('main')?.innerText ?? '').includes('Infographic động cho chủ đề này chưa có'),
+    h1: document.querySelector('h1')?.textContent?.slice(0, 50),
+  }));
+  ghi('E1 EN đối chứng: KHÔNG có khung infographic/SVG; có thông báo chỉ có chữ; h1 EN', e1.khung === false && e1.escSvg === false && e1.thongBao === true, JSON.stringify({ khung: e1.khung, thongBao: e1.thongBao, h1: e1.h1 }));
+
+  // E2: cặp route qua switcher EN→VI từ trang EN
+  const e2 = await page.evaluate(() => Array.from(document.querySelectorAll('header a[data-lang-hash-keep], header a[hreflang="vi"]')).map((a) => a.getAttribute('href'))[0] ?? null);
+  ghi('E2 trang EN có đường về VI /co-che/bo-thoat', (e2 ?? '').includes('/co-che/bo-thoat'), `href=${e2}`);
+
+  // ============ Bố cục 320/768 + tràn ngang + bảng tra (VI) ============
+  await page.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  for (const width of [320, 768]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.waitForTimeout(120);
+    const d = await page.evaluate(() => {
+      const doc = document.scrollingElement;
+      return { tràn: doc ? doc.scrollWidth - window.innerWidth : -1, svgW: document.getElementById('escapement-svg')?.getBoundingClientRect().width ?? 0 };
+    });
+    ghi(`Bố cục VI ${width}px: trang không tràn ngang (tràn=${d.tràn}px, svg rộng ${Math.round(d.svgW)}px)`, d.tràn === 0, `svgW=${Math.round(d.svgW)}`);
+  }
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  // ============ No-JS (VI): noscript fallback + khung có banner không ============
+  const ctxNoJs = await page.context().browser().newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 900 } });
+  const p2 = await ctxNoJs.newPage();
+  await p2.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  const nj = await p2.evaluate(() => ({
+    svgCo: Boolean(document.getElementById('escapement-svg')),
+    khung: Boolean(document.querySelector('[data-mechanism]')),
+    chuTrinhNoiDung: (document.querySelector('main')?.innerText ?? '').length,
+  }));
+  ghi('NJS: SVG tĩnh vẫn render, nội dung bài đọc được (điều khiển JS không hoạt động — ghi quan sát)', nj.svgCo === true && nj.chuTrinhNoiDung > 200, JSON.stringify({ svg: nj.svgCo, noiDung: nj.chuTrinhNoiDung }));
+  await ctxNoJs.close();
+
+  return { tong: K.length, dat: K.filter((x) => x.dat).length, khongDat: K.filter((x) => !x.dat).length, ketQua: K };
+}

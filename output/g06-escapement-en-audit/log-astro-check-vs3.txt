@@ -1,0 +1,40 @@
+09:25:40 [types] Generated 1.41s
+09:25:40 [check] Getting diagnostics for Astro files in D:\Watch web build...
+[96moutput/g06-escapement-en-audit/pw-g06c-vs2-bo-sung.js[0m:[93m152[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'd2' is declared but its value is never read.
+
+[7m152[0m   let d2 = null;
+[7m   [0m [93m      ~~[0m
+[96moutput/g06-escapement-en-audit/pw-g06c-vs2-bo-sung.js[0m:[93m74[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'play1' is declared but its value is never read.
+
+[7m74[0m   const play1 = await page.evaluate(() => document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'));
+[7m  [0m [93m        ~~~~~[0m
+
+[96moutput/g06-escapement-en-audit/pw-g06c-vs3-phan-loai.js[0m:[93m245[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'd2PhanUng' is declared but its value is never read.
+
+[7m245[0m   const d2PhanUng = d2An && d2h0 === d2h1 && d2h1 !== d2h2;
+[7m   [0m [93m        ~~~~~~~~~[0m
+
+[96moutput/p3.1-image-audit/do-dinh-dang.mjs[0m:[93m16[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'basename' is declared but its value is never read.
+
+[7m16[0m import { join, basename, extname } from 'node:path';
+[7m  [0m [93m               ~~~~~~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/phan-nhom.cjs[0m:[93m10[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'sig' is declared but its value is never read.
+
+[7m10[0m const nhomList = Object.entries(nhom).map(([sig, n], idx) => ({ nhom: 'N' + (idx + 1), ...n }));
+[7m  [0m [93m                                            ~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/quet-gradient.cjs[0m:[93m27[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'lines' is declared but its value is never read.
+
+[7m27[0m   const lines = text.split('\n');
+[7m  [0m [93m        ~~~~~[0m
+
+[96moutput/p3.3-cluster-script-audit/kiem-thu-hoi-quy.cjs[0m:[93m239[0m:[93m13[0m - [93mwarning[0m[90m ts(6133): [0m'duongDan' is declared but its value is never read.
+
+[7m239[0m       const duongDan = path.join(SB, c.fixture);
+[7m   [0m [93m            ~~~~~~~~[0m
+
+Result (301 files):
+- 0 errors
+- 0 warnings
+- 7 hints

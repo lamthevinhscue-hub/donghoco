@@ -1,0 +1,53 @@
+// G06-C chặng 1 bổ sung — reduced-motion (trước tải / gỡ reduce) + đo tải đầu
+// cho trang /co-che/bo-thoat/ (VI) — SVG thuần, không Three.js.
+async (page) => {
+  const K = [];
+  const ghi = (ca, dat, chiTiet = '') => K.push({ ca, dat: dat === true, chiTiet: String(chiTiet) });
+  const BASE = 'http://localhost:4321';
+  await page.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+
+  // RM-C: reduce TRƯỚC tải → thao tác bước vẫn hoạt động, không trượt chuyển động
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  await page.waitForTimeout(200);
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(80);
+  const rm = await page.evaluate(() => ({
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+    transition: getComputedStyle(document.getElementById('escape-wheel-group')).transitionDuration,
+  }));
+  ghi('RM-C reduce trước tải: next hoạt động tức thì (counter đúng, transition 0s)', (rm.counter ?? '').startsWith('Bước 2/5') && (rm.transition === '0s'), JSON.stringify(rm));
+
+  // Gỡ reduce giữa phiên: chuyển mượt trở lại (transition 0.3s)
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.waitForTimeout(120);
+  const rmOff = await page.evaluate(() => getComputedStyle(document.getElementById('escape-wheel-group')).transitionDuration);
+  ghi('RM gỡ giữa phiên: transition chuyển động trở lại (0.3s)', rmOff === '0.3s', `transition=${rmOff}`);
+
+  // Đo tải đầu: request + byte giải nén theo loại; kiểm không có Three.js
+  const ctx = await page.context().browser().newContext({ viewport: { width: 1280, height: 900 } });
+  const p2 = await ctx.newPage();
+  await p2.route(/fonts[.](googleapis|gstatic)[.]com/, (r) => r.abort());
+  const reqs = [];
+  p2.on('response', async (r) => {
+    try {
+      const url = r.url();
+      const duoi = (url.split('?')[0].match(/\.([a-z0-9]+)(?:$|\?)/i) ?? [])[1]?.toLowerCase() ?? (r.request().resourceType() === 'document' ? 'html' : 'khac');
+      let giaiNen = -1;
+      try { giaiNen = (await r.body()).length; } catch {}
+      reqs.push({ loai: duoi, giaiNen, url3d: /three|orbit|exploded/i.test(url) });
+    } catch {}
+  });
+  await p2.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'networkidle' });
+  await p2.waitForTimeout(300);
+  await ctx.close();
+  const html = reqs.filter((q) => q.loai === 'html');
+  const css = reqs.filter((q) => q.loai === 'css');
+  const js = reqs.filter((q) => q.loai === 'js');
+  const tong = reqs.reduce((s, q) => s + Math.max(0, q.giaiNen), 0);
+  const co3d = reqs.some((q) => q.url3d);
+  ghi('Đo tải: ' + reqs.length + ' request, HTML ' + html.reduce((s, q) => s + Math.max(0, q.giaiNen), 0) + 'B, CSS ×' + css.length + ', JS ×' + js.length + ', tổng giải nén ' + tong + 'B; không chunk 3D=' + !co3d, reqs.length > 0 && !co3d, 'chi tiết: ' + reqs.map((q) => q.loai + '=' + q.giaiNen).join(','));
+
+  return { tong: K.length, dat: K.filter((x) => x.dat).length, khongDat: K.filter((x) => !x.dat).length, ketQua: K };
+}

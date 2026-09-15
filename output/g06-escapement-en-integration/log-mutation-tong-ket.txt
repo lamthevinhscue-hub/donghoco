@@ -1,0 +1,66 @@
+{
+ "tongKet": {
+  "tong": 11,
+  "dat": 11,
+  "khongDat": 0,
+  "chuaKiem": 0,
+  "quanSat": 0
+ },
+ "ketQua": [
+  {
+   "ca": "M2-1 gỡ data-name-en một bộ phận → checker nguồn S15 bắt",
+   "trangThai": "DAT",
+   "chiTiet": "sạch=true, bắt S15=true, khôi phục=true"
+  },
+  {
+   "ca": "M2-2 mở gate EN cho 'chronograph' (chưa dịch) → checker nguồn S9 bắt",
+   "trangThai": "DAT",
+   "chiTiet": "sạch=true, bắt S9=true, khôi phục=true"
+  },
+  {
+   "ca": "Mục 7a nhãn động ngoài ngoại lệ (WaterResistance) → check-motion bắt",
+   "trangThai": "DAT",
+   "chiTiet": "sạch=true, bắt=true, khôi phục=true"
+  },
+  {
+   "ca": "Mục 7b Bộ thoát sạch qua check-motion (ngoại lệ duy nhất)",
+   "trangThai": "DAT",
+   "chiTiet": "exit=0"
+  },
+  {
+   "ca": "Ham-quet vô hiệu hóa phát hiện khung trong hàm dùng chung → D5 tự kiểm (b) thất bại đúng lý do",
+   "trangThai": "DAT",
+   "chiTiet": "hàm nguyên vẹn exit=0; hàm vô hiệu exit=1; bắt 'D5 tự kiểm (b)'=true"
+  },
+  {
+   "ca": "Baseline bản sạch qua bộ kiểm chung (trước mọi ca vá)",
+   "trangThai": "DAT",
+   "chiTiet": "counter='Step 1/5', panel='The part's English name and its ro', thiếu đích=0, nhãn=có"
+  },
+  {
+   "ca": "m3 vá render-only lộ VI (text panel tiếng Việt)",
+   "trangThai": "DAT",
+   "chiTiet": "vá: fail-đúng-lý-do (panel lộ chuỗi VI)=true; hoàn nguyên: hash khớp=true, đo lại đạt=true"
+  },
+  {
+   "ca": "m4 xóa id escSteel → tham chiếu mất đích",
+   "trangThai": "DAT",
+   "chiTiet": "vá: fail-đúng-lý-do (thiếu đích escSteel)=true; hoàn nguyên: hash khớp=true, đo lại đạt=true"
+  },
+  {
+   "ca": "m5 nhãn SVG rỗng (aria-label=\"\")",
+   "trangThai": "DAT",
+   "chiTiet": "vá: fail-đúng-lý-do (nhãn rỗng)=true; hoàn nguyên: hash khớp=true, đo lại đạt=true"
+  },
+  {
+   "ca": "m6 nhãn SVG sai ngôn ngữ (nhãn VI trên trang EN)",
+   "trangThai": "DAT",
+   "chiTiet": "vá: fail-đúng-lý-do (nhãn không phải bản EN duyệt)=true; hoàn nguyên: hash khớp=true, đo lại đạt=true"
+  },
+  {
+   "ca": "m7 xung đột aria-hidden trên SVG role=img",
+   "trangThai": "DAT",
+   "chiTiet": "vá: fail-đúng-lý-do (aria-hidden=true xung đột role=img)=true; hoàn nguyên: hash khớp=true, đo lại đạt=true"
+  }
+ ]
+}

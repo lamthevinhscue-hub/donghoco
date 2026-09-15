@@ -1,0 +1,98 @@
+
+> dong-ho-co@0.1.0 build
+> npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-3d-loading-budget.mjs && node scripts/check-links.mjs && node scripts/check-evolution-routes.mjs && node scripts/check-g01-navigation.mjs && node scripts/check-g02-history-timeline.mjs dist && node scripts/check-g04-balance-chapter.mjs dist && node scripts/check-g05-history-journey.mjs dist && node scripts/check-g06-anatomy.mjs dist && node scripts/check-g06-compare.mjs dist && node scripts/check-g06-escapement-en.mjs dist
+
+
+> dong-ho-co@0.1.0 check
+> node scripts/scan-chars.mjs && node scripts/check-duplicate-classes.mjs && node scripts/scan-hidden-text.mjs && node scripts/check-color-contrast.mjs && node scripts/check-keyboard-accessibility.mjs && node scripts/check-semantic-accessibility.mjs && node scripts/check-motion-accessibility.mjs && node scripts/check-content-accessibility.mjs && node scripts/check-evolution-data.mjs && node scripts/check-learning-paths.mjs && node scripts/check-first-watch-cluster.mjs && node scripts/check-editorial-links.mjs && node scripts/check-care-cluster.mjs && node scripts/check-gmt-source-integrity.mjs && node scripts/check-chronograph-cluster.mjs && node scripts/check-daily-care-cluster.mjs && node scripts/check-automatic-energy-cluster.mjs && node scripts/check-protection-cluster.mjs && node scripts/check-precision-certification-cluster.mjs && node scripts/check-regulating-cluster.mjs && node scripts/check-calendar-complications-cluster.mjs && node scripts/check-high-complications-cluster.mjs && node scripts/check-movement-finishing-cluster.mjs && node scripts/check-brand-value-retention.mjs && node scripts/check-financial-claims-cluster.mjs && npm run check:types && node scripts/check-g02-history-timeline.mjs && node scripts/check-g04-balance-chapter.mjs && node scripts/check-g05-history-journey.mjs && node scripts/check-g06-anatomy.mjs && node scripts/check-g06-compare.mjs && node scripts/check-g06-escapement-en.mjs
+
+OK: Không phát hiện ký tự ngoài tiếng Việt/Anh trong src/.
+   Đã quét 384 file.
+OK: Không còn class trùng nào.
+OK: Không phát hiện văn bản ẩn trong src/content/.
+Kiểm tra tương phản WCAG 2.2 AA — các cặp token bắt buộc
+
+ĐẠT  SÁNG  primary/page                               17.04:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  secondary/page                              6.90:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  primary/surface                            17.67:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  secondary/surface                           7.15:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   primary/page                               16.00:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary/page                              9.93:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   primary/surface                            13.19:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary/surface                           8.18:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   secondary 70% trên page (nhãn phụ)          5.43:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   placeholder (secondary 70% trên surface)    4.78:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  placeholder (secondary 90% trên surface)    5.51:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  link(alloy)/page                            4.83:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  link(steel)/page                            8.81:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(alloy sáng)/page                       9.03:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(alloy sáng)/surface                    7.44:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   link(steel sáng)/page                       8.28:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  chữ cream/80 trên navy               6.33:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  link cream/80 trên navy              6.33:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  heading + hover brass-light trên navy  5.01:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  mô tả cream/75 trên navy             5.78:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  mô tả cream/70 trên navy             5.25:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   chữ cream/80 trên đen-pha           12.00:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   link cream/80 trên đen-pha          12.00:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   heading brass-light trên đen-pha    10.69:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER TỐI   mô tả cream/75 trên đen-pha         10.67:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  link brass-light trên nền khung bản tin  5.01:1  (cần ≥ 4.5:1)
+ĐẠT  FOOTER SÁNG  chữ khung bản tin cream/75 trên navy  5.78:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  CTA cream trên steel(navy)                  8.81:1  (cần ≥ 4.5:1)
+ĐẠT  TỐI   CTA chữ tối trên steel sáng                 7.97:1  (cần ≥ 4.5:1)
+ĐẠT  SÁNG  focus steel trên page                       8.81:1  (cần ≥ 3.0:1)
+ĐẠT  SÁNG  focus steel trên surface                    9.14:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   focus steel trên page                       8.28:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   viền line trên page                         3.91:1  (cần ≥ 3.0:1)
+ĐẠT  TỐI   viền line trên bề mặt (input dark)          3.22:1  (cần ≥ 3.0:1)
+ĐẠT  SÁNG  viền input (ink-soft 70% trên page)         3.38:1  (cần ≥ 3.0:1)
+
+35/35 cặp đạt chuẩn.
+Tất cả cặp token khai báo đạt ngưỡng AA.
+ĐẠT  BaseLayout: skip link trỏ tới #main-content
+ĐẠT  BaseLayout: <main> có id="main-content"
+ĐẠT  BaseLayout: <main> có tabindex="-1"
+ĐẠT  Header: nút hamburger có aria-controls="mobile-menu"
+ĐẠT  Header: 2 dropdown có aria-controls khớp id menu (nav-dropdown-knowledge, nav-dropdown-explore)
+ĐẠT  Header: có aria-expanded trên nút menu
+ĐẠT  SearchBox: nút mở có aria-controls="search-overlay"
+ĐẠT  SearchBox: nút mở có aria-expanded
+ĐẠT  SearchBox: dialog có role="dialog"
+ĐẠT  SearchBox: dialog có aria-modal="true"
+ĐẠT  SearchBox: dialog có aria-labelledby
+ĐẠT  SearchBox: có focus trap (keydown Tab trong overlay)
+ĐẠT  Không có outline-none thiếu cơ chế focus thay thế trong src/
+
+Tất cả kiểm tra bàn phím tĩnh đạt. (Hành vi phím thật cần kiểm thủ công trên trình duyệt.)
+ĐẠT  BaseLayout: <html> có thuộc tính lang
+ĐẠT  BaseLayout: có skip link tới #main-content
+ĐẠT  BaseLayout: có <main>
+ĐẠT  Mọi template trang có tối đa 1 <h1> (39 trang)
+ĐẠT  Không có heading nhảy quá một cấp trong template
+ĐẠT  Mọi input/textarea/select đều có label hoặc aria-label
+ĐẠT  Form liên hệ: 3 field required đều nối aria-describedby với phần tử lỗi
+ĐẠT  Form liên hệ: mọi field required đều có text "bắt buộc/required" trong label
+ĐẠT  Không có thẻ mở/đóng heading-div không khớp trong src/
+ĐẠT  Mọi nút icon-only đều có aria-label hoặc nội dung sr-only
+
+Tất cả kiểm tra ngữ nghĩa tĩnh đạt. (Nội dung Markdown/bảng JS render cần kiểm thủ công.)
+ĐẠT  global.css: có khối @media (prefers-reduced-motion: reduce)
+ĐẠT  MechanismAnimation: nút Play/Pause có aria-label + aria-pressed
+ĐẠT  MechanismAnimation: không tự phát khi tải trang (isPlaying mặc định false)
+ĐẠT  MechanismAnimation: legend tên bộ phận là text thay thế (sr-only trên desktop)
+ĐẠT  exploded3d.ts: đọc prefers-reduced-motion (không auto-rotate/tự tách lớp)
+ĐẠT  WatchExplodedView3D: có nút "Chuyển động 3D" toggle (aria-pressed)
+ĐẠT  WatchExplodedView3D: đủ nút thay thế thao tác kéo (xoay trái/phải, phóng to, thu nhỏ, đặt lại)
+ĐẠT  WatchExplodedView3D: có danh sách bộ phận dạng button (text fallback, không phụ thuộc WebGL)
+ĐẠT  giai-phau: giữ bản 2D làm chế độ mặc định + phương án thay thế 3D (khuôn chung, cả VI/EN)
+ĐẠT  WatchExplodedView 2D: panel chi tiết aria-live="polite" (text HTML thật)
+ĐẠT  WatchExplodedView 2D: nút chọn bộ phận + aria-pressed
+ĐẠT  WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)
+ĐẠT  Không có animation infinite lọt ngoài cơ chế reduced-motion toàn cục
+LỖI  src\components\infographics\Escapement.astro: SVG chưa phân loại — cần aria-hidden (trang trí) HOẶC role="img" + aria-label (có ý nghĩa): <svg
+    viewBox="0 0 600 400"
+    xmlns="http://www.w3.org/2000/svg"
+
+
+CÓ 1 LỖI — xem trên.

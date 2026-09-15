@@ -191,21 +191,28 @@ console.log('— Lớp nguồn (src/) —');
     else fail(`G4-4 Ảnh web ${bytes} byte vượt ngưỡng 150 KB`);
   }
 
-  // G4-4 Nới R1 check-regulating phải hẹp đúng 1 tệp (quyết định GPT Work):
-  // có bảng ngoại lệ + regex cờ theo tệp; bài EN khác (escapement) vẫn yêu
-  // cầu false; không bỏ kiểm cờ.
+  // G4-4 Nới R1 check-regulating theo chính sách hiện hành: ngoại lệ gồm ĐÚNG
+  // 2 tệp — Bánh lắc (chương G04-B, TXN-20260912-23) và Bộ thoát (infographic
+  // song ngữ G06-C chặng 2, TXN-20260915-8); các bài EN khác vẫn kiểm false;
+  // không bỏ kiểm cờ.
   {
     const s = read('scripts/check-regulating-cluster.mjs');
+    const setCau = s.match(/const FLAG_TRUE_FILES = new Set\(\[([\s\S]*?)\]\);/);
+    const cacTep = setCau ? (setCau[1].match(/'([^']+)'/g) || []).map((x) => x.slice(1, -1)) : [];
+    const dungHaiTep =
+      cacTep.length === 2 &&
+      cacTep.includes('src/content/coChe/en/balance-and-hairspring.md') &&
+      cacTep.includes('src/content/coChe/en/escapement.md');
     const coNgoaiLe =
-      s.includes("const FLAG_TRUE_FILES = new Set(['src/content/coChe/en/balance-and-hairspring.md']);") &&
-      s.includes('flagTrue ? \'true\' : \'false\'') &&
+      dungHaiTep &&
+      s.includes("flagTrue ? 'true' : 'false'") &&
       s.includes("rules.includes('infographic')") &&
       s.includes("rules.includes('interactive')");
-    const khacVanFalse = s.includes("'src/content/coChe/en/escapement.md': ['category', 'difficulty', 'infographic', 'interactive']");
-    if (coNgoaiLe && khacVanFalse) {
-      ok('G4-4 R1 check-regulating nới hẹp đúng 1 tệp (balance-and-hairspring true), bài EN khác vẫn kiểm false');
+    const escapementVanCoQuyTacSchema = s.includes("'src/content/coChe/en/escapement.md': ['category', 'difficulty', 'infographic', 'interactive']");
+    if (coNgoaiLe && escapementVanCoQuyTacSchema) {
+      ok('G4-4 R1 check-regulating ngoại lệ đúng 2 tệp (Bánh lắc G04 + Bộ thoát G06-C), bài EN khác vẫn kiểm false');
     } else {
-      fail(`G4-4 Nới R1 sai (ngoạiLệ=${coNgoaiLe}, escapementCònQuyTắc=${khacVanFalse})`);
+      fail(`G4-4 Nới R1 sai (ngoạiLệ=${coNgoaiLe}, escapementVanCoQuyTacSchema=${escapementVanCoQuyTacSchema}, tệp=[${cacTep.join(', ')}])`);
     }
   }
   // G4-9 (hồi quy vòng sửa màu TXN-20260912-25): mọi token var(--…) component

@@ -7,7 +7,7 @@
 //
 //   R1. 6 bài EN (5 nội dung + 1 trang legacy tương thích) frontmatter hợp lệ
 //       (custom_slug khớp slug tệp; hai cờ has_infographic/interactive theo
-//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring
+//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring và escapement (G06-C)
 //       phải true theo quyết định GPT Work ở vòng sửa G04-B
 //       TXN-20260912-23 vì có chương tương tác riêng; enum category/difficulty;
 //       ≥2 nguồn HTTPS).
@@ -156,11 +156,16 @@ const FRONTMATTER_RULES = {
   'src/content/tuDien/en/escapement.md': ['category', 'infographic', 'interactive'],
 };
 
-// G04-B (TXN-20260912-23, quyết định GPT Work): DUY NHẤT bài EN
-// balance-and-hairspring có chương tương tác riêng (nhánh G04-B trong
-// MechanismArticle) → hai cờ phải là true. Các bài EN khác vẫn false.
-// R1 không được bỏ kiểm cờ và không miễn nguyên tệp khỏi R1.
-const FLAG_TRUE_FILES = new Set(['src/content/coChe/en/balance-and-hairspring.md']);
+// Ngoại lệ cờ true — chính sách hiện hành (GPT Work duyệt):
+//   - balance-and-hairspring: chương tương tác riêng G04-B (TXN-20260912-23).
+//   - escapement: infographic song ngữ G06-C chặng 2 (TXN-20260915-8, vòng sửa
+//     TXN-20260915-11); gate MechanismArticle khóa đúng slug 'escapement'.
+// Các bài EN khác vẫn false. R1 không được bỏ kiểm cờ và không miễn nguyên
+// tệp khỏi R1.
+const FLAG_TRUE_FILES = new Set([
+  'src/content/coChe/en/balance-and-hairspring.md',
+  'src/content/coChe/en/escapement.md',
+]);
 
 const ROUTE_PAIRS = [
   { vi: '/co-che/day-toc-banh-lac', en: '/en/mechanisms/balance-and-hairspring/' },

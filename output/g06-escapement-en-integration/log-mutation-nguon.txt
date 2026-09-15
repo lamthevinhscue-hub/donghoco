@@ -1,0 +1,50 @@
+Đã chuẩn bị sandbox + M2-1/M2-2 xong. Kết quả tầng nguồn:
+[
+ {
+  "ca": "TK1 QS không cộng DAT",
+  "trangThai": "DAT",
+  "chiTiet": ""
+ },
+ {
+  "ca": "TK2 DAT/CK tách biệt",
+  "trangThai": "DAT",
+  "chiTiet": ""
+ },
+ {
+  "ca": "TK3 lỗi đếm đúng",
+  "trangThai": "DAT",
+  "chiTiet": ""
+ },
+ {
+  "ca": "TK4 toàn CK → dat 0",
+  "trangThai": "DAT",
+  "chiTiet": ""
+ },
+ {
+  "ca": "TK5 rỗng không sập",
+  "trangThai": "DAT",
+  "chiTiet": ""
+ },
+ {
+  "ca": "M2-1 gỡ data-name-en một bộ phận → checker nguồn S15 bắt",
+  "trangThai": "DAT",
+  "chiTiet": "sạch=true, bắt S15=true (exit 1), khôi phục=true"
+ },
+ {
+  "ca": "M2-2 mở gate EN cho 'chronograph' (chưa dịch) → checker nguồn S9 bắt",
+  "trangThai": "DAT",
+  "chiTiet": "sạch=true, bắt S9=true (exit 1), khôi phục=true"
+ },
+ {
+  "ca": "M2-3 chuẩn bị vá",
+  "trangThai": "DAT",
+  "chiTiet": "đã vá text mặc định panel thành chuỗi tiếng Việt (bề mặt tĩnh, JS không ghi đè)"
+ },
+ {
+  "ca": "M2-4 chuẩn bị vá",
+  "trangThai": "DAT",
+  "chiTiet": "đã bỏ id escSteel (còn 4 tham chiếu url(#escSteel) thiếu đích)"
+ }
+]
+(node:6596) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)

@@ -155,11 +155,16 @@ function walk(dir, out = []) {
 // Hai nhóm hợp lệ:
 //   - Trang trí: aria-hidden="true" (thông tin có ở text HTML thay thế bên ngoài)
 //   - Có ý nghĩa: role="img" + aria-label không rỗng
-// Lỗi: SVG vừa aria-hidden vừa role="img"/aria-label (xung đột — SR bỏ qua
-// dù có nhãn), hoặc chưa thuộc nhóm nào.
+// Nhãn Astro động (aria-label={biểu_thức}): KHÔNG được coi là bằng chứng nhãn
+// render hợp lệ ở đây. NGOẠI LỆ DUY NHẤT được chuyển trách nhiệm kiểm nhãn sang
+// tầng dist: SVG id="escapement-svg" trong Escapement.astro (G06-C — D11 kiểm
+// dist VI/EN + mutation m5/m6/m7). SVG nhãn động KHÁC phải báo cần bổ sung
+// kiểm dist, không tự tuyên bố đã được kiểm. Thiếu role="img" và xung đột
+// aria-hidden vẫn bị bắt ở tầng nguồn với mọi SVG.
 {
   const files = [...walk('src/components/infographics'), ...walk('src/components/interactive')];
   let bad = 0;
+  let soChuyenDist = 0;
   for (const f of files) {
     const s = read(f);
     const opens = s.match(/<svg\b[^>]*>/g) || [];
@@ -168,16 +173,34 @@ function walk(dir, out = []) {
       const hasRole = /role="img"/.test(tag);
       const labelM = tag.match(/aria-label="([^"]*)"/);
       const hasLabel = !!labelM && labelM[1].trim().length > 0;
-      if (hidden && (hasRole || hasLabel)) {
+      const nhanDong = /aria-label=\{/.test(tag);
+      const laNgoaiLeG06C =
+        relative('.', f).split(/[\\/]/).join('/') === 'src/components/infographics/Escapement.astro' &&
+        /id="escapement-svg"/.test(tag);
+      if (hidden && (hasRole || hasLabel || nhanDong)) {
         bad++;
         fail(relative('.', f) + ': SVG vừa aria-hidden vừa có role/aria-label (xung đột): ' + tag.slice(0, 70));
+      } else if (nhanDong && !laNgoaiLeG06C) {
+        bad++;
+        fail(relative('.', f) + ': SVG nhãn động NGOÀI ngoại lệ G06-C (chỉ Escapement.astro/escapement-svg được chuyển kiểm nhãn sang dist) — cần bổ sung checker dist tương ứng trước khi dùng'
+          + (hasRole ? '' : ' [thiếu role="img"]') + ': ' + tag.slice(0, 70));
+      } else if (nhanDong && !hasRole) {
+        bad++;
+        fail(relative('.', f) + ': SVG escapement-svg (G06-C) nhãn động thiếu role="img" — tầng nguồn vẫn bắt');
+      } else if (nhanDong && laNgoaiLeG06C) {
+        // ngoại lệ duy nhất: trách nhiệm nhãn render chuyển sang D11 (dist VI/EN)
+        soChuyenDist++;
       } else if (!hidden && !(hasRole && hasLabel)) {
         bad++;
         fail(relative('.', f) + ': SVG chưa phân loại — cần aria-hidden (trang trí) HOẶC role="img" + aria-label (có ý nghĩa): ' + tag.slice(0, 70));
       }
     });
   }
-  if (bad === 0) ok('Mọi SVG minh họa được phân loại đúng: aria-hidden (trang trí) hoặc role="img" + aria-label (có ý nghĩa)');
+  if (bad === 0) {
+    ok(soChuyenDist
+      ? `Mọi SVG minh họa được phân loại đúng (${soChuyenDist} SVG G06-C nhãn động chuyển kiểm nhãn sang tầng dist — D11)`
+      : 'Mọi SVG minh họa được phân loại đúng: aria-hidden (trang trí) hoặc role="img" + aria-label (có ý nghĩa)');
+  }
 }
 
 console.log('');

@@ -1,0 +1,40 @@
+### Result
+{"counter":"Step 1/5","panel":"The part's English name and its role will appear here.","panelVI":false,"soRefs":12,"thieu":[],"role":"img","ariaHidden":null,"nhan":"Step-by-step diagram of a Swiss lever escapement: escape wheel, lever, pallet jewels, balance and hairspring","nhanEnDung":true}
+### Ran Playwright code
+```js
+await (// G06-C chặng 2 (vòng sửa) — ĐO DOM thô cho mutation trên bản dist sandbox
+// (server-tinh.cjs cổng 4480). Trả metrics RAW: counter/panel/tham chiếu SVG/
+// phân loại SVG (role, aria-hidden, nhãn). Kỳ vọng và phân loại nằm ở
+// tong-ket-mutation.cjs — bộ kiểm GIỐNG NHAU cho mọi trạng thái.
+async (page) => {
+  await page.goto('http://127.0.0.1:4480/en/mechanisms/escapement/', { waitUntil: 'load' });
+  await page.waitForTimeout(350);
+  return page.evaluate(() => {
+    const counter = document.querySelector('.mechanism-animation .step-counter')?.textContent ?? '';
+    const panel = document.getElementById('esc-part-role')?.textContent ?? '';
+    const svg = document.getElementById('escapement-svg');
+    const refs = (svg?.outerHTML ?? '').match(/url\(#([^)]+)\)/g) || [];
+    const thieu = [...new Set(refs.map((r) => r.slice(5, -1)))].filter((id) => !document.getElementById(id));
+    let hidden = null;
+    try { hidden = svg?.hasAttribute('aria-hidden') ? svg.getAttribute('aria-hidden') : null; } catch {}
+    return {
+      counter,
+      panel: panel.trim(),
+      panelVI: panel.includes('Tên tiếng Việt'),
+      soRefs: refs.length,
+      thieu,
+      role: svg?.getAttribute('role') ?? null,
+      ariaHidden: hidden,
+      nhan: svg?.getAttribute('aria-label') ?? null,
+      nhanEnDung: (svg?.getAttribute('aria-label') ?? '').startsWith('Step-by-step diagram of a Swiss lever escapement'),
+    };
+  });
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:4480/en/mechanisms/escapement/
+- Page Title: The escapement: pacing the energy of a mechanical watch — Mechanical Watch Knowledge
+- Console: 2 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-15T06-16-54-858Z.log#L1-L3

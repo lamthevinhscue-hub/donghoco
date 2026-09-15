@@ -1,0 +1,283 @@
+### Result
+{"tuKiem":[{"ca":"TK1 quan sát không cộng vào đạt","trangThai":"DAT","chiTiet":""},{"ca":"TK2 đạt/chưa kiểm tách biệt","trangThai":"DAT","chiTiet":""},{"ca":"TK3 có lỗi đếm đúng","trangThai":"DAT","chiTiet":""},{"ca":"TK4 tất cả chưa kiểm → dat=0","trangThai":"DAT","chiTiet":""},{"ca":"TK5 rỗng không sập","trangThai":"DAT","chiTiet":""}],"tuKiemTongKet":{"tong":5,"dat":5,"khongDat":0,"chuaKiem":0,"quanSat":0},"tongKet":{"tong":27,"dat":27,"khongDat":0,"chuaKiem":0,"quanSat":0},"ketQua":[{"ca":"A bố cục vi/light/320px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Bước 1/5\",\"svg\":250,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục vi/light/768px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Bước 1/5\",\"svg\":681,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục vi/light/1440px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Bước 1/5\",\"svg\":714,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục vi/dark/320px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Bước 1/5\",\"svg\":250,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục vi/dark/768px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Bước 1/5\",\"svg\":681,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục vi/dark/1440px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Bước 1/5\",\"svg\":714,\"tran\":0,\"note1\":\"Sơ đồ hướng dẫn đã giản lược. \"}"},{"ca":"A bố cục en/light/320px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Step 1/5\",\"svg\":250,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"A bố cục en/light/768px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Step 1/5\",\"svg\":681,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"A bố cục en/light/1440px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"light\",\"counter\":\"Step 1/5\",\"svg\":714,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"A bố cục en/dark/320px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Step 1/5\",\"svg\":250,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"A bố cục en/dark/768px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Step 1/5\",\"svg\":681,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"A bố cục en/dark/1440px: khung+theme+tràn+counter+nhãn giới hạn","trangThai":"DAT","chiTiet":"{\"theme\":\"dark\",\"counter\":\"Step 1/5\",\"svg\":714,\"tran\":0,\"note1\":\"This is a simplified teaching \"}"},{"ca":"B chuột VI next: Bước 2/5 + bánh thoát rotate(-8deg)","trangThai":"DAT","chiTiet":"translate(180px, 220px) rotate(-8deg)"},{"ca":"B chuột VI reset: về 1/5 + rotate(0deg)","trangThai":"DAT","chiTiet":"translate(180px, 220px) rotate(0deg)"},{"ca":"B chuột VI Phát: aria-pressed=true + nhãn Tạm dừng + tự tăng bước","trangThai":"DAT","chiTiet":"{\"pressed\":\"true\",\"label\":\"Tạm dừng hoạt ảnh\",\"counter\":\"Bước 2/5\"}"},{"ca":"C bàn phím VI: Tab tới Phát + Space → phát","trangThai":"DAT","chiTiet":"{\"gap\":true,\"pressed\":\"true\",\"counter\":\"Bước 3/5\"}"},{"ca":"C bàn phím EN: Tab tới Phát + Space → phát (Play animation/Step)","trangThai":"DAT","chiTiet":"{\"gap\":true,\"pressed\":\"true\",\"label\":\"Pause animation\",\"counter\":\"Step 2/5\"}"},{"ca":"D EN bước 3: Step 3/5 + rotate(-21deg)","trangThai":"DAT","chiTiet":"translate(180px, 220px) rotate(-21deg)"},{"ca":"D EN bước 5: Step 5/5 + rotate(-24deg) + ● TOCK","trangThai":"DAT","chiTiet":"{\"counter\":\"Step 5/5\",\"wheel\":\"translate(180px, 220px) rotate(-24deg)\",\"beat\":\"● TOCK\"}"},{"ca":"E legend EN: đủ 5 nút, nhãn EN-only (không cặp đôi, không VI)","trangThai":"DAT","chiTiet":"[\"Escape wheel\",\"Pallet fork\",\"Pallet jewels\",\"Balance wheel\",\"Hairspring\"]"},{"ca":"E panel EN sau chọn: tên EN + vai trò EN, dòng phụ rỗng, không VI","trangThai":"DAT","chiTiet":"{\"name\":\"Balance wheel\",\"en\":\"\",\"role\":\"Oscillates regularly; together with the hairspring it divides time into strictly equal parts.\"}"},{"ca":"F tooltip VI: hiện tên VI + phụ EN","trangThai":"DAT","chiTiet":"{\"op\":\"1\",\"vi\":\"Bánh thoát\",\"en\":\"Escape wheel\"}"},{"ca":"F tooltip EN: dòng chính EN + dòng phụ rỗng (không VI)","trangThai":"DAT","chiTiet":"{\"op\":\"1\",\"vi\":\"Escape wheel\",\"en\":\"\"}"},{"ca":"G vi: không ID trùng + không tham chiếu thiếu đích","trangThai":"DAT","chiTiet":"{\"trung\":[],\"thieu\":[]}"},{"ca":"G en: không ID trùng + không tham chiếu thiếu đích","trangThai":"DAT","chiTiet":"{\"trung\":[],\"thieu\":[]}"},{"ca":"H no-JS vi: SVG + tiêu đề bước + nhãn giới hạn đọc được","trangThai":"DAT","chiTiet":"{\"svg\":\"ĐỌC ĐƯỢC\",\"title\":\"ĐỌC ĐƯỢC\",\"titleText\":\"Bánh lắc chuyển động về phía giữa · Towards the centre\",\"note\":\"ĐỌC ĐƯỢC\"}"},{"ca":"H no-JS en: SVG + tiêu đề bước + nhãn giới hạn đọc được","trangThai":"DAT","chiTiet":"{\"svg\":\"ĐỌC ĐƯỢC\",\"title\":\"ĐỌC ĐƯỢC\",\"titleText\":\"The balance moves towards the centre · Towards the centre\",\"note\":\"ĐỌC ĐƯỢC\"}"}]}
+### Ran Playwright code
+```js
+await (// G06-C chặng 2 — kiểm trình duyệt nền tích hợp (TXN-20260915-8)
+// A. Bố cục VI/EN × 320/768/1440 × sáng/tối (12 ca): khung + theme DOM + tràn
+//    + counter đúng lang + nhãn giới hạn hiện diện đúng lang.
+// B. Điều khiển chuột VI: next/reset/play-pause + tư thế SVG thật (POSES).
+// C. Bàn phím thật VI + EN: Tab → Space/Enter.
+// D. POES thật: VI bước 5 '● TẮC'; EN bước 3 rotate(-21deg), bước 5 '● TOCK'.
+// E. Legend 5 mục: VI dạng cặp "VI · EN"; EN nhãn EN-only; chọn → panel đúng
+//    lang, EN không lộ VI (kể cả sau tương tác).
+// F. Tooltip hover: VI 2 dòng VI+EN; EN dòng chính EN + dòng phụ rỗng.
+// G. ID trùng + tham chiếu url(#...) thiếu đích.
+// H. No-JS: nội dung + SVG tĩnh đọc được, không bị lớp reveal che.
+// I. Ảnh: VI/EN × trên (tiêu đề+SVG)/dưới (điều khiển+panel+legend+nhãn), thêm tối.
+// Bộ phân loại: DAT / KHONG_DAT / CHUA_KIEM / QUAN_SAT + tự kiểm 5 ca.
+async (page) => {
+  const K = [];
+  const D = 'DAT', ND = 'KHONG_DAT', CK = 'CHUA_KIEM', QS = 'QUAN_SAT';
+  const ghi = (ca, trangThai, chiTiet = '') => K.push({ ca, trangThai, chiTiet: String(chiTiet) });
+  const ghiKQ = (ca, dung, chiTiet = '') => ghi(ca, dung === true ? D : ND, chiTiet);
+  const tongKet = (ds) => ({
+    tong: ds.length,
+    dat: ds.filter((x) => x.trangThai === D).length,
+    khongDat: ds.filter((x) => x.trangThai === ND).length,
+    chuaKiem: ds.filter((x) => x.trangThai === CK).length,
+    quanSat: ds.filter((x) => x.trangThai === QS).length,
+  });
+  const tk = [];
+  const kt = (ten, dk) => tk.push({ ca: ten, trangThai: dk === true ? D : ND, chiTiet: '' });
+  const r1 = tongKet([{ trangThai: D }, { trangThai: QS }]);
+  kt('TK1 quan sát không cộng vào đạt', r1.dat === 1 && r1.quanSat === 1 && r1.tong === 2);
+  const r2 = tongKet([{ trangThai: D }, { trangThai: CK }]);
+  kt('TK2 đạt/chưa kiểm tách biệt', r2.dat === 1 && r2.chuaKiem === 1);
+  const r3 = tongKet([{ trangThai: ND }]);
+  kt('TK3 có lỗi đếm đúng', r3.khongDat === 1);
+  const r4 = tongKet([{ trangThai: CK }, { trangThai: CK }]);
+  kt('TK4 tất cả chưa kiểm → dat=0', r4.dat === 0 && r4.chuaKiem === 2);
+  const r5 = tongKet([]);
+  kt('TK5 rỗng không sập', r5.tong === 0 && r5.dat === 0);
+  if (tk.some((x) => x.trangThai !== D)) return { tuKiem: tk, LOI: 'Tự kiểm không đạt' };
+
+  const BASE = 'http://localhost:4321';
+  const TRANG = { vi: '/co-che/bo-thoat/', en: '/en/mechanisms/escapement/' };
+  const counterText = { vi: 'Bước 1/5', en: 'Step 1/5' };
+  const noteText = {
+    vi: ['Sơ đồ hướng dẫn đã giản lược.', 'Theo FHH, bộ thoát gồm bánh thoát, ngựa và roller.'],
+    en: ['This is a simplified teaching diagram.', 'FHH identifies the escape wheel, lever and roller'],
+  };
+  const chuViCamEN = ['Bước', 'Bộ phận', 'Bánh thoát', 'Đang giảm', 'bấm nút tên bộ phận', 'Tên tiếng Việt'];
+  await page.setViewportSize({ width: 1280, height: 900 });
+
+  const tai = async (lang, scheme = 'light', width = 1280, reduce = 'reduce') => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ colorScheme: scheme, reducedMotion: reduce });
+    await page.goto(BASE + TRANG[lang], { waitUntil: 'load' });
+    await page.waitForTimeout(220);
+  };
+  const docTrang = () => page.evaluate(() => {
+    const root = document.querySelector('[data-mechanism]');
+    const html = document.documentElement;
+    const svg = document.getElementById('escapement-svg');
+    const stage = document.querySelector('.mechanism-animation .svg-stage');
+    const note1 = document.getElementById('esc-note-simplified');
+    const note2 = document.getElementById('esc-note-roller');
+    const doc1 = document.scrollingElement;
+    return {
+      coKhung: !!root,
+      enhanced: root?.getAttribute('data-enhanced'),
+      lang: root?.getAttribute('data-lang'),
+      rm: root?.getAttribute('data-reduce-interactive'),
+      counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+      theme: html.dataset.theme ?? (html.classList.contains('dark') ? 'dark' : 'light'),
+      nen: stage ? getComputedStyle(stage).backgroundColor : '',
+      svgW: svg ? Math.round(svg.getBoundingClientRect().width) : 0,
+      tran: doc1 ? doc1.scrollWidth - window.innerWidth : -1,
+      note1: note1?.textContent ?? '',
+      note2: note2?.textContent ?? '',
+      note1Hien: note1 ? getComputedStyle(note1).display !== 'none' : false,
+      wheel: document.getElementById('escape-wheel-group')?.style.transform ?? '',
+    };
+  });
+
+  // ===== A. Bố cục 12 ca =====
+  for (const lang of ['vi', 'en']) {
+    for (const scheme of ['light', 'dark']) {
+      for (const width of [320, 768, 1440]) {
+        await tai(lang, scheme, width);
+        const d = await docTrang();
+        const dung = d.coKhung && d.enhanced === 'true' && d.lang === lang && d.rm === 'true'
+          && d.theme === scheme && d.tran === 0
+          && d.counter === counterText[lang]
+          && d.note1Hien && d.note1.startsWith(noteText[lang][0]) && d.note2.startsWith(noteText[lang][1]);
+        ghiKQ(`A bố cục ${lang}/${scheme}/${width}px: khung+theme+tràn+counter+nhãn giới hạn`, dung, JSON.stringify({ theme: d.theme, counter: d.counter, svg: d.svgW, tran: d.tran, note1: d.note1.slice(0, 30) }));
+      }
+    }
+  }
+
+  // ===== B. Điều khiển chuột VI + POSES =====
+  await tai('vi', 'light', 1280, 'no-preference');
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(420);
+  const b2 = await docTrang();
+  ghiKQ('B chuột VI next: Bước 2/5 + bánh thoát rotate(-8deg)', b2.counter === 'Bước 2/5' && b2.wheel.includes('rotate(-8deg)'), b2.wheel);
+  await page.click('.mechanism-animation .reset-btn');
+  await page.waitForTimeout(420);
+  const b3 = await docTrang();
+  ghiKQ('B chuột VI reset: về 1/5 + rotate(0deg)', b3.counter === 'Bước 1/5' && b3.wheel.includes('rotate(0deg)'), b3.wheel);
+  await page.click('.mechanism-animation .play-btn');
+  await page.waitForTimeout(3000);
+  const b4 = await page.evaluate(() => ({
+    pressed: document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'),
+    label: document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-label'),
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+  }));
+  ghiKQ('B chuột VI Phát: aria-pressed=true + nhãn Tạm dừng + tự tăng bước', b4.pressed === 'true' && b4.label === 'Tạm dừng hoạt ảnh' && b4.counter !== 'Bước 1/5', JSON.stringify(b4));
+  await page.click('.mechanism-animation .play-btn');
+  await page.waitForTimeout(150);
+
+  // ===== C. Bàn phím thật VI + EN =====
+  await page.evaluate(() => { document.body.focus(); });
+  let gapPlay = false;
+  for (let i = 0; i < 80; i++) {
+    await page.keyboard.press('Tab');
+    if (await page.evaluate(() => document.activeElement?.classList.contains('play-btn'))) { gapPlay = true; break; }
+  }
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(2900);
+  const c1 = await page.evaluate(() => ({
+    pressed: document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'),
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+  }));
+  ghiKQ('C bàn phím VI: Tab tới Phát + Space → phát', gapPlay && c1.pressed === 'true' && c1.counter !== 'Bước 1/5', JSON.stringify({ gap: gapPlay, ...c1 }));
+  await page.click('.mechanism-animation .reset-btn');
+  await tai('en', 'light', 1280, 'no-preference');
+  await page.evaluate(() => { document.body.focus(); });
+  let gapPlayEn = false;
+  for (let i = 0; i < 80; i++) {
+    await page.keyboard.press('Tab');
+    if (await page.evaluate(() => document.activeElement?.classList.contains('play-btn'))) { gapPlayEn = true; break; }
+  }
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(2900);
+  const c2 = await page.evaluate(() => ({
+    pressed: document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'),
+    label: document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-label'),
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+  }));
+  ghiKQ('C bàn phím EN: Tab tới Phát + Space → phát (Play animation/Step)', gapPlayEn && c2.pressed === 'true' && c2.label === 'Pause animation' && c2.counter !== 'Step 1/5', JSON.stringify({ gap: gapPlayEn, ...c2 }));
+  await page.click('.mechanism-animation .reset-btn');
+  await page.waitForTimeout(300);
+
+  // ===== D. POSES thật EN: bước 3 -21°, bước 5 '● TOCK' =====
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(420);
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(420);
+  const d1 = await docTrang();
+  ghiKQ('D EN bước 3: Step 3/5 + rotate(-21deg)', d1.counter === 'Step 3/5' && d1.wheel.includes('rotate(-21deg)'), d1.wheel);
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(420);
+  await page.click('.mechanism-animation .next-btn');
+  await page.waitForTimeout(420);
+  const d2 = await page.evaluate(() => ({
+    counter: document.querySelector('.mechanism-animation .step-counter')?.textContent,
+    wheel: document.getElementById('escape-wheel-group')?.style.transform,
+    beat: document.getElementById('beat-indicator')?.textContent,
+  }));
+  ghiKQ('D EN bước 5: Step 5/5 + rotate(-24deg) + ● TOCK', d2.counter === 'Step 5/5' && d2.wheel.includes('rotate(-24deg)') && d2.beat === '● TOCK', JSON.stringify(d2));
+
+  // ===== E. Legend + panel EN không lộ VI =====
+  const e1 = await page.evaluate(() => {
+    const nuts = Array.from(document.querySelectorAll('.mech-legend button'));
+    return { so: nuts.length, text: nuts.map((b) => b.textContent?.trim()) };
+  });
+  const legendEnSach = e1.so === 5 && e1.text.every((t) => t && !chuViCamEN.some((v) => t.includes(v)) && !t.includes('·'));
+  ghiKQ('E legend EN: đủ 5 nút, nhãn EN-only (không cặp đôi, không VI)', legendEnSach, JSON.stringify(e1.text));
+  await page.click('.mech-legend button[data-part-target="balance-wheel"]');
+  await page.waitForTimeout(250);
+  const e2 = await page.evaluate(() => ({
+    name: document.getElementById('esc-part-name')?.textContent,
+    en: document.getElementById('esc-part-en')?.textContent,
+    role: document.getElementById('esc-part-role')?.textContent,
+  }));
+  const panelEnSach = e2.name === 'Balance wheel' && e2.en === '' && e2.role.startsWith('Oscillates regularly') && !chuViCamEN.some((v) => (e2.name + e2.role).includes(v));
+  ghiKQ('E panel EN sau chọn: tên EN + vai trò EN, dòng phụ rỗng, không VI', panelEnSach, JSON.stringify(e2));
+
+  // ===== F. Tooltip =====
+  await tai('vi', 'light', 1280);
+  await page.hover('#escape-wheel');
+  await page.waitForTimeout(200);
+  const f1 = await page.evaluate(() => ({
+    op: document.getElementById('tooltip')?.getAttribute('opacity'),
+    vi: document.getElementById('tooltip-vi')?.textContent,
+    en: document.getElementById('tooltip-en')?.textContent,
+  }));
+  ghiKQ('F tooltip VI: hiện tên VI + phụ EN', f1.op === '1' && f1.vi === 'Bánh thoát' && f1.en === 'Escape wheel', JSON.stringify(f1));
+  await tai('en', 'light', 1280);
+  await page.hover('#escape-wheel');
+  await page.waitForTimeout(200);
+  const f2 = await page.evaluate(() => ({
+    op: document.getElementById('tooltip')?.getAttribute('opacity'),
+    vi: document.getElementById('tooltip-vi')?.textContent,
+    en: document.getElementById('tooltip-en')?.textContent,
+  }));
+  ghiKQ('F tooltip EN: dòng chính EN + dòng phụ rỗng (không VI)', f2.op === '1' && f2.vi === 'Escape wheel' && f2.en === '', JSON.stringify(f2));
+
+  // ===== G. ID trùng + tham chiếu thiếu đích (cả hai trang) =====
+  for (const lang of ['vi', 'en']) {
+    await tai(lang, 'light', 1280);
+    const g = await page.evaluate(() => {
+      const ids = Array.from(document.querySelectorAll('[id]')).map((el) => el.id);
+      const trung = ids.filter((id, i) => ids.indexOf(id) !== i);
+      const refs = Array.from(document.querySelectorAll('svg')).join(' ').match(/url\(#([^)]+)\)/g) || [];
+      const thieu = [...new Set(refs.map((r) => r.slice(5, -1)))].filter((id) => !document.getElementById(id));
+      return { trung: [...new Set(trung)], thieu };
+    });
+    ghiKQ(`G ${lang}: không ID trùng + không tham chiếu thiếu đích`, g.trung.length === 0 && g.thieu.length === 0, JSON.stringify(g));
+  }
+
+  // ===== H. No-JS =====
+  const ctxNoJs = await page.context().browser().newContext({ javaScriptEnabled: false });
+  const pNoJs = await ctxNoJs.newPage();
+  for (const lang of ['vi', 'en']) {
+    await pNoJs.setViewportSize({ width: 768, height: 900 });
+    await pNoJs.goto(BASE + TRANG[lang], { waitUntil: 'load' });
+    await pNoJs.waitForTimeout(300);
+    const h = await pNoJs.evaluate(() => {
+      const svg = document.getElementById('escapement-svg');
+      const title = document.querySelector('.mechanism-animation .step-title');
+      const note = document.getElementById('esc-note-roller');
+      const r = (el) => {
+        if (!el) return 'THIẾU';
+        const st = getComputedStyle(el);
+        return st.display === 'none' || st.visibility === 'hidden' || Number(st.opacity) === 0 ? 'BỊ CHE' : 'ĐỌC ĐƯỢC';
+      };
+      return { svg: r(svg), title: r(title), titleText: title?.textContent?.trim() ?? '', note: r(note) };
+    });
+    const kyVang = lang === 'vi' ? 'Bánh lắc chuyển động về phía giữa' : 'The balance moves towards the centre';
+    ghiKQ(`H no-JS ${lang}: SVG + tiêu đề bước + nhãn giới hạn đọc được`, h.svg === 'ĐỌC ĐƯỢC' && h.title === 'ĐỌC ĐƯỢC' && h.titleText.startsWith(kyVang) && h.note === 'ĐỌC ĐƯỢC', JSON.stringify(h));
+  }
+  await ctxNoJs.close();
+
+  // ===== I. Ảnh: trên (tiêu đề+SVG) / dưới (điều khiển+panel+legend+nhãn) =====
+  for (const lang of ['vi', 'en']) {
+    for (const scheme of ['light', 'dark']) {
+      await tai(lang, scheme, 768);
+      await page.evaluate(() => {
+        const root = document.querySelector('[data-mechanism]');
+        const top = root.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo(0, top - 90); // đẩy tiêu đề xuống dưới header dính
+      });
+      await page.waitForTimeout(180);
+      const vung = await page.locator('[data-mechanism]').first().boundingBox();
+      if (vung) {
+        const clipTren = { x: Math.max(0, vung.x), y: Math.max(0, vung.y), width: Math.min(768, vung.width), height: Math.min(810, vung.height) };
+        await page.screenshot({ path: `output/g06-escapement-en-integration/shots/g06c2-${lang}-${scheme}-768-tren.png`, clip: clipTren });
+        await page.evaluate(() => {
+          const root = document.querySelector('[data-mechanism]');
+          const cuoi = root.getBoundingClientRect().bottom + window.scrollY;
+          window.scrollTo(0, cuoi - window.innerHeight);
+        });
+        await page.waitForTimeout(180);
+        const vung2 = await page.locator('[data-mechanism]').first().boundingBox();
+        if (vung2) {
+          const yDuoi = Math.max(0, vung2.y + vung2.height - Math.min(900, vung2.height));
+          await page.screenshot({ path: `output/g06-escapement-en-integration/shots/g06c2-${lang}-${scheme}-768-duoi.png`, clip: { x: Math.max(0, vung2.x), y: yDuoi, width: Math.min(768, vung2.width), height: Math.min(900, vung2.height) } });
+        }
+      }
+    }
+  }
+
+  return { tuKiem: tk, tuKiemTongKet: tongKet(tk), tongKet: tongKet(K), ketQua: K };
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4321/en/mechanisms/escapement/
+- Page Title: The escapement: pacing the energy of a mechanical watch — Mechanical Watch Knowledge
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-15T04-08-07-808Z.log#L1-L45

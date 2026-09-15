@@ -1,0 +1,41 @@
+### Result
+{"sach1":{"counter":"Step 1/5","soRefs":12,"thieu":[],"panel":" The part's English name and its role wi"},"sach2":{"counter":"Step 1/5","soRefs":12,"thieu":[],"panel":" The part's English name and its role wi"},"m3":{"counter":"Step 1/5","soRefs":12,"thieu":[],"panel":" Tên tiếng Việt, tiếng Anh và vai trò củ","loVI":true},"m4":{"counter":"Step 1/5","soRefs":12,"thieu":["escSteel"],"panel":" The part's English name and its role wi"}}
+### Ran Playwright code
+```js
+await (// G06-C chặng 2 — kiểm DOM cho mutation M2-3/M2-4 trên bản dist sandbox
+// (phục vụ bởi server-tinh.cjs: 4470=sạch, 4471=M2-3 lộ VI, 4472=M2-4 mất đích).
+// Trả về kết quả thô; tổng kết bởi tong-ket-mutation.cjs.
+async (page) => {
+  const docTrang = async (url) => {
+    await page.goto(url, { waitUntil: 'load' });
+    await page.waitForTimeout(350);
+    return page.evaluate(() => {
+      const counter = document.querySelector('.mechanism-animation .step-counter')?.textContent ?? '';
+      const refs = (document.getElementById('escapement-svg')?.outerHTML ?? '').match(/url\(#([^)]+)\)/g) || [];
+      const thieu = [...new Set(refs.map((r) => r.slice(5, -1)))].filter((id) => !document.getElementById(id));
+      const panel = document.getElementById('esc-part-role')?.textContent ?? '';
+      return { counter, soRefs: refs.length, thieu, panel: panel.slice(0, 40) };
+    });
+  };
+
+  const sach1 = await docTrang('http://127.0.0.1:4470/en/mechanisms/escapement/');
+  const m3 = await docTrang('http://127.0.0.1:4471/en/mechanisms/escapement/');
+  const m4 = await docTrang('http://127.0.0.1:4472/en/mechanisms/escapement/');
+  // khôi phục qua: bản sạch đo lần nữa sau các ca đột biến (bản copy độc lập)
+  const sach2 = await docTrang('http://127.0.0.1:4470/en/mechanisms/escapement/');
+
+  return {
+    sach1,
+    sach2,
+    m3: { ...m3, loVI: m3.panel.includes('Tên tiếng Việt') },
+    m4: { ...m4 },
+  };
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:4470/en/mechanisms/escapement/
+- Page Title: The escapement: pacing the energy of a mechanical watch — Mechanical Watch Knowledge
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-15T04-40-24-676Z.log#L1-L11

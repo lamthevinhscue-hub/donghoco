@@ -1,0 +1,46 @@
+// G06-C chặng 2 — thử TAB ẨN THẬT trong phiên trình duyệt riêng:
+// mở 2 trang cùng context, bringToFront trang 2 → trang 1 thành tab nền;
+// ghi visibilityState THỰC TẾ (không mô phỏng). Nếu môi trường không cho
+// trạng thái ẩn thật → ghi CHUA_KIEM + blocker, không tự miễn.
+async (page) => {
+  const BASE = 'http://localhost:4321';
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  await page.waitForTimeout(250);
+  await page.click('.mechanism-animation .play-btn');
+  await page.waitForTimeout(200);
+  const playing = await page.evaluate(() => document.querySelector('.mechanism-animation .play-btn')?.getAttribute('aria-pressed'));
+
+  const page2 = await page.context().newPage();
+  await page2.setViewportSize({ width: 1280, height: 900 });
+  await page2.goto(BASE + '/co-che/bo-thoat/', { waitUntil: 'load' });
+  await page2.bringToFront();
+  await page.waitForTimeout(800);
+
+  const vis1 = await page.evaluate(() => ({ visibilityState: document.visibilityState, hidden: document.hidden }));
+  const vis2 = await page2.evaluate(() => ({ visibilityState: document.visibilityState }));
+
+  const ketQua = { playing, vis1, vis2 };
+  if (vis1.visibilityState !== 'hidden') {
+    await page2.close();
+    return {
+      trangThai: 'CHUA_KIEM',
+      ketQua,
+      blocker: `Phiên trình duyệt kiểm không tạo trạng thái ẩn thật (visibilityState trang nền = '${vis1.visibilityState}'); cần phiên headful/chrome thật để kiểm tab ẩn thật`,
+    };
+  }
+  // có trạng thái ẩn thật → đo phản ứng ứng dụng
+  const c0 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page.waitForTimeout(6500);
+  const c1 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page.bringToFront();
+  await page.waitForTimeout(600);
+  const vis1b = await page.evaluate(() => ({ visibilityState: document.visibilityState }));
+  await page.waitForTimeout(3000);
+  const c2 = await page.evaluate(() => document.querySelector('.mechanism-animation .step-counter')?.textContent);
+  await page2.close();
+  return {
+    trangThai: vis1b.visibilityState === 'visible' && c0 === c1 && c1 !== c2 ? 'DAT' : 'KHONG_DAT',
+    ketQua: { ...ketQua, sauQuayLai: vis1b, counter: `${c0} → ${c1} → ${c2}` },
+  };
+}

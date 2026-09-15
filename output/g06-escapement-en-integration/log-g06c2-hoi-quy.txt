@@ -1,0 +1,115 @@
+### Result
+{"tong":23,"dat":23,"khongDat":0,"ketQua":[{"ca":"Hồi quy /co-che/chong-nuoc/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Minh họa nguyên lý: áp suất tăng — gioăng bị ép; điểm hở là đường vào của nước, playChay=true, console=0, chiVercel=true, legend=khong"},{"ca":"Hồi quy /co-che/tru-cot/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Minh họa nguyên lý: dây cót nhả dần — mức trữ cót tụt xuống, playChay=true, console=0, chiVercel=true, legend=span (Dây cót (Mainspring) · Mainspr)"},{"ca":"Hồi quy /co-che/chong-tu/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Kéo thanh trượt minh họa từ trường tăng dần — linh kiện thường bị ảnh hưởng, linh kiện phi từ không đổi, playChay=true, console=0, chiVercel=true, legend=khong"},{"ca":"Hồi quy /co-che/chuyen-dong-co/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Chuỗi truyền động (5 bánh răng quay với tốc độ khác nhau), playChay=true, console=0, chiVercel=true, legend=span (Thùng cót (Barrel) · Mainsprin)"},{"ca":"Hồi quy /co-che/len-day-tu-dong/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Minh họa: rotor dao động theo cử động — hệ truyền dẫn năng lượng về dây cót, playChay=true, console=0, chiVercel=true, legend=span (Rotor (quả nặng) · Rotor (osci)"},{"ca":"Hồi quy /co-che/chronograph/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Chronograph bánh răng cột (Column Wheel), playChay=true, console=0, chiVercel=true, legend=span (Nút START/STOP · Start/Stop pu)"},{"ca":"Hồi quy /co-che/tourbillon/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Tourbillon — Lồng xoay bù sai số trọng lực, playChay=true, console=0, chiVercel=true, legend=span (Lồng tourbillon (cage) · Tourb)"},{"ca":"Hồi quy /co-che/gmt/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=GMT — Hiển thị múi giờ thứ hai (24h hand), playChay=true, console=0, chiVercel=true, legend=span (Vòng bezel 24 giờ · 24h rotati)"},{"ca":"Hồi quy /co-che/perpetual-calendar/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Lịch vạn niên (Perpetual Calendar) — Bánh cam 4 năm, playChay=true, console=0, chiVercel=true, legend=span (Bánh ngày · Date wheel)"},{"ca":"Hồi quy /co-che/chong-soc/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Hệ chống sốc (Incabloc), playChay=true, console=0, chiVercel=true, legend=span (Lò xo hình sao · Lyre spring)"},{"ca":"Hồi quy /co-che/bo-thoat-dong-truc/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Bộ thoát đồng trục (Co-Axial), playChay=true, console=0, chiVercel=true, legend=span (Bánh thoát · Escape wheel)"},{"ca":"Hồi quy /co-che/pha-trang/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Pha trăng (Moon Phase), playChay=true, console=0, chiVercel=true, legend=span (Đĩa pha trăng (59 răng, 2 mặt )"},{"ca":"Hồi quy /co-che/hien-thi-ngay/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Hiển thị ngày — kéo thanh thời gian, xem khung giờ nguy hiểm, playChay=true, console=0, chiVercel=true, legend=span (Đĩa ngày (31 vị trí) · Date di)"},{"ca":"Hồi quy /co-che/da-quang/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Dạ quang — nạp sáng rồi tắt đèn, xem độ sáng giảm dần, playChay=true, console=0, chiVercel=true, legend=khong"},{"ca":"Hồi quy /co-che/kinh-dong-ho/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Ba loại kính — thử xước, va đập, đánh bóng, playChay=true, console=0, chiVercel=true, legend=khong"},{"ca":"Hồi quy /co-che/diem-chuong/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Điểm chuông — nhập giờ rồi bấm Gõ, xem trình tự ba phần, playChay=true, console=0, chiVercel=true, legend=span (Thanh cộng hưởng trầm (Low-pit)"},{"ca":"Hồi quy /tu-dien/tourbillon/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Tourbillon — Lồng xoay bù sai số trọng lực, playChay=true, console=0, chiVercel=true, legend=span (Lồng tourbillon (cage) · Tourb)"},{"ca":"Hồi quy /tu-dien/perpetual-calendar/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Lịch vạn niên (Perpetual Calendar) — Bánh cam 4 năm, playChay=true, console=0, chiVercel=true, legend=span (Bánh ngày · Date wheel)"},{"ca":"Hồi quy /tu-dien/chronograph/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Chronograph bánh răng cột (Column Wheel), playChay=true, console=0, chiVercel=true, legend=span (Nút START/STOP · Start/Stop pu)"},{"ca":"Hồi quy /tu-dien/gmt/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=GMT — Hiển thị múi giờ thứ hai (24h hand), playChay=true, console=0, chiVercel=true, legend=span (Vòng bezel 24 giờ · 24h rotati)"},{"ca":"Hồi quy /tu-dien/day-toc-banh-lac/ (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch","trangThai":"DAT","chiTiet":"nhan=Dây tóc & bánh lắc — Trái tim dao động, playChay=true, console=0, chiVercel=true, legend=span (Bánh lắc · Balance wheel)"},{"ca":"G04 VI /co-che/day-toc-banh-lac/: không khung + chương render + Phát init tĩnh + không trùng infographic cũ","trangThai":"DAT","chiTiet":"{\"khung\":false,\"chuong\":true,\"play\":true,\"pressedInit\":\"false\",\"hairspringCu\":false}"},{"ca":"G04 EN /en/mechanisms/balance-and-hairspring/: không khung + chương render + Phát init tĩnh + không trùng infographic cũ","trangThai":"DAT","chiTiet":"{\"khung\":false,\"chuong\":true,\"play\":true,\"pressedInit\":\"false\",\"hairspringCu\":false}"}]}
+### Ran Playwright code
+```js
+await (// G06-C chặng 2 — hồi quy khung dùng chung: 21 route VI còn lại (16 cơ chế +
+// 5 từ điển, ĐỀU chế cũ) theo bảng nhận diện đã duyệt; kiểm nhãn/điều khiển/
+// chuyển động/console THEO CHẾ ĐỘ THỰC SỰ RENDER (chế cũ: Phát/Từng bước/Đặt lại/
+// Tốc độ, không áp máy móc "bốn nút/Bước x/n"). Riêng 2 route chương Bánh lắc
+// G04: khung KHÔNG render, chương data-bhc-root render, không trùng.
+async (page) => {
+  const BASE = 'http://localhost:4321';
+  const K = [];
+  const D = 'DAT', ND = 'KHONG_DAT';
+  const ghiKQ = (ca, dung, chiTiet = '') => K.push({ ca, trangThai: dung === true ? D : ND, chiTiet: String(chiTiet).slice(0, 260) });
+
+  const ROUTE_CU = [
+    '/co-che/chong-nuoc/', '/co-che/tru-cot/', '/co-che/chong-tu/', '/co-che/chuyen-dong-co/',
+    '/co-che/len-day-tu-dong/', '/co-che/chronograph/', '/co-che/tourbillon/', '/co-che/gmt/',
+    '/co-che/perpetual-calendar/', '/co-che/chong-soc/', '/co-che/bo-thoat-dong-truc/',
+    '/co-che/pha-trang/', '/co-che/hien-thi-ngay/', '/co-che/da-quang/', '/co-che/kinh-dong-ho/',
+    '/co-che/diem-chuong/',
+    '/tu-dien/tourbillon/', '/tu-dien/perpetual-calendar/', '/tu-dien/chronograph/',
+    '/tu-dien/gmt/', '/tu-dien/day-toc-banh-lac/',
+  ];
+
+  for (const route of ROUTE_CU) {
+    const loiConsole = [];
+    const loiMang = [];
+    const ngheConsole = (msg) => {
+      if (msg.type() !== 'error') return;
+      // thông điệp "Failed to load resource" không mang URL — lỗi mạng được
+      // kiểm riêng qua listener response/requestfailed (xem dưới)
+      if (msg.text().startsWith('Failed to load resource')) return;
+      loiConsole.push(msg.text().slice(0, 80));
+    };
+    const ngheMang = (r) => {
+      const url = typeof r.url === 'function' ? r.url() : '';
+      const status = typeof r.status === 'function' ? r.status() : 0;
+      if (url && status >= 400) loiMang.push(`${status} ${url}`);
+    };
+    const ngheThatBai = (r) => loiMang.push(`FAILED ${r.url()}`);
+    page.on('console', ngheConsole);
+    page.on('response', ngheMang);
+    page.on('requestfailed', ngheThatBai);
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(BASE + route, { waitUntil: 'load' });
+    await page.waitForTimeout(320);
+    const s = await page.evaluate(() => {
+      const root = document.querySelector('[data-mechanism]');
+      const play = root?.querySelector('.play-btn');
+      const stepBtn = root?.querySelector('.step-btn');
+      const slider = root?.querySelector('.speed-slider');
+      const legend = root?.querySelector('.mech-legend');
+      const nhan = root?.querySelector('span')?.textContent?.trim() ?? '';
+      const playBtnClick = () => { play?.click(); };
+      return {
+        coKhung: !!root,
+        cheEnhanced: root?.getAttribute('data-enhanced') ?? 'khong',
+        coPlay: !!play,
+        playAria: play?.getAttribute('aria-label') ?? '',
+        coStepBtn: !!stepBtn,
+        stepAria: stepBtn?.getAttribute('aria-label') ?? '',
+        coSlider: !!slider,
+        legendTrangThai: !legend ? 'khong' : legend.querySelector(':scope > span') ? 'span' : 'khac',
+        legendText: legend?.querySelector(':scope > span')?.textContent?.trim() ?? '',
+        nhan,
+      };
+    });
+    // điều khiển + chuyển động: bấm Phát → aria-pressed=true (chế cũ có stepFn mới chạy)
+    let playChay = false;
+    if (s.coPlay) {
+      await page.evaluate(() => document.querySelector('[data-mechanism] .play-btn')?.click());
+      await page.waitForTimeout(400);
+      playChay = await page.evaluate(() => document.querySelector('[data-mechanism] .play-btn')?.getAttribute('aria-pressed')) === 'true';
+      await page.evaluate(() => document.querySelector('[data-mechanism] .play-btn')?.click());
+    }
+    // lỗi mạng chỉ được phép là script analytics production-only (preview 404)
+    const mangChiVercel = loiMang.every((u) => u.includes('/_vercel/insights/script.js'));
+    // legend: 'span' = khung sinh chip thay thế VI; 'khong' = component không có
+    // [data-part] (khung xóa legend rỗng — hợp lệ); 'khac' = bất thường
+    const dung = s.coKhung && s.cheEnhanced === 'khong' && s.coPlay && s.playAria === 'Phát hoạt ảnh'
+      && s.coStepBtn && s.stepAria === 'Từng bước một' && s.coSlider && s.legendTrangThai !== 'khac' && playChay
+      && loiConsole.length === 0 && mangChiVercel;
+    ghiKQ(`Hồi quy ${route} (chế cũ): khung + nhãn VI + Phát/Từng bước/Tốc độ + play chạy + console sạch`, dung, `nhan=${s.nhan}, playChay=${playChay}, console=${loiConsole.length}, chiVercel=${mangChiVercel}, legend=${s.legendTrangThai}${s.legendText ? ' (' + s.legendText.slice(0, 30) + ')' : ''}`);
+    page.off('console', ngheConsole);
+    page.off('response', ngheMang);
+    page.off('requestfailed', ngheThatBai);
+  }
+
+  // 2 route chương G04 — không render khung, chương render riêng, không trùng
+  for (const [route, ten] of [['/co-che/day-toc-banh-lac/', 'VI'], ['/en/mechanisms/balance-and-hairspring/', 'EN']]) {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(BASE + route, { waitUntil: 'load' });
+    await page.waitForTimeout(350);
+    const g = await page.evaluate(() => ({
+      khung: !!document.querySelector('[data-mechanism]'),
+      chuong: !!document.querySelector('[data-bhc-root]'),
+      play: !!document.querySelector('[data-bhc-action="play"]'),
+      pressedInit: document.querySelector('[data-bhc-action="play"]')?.getAttribute('aria-pressed') ?? '',
+      hairspringCu: !!document.getElementById('hairspring-svg'),
+    }));
+    ghiKQ(`G04 ${ten} ${route}: không khung + chương render + Phát init tĩnh + không trùng infographic cũ`, g.khung === false && g.chuong === true && g.play === true && g.pressedInit === 'false' && g.hairspringCu === false, JSON.stringify(g));
+  }
+
+  const dat = K.filter((x) => x.trangThai === D).length;
+  return { tong: K.length, dat, khongDat: K.length - dat, ketQua: K };
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4321/en/mechanisms/balance-and-hairspring/
+- Page Title: Balance & hairspring: the regulating organ — Mechanical Watch Knowledge
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-15T04-28-55-316Z.log#L1-L47

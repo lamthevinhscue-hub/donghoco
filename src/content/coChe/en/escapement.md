@@ -4,10 +4,10 @@ custom_slug: "escapement"
 excerpt: "A mechanism fitted between the gear train and the regulating organ — suspending the gears' motion at regular intervals and supplying energy to the balance, as FHH defines it."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: false
-interactive: false
+has_infographic: true
+interactive: true
 date: "2026-08-02"
-updated: "2026-09-04"
+updated: "2026-09-15"
 draft: false
 
 sources:

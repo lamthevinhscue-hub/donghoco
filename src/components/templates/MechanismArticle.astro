@@ -63,6 +63,9 @@ const infographics: Record<string, any> = {
   'chuyen-dong-co': GearTrain,
   'len-day-tu-dong': AutomaticWinding,
   'bo-thoat': Escapement,
+  // G06-C chặng 2: trang EN tra theo custom_slug 'escapement' — cùng component
+  // với bo-thoat; gate enEscapementAllowed khóa đúng slug này, VI không đổi.
+  'escapement': Escapement,
   'chronograph': Chronograph,
   'tourbillon': Tourbillon,
   'day-toc-banh-lac': Hairspring,
@@ -81,8 +84,15 @@ const infographics: Record<string, any> = {
 const G04_BALANCE_CHAPTER_SLUGS = ['day-toc-banh-lac', 'balance-and-hairspring'];
 const hasBalanceChapter = G04_BALANCE_CHAPTER_SLUGS.includes(slug);
 
-const Infographic =
-  !hasBalanceChapter && lang === 'vi' && data.has_infographic ? infographics[slug] : null;
+// G06-C chặng 2: ngoại lệ EN DUY NHẤT cho cặp Bộ thoát (slug 'escapement') khi
+// hai cờ frontmatter bật — không mở infographic EN cho bài khác; gate VI và
+// nhánh chương G04 giữ nguyên (viInfographic giữ nguyên văn để check-g04 G4-1
+// tiếp tục khóa chương G04 đè infographic cũ).
+const viInfographic = !hasBalanceChapter && lang === 'vi' && data.has_infographic;
+const enEscapementAllowed =
+  lang === 'en' && slug === 'escapement' && data.has_infographic && data.interactive;
+
+const Infographic = viInfographic || enEscapementAllowed ? infographics[slug] : null;
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) — theo lộ trình đọc ======
 const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
@@ -152,7 +162,7 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
 >
   {hasBalanceChapter && <BalanceHairspringChapter />}
 
-  {data.has_infographic && Infographic && <Infographic />}
+  {data.has_infographic && Infographic && <Infographic lang={lang} />}
 
   {data.has_infographic === false && lang === 'vi' && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">

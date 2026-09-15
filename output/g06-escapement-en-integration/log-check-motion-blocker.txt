@@ -1,0 +1,19 @@
+ĐẠT  global.css: có khối @media (prefers-reduced-motion: reduce)
+ĐẠT  MechanismAnimation: nút Play/Pause có aria-label + aria-pressed
+ĐẠT  MechanismAnimation: không tự phát khi tải trang (isPlaying mặc định false)
+ĐẠT  MechanismAnimation: legend tên bộ phận là text thay thế (sr-only trên desktop)
+ĐẠT  exploded3d.ts: đọc prefers-reduced-motion (không auto-rotate/tự tách lớp)
+ĐẠT  WatchExplodedView3D: có nút "Chuyển động 3D" toggle (aria-pressed)
+ĐẠT  WatchExplodedView3D: đủ nút thay thế thao tác kéo (xoay trái/phải, phóng to, thu nhỏ, đặt lại)
+ĐẠT  WatchExplodedView3D: có danh sách bộ phận dạng button (text fallback, không phụ thuộc WebGL)
+ĐẠT  giai-phau: giữ bản 2D làm chế độ mặc định + phương án thay thế 3D (khuôn chung, cả VI/EN)
+ĐẠT  WatchExplodedView 2D: panel chi tiết aria-live="polite" (text HTML thật)
+ĐẠT  WatchExplodedView 2D: nút chọn bộ phận + aria-pressed
+ĐẠT  WatchExplodedView 2D: SVG là role="img" + aria-label (chứa bộ phận focus được — không aria-hidden)
+ĐẠT  Không có animation infinite lọt ngoài cơ chế reduced-motion toàn cục
+LỖI  src\components\infographics\Escapement.astro: SVG chưa phân loại — cần aria-hidden (trang trí) HOẶC role="img" + aria-label (có ý nghĩa): <svg
+    viewBox="0 0 600 400"
+    xmlns="http://www.w3.org/2000/svg"
+
+
+CÓ 1 LỖI — xem trên.

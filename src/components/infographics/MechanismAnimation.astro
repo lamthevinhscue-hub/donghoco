@@ -35,6 +35,13 @@ interface Props {
   desc?: string;                        // Mô tả ngắn dưới tiêu đề (chế enhanced)
   steps?: Step[];                       // Có steps → bật chế enhanced
   'data-mech-step-id'?: string;         // ID đăng ký hàm (VD: "escapement")
+  lang?: 'vi' | 'en';                   // Ngôn ngữ nhãn khung (GK-13) — mặc định 'vi'
+                                        // bảo toàn mọi consumer cũ; chỉ component có
+                                        // bản dịch truyền 'en'.
+  reduceInteractive?: boolean;          // Xử lý reduced-motion tương tác (dừng phát
+                                        // giữa phiên, chặn Phát khi reduce, hiện thông
+                                        // báo) — mặc định false, consumer cũ giữ hành
+                                        // vi trước (media query CSS như cũ).
 }
 
 const {
@@ -42,10 +49,40 @@ const {
   desc = '',
   steps = [],
   'data-mech-step-id': mechStepId,
+  lang: langProp = 'vi',
+  reduceInteractive = false,
 } = Astro.props;
 
 const enhanced = steps.length > 0;
 const stepsJson = JSON.stringify(steps);
+const lang = langProp === 'en' ? 'en' : 'vi';
+
+// Nhãn khung chế enhanced theo lang (GK-13 — nguyên văn bảng cổng G06-C);
+// consumer không truyền lang giữ trọn bộ nhãn VI như trước.
+const la =
+  lang === 'en'
+    ? {
+        prev: 'Previous step',
+        play: 'Play animation',
+        pause: 'Pause animation',
+        next: 'Next step',
+        resetText: 'Reset',
+        resetAria: 'Reset to first step',
+        counter: `Step 1/${steps.length}`,
+        hint: 'Pick a part by name below the drawing or tap the drawing directly • Press play to watch the steps one by one',
+        rmNotice: 'Reduced motion is enabled. Use the step controls to explore the diagram.',
+      }
+    : {
+        prev: 'Bước trước',
+        play: 'Phát hoạt ảnh',
+        pause: 'Tạm dừng hoạt ảnh',
+        next: 'Bước tiếp theo',
+        resetText: 'Đặt lại',
+        resetAria: 'Đặt lại về bước đầu',
+        counter: `Bước 1/${steps.length}`,
+        hint: 'Chọn bộ phận bằng nút tên bên dưới hình hoặc chạm trực tiếp vào hình • Bấm Phát để xem chu trình từng bước',
+        rmNotice: 'Đang giảm chuyển động. Dùng các nút bước để xem sơ đồ.',
+      };
 ---
 
 <div
@@ -54,6 +91,8 @@ const stepsJson = JSON.stringify(steps);
   data-mech-step-id={mechStepId}
   data-enhanced={enhanced ? 'true' : undefined}
   data-steps={enhanced ? stepsJson : undefined}
+  data-lang={lang}
+  data-reduce-interactive={enhanced && reduceInteractive ? 'true' : undefined}
 >
   {enhanced ? (
     <>
@@ -73,7 +112,7 @@ const stepsJson = JSON.stringify(steps);
         <button
           type="button"
           class="prev-btn flex h-11 w-11 items-center justify-center rounded-full border border-navy text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
-          aria-label="Bước trước"
+          aria-label={la.prev}
         >
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
         </button>
@@ -81,7 +120,7 @@ const stepsJson = JSON.stringify(steps);
         <button
           type="button"
           class="play-btn flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:hover:bg-dark-brass"
-          aria-label="Phát hoạt ảnh"
+          aria-label={la.play}
           aria-pressed="false"
         >
           <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -91,7 +130,7 @@ const stepsJson = JSON.stringify(steps);
         <button
           type="button"
           class="next-btn flex h-11 w-11 items-center justify-center rounded-full border border-navy text-navy transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text dark:hover:border-dark-brass dark:hover:text-dark-brass"
-          aria-label="Bước tiếp theo"
+          aria-label={la.next}
         >
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
         </button>
@@ -99,20 +138,28 @@ const stepsJson = JSON.stringify(steps);
         <button
           type="button"
           class="reset-btn flex min-h-11 items-center gap-1 rounded-full border border-cream-dark px-4 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass dark:border-dark-border dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
-          aria-label="Đặt lại về bước đầu"
+          aria-label={la.resetAria}
         >
           <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 2.64-6.36L3 8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/></svg>
-          Đặt lại
+          {la.resetText}
         </button>
 
         <!-- Đếm bước + thanh tiến trình (thanh chỉ là hình ảnh, số bước đã là chữ) -->
         <div class="ml-auto flex min-h-11 flex-col justify-center">
-          <span class="step-counter text-xs font-medium text-navy dark:text-dark-text">Bước 1/{steps.length}</span>
+          <span class="step-counter text-xs font-medium text-navy dark:text-dark-text">{la.counter}</span>
           <div class="mt-1 h-1.5 w-28 overflow-hidden rounded-full bg-cream-dark dark:bg-dark-border" aria-hidden="true">
             <div class="step-bar h-full rounded-full bg-brass transition-[width] duration-300" style={`width:${100 / steps.length}%`}></div>
           </div>
         </div>
       </div>
+
+      <!-- Thông báo reduced-motion (chỉ khi reduceInteractive) — hiện khi reduce
+           bật hoặc khi bấm Phát trong reduce; ẩn khi gỡ reduce -->
+      {enhanced && reduceInteractive && (
+        <p class="rm-notice mt-2 hidden rounded-lg border border-brass/40 bg-brass/5 p-2 text-xs text-ink-soft dark:text-dark-text-soft" role="status">
+          {la.rmNotice}
+        </p>
+      )}
 
       <!-- Khu giải thích bước hiện tại + bảng tra bộ phận (component con) -->
       <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -128,6 +175,10 @@ const stepsJson = JSON.stringify(steps);
       <!-- Danh sách chọn bộ phận — NÚT HTML THẬT, luôn hiện, là phương thức
            bàn phím chính (SVG tổng thể là hình minh họa, không chứa control) -->
       <div class="mech-legend mt-3 flex flex-wrap gap-2"></div>
+
+      <!-- Chú thích giới hạn do component con cung cấp (GK-16a/16b) — dưới
+           legend + panel, text-xs, theo ngôn ngữ; consumer cũ để trống -->
+      <slot name="footnote" />
     </>
   ) : (
     <>
@@ -201,7 +252,7 @@ const stepsJson = JSON.stringify(steps);
   <!-- Gợi ý tương tác -->
   <p class="mt-3 text-center text-xs text-ink-soft/90 dark:text-dark-text-soft/70">
     {enhanced
-      ? 'Chọn bộ phận bằng nút tên bên dưới hình hoặc chạm trực tiếp vào hình • Bấm Phát để xem chu trình từng bước'
+      ? la.hint
       : 'Chạm hoặc rê chuột vào từng bộ phận để xem tên • Bấm Phát để xem hoạt ảnh'}
   </p>
 </div>
@@ -283,6 +334,11 @@ const stepsJson = JSON.stringify(steps);
   // =============================================================================
 
   document.querySelectorAll<HTMLElement>('[data-mechanism]').forEach((root) => {
+    // Chống nhân đôi listener/vòng lặp khi script chạy lại trên cùng root
+    // (khởi tạo lại / chuyển trang view transitions).
+    if (root.dataset.mechInit === 'da-khoi-tao') return;
+    root.dataset.mechInit = 'da-khoi-tao';
+
     const playBtn = root.querySelector<HTMLButtonElement>('.play-btn');
     const resetBtn = root.querySelector<HTMLButtonElement>('.reset-btn');
     const playIcon = root.querySelector('.play-icon');
@@ -295,6 +351,7 @@ const stepsJson = JSON.stringify(steps);
     // Chế cũ: span thường (sr-only trên desktop — text thay thế).
     if (legend) {
       const enhancedLegend = root.dataset.enhanced === 'true';
+      const langLegend = root.dataset.lang === 'en' ? 'en' : 'vi';
       const seen = new Set<string>();
       root.querySelectorAll<SVGElement>('[data-part][data-name-vi]').forEach((el) => {
         const vi = el.getAttribute('data-name-vi') || '';
@@ -316,7 +373,10 @@ const stepsJson = JSON.stringify(steps);
           chip.className =
             'rounded-full border border-cream-dark dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1 text-sm text-ink dark:text-dark-text';
         }
-        chip.textContent = en ? `${vi} · ${en}` : vi;
+        // GK-15: trang EN chỉ hiển thị tên tiếng Anh ở mọi bề mặt (legend,
+        // tooltip, panel) — không giữ cặp đôi "tên VI · tên EN".
+        chip.textContent =
+          langLegend === 'en' ? en || vi : en ? `${vi} · ${en}` : vi;
         legend.appendChild(chip);
       });
       if (legend.childElementCount === 0) {
@@ -356,12 +416,37 @@ const stepsJson = JSON.stringify(steps);
       let holdMs = 0;        // thời gian đã trôi trong bước hiện tại
       const STEP_MS = 2600;  // mỗi bước dừng 2,6 giây khi phát tự động
 
-      const canRun = () => isPlaying && inView && !document.hidden;
+      // G06-C chặng 2: nhãn đổi bằng JavaScript theo lang (GK-13) — dùng cho
+      // counter và aria-label của nút Phát/Tạm dừng khi trạng thái thay đổi.
+      const langKhung = root.dataset.lang === 'en' ? 'en' : 'vi';
+      const laJS =
+        langKhung === 'en'
+          ? {
+              play: 'Play animation',
+              pause: 'Pause animation',
+              counter: (i: number, n: number) => `Step ${i}/${n}`,
+            }
+          : {
+              play: 'Phát hoạt ảnh',
+              pause: 'Tạm dừng hoạt ảnh',
+              counter: (i: number, n: number) => `Bước ${i}/${n}`,
+            };
+
+      // G06-C chặng 2 — reduced-motion tương tác (chỉ khi reduceInteractive):
+      // reduce bật giữa phiên → dừng phát, đồng bộ nút/aria, hiện thông báo;
+      // Phát bị chặn trong reduce; gỡ reduce không tự phát lại. Consumer cũ
+      // (không bật cờ) giữ nguyên hành vi media query CSS.
+      const reduceInteractive = root.dataset.reduceInteractive === 'true';
+      const rmNotice = root.querySelector<HTMLElement>('.rm-notice');
+      let reduceActive = false;
+
+      const canRun = () =>
+        isPlaying && inView && !document.hidden && (!reduceInteractive || !reduceActive);
 
       function applyStep(i: number) {
         idx = ((i % n) + n) % n; // vòng lặp: bước cuối → quay về bước 1
         const s = stepList[idx];
-        if (counter) counter.textContent = `Bước ${idx + 1}/${n}`;
+        if (counter) counter.textContent = laJS.counter(idx + 1, n);
         if (bar) bar.style.width = `${((idx + 1) / n) * 100}%`;
         if (titleEl) titleEl.textContent = s.t;
         if (enEl) enEl.textContent = s.e ? `· ${s.e}` : '';
@@ -401,11 +486,40 @@ const stepsJson = JSON.stringify(steps);
         playIcon?.classList.toggle('hidden', playing);
         pauseIcon?.classList.toggle('hidden', !playing);
         playBtn?.setAttribute('aria-pressed', String(playing));
-        playBtn?.setAttribute('aria-label', playing ? 'Tạm dừng hoạt ảnh' : 'Phát hoạt ảnh');
+        playBtn?.setAttribute('aria-label', playing ? laJS.pause : laJS.play);
         syncLoop();
       }
 
-      playBtn?.addEventListener('click', () => setPlaying(!isPlaying));
+      // Reduced-motion tương tác: theo dõi thay đổi media query; reduce bật
+      // giữa phiên → dừng phát + thông báo; gỡ → ẩn thông báo, KHÔNG tự phát
+      // lại (người dùng bấm Phát chủ động).
+      if (reduceInteractive && typeof window.matchMedia === 'function') {
+        const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        reduceActive = mqReduce.matches;
+        const syncReduce = () => {
+          reduceActive = mqReduce.matches;
+          if (reduceActive) {
+            setPlaying(false);
+            rmNotice?.classList.remove('hidden');
+          } else {
+            rmNotice?.classList.add('hidden');
+          }
+        };
+        if (typeof mqReduce.addEventListener === 'function') {
+          mqReduce.addEventListener('change', syncReduce);
+        }
+        if (reduceActive) rmNotice?.classList.remove('hidden');
+      }
+
+      // Trong reduce (reduceInteractive): Phát KHÔNG khởi động chuỗi tự chạy —
+      // hiện nhắc dùng nút bước; gỡ reduce rồi Phát hoạt động trở lại.
+      playBtn?.addEventListener('click', () => {
+        if (reduceInteractive && reduceActive) {
+          rmNotice?.classList.remove('hidden');
+          return;
+        }
+        setPlaying(!isPlaying);
+      });
       prevBtn?.addEventListener('click', () => {
         setPlaying(false);
         applyStep(idx - 1);

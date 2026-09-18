@@ -1,0 +1,70 @@
+{
+  "khoaLock": 3,
+  "trucTiep": [
+    {
+      "ten": "@astrojs/sitemap",
+      "khaiBao": "^3.2.1",
+      "loai": "dependencies",
+      "lockVersion": "3.2.1",
+      "dev": false,
+      "lockPhuThuoc": 3
+    },
+    {
+      "ten": "@vercel/analytics",
+      "khaiBao": "^2.0.1",
+      "loai": "dependencies",
+      "lockVersion": "2.0.1",
+      "dev": false,
+      "lockPhuThuoc": 0
+    },
+    {
+      "ten": "astro",
+      "khaiBao": "^4.16.18",
+      "loai": "dependencies",
+      "lockVersion": "4.16.19",
+      "dev": false,
+      "lockPhuThuoc": 62
+    },
+    {
+      "ten": "astro-pagefind",
+      "khaiBao": "^2.0.1",
+      "loai": "dependencies",
+      "lockVersion": "2.0.1",
+      "dev": false,
+      "lockPhuThuoc": 3
+    },
+    {
+      "ten": "three",
+      "khaiBao": "^0.185.1",
+      "loai": "dependencies",
+      "lockVersion": "0.185.1",
+      "dev": false,
+      "lockPhuThuoc": 0
+    },
+    {
+      "ten": "@astrojs/check",
+      "khaiBao": "0.9.10",
+      "loai": "devDependencies",
+      "lockVersion": "0.9.10",
+      "dev": true,
+      "lockPhuThuoc": 4
+    },
+    {
+      "ten": "@astrojs/tailwind",
+      "khaiBao": "^5.1.4",
+      "loai": "devDependencies",
+      "lockVersion": "5.1.5",
+      "dev": true,
+      "lockPhuThuoc": 3
+    },
+    {
+      "ten": "tailwindcss",
+      "khaiBao": "^3.4.17",
+      "loai": "devDependencies",
+      "lockVersion": "3.4.19",
+      "dev": true,
+      "lockPhuThuoc": 22
+    }
+  ],
+  "tongGoiLock": 538
+}

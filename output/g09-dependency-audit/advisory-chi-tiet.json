@@ -1,0 +1,326 @@
+{
+  "ngay": "2026-09-19",
+  "nen": "60b303e",
+  "lenh": "npm audit --json (chỉ đọc — không sửa lockfile; xác nhận bằng git diff sau chạy)",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 4,
+      "critical": 1,
+      "total": 7
+    },
+    "dependencies": {
+      "prod": 339,
+      "dev": 114,
+      "optional": 85,
+      "peer": 1,
+      "peerOptional": 0,
+      "total": 538
+    }
+  },
+  "soAdvisory": 7,
+  "advisories": [
+    {
+      "package": "astro",
+      "mucDo": "critical",
+      "phamVi": "<=7.2.7",
+      "laPhuThuocTrucTiep": true,
+      "duongPhuThuoc": [
+        "esbuild",
+        "sharp",
+        "vite"
+      ],
+      "via": [
+        {
+          "maAdvisory": 1108906,
+          "tieuDe": "Astro's `X-Forwarded-Host` is reflected without validation",
+          "url": "https://github.com/advisories/GHSA-5ff5-9fcw-vg88",
+          "phamViAnhHuong": "<5.14.3",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1109738,
+          "tieuDe": "Astro vulnerable to URL manipulation via headers, leading to middleware and CVE-2025-61925 bypass",
+          "url": "https://github.com/advisories/GHSA-hr2q-hp5q-x767",
+          "phamViAnhHuong": ">=2.16.0 <5.15.5",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1109850,
+          "tieuDe": "Astro vulnerable to reflected XSS via the server islands feature",
+          "url": "https://github.com/advisories/GHSA-wrwg-2hg8-v723",
+          "phamViAnhHuong": "<=5.15.6",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1109851,
+          "tieuDe": "Astro Development Server has Arbitrary Local File Read",
+          "url": "https://github.com/advisories/GHSA-x3h8-62x9-952g",
+          "phamViAnhHuong": "<5.14.3",
+          "mucDo": "low"
+        },
+        {
+          "maAdvisory": 1111026,
+          "tieuDe": "Astro Cloudflare adapter has Stored Cross-site Scripting vulnerability in /_image endpoint",
+          "url": "https://github.com/advisories/GHSA-fvmw-cj7j-j39q",
+          "phamViAnhHuong": "<5.15.9",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1111027,
+          "tieuDe": "Astro's middleware authentication checks based on url.pathname can be bypassed via url encoded values",
+          "url": "https://github.com/advisories/GHSA-ggxq-hp9w-j794",
+          "phamViAnhHuong": "<5.15.8",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1111294,
+          "tieuDe": "Astro has an Authentication Bypass via Double URL Encoding, a bypass for CVE-2025-64765",
+          "url": "https://github.com/advisories/GHSA-whqg-ppgf-wp8c",
+          "phamViAnhHuong": "<5.15.8",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1115427,
+          "tieuDe": "Astro: Remote allowlist bypass via unanchored matchPathname wildcard",
+          "url": "https://github.com/advisories/GHSA-g735-7g2w-hh3f",
+          "phamViAnhHuong": ">=2.10.10 <5.18.1",
+          "mucDo": "low"
+        },
+        {
+          "maAdvisory": 1117141,
+          "tieuDe": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+          "url": "https://github.com/advisories/GHSA-j687-52p2-xcff",
+          "phamViAnhHuong": "<6.1.6",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1118920,
+          "tieuDe": "Astro: Server island encrypted parameters vulnerable to cross-component replay",
+          "url": "https://github.com/advisories/GHSA-xr5h-phrj-8vxv",
+          "phamViAnhHuong": "<6.1.10",
+          "mucDo": "low"
+        },
+        {
+          "maAdvisory": 1123700,
+          "tieuDe": "Astro: XSS via Unescaped Attribute Names in Spread Props",
+          "url": "https://github.com/advisories/GHSA-jrpj-wcv7-9fh9",
+          "phamViAnhHuong": "<6.4.6",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1139373,
+          "tieuDe": "Astro: XSS via unescaped spread attribute names in renderHTMLElement (incomplete fix for CVE-2026-54298)",
+          "url": "https://github.com/advisories/GHSA-f48w-9m4c-m7f5",
+          "phamViAnhHuong": "<7.0.6",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1139375,
+          "tieuDe": "Astro: Cross-site scripting via unescaped transition:* directive values on hydrated islands",
+          "url": "https://github.com/advisories/GHSA-7pw4-f3q4-r2p2",
+          "phamViAnhHuong": ">=3.10.0 <7.0.4",
+          "mucDo": "low"
+        },
+        {
+          "maAdvisory": 1139376,
+          "tieuDe": "Astro: Reflected XSS via unescaped View Transition animation properties",
+          "url": "https://github.com/advisories/GHSA-4g3v-8h47-v7g6",
+          "phamViAnhHuong": ">=2.9.0 <=7.0.9",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1139377,
+          "tieuDe": "Astro: Host header SSRF in prerendered error page fetch",
+          "url": "https://github.com/advisories/GHSA-2pvr-wf23-7pc7",
+          "phamViAnhHuong": "<6.4.6",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1139378,
+          "tieuDe": "Astro: Reflected XSS via unescaped slot name",
+          "url": "https://github.com/advisories/GHSA-8hv8-536x-4wqp",
+          "phamViAnhHuong": "<6.3.3",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1193723,
+          "tieuDe": "Astro: Remote code execution through AVIF image optimization",
+          "url": "https://github.com/advisories/GHSA-26w7-cxv4-gfx2",
+          "phamViAnhHuong": "<7.2.8",
+          "mucDo": "critical"
+        },
+        {
+          "maAdvisory": 1193724,
+          "tieuDe": "Astro: Authorization bypass from missing path-segment boundary check when stripping the configured base",
+          "url": "https://github.com/advisories/GHSA-376h-93r7-7g6f",
+          "phamViAnhHuong": "<=7.2.3",
+          "mucDo": "moderate"
+        }
+      ],
+      "tacDong": [],
+      "fixCoSan": "có (kèm breaking: {\"name\":\"astro\",\"version\":\"7.3.3\",\"isSemVerMajor\":true})"
+    },
+    {
+      "package": "devalue",
+      "mucDo": "moderate",
+      "phamVi": "<5.9.1",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [],
+      "via": [
+        {
+          "maAdvisory": 1237790,
+          "tieuDe": "Svelte devalue: DoS via malformed input",
+          "url": "https://github.com/advisories/GHSA-9rgm-9g3h-6x36",
+          "phamViAnhHuong": "<5.9.1",
+          "mucDo": "moderate"
+        }
+      ],
+      "tacDong": [],
+      "fixCoSan": "có (nâng theo audit fix)"
+    },
+    {
+      "package": "esbuild",
+      "mucDo": "moderate",
+      "phamVi": "<=0.24.2",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [],
+      "via": [
+        {
+          "maAdvisory": 1102341,
+          "tieuDe": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "phamViAnhHuong": "<=0.24.2",
+          "mucDo": "moderate"
+        }
+      ],
+      "tacDong": [
+        "astro",
+        "vite"
+      ],
+      "fixCoSan": "có (kèm breaking: {\"name\":\"astro\",\"version\":\"7.3.3\",\"isSemVerMajor\":true})"
+    },
+    {
+      "package": "js-yaml",
+      "mucDo": "high",
+      "phamVi": "3.0.0 - 3.15.1 || 4.0.0 - 4.3.1",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [],
+      "via": [
+        {
+          "maAdvisory": 1138114,
+          "tieuDe": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "phamViAnhHuong": ">=3.0.0 <3.15.1",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1138115,
+          "tieuDe": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "phamViAnhHuong": ">=4.0.0 <4.3.1",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1193726,
+          "tieuDe": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+          "phamViAnhHuong": ">=3.0.0 <3.15.2",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1193727,
+          "tieuDe": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+          "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+          "phamViAnhHuong": ">=4.0.0 <4.3.2",
+          "mucDo": "high"
+        }
+      ],
+      "tacDong": [],
+      "fixCoSan": "có (nâng theo audit fix)"
+    },
+    {
+      "package": "nanoid",
+      "mucDo": "high",
+      "phamVi": "<3.3.18",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [],
+      "via": [
+        {
+          "maAdvisory": 1139427,
+          "tieuDe": "nanoid: custom generators can loop indefinitely when size is zero",
+          "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+          "phamViAnhHuong": "<3.3.18",
+          "mucDo": "high"
+        }
+      ],
+      "tacDong": [],
+      "fixCoSan": "có (nâng theo audit fix)"
+    },
+    {
+      "package": "sharp",
+      "mucDo": "high",
+      "phamVi": "<=0.35.4-rc.0",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [],
+      "via": [
+        {
+          "maAdvisory": 1124066,
+          "tieuDe": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+          "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+          "phamViAnhHuong": "<0.35.0",
+          "mucDo": "high"
+        },
+        {
+          "maAdvisory": 1193725,
+          "tieuDe": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+          "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+          "phamViAnhHuong": "<0.35.4",
+          "mucDo": "high"
+        }
+      ],
+      "tacDong": [
+        "astro"
+      ],
+      "fixCoSan": "có (kèm breaking: {\"name\":\"astro\",\"version\":\"7.3.3\",\"isSemVerMajor\":true})"
+    },
+    {
+      "package": "vite",
+      "mucDo": "high",
+      "phamVi": "<=6.4.2",
+      "laPhuThuocTrucTiep": false,
+      "duongPhuThuoc": [
+        "esbuild"
+      ],
+      "via": [
+        {
+          "maAdvisory": 1116229,
+          "tieuDe": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+          "url": "https://github.com/advisories/GHSA-4w7w-66w2-5vf9",
+          "phamViAnhHuong": "<=6.4.1",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1120784,
+          "tieuDe": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+          "url": "https://github.com/advisories/GHSA-v6wh-96g9-6wx3",
+          "phamViAnhHuong": "<=6.4.2",
+          "mucDo": "moderate"
+        },
+        {
+          "maAdvisory": 1123525,
+          "tieuDe": "vite: `server.fs.deny` bypass on Windows alternate paths",
+          "url": "https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+          "phamViAnhHuong": "<=6.4.2",
+          "mucDo": "high"
+        }
+      ],
+      "tacDong": [
+        "astro"
+      ],
+      "fixCoSan": "có (kèm breaking: {\"name\":\"astro\",\"version\":\"7.3.3\",\"isSemVerMajor\":true})"
+    }
+  ]
+}

@@ -24,7 +24,6 @@ function listFiles(dir, exts, acc = []) {
 }
 
 function scanText(rel, text, source) {
-  const lines = text.split('\n');
   const defs = [];
   const reDef = /<(linearGradient|radialGradient)\b([^>]*)>/g;
   let m;

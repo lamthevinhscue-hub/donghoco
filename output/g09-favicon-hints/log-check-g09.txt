@@ -1,0 +1,17 @@
+ĐẠT F1 favicon.svg tồn tại
+ĐẠT F1 SVG hợp lệ (thẻ svg mở/đóng)
+ĐẠT F1 không chữ, không tài nguyên ngoài, không script
+ĐẠT F1 có nhận diện đồng hồ cơ (vỏ tròn + kim)
+ĐẠT F2 BaseLayout khai báo rel=icon → /favicon.svg, MIME SVG
+ĐẠT F3 dist/favicon.svg tồn tại + khớp public
+ĐẠT F3 ít nhất một route VI có khai báo favicon — dist/ban-quyen/index.html
+ĐẠT F3 ít nhất một route EN có khai báo favicon — dist/en/about/index.html
+ĐẠT H1 do-dinh-dang.mjs không còn import basename
+ĐẠT H2 phan-nhom.cjs không còn pattern [sig,
+ĐẠT H3 quet-gradient.cjs không còn khai báo lines không dùng
+ĐẠT H4 kiem-thu-hoi-quy.cjs còn đúng 1 khai báo duongDan (bản dùng thật) — số khai báo=1
+ĐẠT H4 không thêm suppression/@ts-ignore/eslint-disable
+ĐẠT H5 astro check 0 errors / 0 warnings / 0 hints — - 0 errors - 0 warnings - 0 hints
+ĐẠT S output g09 không có credential có cấu trúc — 0 tệp
+
+KẾT LUẬN: ĐẠT — favicon hợp lệ, đúng 4 vị trí hints đã gỡ, astro check 0/0/0

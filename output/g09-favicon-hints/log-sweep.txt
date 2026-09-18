@@ -1,0 +1,16 @@
+SACH src/layouts/BaseLayout.astro
+SACH public/favicon.svg
+SACH output/p3.1-image-audit/do-dinh-dang.mjs
+SACH output/p3.2-svg-gradient-audit/phan-nhom.cjs
+SACH output/p3.2-svg-gradient-audit/quet-gradient.cjs
+SACH output/p3.3-cluster-script-audit/kiem-thu-hoi-quy.cjs
+SACH scripts/check-g09-favicon-hints.mjs
+SACH docs/nghiem-thu/G09-A-favicon-va-bon-hints-2026-09-19.md
+SACH output/g09-favicon-hints/sweep-g09-a.cjs
+SACH output/g09-favicon-hints/log-types.txt
+SACH output/g09-favicon-hints/log-check.txt
+SACH output/g09-favicon-hints/log-build.txt
+SACH output/g09-favicon-hints/log-check-g09.txt
+SACH output/g09-favicon-hints/log-sweep.txt
+FAVICON public/favicon.svg hash=be34cebf004c889f (SVG — văn bản, đã quét ở trên; dist khớp hash được kiểm bởi check-g09)
+TONG_LOI=0

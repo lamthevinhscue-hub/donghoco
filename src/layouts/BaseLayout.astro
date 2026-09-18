@@ -97,6 +97,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <title>{fullTitle}</title>
     <meta name="description" content={metaDescription} />
 
+    <!-- Favicon (G09-A) — SVG nội bộ, tránh trình duyệt tự dò /favicon.ico rồi nhận 404 -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <!-- Ngôn ngữ nội dung -->
     <meta name="language" content={lang} />
 

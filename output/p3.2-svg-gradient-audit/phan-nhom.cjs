@@ -7,7 +7,7 @@ for (const d of j.defs.filter((x) => x.file.startsWith('src/'))) {
   const s = sig(d);
   (nhom[s] = nhom[s] || { thanhVien: [], dacTaNhien: d.stops.map((x) => x.bienMau || x.color).join(' → '), toaDo: (d.x1 ?? '0') + ',' + (d.y1 ?? '0') + '→' + (d.x2 ?? '1') + ',' + (d.y2 ?? '1'), loai: d.loai, tam: d.cx ? d.cx + ',' + d.cy + ' r=' + d.r : null, bienMauChinh: (d.stops[0].bienMau || d.stops[0].color || '').replace('var(--', '').replace(')', '') }).thanhVien.push({ file: d.file, id: d.id, line: d.line });
 }
-const nhomList = Object.entries(nhom).map(([sig, n], idx) => ({ nhom: 'N' + (idx + 1), ...n }));
+const nhomList = Object.entries(nhom).map(([, n], idx) => ({ nhom: 'N' + (idx + 1), ...n }));
 nhomList.sort((a, b) => b.thanhVien.length - a.thanhVien.length);
 const duongHong = nhomList.filter((n) => n.thanhVien.length >= 2);
 const rieng = nhomList.filter((n) => n.thanhVien.length === 1);

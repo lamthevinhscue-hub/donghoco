@@ -236,7 +236,6 @@ function chay(c) {
   let hoanNguyenKetQua = null;
   try {
     if (c.fixture) {
-      const duongDan = path.join(SB, c.fixture);
       if (LOI_TIEM && c.ma === LOI_TIEM) {
         // Chế độ tự kiểm: ép fixture không tồn tại
         ketQuaTiem = thucHienTiem({ ...c, fixture: c.fixture + '.khong-ton-tai' });

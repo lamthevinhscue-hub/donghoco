@@ -13,7 +13,7 @@
 // (Nhánh --convert thử WebP/AVIF đã BỎ theo TXN-20260910-12 — không có ứng viên, không
 // tạo chuyển đổi cho đủ việc; nếu chặng B được duyệt sẽ bổ sung theo danh sách duyệt.)
 import { readdirSync, statSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { join, basename, extname } from 'node:path';
+import { join, extname } from 'node:path';
 import sharp from 'sharp';
 
 const PUBLIC = 'public';

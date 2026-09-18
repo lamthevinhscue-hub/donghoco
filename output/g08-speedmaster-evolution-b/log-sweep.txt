@@ -1,0 +1,19 @@
+SACH src/data/omegaSpeedmasterEvolution.ts
+SACH src/data/modelEvolution.ts
+SACH src/content/mauIconic/vi/omega-speedmaster.md
+SACH src/content/mauIconic/en/omega-speedmaster.md
+SACH scripts/check-g08-speedmaster-evolution.cjs
+SACH docs/nghiem-thu/G08-B-tich-hop-tien-hoa-speedmaster-2026-09-19.md
+SACH output/g08-speedmaster-evolution-b/mutation-m1-m5.cjs
+SACH output/g08-speedmaster-evolution-b/pw-g08b.js
+SACH output/g08-speedmaster-evolution-b/log-build.txt
+SACH output/g08-speedmaster-evolution-b/log-check.txt
+SACH output/g08-speedmaster-evolution-b/log-check-g08.txt
+SACH output/g08-speedmaster-evolution-b/log-english.txt
+SACH output/g08-speedmaster-evolution-b/log-mutation.txt
+SACH output/g08-speedmaster-evolution-b/log-preview.txt
+SACH output/g08-speedmaster-evolution-b/log-pw.txt
+SACH output/g08-speedmaster-evolution-b/log-types.txt
+SACH output/g08-speedmaster-evolution-b/log-sweep.txt
+PNG  output/g08-speedmaster-evolution-b/shots/g08b-vi-1440-sang.png hash=c816429590fb178b (chỉ hash nhị phân — không xử lý như văn bản)
+TONG_LOI=0

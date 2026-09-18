@@ -1,0 +1,76 @@
+ĐẠT G1 slug + publishedLangs — omega-speedmaster [vi, en]
+ĐẠT G1 đúng 7 mốc — dataset 7 · hồ sơ 7
+ĐẠT G1 năm tăng dần 1957→2021 — 1957 < 1962 < 1965 < 1968 < 1969 < 1970 < 2021
+ĐẠT G2 mốc N1 (1957) khớp hồ sơ từng trường
+ĐẠT G2 mốc N2 (1962) khớp hồ sơ từng trường
+ĐẠT G2 mốc N3 (1965) khớp hồ sơ từng trường
+ĐẠT G2 mốc N4 (1968) khớp hồ sơ từng trường
+ĐẠT G2 mốc N5 (1969) khớp hồ sơ từng trường
+ĐẠT G2 mốc N6 (1970) khớp hồ sơ từng trường
+ĐẠT G2 mốc N7 (2021) khớp hồ sơ từng trường
+ĐẠT G3 N1 reference: số VI/EN tương ứng — [2915] vs [2915]
+ĐẠT G3 N1 label: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N1 change: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N1 note: số VI/EN tương ứng — [1957,1957,1959] vs [1957,1957,1959]
+ĐẠT G3 N2 reference: số VI/EN tương ứng — [2998] vs [2998]
+ĐẠT G3 N2 label: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N2 change: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N2 note: số VI/EN tương ứng — [1962,2998] vs [1962,2998]
+ĐẠT G3 N3 reference: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N3 label: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N3 change: số VI/EN tương ứng — [1965] vs [1965]
+ĐẠT G3 N3 note: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N4 reference: số VI/EN tương ứng — [022,145] vs [022,145]
+ĐẠT G3 N4 label: số VI/EN tương ứng — [861] vs [861]
+ĐẠT G3 N4 change: số VI/EN tương ứng — [321,861] vs [321,861]
+ĐẠT G3 N4 note: số VI/EN tương ứng — [022,145,861] vs [022,145,861]
+ĐẠT G3 N5 reference: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N5 label: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N5 change: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N5 note: số VI/EN tương ứng — [1969] vs [1969]
+ĐẠT G3 N6 reference: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N6 label: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N6 change: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N6 note: số VI/EN tương ứng — [142,1970] vs [142,1970]
+ĐẠT G3 N7 reference: số VI/EN tương ứng — [] vs []
+ĐẠT G3 N7 label: số VI/EN tương ứng — [3861] vs [3861]
+ĐẠT G3 N7 change: số VI/EN tương ứng — [1861,3861] vs [1861,3861]
+ĐẠT G3 N7 note: số VI/EN tương ứng — [321] vs [321]
+ĐẠT G4 import + DATASETS đăng ký Speedmaster
+ĐẠT G4 slug "omega-speedmaster" duy nhất toàn src/data — chon-dong-ho-dau-tien (decisionMaps.ts) · bao-duong-dong-ho (decisionMaps.ts) · omega-speedmaster (omegaSpeedmasterEvolution.ts) · rolex-gmt-master (rolexGmtMasterEvolution.ts) · rolex-submariner (submarinerEvolution.ts)
+ĐẠT G7a nguồn sạch 105.012/145.012 — src/content/mauIconic/vi/omega-speedmaster.md
+ĐẠT G7a nguồn sạch 105.012/145.012 — src/content/mauIconic/en/omega-speedmaster.md
+ĐẠT G5 sơ đồ chỉ render đúng 3 route mô hình × VI/EN — en:omega-speedmaster · en:rolex-gmt-master · en:rolex-submariner · vi:omega-speedmaster · vi:rolex-gmt-master · vi:rolex-submariner
+ĐẠT G5 không sơ đồ nào lọt route khác
+ĐẠT G5 vi có đúng 7 nút mốc — 7 nút
+ĐẠT G5 vi đủ 7 URL nguồn hồ sơ
+ĐẠT G5 en có đúng 7 nút mốc — 7 nút
+ĐẠT G5 en đủ 7 URL nguồn hồ sơ
+ĐẠT G6 vi sạch V1 duy nhất từng
+ĐẠT G6 vi sạch V1 only-ever
+ĐẠT G6 vi sạch V2 bí mật mua
+ĐẠT G6 vi sạch V2 quietly bought
+ĐẠT G6 vi sạch V3 danh sách bài thử
+ĐẠT G6 vi sạch V4 105.012/145.012 lên Mặt Trăng
+ĐẠT G6 vi sạch V6 năm 3570.50
+ĐẠT G6 vi sạch V5 hiếm/sưu tầm
+ĐẠT G6 vi sạch V7 bộ hẹn giờ tàu
+ĐẠT G6 vi sạch V8 rotor không trọng lực
+ĐẠT G6 en sạch V1 duy nhất từng
+ĐẠT G6 en sạch V1 only-ever
+ĐẠT G6 en sạch V2 bí mật mua
+ĐẠT G6 en sạch V2 quietly bought
+ĐẠT G6 en sạch V3 danh sách bài thử
+ĐẠT G6 en sạch V4 105.012/145.012 lên Mặt Trăng
+ĐẠT G6 en sạch V6 năm 3570.50
+ĐẠT G6 en sạch V5 hiếm/sưu tầm
+ĐẠT G6 en sạch V7 bộ hẹn giờ tàu
+ĐẠT G6 en sạch V8 rotor không trọng lực
+ĐẠT G7b dist thô vi sạch 105.012/145.012
+ĐẠT G7b dist thô en sạch 105.012/145.012
+ĐẠT G5 hồi quy vi:rolex-submariner đủ 8 nút
+ĐẠT G5 hồi quy en:rolex-submariner đủ 8 nút
+ĐẠT G5 hồi quy vi:rolex-gmt-master đủ 8 nút
+ĐẠT G5 hồi quy en:rolex-gmt-master đủ 8 nút
+
+KẾT LUẬN: ĐẠT — sơ đồ Speedmaster khớp hồ sơ, đúng route, sạch claim cũ

@@ -1,0 +1,9 @@
+ĐẠT M1 thiếu nguồn (N5 mất sourceUrl) — checker exit=1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT M2 lệch EN (N6 change 14→40) — checker exit=1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT M3 đảo năm (hoán đổi 1957 và 1962) — checker exit=1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT M4a thiếu en (label N5 mất en) — checker exit=1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT M4b/M5 trùng slug + sai route (slug → rolex-submariner) — checker exit=1/1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT M6 chèn lại 105.012 vào frontmatter (bài VI) — checker exit=1 bắt-đúng-rule=true hoàn-nguyên-hash=true
+ĐẠT sạch-cuối — checker G08 exit=0 sau hoàn nguyên
+
+KẾT LUẬN: ĐẠT — 6 mutation đều lỗi đúng rule, hoàn nguyên hash khớp

@@ -1,0 +1,30 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+01:10:40 [types] Generated 1.19s
+01:10:40 [check] Getting diagnostics for Astro files in D:\Watch web build...
+[96moutput/p3.1-image-audit/do-dinh-dang.mjs[0m:[93m16[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'basename' is declared but its value is never read.
+
+[7m16[0m import { join, basename, extname } from 'node:path';
+[7m  [0m [93m               ~~~~~~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/phan-nhom.cjs[0m:[93m10[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'sig' is declared but its value is never read.
+
+[7m10[0m const nhomList = Object.entries(nhom).map(([sig, n], idx) => ({ nhom: 'N' + (idx + 1), ...n }));
+[7m  [0m [93m                                            ~~~[0m
+
+[96moutput/p3.2-svg-gradient-audit/quet-gradient.cjs[0m:[93m27[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'lines' is declared but its value is never read.
+
+[7m27[0m   const lines = text.split('\n');
+[7m  [0m [93m        ~~~~~[0m
+
+[96moutput/p3.3-cluster-script-audit/kiem-thu-hoi-quy.cjs[0m:[93m239[0m:[93m13[0m - [93mwarning[0m[90m ts(6133): [0m'duongDan' is declared but its value is never read.
+
+[7m239[0m       const duongDan = path.join(SB, c.fixture);
+[7m   [0m [93m            ~~~~~~~~[0m
+
+Result (332 files):
+- 0 errors
+- 0 warnings
+- 4 hints

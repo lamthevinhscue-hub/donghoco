@@ -1,0 +1,24 @@
+ĐẠT C1 JSON hợp lệ
+ĐẠT C2 slug/name/publishedLangs
+ĐẠT C2 title/intro đủ cặp vi/en
+ĐẠT C3 số mốc ≥ 3 (lược đồ, không catalogue) — 7 mốc
+ĐẠT C3 N1 đủ trường
+ĐẠT C3 N2 đủ trường
+ĐẠT C3 N3 đủ trường
+ĐẠT C3 N4 đủ trường
+ĐẠT C3 N5 đủ trường
+ĐẠT C3 N6 đủ trường
+ĐẠT C3 N7 đủ trường
+ĐẠT C4 năm tăng dần — 1957 ≤ 1962 ≤ 1965 ≤ 1968 ≤ 1969 ≤ 1970 ≤ 2021
+ĐẠT C5 N1 sourceUrl thuộc hồ sơ — https://monochrome-watches.com/a-guide-to-the-evolution-of-the-omega-speedmaster-moonwatch-reference-by-reference/
+ĐẠT C5 N2 sourceUrl thuộc hồ sơ — https://www.omegawatches.com/en-us/watches/speedmaster/heritage-models/first-omega-in-space/product
+ĐẠT C5 N3 sourceUrl thuộc hồ sơ — https://www.omegawatches.com/chronicle/1965-nasa-tests-and-qualifies-the-speedmaster
+ĐẠT C5 N4 sourceUrl thuộc hồ sơ — https://monochrome-watches.com/a-guide-to-the-evolution-of-the-omega-speedmaster-moonwatch-reference-by-reference/
+ĐẠT C5 N5 sourceUrl thuộc hồ sơ — https://www.omegawatches.com/chronicle/1969-the-first-journey-to-the-moon
+ĐẠT C5 N6 sourceUrl thuộc hồ sơ — https://www.omegawatches.com/chronicle/1970-lucky-13
+ĐẠT C5 N7 sourceUrl thuộc hồ sơ — https://www.hodinkee.com/articles/omega-speedmaster-3861-complete-buyers-guide
+ĐẠT C6 không từ cấm — 0 khớp
+ĐẠT C7 cặp route Speedmaster có sẵn
+ĐẠT C8 gói output không có credential có cấu trúc — 0 tệp
+
+KẾT LUẬN: ĐẠT — dataset đề xuất đủ điều kiện G08-B

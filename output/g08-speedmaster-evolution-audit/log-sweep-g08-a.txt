@@ -1,0 +1,10 @@
+SACH docs/ho-so-du-lieu-tien-hoa-omega-speedmaster.md
+SACH docs/nghiem-thu/G08-A-kiem-ke-tien-hoa-speedmaster-2026-09-18.md
+SACH output/g08-speedmaster-evolution-audit/du-kien-g08-a.json (JSON hợp lệ)
+SACH output/g08-speedmaster-evolution-audit/kiem-du-kien-g08-a.cjs
+SACH output/g08-speedmaster-evolution-audit/quet-nhay-cam.cjs
+SACH output/g08-speedmaster-evolution-audit/log-build-nen.txt
+SACH output/g08-speedmaster-evolution-audit/log-english-nen.txt
+SACH output/g08-speedmaster-evolution-audit/log-kiem-du-kien.txt
+SACH output/g08-speedmaster-evolution-audit/log-sweep-g08-a.txt
+TONG_LOI=0

@@ -1,0 +1,120 @@
+// G07 vòng sửa 1 (TXN-20260917-24) — kiểm lại Tangente / max bill / HD3 ở 320 và 1440
+// + So sánh + danh sách + Pagefind sau khi gỡ claim vượt hồ sơ.
+// Bộ phân loại: DAT / KHONG_DAT.
+async (page) => {
+  const K = [];
+  const D = 'DAT', ND = 'KHONG_DAT';
+  const ghi = (ca, dung, chiTiet = '') => K.push({ ca, trangThai: dung === true ? D : ND, chiTiet: String(chiTiet) });
+  const goc = 'http://localhost:4399';
+
+  const tran = async () => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  const demChu = (chu) => page.getByText(chu).count();
+
+  // 1. Tangente 320/1440 — không tràn; 0 Berlin/1990/Schwertner; giữ claim có nguồn
+  for (const [w, ten] of [[320, '320'], [1440, '1440']]) {
+    await page.setViewportSize({ width: w, height: 800 });
+    await page.goto(goc + '/mau-iconic/nomos-tangente/', { waitUntil: 'load' });
+    await page.emulateMedia({ colorScheme: 'light' });
+    const ts = await tran();
+    await page.emulateMedia({ colorScheme: 'dark' });
+    const td = await tran();
+    ghi(`1 Tangente ${ten} không tràn (sáng/tối)`, ts === 0 && td === 0, `sáng=${ts}, tối=${td}`);
+  }
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto(goc + '/mau-iconic/nomos-tangente/', { waitUntil: 'load' });
+  const tBerlin = await demChu('Bức tường Berlin');
+  const t1990 = await demChu('1990');
+  const tSchw = await demChu('Roland Schwertner');
+  const tBan = await demChu('bán chạy liên tục hơn ba mươi năm');
+  ghi('1 Tangente DOM 0 Berlin/1990/Schwertner', tBerlin === 0 && t1990 === 0 && tSchw === 0, `berlin=${tBerlin}, 1990=${t1990}, schwertner=${tSchw}`);
+  ghi('1 Tangente giữ claim có nguồn (bán chạy hơn 30 năm)', tBan >= 1, 'số khớp=' + tBan);
+
+  // 2. max bill 320/1440 — không tràn; 0 các cụm bị gỡ; title mới
+  for (const [w, ten] of [[320, '320'], [1440, '1440']]) {
+    await page.setViewportSize({ width: w, height: 800 });
+    await page.goto(goc + '/mau-iconic/junghans-max-bill/', { waitUntil: 'load' });
+    await page.emulateMedia({ colorScheme: 'light' });
+    const ts = await tran();
+    await page.emulateMedia({ colorScheme: 'dark' });
+    const td = await tran();
+    ghi(`2 max bill ${ten} không tràn (sáng/tối)`, ts === 0 && td === 0, `sáng=${ts}, tối=${td}`);
+  }
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto(goc + '/mau-iconic/junghans-max-bill/', { waitUntil: 'load' });
+  const title = await page.title();
+  const j1 = await demChu('sản xuất liên tục');
+  const j2 = await demChu('chứng nhận của thời gian');
+  const j3 = await demChu('vẫn bán được');
+  const j4 = await demChu('gần như không');
+  const j5 = await demChu('thế mạnh');
+  const j6 = await demChu('nền mua ngoài');
+  ghi('2 max bill DOM 0 cụm bị gỡ', j1 === 0 && j2 === 0 && j3 === 0 && j4 === 0 && j5 === 0 && j6 === 0, `lt=${j1}, cnt=${j2}, vbd=${j3}, gnk=${j4}, tm=${j5}, nmo=${j6}`);
+  ghi('2 max bill title mới', /Tối giản của một học trò Bauhaus/.test(title), 'title="' + title + '"');
+
+  // 3. HD3 320/1440 — không tràn; 0 "cao nhất"; heading mới
+  for (const [w, ten] of [[320, '320'], [1440, '1440']]) {
+    await page.setViewportSize({ width: w, height: 800 });
+    await page.goto(goc + '/co-che/bo-may-in-house/', { waitUntil: 'load' });
+    await page.emulateMedia({ colorScheme: 'light' });
+    const ts = await tran();
+    await page.emulateMedia({ colorScheme: 'dark' });
+    const td = await tran();
+    ghi(`3 HD3 ${ten} không tràn (sáng/tối)`, ts === 0 && td === 0, `sáng=${ts}, tối=${td}`);
+  }
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto(goc + '/co-che/bo-may-in-house/', { waitUntil: 'load' });
+  const hCaoNhat = await demChu('mức tự chủ cao nhất');
+  const hMucMoi = await page.getByRole('heading', { name: 'Tự làm bộ thoát — một mức tự chủ sâu hơn trong chuỗi sản xuất' }).count();
+  const hNomos = await demChu('theo hãng, bộ thoát tự hãng gọi là');
+  ghi('3 HD3 DOM 0 "mức tự chủ cao nhất" + heading mới', hCaoNhat === 0 && hMucMoi === 1, `caoNhat=${hCaoNhat}, headingMoi=${hMucMoi}`);
+  ghi('3 HD3 độ hiếm giữ ở mức "theo hãng"', hNomos >= 1, 'số khớp=' + hNomos);
+
+  // 4. So sánh nomos+junghans — movement mới giữ nguyên, card junghans không 1956
+  await page.goto(goc + '/so-sanh/?m=nomos-tangente,junghans-max-bill', { waitUntil: 'load' });
+  await page.waitForTimeout(900);
+  const bang = await page.evaluate(() => document.body.innerText);
+  const hangMay = bang.includes('NOMOS DUW (tự sản xuất)');
+  const khong1956 = !bang.includes('1956');
+  const khongTitleCu = !bang.includes('Thiết kế Bauhaus gần như không đổi');
+  ghi('4 So sánh: movement mới + 0 "1956" + 0 title cũ junghans', hangMay && khong1956 && khongTitleCu, `duw=${hangMay}, 1956=${!khong1956}, titleCu=${!khongTitleCu}`);
+
+  // 5. Trang danh sách mau-iconic — không còn title cũ
+  await page.goto(goc + '/mau-iconic/', { waitUntil: 'load' });
+  const ds = await page.evaluate(() => document.body.innerText);
+  ghi('5 danh sách mau-iconic 0 title cũ max bill', !ds.includes('Thiết kế Bauhaus gần như không đổi'), 'kiểm chuỗi');
+
+  // 6. Pagefind — cụm bị gỡ = 0; Tangente không còn trong kết quả "Bức tường Berlin"
+  await page.goto(goc + '/', { waitUntil: 'load' });
+  const pf = await page.evaluate(async () => {
+    const mod = await import('/pagefind/pagefind.js');
+    await mod.init();
+    const k1 = await mod.search('"sản xuất liên tục"');
+    const k2 = await mod.search('"mức tự chủ cao nhất"');
+    const k3 = await mod.search('"chứng nhận của thời gian"');
+    const k4 = await mod.search('"Bức tường Berlin"');
+    const layUrl = async (k) => { const ds = []; for (const r of k.results.slice(0, 10)) { const d = await r.data(); ds.push(d.url); } return ds; };
+    return { lt: await layUrl(k1), cn: k2.results.length, cnt: k3.results.length, berlin: await layUrl(k4) };
+  });
+  const maxBillCoLt = pf.lt.some((u) => u.includes('junghans-max-bill'));
+  ghi('6 Pagefind "sản xuất liên tục" không trả bài max bill', maxBillCoLt === false, 'URL=' + JSON.stringify(pf.lt));
+  ghi('6 Pagefind "mức tự chủ cao nhất" = 0', pf.cn === 0, 'kết quả=' + pf.cn);
+  ghi('6 Pagefind "chứng nhận của thời gian" = 0', pf.cnt === 0, 'kết quả=' + pf.cnt);
+  const tangCoBerlin = pf.berlin.some((u) => u.includes('nomos-tangente'));
+  ghi('6 Pagefind "Bức tường Berlin" không trả trang Tangente', tangCoBerlin === false, 'kết quả=' + JSON.stringify(pf.berlin));
+
+  // 7. Ảnh bằng chứng
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(goc + '/mau-iconic/nomos-tangente/', { waitUntil: 'load' });
+  await page.screenshot({ path: 'output/g07-content-pilot-integration/shots/vs1-tangente-1440-sang.png', fullPage: false });
+  await page.goto(goc + '/mau-iconic/junghans-max-bill/', { waitUntil: 'load' });
+  await page.screenshot({ path: 'output/g07-content-pilot-integration/shots/vs1-maxbill-1440-sang.png', fullPage: false });
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto(goc + '/co-che/bo-may-in-house/', { waitUntil: 'load' });
+  await page.screenshot({ path: 'output/g07-content-pilot-integration/shots/vs1-hd3-320-sang.png', fullPage: false });
+  ghi('7 ảnh bằng chứng đã lưu', true, 'vs1-tangente-1440-sang / vs1-maxbill-1440-sang / vs1-hd3-320-sang');
+
+  return { tong: K.length, dat: K.filter((k) => k.trangThai === D).length, chi_tiet: K };
+}

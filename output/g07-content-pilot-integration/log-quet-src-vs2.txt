@@ -1,0 +1,120 @@
+QUÉT: src/content
+Tổng số dòng khớp: 48
+  T1: 5
+  T2: 0
+  T3: 1
+  T4: 0
+  T5: 4
+  J1: 3
+  J2: 0
+  J3: 0
+  J4: 2
+  J5: 4
+  J6: 7
+  J7: 3
+  H1: 0
+  H2: 0
+  H3: 0
+  N1: 2
+  N2: 1
+  N3: 0
+  N4: 1
+  N5: 14
+  N6: 1
+
+N6 src/content/coChe/vi/bo-may-in-house.md:14 vòng sửa 2 — phải = 0 toàn site
+    relation: "Tangente hưởng lợi từ bộ máy tự NOMOS sản xuất, gồm cả bộ thoát swing system — ví dụ có nguồn cho khái niệm trong bài"
+N2 src/content/mauIconic/vi/chopard-luc.md:34 vòng sửa 2 — phải = 0 toàn site
+    Nhiều người biết Chopard qua trang sức, nhưng **dòng L.U.C là chế tác nghiêm túc** với bộ máy tự làm — một trong những bí mật được giữ kỹ nhất ở phân khúc này:
+N5 src/content/mauIconic/vi/doxa-sub-300.md:51 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    Nói thẳng: màu cam **rất kén trang phục**, và bộ máy dùng nền mua ngoài — người mua lấy lịch sử và thiết kế, không lấy bộ máy.
+T5 src/content/mauIconic/vi/hajime-asaoka-project-t.md:30 Tangente — phải = 0; nơi khác chỉ báo cáo
+    Con đường vào nghề của Hajime Asaoka khác hẳn truyền thống châu Âu: ông **sinh năm 1965 tại tỉnh Kanagawa**, học **thiết kế công nghiệp tại Đại học Nghệ thuật T
+J5 src/content/mauIconic/vi/minase-horizon.md:44 Junghans — phải = 0 toàn site
+    Nói thẳng: **bộ máy không phải thế mạnh**, giá trị nằm ở vỏ và hoàn thiện; **gần như không bán ngoài Nhật Bản**.
+J6 src/content/mauIconic/vi/orient-bambino.md:3 max bill — phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Kính vòm, mặt số sạch, bộ máy do chính hãng làm — công thức gần như không đổi qua hơn một thập kỷ."
+J6 src/content/mauIconic/vi/orient-bambino.md:31 max bill — phải = 0; nơi khác chỉ báo cáo
+    Bambino có mặt **hơn một thập kỷ**, và trong suốt thời gian đó gần như không đổi công thức: **kính vòm, tỷ lệ tiết chế, bộ máy do chính Orient sản xuất**.
+N4 src/content/mauIconic/vi/roger-dubuis-excalibur.md:39 vòng sửa 2 — phải = 0 toàn site
+    Excalibur chọn hướng phô diễn: kết cấu, cơ khí và sự vượt trội thị giác đặt lên hàng đầu — ngược với trường phái kín đáo.
+J6 src/content/mauIconic/vi/stowa-flieger.md:3 max bill — phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Một trong số rất ít hãng Đức còn sản xuất đồng hồ phi công theo đúng thiết kế gốc từ năm 1940, gần như không đổi một nét."
+J7 src/content/mauIconic/vi/stowa-flieger.md:27 max bill — phải = 0; nơi khác chỉ báo cáo
+    Stowa **bắt đầu làm đồng hồ phi công từ năm 1940**, và từ đó tới nay vẫn sản xuất mẫu này **theo thiết kế gốc gần như không thay đổi**. Hãng là **một trong số í
+N5 src/content/mauIconic/vi/stowa-flieger.md:41 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    Nói thẳng: **mặt số Flieger nguyên bản cỡ lớn**, không phải cổ tay nào cũng hợp; và bộ máy dùng nền mua ngoài — người mua lấy lịch sử và tính nguyên bản, không
+N5 src/content/mauIconic/vi/timex-marlin.md:44 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    Nói thẳng: **hoàn thiện ở mức cơ bản**, bộ máy dùng nền mua ngoài, và phần lớn danh mục Timex là quartz nên người tìm đồng hồ cơ phải lọc kỹ trong danh mục.
+J6 src/content/mauIconic/vi/universal-geneve-polerouter.md:46 max bill — phải = 0; nơi khác chỉ báo cáo
+    Trước khi đưa vào sản xuất, độ bền của bộ máy được thử trong **một chuyến thám hiểm Pháp - Thụy Sĩ tới Greenland**, nơi bốn thành viên leo mười đỉnh núi trong đ
+T1 src/content/thuongHieu/vi/a-lange-soehne.md:30 Tangente — phải = 0; nơi khác chỉ báo cáo
+    detail: "Ngày 9/11/1989 Bức tường Berlin sụp. Walter Lange (66 tuổi, cháu nội Ferdinand) quay về Glashütte, tái lập hãng 7/12/1990 — đúng ngày hãng của ông nội
+T5 src/content/thuongHieu/vi/a-lange-soehne.md:110 Tangente — phải = 0; nơi khác chỉ báo cáo
+    Nhưng sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng của Liên Xô. Công ty bị quốc hữu hóa, sản xuất đình trệ suốt 45 năm. Phải đến **sau khi bức tường Be
+N5 src/content/thuongHieu/vi/baume-et-mercier.md:42 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    movement: "Kết hợp in-house và nền mua ngoài."
+N5 src/content/thuongHieu/vi/bell-and-ross.md:41 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Bell & Ross khi bạn muốn một thiết kế hiện đại có bản sắc rõ thay vì một biến thể của mẫu cổ điển nào đó. Nói thẳng mặt hạn chế: vỏ vuông c
+J6 src/content/thuongHieu/vi/cartier.md:162 max bill — phải = 0; nơi khác chỉ báo cáo
+    - **Ngôn ngữ nhận diện nhất quán gần một thế kỷ.** Số La Mã, đường ray phút, kim thép xanh dáng lá, núm vặn gắn đá cabochon — bộ mã này gần như không đổi từ thờ
+N5 src/content/thuongHieu/vi/doxa.md:44 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Doxa khi bạn muốn một chiếc đồng hồ lặn có lịch sử thật chứ không phải thẩm mỹ lặn vay mượn. Mặt số cam là thứ gây chia rẽ ngay từ cái nhìn
+N5 src/content/thuongHieu/vi/franck-muller.md:38 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    movement: "Kết hợp bộ máy in-house và nền mua ngoài tùy dòng."
+J7 src/content/thuongHieu/vi/junghans.md:19 max bill — phải = 0; nơi khác chỉ báo cáo
+    detail: "Hợp tác với nhà thiết kế Thụy Sĩ Max Bill, một học trò Bauhaus làm việc không dùng chi tiết trang trí thừa. Các mẫu này tới nay vẫn được sản xuất theo
+J4 src/content/thuongHieu/vi/junghans.md:47 Junghans — phải = 0 toàn site
+    collectorNote: "Chọn Junghans khi bạn muốn một thiết kế Bauhaus nguyên bản chứ không phải bản diễn giải lại. Mẫu max bill là thiết kế gốc từ 1956, không phải mẫ
+J5 src/content/thuongHieu/vi/junghans.md:47 Junghans — phải = 0 toàn site
+    collectorNote: "Chọn Junghans khi bạn muốn một thiết kế Bauhaus nguyên bản chứ không phải bản diễn giải lại. Mẫu max bill là thiết kế gốc từ 1956, không phải mẫ
+N5 src/content/thuongHieu/vi/junghans.md:47 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Junghans khi bạn muốn một thiết kế Bauhaus nguyên bản chứ không phải bản diễn giải lại. Mẫu max bill là thiết kế gốc từ 1956, không phải mẫ
+J1 src/content/thuongHieu/vi/junghans.md:65 Junghans — phải = 0 toàn site
+    Và đây là điểm đáng nói nhất về Junghans: ví dụ hiếm về **một thiết kế gần bảy mươi năm tuổi vẫn được sản xuất gần như nguyên bản** — không phải bản phục dựng h
+J5 src/content/thuongHieu/vi/minase.md:40 Junghans — phải = 0 toàn site
+    collectorNote: "Chọn Minase khi bạn quan tâm tới gia công kim loại như một hình thức chế tác riêng. Việc đánh bóng cả những bề mặt khuất là thứ rất ít hãng chịu
+T1 src/content/thuongHieu/vi/muehle-glashuette.md:32 Tangente — phải = 0; nơi khác chỉ báo cáo
+    value_retention: "Lập sau khi Bức tường Berlin sụp đổ"
+N5 src/content/thuongHieu/vi/muehle-glashuette.md:37 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    movement: "Chủ yếu nền mua ngoài"
+J4 src/content/thuongHieu/vi/muehle-glashuette.md:40 Junghans — phải = 0 toàn site
+    collectorNote: "Chọn Mühle-Glashütte khi bạn muốn một cái tên Glashütte thật. Gốc gác của gia đình này trong vùng là thật và lâu hơn phần lớn các hãng đang bán.
+N5 src/content/thuongHieu/vi/muehle-glashuette.md:40 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Mühle-Glashütte khi bạn muốn một cái tên Glashütte thật. Gốc gác của gia đình này trong vùng là thật và lâu hơn phần lớn các hãng đang bán.
+T1 src/content/thuongHieu/vi/nomos-glashuette.md:3 Tangente — phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Hãng Đức lập năm 1990 ngay sau khi Bức tường Berlin sụp đổ — thiết kế Bauhaus tối giản, và tự làm cả bộ thoát, thứ rất ít hãng ở tầm giá này làm được.
+T5 src/content/thuongHieu/vi/nomos-glashuette.md:3 Tangente — phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Hãng Đức lập năm 1990 ngay sau khi Bức tường Berlin sụp đổ — thiết kế Bauhaus tối giản, và tự làm cả bộ thoát, thứ rất ít hãng ở tầm giá này làm được.
+N1 src/content/thuongHieu/vi/nomos-glashuette.md:3 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Hãng Đức lập năm 1990 ngay sau khi Bức tường Berlin sụp đổ — thiết kế Bauhaus tối giản, và tự làm cả bộ thoát, thứ rất ít hãng ở tầm giá này làm được.
+T3 src/content/thuongHieu/vi/nomos-glashuette.md:13 Tangente — phải = 0
+    title: "Roland Schwertner thành lập NOMOS Glashütte"
+T1 src/content/thuongHieu/vi/nomos-glashuette.md:14 Tangente — phải = 0; nơi khác chỉ báo cáo
+    detail: "Ra đời ngay sau khi Bức tường Berlin sụp đổ, khi cơ quan Treuhandanstalt tiến hành tư nhân hóa xưởng GUB và một loạt công ty mới được lập để nối lại tr
+T1 src/content/thuongHieu/vi/nomos-glashuette.md:50 Tangente — phải = 0; nơi khác chỉ báo cáo
+    NOMOS Glashütte là **công ty độc lập, do chính chủ sở hữu điều hành** — không thuộc tập đoàn nào. Hãng ra đời năm 1990, ngay sau khi Bức tường Berlin sụp đổ, tr
+T5 src/content/thuongHieu/vi/nomos-glashuette.md:50 Tangente — phải = 0; nơi khác chỉ báo cáo
+    NOMOS Glashütte là **công ty độc lập, do chính chủ sở hữu điều hành** — không thuộc tập đoàn nào. Hãng ra đời năm 1990, ngay sau khi Bức tường Berlin sụp đổ, tr
+N1 src/content/thuongHieu/vi/nomos-glashuette.md:58 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    Điểm kỹ thuật đáng nói nhất nằm sâu hơn một cấp: **bộ thoát tự làm, gọi là NOMOS swing system**. Việc lắp bộ thoát riêng đòi hỏi kinh nghiệm và tay nghề vững —
+J5 src/content/thuongHieu/vi/rado.md:56 Junghans — phải = 0 toàn site
+    collectorNote: "Chọn Rado khi bạn quan tâm tới vật liệu hơn là bộ máy. Gốm công nghệ cao giữ được vẻ ngoài gần như nguyên vẹn sau nhiều năm đeo hằng ngày — điều
+J6 src/content/thuongHieu/vi/stowa.md:3 max bill — phải = 0; nơi khác chỉ báo cáo
+    excerpt: "Một trong số rất ít hãng Đức còn làm đồng hồ phi công theo đúng thiết kế gốc từ năm 1940, gần như không đổi một nét."
+J7 src/content/thuongHieu/vi/stowa.md:19 max bill — phải = 0; nơi khác chỉ báo cáo
+    detail: "Từ đó tới nay hãng vẫn sản xuất mẫu này theo thiết kế gốc gần như không thay đổi — điều rất ít nhà chế tác Đức còn làm."
+J1 src/content/thuongHieu/vi/stowa.md:35 Junghans — phải = 0 toàn site
+    strength: "Thiết kế Max Bill sản xuất liên tục từ 1956"
+N5 src/content/thuongHieu/vi/stowa.md:36 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    movement: "Chủ yếu nền mua ngoài"
+N5 src/content/thuongHieu/vi/stowa.md:48 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    movement: "Chủ yếu nền mua ngoài"
+N5 src/content/thuongHieu/vi/stowa.md:51 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Stowa khi bạn muốn một chiếc Flieger có gốc gác thật thay vì mẫu phỏng lại. Rất ít hãng có thể nói rằng họ đã làm cùng một thiết kế liên tụ
+J6 src/content/thuongHieu/vi/stowa.md:63 max bill — phải = 0; nơi khác chỉ báo cáo
+    Stowa là **một trong số ít và lâu đời nhất trong các nhà chế tác Đức còn làm đồng hồ phi công theo thiết kế gốc từ 1940** — gần như không đổi một nét suốt hơn t
+J1 src/content/thuongHieu/vi/tag-heuer.md:88 Junghans — phải = 0 toàn site
+    strength: "Bậc thầy tần số cao — El Primero 5Hz từ 1969 sản xuất liên tục đến nay."
+N5 src/content/thuongHieu/vi/timex.md:40 vòng sửa 2 — Tangente phải = 0; nơi khác chỉ báo cáo
+    collectorNote: "Chọn Timex khi bạn muốn một chiếc đồng hồ cơ có gốc gác thật. Marlin không giả vờ là thứ gì khác ngoài chính nó. Nói thẳng mặt hạn chế: hoàn thi

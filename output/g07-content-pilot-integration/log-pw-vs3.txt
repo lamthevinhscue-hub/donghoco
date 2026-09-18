@@ -1,0 +1,86 @@
+### Result
+"G07-vs3: 8/8 ĐẠT\nĐẠT C1 HD3-1440-sáng relation+cau-nguon+link+0-cấm+0-tràn — cam=[] tran=0 rel=true cauNguon=true link=true\nĐẠT C2 HD3-1440-tối 0-cấm+0-tràn — cam=[] tran=0\nĐẠT C3 HD3-320-sáng 0-cấm+0-tràn — cam=[] tran=0\nĐẠT C4 HD3-320-tối 0-cấm+0-tràn — cam=[] tran=0\nĐẠT C5 Tangente-1440-sáng link-HD3+theo-hãng≥2+0-cấm+0-tràn — cam=[] tran=0 link=true theoHang=5\nĐẠT C6 Tangente-1440-tối 0-cấm+0-tràn — cam=[] tran=0\nĐẠT C7 Tangente-320-sáng 0-cấm+0-tràn — cam=[] tran=0\nĐẠT C8 Tangente-320-tối 0-cấm+0-tràn — cam=[] tran=0"
+### Ran Playwright code
+```js
+await (// G07 vòng sửa 3 (kế tục TXN-20260917-27) — kiểm trình duyệt hai chiều liên kết HD3 ↔ Tangente sau build
+// Dùng sau: "$PWCLI" open http://localhost:4399 rồi run-code --filename tệp này
+async (page) => {
+  const goc = 'http://localhost:4399';
+  const CAM = [
+    'hưởng lợi', 'biểu hiện rõ nhất', 'hiện ra rõ nhất', 'vượt trội',
+    'rất ít hãng ở tầm giá này', 'nhà chế tác thật', 'nền mua ngoài', 'Tangente hưởng lợi',
+  ];
+  const kq = [];
+  let dat = 0, tat = 0;
+  const xet = (ten, ok, chiTiet) => {
+    kq.push(`${ok ? 'ĐẠT' : 'KHONG_DAT'} ${ten}${chiTiet ? ' — ' + chiTiet : ''}`);
+    ok ? dat++ : tat++;
+  };
+  const layTrang = async (url, w, h, mau) => {
+    await page.setViewportSize({ width: w, height: h });
+    if (mau === 'tối') await page.emulateMedia({ colorScheme: 'dark' });
+    else await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto(goc + url, { waitUntil: 'load' });
+    await page.waitForTimeout(400);
+  };
+  const kiemChung = async () => {
+    const cam = await page.evaluate((ds) => {
+      const t = document.body.innerText;
+      return ds.filter((c) => t.includes(c));
+    }, CAM);
+    const tran = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    return { cam, tran };
+  };
+
+  // HD3 (bo-may-in-house) — 4 ca
+  await layTrang('/co-che/bo-may-in-house/', 1440, 900, 'sáng');
+  let k = await kiemChung();
+  const rel = await page.evaluate(() => document.body.innerText.includes('Bài dùng Tangente làm ví dụ có nguồn'));
+  const cauNguon = await page.evaluate(() => document.body.innerText.includes('trang sản phẩm dòng'));
+  const linkT = await page.evaluate(() => !!document.querySelector('a[href="/mau-iconic/nomos-tangente"]'));
+  xet('C1 HD3-1440-sáng relation+cau-nguon+link+0-cấm+0-tràn', rel && cauNguon && linkT && k.cam.length === 0 && k.tran <= 0,
+    `cam=${JSON.stringify(k.cam)} tran=${k.tran} rel=${rel} cauNguon=${cauNguon} link=${linkT}`);
+  await page.screenshot({ path: 'output/g07-content-pilot-integration/shots/vs3-bo-may-in-house-1440-sang.png', fullPage: false });
+
+  await layTrang('/co-che/bo-may-in-house/', 1440, 900, 'tối');
+  k = await kiemChung();
+  xet('C2 HD3-1440-tối 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  await layTrang('/co-che/bo-may-in-house/', 320, 700, 'sáng');
+  k = await kiemChung();
+  xet('C3 HD3-320-sáng 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  await layTrang('/co-che/bo-may-in-house/', 320, 700, 'tối');
+  k = await kiemChung();
+  xet('C4 HD3-320-tối 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  // Tangente — 4 ca
+  await layTrang('/mau-iconic/nomos-tangente/', 1440, 900, 'sáng');
+  k = await kiemChung();
+  const linkHD3 = await page.evaluate(() => !!document.querySelector('a[href="/co-che/bo-may-in-house"]'));
+  const theoHang = await page.evaluate(() => (document.body.innerText.match(/theo hãng/g) || []).length);
+  xet('C5 Tangente-1440-sáng link-HD3+theo-hãng≥2+0-cấm+0-tràn', linkHD3 && theoHang >= 2 && k.cam.length === 0 && k.tran <= 0,
+    `cam=${JSON.stringify(k.cam)} tran=${k.tran} link=${linkHD3} theoHang=${theoHang}`);
+
+  await layTrang('/mau-iconic/nomos-tangente/', 1440, 900, 'tối');
+  k = await kiemChung();
+  xet('C6 Tangente-1440-tối 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  await layTrang('/mau-iconic/nomos-tangente/', 320, 700, 'sáng');
+  k = await kiemChung();
+  xet('C7 Tangente-320-sáng 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  await layTrang('/mau-iconic/nomos-tangente/', 320, 700, 'tối');
+  k = await kiemChung();
+  xet('C8 Tangente-320-tối 0-cấm+0-tràn', k.cam.length === 0 && k.tran <= 0, `cam=${JSON.stringify(k.cam)} tran=${k.tran}`);
+
+  return `G07-vs3: ${dat}/8 ĐẠT\n` + kq.join('\n');
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4399/mau-iconic/nomos-tangente/
+- Page Title: NOMOS Tangente — Bauhaus bán chạy ba mươi năm — Đồng Hồ Cơ
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-18T12-31-33-420Z.log#L4-L19

@@ -9,6 +9,7 @@ movement: "Calibre 1315"
 power_reserve: "120 giờ"
 water_resistance: "300m"
 date: "2026-08-01"
+updated: "2026-09-15"
 draft: false
 
 relatedModels:
@@ -30,6 +31,15 @@ sources:
 Năm 1952, hai thợ lặn người Pháp — **Robert Maloubier** và **Claude Riffaud** — được giao thành lập trường bơi lặn quân sự Pháp. Họ cần một đồng hồ lặn **chuyên nghiệp** cho các phi hành quân bí mật. Họ phác họa yêu cầu kỹ thuật và gửi cho nhiều hãng — đa số từ chối vì cho là "vô lý".
 
 Chỉ **Blancpain** chấp nhận. Hai năm sau (1953), hãng ra mắt **Fifty Fathoms** — mẫu lặn chuyên nghiệp đáp ứng bộ yêu cầu kỹ thuật đó. Rolex Submariner ra đời cũng trong năm 1953.
+
+## Đối chiếu với Submariner — hai đường đến cùng năm 1953
+
+Fifty Fathoms và [Rolex Submariner](/mau-iconic/rolex-submariner) ra đời cùng năm 1953, từ hai xuất phát điểm khác nhau:
+
+- **Fifty Fathoms** — sinh từ bộ yêu cầu kỹ thuật do những người thợ lặn quân sự Pháp đặt ra; theo Blancpain, đây là "đồng hồ lặn hiện đại đầu tiên" của hãng.
+- **Submariner** — theo Rolex, đồng hồ lặn đầu tiên đạt mức chống nước 100m (dữ kiện đã kiểm của bài Submariner); những chiếc reference 6204 sớm nhất được định ngày cuối năm 1953, mẫu được công bố tại Basel 1954.
+
+Cùng năm ra đời **không nói lên ai sao chép ai** — 1953 là thời điểm ý tưởng đồng hồ lặn chuyên nghiệp đã chín ở hai bên bờ Đại Tây Dương, đúng như phần lặn của [hành trình lịch sử](/lich-su/) cũng đặt vấn đề. So sánh chi tiết đòi hỏi đi vào từng reference cụ thể của từng mẫu; ở cấp dòng lịch sử, hai mẫu xứng đáng đọc song hành: mỗi bên góp một đường đi riêng vào chuẩn mực đồng hồ lặn sau này.
 
 ## Vì sao tên "Fifty Fathoms"?
 

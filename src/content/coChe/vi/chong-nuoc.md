@@ -15,9 +15,11 @@ relatedModels:
     relation: "Amphibia minh họa cách dùng chính áp lực nước để làm kín vỏ — hướng ngược của tư duy chống nước thông thường"
   - slug: "oris-aquis-depth-gauge"
     relation: "Aquis Depth Gauge dùng áp suất nước để tạo số đọc độ sâu — ứng dụng trực tiếp của nguyên lý trong bài"
-updated: "2026-09-03"
+updated: "2026-09-15"
 
 sources:
+  - label: "Fondation de la Haute Horlogerie — Water-resistance"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/water-resistance"
   - label: "OMEGA — FAQ Using your OMEGA watch"
     url: "https://www.omegawatches.com/en-us/customer-service/faq/using-your-omega-watch"
   - label: "SEIKO — FAQ Water Resistance (bảng mức theo BAR)"
@@ -40,6 +42,15 @@ sources:
 - **SEIKO** — bảng theo ký hiệu **BAR** khắc trên vỏ, **cho đồng hồ Seiko**: 3BAR — tia nước văng, mưa; 5BAR — thêm bơi, du thuyền, tắm vòi sen; 10/15/20BAR — thêm tắm, lặn nông; Diver's 200m — thêm lặn bình khí; Professional 1000m — thêm lặn bão hòa.
 
 Hai hãng, hai cách công bố, và không có bảng nào quy đổi giữa các hãng — **manual của đúng mẫu luôn là chuẩn**. Seiko cũng yêu cầu đọc ký hiệu trên **vỏ đúng chiếc đồng hồ của bạn** để đối chiếu bảng của hãng.
+
+## Phân nhóm theo chuẩn quốc tế (theo FHH)
+
+Ngoài công bố của từng hãng, FHH (Fondation de la Haute Horlogerie) mô tả phạm vi sử dụng theo **nhóm chuẩn**:
+
+- **Nhóm đồng hồ chống nước** — chiếc đồng hồ được mô tả là chống nước, có hoặc không kèm chỉ số áp suất dư, phải đạt và được thử theo NIHS 92-10 (tương đương chuẩn quốc tế ISO-2281). Nhóm này dùng cho **sinh hoạt thường ngày, gồm cả những lúc ngập trong nước như bơi giải trí**, dùng được khi áp suất khí, áp suất nước hay nhiệt độ thay đổi — nhưng **không dành cho lặn dưới nước**, kể cả khi có ghi chỉ số áp suất dư.
+- **Nhóm đồng hồ lặn** — làm để đeo dưới nước ở độ sâu **tối thiểu 100 m (330 feet)**, phải có thiết bị kiểm soát thời gian và đạt đầy đủ NIHS 92-11 (ISO 6425) về độ phát sáng, chịu va đập, chống từ và độ bền dây.
+
+Đơn vị đo là bar — theo diễn đạt của FHH, 1 bar bằng 1 atm. Cần đọc đúng mức: phân nhóm này cho biết **phạm vi ở cấp nhóm chuẩn**, còn điều kiện dùng của từng mẫu cụ thể vẫn là công bố của từng hãng như đã nêu ở trên — hai tầng thông tin đó không thay thế nhau.
 
 ## Các điểm niêm phong
 
@@ -92,6 +103,7 @@ Dòng đồng hồ lặn của từng hãng công bố theo chuẩn lặn riêng
 ## Tóm tắt
 
 - Con số trên vỏ chỉ có ý nghĩa kèm điều kiện công bố của hãng — không có bảng dùng chung.
+- Chuẩn quốc tế chia hai nhóm theo FHH: ISO 2281/NIHS 92-10 cho sinh hoạt thường ngày (gồm bơi giải trí, không dành cho lặn) và ISO 6425/NIHS 92-11 cho đồng hồ lặn từ 100 m — phân nhóm không thay công bố của hãng.
 - Gioăng ở núm vặn, nút bấm, kính, vỏ — lão hóa theo thời gian, phải thay định kỳ.
 - Kiểm tra áp suất là việc của thợ/dịch vụ chính hãng — hằng năm theo khuyến nghị Omega.
 

@@ -1,0 +1,100 @@
+QUÉT: dist
+Tổng số dòng khớp: 41
+  T1: 7
+  T2: 0
+  T3: 1
+  T4: 0
+  T5: 6
+  J1: 3
+  J2: 0
+  J3: 0
+  J4: 2
+  J5: 4
+  J6: 15
+  J7: 3
+  H1: 0
+  H2: 0
+  H3: 0
+
+T5 dist/mau-iconic/hajime-asaoka-project-t/index.html:56 Tangente — phải = 0; nơi khác chỉ báo cáo
+    <p>Con đường vào nghề của Hajime Asaoka khác hẳn truyền thống châu Âu: ông <strong>sinh năm 1965 tại tỉnh Kanagawa</strong>, học <strong>thiết kế công nghiệp tạ
+J6 dist/mau-iconic/index.html:48 max bill — phải = 0; nơi khác chỉ báo cáo
+    <div id="filter-config" data-filter-keys="[&#34;theloai&#34;,&#34;decade&#34;]" hidden></div><h2 class="sr-only">Danh sách bài viết</h2> <div id="card-grid" cla
+J5 dist/mau-iconic/minase-horizon/index.html:64 Junghans — phải = 0 toàn site
+    <p>Nói thẳng: <strong>bộ máy không phải thế mạnh</strong>, giá trị nằm ở vỏ và hoàn thiện; <strong>gần như không bán ngoài Nhật Bản</strong>.</p> <section class
+J6 dist/mau-iconic/orient-bambino/index.html:9 max bill — phải = 0; nơi khác chỉ báo cáo
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Orient Bambino — Chiếc đồng hồ cơ đầu tiên của rất n
+J6 dist/mau-iconic/orient-bambino/index.html:51 max bill — phải = 0; nơi khác chỉ báo cáo
+    liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. --> <div id="lang-panel" data-pagefind-ignore role="dialog" aria-modal="true" aria-labelledb
+J6 dist/mau-iconic/orient-bambino/index.html:56 max bill — phải = 0; nơi khác chỉ báo cáo
+    <p>Bambino có mặt <strong>hơn một thập kỷ</strong>, và trong suốt thời gian đó gần như không đổi công thức: <strong>kính vòm, tỷ lệ tiết chế, bộ máy do chính Or
+J6 dist/mau-iconic/stowa-flieger/index.html:9 max bill — phải = 0; nơi khác chỉ báo cáo
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Stowa Flieger — Đồng hồ phi công từ năm 1940 — Đồng
+J6 dist/mau-iconic/stowa-flieger/index.html:51 max bill — phải = 0; nơi khác chỉ báo cáo
+    liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. --> <div id="lang-panel" data-pagefind-ignore role="dialog" aria-modal="true" aria-labelledb
+J7 dist/mau-iconic/stowa-flieger/index.html:56 max bill — phải = 0; nơi khác chỉ báo cáo
+    <p>Stowa <strong>bắt đầu làm đồng hồ phi công từ năm 1940</strong>, và từ đó tới nay vẫn sản xuất mẫu này <strong>theo thiết kế gốc gần như không thay đổi</stro
+J6 dist/mau-iconic/universal-geneve-polerouter/index.html:66 max bill — phải = 0; nơi khác chỉ báo cáo
+    <p>Trước khi đưa vào sản xuất, độ bền của bộ máy được thử trong <strong>một chuyến thám hiểm Pháp - Thụy Sĩ tới Greenland</strong>, nơi bốn thành viên leo mười
+J6 dist/so-sanh/index.html:54 max bill — phải = 0; nơi khác chỉ báo cáo
+    </style> <div class="mt-10 rounded-lg border border-dashed border-cream-dark dark:border-dark-border bg-cream-dark/10 dark:bg-dark-surface/50 p-6"> <h2 class="f
+T5 dist/thuong-hieu/a-lange-soehne/index.html:53 Tangente — phải = 0; nơi khác chỉ báo cáo
+    <p>Nhưng sau Thế chiến II, Glashütte nằm trong vùng chiếm đóng của Liên Xô. Công ty bị quốc hữu hóa, sản xuất đình trệ suốt 45 năm. Phải đến <strong>sau khi bức
+T1 dist/thuong-hieu/a-lange-soehne/index.html:75 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </p> <div class="mini-timeline relative pl-8" data-mini-timeline data-astro-cid-deplx64j><!-- Đường dọc --><div class="absolute left-[10px] top-2 bottom-2 w-0.5
+J6 dist/thuong-hieu/cartier/index.html:58 max bill — phải = 0; nơi khác chỉ báo cáo
+    <li><strong>Ngôn ngữ nhận diện nhất quán gần một thế kỷ.</strong> Số La Mã, đường ray phút, kim thép xanh dáng lá, <a href="/tu-dien/num-van" title="Dùng lên dâ
+T1 dist/thuong-hieu/index.html:54 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </button> </div> <!-- Danh sách nhóm theo hạng --> <div class="mt-12 space-y-16"> <div data-tier-group="haute horlogerie" class="tier-group" data-accent="tier-h
+T5 dist/thuong-hieu/index.html:54 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </button> </div> <!-- Danh sách nhóm theo hạng --> <div class="mt-12 space-y-16"> <div data-tier-group="haute horlogerie" class="tier-group" data-accent="tier-h
+J6 dist/thuong-hieu/index.html:54 max bill — phải = 0; nơi khác chỉ báo cáo
+    </button> </div> <!-- Danh sách nhóm theo hạng --> <div class="mt-12 space-y-16"> <div data-tier-group="haute horlogerie" class="tier-group" data-accent="tier-h
+J1 dist/thuong-hieu/junghans/index.html:55 Junghans — phải = 0 toàn site
+    <p>Và đây là điểm đáng nói nhất về Junghans: ví dụ hiếm về <strong>một thiết kế gần bảy mươi năm tuổi vẫn được sản xuất gần như nguyên bản</strong> — không phải
+J7 dist/thuong-hieu/junghans/index.html:58 max bill — phải = 0; nơi khác chỉ báo cáo
+    </p> <div class="mini-timeline relative pl-8" data-mini-timeline data-astro-cid-deplx64j><!-- Đường dọc --><div class="absolute left-[10px] top-2 bottom-2 w-0.5
+J4 dist/thuong-hieu/junghans/index.html:64 Junghans — phải = 0 toàn site
+    </h3> <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">Chọn Junghans khi bạn muốn một thiết kế Bauhaus nguyên bản chứ không phải bản di
+J5 dist/thuong-hieu/junghans/index.html:64 Junghans — phải = 0 toàn site
+    </h3> <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">Chọn Junghans khi bạn muốn một thiết kế Bauhaus nguyên bản chứ không phải bản di
+J5 dist/thuong-hieu/minase/index.html:66 Junghans — phải = 0 toàn site
+    </h3> <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">Chọn Minase khi bạn quan tâm tới gia công kim loại như một hình thức chế tác riê
+T1 dist/thuong-hieu/muehle-glashuette/index.html:61 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </p> <!-- Bảng so sánh --> <div class="overflow-x-auto rounded-lg border border-cream-dark dark:border-dark-border"> <table class="w-full min-w-[640px] text-lef
+J4 dist/thuong-hieu/muehle-glashuette/index.html:63 Junghans — phải = 0 toàn site
+    </h3> <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">Chọn Mühle-Glashütte khi bạn muốn một cái tên Glashütte thật. Gốc gác của gia đì
+T1 dist/thuong-hieu/nomos-glashuette/index.html:9 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NOMOS Glashütte — Đồng Hồ Cơ</title><meta name="desc
+T5 dist/thuong-hieu/nomos-glashuette/index.html:9 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NOMOS Glashütte — Đồng Hồ Cơ</title><meta name="desc
+T1 dist/thuong-hieu/nomos-glashuette/index.html:51 Tangente — phải = 0; nơi khác chỉ báo cáo
+    liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. --> <div id="lang-panel" data-pagefind-ignore role="dialog" aria-modal="true" aria-labelledb
+T5 dist/thuong-hieu/nomos-glashuette/index.html:51 Tangente — phải = 0; nơi khác chỉ báo cáo
+    liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. --> <div id="lang-panel" data-pagefind-ignore role="dialog" aria-modal="true" aria-labelledb
+T1 dist/thuong-hieu/nomos-glashuette/index.html:52 Tangente — phải = 0; nơi khác chỉ báo cáo
+    <p>NOMOS Glashütte là <strong>công ty độc lập, do chính chủ sở hữu điều hành</strong> — không thuộc tập đoàn nào. Hãng ra đời năm 1990, ngay sau khi Bức tường B
+T5 dist/thuong-hieu/nomos-glashuette/index.html:52 Tangente — phải = 0; nơi khác chỉ báo cáo
+    <p>NOMOS Glashütte là <strong>công ty độc lập, do chính chủ sở hữu điều hành</strong> — không thuộc tập đoàn nào. Hãng ra đời năm 1990, ngay sau khi Bức tường B
+T1 dist/thuong-hieu/nomos-glashuette/index.html:59 Tangente — phải = 0; nơi khác chỉ báo cáo
+    </p> <div class="mini-timeline relative pl-8" data-mini-timeline data-astro-cid-deplx64j><!-- Đường dọc --><div class="absolute left-[10px] top-2 bottom-2 w-0.5
+T3 dist/thuong-hieu/nomos-glashuette/index.html:59 Tangente — phải = 0
+    </p> <div class="mini-timeline relative pl-8" data-mini-timeline data-astro-cid-deplx64j><!-- Đường dọc --><div class="absolute left-[10px] top-2 bottom-2 w-0.5
+J6 dist/thuong-hieu/orient/index.html:83 max bill — phải = 0; nơi khác chỉ báo cáo
+    aria-hidden + không có nhãn — đây là trang trí, không phải ảnh mẫu. --> <div class="placeholder absolute inset-0 hidden items-center justify-center p-4 text-cen
+J5 dist/thuong-hieu/rado/index.html:62 Junghans — phải = 0 toàn site
+    </h3> <p class="text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">Chọn Rado khi bạn quan tâm tới vật liệu hơn là bộ máy. Gốm công nghệ cao giữ đượ
+J6 dist/thuong-hieu/stowa/index.html:9 max bill — phải = 0; nơi khác chỉ báo cáo
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Stowa — Đồng Hồ Cơ</title><meta name="description" c
+J6 dist/thuong-hieu/stowa/index.html:51 max bill — phải = 0; nơi khác chỉ báo cáo
+    liên kết chuyển ngôn ngữ là liên kết thật nên không-JS vẫn đi được. --> <div id="lang-panel" data-pagefind-ignore role="dialog" aria-modal="true" aria-labelledb
+J6 dist/thuong-hieu/stowa/index.html:52 max bill — phải = 0; nơi khác chỉ báo cáo
+    <p>Stowa là <strong>một trong số ít và lâu đời nhất trong các nhà chế tác Đức còn làm đồng hồ phi công theo thiết kế gốc từ 1940</strong> — gần như không đổi mộ
+J7 dist/thuong-hieu/stowa/index.html:56 max bill — phải = 0; nơi khác chỉ báo cáo
+    </p> <div class="mini-timeline relative pl-8" data-mini-timeline data-astro-cid-deplx64j><!-- Đường dọc --><div class="absolute left-[10px] top-2 bottom-2 w-0.5
+J1 dist/thuong-hieu/stowa/index.html:60 Junghans — phải = 0 toàn site
+    </p> <!-- Bảng so sánh --> <div class="overflow-x-auto rounded-lg border border-cream-dark dark:border-dark-border"> <table class="w-full min-w-[640px] text-lef
+J6 dist/thuong-hieu/stowa/index.html:63 max bill — phải = 0; nơi khác chỉ báo cáo
+    aria-hidden + không có nhãn — đây là trang trí, không phải ảnh mẫu. --> <div class="placeholder absolute inset-0 hidden items-center justify-center p-4 text-cen
+J1 dist/thuong-hieu/tag-heuer/index.html:67 Junghans — phải = 0 toàn site
+    </p> <!-- Bảng so sánh --> <div class="overflow-x-auto rounded-lg border border-cream-dark dark:border-dark-border"> <table class="w-full min-w-[640px] text-lef

@@ -1,0 +1,13 @@
+
+QUÉT (dist): dist/co-che/bo-may-in-house/index.html, dist/mau-iconic/nomos-tangente/index.html
+Tổng số dòng khớp claim cấm: 0
+  V3-1: 0  (từ cấm vòng 3 — phải = 0)
+  V3-2: 0  (cụm cấm vòng 3 — phải = 0)
+  V3-3: 0  (biến thể cùng ý (đã gỡ bo-may-in-house dòng 36) — phải = 0)
+  V3-4: 0  (từ cấm vòng 3 — phải = 0)
+  N1: 0  (hồi quy vòng 2 — Tangente phải = 0)
+  N2: 0  (hồi quy vòng 2 — phải = 0)
+  N5: 0  (hồi quy vòng 2 — Tangente phải = 0)
+  N6: 0  (hồi quy vòng 2 — phải = 0)
+
+KẾT LUẬN: ĐẠT — 0 cụm cấm

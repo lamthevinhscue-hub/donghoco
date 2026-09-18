@@ -1,19 +1,22 @@
 ---
 title: "NOMOS Tangente — Bauhaus bán chạy ba mươi năm"
-excerpt: "Mẫu bán chạy liên tục hơn ba thập kỷ của một hãng lập ngay sau khi Bức tường Berlin sụp đổ, và tự làm cả bộ thoát."
+excerpt: "Mẫu bán chạy liên tục hơn ba thập kỷ của NOMOS — hãng tự làm cả bộ thoát của riêng mình."
 brand: "NOMOS Glashütte"
 category: "dress"
-movement: "DUW 4001"
-power_reserve: "53 giờ"
+movement: "NOMOS DUW (tự sản xuất)"
 date: "2026-08-11"
 draft: false
 
 relatedModels:
   - slug: "junghans-max-bill"
-    relation: "Hai cách tiếp nối tinh thần Bauhaus trong đồng hồ Đức: max bill giữ ngôn ngữ thiết kế năm 1956, Tangente diễn giải sự tối giản ấy theo bản sắc NOMOS"
+    relation: "Hai cách tiếp nối tinh thần Bauhaus trong đồng hồ Đức: max bill là ngôn ngữ của một học trò Bauhaus, Tangente diễn giải sự tối giản ấy theo bản sắc NOMOS"
   - slug: "lange-1"
     relation: "Hai bản sắc khác nhau của đồng hồ Đức đương đại: Tangente đặt trọng tâm ở đường nét Bauhaus tối giản, Lange 1 ở bố cục bất đối xứng và cơ cấu ngày lớn"
-updated: "2026-08-31"
+
+relatedMechanisms:
+  - slug: "bo-may-in-house"
+    relation: "Bài giải thích khái niệm in-house và giới hạn của khái niệm"
+updated: "2026-09-17"
 
 sources:
   - label: "NOMOS Glashütte — Dòng Tangente"
@@ -25,7 +28,7 @@ sources:
 
 ## Bối cảnh ra đời
 
-Tangente **bán chạy liên tục hơn ba mươi năm** và là gương mặt nhận diện của NOMOS Glashütte. Bối cảnh của hãng: được Roland Schwertner lập năm 1990, **ngay sau khi Bức tường Berlin sụp đổ**, trong làn sóng các công ty mới nối lại truyền thống chế tác tại Glashütte. **Bộ sưu tập đầu tiên ra mắt năm 1992**, gồm sáu mẫu lên dây tay vỏ thép.
+Tangente **bán chạy liên tục hơn ba mươi năm** và là gương mặt nhận diện của NOMOS Glashütte. Đây là **mẫu đồng hồ đầu tiên** của hãng (theo hãng), ra từ nguyên lý thiết kế "hình thức theo công dụng".
 
 ## Đặc điểm thiết kế nhận diện
 
@@ -33,15 +36,24 @@ Tangente **bán chạy liên tục hơn ba mươi năm** và là gương mặt n
 - Bố cục thẳng hàng, khoảng trắng nhiều — mỗi chi tiết đứng ở đó vì có công dụng đọc giờ.
 - Vỏ mảnh, dây da hoặc dây thép mảnh — tổng thể nhẹ và kín đáo.
 
+## Đối chiếu thiết kế: Tangente và max bill
+
+Đặt cạnh [Junghans max bill](/mau-iconic/junghans-max-bill) — cái tên thường bị so vì cùng gốc Bauhaus — sự khác nhau nằm ở cách mỗi chiếc hiểu chữ "tối giản":
+
+- **Gốc đi thiết kế.** Tangente hiện thân nguyên lý "hình thức theo công dụng" (theo hãng); max bill là thiết kế của Max Bill — học trò Bauhaus, làm việc không dùng chi tiết trang trí thừa (theo Junghans). Cùng một gốc, hai cách diễn giải riêng.
+- **Mặt số.** Cả hai đều chọn mặt số sạch và chữ số mảnh. Khác nhau ở bố cục: Tangente thẳng hàng, khoảng trắng nhiều; max bill cân đối tuyệt đối, kèm kính vòm — thứ cho cảm giác đọc giờ mềm hơn.
+- **Khổ.** Tangente có nhiều phiên bản, đường kính từ 33 đến 41 mm (theo hãng); max bill bản tự động 38,0 mm. Hai hãng gặp nhau ở khổ cổ điển, Tangente trải rộng hơn.
+- **Phía bộ máy.** Khác biệt rõ nhất nằm ở mức tự chủ sản xuất: NOMOS tự làm cả bộ thoát — NOMOS swing system — điều mà, theo hãng, hầu như không hãng nào khác trên thế giới thực hiện được. Đây là lý do nói "hai cách diễn giải" thay vì xếp trên dưới.
+
 ## Kỹ thuật phía sau
 
-Điểm kỹ thuật đáng nói của hãng: **tự làm bộ thoát, gọi là NOMOS swing system** — rất ít hãng ở tầm giá này làm được điều đó. Tangente hưởng lợi từ nền tảng ấy: bộ máy hoàn chỉnh của một nhà chế tác thật, không phải nền mua ngoài.
+Điểm kỹ thuật đáng nói của hãng: **tự làm bộ thoát, gọi là NOMOS swing system** — điều mà, theo hãng, hầu như không hãng nào khác trên thế giới thực hiện được. (Khái niệm "tự sản xuất bộ máy" nói chung: xem [Bộ máy in-house](/co-che/bo-may-in-house).)
 
 ## Bộ máy và thông số
 
-Các mẫu lên dây tay của NOMOS dùng **calibre in-house DUW 4001**, **lắp ráp bằng tay**, trang bị **bộ thoát NOMOS swing system và hệ chỉnh DUW**, trữ cót tới **53 giờ**.
+Bộ máy của Tangente do NOMOS tự sản xuất, trang bị **bộ thoát NOMOS swing system**. Tên calibre và trữ cót của từng bản — lên dây tay, tự động, kèm lịch — tra trên trang sản phẩm của đúng bản đó.
 
-Lưu ý: dòng Tangente có nhiều biến thể dùng calibre khác — thông số ở bảng trên thuộc **bản lên dây tay**.
+Lưu ý: dòng Tangente có nhiều biến thể dùng các calibre khác nhau; bài này không chốt thông số thay cho từng bản.
 
 ## Vị trí trong lịch sử
 

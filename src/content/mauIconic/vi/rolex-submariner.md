@@ -9,7 +9,7 @@ movement: "Calibre 3230 / 3235"
 power_reserve: "70 giờ"
 water_resistance: "300m"
 date: "2026-07-31"
-updated: "2026-09-01"
+updated: "2026-09-15"
 draft: false
 
 relatedModels:
@@ -47,6 +47,10 @@ sources:
 Năm 1953, khi lặn bình khí (scuba diving) đang phát triển mạnh, thế giới cần những chiếc đồng hồ có thể chịu được áp suất nước sâu. Rolex đáp lại bằng **Submariner** — theo Rolex, đây là đồng hồ lặn đầu tiên đạt mức chống nước 100m. Những chiếc reference 6204 sớm nhất được định ngày cuối năm 1953; Rolex công bố mẫu này tại Basel năm 1954.
 
 Submariner không phải là đồng hồ lặn đầu tiên, nhưng nó đã đặt ra **chuẩn mực** cho toàn thể loại: vỏ xoay một chiều, độ chống nước 100m trở lên, mặt số dễ đọc trong bóng tối.
+
+## Fifty Fathoms — người đồng hành cùng thế hệ 1953
+
+Cùng năm 1953, [Blancpain Fifty Fathoms](/mau-iconic/fifty-fathoms) ra mắt ở Pháp — theo Blancpain là "đồng hồ lặn hiện đại đầu tiên" của hãng, sinh từ bộ yêu cầu kỹ thuật của những người thợ lặn quân sự. Submariner và Fifty Fathoms vì thế thường bị đặt cạnh nhau. Ở cấp dòng lịch sử, điều công bằng để nói là: hai mẫu cùng hưởng ứng một nhu cầu thời điểm — lặn bình khí đang lan rộng — và cùng góp đặt nền cho chuẩn đồng hồ lặn, mỗi bên theo đường riêng của mình. Cùng năm ra đời **không nói lên ai sao chép ai**. Muốn so sâu hơn thì phải vào từng reference cụ thể — danh sách thế hệ của bài này ở trên, bài Fifty Fathoms có phần tham chiếu tương ứng.
 
 ## Đặc điểm thiết kế nhận diện
 

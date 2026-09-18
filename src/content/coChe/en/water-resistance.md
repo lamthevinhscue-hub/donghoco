@@ -16,9 +16,11 @@ relatedModels:
     relation: "The Amphibia illustrates using water pressure itself to seal the case — the opposite direction from conventional thinking"
   - slug: "oris-aquis-depth-gauge"
     relation: "The Aquis Depth Gauge turns water pressure into a depth reading — a direct application of the principle in this article"
-updated: "2026-09-03"
+updated: "2026-09-15"
 
 sources:
+  - label: "Fondation de la Haute Horlogerie — Water-resistance"
+    url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/water-resistance"
   - label: "OMEGA — FAQ Using your OMEGA watch"
     url: "https://www.omegawatches.com/en-us/customer-service/faq/using-your-omega-watch"
   - label: "SEIKO — FAQ Water Resistance (BAR-grade table)"
@@ -38,6 +40,15 @@ sources:
 - **SEIKO** — a table based on the **BAR marking** on the case, **for Seiko watches**: 3BAR — splashes and rain; 5BAR — plus swimming, yachting and showering; 10/15/20BAR — plus bathing and shallow diving; Diver's 200m — plus scuba diving; Professional 1000m — plus saturation diving.
 
 Two makers, two publications, and no table converts between them — **the manual of the exact model is always the standard**. Seiko's guide itself asks you to read the marking on **your own watch's case** to match its table.
+
+## The standard groups, per FHH
+
+Beyond each maker's own publication, FHH (Fondation de la Haute Horlogerie) describes usage scope by **standard group**:
+
+- **Water-resistant watches** — a watch described as water-resistant, with or without an overpressure indication, must conform to and be tested against NIHS 92-10 (equivalent to the ISO-2281 international standard). This group is meant for **ordinary everyday use, including periods of immersion in water such as leisure swimming**, and can be used under changing air pressure, water pressure or temperature — but it is **not intended for underwater diving**, even with an overpressure indication.
+- **Diving watches** — made to be worn underwater at a depth of **at least 100 metres (330 feet)**; they must include a time control device and fully conform to NIHS 92-11 (ISO 6425) in terms of luminosity, shock-resistance, anti-magnetism and the solidity of the strap.
+
+The unit of measurement is the bar — in FHH's phrasing, 1 bar equals 1 atmosphere (atm). Read the levels right: this grouping states scope **at the standard-group level**, while the conditions of use for each specific model remain each maker's own publication above — the two layers do not replace each other.
 
 ## The sealing points
 
@@ -90,6 +101,7 @@ Each maker's dive line publishes its own dive standards and use table — Seiko'
 ## In short
 
 - The figure on the watch means what its maker publishes — there is no shared table.
+- The international standards form two groups per FHH: ISO 2281/NIHS 92-10 for everyday use (including leisure swimming, not for diving) and ISO 6425/NIHS 92-11 for dive watches from 100 m — the grouping does not replace the maker's publication.
 - Gaskets at the crown, pushers, crystal and case age over time and need periodic replacement.
 - Pressure testing belongs to a watchmaker or the authorised service — annually per OMEGA's recommendation.
 

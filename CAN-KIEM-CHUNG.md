@@ -43,6 +43,10 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 
 **Bổ sung 30/08/2026 (hồ sơ dữ liệu Submariner):** hồ sơ nghiên cứu `docs/ho-so-du-lieu-tien-hoa-rolex-submariner.md` (cùng ngày) đối chiếu bài `src/content/mauIconic/vi/rolex-submariner.md` đang xuất bản với nguồn và phát hiện **3 dữ kiện vẫn hiển thị trên trang** chưa kiểm chứng được hoặc có nguồn mâu thuẫn — ghi vào ba mục mới 48, 49, 50 (lúc đó mang cờ `CẦN ƯU TIÊN KIỂM CHỨNG`, chưa tính vào bảng số lượng). **Cùng ngày 30/08/2026, cả ba mục đã ĐÃ GIẢI QUYẾT:** bài được diễn đạt lại theo nguồn, frontmatter bổ sung 3 nguồn tham khảo (Hodinkee Reference Points, Monochrome Part 1, Part 2) kèm `updated: "2026-08-30"`. Ba mục nay được tính vào bảng số lượng ở trên; cờ `CẦN ƯU TIÊN KIỂM CHỨNG` đã gỡ khỏi ba mục này. **Cập nhật 01/09/2026: ba liên kết nguồn chết (Patek Philippe, COSC, Kurono Tokyo) trước đó từng ghi là "chưa xử lý" đã được thay bằng URL chính hãng hoạt động và cờ ưu tiên đã gỡ hết — hiện không còn cờ ưu tiên mở nào trong toàn tracker.**
 
+**Bổ sung 15/09/2026 (gói G07 — đợt thử nội dung): thêm mục 51 và 52, cả hai ở trạng thái `ĐÃ XỬ LÝ AN TOÀN` (thu hẹp theo nguồn hãng, chờ nguồn bổ sung).** Hai mục này chưa tính vào bảng phân loại phía trên (bảng rà 30/08/2026 giữ nguyên vai trò lịch sử). Nguồn đối chiếu: trang chính hãng truy cập 15/09/2026 — hồ sơ đầy đủ tại `output/g07-content-pilot-audit/03-ho-so-claim.md` (SS2-05, SS2-07).
+
+**Bổ sung 17/09/2026 (gói G07 chặng 2 — vòng sửa 1, TXN-20260917-24): thêm mục 53 và 54, cả hai ở trạng thái `ĐÃ XỬ LÝ AN TOÀN`.** Hai mục này chưa tính vào bảng phân loại phía trên. Mục 53: gỡ hẳn cụm "lập sau Bức tường Berlin / năm 1990 / bộ sưu tập đầu tiên 1992" khỏi bài NOMOS Tangente (SS2-04 vẫn thiếu nguồn, đã loại khỏi nội dung xuất bản). Mục 54: thu hồi cách dẫn "gần như không đổi" gán cho dòng max bill (câu nguồn "60 years" chỉ nói về đồng hồ/clock) và gỡ nhận định bộ máy Junghans không có nguồn. Nguồn đối chiếu: cùng hồ sơ claim chặng 1 (SS2-04, SS2-07, HD3-05).
+
 ---
 
 ## 1. Năm đăng ký logo Longines — ĐÃ GIẢI QUYẾT
@@ -1164,3 +1168,48 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Trạng thái:** ĐÃ GIẢI QUYẾT (30/08/2026). Đã diễn đạt lại theo nguồn, cờ `CẦN ƯU TIÊN KIỂM CHỨNG` gỡ khỏi mục này. Lịch sử lý do ban đầu giữ nguyên ở trên.
 
 
+
+---
+
+## 51. Calibre DUW 4001 và trữ cót 53 giờ trong bài NOMOS Tangente — ĐÃ XỬ LÝ AN TOÀN
+
+- **Vị trí:** `src/content/mauIconic/vi/nomos-tangente.md` — thân bài mục "Bộ máy và thông số" + frontmatter `movement:`, `power_reserve:`
+- **Câu/ý từng hiển thị:** "Các mẫu lên dây tay của NOMOS dùng **calibre in-house DUW 4001**, **lắp ráp bằng tay**, trang bị **bộ thoát NOMOS swing system và hệ chỉnh DUW**, trữ cót tới **53 giờ**."; frontmatter `movement: "DUW 4001"`, `power_reserve: "53 giờ"`.
+- **Lý do cần kiểm chứng:** trang Tangente của NOMOS (nomos-glashuette.com/tangente, truy cập 15/09/2026) **không nêu DUW 4001**; các calibre xuất hiện trên trang là DUW 6101 (neomatik date) và DUW 4601 — được hãng giới thiệu là calibre tự sản xuất thứ 12, lên dây tay kèm cơ chế ngày, trữ cót 52 giờ. Tổ hợp "DUW 4001 + lắp ráp tay + 53 giờ cho bản lên dây tay" không chứng minh được từ nguồn đã thu; đồng thời trang nguồn tự mâu thuẫn về "bestseller" (meta ghi "over 25 years", thân trang ghi "more than 30 years").
+- **Hành động đã làm (15/09/2026, gói G07):** gỡ hẳn `power_reserve` khỏi frontmatter (bảng thông số và công cụ So sánh tự ẩn dòng/hiện gạch ngang); đổi `movement:` thành "NOMOS DUW (tự sản xuất)" — mức có nguồn; viết lại mục "Bộ máy và thông số" không còn tên calibre/trữ cót cụ thể, hướng người đọc tra trang sản phẩm từng bản. Giữ lại các claim có nguồn: tự sản xuất, NOMOS swing system.
+- **Nguồn còn thiếu:** trang sản phẩm của từng bản Tangente lên dây tay cụ thể (chưa truy cập ở lượt 15/09/2026) để chốt lại tên calibre và trữ cót đúng cho từng bản; từ đó mới đủ căn cứ hoàn thiện frontmatter.
+- **Lưu ý hiển thị:** frontmatter `movement:` dây vào bảng thông số trang bài và hàng "Bộ máy" của công cụ So sánh — đã kiểm hiển thị sau sửa (xem biên bản G07 chặng 2).
+- **Trạng thái:** ĐÃ XỬ LÝ AN TOÀN (15/09/2026). Chờ nguồn để bổ sung dữ liệu đầy đủ hơn.
+
+---
+
+## 52. Năm 1956 cho dòng đồng hồ Junghans max bill — ĐÃ XỬ LÝ AN TOÀN
+
+- **Vị trí (trước khi sửa):** `src/content/mauIconic/vi/junghans-max-bill.md` — title, excerpt, thân bài "Bối cảnh ra đời" ("đồng hồ Max Bill đầu tiên ra đời **năm 1956**"), thân bài "Vị trí trong lịch sử" (hai cụm "suốt gần bảy mươi năm"), frontmatter `year: 1956`; trường `relation` trong frontmatter của cả hai bài `junghans-max-bill.md` và `nomos-tangente.md` ("max bill giữ ngôn ngữ thiết kế năm 1956").
+- **Lý do cần kiểm chứng:** trang bộ sưu tập max bill của Junghans (junghans.de/en/collection/watches-all/junghans-max-bill/, truy cập 15/09/2026) chỉ có mốc tương đối "This amazing Bauhaus clock has remained almost unchanged for 60 years" — **không nêu năm thiết kế của đồng hồ**. Đầu mối "since 1961" xuất hiện ở trang bán lẻ (không phải nguồn hãng) — không dùng làm căn cứ. Cụm "gần bảy mươi năm" là phép tính dẫn từ năm chưa chứng minh, đồng thời vi phạm quy tắc 6.5 (không viết số năm tính từ mốc lịch sử).
+- **Hành động đã làm (15/09/2026, gói G07):** title đổi thành "Thiết kế Bauhaus gần như không đổi"; excerpt và thân bài bỏ năm 1956, bỏ "thập niên 1960" chưa có nguồn riêng, bỏ hai cụm "gần bảy mươi năm"; diễn đạt lại theo nguồn hãng ("theo Junghans… gần như không thay đổi"); gỡ `year: 1956` khỏi frontmatter vì trường này hiển thị ở dòng meta và bảng thông số trang bài (giữ năm chưa chứng minh sẽ vẫn lộ trong nội dung xuất bản); sửa `relation` ở cả hai bài bỏ cụm "năm 1956". KHÔNG thêm năm mới nào.
+- **Nguồn còn thiếu:** nguồn chính hãng hoặc hồ sơ chuyên ngành uy tín chốt năm thiết kế dòng đồng hồ max bill (phân biệt với các thiết kế khác của Max Bill) — khi có thì cân nhắc hoàn thiện lại title/`year`.
+- **Phát hiện thêm ngoài phạm vi gói (15/09/2026):** bài thương hiệu `src/content/thuongHieu/vi/junghans.md` — tệp KHÔNG thuộc danh sách được sửa của gói G07 chặng 2 — chứa cùng cụm năm chưa chứng minh ở nhiều vị trí: `lineHistory` year 1956 (dòng 17–19), `collections` positioning "sản xuất gần như nguyên bản từ 1956" (dòng 22–24), `collectorNote` "thiết kế gốc từ 1956" (dòng 47), thân bài "Từ thập niên 1960…" (dòng 61) và "một thiết kế gần bảy mươi năm tuổi" (dòng 65). Không tự sửa vì ngoài phạm vi — chờ GPT Work quyết gói xử lý riêng.
+- **Ghi chú 17/09/2026 (vòng sửa 1 G07 chặng 2):** hành động "diễn đạt lại theo nguồn hãng ('theo Junghans… gần như không thay đổi')" ghi ở trên **đã bị thu hồi** — câu nguồn "This amazing Bauhaus clock has remained almost unchanged for 60 years" nói về một chiếc **đồng hồ (clock)** của thiết kế Max Bill, không phải dòng đồng hồ đeo tay max bill, nên không thể dùng để mô tả dòng này; cách dẫn đúng đã làm lại theo mục 54.
+- **Trạng thái:** ĐÃ XỬ LÝ AN TOÀN (15/09/2026). Chờ nguồn để bổ sung dữ liệu đầy đủ hơn.
+
+---
+
+## 53. NOMOS — "lập sau Bức tường Berlin", "năm 1990", "bộ sưu tập đầu tiên 1992" trong bài NOMOS Tangente — ĐÃ XỬ LÝ AN TOÀN
+
+- **Vị trí (trước khi sửa):** `src/content/mauIconic/vi/nomos-tangente.md` — excerpt ("một hãng lập ngay sau khi Bức tường Berlin sụp đổ"), thân bài mục "Bối cảnh ra đời" ("được Roland Schwertner lập năm 1990, **ngay sau khi Bức tường Berlin sụp đổ**…", "**Bộ sưu tập đầu tiên ra mắt năm 1992**, gồm sáu mẫu lên dây tay vỏ thép").
+- **Lý do cần kiểm chứng:** hồ sơ claim chặng 1 xếp SS2-04 ("hãng lập ngay sau khi Bức tường Berlin sụp đổ") ở trạng thái **thiếu nguồn** — trang giới thiệu hãng NOMOS chưa được truy cập ở lượt kiểm 15/09/2026. Năm 1990, năm 1992, "sáu mẫu" và tên người sáng lập nằm cùng câu chuyện thành lập nhưng không có mục claim riêng nào chứng minh.
+- **Hành động đã làm (17/09/2026, vòng sửa 1 G07 chặng 2):** gỡ hẳn cả cụm khỏi excerpt và mục "Bối cảnh ra đời"; viết lại mục này chỉ còn hai claim có hồ sơ: bán chạy liên tục hơn ba mươi năm (SS2-01) và mẫu đồng hồ đầu tiên của hãng với nguyên lý "hình thức theo công dụng" (SS2-02, ghi "theo hãng"). KHÔNG thay bằng năm/mốc mới. SS2-04 vẫn thiếu nguồn và **đã được loại khỏi nội dung xuất bản**.
+- **Nguồn còn thiếu:** trang giới thiệu hãng NOMOS (About/History) hoặc nguồn chính hãng tương đương, chốt năm thành lập, người sáng lập và năm ra mắt bộ sưu tập đầu tiên — khi có thì cân nhắc viết lại mục "Bối cảnh ra đời" đầy đủ hơn.
+- **Lưu ý phạm vi:** bài thương hiệu `src/content/thuongHieu/vi/nomos-glashuette.md` (excerpt dòng 3, `lineHistory` year 1990 dòng 13–16) chứa cùng họ claim này nhưng **ngoài danh sách tệp được sửa của gói** — chưa xử lý, chờ GPT Work quyết gói riêng (đã liệt kê trong biên bản G07, mục 8).
+- **Trạng thái:** ĐÃ XỬ LÝ AN TOÀN (17/09/2026). Chờ nguồn để bổ sung dữ liệu đầy đủ hơn.
+
+---
+
+## 54. "Gần như không đổi" và nhận định bộ máy gán cho dòng Junghans max bill — ĐÃ XỬ LÝ AN TOÀN
+
+- **Vị trí (trước khi sửa):** `src/content/mauIconic/vi/junghans-max-bill.md` — title "Thiết kế Bauhaus gần như không đổi", excerpt ("…theo hãng gần như không đổi tới nay"), mục "Vị trí trong lịch sử" ("theo Junghans… tới nay vẫn gần như không thay đổi", "không phải bản phục dựng hoài cổ mà là **sản xuất liên tục**", "…vẫn bán được… — đó là **chứng nhận của thời gian**", "Nói thẳng: **bộ máy không phải thế mạnh**, phần lớn dùng nền mua ngoài"); trường `relation` trong frontmatter của cả hai bài `junghans-max-bill.md` và `nomos-tangente.md` ("max bill giữ ngôn ngữ thiết kế gần như không đổi"); bài `nomos-tangente.md` bullet đối chiếu ("bài max bill cũng ghi thẳng rằng bộ máy không phải thế mạnh của dòng đó").
+- **Lý do cần kiểm chứng:** câu nguồn của Junghans (trang bộ sưu tập max bill, truy cập 15/09/2026) là "This amazing Bauhaus **clock** has remained almost unchanged for 60 years" — đối tượng là một chiếc **đồng hồ (clock)** trong thiết kế Max Bill, không phải dòng đồng hồ đeo tay max bill; gán câu này cho dòng đồng hồ là vượt hồ sơ (SS2-07). Các nhận định "sản xuất liên tục", "vẫn bán được", "chứng nhận của thời gian" là diễn biến biên tập từ câu đó. Nhận định bộ máy ("không phải thế mạnh", "nền mua ngoài") thuộc hồ sơ HD3-05 — **thiếu nguồn** (trang bộ sưu tập không nêu calibre hay nơi sản xuất bộ máy).
+- **Hành động đã làm (17/09/2026, vòng sửa 1 G07 chặng 2):** title đổi thành "Tối giản của một học trò Bauhaus"; excerpt viết lại chỉ còn claim SS2-06 (học trò Bauhaus không dùng chi tiết trang trí thừa, "theo Junghans"); mục "Vị trí trong lịch sử" viết lại mô tả ngôn ngữ thiết kế, bỏ cả năm cụm nêu trên; gỡ hai nhận định bộ máy khỏi "Nói thẳng" (giữ "vỏ mỏng và kính vòm dễ xước" có trước); sửa `relation` ở cả hai bài bỏ cụm "gần như không đổi"; gỡ câu dẫn chiếu bài max bill trong bullet đối chiếu của Tangente, giữ khác biệt "mức tự chủ sản xuất" ở phía NOMOS có hồ sơ (SS2-03). KHÔNG thêm năm mới hay suy tính thời lượng.
+- **Nguồn còn thiếu:** nguồn chính hãng chốt diễn biến dòng max bill (ra mắt năm nào, có gián đoạn sản xuất không) và nguồn về nguồn gốc bộ máy J800.1 — khi có thì cân nhắc khôi phục mô tả "liên tục" và bổ sung nhận định bộ máy.
+- **Trạng thái:** ĐÃ XỬ LÝ AN TOÀN (17/09/2026). Chờ nguồn để bổ sung dữ liệu đầy đủ hơn.

@@ -1,0 +1,15 @@
+RELATION ĐÚNG — bo-may-in-house.md relatedModels → nomos-tangente: "Bài dùng Tangente làm ví dụ có nguồn để giải thích khái niệm in-house."
+RELATION ĐÚNG — nomos-tangente.md relatedMechanisms → bo-may-in-house: "Bài giải thích khái niệm in-house và giới hạn của khái niệm"
+
+QUÉT (src): src/content/coChe/vi/bo-may-in-house.md, src/content/mauIconic/vi/nomos-tangente.md
+Tổng số dòng khớp claim cấm: 0
+  V3-1: 0  (từ cấm vòng 3 — phải = 0)
+  V3-2: 0  (cụm cấm vòng 3 — phải = 0)
+  V3-3: 0  (biến thể cùng ý (đã gỡ bo-may-in-house dòng 36) — phải = 0)
+  V3-4: 0  (từ cấm vòng 3 — phải = 0)
+  N1: 0  (hồi quy vòng 2 — Tangente phải = 0)
+  N2: 0  (hồi quy vòng 2 — phải = 0)
+  N5: 0  (hồi quy vòng 2 — Tangente phải = 0)
+  N6: 0  (hồi quy vòng 2 — phải = 0)
+
+KẾT LUẬN: ĐẠT — 0 cụm cấm, relation hai chiều đúng văn bản trung tính

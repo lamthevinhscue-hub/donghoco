@@ -1,0 +1,27 @@
+SACH src/components/WatchImage.astro
+SACH package.json (JSON hợp lệ)
+SACH scripts/check-g09-id-unique.mjs
+SACH docs/nghiem-thu/G09-B-sua-id-guilloche-2026-09-19.md
+SACH output/g09-id-motion-fix/censu-sau-sua.json (JSON hợp lệ)
+SACH output/g09-id-motion-fix/censu-sau-sua.mjs
+SACH output/g09-id-motion-fix/log-build.txt
+SACH output/g09-id-motion-fix/log-check-g09.txt
+SACH output/g09-id-motion-fix/log-check.txt
+SACH output/g09-id-motion-fix/log-mutation.txt
+SACH output/g09-id-motion-fix/log-preview.txt
+SACH output/g09-id-motion-fix/log-pw-chan-doan-ph.txt
+SACH output/g09-id-motion-fix/log-pw.txt
+SACH output/g09-id-motion-fix/log-sweep.txt
+SACH output/g09-id-motion-fix/log-types.txt
+SACH output/g09-id-motion-fix/mutation-sandbox.mjs
+SACH output/g09-id-motion-fix/pw-chan-doan-placeholder.js
+SACH output/g09-id-motion-fix/pw-g09b2.js
+SACH output/g09-id-motion-fix/sweep-g09-b-c2.mjs
+SACH output/g09-id-motion-fix/sandbox/good/index.html
+SACH output/g09-id-motion-fix/sandbox/m1/index.html
+SACH output/g09-id-motion-fix/sandbox/m2/index.html
+PNG  output/g09-id-motion-fix/shots/plate-brand-ap.png hash=79e4bdfe0705fe15
+PNG  output/g09-id-motion-fix/shots/plate-doi-chung-breguet.png hash=79e4bdfe0705fe15
+PNG  output/g09-id-motion-fix/shots/plate-en-history.png hash=a2d0251c91e2051f
+PNG  output/g09-id-motion-fix/shots/plate-lich-su.png hash=b645c445baed7852
+SO_PNG=4 TONG_LOI=0

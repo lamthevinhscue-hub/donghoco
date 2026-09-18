@@ -1,0 +1,1767 @@
+ĐẠT S1 nguồn không còn id="guilloche" cứng
+ĐẠT S1 nguồn không còn url(#guilloche) cứng
+ĐẠT D1 /ban-quyen/: 0 ID "guilloche" cũ
+ĐẠT D2 /ban-quyen/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /ban-quyen/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /ban-quyen/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /ban-quyen/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /ban-quyen/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/bo-may-in-house/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/bo-may-in-house/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/bo-may-in-house/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/bo-may-in-house/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/bo-may-in-house/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/bo-may-in-house/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/bo-thoat/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/bo-thoat/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/bo-thoat/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/bo-thoat/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/bo-thoat/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/bo-thoat/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/bo-thoat-dong-truc/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/bo-thoat-dong-truc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/bo-thoat-dong-truc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/bo-thoat-dong-truc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/bo-thoat-dong-truc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/bo-thoat-dong-truc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/chong-nuoc/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/chong-nuoc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/chong-nuoc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/chong-nuoc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/chong-nuoc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/chong-nuoc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/chong-soc/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/chong-soc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/chong-soc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/chong-soc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/chong-soc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/chong-soc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/chong-tu/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/chong-tu/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/chong-tu/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/chong-tu/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/chong-tu/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/chong-tu/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/chronograph/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/chronograph/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/chronograph/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/chronograph/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/chronograph/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/chronograph/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/chuyen-dong-co/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/chuyen-dong-co/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/chuyen-dong-co/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/chuyen-dong-co/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/chuyen-dong-co/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/chuyen-dong-co/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/da-quang/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/da-quang/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/da-quang/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/da-quang/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/da-quang/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/da-quang/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/day-toc-banh-lac/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/day-toc-banh-lac/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/day-toc-banh-lac/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/day-toc-banh-lac/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/day-toc-banh-lac/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/day-toc-banh-lac/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/diem-chuong/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/diem-chuong/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/diem-chuong/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/diem-chuong/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/diem-chuong/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/diem-chuong/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/hien-thi-ngay/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/hien-thi-ngay/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/hien-thi-ngay/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/hien-thi-ngay/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/hien-thi-ngay/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/hien-thi-ngay/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/kinh-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/kinh-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/kinh-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/kinh-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/kinh-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/kinh-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/len-day-tu-dong/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/len-day-tu-dong/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/len-day-tu-dong/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/len-day-tu-dong/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/len-day-tu-dong/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/len-day-tu-dong/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/perpetual-calendar/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/perpetual-calendar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/perpetual-calendar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/perpetual-calendar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/perpetual-calendar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/perpetual-calendar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/pha-trang/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/pha-trang/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/pha-trang/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/pha-trang/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/pha-trang/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/pha-trang/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/tourbillon/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/tourbillon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/tourbillon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/tourbillon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/tourbillon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/tourbillon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /co-che/tru-cot/: 0 ID "guilloche" cũ
+ĐẠT D2 /co-che/tru-cot/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /co-che/tru-cot/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /co-che/tru-cot/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /co-che/tru-cot/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /co-che/tru-cot/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/about/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/about/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/about/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/about/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/about/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/about/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/accessibility/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/accessibility/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/accessibility/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/accessibility/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/accessibility/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/accessibility/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/anatomy/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/anatomy/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/anatomy/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/anatomy/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/anatomy/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/anatomy/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/brands/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/brands/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/brands/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/brands/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/brands/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/brands/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/brands/omega/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/brands/omega/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/brands/omega/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/brands/omega/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/brands/omega/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/brands/omega/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/brands/rolex/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/brands/rolex/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/brands/rolex/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/brands/rolex/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/brands/rolex/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/brands/rolex/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/brands/seiko/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/brands/seiko/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/brands/seiko/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/brands/seiko/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/brands/seiko/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/brands/seiko/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/compare/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/compare/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/compare/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/compare/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/compare/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/compare/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/contact/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/contact/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/contact/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/contact/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/contact/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/contact/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/copyright/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/copyright/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/copyright/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/copyright/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/copyright/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/copyright/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/barrel/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/barrel/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/barrel/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/barrel/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/barrel/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/barrel/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/beat-rate/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/beat-rate/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/beat-rate/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/beat-rate/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/beat-rate/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/beat-rate/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/calibre/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/calibre/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/calibre/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/calibre/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/calibre/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/calibre/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/chronograph/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/chronograph/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/chronograph/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/chronograph/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/chronograph/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/chronograph/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/chronometer/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/chronometer/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/chronometer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/chronometer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/chronometer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/chronometer/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/crown/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/crown/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/crown/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/crown/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/crown/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/crown/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/escape-wheel/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/escape-wheel/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/escape-wheel/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/escape-wheel/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/escape-wheel/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/escape-wheel/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/escapement/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/escapement/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/escapement/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/escapement/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/escapement/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/escapement/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/geneva-stripes/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/geneva-stripes/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/geneva-stripes/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/geneva-stripes/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/geneva-stripes/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/geneva-stripes/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/guilloche/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/guilloche/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/guilloche/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/guilloche/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/guilloche/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/guilloche/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/hairspring/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/hairspring/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/hairspring/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/hairspring/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/hairspring/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/hairspring/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/incabloc/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/incabloc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/incabloc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/incabloc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/incabloc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/incabloc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/mainspring/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/mainspring/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/mainspring/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/mainspring/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/mainspring/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/mainspring/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/master-chronometer/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/master-chronometer/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/master-chronometer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/master-chronometer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/master-chronometer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/master-chronometer/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/minute-repeater/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/minute-repeater/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/minute-repeater/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/minute-repeater/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/minute-repeater/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/minute-repeater/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/movement/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/movement/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/movement/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/movement/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/movement/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/movement/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/perlage/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/perlage/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/perlage/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/perlage/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/perlage/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/perlage/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/perpetual-calendar/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/perpetual-calendar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/perpetual-calendar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/perpetual-calendar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/perpetual-calendar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/perpetual-calendar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/power-reserve/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/power-reserve/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/power-reserve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/power-reserve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/power-reserve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/power-reserve/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/rotor/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/rotor/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/rotor/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/rotor/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/rotor/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/rotor/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/tachymeter/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/tachymeter/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/tachymeter/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/tachymeter/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/tachymeter/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/tachymeter/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/glossary/tourbillon/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/glossary/tourbillon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/glossary/tourbillon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/glossary/tourbillon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/glossary/tourbillon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/glossary/tourbillon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/accuracy-tracking/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/accuracy-tracking/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/accuracy-tracking/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/accuracy-tracking/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/accuracy-tracking/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/accuracy-tracking/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/first-mechanical-watch/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/first-mechanical-watch/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/first-mechanical-watch/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/first-mechanical-watch/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/first-mechanical-watch/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/first-mechanical-watch/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/movement-finishing/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/movement-finishing/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/movement-finishing/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/movement-finishing/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/movement-finishing/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/movement-finishing/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/reading-and-setting-gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/reading-and-setting-gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/reading-and-setting-gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/reading-and-setting-gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/reading-and-setting-gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/reading-and-setting-gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/setting-the-date-safely/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/setting-the-date-safely/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/setting-the-date-safely/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/setting-the-date-safely/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/setting-the-date-safely/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/setting-the-date-safely/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/using-a-tachymeter/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/using-a-tachymeter/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/using-a-tachymeter/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/using-a-tachymeter/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/using-a-tachymeter/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/using-a-tachymeter/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/watch-winders/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/watch-winders/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/watch-winders/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/watch-winders/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/watch-winders/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/watch-winders/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/water-resistance/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/water-resistance/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/water-resistance/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/water-resistance/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/water-resistance/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/water-resistance/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/guides/winding-a-mechanical-watch/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/guides/winding-a-mechanical-watch/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/guides/winding-a-mechanical-watch/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/guides/winding-a-mechanical-watch/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/guides/winding-a-mechanical-watch/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/guides/winding-a-mechanical-watch/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/history/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/history/: số plate SVG = 28 — thực tế 28
+ĐẠT D2 /en/history/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/history/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/history/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/history/: plate = pattern = tham chiếu — 28/28/28
+ĐẠT D1 /en/iconic-watches/cartier-tank/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/iconic-watches/cartier-tank/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/iconic-watches/cartier-tank/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/iconic-watches/cartier-tank/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/iconic-watches/cartier-tank/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/iconic-watches/cartier-tank/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/iconic-watches/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/iconic-watches/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/iconic-watches/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/iconic-watches/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/iconic-watches/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/iconic-watches/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/iconic-watches/omega-speedmaster/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/iconic-watches/omega-speedmaster/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/iconic-watches/omega-speedmaster/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/iconic-watches/omega-speedmaster/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/iconic-watches/omega-speedmaster/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/iconic-watches/omega-speedmaster/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/iconic-watches/rolex-gmt-master/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/iconic-watches/rolex-gmt-master/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/iconic-watches/rolex-gmt-master/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/iconic-watches/rolex-gmt-master/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/iconic-watches/rolex-gmt-master/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/iconic-watches/rolex-gmt-master/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/iconic-watches/rolex-submariner/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/iconic-watches/rolex-submariner/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/iconic-watches/rolex-submariner/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/iconic-watches/rolex-submariner/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/iconic-watches/rolex-submariner/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/iconic-watches/rolex-submariner/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/learning-path/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/learning-path/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/learning-path/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/learning-path/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/learning-path/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/learning-path/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/anti-magnetism/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/anti-magnetism/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/anti-magnetism/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/anti-magnetism/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/anti-magnetism/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/anti-magnetism/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/automatic-winding/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/automatic-winding/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/automatic-winding/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/automatic-winding/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/automatic-winding/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/automatic-winding/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/balance-and-hairspring/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/balance-and-hairspring/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/balance-and-hairspring/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/balance-and-hairspring/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/balance-and-hairspring/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/balance-and-hairspring/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/chronograph/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/chronograph/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/chronograph/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/chronograph/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/chronograph/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/chronograph/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/escapement/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/escapement/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/escapement/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/escapement/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/escapement/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/escapement/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/how-a-mechanical-watch-works/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/how-a-mechanical-watch-works/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/how-a-mechanical-watch-works/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/how-a-mechanical-watch-works/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/how-a-mechanical-watch-works/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/how-a-mechanical-watch-works/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/minute-repeater/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/minute-repeater/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/minute-repeater/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/minute-repeater/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/minute-repeater/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/minute-repeater/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/moon-phase/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/moon-phase/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/moon-phase/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/moon-phase/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/moon-phase/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/moon-phase/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/perpetual-calendar/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/perpetual-calendar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/perpetual-calendar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/perpetual-calendar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/perpetual-calendar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/perpetual-calendar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/power-reserve/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/power-reserve/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/power-reserve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/power-reserve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/power-reserve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/power-reserve/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/shock-protection/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/shock-protection/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/shock-protection/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/shock-protection/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/shock-protection/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/shock-protection/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/tourbillon/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/tourbillon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/tourbillon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/tourbillon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/tourbillon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/tourbillon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /en/mechanisms/water-resistance/: 0 ID "guilloche" cũ
+ĐẠT D2 /en/mechanisms/water-resistance/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /en/mechanisms/water-resistance/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /en/mechanisms/water-resistance/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /en/mechanisms/water-resistance/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /en/mechanisms/water-resistance/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /giai-phau/: 0 ID "guilloche" cũ
+ĐẠT D2 /giai-phau/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /giai-phau/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /giai-phau/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /giai-phau/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /giai-phau/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/bao-duong-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/bao-duong-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/bao-duong-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/bao-duong-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/bao-duong-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/bao-duong-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/chinh-lich-an-toan/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/chinh-lich-an-toan/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/chinh-lich-an-toan/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/chinh-lich-an-toan/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/chinh-lich-an-toan/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/chinh-lich-an-toan/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/chon-co-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/chon-co-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/chon-co-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/chon-co-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/chon-co-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/chon-co-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/chon-dong-ho-dau-tien/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/chon-dong-ho-dau-tien/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/chon-dong-ho-dau-tien/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/chon-dong-ho-dau-tien/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/chon-dong-ho-dau-tien/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/chon-dong-ho-dau-tien/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/do-sai-so/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/do-sai-so/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/do-sai-so/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/do-sai-so/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/do-sai-so/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/do-sai-so/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/doc-va-chinh-gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/doc-va-chinh-gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/doc-va-chinh-gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/doc-va-chinh-gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/doc-va-chinh-gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/doc-va-chinh-gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/dung-tachymeter/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/dung-tachymeter/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/dung-tachymeter/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/dung-tachymeter/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/dung-tachymeter/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/dung-tachymeter/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/dung-vanh-lan/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/dung-vanh-lan/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/dung-vanh-lan/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/dung-vanh-lan/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/dung-vanh-lan/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/dung-vanh-lan/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/hoan-thien-thu-cong-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/hoan-thien-thu-cong-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/hoan-thien-thu-cong-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/hoan-thien-thu-cong-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/hoan-thien-thu-cong-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/hoan-thien-thu-cong-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/hop-xoay-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/hop-xoay-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/hop-xoay-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/hop-xoay-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/hop-xoay-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/hop-xoay-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/len-day-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/len-day-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/len-day-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/len-day-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/len-day-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/len-day-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/microbrand-la-gi/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/microbrand-la-gi/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/microbrand-la-gi/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/microbrand-la-gi/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/microbrand-la-gi/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/microbrand-la-gi/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/muc-chong-nuoc/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/muc-chong-nuoc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/muc-chong-nuoc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/muc-chong-nuoc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/muc-chong-nuoc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/muc-chong-nuoc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /huong-dan/nhan-biet-dong-ho-gia/: 0 ID "guilloche" cũ
+ĐẠT D2 /huong-dan/nhan-biet-dong-ho-gia/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /huong-dan/nhan-biet-dong-ho-gia/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /huong-dan/nhan-biet-dong-ho-gia/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /huong-dan/nhan-biet-dong-ho-gia/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /huong-dan/nhan-biet-dong-ho-gia/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /index.html: 0 ID "guilloche" cũ
+ĐẠT D2 /index.html: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /index.html: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /index.html: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /index.html: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /index.html: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /kha-nang-tiep-can/: 0 ID "guilloche" cũ
+ĐẠT D2 /kha-nang-tiep-can/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /kha-nang-tiep-can/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /kha-nang-tiep-can/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /kha-nang-tiep-can/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /kha-nang-tiep-can/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /lich-su/: 0 ID "guilloche" cũ
+ĐẠT D2 /lich-su/: số plate SVG = 28 — thực tế 28
+ĐẠT D2 /lich-su/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /lich-su/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /lich-su/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /lich-su/: plate = pattern = tham chiếu — 28/28/28
+ĐẠT D1 /lien-he/: 0 ID "guilloche" cũ
+ĐẠT D2 /lien-he/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /lien-he/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /lien-he/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /lien-he/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /lien-he/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /lo-trinh-hoc-dong-ho/: 0 ID "guilloche" cũ
+ĐẠT D2 /lo-trinh-hoc-dong-ho/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /lo-trinh-hoc-dong-ho/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /lo-trinh-hoc-dong-ho/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /lo-trinh-hoc-dong-ho/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /lo-trinh-hoc-dong-ho/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/arnold-and-son-perpetual-moon/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/arnold-and-son-perpetual-moon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/arnold-and-son-perpetual-moon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/arnold-and-son-perpetual-moon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/arnold-and-son-perpetual-moon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/arnold-and-son-perpetual-moon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/baume-mercier-riviera/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/baume-mercier-riviera/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/baume-mercier-riviera/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/baume-mercier-riviera/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/baume-mercier-riviera/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/baume-mercier-riviera/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/bell-ross-br-01/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/bell-ross-br-01/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/bell-ross-br-01/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/bell-ross-br-01/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/bell-ross-br-01/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/bell-ross-br-01/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/breguet-type-xx/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/breguet-type-xx/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/breguet-type-xx/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/breguet-type-xx/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/breguet-type-xx/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/breguet-type-xx/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/breitling-navitimer/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/breitling-navitimer/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/breitling-navitimer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/breitling-navitimer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/breitling-navitimer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/breitling-navitimer/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/bvlgari-octo-finissimo/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/bvlgari-octo-finissimo/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/bvlgari-octo-finissimo/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/bvlgari-octo-finissimo/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/bvlgari-octo-finissimo/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/bvlgari-octo-finissimo/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/carl-f-bucherer-manero-peripheral/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/carl-f-bucherer-manero-peripheral/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/carl-f-bucherer-manero-peripheral/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/carl-f-bucherer-manero-peripheral/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/carl-f-bucherer-manero-peripheral/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/carl-f-bucherer-manero-peripheral/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/cartier-tank/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/cartier-tank/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/cartier-tank/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/cartier-tank/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/cartier-tank/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/cartier-tank/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/chanel-j12/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/chanel-j12/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/chanel-j12/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/chanel-j12/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/chanel-j12/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/chanel-j12/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/chopard-luc/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/chopard-luc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/chopard-luc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/chopard-luc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/chopard-luc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/chopard-luc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/corum-golden-bridge/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/corum-golden-bridge/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/corum-golden-bridge/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/corum-golden-bridge/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/corum-golden-bridge/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/corum-golden-bridge/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/credor-eichi-2/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/credor-eichi-2/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/credor-eichi-2/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/credor-eichi-2/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/credor-eichi-2/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/credor-eichi-2/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/de-bethune-db28/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/de-bethune-db28/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/de-bethune-db28/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/de-bethune-db28/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/de-bethune-db28/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/de-bethune-db28/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/doxa-sub-300/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/doxa-sub-300/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/doxa-sub-300/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/doxa-sub-300/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/doxa-sub-300/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/doxa-sub-300/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/dufour-simplicity/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/dufour-simplicity/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/dufour-simplicity/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/dufour-simplicity/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/dufour-simplicity/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/dufour-simplicity/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/eterna-matic-1948/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/eterna-matic-1948/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/eterna-matic-1948/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/eterna-matic-1948/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/eterna-matic-1948/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/eterna-matic-1948/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/fc-heart-beat/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/fc-heart-beat/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/fc-heart-beat/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/fc-heart-beat/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/fc-heart-beat/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/fc-heart-beat/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/fifty-fathoms/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/fifty-fathoms/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/fifty-fathoms/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/fifty-fathoms/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/fifty-fathoms/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/fifty-fathoms/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/fpjourne-chronometre-bleu/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/fpjourne-chronometre-bleu/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/fpjourne-chronometre-bleu/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/fpjourne-chronometre-bleu/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/fpjourne-chronometre-bleu/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/fpjourne-chronometre-bleu/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/franck-muller-crazy-hours/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/franck-muller-crazy-hours/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/franck-muller-crazy-hours/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/franck-muller-crazy-hours/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/franck-muller-crazy-hours/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/franck-muller-crazy-hours/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/freak/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/freak/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/freak/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/freak/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/freak/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/freak/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/girard-perregaux-tourbillon-ba-cau/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/glashuette-seaq/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/glashuette-seaq/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/glashuette-seaq/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/glashuette-seaq/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/glashuette-seaq/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/glashuette-seaq/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/grand-seiko-snowflake/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/grand-seiko-snowflake/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/grand-seiko-snowflake/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/grand-seiko-snowflake/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/grand-seiko-snowflake/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/grand-seiko-snowflake/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/greubel-double-tourbillon/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/greubel-double-tourbillon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/greubel-double-tourbillon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/greubel-double-tourbillon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/greubel-double-tourbillon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/greubel-double-tourbillon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/h-moser-streamliner/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/h-moser-streamliner/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/h-moser-streamliner/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/h-moser-streamliner/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/h-moser-streamliner/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/h-moser-streamliner/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/hajime-asaoka-project-t/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/hajime-asaoka-project-t/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/hajime-asaoka-project-t/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/hajime-asaoka-project-t/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/hajime-asaoka-project-t/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/hajime-asaoka-project-t/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/hamilton-ventura/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/hamilton-ventura/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/hamilton-ventura/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/hamilton-ventura/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/hamilton-ventura/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/hamilton-ventura/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/hublot-big-bang/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/hublot-big-bang/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/hublot-big-bang/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/hublot-big-bang/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/hublot-big-bang/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/hublot-big-bang/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/iwc-mark-xi/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/iwc-mark-xi/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/iwc-mark-xi/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/iwc-mark-xi/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/iwc-mark-xi/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/iwc-mark-xi/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/junghans-max-bill/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/junghans-max-bill/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/junghans-max-bill/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/junghans-max-bill/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/junghans-max-bill/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/junghans-max-bill/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/lange-1/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/lange-1/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/lange-1/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/lange-1/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/lange-1/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/lange-1/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/laurent-ferrier-galet-classic/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/laurent-ferrier-galet-classic/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/laurent-ferrier-galet-classic/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/laurent-ferrier-galet-classic/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/laurent-ferrier-galet-classic/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/laurent-ferrier-galet-classic/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/longines-lindbergh/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/longines-lindbergh/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/longines-lindbergh/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/longines-lindbergh/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/longines-lindbergh/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/longines-lindbergh/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/mbf-horological-machine-1/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/mbf-horological-machine-1/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/mbf-horological-machine-1/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/mbf-horological-machine-1/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/mbf-horological-machine-1/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/mbf-horological-machine-1/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/mido-multifort/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/mido-multifort/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/mido-multifort/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/mido-multifort/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/mido-multifort/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/mido-multifort/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/minase-horizon/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/minase-horizon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/minase-horizon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/minase-horizon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/minase-horizon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/minase-horizon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/monaco/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/monaco/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/monaco/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/monaco/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/monaco/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/monaco/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/montblanc-minerva-monopusher/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/montblanc-minerva-monopusher/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/montblanc-minerva-monopusher/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/montblanc-minerva-monopusher/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/montblanc-minerva-monopusher/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/montblanc-minerva-monopusher/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/nomos-tangente/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/nomos-tangente/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/nomos-tangente/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/nomos-tangente/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/nomos-tangente/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/nomos-tangente/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/omega-speedmaster/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/omega-speedmaster/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/omega-speedmaster/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/omega-speedmaster/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/omega-speedmaster/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/omega-speedmaster/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/orient-bambino/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/orient-bambino/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/orient-bambino/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/orient-bambino/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/orient-bambino/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/orient-bambino/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/oris-aquis-depth-gauge/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/oris-aquis-depth-gauge/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/oris-aquis-depth-gauge/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/oris-aquis-depth-gauge/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/oris-aquis-depth-gauge/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/oris-aquis-depth-gauge/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/panerai-luminor/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/panerai-luminor/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/panerai-luminor/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/panerai-luminor/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/panerai-luminor/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/panerai-luminor/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/parmigiani-toric/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/parmigiani-toric/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/parmigiani-toric/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/parmigiani-toric/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/parmigiani-toric/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/parmigiani-toric/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/patek-nautilus/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/patek-nautilus/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/patek-nautilus/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/patek-nautilus/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/patek-nautilus/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/patek-nautilus/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/patek-philippe-grandmaster-chime/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/patek-philippe-grandmaster-chime/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/patek-philippe-grandmaster-chime/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/patek-philippe-grandmaster-chime/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/patek-philippe-grandmaster-chime/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/patek-philippe-grandmaster-chime/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/piaget-altiplano/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/piaget-altiplano/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/piaget-altiplano/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/piaget-altiplano/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/piaget-altiplano/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/piaget-altiplano/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/rado-diastar/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/rado-diastar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/rado-diastar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/rado-diastar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/rado-diastar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/rado-diastar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/reverso/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/reverso/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/reverso/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/reverso/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/reverso/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/reverso/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/richard-mille-rm-001/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/richard-mille-rm-001/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/richard-mille-rm-001/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/richard-mille-rm-001/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/richard-mille-rm-001/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/richard-mille-rm-001/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/roger-dubuis-excalibur/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/roger-dubuis-excalibur/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/roger-dubuis-excalibur/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/roger-dubuis-excalibur/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/roger-dubuis-excalibur/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/roger-dubuis-excalibur/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/rolex-gmt-master/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/rolex-gmt-master/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/rolex-gmt-master/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/rolex-gmt-master/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/rolex-gmt-master/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/rolex-gmt-master/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/rolex-submariner/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/rolex-submariner/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/rolex-submariner/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/rolex-submariner/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/rolex-submariner/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/rolex-submariner/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/royal-oak/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/royal-oak/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/royal-oak/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/royal-oak/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/royal-oak/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/royal-oak/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/seagull-1963/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/seagull-1963/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/seagull-1963/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/seagull-1963/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/seagull-1963/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/seagull-1963/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/seiko-62mas/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/seiko-62mas/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/seiko-62mas/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/seiko-62mas/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/seiko-62mas/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/seiko-62mas/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/stowa-flieger/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/stowa-flieger/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/stowa-flieger/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/stowa-flieger/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/stowa-flieger/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/stowa-flieger/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/swatch-sistem51/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/swatch-sistem51/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/swatch-sistem51/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/swatch-sistem51/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/swatch-sistem51/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/swatch-sistem51/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/timex-marlin/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/timex-marlin/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/timex-marlin/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/timex-marlin/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/timex-marlin/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/timex-marlin/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/tissot-prx/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/tissot-prx/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/tissot-prx/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/tissot-prx/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/tissot-prx/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/tissot-prx/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/tudor-black-bay/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/tudor-black-bay/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/tudor-black-bay/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/tudor-black-bay/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/tudor-black-bay/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/tudor-black-bay/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/universal-geneve-polerouter/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/universal-geneve-polerouter/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/universal-geneve-polerouter/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/universal-geneve-polerouter/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/universal-geneve-polerouter/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/universal-geneve-polerouter/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/urwerk-ur-105/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/urwerk-ur-105/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/urwerk-ur-105/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/urwerk-ur-105/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/urwerk-ur-105/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/urwerk-ur-105/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/vc-overseas/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/vc-overseas/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/vc-overseas/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/vc-overseas/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/vc-overseas/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/vc-overseas/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/vostok-amphibia/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/vostok-amphibia/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/vostok-amphibia/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/vostok-amphibia/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/vostok-amphibia/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/vostok-amphibia/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/voutilainen-vingt-8/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/voutilainen-vingt-8/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/voutilainen-vingt-8/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/voutilainen-vingt-8/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/voutilainen-vingt-8/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/voutilainen-vingt-8/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /mau-iconic/zenith-el-primero/: 0 ID "guilloche" cũ
+ĐẠT D2 /mau-iconic/zenith-el-primero/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /mau-iconic/zenith-el-primero/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /mau-iconic/zenith-el-primero/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /mau-iconic/zenith-el-primero/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /mau-iconic/zenith-el-primero/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /so-sanh/: 0 ID "guilloche" cũ
+ĐẠT D2 /so-sanh/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /so-sanh/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /so-sanh/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /so-sanh/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /so-sanh/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/a-lange-soehne/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/a-lange-soehne/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/a-lange-soehne/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/a-lange-soehne/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/a-lange-soehne/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/a-lange-soehne/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/alpina/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/alpina/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/alpina/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/alpina/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/alpina/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/alpina/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/arnold-and-son/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/arnold-and-son/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/arnold-and-son/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/arnold-and-son/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/arnold-and-son/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/arnold-and-son/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/audemars-piguet/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/audemars-piguet/: số plate SVG = 2 — thực tế 2
+ĐẠT D2 /thuong-hieu/audemars-piguet/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/audemars-piguet/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/audemars-piguet/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/audemars-piguet/: plate = pattern = tham chiếu — 2/2/2
+ĐẠT D1 /thuong-hieu/baume-et-mercier/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/baume-et-mercier/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/baume-et-mercier/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/baume-et-mercier/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/baume-et-mercier/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/baume-et-mercier/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/beijing-watch-factory/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/beijing-watch-factory/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/beijing-watch-factory/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/beijing-watch-factory/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/beijing-watch-factory/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/beijing-watch-factory/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/bell-and-ross/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/bell-and-ross/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/bell-and-ross/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/bell-and-ross/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/bell-and-ross/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/bell-and-ross/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/blancpain/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/blancpain/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/blancpain/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/blancpain/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/blancpain/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/blancpain/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/breguet/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/breguet/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/breguet/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/breguet/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/breguet/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/breguet/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/breitling/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/breitling/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/breitling/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/breitling/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/breitling/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/breitling/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/bvlgari/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/bvlgari/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/bvlgari/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/bvlgari/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/bvlgari/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/bvlgari/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/carl-f-bucherer/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/carl-f-bucherer/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/carl-f-bucherer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/carl-f-bucherer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/carl-f-bucherer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/carl-f-bucherer/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/cartier/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/cartier/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/cartier/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/cartier/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/cartier/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/cartier/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/certina/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/certina/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/certina/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/certina/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/certina/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/certina/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/chanel/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/chanel/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/chanel/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/chanel/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/chanel/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/chanel/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/chopard/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/chopard/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/chopard/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/chopard/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/chopard/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/chopard/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/christopher-ward/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/christopher-ward/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/christopher-ward/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/christopher-ward/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/christopher-ward/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/christopher-ward/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/citizen/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/citizen/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/citizen/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/citizen/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/citizen/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/citizen/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/corum/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/corum/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/corum/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/corum/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/corum/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/corum/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/credor/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/credor/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/credor/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/credor/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/credor/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/credor/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/de-bethune/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/de-bethune/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/de-bethune/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/de-bethune/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/de-bethune/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/de-bethune/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/doxa/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/doxa/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/doxa/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/doxa/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/doxa/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/doxa/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/eterna/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/eterna/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/eterna/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/eterna/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/eterna/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/eterna/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/fp-journe/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/fp-journe/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/fp-journe/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/fp-journe/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/fp-journe/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/fp-journe/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/franck-muller/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/franck-muller/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/franck-muller/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/franck-muller/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/franck-muller/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/franck-muller/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/frederique-constant/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/frederique-constant/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/frederique-constant/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/frederique-constant/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/frederique-constant/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/frederique-constant/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/girard-perregaux/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/girard-perregaux/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/girard-perregaux/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/girard-perregaux/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/girard-perregaux/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/girard-perregaux/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/glashuette-original/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/glashuette-original/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/glashuette-original/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/glashuette-original/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/glashuette-original/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/glashuette-original/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/grand-seiko/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/grand-seiko/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/grand-seiko/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/grand-seiko/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/grand-seiko/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/grand-seiko/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/greubel-forsey/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/greubel-forsey/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/greubel-forsey/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/greubel-forsey/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/greubel-forsey/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/greubel-forsey/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/h-moser/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/h-moser/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/h-moser/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/h-moser/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/h-moser/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/h-moser/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/hajime-asaoka/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/hajime-asaoka/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/hajime-asaoka/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/hajime-asaoka/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/hajime-asaoka/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/hajime-asaoka/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/hamilton/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/hamilton/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/hamilton/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/hamilton/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/hamilton/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/hamilton/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/hublot/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/hublot/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/hublot/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/hublot/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/hublot/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/hublot/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/iwc/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/iwc/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/iwc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/iwc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/iwc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/iwc/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/jaeger-lecoultre/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/jaeger-lecoultre/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/jaeger-lecoultre/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/jaeger-lecoultre/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/jaeger-lecoultre/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/jaeger-lecoultre/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/junghans/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/junghans/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/junghans/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/junghans/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/junghans/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/junghans/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/laurent-ferrier/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/laurent-ferrier/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/laurent-ferrier/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/laurent-ferrier/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/laurent-ferrier/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/laurent-ferrier/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/longines/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/longines/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/longines/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/longines/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/longines/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/longines/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/mb-and-f/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/mb-and-f/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/mb-and-f/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/mb-and-f/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/mb-and-f/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/mb-and-f/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/mido/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/mido/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/mido/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/mido/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/mido/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/mido/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/minase/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/minase/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/minase/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/minase/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/minase/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/minase/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/montblanc/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/montblanc/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/montblanc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/montblanc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/montblanc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/montblanc/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/muehle-glashuette/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/muehle-glashuette/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/muehle-glashuette/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/muehle-glashuette/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/muehle-glashuette/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/muehle-glashuette/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/nomos-glashuette/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/nomos-glashuette/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/nomos-glashuette/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/nomos-glashuette/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/nomos-glashuette/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/nomos-glashuette/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/omega/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/omega/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/omega/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/omega/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/omega/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/omega/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/orient/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/orient/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/orient/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/orient/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/orient/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/orient/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/oris/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/oris/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/oris/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/oris/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/oris/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/oris/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/panerai/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/panerai/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/panerai/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/panerai/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/panerai/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/panerai/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/parmigiani-fleurier/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/parmigiani-fleurier/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/parmigiani-fleurier/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/parmigiani-fleurier/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/parmigiani-fleurier/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/parmigiani-fleurier/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/patek-philippe/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/patek-philippe/: số plate SVG = 2 — thực tế 2
+ĐẠT D2 /thuong-hieu/patek-philippe/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/patek-philippe/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/patek-philippe/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/patek-philippe/: plate = pattern = tham chiếu — 2/2/2
+ĐẠT D1 /thuong-hieu/philippe-dufour/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/philippe-dufour/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/philippe-dufour/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/philippe-dufour/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/philippe-dufour/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/philippe-dufour/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/piaget/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/piaget/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/piaget/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/piaget/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/piaget/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/piaget/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/rado/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/rado/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/rado/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/rado/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/rado/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/rado/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/richard-mille/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/richard-mille/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/richard-mille/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/richard-mille/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/richard-mille/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/richard-mille/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/roger-dubuis/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/roger-dubuis/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/roger-dubuis/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/roger-dubuis/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/roger-dubuis/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/roger-dubuis/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/rolex/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/rolex/: số plate SVG = 2 — thực tế 2
+ĐẠT D2 /thuong-hieu/rolex/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/rolex/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/rolex/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/rolex/: plate = pattern = tham chiếu — 2/2/2
+ĐẠT D1 /thuong-hieu/seagull/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/seagull/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/seagull/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/seagull/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/seagull/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/seagull/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/seiko/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/seiko/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/seiko/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/seiko/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/seiko/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/seiko/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/sinn/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/sinn/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /thuong-hieu/sinn/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/sinn/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/sinn/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/sinn/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /thuong-hieu/stowa/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/stowa/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/stowa/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/stowa/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/stowa/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/stowa/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/swatch/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/swatch/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/swatch/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/swatch/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/swatch/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/swatch/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/tag-heuer/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/tag-heuer/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/tag-heuer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/tag-heuer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/tag-heuer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/tag-heuer/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/timex/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/timex/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/timex/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/timex/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/timex/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/timex/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/tissot/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/tissot/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/tissot/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/tissot/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/tissot/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/tissot/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/tudor/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/tudor/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/tudor/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/tudor/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/tudor/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/tudor/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/ulysse-nardin/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/ulysse-nardin/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/ulysse-nardin/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/ulysse-nardin/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/ulysse-nardin/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/ulysse-nardin/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/universal-geneve/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/universal-geneve/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/universal-geneve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/universal-geneve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/universal-geneve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/universal-geneve/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/urwerk/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/urwerk/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/urwerk/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/urwerk/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/urwerk/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/urwerk/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/vacheron-constantin/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/vacheron-constantin/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/vacheron-constantin/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/vacheron-constantin/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/vacheron-constantin/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/vacheron-constantin/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/vostok/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/vostok/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/vostok/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/vostok/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/vostok/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/vostok/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/voutilainen/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/voutilainen/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/voutilainen/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/voutilainen/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/voutilainen/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/voutilainen/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /thuong-hieu/zenith/: 0 ID "guilloche" cũ
+ĐẠT D2 /thuong-hieu/zenith/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 /thuong-hieu/zenith/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /thuong-hieu/zenith/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /thuong-hieu/zenith/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /thuong-hieu/zenith/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D1 /tu-dien/banh-thoat/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/banh-thoat/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/banh-thoat/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/banh-thoat/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/banh-thoat/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/banh-thoat/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/bezel/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/bezel/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/bezel/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/bezel/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/bezel/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/bezel/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/calibre/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/calibre/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/calibre/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/calibre/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/calibre/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/calibre/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/cau-may/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/cau-may/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/cau-may/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/cau-may/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/cau-may/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/cau-may/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/chan-kinh/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/chan-kinh/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/chan-kinh/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/chan-kinh/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/chan-kinh/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/chan-kinh/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/chronograph/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/chronograph/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/chronograph/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/chronograph/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/chronograph/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/chronograph/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/chronometer/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/chronometer/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/chronometer/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/chronometer/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/chronometer/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/chronometer/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/cotes-de-geneve/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/cotes-de-geneve/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/cotes-de-geneve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/cotes-de-geneve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/cotes-de-geneve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/cotes-de-geneve/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/day-cot/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/day-cot/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/day-cot/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/day-cot/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/day-cot/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/day-cot/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/day-toc-banh-lac/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/day-toc-banh-lac/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/day-toc-banh-lac/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/day-toc-banh-lac/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/day-toc-banh-lac/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/day-toc-banh-lac/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/day-vo/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/day-vo/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/day-vo/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/day-vo/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/day-vo/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/day-vo/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/gmt/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/gmt/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/gmt/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/gmt/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/gmt/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/gmt/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/guilloche/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/guilloche/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/guilloche/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/guilloche/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/guilloche/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/guilloche/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/incabloc/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/incabloc/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/incabloc/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/incabloc/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/incabloc/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/incabloc/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/khoa-day/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/khoa-day/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/khoa-day/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/khoa-day/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/khoa-day/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/khoa-day/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/lo-may/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/lo-may/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/lo-may/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/lo-may/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/lo-may/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/lo-may/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/metas/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/metas/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/metas/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/metas/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/metas/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/metas/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/microbrand/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/microbrand/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/microbrand/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/microbrand/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/microbrand/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/microbrand/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/minute-repeater/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/minute-repeater/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/minute-repeater/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/minute-repeater/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/minute-repeater/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/minute-repeater/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/movement/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/movement/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/movement/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/movement/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/movement/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/movement/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/ngua/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/ngua/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/ngua/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/ngua/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/ngua/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/ngua/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/num-van/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/num-van/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/num-van/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/num-van/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/num-van/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/num-van/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/perlage/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/perlage/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/perlage/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/perlage/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/perlage/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/perlage/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/perpetual-calendar/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/perpetual-calendar/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/perpetual-calendar/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/perpetual-calendar/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/perpetual-calendar/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/perpetual-calendar/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/poincon-de-geneve/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/poincon-de-geneve/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/poincon-de-geneve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/poincon-de-geneve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/poincon-de-geneve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/poincon-de-geneve/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/power-reserve/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/power-reserve/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/power-reserve/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/power-reserve/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/power-reserve/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/power-reserve/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/rotor/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/rotor/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/rotor/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/rotor/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/rotor/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/rotor/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/tachymeter/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/tachymeter/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/tachymeter/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/tachymeter/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/tachymeter/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/tachymeter/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/thung-cot/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/thung-cot/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/thung-cot/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/thung-cot/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/thung-cot/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/thung-cot/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/tourbillon/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/tourbillon/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/tourbillon/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/tourbillon/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/tourbillon/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/tourbillon/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/vat-canh/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/vat-canh/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/vat-canh/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/vat-canh/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/vat-canh/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/vat-canh/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/vau-day/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/vau-day/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/vau-day/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/vau-day/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/vau-day/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/vau-day/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /tu-dien/vph/: 0 ID "guilloche" cũ
+ĐẠT D2 /tu-dien/vph/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /tu-dien/vph/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /tu-dien/vph/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /tu-dien/vph/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /tu-dien/vph/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D1 /ve-chung-toi/: 0 ID "guilloche" cũ
+ĐẠT D2 /ve-chung-toi/: số plate SVG = 0 — thực tế 0
+ĐẠT D2 /ve-chung-toi/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 /ve-chung-toi/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 /ve-chung-toi/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 /ve-chung-toi/: plate = pattern = tham chiếu — 0/0/0
+ĐẠT D4 toàn dist: plate = pattern = tham chiếu (125 theo census chặng 1) — 125/125/125 trên 68 trang
+ĐẠT D1 lich-su/: 0 ID "guilloche" cũ
+ĐẠT D2 lich-su/: số plate SVG = 28 — thực tế 28
+ĐẠT D2 lich-su/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 lich-su/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 lich-su/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 lich-su/: plate = pattern = tham chiếu — 28/28/28
+ĐẠT D5 lich-su: số plate đúng 28 — thực tế 28
+ĐẠT D1 en/history/: 0 ID "guilloche" cũ
+ĐẠT D2 en/history/: số plate SVG = 28 — thực tế 28
+ĐẠT D2 en/history/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 en/history/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 en/history/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 en/history/: plate = pattern = tham chiếu — 28/28/28
+ĐẠT D5 en/history: số plate đúng 28 — thực tế 28
+ĐẠT D1 thuong-hieu/audemars-piguet/: 0 ID "guilloche" cũ
+ĐẠT D2 thuong-hieu/audemars-piguet/: số plate SVG = 2 — thực tế 2
+ĐẠT D2 thuong-hieu/audemars-piguet/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 thuong-hieu/audemars-piguet/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 thuong-hieu/audemars-piguet/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 thuong-hieu/audemars-piguet/: plate = pattern = tham chiếu — 2/2/2
+ĐẠT D5 thuong-hieu/audemars-piguet: số plate đúng 2 — thực tế 2
+ĐẠT D1 thuong-hieu/breguet/: 0 ID "guilloche" cũ
+ĐẠT D2 thuong-hieu/breguet/: số plate SVG = 1 — thực tế 1
+ĐẠT D2 thuong-hieu/breguet/: mỗi plate đúng 1 pattern — 0 plate lệch
+ĐẠT D2 thuong-hieu/breguet/: mỗi plate tham chiếu đúng pattern cùng SVG — 0 plate sai đích
+ĐẠT D3 thuong-hieu/breguet/: ID pattern duy nhất trong tài liệu
+ĐẠT D4 thuong-hieu/breguet/: plate = pattern = tham chiếu — 1/1/1
+ĐẠT D5 thuong-hieu/breguet: số plate đúng 1 — thực tế 1
+
+KẾT LUẬN: ĐẠT — mỗi plate tham chiếu đúng pattern của chính nó, 0 ID trùng

@@ -24,6 +24,24 @@ interface Props {
 
 const { src, alt = '', ratio = '16/10', caption, eager = false, class: className = '' } = Astro.props;
 
+// G09-B chặng 2 (TXN-20260919-14): ID pattern guilloché DUY NHẤT cho từng instance.
+// Trước đây id="guilloche" cứng → N instance trùng ID và mọi url(#guilloche) đều vẽ
+// từ pattern đầu tiên của tài liệu (G09-B chặng 1, hồ sơ G09-B-kiem-ke-id-...).
+// Bộ đếm đặt trên globalThis sống suốt lần build: cùng dữ liệu → cùng thứ tự render
+// → cùng ID (ổn định giữa các build); mỗi instance một số thứ tự → không trùng kể cả
+// props giống hệt nhau trong một tài liệu. Hash nhỏ 8 ký tự chỉ mang ngữ cảnh
+// trang/props (một chiều — không lộ thêm dữ liệu vào HTML).
+const G = globalThis as typeof globalThis & { __soPlateWatchImage?: number };
+G.__soPlateWatchImage = (G.__soPlateWatchImage || 0) + 1;
+const hashNho = (chuoi: string) => {
+  let h = 5381;
+  for (let i = 0; i < chuoi.length; i++) h = ((h << 5) + h + chuoi.charCodeAt(i)) >>> 0;
+  return h.toString(16).padStart(8, '0');
+};
+const maGuilloche =
+  'guilloche-' + (G.__soPlateWatchImage || 0).toString(36).padStart(3, '0') +
+  '-' + hashNho((Astro.url?.pathname || '') + '|' + (src || '') + '|' + alt + '|' + ratio);
+
 // Tỷ lệ → padding-top (cho khung giữ tỷ lệ, tránh CLS)
 const aspectClass = {
   '16/10': 'aspect-[16/10]',
@@ -71,7 +89,7 @@ const hasImage = typeof src === 'string' && src.trim() !== '';
       >
         <defs>
           <!-- Hoa văn guilloché: các đường tròn đồng tâm, lặp toàn nền -->
-          <pattern id="guilloche" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+          <pattern id={maGuilloche} width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
             <circle cx="12" cy="12" r="1.5" fill="none" stroke="currentColor" stroke-width="0.4" class="guilloche-stroke" />
             <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="0.3" class="guilloche-stroke" />
             <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="0.25" class="guilloche-stroke" />
@@ -82,7 +100,7 @@ const hasImage = typeof src === 'string' && src.trim() !== '';
         <rect width="200" height="200" class="placeholder-bg" />
 
         <!-- Lớp guilloché phủ toàn nền, độ mờ 5% -->
-        <rect width="200" height="200" fill="url(#guilloche)" opacity="0.05" class="guilloche-stroke" />
+        <rect width="200" height="200" fill={`url(#${maGuilloche})`} opacity="0.05" class="guilloche-stroke" />
 
         <!-- Mặt số mô phỏng ở giữa -->
         <g transform="translate(100 100)">

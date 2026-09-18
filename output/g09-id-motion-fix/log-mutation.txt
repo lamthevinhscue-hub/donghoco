@@ -1,0 +1,6 @@
+ĐẠT Sạch (good): checker đạt — exit=0
+ĐẠT M1 ép ID cứng giống nhau → fail đúng rule trùng ID + ID cũ — exit=1 bắt=true
+ĐẠT M2 mất pattern giữ tham chiếu → fail đúng rule thiếu đích — exit=1 bắt=true
+ĐẠT Hoàn nguyên: hash khớp + checker đạt lại — hash=true exit=0
+
+KẾT LUẬN: ĐẠT — 3 trạng thái mutation đúng: sạch đạt, lỗi bị bắt đúng rule, hoàn nguyên hash khớp

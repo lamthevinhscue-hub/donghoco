@@ -1,0 +1,10 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+05:04:22 [types] Generated 853ms
+05:04:22 [check] Getting diagnostics for Astro files in D:\Watch web build...
+Result (352 files):
+- 0 errors
+- 0 warnings
+- 0 hints

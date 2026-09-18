@@ -1,0 +1,28 @@
+// G09-B chặng 1 — T5: sau khi gỡ reduce giữa phiên, bấm Phát lại có chạy không?
+async (page) => {
+  const goc = 'http://localhost:4399';
+  const kq = [];
+  for (const lang of ['vi', 'en']) {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto(goc + (lang === 'vi' ? '/co-che/bo-thoat/' : '/en/mechanisms/escapement/'), { waitUntil: 'load' });
+    await page.waitForTimeout(400);
+    const goc0 = await page.evaluate(() => document.getElementById('balance-group').style.transform);
+    await page.emulateMedia({ reducedMotion: 'no-preference' }); // gỡ reduce
+    await page.waitForTimeout(200);
+    await page.locator('button[aria-label^="Phát"], button[aria-label^="Play"]').first().click();
+    const mau = await page.evaluate(async (tong) => {
+      const el = document.getElementById('balance-group');
+      const gocRieng = new Set();
+      const batDau = Date.now();
+      while (Date.now() - batDau < tong) {
+        const m = /rotate\((-?[\d.]+)deg\)/.exec(el.style.transform || '');
+        if (m) gocRieng.add(Number(m[1]));
+        await new Promise((r) => setTimeout(r, 150));
+      }
+      return { soGocRieng: gocRieng.size, goc: [...gocRieng] };
+    }, 6200);
+    kq.push(`T5-${lang}: góc-ban-đầu="${goc0}" bấm-Phát-sau-khi-gỡ-reduce → ${JSON.stringify(mau)}`);
+  }
+  return 'T5 PHÁT LẠI SAU GỠ REDUCE:\n' + kq.join('\n');
+}

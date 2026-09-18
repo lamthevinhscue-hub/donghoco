@@ -1,0 +1,38 @@
+{
+  "ngay": "2026-09-19",
+  "nen": "cbf1850",
+  "doiTuong": "Escapement.astro trên /co-che/bo-thoat/ (VI) và /en/mechanisms/escapement/ (EN)",
+  "chiTieuDo": "góc rotate trong style.transform của #balance-group (phần tử SVG quay thật của infographic)",
+  "congCu": "playwright-cli — HeadlessChrome/152 (Win64), viewport 1440x900, lấy mẫu 100ms, emulateMedia reducedMotion",
+  "gioiHan": "headless không lật document.hidden đáng tin; emulateMedia là giả lập media query của trình duyệt; tab ẩn thật = CHƯA KIỂM",
+  "T1": {
+    "moTa": "reduce bật TRƯỚC tải — bấm Phát rồi Bước sau",
+    "vi": "góc-trước-Phát=-24 nhãn-nút-sau-click=\"Phát hoạt ảnh\" mẫu={\"soMau\":21,\"soGocRieng\":1,\"goc\":[-24],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":113,\"goc\":-24},{\"t\":213,\"goc\":-24},{\"t\":329,\"goc\":-24},{\"t\":430,\"goc\":-24},{\"t\":546,\"goc\":-24}]} Bước-sau-click=true góc-sau-Bước=-10 thông-báo=null",
+    "en": "góc-trước-Phát=-24 nhãn-nút-sau-click=\"Play animation\" mẫu={\"soMau\":21,\"soGocRieng\":1,\"goc\":[-24],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":113,\"goc\":-24},{\"t\":229,\"goc\":-24},{\"t\":346,\"goc\":-24},{\"t\":447,\"goc\":-24},{\"t\":562,\"goc\":-24}]} Bước-sau-click=true góc-sau-Bước=-10 thông-báo=null",
+    "ketLuan": "Phát bị chặn khi reduce (nhãn nút không đổi \"Phát hoạt ảnh\"/\"Play animation\"; 21 mẫu/2,2s chỉ 1 góc -24 — không chuyển động); Bước sau đổi tư thế tức thời -24 → -10 (không trượt 300ms)"
+  },
+  "T2": {
+    "moTa": "không reduce — bấm Phát",
+    "vi": "mẫu={\"soMau\":60,\"soGocRieng\":3,\"goc\":[-24,-10,-1],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":101,\"goc\":-24},{\"t\":215,\"goc\":-24},{\"t\":318,\"goc\":-24},{\"t\":419,\"goc\":-24},{\"t\":532,\"goc\":-24}]}",
+    "en": "mẫu={\"soMau\":60,\"soGocRieng\":3,\"goc\":[-24,-10,-1],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":105,\"goc\":-24},{\"t\":207,\"goc\":-24},{\"t\":317,\"goc\":-24},{\"t\":422,\"goc\":-24},{\"t\":536,\"goc\":-24}]}",
+    "ketLuan": "hoạt ảnh chạy thật: 60 mẫu/6,2s có 3 góc riêng biệt [-24, -10, -1] — bước nhảy ~2-3s/lần"
+  },
+  "T3": {
+    "moTa": "đang Phát rồi bật reduce GIỮA PHIÊN (emulateMedia)",
+    "vi": "trước={\"soGocRieng\":2,\"goc\":[-24,-10]} sau-reduce={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":111,\"goc\":-10},{\"t\":213,\"goc\":-10},{\"t\":327,\"goc\":-10}]}",
+    "en": "trước={\"soGocRieng\":2,\"goc\":[-24,-10]} sau-reduce={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":101,\"goc\":-10},{\"t\":213,\"goc\":-10},{\"t\":314,\"goc\":-10}]}",
+    "ketLuan": "chuyển động DỪNG ngay khi bật reduce (trước: 2 góc [-24,-10]; sau: 1 góc [-10] trong 4,2s quan sát)"
+  },
+  "T4": {
+    "moTa": "gỡ reduce giữa phiên (sau T3)",
+    "vi": "sau-gỡ={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":106,\"goc\":-10},{\"t\":207,\"goc\":-10},{\"t\":322,\"goc\":-10}]}",
+    "en": "sau-gỡ={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":106,\"goc\":-10},{\"t\":222,\"goc\":-10},{\"t\":323,\"goc\":-10}]}",
+    "ketLuan": "KHÔNG tự phát lại sau khi gỡ reduce (1 góc trong 4,2s) — phát đã bị hủy khi bật reduce; hành vi an toàn theo thiết kế reduceInteractive, không phải kẹt"
+  },
+  "T5": {
+    "moTa": "sau khi gỡ reduce, bấm Phát lại",
+    "vi": "góc-ban-đầu=\"translate(450px, 150px) rotate(-24deg)\" bấm-Phát-sau-khi-gỡ-reduce → {\"soGocRieng\":3,\"goc\":[-24,-10,-1]}",
+    "ketLuan": "Phát chạy lại bình thường (3 góc [-24,-10,-1] cả VI lẫn EN) — không kẹt vĩnh viễn"
+  },
+  "tabAnThat": "CHƯA KIỂM — headless không lật document.hidden đáng tin (blocker như G06-C2); chưa có môi trường headed ổn định cho ca này"
+}

@@ -1,0 +1,25 @@
+SACH docs/nghiem-thu/G09-B-kiem-ke-id-va-reduced-motion-2026-09-19.md
+SACH output/g09-id-motion-audit/censu-dist-guilloche.mjs
+SACH output/g09-id-motion-audit/censu-guilloche.json (JSON hợp lệ)
+SACH output/g09-id-motion-audit/dung-thu-nhieu-instance.mjs
+SACH output/g09-id-motion-audit/ket-qua-reduced-motion.json (JSON hợp lệ)
+SACH output/g09-id-motion-audit/log-build-nen.txt
+SACH output/g09-id-motion-audit/log-preview.txt
+SACH output/g09-id-motion-audit/log-pw-cach-lap.txt
+SACH output/g09-id-motion-audit/log-pw-chan-doan.txt
+SACH output/g09-id-motion-audit/log-pw-guilloche.txt
+SACH output/g09-id-motion-audit/log-pw-reduced-motion.txt
+SACH output/g09-id-motion-audit/log-pw-t5.txt
+SACH output/g09-id-motion-audit/log-sweep.txt
+SACH output/g09-id-motion-audit/pw-chan-doan-phat.js
+SACH output/g09-id-motion-audit/pw-guilloche-ma-tran.js
+SACH output/g09-id-motion-audit/pw-reduced-motion-bo-thoat.js
+SACH output/g09-id-motion-audit/pw-t5-phat-lai.js
+SACH output/g09-id-motion-audit/pw-thu-nhieu-instance.js
+SACH output/g09-id-motion-audit/rut-ket-qua-reduced-motion.mjs
+SACH output/g09-id-motion-audit/sweep-g09-b-c1.mjs
+SACH output/g09-id-motion-audit/thu-nhieu-instance.html
+PNG  output/g09-id-motion-audit/shots/cach-lap-baseline.png hash=7d583b796bd8580a (chỉ hash nhị phân)
+PNG  output/g09-id-motion-audit/shots/cach-lap-go-pattern-dau.png hash=3be00d0bdc44f991 (chỉ hash nhị phân)
+PNG  output/g09-id-motion-audit/shots/cach-lap-todo-pattern-dau.png hash=ee8a24af92573385 (chỉ hash nhị phân)
+TONG_LOI=0

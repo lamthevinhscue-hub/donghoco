@@ -1,0 +1,96 @@
+### Result
+"ĐO REDUCED-MOTION BỘ THOÁT:\nT1-vi reduce-trước-tải: góc-trước-Phát=-24 nhãn-nút-sau-click=\"Phát hoạt ảnh\" mẫu={\"soMau\":21,\"soGocRieng\":1,\"goc\":[-24],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":113,\"goc\":-24},{\"t\":213,\"goc\":-24},{\"t\":329,\"goc\":-24},{\"t\":430,\"goc\":-24},{\"t\":546,\"goc\":-24}]} Bước-sau-click=true góc-sau-Bước=-10 thông-báo=null\nT1-en reduce-trước-tải: góc-trước-Phát=-24 nhãn-nút-sau-click=\"Play animation\" mẫu={\"soMau\":21,\"soGocRieng\":1,\"goc\":[-24],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":113,\"goc\":-24},{\"t\":229,\"goc\":-24},{\"t\":346,\"goc\":-24},{\"t\":447,\"goc\":-24},{\"t\":562,\"goc\":-24}]} Bước-sau-click=true góc-sau-Bước=-10 thông-báo=null\nT2-vi không-reduce-Phát: mẫu={\"soMau\":60,\"soGocRieng\":3,\"goc\":[-24,-10,-1],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":101,\"goc\":-24},{\"t\":215,\"goc\":-24},{\"t\":318,\"goc\":-24},{\"t\":419,\"goc\":-24},{\"t\":532,\"goc\":-24}]}\nT2-en không-reduce-Phát: mẫu={\"soMau\":60,\"soGocRieng\":3,\"goc\":[-24,-10,-1],\"dau\":[{\"t\":0,\"goc\":-24},{\"t\":105,\"goc\":-24},{\"t\":207,\"goc\":-24},{\"t\":317,\"goc\":-24},{\"t\":422,\"goc\":-24},{\"t\":536,\"goc\":-24}]}\nT3-vi bật-reduce-giữa-phiên: trước={\"soGocRieng\":2,\"goc\":[-24,-10]} sau-reduce={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":111,\"goc\":-10},{\"t\":213,\"goc\":-10},{\"t\":327,\"goc\":-10}]}\nT4-vi gỡ-reduce-tiếp-tục: sau-gỡ={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":106,\"goc\":-10},{\"t\":207,\"goc\":-10},{\"t\":322,\"goc\":-10}]}\nT3-en bật-reduce-giữa-phiên: trước={\"soGocRieng\":2,\"goc\":[-24,-10]} sau-reduce={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":101,\"goc\":-10},{\"t\":213,\"goc\":-10},{\"t\":314,\"goc\":-10}]}\nT4-en gỡ-reduce-tiếp-tục: sau-gỡ={\"soGocRieng\":1,\"goc\":[-10],\"dau\":[{\"t\":0,\"goc\":-10},{\"t\":106,\"goc\":-10},{\"t\":222,\"goc\":-10},{\"t\":323,\"goc\":-10}]}\nMÔI TRƯỜNG: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36"
+### Ran Playwright code
+```js
+await (// G09-B chặng 1 — đo reduced-motion infographic Bộ thoát (đối tượng thật /co-che/bo-thoat/ + /en/mechanisms/escapement/)
+// Đo TRỰC TIẾP style.transform của #balance-group (góc rotate), lấy mẫu 100ms/lần.
+async (page) => {
+  const goc = 'http://localhost:4399';
+  const kq = [];
+  const mo = async (lang, reduce) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.emulateMedia({ reducedMotion: reduce ? 'reduce' : 'no-preference' });
+    await page.goto(goc + (lang === 'vi' ? '/co-che/bo-thoat/' : '/en/mechanisms/escapement/'), { waitUntil: 'load' });
+    await page.waitForTimeout(400);
+  };
+  const gocQuay = () => page.evaluate(() => {
+    const el = document.getElementById('balance-group');
+    if (!el) return null;
+    const m = /rotate\((-?[\d.]+)deg\)/.exec(el.style.transform || '');
+    return m ? Number(m[1]) : 0;
+  });
+  const layMau = async (ms) => {
+    const mau = await page.evaluate(async (tong) => {
+      const el = document.getElementById('balance-group');
+      const doc = [];
+      const batDau = Date.now();
+      while (Date.now() - batDau < tong) {
+        const m = /rotate\((-?[\d.]+)deg\)/.exec(el.style.transform || '');
+        doc.push({ t: Date.now() - batDau, goc: m ? Number(m[1]) : 0 });
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      const gocRieng = [...new Set(doc.map((d) => d.goc))];
+      return { soMau: doc.length, soGocRieng: gocRieng.length, goc: gocRieng, dau: doc.slice(0, 6) };
+    }, ms);
+    return mau;
+  };
+  const nutPhat = () => page.locator('button[aria-label^="Phát"], button[aria-label^="Play"]').first();
+  const nutSau = () => page.locator('button[aria-label^="Bước tiếp"], button[aria-label^="Next"]').first();
+  const nhanPhat = async () => {
+    const b = page.locator('button[aria-label^="Phát"], button[aria-label^="Play"]').first();
+    return b.getAttribute('aria-label');
+  };
+
+  // T1 — reduce bật TRƯỚC tải: Phát + Bước sau, đo 2200ms
+  for (const lang of ['vi', 'en']) {
+    await mo(lang, true);
+    const truocPhat = await gocQuay();
+    await nutPhat().click();
+    await page.waitForTimeout(250);
+    const nhanSauClick = await nhanPhat();
+    const mau1 = await layMau(2200);
+    const nutSauOk = await nutSau().click().then(() => true).catch(() => false);
+    await page.waitForTimeout(200);
+    const sauBuoc = await gocQuay();
+    const thongBao = await page.evaluate(() => {
+      const el = document.querySelector('[data-reduce-notice], .mech-reduce-notice');
+      return el ? (el.textContent || '').trim().slice(0, 90) : null;
+    });
+    kq.push(`T1-${lang} reduce-trước-tải: góc-trước-Phát=${truocPhat} nhãn-nút-sau-click="${nhanSauClick}" mẫu=${JSON.stringify(mau1)} Bước-sau-click=${nutSauOk} góc-sau-Bước=${sauBuoc} thông-báo=${JSON.stringify(thongBao)}`);
+  }
+
+  // T2 — không reduce: Phát chạy thật, đo 2600ms
+  for (const lang of ['vi', 'en']) {
+    await mo(lang, false);
+    await nutPhat().click();
+    const mau = await layMau(6200);
+    kq.push(`T2-${lang} không-reduce-Phát: mẫu=${JSON.stringify(mau)}`);
+  }
+
+  // T3 — đang Phát rồi bật reduce GIỮA PHIÊN; T4 — gỡ reduce tiếp tục đo
+  for (const lang of ['vi', 'en']) {
+    await mo(lang, false);
+    await nutPhat().click();
+    const truoc = await layMau(3400);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const sauReduce = await layMau(4200);
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    const sauGo = await layMau(4200);
+    kq.push(`T3-${lang} bật-reduce-giữa-phiên: trước=${JSON.stringify({ soGocRieng: truoc.soGocRieng, goc: truoc.goc })} sau-reduce=${JSON.stringify({ soGocRieng: sauReduce.soGocRieng, goc: sauReduce.goc, dau: sauReduce.dau.slice(0, 4) })}`);
+    kq.push(`T4-${lang} gỡ-reduce-tiếp-tục: sau-gỡ=${JSON.stringify({ soGocRieng: sauGo.soGocRieng, goc: sauGo.goc, dau: sauGo.dau.slice(0, 4) })}`);
+  }
+
+  // Ghi log môi trường
+  const ua = await page.evaluate(() => navigator.userAgent);
+  kq.push('MÔI TRƯỜNG: ' + ua);
+
+  return 'ĐO REDUCED-MOTION BỘ THOÁT:\n' + kq.join('\n');
+}
+)(page);
+```
+### Page
+- Page URL: http://localhost:4399/en/mechanisms/escapement/
+- Page Title: The escapement: pacing the energy of a mechanical watch — Mechanical Watch Knowledge
+- Console: 1 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-09-18T20-36-02-715Z.log#L17-L28

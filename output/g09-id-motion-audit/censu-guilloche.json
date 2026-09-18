@@ -1,0 +1,589 @@
+{
+  "ngay": "2026-09-19",
+  "nen": "cbf1850",
+  "congCu": "parse5 (parser HTML đầy đủ — không regex)",
+  "soTrangQuet": 289,
+  "soTrangCoGuilloche": 68,
+  "tongPhanTuIdGuilloche": 125,
+  "tongThamChieuUrlGuilloche": 125,
+  "trangNhieuHonMotId": [
+    {
+      "route": "/en/history/",
+      "idGuilloche": 28,
+      "fillRef": 28,
+      "watchImage": 28,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/lich-su/",
+      "idGuilloche": 28,
+      "fillRef": 28,
+      "watchImage": 28,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/audemars-piguet/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/patek-philippe/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/rolex/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    }
+  ],
+  "trangMotId": [
+    "/thuong-hieu/a-lange-soehne/",
+    "/thuong-hieu/arnold-and-son/",
+    "/thuong-hieu/baume-et-mercier/",
+    "/thuong-hieu/bell-and-ross/",
+    "/thuong-hieu/blancpain/",
+    "/thuong-hieu/breguet/",
+    "/thuong-hieu/breitling/",
+    "/thuong-hieu/bvlgari/",
+    "/thuong-hieu/carl-f-bucherer/",
+    "/thuong-hieu/cartier/",
+    "/thuong-hieu/chanel/",
+    "/thuong-hieu/chopard/",
+    "/thuong-hieu/corum/",
+    "/thuong-hieu/credor/",
+    "/thuong-hieu/de-bethune/",
+    "/thuong-hieu/doxa/",
+    "/thuong-hieu/eterna/",
+    "/thuong-hieu/fp-journe/",
+    "/thuong-hieu/franck-muller/",
+    "/thuong-hieu/frederique-constant/",
+    "/thuong-hieu/girard-perregaux/",
+    "/thuong-hieu/glashuette-original/",
+    "/thuong-hieu/grand-seiko/",
+    "/thuong-hieu/greubel-forsey/",
+    "/thuong-hieu/h-moser/",
+    "/thuong-hieu/hajime-asaoka/",
+    "/thuong-hieu/hamilton/",
+    "/thuong-hieu/hublot/",
+    "/thuong-hieu/iwc/",
+    "/thuong-hieu/jaeger-lecoultre/",
+    "/thuong-hieu/junghans/",
+    "/thuong-hieu/laurent-ferrier/",
+    "/thuong-hieu/longines/",
+    "/thuong-hieu/mb-and-f/",
+    "/thuong-hieu/mido/",
+    "/thuong-hieu/minase/",
+    "/thuong-hieu/montblanc/",
+    "/thuong-hieu/nomos-glashuette/",
+    "/thuong-hieu/omega/",
+    "/thuong-hieu/orient/",
+    "/thuong-hieu/oris/",
+    "/thuong-hieu/panerai/",
+    "/thuong-hieu/parmigiani-fleurier/",
+    "/thuong-hieu/philippe-dufour/",
+    "/thuong-hieu/piaget/",
+    "/thuong-hieu/rado/",
+    "/thuong-hieu/richard-mille/",
+    "/thuong-hieu/roger-dubuis/",
+    "/thuong-hieu/seagull/",
+    "/thuong-hieu/seiko/",
+    "/thuong-hieu/stowa/",
+    "/thuong-hieu/swatch/",
+    "/thuong-hieu/tag-heuer/",
+    "/thuong-hieu/timex/",
+    "/thuong-hieu/tissot/",
+    "/thuong-hieu/tudor/",
+    "/thuong-hieu/ulysse-nardin/",
+    "/thuong-hieu/universal-geneve/",
+    "/thuong-hieu/urwerk/",
+    "/thuong-hieu/vacheron-constantin/",
+    "/thuong-hieu/vostok/",
+    "/thuong-hieu/voutilainen/",
+    "/thuong-hieu/zenith/"
+  ],
+  "chiTiet": [
+    {
+      "route": "/en/history/",
+      "idGuilloche": 28,
+      "fillRef": 28,
+      "watchImage": 28,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/lich-su/",
+      "idGuilloche": 28,
+      "fillRef": 28,
+      "watchImage": 28,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/audemars-piguet/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/patek-philippe/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/rolex/",
+      "idGuilloche": 2,
+      "fillRef": 2,
+      "watchImage": 2,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/a-lange-soehne/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/arnold-and-son/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/baume-et-mercier/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/bell-and-ross/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/blancpain/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/breguet/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/breitling/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/bvlgari/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/carl-f-bucherer/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/cartier/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/chanel/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/chopard/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/corum/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/credor/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/de-bethune/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/doxa/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/eterna/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/fp-journe/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/franck-muller/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/frederique-constant/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/girard-perregaux/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/glashuette-original/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/grand-seiko/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/greubel-forsey/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/h-moser/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/hajime-asaoka/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/hamilton/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/hublot/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/iwc/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/jaeger-lecoultre/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/junghans/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/laurent-ferrier/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/longines/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/mb-and-f/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/mido/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/minase/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/montblanc/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/nomos-glashuette/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/omega/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/orient/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/oris/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/panerai/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/parmigiani-fleurier/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/philippe-dufour/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/piaget/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/rado/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/richard-mille/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/roger-dubuis/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/seagull/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/seiko/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/stowa/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/swatch/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/tag-heuer/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/timex/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/tissot/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/tudor/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/ulysse-nardin/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/universal-geneve/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/urwerk/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/vacheron-constantin/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/vostok/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/voutilainen/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    },
+    {
+      "route": "/thuong-hieu/zenith/",
+      "idGuilloche": 1,
+      "fillRef": 1,
+      "watchImage": 1,
+      "idKhacGuilloche": 0
+    }
+  ]
+}

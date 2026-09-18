@@ -1,0 +1,39 @@
+// G09-B chặng 1 — chẩn đoán nút Phát của MechanismAnimation trên /co-che/bo-thoat/
+async (page) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('http://localhost:4399/co-che/bo-thoat/', { waitUntil: 'load' });
+  await page.waitForTimeout(500);
+  const nut = await page.evaluate(() =>
+    [...document.querySelectorAll('button')]
+      .filter((b) => /Phát|Bước|Đặt lại|Play|Step|Reset|Tạm dừng/i.test(b.getAttribute('aria-label') || '') || /Phát|Bước/.test(b.textContent || ''))
+      .map((b) => ({ nhan: b.getAttribute('aria-label'), chu: (b.textContent || '').trim().slice(0, 20), an: b.offsetParent === null }))
+  );
+  const truoc = await page.evaluate(() => ({
+    counter: (document.querySelector('[data-mech-counter], .mech-counter')?.textContent || '').trim(),
+    balance: document.getElementById('balance-group')?.style.transform || '',
+  }));
+  // bấm nút Phát bằng roles thật
+  await page.getByRole('button', { name: /Phát hoạt ảnh|Play animation/ }).first().click();
+  await page.waitForTimeout(400);
+  const sau400 = await page.evaluate(() => ({
+    counter: (document.querySelector('[data-mech-counter], .mech-counter')?.textContent || '').trim(),
+    balance: document.getElementById('balance-group')?.style.transform || '',
+    nhanPhat: [...document.querySelectorAll('button')].find((b) => /Phát|Tạm dừng|Pause|Play/.test(b.getAttribute('aria-label') || ''))?.getAttribute('aria-label'),
+  }));
+  await page.waitForTimeout(2600);
+  const sau3s = await page.evaluate(() => ({
+    counter: (document.querySelector('[data-mech-counter], .mech-counter')?.textContent || '').trim(),
+    balance: document.getElementById('balance-group')?.style.transform || '',
+  }));
+  await page.waitForTimeout(2600);
+  const sau56s = await page.evaluate(() => ({
+    counter: (document.querySelector('[data-mech-counter], .mech-counter')?.textContent || '').trim(),
+    balance: document.getElementById('balance-group')?.style.transform || '',
+  }));
+  return 'CHẨN ĐOÁN PHÁT:\nnút: ' + JSON.stringify(nut) +
+    '\ntrước: ' + JSON.stringify(truoc) +
+    '\nsau-400ms: ' + JSON.stringify(sau400) +
+    '\nsau-3s: ' + JSON.stringify(sau3s) +
+    '\nsau-5.6s: ' + JSON.stringify(sau56s);
+}

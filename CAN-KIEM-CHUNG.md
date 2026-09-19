@@ -1213,3 +1213,22 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Hành động đã làm (17/09/2026, vòng sửa 1 G07 chặng 2):** title đổi thành "Tối giản của một học trò Bauhaus"; excerpt viết lại chỉ còn claim SS2-06 (học trò Bauhaus không dùng chi tiết trang trí thừa, "theo Junghans"); mục "Vị trí trong lịch sử" viết lại mô tả ngôn ngữ thiết kế, bỏ cả năm cụm nêu trên; gỡ hai nhận định bộ máy khỏi "Nói thẳng" (giữ "vỏ mỏng và kính vòm dễ xước" có trước); sửa `relation` ở cả hai bài bỏ cụm "gần như không đổi"; gỡ câu dẫn chiếu bài max bill trong bullet đối chiếu của Tangente, giữ khác biệt "mức tự chủ sản xuất" ở phía NOMOS có hồ sơ (SS2-03). KHÔNG thêm năm mới hay suy tính thời lượng.
 - **Nguồn còn thiếu:** nguồn chính hãng chốt diễn biến dòng max bill (ra mắt năm nào, có gián đoạn sản xuất không) và nguồn về nguồn gốc bộ máy J800.1 — khi có thì cân nhắc khôi phục mô tả "liên tục" và bổ sung nhận định bộ máy.
 - **Trạng thái:** ĐÃ XỬ LÝ AN TOÀN (17/09/2026). Chờ nguồn để bổ sung dữ liệu đầy đủ hơn.
+
+---
+
+## 55. Lỗi hiển thị "thanhläng" trong bài Jaeger-LeCoultre Reverso (bản tiếng Việt) — CẦN ƯU TIÊN KIỂM CHỨNG
+
+- **Vị trí:** `src/content/mauIconic/vi/reverso.md`, mục "Vị trí trong lịch sử": "**biểu tượng của đồng hồ thanhläng thập niên Art Deco**" — chữ "thanh lịch" bị lỗi font/gõ sai thành "thanhläng", **đang hiển thị sai trên trang `/mau-iconic/reverso/`**.
+- **Cách phát hiện:** gói H03-A (19/09/2026) khi dịch bài sang tiếng Anh — bản EN đã dịch đúng ý ("rectangular dress watches") và không thể tự sửa bài VI vì ngoài phạm vi tệp được sửa của gói (chỉ tạo tệp EN mới + bảng cặp route).
+- **Hành động cần làm:** sửa "thanhläng" thành "thanh lịch" trong bài VI — một lượt biên tập riêng ngoài phạm vi H03-A.
+- **Trạng thái:** chờ xử lý biên tập (mục mới 19/09/2026; cờ ưu tiên gắn vào chi tiết đang hiển thị sai).
+
+---
+
+## 56. Năm 2013 cho Blancpain "Tech Gombessa" trong bài Fifty Fathoms — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/mauIconic/vi/fifty-fathoms.md`, mục "Các thế hệ tham chiếu": "**Tech Gombessa** (2013) — thêm chức năng 'Gombessa' đo thời gian lặn dài."
+- **Lý do cần kiểm chứng:** nghi ghi năm ra mắt sai — Tech Gombessa được nhớ là ra mắt năm 2022 nhân kỷ niệm 70 năm Fifty Fathoms; năm 2013 chưa đối chiếu được với nguồn chính hãng ở lượt dịch 19/09/2026.
+- **Hành động đã làm (19/09/2026, vòng sửa 3 H03-A):** bản EN (`src/content/mauIconic/en/fifty-fathoms.md`) **đã gỡ bullet Tech Gombessa (2013)** — không công bố mốc năm đang chờ nguồn, không thay bằng năm khác (quy tắc H03: không xuất bản đoạn đã biết có vấn đề khi chưa xử lý). Tên "Tech Gombessa" vẫn giữ trong `references` frontmatter của cả VI và EN vì chỉ là tên mẫu, không kèm khẳng định năm. **Bài VI vẫn đang hiển thị "(2013)"** — ngoài phạm vi sửa của gói EN, chờ xử lý biên tập.
+- **Nguồn còn thiếu:** trang chính hãng Blancpain (mẫu Tech Gombessa) hoặc Lettres du Brassus để chốt năm ra mắt.
+- **Trạng thái:** CHỜ NGUỒN (19/09/2026) — khi có nguồn chính hãng thì **sửa đồng thời VI và EN cùng lượt**: VI gỡ hoặc chốt năm; EN cân nhắc khôi phục bullet với năm đã xác minh.

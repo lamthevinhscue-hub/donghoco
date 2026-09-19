@@ -103,6 +103,11 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },
   { vi: '/thuong-hieu/seiko', en: '/en/brands/seiko/' },
   // Mẫu iconic
+  { vi: '/mau-iconic/royal-oak', en: '/en/iconic-watches/royal-oak/' },
+  { vi: '/mau-iconic/patek-nautilus', en: '/en/iconic-watches/patek-nautilus/' },
+  { vi: '/mau-iconic/reverso', en: '/en/iconic-watches/reverso/' },
+  { vi: '/mau-iconic/fifty-fathoms', en: '/en/iconic-watches/fifty-fathoms/' },
+  { vi: '/mau-iconic/zenith-el-primero', en: '/en/iconic-watches/zenith-el-primero/' },
   { vi: '/mau-iconic/rolex-submariner', en: '/en/iconic-watches/rolex-submariner/' },
   { vi: '/mau-iconic/omega-speedmaster', en: '/en/iconic-watches/omega-speedmaster/' },
   { vi: '/mau-iconic/cartier-tank', en: '/en/iconic-watches/cartier-tank/' },

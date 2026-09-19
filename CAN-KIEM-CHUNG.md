@@ -1242,3 +1242,13 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Hành động đã làm (20/09/2026, H03-B vòng sửa 1):** bản EN (`src/content/mauIconic/en/iwc-mark-xi.md`) **không còn công bố hai calibre mâu thuẫn** — đã gỡ trường `movement` khỏi frontmatter (schema cho optional; SpecTable tự ẩn dòng rỗng) và gỡ câu "calibre 35111" khỏi mục "The movement"; không thay bằng calibre khác, không suy đoán. Phần calibre có nguồn từ bản VI (calibre 89, JLC 889, ETA 2892, ETA 37524) giữ nguyên. **Bài VI nguyên trạng** — vẫn hiển thị cả hai con số mâu thuẫn, chờ nguồn chính hãng.
 - **Nguồn còn thiếu:** trang sản phẩm Mark XVIII của IWC (hoặc tài liệu kỹ thuật chính hãng) để chốt mã calibre đúng.
 - **Trạng thái:** CHỜ NGUỒN (20/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI chốt số đúng và gỡ số sai; EN bổ sung lại `movement`/câu bộ máy với calibre đã xác minh. Checker H03-B chặn cứng hai chuỗi `32111`/`35111` ở src EN và dist EN cho tới khi xử lý.
+
+---
+
+## 58. Mốc lineHistory "1861 — Patek Philippe Seal" trong bài VI Patek Philippe: năm và nội dung lệch nhau — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/thuongHieu/vi/patek-philippe.md`, khối `lineHistory`, mục `year: 1861` có tiêu đề "Patek Philippe Seal — chuẩn nội bộ riêng từ 2009" và chi tiết "Từ 2009, Patek Philippe thay thế dấu ấn Genève bằng chuẩn riêng…". **Năm của mục (1861) trái với nội dung (chuẩn Seal áp dụng từ 2009)** — hai dữ kiện trong cùng một mục.
+- **Lý do cần kiểm chứng:** năm ra đời chuẩn Patek Philippe Seal là 2009 (trùng với phần thân bài cùng tệp); mục `year: 1861` nhiều khả năng là lỗi nhập liệu năm — chưa đối chiếu nguồn chính hãng ở lượt dịch 20/09/2026.
+- **Hành động đã làm (20/09/2026, H03-C):** bản EN (`src/content/thuongHieu/en/patek-philippe.md`) **không dịch bullet lệch này** — mục Key milestones gỡ hẳn mục 1861/Seal; thông tin Seal "từ 2009" vẫn được công bố ở mục Watchmaking philosophy theo phần thân bài VI (không mâu thuẫn năm). **Bài VI nguyên trạng** — mục lineHistory lệch vẫn hiển thị trên `/thuong-hieu/patek-philippe/`, chờ xử lý biên tập.
+- **Nguồn còn thiếu:** trang chính hãng Patek Philippe về Patek Philippe Seal để chốt năm áp dụng.
+- **Trạng thái:** CHỜ NGUỒN (20/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI sửa `year` mục lineHistory (hoặc gỡ mục); EN cân nhắc đưa bullet Seal với năm đã xác minh vào Key milestones.

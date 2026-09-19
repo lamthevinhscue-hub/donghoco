@@ -99,6 +99,12 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/cotes-de-geneve', en: '/en/glossary/geneva-stripes/' },
   { vi: '/huong-dan/hoan-thien-thu-cong-dong-ho', en: '/en/guides/movement-finishing/' },
   // Thương hiệu
+  { vi: '/thuong-hieu/patek-philippe', en: '/en/brands/patek-philippe/' },
+  { vi: '/thuong-hieu/cartier', en: '/en/brands/cartier/' },
+  { vi: '/thuong-hieu/breguet', en: '/en/brands/breguet/' },
+  { vi: '/thuong-hieu/blancpain', en: '/en/brands/blancpain/' },
+  { vi: '/thuong-hieu/vacheron-constantin', en: '/en/brands/vacheron-constantin/' },
+  { vi: '/thuong-hieu/tag-heuer', en: '/en/brands/tag-heuer/' },
   { vi: '/thuong-hieu/rolex', en: '/en/brands/rolex/' },
   { vi: '/thuong-hieu/omega', en: '/en/brands/omega/' },
   { vi: '/thuong-hieu/seiko', en: '/en/brands/seiko/' },

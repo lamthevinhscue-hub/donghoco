@@ -1,0 +1,13 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+[astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead.
+[2m15:14:47[22m [34m[content][39m Syncing content
+[2m15:14:48[22m [34m[content][39m Synced content
+[2m15:14:48[22m [34m[types][39m Generated [2m1.11s[22m
+[2m15:14:48[22m [34m[check][39m Getting diagnostics for Astro files in D:\Watch web build...
+Result (359 files):
+- 0 errors
+- 0 warnings
+- 0 hints

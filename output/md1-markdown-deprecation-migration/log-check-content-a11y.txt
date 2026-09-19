@@ -1,0 +1,11 @@
+ĐẠT  Mọi <img> (8) đều có thuộc tính alt
+ĐẠT  Không có alt là tên file hoặc nhãn chung "image/ảnh/photo"
+ĐẠT  Meta viewport không chặn zoom (không có user-scalable=no / maximum-scale=1)
+ĐẠT  Không có CSS chặn zoom trên html/body (touch-action:none trên control kéo riêng là hợp lệ)
+ĐẠT  Không có overflow-hidden + chiều cao cố định trên vùng văn bản (1 trường hợp không phải văn bản)
+ĐẠT  Không có link nhãn chung chung đọc độc lập (77 link trong template)
+ĐẠT  rehype-wrap-tables: wrapper có tabIndex 0 + role region + ariaLabel
+ĐẠT  BaseLayout: bù tabindex/role/aria-label cho .table-scroll-wrap thiếu
+ĐẠT  BaseLayout: .table-scroll-wrap xử lý ArrowLeft/ArrowRight/Home/End bằng bàn phím
+
+Tất cả kiểm tra nội dung tĩnh đạt. (Reflow/zoom thật ở 320px/200% cần kiểm thủ công trên trình duyệt.)

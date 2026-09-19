@@ -1,0 +1,18 @@
+{
+  "moTa": "MD1 — kiểm trình duyệt sau di trú unified({...}): glossary VI/EN, bảng bọc bàn phím, no-JS; preview 4398, playwright-cli, 2026-09-20",
+  "glossary": {
+    "vi": { "trang": "/co-che/bo-thoat/", "co": true, "href": "/tu-dien/day-cot", "tooltip": true, "dichStatus": 200 },
+    "en": { "trang": "/en/mechanisms/escapement/", "co": true, "href": "/en/glossary/mainspring/", "tooltip": false, "dichStatus": 200, "dichLangEN": true }
+  },
+  "bang": {
+    "vi": { "trang": "/huong-dan/len-day-dong-ho/", "tabIndex": 0, "role": "region", "ariaLabel": "Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột", "focusBanPhim": true },
+    "en": { "trang": "/en/guides/winding-a-mechanical-watch/", "tabIndex": 0, "role": "region", "ariaLabel": "Data table — use the left and right arrow keys to see more columns" },
+    "arrowCuonThat": { "trang": "/thuong-hieu/seagull/", "viewport": 375, "chenhPx": 59, "end": 59, "home": 0 }
+  },
+  "noJs": {
+    "vi": { "wrapper": true, "tabIndex": 0, "role": "region", "ariaLabel": "Bảng dữ liệu — dùng phím mũi tên trái và phải để xem thêm cột", "noiDungBang": "Tình huốngNguyên tắcĐeo đều mỗi ngày (au…" },
+    "en": { "wrapper": true, "ariaLabel": "Data table — use the left and right arrow keys to see more columns" },
+    "glossary": { "href": "/tu-dien/day-cot", "tooltip": true }
+  },
+  "pageerror": 0
+}

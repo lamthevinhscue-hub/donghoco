@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import { readFileSync } from 'node:fs';
 import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink';
 import rehypeWrapTables from './src/plugins/rehype-wrap-tables.mjs';
@@ -43,10 +44,17 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      [remarkGlossaryAutolink, { terms: glossaryTerms, enLinks: glossaryEnLinks }],
-    ],
-    rehypePlugins: [rehypeWrapTables],
+    // Cú pháp chính thức Astro 7 (theo types cài sẵn của @astrojs/markdown-remark
+    // 7.3.1): plugin truyền qua processor unified({...}) — các khóa
+    // markdown.remarkPlugins/rehypePlugins/remarkRehype đã deprecated.
+    // Thứ tự xử lý giữ nguyên: remark-glossary-autolink ở tầng remark,
+    // rehype-wrap-tables ở tầng rehype sau khi Markdown thành HTML.
+    processor: unified({
+      remarkPlugins: [
+        [remarkGlossaryAutolink, { terms: glossaryTerms, enLinks: glossaryEnLinks }],
+      ],
+      rehypePlugins: [rehypeWrapTables],
+    }),
   },
   i18n: {
     defaultLocale: 'vi',

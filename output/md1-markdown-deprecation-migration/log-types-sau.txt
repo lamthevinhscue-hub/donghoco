@@ -1,0 +1,14 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+[2m15:17:50[22m [34m[content][39m Syncing content
+[2m15:17:50[22m [34m[content][39m Astro config changed
+[2m15:17:50[22m [34m[content][39m Clearing content store
+[2m15:17:53[22m [34m[content][39m Synced content
+[2m15:17:53[22m [34m[types][39m Generated [2m3.60s[22m
+[2m15:17:53[22m [34m[check][39m Getting diagnostics for Astro files in D:\Watch web build...
+Result (359 files):
+- 0 errors
+- 0 warnings
+- 0 hints

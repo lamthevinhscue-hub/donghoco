@@ -1,0 +1,16 @@
+SACH docs/nghiem-thu/MD1-di-tru-markdown-remark-astro7-2026-09-20.md
+SACH astro.config.mjs
+SACH output/md1-markdown-deprecation-migration/kiem-md1.mjs
+SACH output/md1-markdown-deprecation-migration/log-build-nen.txt
+SACH output/md1-markdown-deprecation-migration/log-build-sau.txt
+SACH output/md1-markdown-deprecation-migration/log-check-content-a11y.txt
+SACH output/md1-markdown-deprecation-migration/log-mutation-baseline.txt
+SACH output/md1-markdown-deprecation-migration/log-mutation-m1.txt
+SACH output/md1-markdown-deprecation-migration/log-mutation-m2.txt
+SACH output/md1-markdown-deprecation-migration/log-mutation-m3.txt
+SACH output/md1-markdown-deprecation-migration/log-preview.txt
+SACH output/md1-markdown-deprecation-migration/log-types-sau.txt
+SACH output/md1-markdown-deprecation-migration/log-types-truoc.txt
+SACH output/md1-markdown-deprecation-migration/sweep.mjs
+SACH output/md1-markdown-deprecation-migration/trinh-duyet-kiem.json (JSON hợp lệ)
+TONG_LOI=0

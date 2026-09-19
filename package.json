@@ -25,7 +25,7 @@
     "check:wcag": "npm run check:contrast && npm run check:a11y-keyboard && npm run check:a11y-semantics && npm run check:a11y-motion && npm run check:a11y-content",
     "check:a11y-keyboard": "node scripts/check-keyboard-accessibility.mjs",
     "check:contrast": "node scripts/check-color-contrast.mjs",
-    "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-3d-loading-budget.mjs && node scripts/check-links.mjs && node scripts/check-evolution-routes.mjs && node scripts/check-g09-id-unique.mjs && node scripts/check-g01-navigation.mjs && node scripts/check-g02-history-timeline.mjs dist && node scripts/check-g04-balance-chapter.mjs dist && node scripts/check-g05-history-journey.mjs dist && node scripts/check-g06-anatomy.mjs dist && node scripts/check-g06-compare.mjs dist && node scripts/check-g06-escapement-en.mjs dist",
+    "build": "npm run check && node scripts/generate-glossary-terms.mjs && astro build && node scripts/check-3d-loading-budget.mjs && node scripts/check-links.mjs && node scripts/check-evolution-routes.mjs && node scripts/check-g09-id-unique.mjs && node scripts/check-g01-navigation.mjs && node scripts/check-g02-history-timeline.mjs dist && node scripts/check-g04-balance-chapter.mjs dist && node scripts/check-g05-history-journey.mjs dist && node scripts/check-g06-anatomy.mjs dist && node scripts/check-g06-compare.mjs dist && node scripts/check-g06-escapement-en.mjs dist && node scripts/check-h08-rss.mjs",
     "preview": "astro preview",
     "check:g01": "node scripts/check-g01-navigation.mjs",
     "check:g04": "node scripts/check-g04-balance-chapter.mjs",
@@ -37,10 +37,12 @@
     "check:g06c": "node scripts/check-g06-escapement-en.mjs"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.2.1",
     "@vercel/analytics": "^2.0.1",
     "astro": "7.3.3",
     "astro-pagefind": "^2.0.1",
+    "fast-xml-parser": "^5.11.1",
     "three": "^0.185.1"
   },
   "devDependencies": {

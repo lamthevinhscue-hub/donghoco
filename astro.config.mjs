@@ -33,8 +33,13 @@ const SITE = 'https://www.kienthucdonghoco.vn';
 //   và tailwind.config.mjs. Base styles nạp qua src/styles/global.css mà
 //   BaseLayout import (@tailwind base/components/utilities).
 // Output: static (website tĩnh - phù hợp blog nội dung, tải nhanh, deploy đơn giản)
+// MIME hai feed RSS: astro preview là server tĩnh, không có cơ chế per-path MIME
+// (hook configurePreviewServer của Vite plugin không được gọi — đã thử nghiệm).
+// Production đặt header qua hai rule trong vercel.json (H08).
+
 export default defineConfig({
   site: SITE,
+
   integrations: [
     pagefind(),
     sitemap({

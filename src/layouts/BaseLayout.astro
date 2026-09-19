@@ -106,6 +106,14 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
 
+    <!-- RSS discovery (H08) — mỗi ngôn ngữ trỏ feed của ngôn ngữ đó -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={lang === 'vi' ? 'Đồng Hồ Cơ — kiến thức đồng hồ cơ' : 'Đồng Hồ Cơ — mechanical watch knowledge'}
+      href={new URL(lang === 'vi' ? '/rss.xml' : '/en/rss.xml', siteUrl).href}
+    />
+
     <!-- Các bản ngôn ngữ thay thế — chỉ khi cặp dịch thật sự tồn tại -->
     {hreflangUrls.map((alt) => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />

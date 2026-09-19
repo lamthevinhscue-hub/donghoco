@@ -51,6 +51,7 @@ export const INDEX_PAIRS: RoutePair[] = [
 // =============================================================================
 export const ARTICLE_PAIRS: RoutePair[] = [
   // Hướng dẫn
+  { vi: '/huong-dan/swiss-made', en: '/en/guides/swiss-made/' },
   { vi: '/huong-dan/chon-dong-ho-dau-tien', en: '/en/guides/first-mechanical-watch/' },
   { vi: '/huong-dan/doc-va-chinh-gmt', en: '/en/guides/reading-and-setting-gmt/' },
   { vi: '/huong-dan/dung-tachymeter', en: '/en/guides/using-a-tachymeter/' },

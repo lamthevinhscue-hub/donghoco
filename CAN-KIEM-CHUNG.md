@@ -1232,3 +1232,13 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Hành động đã làm (19/09/2026, vòng sửa 3 H03-A):** bản EN (`src/content/mauIconic/en/fifty-fathoms.md`) **đã gỡ bullet Tech Gombessa (2013)** — không công bố mốc năm đang chờ nguồn, không thay bằng năm khác (quy tắc H03: không xuất bản đoạn đã biết có vấn đề khi chưa xử lý). Tên "Tech Gombessa" vẫn giữ trong `references` frontmatter của cả VI và EN vì chỉ là tên mẫu, không kèm khẳng định năm. **Bài VI vẫn đang hiển thị "(2013)"** — ngoài phạm vi sửa của gói EN, chờ xử lý biên tập.
 - **Nguồn còn thiếu:** trang chính hãng Blancpain (mẫu Tech Gombessa) hoặc Lettres du Brassus để chốt năm ra mắt.
 - **Trạng thái:** CHỜ NGUỒN (19/09/2026) — khi có nguồn chính hãng thì **sửa đồng thời VI và EN cùng lượt**: VI gỡ hoặc chốt năm; EN cân nhắc khôi phục bullet với năm đã xác minh.
+
+---
+
+## 57. Mâu thuẫn calibre trong bài IWC Mark XI: frontmatter "Calibre 32111" đối lập thân bài "calibre 35111" — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/mauIconic/vi/iwc-mark-xi.md` — frontmatter `movement: "Calibre 32111"` trong khi mục "Bộ máy" ghi "Mark XVIII hiện tại dùng **calibre 35111** (dựa ETA 2892)". Hai con số trong cùng một bài.
+- **Lý do cần kiểm chứng:** mâu thuẫn nội bộ là bằng chứng cụ thể rằng ít nhất một con số sai; theo trang chính hãng IWC, Mark XVIII thường được ghi với calibre 35111 — nhưng chưa đối chiếu được với nguồn chính hãng ở lượt dịch 20/09/2026, không tự sửa.
+- **Hành động đã làm (20/09/2026, H03-B vòng sửa 1):** bản EN (`src/content/mauIconic/en/iwc-mark-xi.md`) **không còn công bố hai calibre mâu thuẫn** — đã gỡ trường `movement` khỏi frontmatter (schema cho optional; SpecTable tự ẩn dòng rỗng) và gỡ câu "calibre 35111" khỏi mục "The movement"; không thay bằng calibre khác, không suy đoán. Phần calibre có nguồn từ bản VI (calibre 89, JLC 889, ETA 2892, ETA 37524) giữ nguyên. **Bài VI nguyên trạng** — vẫn hiển thị cả hai con số mâu thuẫn, chờ nguồn chính hãng.
+- **Nguồn còn thiếu:** trang sản phẩm Mark XVIII của IWC (hoặc tài liệu kỹ thuật chính hãng) để chốt mã calibre đúng.
+- **Trạng thái:** CHỜ NGUỒN (20/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI chốt số đúng và gỡ số sai; EN bổ sung lại `movement`/câu bộ máy với calibre đã xác minh. Checker H03-B chặn cứng hai chuỗi `32111`/`35111` ở src EN và dist EN cho tới khi xử lý.

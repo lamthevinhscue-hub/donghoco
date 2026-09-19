@@ -60,6 +60,8 @@ interface Milestone {
   limit_en?: string;
   sources: TimelineSource[];
   readMore: string | null;
+  readMoreNote?: string;
+  readMoreNote_en?: string;
 }
 const milestones = timelineData as Milestone[];
 
@@ -166,6 +168,8 @@ const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
   }
   return { href: m.readMore ?? '', kind: 'vi' };
 };
+// Ghi chú đọc thêm (H03-B): làm rõ quan hệ mốc–bài khi hai nội dung khác mẫu/thời điểm
+const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote_en ?? m.readMoreNote) ?? null;
 ---
 
 <section class="mx-auto max-w-6xl px-4 py-12">
@@ -231,6 +235,7 @@ const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
               const scopeTxt = scopeOf(m);
               const limitTxt = limitOf(m);
               const rm = readMoreOf(m);
+              const rmNote = readMoreNoteOf(m);
               return (
                 <article
                   class="milestone-card"
@@ -295,6 +300,9 @@ const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
                           {S.readMore}
                         </a>
                         {rm.kind === 'vi' && !isVi && <span class="ml-2 italic text-ink-soft/70 dark:text-dark-text-soft/60">{S.viOnly}</span>}
+                        {rmNote && (
+                          <p class="mt-1 italic text-ink-soft/80 dark:text-dark-text-soft/60">{rmNote}</p>
+                        )}
                       </div>
                     ) : (
                       <p class="mt-3 text-xs italic text-ink-soft/70 dark:text-dark-text-soft/60">

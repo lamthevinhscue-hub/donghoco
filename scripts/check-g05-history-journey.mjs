@@ -7,8 +7,8 @@
 //     route đọc tiếp, chuỗi câu giữ chương, nhãn trạng thái trong component.
 //   Lớp dist (khi có thư mục dist — nối npm run build, SAU astro build):
 //     G5-D1: /lich-su/ render đủ 28 thẻ + 6 chương + nav chương + k/N.
-//     G5-D2: /en/history/ render đủ nội dung EN + 17/8/3 trạng thái đọc tiếp
-//       (H03-A 19/09/2026: 5 cặp EN mới), không rò chữ tiếng Việt hiển thị
+//     G5-D2: /en/history/ render đủ nội dung EN + 19/6/3 trạng thái đọc tiếp
+//       (H03-B 20/09/2026: +2 cặp EN mới), không rò chữ tiếng Việt hiển thị
 //       (loại tên riêng đã duyệt).
 //     G5-D3: hreflang + switcher hai trang; trang chủ EN có lối vào.
 //
@@ -129,9 +129,10 @@ const pairMap = new Map([...crRaw.matchAll(/\{\s*vi:\s*'([^']+)',\s*en:\s*'([^']
 const rmCoEN = data.filter((m) => m.readMore && pairMap.has(m.readMore));
 const rmChiVI = data.filter((m) => m.readMore && !pairMap.has(m.readMore));
 const rmKhong = data.filter((m) => !m.readMore);
-// H03-A (19/09/2026): 5 cặp EN mới (royal-oak, patek-nautilus, reverso, fifty-fathoms,
-// zenith-el-primero) nâng số mốc có cặp EN từ 12 lên 17; kỳ vọng cập nhật theo dữ liệu.
-kiem('G5-6', 'Đọc tiếp: 17 mốc có cặp EN + 8 mốc chỉ VI + 3 mốc chưa có bài (đếm theo mốc)', rmCoEN.length === 17 && rmChiVI.length === 8 && rmKhong.length === 3, `cóEN=${rmCoEN.length}, chỉVI=${rmChiVI.length}, không=${rmKhong.length}`);
+// H03-A (19/09/2026): 5 cặp EN mới nâng số mốc có cặp EN từ 12 lên 17.
+// H03-B (20/09/2026): 2 cặp EN mới (freak, iwc-mark-xi) nâng từ 17 lên 19;
+// kỳ vọng cập nhật theo dữ liệu.
+kiem('G5-6', 'Đọc tiếp: 19 mốc có cặp EN + 6 mốc chỉ VI + 3 mốc chưa có bài (đếm theo mốc)', rmCoEN.length === 19 && rmChiVI.length === 6 && rmKhong.length === 3, `cóEN=${rmCoEN.length}, chỉVI=${rmChiVI.length}, không=${rmKhong.length}`);
 const capEnDang = rmCoEN.every((m) => pairMap.get(m.readMore).startsWith('/en/'));
 kiem('G5-6b', 'Điều kiện cần (lớp nguồn): mọi cặp EN của mốc đọc tiếp có dạng route /en/ — đích THẬT được kiểm ở lớp dist [G5-D4]', capEnDang, rmCoEN.filter((m) => !pairMap.get(m.readMore).startsWith('/en/')).map((m) => m.slug).join(',') || 'đủ');
 
@@ -241,9 +242,9 @@ if (!sourceOnly) {
     enText = enText.replace(/data-unit="[^"]*"/g, 'data-unit=""');
     for (const p of PROPER) enText = enText.split(p).join('');
     const roViet = /[\u0103\u00E2\u0111\u00EA\u00F4\u01A1\u01B0\u1EA1-\u1EF9]/.test(enText);
-    // H03-A (19/09/2026): 5 cặp EN mới → trạng thái đọc tiếp trang EN thành 17/8/3.
-    kiemD('G5-D2', 'Trang EN: 28 thẻ + 6 chương + 52 nguồn + 19 Limit + trạng thái 17/8/3 + "2013–present" + không rò tiếng Việt',
-      enCards === 28 && enChuong === 6 && enNguon === 52 && enLimit === 19 && enNoArticle === 3 && enViOnly === 8 && enLinkEnDoc === 17 && enLinkViDoc === 8 && enTimeLabel2013 && !roViet,
+    // H03-B (20/09/2026): 2 cặp EN mới → trạng thái đọc tiếp trang EN thành 19/6/3.
+    kiemD('G5-D2', 'Trang EN: 28 thẻ + 6 chương + 52 nguồn + 19 Limit + trạng thái 19/6/3 + "2013–present" + không rò tiếng Việt',
+      enCards === 28 && enChuong === 6 && enNguon === 52 && enLimit === 19 && enNoArticle === 3 && enViOnly === 6 && enLinkEnDoc === 19 && enLinkViDoc === 6 && enTimeLabel2013 && !roViet,
       `thẻ=${enCards}, chương=${enChuong}, nguồn=${enNguon}, Limit=${enLimit}, noArticle=${enNoArticle}, viOnly=${enViOnly}, linkEN=${enLinkEnDoc}, linkVI=${enLinkViDoc}, 2013=${enTimeLabel2013}, ròVI=${roViet}`);
 
     // G5-D3: hreflang + switcher + trang chủ EN lối vào

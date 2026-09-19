@@ -1,0 +1,11 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+06:29:27 [vite] Re-optimizing dependencies because lockfile has changed
+06:29:29 [types] Generated 2.36s
+06:29:29 [check] Getting diagnostics for Astro files in D:\Watch web build...
+Result (354 files):
+- 0 errors
+- 0 warnings
+- 0 hints

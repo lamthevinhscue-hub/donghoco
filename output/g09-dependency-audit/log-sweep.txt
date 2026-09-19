@@ -2,10 +2,15 @@ SACH docs/nghiem-thu/G09-C-kiem-ke-dependency-2026-09-19.md
 SACH output/g09-dependency-audit/advisory-chi-tiet.json (JSON hợp lệ)
 SACH output/g09-dependency-audit/inventory-truc-tiep.json (JSON hợp lệ)
 SACH output/g09-dependency-audit/log-audit-stderr.txt
+SACH output/g09-dependency-audit/log-build-c2.txt
 SACH output/g09-dependency-audit/log-build-nen.txt
+SACH output/g09-dependency-audit/log-check-c2.txt
+SACH output/g09-dependency-audit/log-npm-install-c2.txt
 SACH output/g09-dependency-audit/log-npm-ls-advisory.txt
 SACH output/g09-dependency-audit/log-npm-ls-depth0.txt
+SACH output/g09-dependency-audit/log-types-c2.txt
 SACH output/g09-dependency-audit/npm-audit-raw.json (JSON hợp lệ)
+SACH output/g09-dependency-audit/npm-audit-sau-c2.json (JSON hợp lệ)
 SACH output/g09-dependency-audit/rut-advisory.mjs
 SACH output/g09-dependency-audit/sweep-g09-c.mjs
 TONG_LOI=0

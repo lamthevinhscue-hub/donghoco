@@ -1,23 +1,26 @@
-import { defineCollection, z } from 'astro:content';
+// =============================================================================
+// CẤU HÌNH CONTENT COLLECTIONS (Astro 7 — content layer + glob loader)
+// =============================================================================
+// Di trú từ src/content/config.ts (legacy `type: 'content'`) sang cấu hình
+// chính thức Astro 7: mỗi collection dùng glob loader của astro/loaders, schema
+// GIỮ NGUYÊN hệt bản legacy — không đổi trường, kiểu, giá trị mặc định.
+//
+// Cấu trúc thư mục giữ nguyên: src/content/<collection>/<lang>/<slug>.md
+// → id entry có dạng "vi/rolex" / "en/rolex" (không đuôi file).
+//   getSlug (src/lib/content.ts) tách slug từ id — cho cả hai dạng có/không
+//   đuôi, nên URL công khai không đổi.
+// `z` lấy từ astro/zod theo khuyến nghị Astro 7 (astro:content z và
+// astro:schema đều deprecated).
+// =============================================================================
 
-// =============================================================================
-// CẤU HÌNH CONTENT COLLECTIONS (Các bộ sưu tập nội dung)
-// =============================================================================
-// Tệp này quy định CÁC LOẠI bài viết trên website và mỗi loại có những trường
-// thông tin gì. Astro dùng nó để kiểm tra nội dung của bạn có hợp lệ không
-// (ví dụ: nếu quên điền tiêu đề, Astro sẽ báo lỗi ngay khi chạy).
-//
-// Khi bạn viết bài mới, chỉ cần mở một bài mẫu cùng loại rồi copy khung đầu bài
-// (phần nằm giữa hai dòng ---). Không cần đụng tới tệp này.
-//
-// Schema này tuân thủ Bước 0.1 của KẾ HOẠCH HOÀN THIỆN — chuẩn hóa metadata
-// để sau này lọc, tìm kiếm, so sánh và hiển thị timeline đều dùng chung 1 nguồn.
-// =============================================================================
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 // Trường dùng chung cho mọi loại bài (để đỡ lặp lại)
 const baseFields = {
   title: z.string(),                  // Tiêu đề bài viết
-  custom_slug: z.string().optional(), // Ghi đè địa chỉ web (nếu bỏ trống, dùng tên tệp)
+  custom_slug: z.string().optional(), // Ghi đè địa chỉ web (nếu bỏ trống, dùng tên file)
   excerpt: z.string(),                // Đoạn tóm tắt ngắn (hiện ở trang danh sách)
   date: z.string().or(z.date()).optional(),  // Ngày đăng
   cover_image: z.string().optional(),        // Ảnh bìa
@@ -44,7 +47,7 @@ const relatedLink = z.object({
 
 // --- Trụ cột 1: Thương hiệu ---
 const thuongHieu = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/thuongHieu' }),
   schema: () =>
     z.object({
       ...baseFields,
@@ -96,7 +99,7 @@ const thuongHieu = defineCollection({
 
 // --- Trụ cột 2: Mẫu iconic ---
 const mauIconic = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/mauIconic' }),
   schema: z.object({
     ...baseFields,
     brand: z.string(),                              // Thương hiệu (VD: "Rolex")
@@ -126,7 +129,7 @@ const mauIconic = defineCollection({
 
 // --- Trụ cột 3: Cơ chế (đi kèm infographic - giai đoạn 2) ---
 const coChe = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/coChe' }),
   schema: z.object({
     ...baseFields,
     category: z.enum(['nền tảng', 'phức tạp', 'bổ trợ']),  // Nhóm
@@ -140,7 +143,7 @@ const coChe = defineCollection({
 
 // --- Từ điển thuật ngữ ---
 const tuDien = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/tuDien' }),
   schema: z.object({
     ...baseFields,
     term_en: z.string().optional(),                 // Tên tiếng Anh (nếu có)
@@ -152,7 +155,7 @@ const tuDien = defineCollection({
 
 // --- Hướng dẫn thực hành ---
 const huongDan = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/huongDan' }),
   schema: z.object({
     ...baseFields,
     difficulty: z.enum(['người mới', 'trung cấp', 'nâng cao']).default('người mới'),
@@ -161,7 +164,7 @@ const huongDan = defineCollection({
 
 // --- Trang tĩnh (giới thiệu, liên hệ...) ---
 const trang = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/trang' }),
   schema: z.object({
     ...baseFields,
   }),

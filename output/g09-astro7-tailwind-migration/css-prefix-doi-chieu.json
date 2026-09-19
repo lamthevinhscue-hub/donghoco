@@ -1,0 +1,11 @@
+{
+  "moTa": "Đối chiếu vendor prefix -webkit-* giữa dist astro 7 worktree và production astro 4",
+  "prod": 13,
+  "astro7": 14,
+  "thieuOastro7": [
+    "-webkit-text-decoration"
+  ],
+  "ruleLienQuan": "text-decoration: underline dotted — prod có prefix -webkit- (autoprefixer data cũ); astro 7 không prefix (autoprefixer 10.6.1 + browserslist data mới)",
+  "anhHuong": "trình duyệt WebKit cũ hiển thị underline thường thay vì dotted cho 1 kiểu trang trí; trình duyệt hiện đại không đổi",
+  "ghiChu": "dist astro 7 THÊM -webkit-slider-runnable-track/-webkit-slider-thumb so prod"
+}

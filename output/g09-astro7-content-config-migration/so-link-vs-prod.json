@@ -1,0 +1,1740 @@
+{
+  "tongCu": 21397,
+  "tongMoi": 21055,
+  "chenh": [
+    {
+      "route": "/",
+      "astro4": 123,
+      "astro7": 122,
+      "chenh": -1
+    },
+    {
+      "route": "/ban-quyen/",
+      "astro4": 56,
+      "astro7": 2,
+      "chenh": -54
+    },
+    {
+      "route": "/co-che/",
+      "astro4": 68,
+      "astro7": 67,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/bo-may-in-house/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/bo-thoat-dong-truc/",
+      "astro4": 89,
+      "astro7": 88,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/bo-thoat/",
+      "astro4": 89,
+      "astro7": 88,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/chong-nuoc/",
+      "astro4": 118,
+      "astro7": 117,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/chong-soc/",
+      "astro4": 82,
+      "astro7": 81,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/chong-tu/",
+      "astro4": 81,
+      "astro7": 80,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/chronograph/",
+      "astro4": 108,
+      "astro7": 107,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/chuyen-dong-co/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/da-quang/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/day-toc-banh-lac/",
+      "astro4": 94,
+      "astro7": 93,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/diem-chuong/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/gmt/",
+      "astro4": 95,
+      "astro7": 94,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/hien-thi-ngay/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/kinh-dong-ho/",
+      "astro4": 82,
+      "astro7": 81,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/len-day-tu-dong/",
+      "astro4": 95,
+      "astro7": 94,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/perpetual-calendar/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/pha-trang/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/tourbillon/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/co-che/tru-cot/",
+      "astro4": 106,
+      "astro7": 105,
+      "chenh": -1
+    },
+    {
+      "route": "/en/",
+      "astro4": 68,
+      "astro7": 67,
+      "chenh": -1
+    },
+    {
+      "route": "/en/about/",
+      "astro4": 49,
+      "astro7": 48,
+      "chenh": -1
+    },
+    {
+      "route": "/en/accessibility/",
+      "astro4": 49,
+      "astro7": 48,
+      "chenh": -1
+    },
+    {
+      "route": "/en/anatomy/",
+      "astro4": 54,
+      "astro7": 53,
+      "chenh": -1
+    },
+    {
+      "route": "/en/brands/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/en/brands/omega/",
+      "astro4": 64,
+      "astro7": 63,
+      "chenh": -1
+    },
+    {
+      "route": "/en/brands/rolex/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/en/brands/seiko/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/en/compare/",
+      "astro4": 54,
+      "astro7": 53,
+      "chenh": -1
+    },
+    {
+      "route": "/en/contact/",
+      "astro4": 49,
+      "astro7": 48,
+      "chenh": -1
+    },
+    {
+      "route": "/en/copyright/",
+      "astro4": 49,
+      "astro7": 48,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/",
+      "astro4": 95,
+      "astro7": 94,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/barrel/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/beat-rate/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/calibre/",
+      "astro4": 73,
+      "astro7": 72,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/chronograph/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/chronometer/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/crown/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/escape-wheel/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/escapement/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/geneva-stripes/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/gmt/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/guilloche/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/hairspring/",
+      "astro4": 68,
+      "astro7": 67,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/incabloc/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/mainspring/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/master-chronometer/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/minute-repeater/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/movement/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/perlage/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/perpetual-calendar/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/power-reserve/",
+      "astro4": 80,
+      "astro7": 79,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/rotor/",
+      "astro4": 80,
+      "astro7": 79,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/tachymeter/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/en/glossary/tourbillon/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/",
+      "astro4": 67,
+      "astro7": 66,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/accuracy-tracking/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/first-mechanical-watch/",
+      "astro4": 98,
+      "astro7": 97,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/movement-finishing/",
+      "astro4": 92,
+      "astro7": 91,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/reading-and-setting-gmt/",
+      "astro4": 96,
+      "astro7": 95,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/setting-the-date-safely/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/using-a-tachymeter/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/watch-winders/",
+      "astro4": 89,
+      "astro7": 88,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/water-resistance/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/en/guides/winding-a-mechanical-watch/",
+      "astro4": 112,
+      "astro7": 111,
+      "chenh": -1
+    },
+    {
+      "route": "/en/history/",
+      "astro4": 138,
+      "astro7": 137,
+      "chenh": -1
+    },
+    {
+      "route": "/en/iconic-watches/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/en/iconic-watches/cartier-tank/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/en/iconic-watches/omega-speedmaster/",
+      "astro4": 101,
+      "astro7": 100,
+      "chenh": -1
+    },
+    {
+      "route": "/en/iconic-watches/rolex-gmt-master/",
+      "astro4": 93,
+      "astro7": 92,
+      "chenh": -1
+    },
+    {
+      "route": "/en/iconic-watches/rolex-submariner/",
+      "astro4": 98,
+      "astro7": 97,
+      "chenh": -1
+    },
+    {
+      "route": "/en/learning-path/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/anti-magnetism/",
+      "astro4": 82,
+      "astro7": 81,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/automatic-winding/",
+      "astro4": 94,
+      "astro7": 93,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/balance-and-hairspring/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/chronograph/",
+      "astro4": 100,
+      "astro7": 99,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/escapement/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/gmt/",
+      "astro4": 95,
+      "astro7": 94,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/how-a-mechanical-watch-works/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/minute-repeater/",
+      "astro4": 80,
+      "astro7": 79,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/moon-phase/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/perpetual-calendar/",
+      "astro4": 85,
+      "astro7": 84,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/power-reserve/",
+      "astro4": 105,
+      "astro7": 104,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/shock-protection/",
+      "astro4": 85,
+      "astro7": 84,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/tourbillon/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/en/mechanisms/water-resistance/",
+      "astro4": 113,
+      "astro7": 112,
+      "chenh": -1
+    },
+    {
+      "route": "/giai-phau/",
+      "astro4": 54,
+      "astro7": 53,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/",
+      "astro4": 63,
+      "astro7": 62,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/bao-duong-dong-ho/",
+      "astro4": 106,
+      "astro7": 105,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/chinh-lich-an-toan/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/chon-co-dong-ho/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/chon-dong-ho-dau-tien/",
+      "astro4": 108,
+      "astro7": 107,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/do-sai-so/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/doc-va-chinh-gmt/",
+      "astro4": 95,
+      "astro7": 94,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/dung-tachymeter/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/dung-vanh-lan/",
+      "astro4": 82,
+      "astro7": 81,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/hoan-thien-thu-cong-dong-ho/",
+      "astro4": 96,
+      "astro7": 95,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/hop-xoay-dong-ho/",
+      "astro4": 89,
+      "astro7": 88,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/len-day-dong-ho/",
+      "astro4": 110,
+      "astro7": 109,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/microbrand-la-gi/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/muc-chong-nuoc/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/huong-dan/nhan-biet-dong-ho-gia/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/kha-nang-tiep-can/",
+      "astro4": 50,
+      "astro7": 49,
+      "chenh": -1
+    },
+    {
+      "route": "/lich-su/",
+      "astro4": 138,
+      "astro7": 137,
+      "chenh": -1
+    },
+    {
+      "route": "/lien-he/",
+      "astro4": 49,
+      "astro7": 48,
+      "chenh": -1
+    },
+    {
+      "route": "/lo-trinh-hoc-dong-ho/",
+      "astro4": 73,
+      "astro7": 72,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/",
+      "astro4": 188,
+      "astro7": 187,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/arnold-and-son-perpetual-moon/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/audemars-piguet-royal-oak-perpetual-calendar/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/baume-mercier-riviera/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/bell-ross-br-01/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/breguet-type-xx/",
+      "astro4": 81,
+      "astro7": 80,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/breitling-navitimer/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/bvlgari-octo-finissimo/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/carl-f-bucherer-manero-peripheral/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/cartier-tank/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/chanel-j12/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/chopard-luc/",
+      "astro4": 68,
+      "astro7": 67,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/corum-golden-bridge/",
+      "astro4": 81,
+      "astro7": 80,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/credor-eichi-2/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/de-bethune-db28/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/doxa-sub-300/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/dufour-simplicity/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/eterna-matic-1948/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/fc-heart-beat/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/fifty-fathoms/",
+      "astro4": 96,
+      "astro7": 95,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/fpjourne-chronometre-bleu/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/franck-muller-crazy-hours/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/freak/",
+      "astro4": 89,
+      "astro7": 88,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/girard-perregaux-tourbillon-ba-cau/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/glashuette-seaq/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/grand-seiko-snowflake/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/greubel-double-tourbillon/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/h-moser-streamliner/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/hajime-asaoka-project-t/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/hamilton-ventura/",
+      "astro4": 80,
+      "astro7": 79,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/hublot-big-bang/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/iwc-mark-xi/",
+      "astro4": 91,
+      "astro7": 90,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/junghans-max-bill/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/lange-1/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/laurent-ferrier-galet-classic/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/longines-lindbergh/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/mbf-horological-machine-1/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/mido-multifort/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/minase-horizon/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/monaco/",
+      "astro4": 91,
+      "astro7": 90,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/montblanc-minerva-monopusher/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/nomos-tangente/",
+      "astro4": 85,
+      "astro7": 84,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/omega-speedmaster/",
+      "astro4": 99,
+      "astro7": 98,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/orient-bambino/",
+      "astro4": 85,
+      "astro7": 84,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/oris-aquis-depth-gauge/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/panerai-luminor/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/parmigiani-toric/",
+      "astro4": 68,
+      "astro7": 67,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/patek-nautilus/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/patek-philippe-grandmaster-chime/",
+      "astro4": 87,
+      "astro7": 86,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/piaget-altiplano/",
+      "astro4": 73,
+      "astro7": 72,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/rado-diastar/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/reverso/",
+      "astro4": 82,
+      "astro7": 81,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/richard-mille-rm-001/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/roger-dubuis-excalibur/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/rolex-gmt-master/",
+      "astro4": 96,
+      "astro7": 95,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/rolex-submariner/",
+      "astro4": 103,
+      "astro7": 102,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/royal-oak/",
+      "astro4": 88,
+      "astro7": 87,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/seagull-1963/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/seiko-62mas/",
+      "astro4": 83,
+      "astro7": 82,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/stowa-flieger/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/swatch-sistem51/",
+      "astro4": 69,
+      "astro7": 68,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/timex-marlin/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/tissot-prx/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/tudor-black-bay/",
+      "astro4": 85,
+      "astro7": 84,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/universal-geneve-polerouter/",
+      "astro4": 81,
+      "astro7": 80,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/urwerk-ur-105/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/vc-overseas/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/vostok-amphibia/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/voutilainen-vingt-8/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/mau-iconic/zenith-el-primero/",
+      "astro4": 84,
+      "astro7": 83,
+      "chenh": -1
+    },
+    {
+      "route": "/so-sanh/",
+      "astro4": 54,
+      "astro7": 53,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/",
+      "astro4": 122,
+      "astro7": 121,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/a-lange-soehne/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/alpina/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/arnold-and-son/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/audemars-piguet/",
+      "astro4": 63,
+      "astro7": 62,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/baume-et-mercier/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/beijing-watch-factory/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/bell-and-ross/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/blancpain/",
+      "astro4": 64,
+      "astro7": 63,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/breguet/",
+      "astro4": 67,
+      "astro7": 66,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/breitling/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/bvlgari/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/carl-f-bucherer/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/cartier/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/certina/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/chanel/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/chopard/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/christopher-ward/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/citizen/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/corum/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/credor/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/de-bethune/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/doxa/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/eterna/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/fp-journe/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/franck-muller/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/frederique-constant/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/girard-perregaux/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/glashuette-original/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/grand-seiko/",
+      "astro4": 64,
+      "astro7": 63,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/greubel-forsey/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/h-moser/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/hajime-asaoka/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/hamilton/",
+      "astro4": 63,
+      "astro7": 62,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/hublot/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/iwc/",
+      "astro4": 67,
+      "astro7": 66,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/jaeger-lecoultre/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/junghans/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/laurent-ferrier/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/longines/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/mb-and-f/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/mido/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/minase/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/montblanc/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/muehle-glashuette/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/nomos-glashuette/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/omega/",
+      "astro4": 65,
+      "astro7": 64,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/orient/",
+      "astro4": 62,
+      "astro7": 61,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/oris/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/panerai/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/parmigiani-fleurier/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/patek-philippe/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/philippe-dufour/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/piaget/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/rado/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/richard-mille/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/roger-dubuis/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/rolex/",
+      "astro4": 59,
+      "astro7": 58,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/seagull/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/seiko/",
+      "astro4": 62,
+      "astro7": 61,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/sinn/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/stowa/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/swatch/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/tag-heuer/",
+      "astro4": 53,
+      "astro7": 52,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/timex/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/tissot/",
+      "astro4": 64,
+      "astro7": 63,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/tudor/",
+      "astro4": 60,
+      "astro7": 59,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/ulysse-nardin/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/universal-geneve/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/urwerk/",
+      "astro4": 56,
+      "astro7": 55,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/vacheron-constantin/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/vostok/",
+      "astro4": 57,
+      "astro7": 56,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/voutilainen/",
+      "astro4": 55,
+      "astro7": 54,
+      "chenh": -1
+    },
+    {
+      "route": "/thuong-hieu/zenith/",
+      "astro4": 62,
+      "astro7": 61,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/",
+      "astro4": 79,
+      "astro7": 78,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/banh-thoat/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/bezel/",
+      "astro4": 67,
+      "astro7": 66,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/calibre/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/cau-may/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/chan-kinh/",
+      "astro4": 63,
+      "astro7": 62,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/chronograph/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/chronometer/",
+      "astro4": 77,
+      "astro7": 76,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/cotes-de-geneve/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/day-cot/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/day-toc-banh-lac/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/day-vo/",
+      "astro4": 63,
+      "astro7": 62,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/gmt/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/guilloche/",
+      "astro4": 70,
+      "astro7": 69,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/incabloc/",
+      "astro4": 78,
+      "astro7": 77,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/khoa-day/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/lo-may/",
+      "astro4": 65,
+      "astro7": 64,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/metas/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/microbrand/",
+      "astro4": 54,
+      "astro7": 53,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/minute-repeater/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/movement/",
+      "astro4": 86,
+      "astro7": 85,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/ngua/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/num-van/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/perlage/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/perpetual-calendar/",
+      "astro4": 71,
+      "astro7": 70,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/poincon-de-geneve/",
+      "astro4": 66,
+      "astro7": 65,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/power-reserve/",
+      "astro4": 75,
+      "astro7": 74,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/rotor/",
+      "astro4": 76,
+      "astro7": 75,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/tachymeter/",
+      "astro4": 74,
+      "astro7": 73,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/thung-cot/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/tourbillon/",
+      "astro4": 58,
+      "astro7": 57,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/vat-canh/",
+      "astro4": 65,
+      "astro7": 64,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/vau-day/",
+      "astro4": 61,
+      "astro7": 60,
+      "chenh": -1
+    },
+    {
+      "route": "/tu-dien/vph/",
+      "astro4": 72,
+      "astro7": 71,
+      "chenh": -1
+    },
+    {
+      "route": "/ve-chung-toi/",
+      "astro4": 51,
+      "astro7": 50,
+      "chenh": -1
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import pagefind from 'astro-pagefind';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
@@ -27,12 +26,15 @@ const SITE = 'https://www.kienthucdonghoco.vn';
 
 // Cấu hình Astro
 // - site: địa chỉ website khi đưa lên mạng
-// - tailwind: tự động nạp Tailwind CSS vào mọi trang
+// - Tailwind: nạp qua postcss.config.mjs (tailwindcss + autoprefixer) —
+//   @astrojs/tailwind không còn bản tương thích Astro 7 (peer chỉ khai
+//   astro ^3||^4||^5) nên chuyển pipeline PostCSS, giữ nguyên tailwindcss 3.4
+//   và tailwind.config.mjs. Base styles nạp qua src/styles/global.css mà
+//   BaseLayout import (@tailwind base/components/utilities).
 // Output: static (website tĩnh - phù hợp blog nội dung, tải nhanh, deploy đơn giản)
 export default defineConfig({
   site: SITE,
   integrations: [
-    tailwind(),
     pagefind(),
     sitemap({
       // Integration không thấy các route i18n non-default (pathname undefined

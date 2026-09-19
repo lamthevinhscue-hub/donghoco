@@ -1,0 +1,13 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+`markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` run on the `unified` processor from `@astrojs/markdown-remark`, which is no longer installed by default now that Sätteri is the default Markdown processor. Install it with:
+  npm install @astrojs/markdown-remark
+  [1mLocation:[22m
+    [4mD:\donghoco-worktrees\g09c-astro7-tailwind-migration\node_modules\astro\dist\core\config\validate.js:53:11[24m
+  [1mStack trace:[22m
+[2m    at coerceLegacyMarkdownPlugins (file:///D:/donghoco-worktrees/g09c-astro7-tailwind-migration/node_modules/astro/dist/core/config/validate.js:53:11)
+    at async resolveConfig (file:///D:/donghoco-worktrees/g09c-astro7-tailwind-migration/node_modules/astro/dist/core/config/config.js:91:19)
+    at async check (file:///D:/donghoco-worktrees/g09c-astro7-tailwind-migration/node_modules/astro/dist/cli/check/index.js:28:5)
+    at async cli (file:///D:/donghoco-worktrees/g09c-astro7-tailwind-migration/node_modules/astro/dist/cli/index.js:220:5)[22m

@@ -1,0 +1,74 @@
+{
+  "tongEntry": 262,
+  "tongDraftTrue": 0,
+  "perCollection": {
+    "thuongHieu": {
+      "vi": {
+        "soEntry": 73,
+        "draftTrue": 0,
+        "draftFiles": []
+      },
+      "en": {
+        "soEntry": 3,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    },
+    "mauIconic": {
+      "vi": {
+        "soEntry": 69,
+        "draftTrue": 0,
+        "draftFiles": []
+      },
+      "en": {
+        "soEntry": 4,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    },
+    "coChe": {
+      "vi": {
+        "soEntry": 19,
+        "draftTrue": 0,
+        "draftFiles": []
+      },
+      "en": {
+        "soEntry": 14,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    },
+    "tuDien": {
+      "vi": {
+        "soEntry": 33,
+        "draftTrue": 0,
+        "draftFiles": []
+      },
+      "en": {
+        "soEntry": 23,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    },
+    "huongDan": {
+      "vi": {
+        "soEntry": 14,
+        "draftTrue": 0,
+        "draftFiles": []
+      },
+      "en": {
+        "soEntry": 9,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    },
+    "trang": {
+      "vi": {
+        "soEntry": 1,
+        "draftTrue": 0,
+        "draftFiles": []
+      }
+    }
+  },
+  "ghiChu": "src/content/ khong doi (git status chi co D src/content/config.ts = file config legacy bi xoa theo chu di tru); id entry content layer: <lang>/<ten-file-khong-duoi>"
+}

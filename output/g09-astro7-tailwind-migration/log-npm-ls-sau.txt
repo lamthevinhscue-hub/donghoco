@@ -1,0 +1,10 @@
+dong-ho-co@0.1.0 D:\donghoco-worktrees\g09c-astro7-tailwind-migration
+├── @astrojs/check@0.9.10
+├── @astrojs/markdown-remark@7.3.1
+├── @astrojs/sitemap@3.7.4
+├── @vercel/analytics@2.0.1
+├── astro-pagefind@2.0.1
+├── astro@7.3.3
+├── autoprefixer@10.6.1
+├── tailwindcss@3.4.19
+└── three@0.185.1

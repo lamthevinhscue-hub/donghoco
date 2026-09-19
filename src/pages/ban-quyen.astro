@@ -11,7 +11,8 @@ const tr = t(lang);
 
 // Lấy entry ban-quyen từ collection `trang` theo ngôn ngữ
 const all = await getCollection('trang', ({ data }) => import.meta.env.PROD ? data.draft !== true : true);
-const entry = all.find((e) => e.id.startsWith(`${lang}/`) && e.id.endsWith('ban-quyen.md'));
+// Content layer (Astro 5+): id không còn đuôi file ("vi/ban-quyen" thay vì "vi/ban-quyen.md")
+const entry = all.find((e) => e.id.startsWith(`${lang}/`) && e.id.endsWith('ban-quyen'));
 
 if (!entry) {
   return Astro.redirect('/404');

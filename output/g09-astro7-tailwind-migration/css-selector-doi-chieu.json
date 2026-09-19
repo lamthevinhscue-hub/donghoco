@@ -1,0 +1,55 @@
+{
+  "moTa": "Đối chiếu selector class CSS (file + inline) dist astro 7 worktree vs production astro 4 (donghoco1.vercel.app) — 8 trang; prod CSS: index.DK3Dx2Tw.css + ban-quyen.CdHhR1Tn.css; astro 7: BaseLayout*.css + MechanismArticle*.css + inline",
+  "trang": [
+    {
+      "route": "/",
+      "selectorAstro4": 401,
+      "selectorAstro7": 401,
+      "mat": 0
+    },
+    {
+      "route": "/huong-dan/chon-co-dong-ho/",
+      "selectorAstro4": 416,
+      "selectorAstro7": 416,
+      "mat": 0
+    },
+    {
+      "route": "/co-che/bo-thoat/",
+      "selectorAstro4": 409,
+      "selectorAstro7": 425,
+      "mat": 0
+    },
+    {
+      "route": "/so-sanh/",
+      "selectorAstro4": 399,
+      "selectorAstro7": 399,
+      "mat": 0
+    },
+    {
+      "route": "/thuong-hieu/rolex/",
+      "selectorAstro4": 408,
+      "selectorAstro7": 408,
+      "mat": 0
+    },
+    {
+      "route": "/lich-su/",
+      "selectorAstro4": 424,
+      "selectorAstro7": 424,
+      "mat": 0
+    },
+    {
+      "route": "/giai-phau/",
+      "selectorAstro4": 403,
+      "selectorAstro7": 403,
+      "mat": 0
+    },
+    {
+      "route": "/tu-dien/bezel/",
+      "selectorAstro4": 409,
+      "selectorAstro7": 409,
+      "mat": 0
+    }
+  ],
+  "tongSelectorMat": 0,
+  "ghiChu": "bo-thoat THÊM 16 selector wr-* ở astro 7 (CSS component tách file riêng); không trang nào mất selector"
+}

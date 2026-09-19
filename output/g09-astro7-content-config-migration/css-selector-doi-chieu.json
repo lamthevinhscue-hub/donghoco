@@ -1,0 +1,41 @@
+{
+  "tongMat": 0,
+  "chiTiet": [
+    {
+      "route": "/",
+      "astro4": 401,
+      "astro7": 401,
+      "mat": 0,
+      "viDuMat": []
+    },
+    {
+      "route": "/lich-su/",
+      "astro4": 424,
+      "astro7": 424,
+      "mat": 0,
+      "viDuMat": []
+    },
+    {
+      "route": "/co-che/bo-thoat/",
+      "astro4": 409,
+      "astro7": 425,
+      "mat": 0,
+      "viDuMat": []
+    },
+    {
+      "route": "/mau-iconic/rolex-submariner/",
+      "astro4": 417,
+      "astro7": 417,
+      "mat": 0,
+      "viDuMat": []
+    },
+    {
+      "route": "/so-sanh/",
+      "astro4": 399,
+      "astro7": 399,
+      "mat": 0,
+      "viDuMat": []
+    }
+  ],
+  "ghiChu": "so selector class CSS (file + inline) dist astro 7 sau di tru content config vs prod astro 4"
+}

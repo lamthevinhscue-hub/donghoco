@@ -1,0 +1,27 @@
+{
+  "moTa": "Smoke browser worktree codex/g09c-astro7-tailwind-migration — astro 7.3.3 + Tailwind 3.4 qua PostCSS, astro preview port 4398, playwright-cli, 2026-09-19/20",
+  "routes7": [
+    { "route": "/", "status": 200, "h1": "Học đồng hồ cơ từ nguyên lý bộ máy" },
+    { "route": "/lich-su/", "status": 200, "h1": "500 năm chế tác đồng hồ cơ" },
+    { "route": "/en/history/", "status": 200, "h1": "Five centuries of mechanical watchmaking" },
+    { "route": "/giai-phau/", "status": 200, "h1": "Giải phẫu một chiếc đồng hồ cơ" },
+    { "route": "/en/anatomy/", "status": 200, "h1": "The anatomy of a mechanical watch" },
+    { "route": "/so-sanh/", "status": 200, "h1": "So sánh mẫu iconic" },
+    { "route": "/en/compare/", "status": 200, "h1": "Compare iconic models" }
+  ],
+  "pageerror": 0,
+  "switchLang": { "href": "/en/", "status": 200, "url": "http://localhost:4398/en/" },
+  "theme": {
+    "dark": { "bodyBg": "rgb(17, 21, 25)", "h1Color": "rgb(238, 240, 237)" },
+    "light": { "bodyBg": "rgb(251, 251, 248)", "h1Color": "rgb(35, 74, 115)" },
+    "doiMau": true,
+    "ghiChu": "#111519/#FBFBF8/#EEF0ED/#234A73 = đúng token --c-page/--c-primary/--c-steel trong global.css hai chế độ"
+  },
+  "pagefind": { "vi": { "query": "bánh lắc", "soKetQua": 33 }, "en": { "query": "balance", "soKetQua": 13 } },
+  "mobile375": [
+    { "route": "/", "tranNgangPx": 0 },
+    { "route": "/lich-su/", "tranNgangPx": 0 },
+    { "route": "/so-sanh/", "tranNgangPx": 0 }
+  ],
+  "console404": "/_vercel/insights/script.js — beacon Analytics chỉ có trên production Vercel (giới hạn đã ghi từ P2.1/G03)"
+}

@@ -1,0 +1,28 @@
+SACH docs/nghiem-thu/G09-C-astro7-tailwind-migration-2026-09-20.md
+SACH package.json (JSON hợp lệ)
+SACH postcss.config.mjs
+SACH astro.config.mjs
+  GHI-CHU src/components/infographics/MechanismAnimation.astro: 3 vị trí ký tự lạ cùng dãy codePoint với HEAD (hiện trạng có trước) — 72:2022,83:2022,255:2022
+SACH src/components/infographics/MechanismAnimation.astro
+SACH output/g09-astro7-tailwind-migration/css-prefix-doi-chieu.json (JSON hợp lệ)
+SACH output/g09-astro7-tailwind-migration/css-selector-doi-chieu.json (JSON hợp lệ)
+SACH output/g09-astro7-tailwind-migration/log-build-final.txt
+SACH output/g09-astro7-tailwind-migration/log-build-truoc-comment.txt
+SACH output/g09-astro7-tailwind-migration/log-build-truoc-sitemap-nang.txt
+SACH output/g09-astro7-tailwind-migration/log-check-chuan.txt
+SACH output/g09-astro7-tailwind-migration/log-install-allowscripts.txt
+SACH output/g09-astro7-tailwind-migration/log-install-lan1.txt
+SACH output/g09-astro7-tailwind-migration/log-install-lan3.txt
+SACH output/g09-astro7-tailwind-migration/log-install-markdown-remark.txt
+SACH output/g09-astro7-tailwind-migration/log-install-sinh-lai-lockfile.txt
+SACH output/g09-astro7-tailwind-migration/log-npm-ci-chuan.txt
+SACH output/g09-astro7-tailwind-migration/log-npm-ci-lan1.txt
+SACH output/g09-astro7-tailwind-migration/log-npm-ls-sau.txt
+SACH output/g09-astro7-tailwind-migration/log-preview.txt
+SACH output/g09-astro7-tailwind-migration/log-types-sau-legacy-flag.txt
+SACH output/g09-astro7-tailwind-migration/log-types-truoc-legacy-flag.txt
+SACH output/g09-astro7-tailwind-migration/log-types-truoc-markdown-remark.txt
+SACH output/g09-astro7-tailwind-migration/npm-audit-sau.json (JSON hợp lệ)
+SACH output/g09-astro7-tailwind-migration/smoke-browser.json (JSON hợp lệ)
+SACH output/g09-astro7-tailwind-migration/sweep.mjs
+TONG_LOI=0

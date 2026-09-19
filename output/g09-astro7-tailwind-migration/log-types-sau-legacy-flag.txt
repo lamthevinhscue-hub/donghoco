@@ -1,0 +1,335 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+[astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead.
+[2m10:34:48[22m [34m[vite][39m [optimizer] bundling dependencies...
+[2m10:34:49[22m [34m[content][39m Syncing content
+[2m10:34:52[22m [34m[content][39m Synced content
+[2m10:34:52[22m [34m[types][39m Generated [2m4.83s[22m
+[2m10:34:52[22m [34m[check][39m Getting diagnostics for Astro files in D:\donghoco-worktrees\g09c-astro7-tailwind-migration...
+[96msrc/content/config.ts[0m:[93m165[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m165[0m   schema: z.object({
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m158[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m158[0m     difficulty: z.enum(['người mới', 'trung cấp', 'nâng cao']).default('người mới'),
+[7m   [0m [93m                ~[0m
+[96msrc/content/config.ts[0m:[93m156[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m156[0m   schema: z.object({
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m149[0m:[93m18[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m149[0m     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
+[7m   [0m [93m                 ~[0m
+[96msrc/content/config.ts[0m:[93m148[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m148[0m     has_infographic: z.boolean().default(false),    // Có infographic minh họa chưa?
+[7m   [0m [93m                     ~[0m
+[96msrc/content/config.ts[0m:[93m147[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m147[0m     category: z.string().default('chung'),          // Phân nhóm thuật ngữ
+[7m   [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m146[0m:[93m14[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m146[0m     term_en: z.string().optional(),                 // Tên tiếng Anh (nếu có)
+[7m   [0m [93m             ~[0m
+[96msrc/content/config.ts[0m:[93m144[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m144[0m   schema: z.object({
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m137[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m137[0m     relatedModels: z.array(relatedLink).default([]),
+[7m   [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m135[0m:[93m18[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m135[0m     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
+[7m   [0m [93m                 ~[0m
+[96msrc/content/config.ts[0m:[93m134[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m134[0m     has_infographic: z.boolean().default(false),    // Có infographic động chưa?
+[7m   [0m [93m                     ~[0m
+[96msrc/content/config.ts[0m:[93m133[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m133[0m     difficulty: z.enum(['thấp', 'trung bình', 'cao', 'rất cao']),       // Độ khó
+[7m   [0m [93m                ~[0m
+[96msrc/content/config.ts[0m:[93m132[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m132[0m     category: z.enum(['nền tảng', 'phức tạp', 'bổ trợ']),  // Nhóm
+[7m   [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m130[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m130[0m   schema: z.object({
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m123[0m:[93m24[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m123[0m     relatedMechanisms: z.array(relatedLink).default([]),  // → các bài cơ chế (/co-che)
+[7m   [0m [93m                       ~[0m
+[96msrc/content/config.ts[0m:[93m122[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m122[0m     relatedModels: z.array(relatedLink).default([]),      // → các bài mẫu iconic khác
+[7m   [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m119[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m119[0m     featured_rank: z.number().optional(),           // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
+[7m   [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m118[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m118[0m     water_resistance: z.string().optional(),        // Chống nước (VD: "300m")
+[7m   [0m [93m                      ~[0m
+[96msrc/content/config.ts[0m:[93m117[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m117[0m     power_reserve: z.string().optional(),           // Trữ cót (VD: "70 giờ")
+[7m   [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m116[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m116[0m     movement: z.string().optional(),                // Bộ máy (VD: "Calibre 3235")
+[7m   [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m105[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m105[0m     category: z.enum([                              // Thể loại (để lọc + so sánh)
+[7m   [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m104[0m:[93m25[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m104[0m     references: z.array(z.string()).optional(),     // Các thế hệ tham chiếu (reference)
+[7m   [0m [93m                        ~[0m
+[96msrc/content/config.ts[0m:[93m104[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m104[0m     references: z.array(z.string()).optional(),     // Các thế hệ tham chiếu (reference)
+[7m   [0m [93m                ~[0m
+[96msrc/content/config.ts[0m:[93m103[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m103[0m     year: z.number().optional(),                    // Năm ra mắt
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m102[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m102[0m     brand: z.string(),                              // Thương hiệu (VD: "Rolex")
+[7m   [0m [93m           ~[0m
+[96msrc/content/config.ts[0m:[93m100[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m100[0m   schema: z.object({
+[7m   [0m [93m          ~[0m
+[96msrc/content/config.ts[0m:[93m93[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m93[0m       relatedMechanisms: z.array(relatedLink).default([]),
+[7m  [0m [93m                         ~[0m
+[96msrc/content/config.ts[0m:[93m91[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m91[0m       featured_rank: z.number().optional(),         // Ưu tiên lên trang chủ (số nhỏ đứng trước) — do biên tập tự chọn
+[7m  [0m [93m                     ~[0m
+[96msrc/content/config.ts[0m:[93m90[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m90[0m       collectorNote: z.string().optional(),         // Nhận định nhà sưu tầm: chọn khi nào
+[7m  [0m [93m                     ~[0m
+[96msrc/content/config.ts[0m:[93m89[0m:[93m25[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m89[0m       philosophy_label: z.string().optional(),      // Nhãn tùy chỉnh cho dòng "Triết lý" (VD: "Vật liệu đặc trưng" của Chanel)
+[7m  [0m [93m                        ~[0m
+[96msrc/content/config.ts[0m:[93m88[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m88[0m       strength_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Thế mạnh chế tác" (VD: "Gốc gác" của Chanel)
+[7m  [0m [93m                      ~[0m
+[96msrc/content/config.ts[0m:[93m87[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m87[0m       movement_label: z.string().optional(),        // Nhãn tùy chỉnh cho dòng "Bộ máy" trong bảng đối chiếu (VD: "Cách hiển thị giờ" của Urwerk)
+[7m  [0m [93m                      ~[0m
+[96msrc/content/config.ts[0m:[93m86[0m:[93m30[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m86[0m       value_retention_label: z.string().optional(), // Nhãn riêng để hiện dòng value_retention trong bảng đối chiếu — thiếu nhãn thì không render hàng (VD: "Vật liệu" của Rado)
+[7m  [0m [93m                             ~[0m
+[96msrc/content/config.ts[0m:[93m84[0m:[93m21[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m84[0m         philosophy: z.string(),                     // Triết lý
+[7m  [0m [93m                    ~[0m
+[96msrc/content/config.ts[0m:[93m83[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m83[0m         value_retention: z.string().optional(),    // Ô so sánh tùy chọn — chỉ hiện khi trang đặt value_retention_label
+[7m  [0m [93m                         ~[0m
+[96msrc/content/config.ts[0m:[93m82[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m82[0m         movement: z.string(),                       // Bộ máy
+[7m  [0m [93m                  ~[0m
+[96msrc/content/config.ts[0m:[93m81[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m81[0m         strength: z.string(),                       // Thế mạnh chế tác
+[7m  [0m [93m                  ~[0m
+[96msrc/content/config.ts[0m:[93m80[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m80[0m         slug: z.string().optional(),                // Slug đối thủ (nếu có bài)
+[7m  [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m79[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m79[0m         brand: z.string(),                          // Tên đối thủ
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m78[0m:[93m34[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m78[0m       segmentComparison: z.array(z.object({         // Khối 4: So sánh với đối thủ cùng phân khúc
+[7m  [0m [93m                                 ~[0m
+[96msrc/content/config.ts[0m:[93m78[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m78[0m       segmentComparison: z.array(z.object({         // Khối 4: So sánh với đối thủ cùng phân khúc
+[7m  [0m [93m                         ~[0m
+[96msrc/content/config.ts[0m:[93m76[0m:[93m21[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m76[0m         iconic_ref: z.string().optional(),          // Mẫu tiêu biểu (reference)
+[7m  [0m [93m                    ~[0m
+[96msrc/content/config.ts[0m:[93m75[0m:[93m22[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m75[0m         positioning: z.string(),                    // Định vị trong danh mục thương hiệu
+[7m  [0m [93m                     ~[0m
+[96msrc/content/config.ts[0m:[93m74[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m74[0m         identity: z.string(),                       // Đặc tính nhận diện (vỏ, mặt số, bộ máy)
+[7m  [0m [93m                  ~[0m
+[96msrc/content/config.ts[0m:[93m73[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m73[0m         year: z.number().optional(),
+[7m  [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m72[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m72[0m         name: z.string(),
+[7m  [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m71[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m71[0m       collections: z.array(z.object({               // Khối 3: Các dòng đồng hồ (Collections)
+[7m  [0m [93m                           ~[0m
+[96msrc/content/config.ts[0m:[93m71[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m71[0m       collections: z.array(z.object({               // Khối 3: Các dòng đồng hồ (Collections)
+[7m  [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m69[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m69[0m         detail: z.string(),
+[7m  [0m [93m                ~[0m
+[96msrc/content/config.ts[0m:[93m68[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m68[0m         title: z.string(),
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m67[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m67[0m         year: z.number(),
+[7m  [0m [93m              ~[0m
+[96msrc/content/config.ts[0m:[93m66[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m66[0m       lineHistory: z.array(z.object({               // Khối 2: Mini-timeline dọc của riêng thương hiệu
+[7m  [0m [93m                           ~[0m
+[96msrc/content/config.ts[0m:[93m66[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m66[0m       lineHistory: z.array(z.object({               // Khối 2: Mini-timeline dọc của riêng thương hiệu
+[7m  [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m64[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m64[0m       logo: z.string().optional(),                  // Đường dẫn logo (VD: "/images/thuong-hieu/logos/rolex.png")
+[7m  [0m [93m            ~[0m
+[96msrc/content/config.ts[0m:[93m63[0m:[93m35[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m63[0m       signature_calibres: z.array(z.string()).default([]), // Bộ máy in-house tiêu biểu (VD: ["3235", "4130"])
+[7m  [0m [93m                                  ~[0m
+[96msrc/content/config.ts[0m:[93m63[0m:[93m27[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m63[0m       signature_calibres: z.array(z.string()).default([]), // Bộ máy in-house tiêu biểu (VD: ["3235", "4130"])
+[7m  [0m [93m                          ~[0m
+[96msrc/content/config.ts[0m:[93m62[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m62[0m       parent_company: z.string().optional(),        // Tập đoàn mẹ (VD: "Swatch Group", "Richemont", "LVMH")
+[7m  [0m [93m                      ~[0m
+[96msrc/content/config.ts[0m:[93m61[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m61[0m       founded: z.number().optional(),               // Năm thành lập
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m52[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m52[0m       tier: z.enum([                                // Phân khúc (theo đồng thuận cộng đồng)
+[7m  [0m [93m            ~[0m
+[96msrc/content/config.ts[0m:[93m51[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m51[0m       country: z.string(),                          // Quốc gia (VD: "Thụy Sĩ")
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m49[0m:[93m5[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m49[0m     z.object({
+[7m  [0m [93m    ~[0m
+[96msrc/content/config.ts[0m:[93m42[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m42[0m   relation: z.string(), // Nhãn quan hệ — một câu ngắn tiếng Việt giải thích lý do
+[7m  [0m [93m            ~[0m
+[96msrc/content/config.ts[0m:[93m41[0m:[93m9[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m41[0m   slug: z.string(),     // Slug của bài đích (theo collection tương ứng)
+[7m  [0m [93m        ~[0m
+[96msrc/content/config.ts[0m:[93m40[0m:[93m21[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m40[0m const relatedLink = z.object({
+[7m  [0m [93m                    ~[0m
+[96msrc/content/config.ts[0m:[93m34[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m34[0m   updated: z.string().or(z.date()).optional(),
+[7m  [0m [93m                         ~[0m
+[96msrc/content/config.ts[0m:[93m34[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m34[0m   updated: z.string().or(z.date()).optional(),
+[7m  [0m [93m           ~[0m
+[96msrc/content/config.ts[0m:[93m30[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m30[0m     url: z.string(),     // Địa chỉ đầy đủ
+[7m  [0m [93m         ~[0m
+[96msrc/content/config.ts[0m:[93m29[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m29[0m     label: z.string(),   // Tên nguồn hiển thị, VD: "Breguet — trang chính hãng"
+[7m  [0m [93m           ~[0m
+[96msrc/content/config.ts[0m:[93m28[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m28[0m   sources: z.array(z.object({
+[7m  [0m [93m                   ~[0m
+[96msrc/content/config.ts[0m:[93m28[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m28[0m   sources: z.array(z.object({
+[7m  [0m [93m           ~[0m
+[96msrc/content/config.ts[0m:[93m25[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m25[0m   tags: z.array(z.string()).default([]),     // Thẻ tự do, dùng cho tìm kiếm/lọc
+[7m  [0m [93m                ~[0m
+[96msrc/content/config.ts[0m:[93m25[0m:[93m9[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m25[0m   tags: z.array(z.string()).default([]),     // Thẻ tự do, dùng cho tìm kiếm/lọc
+[7m  [0m [93m        ~[0m
+[96msrc/content/config.ts[0m:[93m24[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m24[0m   draft: z.boolean().default(false),         // true = bản nháp, không hiện trên web
+[7m  [0m [93m         ~[0m
+[96msrc/content/config.ts[0m:[93m23[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m23[0m   cover_image: z.string().optional(),        // Ảnh bìa
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m22[0m:[93m23[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m22[0m   date: z.string().or(z.date()).optional(),  // Ngày đăng
+[7m  [0m [93m                      ~[0m
+[96msrc/content/config.ts[0m:[93m22[0m:[93m9[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m22[0m   date: z.string().or(z.date()).optional(),  // Ngày đăng
+[7m  [0m [93m        ~[0m
+[96msrc/content/config.ts[0m:[93m21[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m21[0m   excerpt: z.string(),                // Đoạn tóm tắt ngắn (hiện ở trang danh sách)
+[7m  [0m [93m           ~[0m
+[96msrc/content/config.ts[0m:[93m20[0m:[93m16[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m20[0m   custom_slug: z.string().optional(), // Ghi đè địa chỉ web (nếu bỏ trống, dùng tên tệp)
+[7m  [0m [93m               ~[0m
+[96msrc/content/config.ts[0m:[93m19[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m19[0m   title: z.string(),                  // Tiêu đề bài viết
+[7m  [0m [93m         ~[0m
+[96msrc/content/config.ts[0m:[93m1[0m:[93m28[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m1[0m import { defineCollection, z } from 'astro:content';
+[7m [0m [93m                           ~[0m
+
+Result (331 files):
+- 0 errors
+- 0 warnings
+- 80 hints

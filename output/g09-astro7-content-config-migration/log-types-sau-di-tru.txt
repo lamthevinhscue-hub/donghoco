@@ -1,0 +1,16 @@
+
+> dong-ho-co@0.1.0 check:types
+> astro check
+
+[astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead.
+[2m13:12:56[22m [34m[content][39m Syncing content
+[2m13:12:56[22m [34m[content][39m Astro config changed
+[2m13:12:56[22m [34m[content][39m Content config changed
+[2m13:12:56[22m [34m[content][39m Clearing content store
+[2m13:12:59[22m [34m[content][39m Synced content
+[2m13:12:59[22m [34m[types][39m Generated [2m4.16s[22m
+[2m13:12:59[22m [34m[check][39m Getting diagnostics for Astro files in D:\donghoco-worktrees\g09c-astro7-tailwind-migration...
+Result (332 files):
+- 0 errors
+- 0 warnings
+- 0 hints

@@ -1,0 +1,26 @@
+SACH docs/nghiem-thu/G09-C-di-tru-content-config-astro7-2026-09-20.md
+SACH package.json (JSON hợp lệ)
+SACH postcss.config.mjs
+SACH astro.config.mjs
+SACH src/content.config.ts
+  GHI-CHU src/pages/ban-quyen.astro: 1 vị trí ký tự lạ cùng dãy codePoint với HEAD (hiện trạng có trước) — 44:2190
+SACH src/pages/ban-quyen.astro
+  GHI-CHU src/components/infographics/MechanismAnimation.astro: 3 vị trí ký tự lạ cùng dãy codePoint với HEAD (hiện trạng có trước) — 72:2022,83:2022,255:2022
+SACH src/components/infographics/MechanismAnimation.astro
+SACH output/g09-astro7-content-config-migration/css-selector-doi-chieu.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/inventory-dist-sau.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/inventory-dist-truoc.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/inventory-dist.mjs
+SACH output/g09-astro7-content-config-migration/inventory-entry-src.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/log-build-sau-di-tru.txt
+SACH output/g09-astro7-content-config-migration/log-build-sau-npm-ci.txt
+SACH output/g09-astro7-content-config-migration/log-build-sau-sua-ban-quyen.txt
+SACH output/g09-astro7-content-config-migration/log-npm-ci-chuan.txt
+SACH output/g09-astro7-content-config-migration/log-preview.txt
+SACH output/g09-astro7-content-config-migration/log-types-sau-di-tru.txt
+SACH output/g09-astro7-content-config-migration/npm-audit-sau.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/smoke-browser.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/so-link-vs-prod.json (JSON hợp lệ)
+SACH output/g09-astro7-content-config-migration/so-link-vs-prod.mjs
+SACH output/g09-astro7-content-config-migration/sweep.mjs
+TONG_LOI=0

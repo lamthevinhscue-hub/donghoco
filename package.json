@@ -39,13 +39,14 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@vercel/analytics": "^2.0.1",
-    "astro": "^4.16.18",
+    "astro": "7.3.3",
     "astro-pagefind": "^2.0.1",
     "three": "^0.185.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "autoprefixer": "^10.4.20",
     "tailwindcss": "^3.4.17"
   },
   "overrides": {
@@ -62,7 +63,7 @@
     }
   },
   "allowScripts": {
-    "esbuild@0.21.5": true,
-    "sharp@0.33.5": true
+    "esbuild@0.28.2": true,
+    "sharp@0.35.4": true
   }
 }

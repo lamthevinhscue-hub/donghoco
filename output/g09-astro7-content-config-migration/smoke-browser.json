@@ -1,0 +1,23 @@
+{
+  "moTa": "Smoke browser sau di tru Content Collections — worktree codex/g09c-astro7-tailwind-migration, astro 7.3.3 content layer, preview port 4398, 2026-09-20",
+  "routes9": [
+    { "route": "/", "status": 200, "h1": "Học đồng hồ cơ từ nguyên lý bộ máy", "redirect404": false },
+    { "route": "/en/", "status": 200, "h1": "Learn mechanical watches from how the movement works", "redirect404": false },
+    { "route": "/lich-su/", "status": 200, "h1": "500 năm chế tác đồng hồ cơ", "redirect404": false },
+    { "route": "/en/history/", "status": 200, "h1": "Five centuries of mechanical watchmaking", "redirect404": false },
+    { "route": "/giai-phau/", "status": 200, "h1": "Giải phẫu một chiếc đồng hồ cơ", "redirect404": false },
+    { "route": "/en/anatomy/", "status": 200, "h1": "The anatomy of a mechanical watch", "redirect404": false },
+    { "route": "/so-sanh/", "status": 200, "h1": "So sánh mẫu iconic", "redirect404": false },
+    { "route": "/en/compare/", "status": 200, "h1": "Compare iconic models", "redirect404": false },
+    { "route": "/ban-quyen/", "status": 200, "h1": "Điều khoản bản quyền", "redirect404": false }
+  ],
+  "pageerror": 0,
+  "theme": { "light": "rgb(251, 251, 248)", "dark": "rgb(17, 21, 25)", "doiMau": true },
+  "switcher": { "href": "/en/", "status": 200 },
+  "pagefind": { "vi": { "query": "bánh lắc", "soKetQua": 33 }, "en": { "query": "balance", "soKetQua": 13 } },
+  "mobile375": [
+    { "route": "/", "tranNgangPx": 0 },
+    { "route": "/lich-su/", "tranNgangPx": 0 },
+    { "route": "/ban-quyen/", "tranNgangPx": 0 }
+  ]
+}

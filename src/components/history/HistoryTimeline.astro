@@ -154,7 +154,12 @@ milestones.forEach((m, i) => {
   }
 });
 
-const altFor = (m: Milestone) => (isVi ? m.title : m.title_en) + S.altSuffix;
+const altFor = (m: Milestone) => {
+  const goc = (isVi ? m.title : m.title_en) + S.altSuffix;
+  const nhan = nhanAiOf(m.slug);
+  if (!nhan) return goc;
+  return isVi ? `${goc} (minh họa AI tái dựng)` : `${goc} (AI reconstruction)`;
+};
 const timeLabelOf = (m: Milestone) => (isVi ? m.timeLabel : m.timeLabel_en ?? m.timeLabel);
 const dayTypeOf = (m: Milestone) => (isVi ? m.dayType : m.dayType_en);
 const scopeOf = (m: Milestone) => (isVi ? m.claimScope : m.claimScope_en) ?? '';
@@ -168,6 +173,17 @@ const timelineImage = (slug: string): string | undefined => {
   if (existsSync(join(dir, `${slug}.svg`))) return `/images/timeline/${slug}.svg`;
   return undefined;
 };
+// H12-A: nhãn AI bắt buộc (QUY-CHUAN-HINH-ANH B3.2.4) cho các mốc dùng ảnh AI
+// bối cảnh — hiển thị ở thẻ, trong alt và hộp phóng to (slot data-zoom-ai).
+// Gỡ ảnh AI = xóa tệp jpg + xóa mục khỏi map này → tự quay về SVG.
+const ANH_AI = new Map([[
+  'trench-watch',
+  {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  },
+]] as [string, { vi: string; en: string }][]);
+const nhanAiOf = (slug: string) => ANH_AI.get(slug);
 // Đọc tiếp: bản EN trỏ cặp EN thật khi có; chỉ có VI thì giữ link VI kèm nhãn rõ
 const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
   if (!isVi) {
@@ -268,6 +284,12 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
                     {imageSrc && (
                       <div class="timeline-media">
                         <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />
+                        {/* H12-A: nhãn AI bắt buộc hiển thị ở thẻ với ảnh AI bối cảnh */}
+                        {nhanAiOf(m.slug) && (
+                          <p class="mt-1 rounded border border-brass/30 bg-brass/5 px-2.5 py-1.5 text-xs leading-relaxed text-ink-soft dark:border-dark-brass/40 dark:bg-dark-brass/10 dark:text-dark-text-soft">
+                            {isVi ? nhanAiOf(m.slug)!.vi : nhanAiOf(m.slug)!.en}
+                          </p>
+                        )}
                         <button
                           type="button"
                           class="timeline-zoom-btn absolute right-2 top-2 z-10 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-cream-dark/70 bg-cream/90 px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface/90 dark:text-dark-text"
@@ -275,6 +297,7 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
                           data-zoom-src={imageSrc}
                           data-zoom-alt={altFor(m)}
                           data-zoom-caption={isVi ? m.title : m.title_en}
+                          data-zoom-ai={nhanAiOf(m.slug) ? (isVi ? nhanAiOf(m.slug)!.vi : nhanAiOf(m.slug)!.en) : ''}
                           aria-haspopup="dialog"
                           aria-label={isVi ? `Phóng to ảnh: ${m.title}` : `Zoom in image: ${m.title_en}`}
                         >

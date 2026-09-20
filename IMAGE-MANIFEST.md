@@ -138,3 +138,23 @@ Giao diện đã render sẵn cả logo (Card + BrandLayout) và hero (BrandLayo
 - **Free stock** (Unsplash, Pexels) — chất lượng đồng hồ cơ hạn chế.
 - **Không** auto-tải từ brand website bằng bot — vi phạm bản quyền.
 - **Logo** là trademark — chỉ dùng fair-use cho nhận diện (nhỏ, cạnh tên hãng).
+
+---
+
+## E. TỐI ƯU ẢNH H10 (20/09/2026)
+
+**Phạm vi tối ưu:** chỉ ảnh raster thực sự tải cho người đọc. Số đo cùng điều kiện (preview local, cache tắt, viewport 1280×800, networkidle + cuộn) — chi tiết `output/h10-image-optimization-audit/log-do-truoc-sau.json` (nội bộ).
+
+| Tệp gốc (giữ nguyên) | Bản dẫn xuất web | Kích thước gốc | Kích thước dẫn xuất | Nơi render | Quyết định |
+|---|---|---|---|---|---|
+| `/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg` (87.456B, 1200×675) | `banh-lac-day-toc-hero-760w.webp` (25.964B) + `banh-lac-day-toc-hero-1200w.webp` (52.078B) | 87.456B | −70,3% (browser chọn 760w tại 1280) | `BalanceHairspringChapter.astro` → `/co-che/day-toc-banh-lac` + `/en/mechanisms/balance-and-hairspring` (img eager đầu trang) | **THAY cách render** sang `<picture>` + srcset; JPG gốc là đường phục hồi cho trình duyệt không hỗ trợ WebP |
+
+- **Quyền/nguồn:** ảnh AI bối cảnh của chương Bánh lắc-dây tóc — hồ sơ tạo ảnh theo B3.2.5 (đã duyệt ở gói trước); nhãn AI hai ngôn ngữ trong `figcaption` giữ nguyên, không đổi alt/chú thích.
+- **Lệnh tái tạo dẫn xuất** (nếu cần): `sharp(gốc).resize({width:760}).webp({quality:80})` và `resize({width:1200}).webp({quality:80})` — sharp đi kèm Astro, không thêm dependency.
+- **Kéo dài chất lượng:** độ lệch kênh trung bình 1,51/255 khi đối chiếu giải mã (không nhận ra được).
+- **Ảnh chủ động GIỮ NGUYÊN:**
+  - 28 SVG timeline — sơ đồ, quy tắc không rasterize/nén SVG;
+  - 4 `og/*.jpg` — chỉ crawler tải, không thuộc tải trang; không đổi OG máy móc;
+  - `og/hero-bg.jpg` (312KB) + `og/guilloche-tile.png` (172KB) — **tệp mồ côi**, không trang nào tham chiếu (vết P3.1) — 0 tác động tải trang;
+  - `favicon.svg` 887B.
+- **Kết quả tải trang người đọc (mỗi trang chương, VI lẫn EN):** 88.343B → 26.851B tổng ảnh (−61.492B). Các trang mẫu khác: 0 ảnh raster (chỉ favicon + SVG timeline lazy), không đổi.

@@ -23,6 +23,7 @@
 // =============================================================================
 
 import WatchImage from '../WatchImage.astro';
+import TimelineZoom from '../TimelineZoom.astro';
 import timelineData from '../../data/timeline.json';
 import { HISTORY_CHAPTERS } from '../../data/historyChapters';
 import { englishPathFor } from '../../i18n/contentRoutes';
@@ -261,8 +262,29 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
                     <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{isVi ? m.title : m.title_en}</h3>
 
                     {/* H07-A: mốc chưa có ảnh minh họa → không render khung ảnh/plate
-                        (tránh request 404 và giữ nguyên census plate của G09-B) */}
-                    {imageSrc && <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />}
+                        (tránh request 404 và giữ nguyên census plate của G09-B).
+                        H09: chỉ ảnh thật mới có nút phóng to; nút mang đủ data
+                        (src/alt/chú thích theo ngôn ngữ + chỗ nhãn AI B3.2.4). */}
+                    {imageSrc && (
+                      <div class="timeline-media">
+                        <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />
+                        <button
+                          type="button"
+                          class="timeline-zoom-btn absolute right-2 top-2 z-10 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-cream-dark/70 bg-cream/90 px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface/90 dark:text-dark-text"
+                          data-timeline-zoom
+                          data-zoom-src={imageSrc}
+                          data-zoom-alt={altFor(m)}
+                          data-zoom-caption={isVi ? m.title : m.title_en}
+                          aria-haspopup="dialog"
+                          aria-label={isVi ? `Phóng to ảnh: ${m.title}` : `Zoom in image: ${m.title_en}`}
+                        >
+                          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                          </svg>
+                          <span>{isVi ? 'Phóng to' : 'Zoom'}</span>
+                        </button>
+                      </div>
+                    )}
 
                     <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{isVi ? m.description : m.description_en}</p>
 
@@ -410,6 +432,9 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
   <div class="rounded-lg border border-brass/30 bg-brass/5 dark:bg-dark-brass/10 p-5 text-sm text-ink-soft dark:text-dark-text-soft" set:html={S.note} />
 </section>
 
+<!-- Hộp xem ảnh phóng to dùng chung (H09) — một dialog mỗi trang -->
+<TimelineZoom lang={lang} />
+
 <style>
   /* =============================================================================
      LAYOUT TIMELINE — kế thừa khuôn trang /lich-su cũ (đường dọc, so le, reveal)
@@ -473,6 +498,16 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
   }
   .timeline-heading {
     font-variant-numeric: lining-nums;
+  }
+  /* H09: khung media của thẻ mốc — nút phóng to định vị trong khung ảnh.
+     Ảnh hiển thị mặc định (không phụ thuộc handler onload của WatchImage)
+     để no-JS vẫn thấy ảnh + alt — tiến bộ tăng dần, cùng tinh thần reveal
+     G05-B; hiệu ứng mờ dần khi tải chỉ là trang trí. */
+  .timeline-media {
+    position: relative;
+  }
+  .timeline-media :global(.watch-image img) {
+    opacity: 1;
   }
 
   @media (min-width: 768px) {

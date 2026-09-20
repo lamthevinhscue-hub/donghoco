@@ -1,0 +1,131 @@
+---
+// =============================================================================
+// TimelineZoom — hộp xem ảnh phóng to dùng chung cho timeline (H09, VI/EN)
+// =============================================================================
+// Một <dialog> duy nhất mỗi trang; các thẻ mốc HistoryTimeline đặt nút
+// [data-timeline-zoom] kèm data-zoom-src/alt/caption/ai. JavaScript điền nội
+// dung khi mở — KHÔNG có src sẵn trong HTML nên không có request ảnh nào khi
+// tải trang (cùng URL với ảnh trong thẻ, không đổi nguồn, không eager-load).
+//
+// No-JS: dialog không có thuộc tính open → ẩn mặc định, ảnh/alt/tiêu đề mốc
+// vẫn đọc được trong thẻ. Escape và focus-trap dùng hành vi native của
+// showModal(); sự kiện close dọn src và trả focus về nút đã mở hộp.
+//
+// Chỗ giữ nhãn AI (QUY-CHUAN-HINH-ANH B3.2.4 — "có cùng nhãn khi mở phóng
+// to"): đoạn [data-zoom-ai] nhận data-zoom-ai của nút; hiện chưa có ảnh AI
+// nào trong timeline nên luôn rỗng và ẩn. Khi H12 bổ sung ảnh AI, thẻ mốc
+// chỉ cần truyền data-zoom-ai="Minh họa AI tái dựng — không phải ảnh tư liệu"
+// (hoặc bản EN) — cơ chế giữ nguyên.
+// =============================================================================
+
+interface Props {
+  lang: 'vi' | 'en';
+}
+const { lang } = Astro.props;
+const L =
+  lang === 'vi'
+    ? {
+        heading: 'Ảnh phóng to của mốc lịch sử',
+        close: 'Đóng hộp xem ảnh phóng to',
+      }
+    : {
+        heading: 'Zoomed milestone image',
+        close: 'Close the zoomed image viewer',
+      };
+---
+
+<dialog id="timeline-zoom" class="timeline-zoom" aria-label={L.heading}>
+  <div class="mb-3 flex items-start justify-between gap-3">
+    <p class="font-serif text-lg leading-snug text-navy dark:text-dark-text" data-zoom-caption></p>
+    <button
+      type="button"
+      class="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-cream-dark px-3 py-2 text-sm font-medium text-ink transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text"
+      data-zoom-close
+      aria-label={L.close}
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
+        <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+  </div>
+  <img data-zoom-img alt="" class="block h-auto w-auto max-h-[78vh] max-w-full rounded-md border border-cream-dark object-contain dark:border-dark-border" />
+  <p class="mt-2 hidden rounded border border-brass/30 bg-brass/5 px-2.5 py-1.5 text-xs text-ink-soft dark:bg-dark-brass/10 dark:text-dark-text-soft" data-zoom-ai></p>
+</dialog>
+
+<style>
+  /* Kích thước hộp: theo vw nên vừa 320–390 px và dùng được ở zoom 200%;
+     nút đóng nằm ở thanh riêng phía trên, ảnh không che nó. */
+  dialog.timeline-zoom {
+    width: fit-content;
+    max-width: min(94vw, 960px);
+    padding: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    color: #1f2d3d;
+  }
+  :global(.dark) dialog.timeline-zoom {
+    background: #20272d;
+  }
+  :global(dialog.timeline-zoom::backdrop) {
+    background: rgba(31, 45, 61, 0.72);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    dialog.timeline-zoom,
+    dialog.timeline-zoom *,
+    :global(dialog.timeline-zoom::backdrop) {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initTimelineZoom() {
+    const dlg = document.getElementById('timeline-zoom') as HTMLDialogElement | null;
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    const img = dlg.querySelector('[data-zoom-img]') as HTMLImageElement | null;
+    const cap = dlg.querySelector('[data-zoom-caption]');
+    const ai = dlg.querySelector('[data-zoom-ai]');
+    const closeBtn = dlg.querySelector('[data-zoom-close]') as HTMLButtonElement | null;
+    let nutMo: HTMLButtonElement | null = null;
+
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as Element | null)?.closest?.('[data-timeline-zoom]') as HTMLButtonElement | null;
+      if (!btn) return;
+      nutMo = btn;
+      if (img) {
+        img.setAttribute('src', btn.getAttribute('data-zoom-src') ?? '');
+        img.setAttribute('alt', btn.getAttribute('data-zoom-alt') ?? '');
+      }
+      if (cap) cap.textContent = btn.getAttribute('data-zoom-caption') ?? '';
+      if (ai) {
+        const nhan = btn.getAttribute('data-zoom-ai') ?? '';
+        ai.textContent = nhan;
+        ai.toggleAttribute('hidden', nhan === '');
+      }
+      dlg.showModal();
+      closeBtn?.focus();
+    });
+
+    closeBtn?.addEventListener('click', () => dlg.close());
+
+    dlg.addEventListener('close', () => {
+      // Dọn src để hộp không giữ ảnh giữa các lần mở.
+      img?.removeAttribute('src');
+      const nutDaMo = nutMo;
+      nutMo = null;
+      if (nutDaMo) {
+        // H09 vòng sửa 1 (TXN-20260919-80): một số trình duyệt khôi phục focus
+        // TRỄ sau khi đóng hộp (sau handler close), làm focus rơi lạc thay vì
+        // về nút đã mở. Đặt lại focus sau một nhịp event loop để LUÔN thắng
+        // bước khôi phục đó — đóng bằng Escape hay nút Đóng đều về đúng opener.
+        setTimeout(() => {
+          nutDaMo.focus({ preventScroll: true });
+        }, 0);
+      }
+    });
+  }
+
+  initTimelineZoom();
+</script>

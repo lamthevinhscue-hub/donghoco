@@ -4,7 +4,7 @@ excerpt: "Vì sao không có bảng dùng chung: mỗi hãng công bố mức v�
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
-updated: "2026-09-03"
+updated: "2026-09-20"
 
 sources:
   - label: "OMEGA — FAQ Using your OMEGA watch"
@@ -28,7 +28,7 @@ Hai hãng, hai cách công bố — và không có bảng nào quy đổi giữa
 ## Điều gì thực sự quyết định khả năng chống nước?
 
 - **Gioăng (gasket)** — theo Omega, khả năng chống nước được bảo đảm bởi các gioăng đặt giữa **núm vặn, nút bấm, kính và vỏ**. Các gioăng này "**deteriorate over time**" do nhiệt độ, môi trường, hóa chất và "**must be regularly replaced**".
-- **Va chạm** — Omega: "**heavy impacts** on the crown, pushers or helium valve are known to **affect the water resistance**".
+- **Va chạm** — Omega: "**heavy impacts** are known to **affect the water resistance** and should be avoided" (câu của Omega không liệt kê bộ phận cụ thể; các vị trí có gioăng nêu ở dòng trên).
 - **Tình trạng núm vặn** — núm vặn ren phải được vặn kín sau mỗi lần thao tác (nguyên tắc Omega); núm thường phải đẩy sát vỏ. Rút [núm vặn](/tu-dien/num-van) khi tiếp xúc nước là mở lối cho nước — Seiko ghi rõ "**Do not wash a water resistant watch while the crown is pulled out**".
 - **Lão hóa theo thời gian** — Seiko: "A watch's water resistance is **not permanently guaranteed**."
 

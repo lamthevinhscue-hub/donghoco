@@ -5,7 +5,7 @@ excerpt: "Why there is no shared table: each manufacturer publishes its own rati
 difficulty: "người mới"
 date: "2026-08-08"
 draft: false
-updated: "2026-09-03"
+updated: "2026-09-20"
 
 sources:
   - label: "OMEGA — FAQ Using your OMEGA watch"
@@ -29,7 +29,7 @@ Two manufacturers, two publications — and no table converts between makers. **
 ## What actually determines water resistance?
 
 - **Gaskets** — per OMEGA, water resistance is ensured by gaskets seated between the **crown, the pushers, the crystal and the case**. These gaskets "**deteriorate over time**" under temperature, environment and chemicals, and "**must be regularly replaced**".
-- **Impacts** — OMEGA: "**heavy impacts** on the crown, pushers or helium valve are known to **affect the water resistance**".
+- **Impacts** — OMEGA: "**heavy impacts** are known to **affect the water resistance** and should be avoided" (OMEGA's sentence lists no specific parts; the gasket locations are in the bullet above).
 - **Crown condition** — a screw-down [crown](/en/glossary/crown/) must be screwed back after every handling (OMEGA's rule); a plain crown must be pushed flush. Seiko states plainly: "**Do not wash a water resistant watch while the crown is pulled out**". The crown is also the part you handle most — its winding mechanics are covered in [winding a mechanical watch](/en/guides/winding-a-mechanical-watch/).
 - **Ageing** — Seiko: "A watch's water resistance is **not permanently guaranteed**."
 

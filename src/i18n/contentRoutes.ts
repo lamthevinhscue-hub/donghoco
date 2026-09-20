@@ -98,6 +98,7 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/guilloche', en: '/en/glossary/guilloche/' },
   { vi: '/tu-dien/perlage', en: '/en/glossary/perlage/' },
   { vi: '/tu-dien/cotes-de-geneve', en: '/en/glossary/geneva-stripes/' },
+  { vi: '/tu-dien/chan-kinh', en: '/en/glossary/jewel/' },
   { vi: '/huong-dan/hoan-thien-thu-cong-dong-ho', en: '/en/guides/movement-finishing/' },
   // Thương hiệu
   { vi: '/thuong-hieu/patek-philippe', en: '/en/brands/patek-philippe/' },

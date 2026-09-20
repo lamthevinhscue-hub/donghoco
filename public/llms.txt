@@ -1,0 +1,55 @@
+# Đồng Hồ Cơ — kiến thức đồng hồ cơ tiếng Việt
+
+> Website chuyên sâu về đồng hồ cơ dành cho người mới và nhà sưu tầm: cơ chế hoạt động, từ điển thuật ngữ, lịch sử 500 năm, thương hiệu, mẫu biểu tượng và hướng dẫn thực hành. Nội dung biên soạn gốc, mỗi dữ kiện kỹ thuật gắn nguồn.
+>
+> English: in-depth mechanical watch knowledge in Vietnamese — how movements work, a glossary, 500 years of history, brands, iconic watches and practical guides. Original editorial content with sourced technical claims. Selected pages have English versions under /en/.
+
+## Trang chính — Main pages
+
+- [Trang chủ (tiếng Việt)](https://www.kienthucdonghoco.vn/): khởi đầu — chọn lộ trình đọc phù hợp
+- [English home](https://www.kienthucdonghoco.vn/en/): start here — English-language pages
+
+## Hành trình lịch sử — History
+
+- [500 năm chế tác đồng hồ cơ](https://www.kienthucdonghoco.vn/lich-su/): 32 mốc × 6 chương, mỗi mốc gắn nguồn
+- [Five centuries of watchmaking (EN)](https://www.kienthucdonghoco.vn/en/history/): the same journey in English
+
+## Cơ chế hoạt động — How movements work
+
+- [Cơ chế](https://www.kienthucdonghoco.vn/co-che/): bộ thoát, lên dây tự động, chống nước, chống từ, GMT, chronograph…
+- [Mechanisms (EN)](https://www.kienthucdonghoco.vn/en/mechanisms/): the same mechanism articles in English
+
+## Từ điển thuật ngữ — Glossary
+
+- [Từ điển](https://www.kienthucdonghoco.vn/tu-dien/): chân kính, vặn vỏ, tourbillon, chronometer…
+- [Glossary (EN)](https://www.kienthucdonghoco.vn/en/glossary/): watch terms explained in English
+
+## Hướng dẫn thực hành — Guides
+
+- [Hướng dẫn](https://www.kienthucdonghoco.vn/huong-dan/): chọn đồng hồ đầu tiên, bảo dưỡng, dùng hằng ngày
+- [Guides (EN)](https://www.kienthucdonghoco.vn/en/guides/): practical guides in English
+
+## Thương hiệu — Brands
+
+- [Thương hiệu](https://www.kienthucdonghoco.vn/thuong-hieu/): hồ sơ các hãng, không bảng giá
+- [Brands (EN)](https://www.kienthucdonghoco.vn/en/brands/): brand profiles in English
+
+## Mẫu biểu tượng — Iconic watches
+
+- [Mẫu iconic](https://www.kienthucdonghoco.vn/mau-iconic/): Submariner, Royal Oak, El Primero…
+- [Iconic watches (EN)](https://www.kienthucdonghoco.vn/en/iconic-watches/): iconic models in English
+
+## Giải phẫu bộ máy — Watch anatomy
+
+- [Giải phẫu bộ máy](https://www.kienthucdonghoco.vn/giai-phau/): mô hình 3D từng lớp bộ máy
+- [Watch anatomy (EN)](https://www.kienthucdonghoco.vn/en/anatomy/): the 3D exploded view in English
+
+## So sánh — Comparisons
+
+- [So sánh](https://www.kienthucdonghoco.vn/so-sanh/): đối chiếu cấu tạo giữa các bộ máy
+- [Comparisons (EN)](https://www.kienthucdonghoco.vn/en/compare/): movement comparisons in English
+
+## Theo dõi — Feeds
+
+- [RSS tiếng Việt](https://www.kienthucdonghoco.vn/rss.xml): nội dung mới xuất bản
+- [English RSS](https://www.kienthucdonghoco.vn/en/rss.xml): newly published English content

@@ -1,19 +1,22 @@
 ---
 // =============================================================================
-// TRANG /en/history — THE HISTORY JOURNEY: 28 MILESTONES × 6 CHAPTERS (EN)
+// TRANG /en/history — THE HISTORY JOURNEY × 6 CHAPTERS (EN)
 // =============================================================================
 // G05-B: bản tiếng Anh của trang lịch sử, dùng chung khuôn HistoryTimeline
 // với /lich-su/ (cặp route khai trong contentRoutes.ts). Dữ liệu dịch nằm
 // trong timeline.json (các trường *_en); khung chương trong historyChapters.ts.
+// Số mốc trong mô tả lấy từ dữ liệu (H07-A).
 // =============================================================================
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HistoryTimeline from '../../components/history/HistoryTimeline.astro';
+import timelineData from '../../data/timeline.json';
+const soMoc = timelineData.length;
 ---
 
 <BaseLayout
   title="Five centuries of mechanical watchmaking"
-  description="The flow of time from a Nuremberg pocket movement to the silicon era — how the mechanical watch travelled from the pocket to the wrist. 28 milestones that shaped the industry, told the way a collector would walk you down the corridor of history."
+  description={`The flow of time from a Nuremberg pocket movement to the silicon era — how the mechanical watch travelled from the pocket to the wrist. ${soMoc} milestones that shaped the industry, told the way a collector would walk you down the corridor of history.`}
 >
   <HistoryTimeline lang="en" />
 </BaseLayout>

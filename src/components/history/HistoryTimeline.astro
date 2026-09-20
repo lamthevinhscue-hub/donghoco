@@ -1,6 +1,7 @@
 ---
 // =============================================================================
-// HistoryTimeline — Hành trình lịch sử 28 mốc × 6 chương (G05-B, khuôn chung)
+// HistoryTimeline — Hành trình lịch sử × 6 chương (G05-B, khuôn chung; số mốc
+// theo dữ liệu timeline.json — H07-A)
 // =============================================================================
 // Dùng chung cho /lich-su/ (lang="vi") và /en/history/ (lang="en") — hai wrapper
 // trang chỉ còn BaseLayout + component này; logic lọc/nav/reveal KHÔNG nhân đôi.
@@ -68,7 +69,7 @@ const milestones = timelineData as Milestone[];
 // ===== Nhãn song ngữ của trang (riêng component — không đụng ui.ts) =====
 const S = isVi ? {
   pageTitle: '500 năm chế tác đồng hồ cơ',
-  pageLead: 'Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. <strong>28 mốc</strong> định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử.',
+  pageLead: `Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. <strong>${milestones.length} mốc</strong> định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử.`,
   chapterWord: 'Chương',
   filterLabel: 'Lọc theo lớp:',
   all: 'Tất cả',
@@ -102,7 +103,7 @@ const S = isVi ? {
   note: '<strong class="text-brass">💡 Ghi chú của nhà sưu tầm:</strong>\n      500 năm này không phải đường thẳng — mà là chuỗi <em>phát minh → khủng hoảng → phục hưng</em>.\n      Khi đọc, hãy để ý cách các mốc <strong>văn hóa</strong> (chiến tranh, khủng hoảng quartz)\n      định hình lại toàn bộ <strong>máy móc</strong> và <strong>thương hiệu</strong>.',
 } : {
   pageTitle: 'Five centuries of mechanical watchmaking',
-  pageLead: 'The flow of time from a Nuremberg pocket movement to the silicon era — how the mechanical watch travelled from the pocket to the wrist. <strong>28 milestones</strong> that shaped the industry, told the way a collector would walk you down the corridor of history.',
+  pageLead: `The flow of time from a Nuremberg pocket movement to the silicon era — how the mechanical watch travelled from the pocket to the wrist. <strong>${milestones.length} milestones</strong> that shaped the industry, told the way a collector would walk you down the corridor of history.`,
   chapterWord: 'Chapter',
   filterLabel: 'Filter by type:',
   all: 'All',
@@ -158,7 +159,14 @@ const dayTypeOf = (m: Milestone) => (isVi ? m.dayType : m.dayType_en);
 const scopeOf = (m: Milestone) => (isVi ? m.claimScope : m.claimScope_en) ?? '';
 const limitOf = (m: Milestone) => (isVi ? m.limit : m.limit_en) ?? null;
 const nameOf = (s: TimelineSource) => (isVi ? s.name : s.name_en ?? s.name);
-const hasImage = (slug: string) => existsSync(join(process.cwd(), 'public', 'images', 'timeline', `${slug}.jpg`));
+// Ảnh mốc: jpg ưu tiên, rồi svg; không có cả hai → không gửi src (WatchImage
+// render technical plate tĩnh, không tạo request 404) — H07-A: mốc mới chưa có ảnh.
+const timelineImage = (slug: string): string | undefined => {
+  const dir = join(process.cwd(), 'public', 'images', 'timeline');
+  if (existsSync(join(dir, `${slug}.jpg`))) return `/images/timeline/${slug}.jpg`;
+  if (existsSync(join(dir, `${slug}.svg`))) return `/images/timeline/${slug}.svg`;
+  return undefined;
+};
 // Đọc tiếp: bản EN trỏ cặp EN thật khi có; chỉ có VI thì giữ link VI kèm nhãn rõ
 const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
   if (!isVi) {
@@ -229,9 +237,7 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
           <div class="timeline-items">
             {ms.map(({ m, i }) => {
               const layer = S.layers.find((l) => l.id === m.type) ?? S.layers[0];
-              const imageSrc = hasImage(m.slug)
-                ? `/images/timeline/${m.slug}.jpg`
-                : `/images/timeline/${m.slug}.svg`;
+              const imageSrc = timelineImage(m.slug);
               const scopeTxt = scopeOf(m);
               const limitTxt = limitOf(m);
               const rm = readMoreOf(m);
@@ -254,7 +260,9 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
 
                     <h3 class="mb-2 font-serif text-lg text-navy dark:text-dark-text">{isVi ? m.title : m.title_en}</h3>
 
-                    <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />
+                    {/* H07-A: mốc chưa có ảnh minh họa → không render khung ảnh/plate
+                        (tránh request 404 và giữ nguyên census plate của G09-B) */}
+                    {imageSrc && <WatchImage src={imageSrc} alt={altFor(m)} ratio="4/3" />}
 
                     <p class="mt-3 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{isVi ? m.description : m.description_en}</p>
 
@@ -587,21 +595,23 @@ const readMoreNoteOf = (m: Milestone) => (isVi ? m.readMoreNote : m.readMoreNote
   (function keepHistoryHash() {
     const path = location.pathname.replace(/\/+$/, '') || '/';
     if (path !== '/lich-su' && path !== '/en/history') return;
-    // Chỉ giữ hash có ID THẬT trong tập anchor chung: #milestone-0…27, #chuong-c1…6.
+    // Chỉ giữ hash có ID THẬT trong tập anchor chung: #milestone-0…(số thẻ −1),
+    // #chuong-c1…6. Số thẻ lấy từ DOM (dữ liệu thật, không viết cứng — H07-A).
     // Số viết không chuẩn bị loại: "00"/"01" (zero dẫn đầu — ID thật là milestone-0/1),
-    // "028" (zero dẫn đầu + vượt 27), "999" (vượt tập anchor) → bỏ hash, switcher
+    // "028" (zero dẫn đầu + vượt tập), "999" (vượt tập) → bỏ hash, switcher
     // về đầu trang đích như mặc định. Không đổi hành vi toàn site.
-    const hashHopLe = () => {
+    const hashHopLe = (maxIdx: number) => {
       if (/^#chuong-c[1-6]$/.test(location.hash)) return true;
       const m = location.hash.match(/^#milestone-(\d+)$/);
       // Dạng chuẩn: String(Number(chuỗi)) phải trùng chuỗi gốc → "00"/"028" bị loại
-      // tại đây; điều kiện >27 chặn phần còn lại ("999").
-      return m !== null && String(Number(m[1])) === m[1] && Number(m[1]) <= 27;
+      // tại đây; điều kiện > maxIdx chặn phần còn lại ("999").
+      return m !== null && String(Number(m[1])) === m[1] && Number(m[1]) <= maxIdx;
     };
     const apDung = () => {
+      const maxIdx = document.querySelectorAll('.milestone-card').length - 1;
       document.querySelectorAll<HTMLAnchorElement>('[data-lang-hash-keep]').forEach((a) => {
         if (!a.dataset.langHashBase) a.dataset.langHashBase = a.getAttribute('href') ?? '';
-        a.setAttribute('href', a.dataset.langHashBase + (hashHopLe() ? location.hash : ''));
+        a.setAttribute('href', a.dataset.langHashBase + (hashHopLe(maxIdx) ? location.hash : ''));
       });
     };
     // hashchange: cùng-trang điều hướng anchor (không reload) cũng phải cập nhật

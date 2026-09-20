@@ -3,13 +3,14 @@
 // =============================================================================
 // Hai lớp:
 //   Lớp nguồn (luôn chạy — nối npm run check, TRƯỚC build):
-//     G5-1…G5-8: dữ liệu 28 mốc + bản dịch đầy đủ, ranh giới 6 chương, cặp
-//     route đọc tiếp, chuỗi câu giữ chương, nhãn trạng thái trong component.
+//     G5-1…G5-8: dữ liệu mốc (28 mốc nền + đúng các mốc bối cảnh H07 — kỳ vọng
+//     theo danh sách, không số cứng) + bản dịch đầy đủ, ranh giới 6 chương
+//     liên tiếp phủ toàn bộ dữ liệu, cặp route đọc tiếp, chuỗi câu giữ chương,
+//     nhãn trạng thái trong component.
 //   Lớp dist (khi có thư mục dist — nối npm run build, SAU astro build):
-//     G5-D1: /lich-su/ render đủ 28 thẻ + 6 chương + nav chương + k/N.
-//     G5-D2: /en/history/ render đủ nội dung EN + 25/0/3 trạng thái đọc tiếp
-//       (H03-C 20/09/2026: +6 cặp thương hiệu EN — khép 23/23 đích duy nhất),
-//       không rò chữ tiếng Việt hiển thị (loại tên riêng đã duyệt).
+//     G5-D1: /lich-su/ render đủ thẻ theo dữ liệu + 6 chương + nav chương + k/N.
+//     G5-D2: /en/history/ render đủ nội dung EN + trạng thái đọc tiếp theo dữ
+//       liệu, không rò chữ tiếng Việt hiển thị (loại tên riêng đã duyệt).
 //     G5-D3: hreflang + switcher hai trang; trang chủ EN có lối vào.
 //
 // Mutation (5 ca cô lập, không tiêm repo chính): chạy
@@ -44,21 +45,34 @@ const chaptersRaw = readFileSync(join(ROOT, 'src', 'data', 'historyChapters.ts')
 const crRaw = readFileSync(join(ROOT, 'src', 'i18n', 'contentRoutes.ts'), 'utf8');
 const compRaw = readFileSync(join(ROOT, 'src', 'components', 'history', 'HistoryTimeline.astro'), 'utf8');
 
+// H07-A (20/09/2026): 28 mốc nền + đúng 4 mốc bối cảnh mới — danh sách kỳ vọng
+// (phải khớp hồ sơ H07-A; thêm mốc lần sau phải cập nhật cả hai danh sách).
+const MOC_MOI_H07 = ['universal-time-1884', 'great-depression-1929', 'atomic-second-1967', 'oil-shock-1973'];
+const SO_MOC_NEN = 28;
 
-// G5-1: 28 mốc, slug duy nhất
+// G5-1: đủ mốc nền + đúng các mốc mới được phép; slug duy nhất
 const slugs = Array.isArray(data) ? data.map((m) => m.slug) : [];
-kiem('G5-1', '28 mốc, slug duy nhất', data.length === 28 && new Set(slugs).size === 28, `thực tế ${data.length}`);
+kiem('G5-1', `Đủ ${SO_MOC_NEN} mốc nền + đúng ${MOC_MOI_H07.length} mốc bối cảnh H07, slug duy nhất`,
+  data.length === SO_MOC_NEN + MOC_MOI_H07.length
+  && MOC_MOI_H07.every((s) => slugs.includes(s))
+  && slugs.filter((s) => !MOC_MOI_H07.includes(s)).length === SO_MOC_NEN
+  && new Set(slugs).size === slugs.length,
+  `thực tế ${data.length}`);
 
-// G5-2: bản dịch trường chính đủ 28
+// G5-2: bản dịch trường chính đủ mọi mốc (theo dữ liệu — H07-A)
 const thieuDich = data.filter((m) => !m.title_en?.trim() || !m.description_en?.trim() || !m.dayType_en?.trim() || !m.claimScope_en?.trim()).map((m) => m.slug);
-kiem('G5-2', 'title_en + description_en + dayType_en + claimScope_en đủ 28 mốc', thieuDich.length === 0, thieuDich.join(', ') || 'đủ');
+kiem('G5-2', `title_en + description_en + dayType_en + claimScope_en đủ ${data.length} mốc`, thieuDich.length === 0, thieuDich.join(', ') || 'đủ');
 
-// G5-3: limit_en đúng 19 mốc có limit; timeLabel_en đúng mốc 2013–nay
+// G5-3: limit_en đủ mọi mốc có limit (không thừa); timeLabel_en bắt buộc cho
+// mốc có timeLabel chứa chữ (không thuần số/ký hiệu) — H07-A dữ liệu hóa
 const coLimit = data.filter((m) => m.limit);
 const thieuLimit = coLimit.filter((m) => !m.limit_en?.trim()).map((m) => m.slug);
 const thaLimit = data.filter((m) => !m.limit && m.limit_en).map((m) => m.slug);
+const canTlEn = (label) => /[^\d\s~–—-]/.test(String(label ?? ''));
 const tlEn = data.filter((m) => m.timeLabel_en);
-kiem('G5-3', `limit_en đủ ${coLimit.length} mốc có giới hạn (không thừa); timeLabel_en chỉ mốc 2013`, thieuLimit.length === 0 && thaLimit.length === 0 && tlEn.length === 1 && tlEn[0].slug === 'silicon-revival' && tlEn[0].timeLabel_en === '2013–present', `thiếu=${thieuLimit.join(',') || 'không'} thừa=${thaLimit.join(',') || 'không'} timeLabel_en=${tlEn.map((m) => m.slug).join(',') || 'không'}`);
+const tlEnSai = tlEn.filter((m) => !canTlEn(m.timeLabel)).map((m) => m.slug);
+const tlEnThieu = data.filter((m) => canTlEn(m.timeLabel) && !m.timeLabel_en?.trim()).map((m) => m.slug);
+kiem('G5-3', `limit_en đủ ${coLimit.length} mốc có giới hạn (không thừa); timeLabel_en đúng cho mốc có nhãn chứa chữ`, thieuLimit.length === 0 && thaLimit.length === 0 && tlEnSai.length === 0 && tlEnThieu.length === 0, `thiếu-lim=${thieuLimit.join(',') || 'không'} thừa-lim=${thaLimit.join(',') || 'không'} tlEn thừa=${tlEnSai.join(',') || 'không'} tlEn thiếu=${tlEnThieu.join(',') || 'không'}`);
 
 // G5-4: trường VI + nguồn bảo toàn (không rỗng, https, ngày kiểm, proves; name_en chỉ phần mô tả tiếng Việt)
 const nameViRe = /[\u0103\u00E2\u0111\u00EA\u00F4\u01A1\u01B0\u00E1\u00E0\u1EA3\u00E3\u1EA1\u1EA5\u1EA7\u1EA9\u1EAB\u1EAD\u1EAF\u1EB1\u1EB3\u1EB5\u1EB7\u00E9\u00E8\u1EBB\u1EBD\u1EB9\u1EBF\u1EC1\u1EC3\u1EC5\u1EC7\u00ED\u00EC\u1EC9\u0129\u1ECB\u00F3\u00F2\u1ECF\u00F5\u1ECD\u1ED1\u1ED3\u1ED5\u1ED7\u1ED9\u1EDB\u1EDD\u1EDF\u1EE1\u1EE3\u00FA\u00F9\u1EE7\u0169\u1EE5\u1EE9\u1EEB\u1EED\u1EEF\u1EF1\u00FD\u1EF3\u1EF7\u1EF9\u1EF5]/;
@@ -76,7 +90,7 @@ for (const m of data) {
     }
   }
 }
-kiem('G5-4', 'Cấu trúc nguồn hợp lệ (https, ngày kiểm, proves không rỗng); name_en đúng phần mô tả tiếng Việt', nguonLoi === 0 && nameVi === 4 && nameEn === 4, `nguồn lỗi=${nguonLoi}, name tiếng Việt=${nameVi}, có name_en=${nameEn}`);
+kiem('G5-4', 'Cấu trúc nguồn hợp lệ (https, ngày kiểm, proves không rỗng); name_en đúng phần mô tả tiếng Việt', nguonLoi === 0 && nameVi === nameEn, `nguồn lỗi=${nguonLoi}, name tiếng Việt=${nameVi}, có name_en=${nameEn}`);
 // G5-4b: BẰNG CHỨNG BẢO TOÀN — so trường VI + nguồn với fixture baseline cố định.
 // Fixture scripts/fixtures/timeline-baseline-aba250c.json trích NGUYÊN VĂN
 // `git show aba250c:src/data/timeline.json` (đối chiếu sha256 một lần trong biên
@@ -94,47 +108,56 @@ try {
     baoToanChiTiet = 'thiếu fixture baseline scripts/fixtures/timeline-baseline-aba250c.json — kiểm bảo toàn KHÔNG được bỏ qua';
   } else {
     const goc = JSON.parse(readFileSync(FIXTURE, 'utf8'));
+    // H07-A: so theo SLUG (không theo chỉ số) — chèn mốc mới làm dịch chỉ số
+    // nhưng mọi trường VI + nguồn của 28 mốc nền phải giữ nguyên từng byte giá trị.
+    const hienTai = new Map(data.map((m) => [m.slug, m]));
     const lech = [];
-    if (goc.length !== data.length) lech.push('số mốc');
-    for (let i = 0; i < Math.min(goc.length, data.length); i++) {
-      if (goc[i].slug !== data[i].slug) { lech.push(`thứ tự #${i}: ${goc[i].slug}≠${data[i].slug}`); continue; }
-      for (const k of Object.keys(goc[i])) {
+    for (const g of goc) {
+      const moi = hienTai.get(g.slug);
+      if (!moi) { lech.push(`mất mốc nền: ${g.slug}`); continue; }
+      for (const k of Object.keys(g)) {
         if (k === 'sources') {
-          const gocSrc = goc[i].sources.map(({ name, url, checked, proves }) => ({ name, url, checked, proves }));
-          const moiSrc = (data[i].sources ?? []).map(({ name, url, checked, proves }) => ({ name, url, checked, proves }));
-          if (JSON.stringify(gocSrc) !== JSON.stringify(moiSrc)) lech.push(`${goc[i].slug}:sources`);
-        } else if (JSON.stringify(goc[i][k]) !== JSON.stringify(data[i][k])) lech.push(`${goc[i].slug}:${k}`);
+          const gocSrc = g.sources.map(({ name, url, checked, proves }) => ({ name, url, checked, proves }));
+          const moiSrc = (moi.sources ?? []).map(({ name, url, checked, proves }) => ({ name, url, checked, proves }));
+          if (JSON.stringify(gocSrc) !== JSON.stringify(moiSrc)) lech.push(`${g.slug}:sources`);
+        } else if (JSON.stringify(g[k]) !== JSON.stringify(moi[k])) lech.push(`${g.slug}:${k}`);
       }
     }
     baoToanOk = lech.length === 0;
-    baoToanChiTiet = lech.slice(0, 5).join(', ') || 'giữ nguyên 100% trường VI + nguồn so fixture aba250c';
+    baoToanChiTiet = lech.slice(0, 5).join(', ') || `giữ nguyên 100% trường VI + nguồn của ${goc.length} mốc nền so fixture aba250c (so theo slug)`;
   }
 } catch (e) {
   baoToanChiTiet = 'đọc fixture lỗi: ' + e.message;
 }
-kiem('G5-4b', 'Bảo toàn: mọi trường VI + sources khớp fixture baseline aba250c từng byte giá trị (không phụ thuộc Git)', baoToanOk, baoToanChiTiet);
+kiem('G5-4b', 'Bảo toàn: mọi trường VI + sources của 28 mốc nền khớp fixture baseline aba250c từng byte giá trị (so theo slug, không phụ thuộc Git)', baoToanOk, baoToanChiTiet);
 
-// G5-5: 6 chương — id, range phủ 0..27 liên tiếp không chồng, đủ vi/en
+// G5-5: 6 chương — id, range phủ 0..(n−1) liên tiếp không chồng, đủ vi/en
+// (H07-A: range không cứng nữa — chỉ bắt buộc liên tiếp, phủ toàn bộ dữ liệu,
+// đủ 6 chương; độ dài mỗi chương > 0)
 const idList = [...chaptersRaw.matchAll(/^\s{4}id: '(c\d)',$/gm)].map((m) => m[1]);
 const rangeList = [...chaptersRaw.matchAll(/^\s{4}range: \[(\d+), (\d+)\],$/gm)].map((m) => [Number(m[1]), Number(m[2])]);
-const RANGE_DUYET = [[0, 5], [5, 9], [9, 15], [15, 21], [21, 25], [25, 28]]; // 5+4+6+6+4+3 — bảng ánh xạ G05-A
 let rangeOk = idList.length === 6 && rangeList.length === 6 && idList.join(',') === 'c1,c2,c3,c4,c5,c6';
-rangeOk = rangeOk && JSON.stringify(rangeList) === JSON.stringify(RANGE_DUYET); // đúng từng ranh giới đã duyệt
+if (rangeOk) {
+  for (let i = 0; i < rangeList.length; i++) {
+    const [d, c] = rangeList[i];
+    if (c <= d) { rangeOk = false; break; } // chương rỗng
+    if (i === 0 && d !== 0) { rangeOk = false; break; } // không bắt đầu 0
+    if (i > 0 && d !== rangeList[i - 1][1]) { rangeOk = false; break; } // không liên tiếp
+    if (i === rangeList.length - 1 && c !== data.length) { rangeOk = false; break; } // không phủ hết
+  }
+}
 const chapTextOk = [...chaptersRaw.matchAll(/vi: \{[\s\S]*?\}/g)].length === 6 && [...chaptersRaw.matchAll(/en: \{[\s\S]*?\}/g)].length === 6
   && (chaptersRaw.match(/question: '/g) ?? []).length === 12 && (chaptersRaw.match(/lead: '/g) ?? []).length === 12;
-kiem('G5-5', '6 chương: id c1–c6, range phủ 0–27 liên tiếp (5+4+6+6+4+3), đủ vi/en', rangeOk && chapTextOk, `ids=${idList.join(',')}, ranges=${JSON.stringify(rangeList)}`);
+kiem('G5-5', '6 chương: id c1–c6, range liên tiếp phủ toàn bộ mốc (0 → số mốc dữ liệu), đủ vi/en', rangeOk && chapTextOk, `ids=${idList.join(',')}, ranges=${JSON.stringify(rangeList)}, n=${data.length}`);
 
 // G5-6: đọc tiếp — đếm theo mốc: có cặp EN / chỉ VI / chưa có bài
+// (H07-A: số kỳ vọng theo dữ liệu — bất biến bắt buộc là "không mốc nào
+// chỉ có link VI"; các số còn lại báo theo dữ liệu)
 const pairMap = new Map([...crRaw.matchAll(/\{\s*vi:\s*'([^']+)',\s*en:\s*'([^']+)'\s*\}/g)].map((m) => [m[1], m[2]]));
 const rmCoEN = data.filter((m) => m.readMore && pairMap.has(m.readMore));
 const rmChiVI = data.filter((m) => m.readMore && !pairMap.has(m.readMore));
 const rmKhong = data.filter((m) => !m.readMore);
-// H03-A (19/09/2026): 5 cặp EN mới nâng số mốc có cặp EN từ 12 lên 17.
-// H03-B (20/09/2026): 2 cặp EN mới nâng từ 17 lên 19.
-// H03-C (20/09/2026): 6 cặp thương hiệu EN mới (patek-philippe, cartier, breguet,
-// blancpain, vacheron-constantin, tag-heuer) nâng từ 19 lên 25 — khép hết 23 đích
-// readMore duy nhất; kỳ vọng cập nhật theo dữ liệu.
-kiem('G5-6', 'Đọc tiếp: 25 mốc có cặp EN + 0 mốc chỉ VI + 3 mốc chưa có bài (đếm theo mốc)', rmCoEN.length === 25 && rmChiVI.length === 0 && rmKhong.length === 3, `cóEN=${rmCoEN.length}, chỉVI=${rmChiVI.length}, không=${rmKhong.length}`);
+kiem('G5-6', `Đọc tiếp: 0 mốc chỉ VI + ${rmCoEN.length} mốc có cặp EN + ${rmKhong.length} mốc chưa có bài (tổng khớp dữ liệu)`, rmChiVI.length === 0 && rmCoEN.length + rmKhong.length === data.length, `cóEN=${rmCoEN.length}, chỉVI=${rmChiVI.length}, không=${rmKhong.length}, tổng=${data.length}`);
 const capEnDang = rmCoEN.every((m) => pairMap.get(m.readMore).startsWith('/en/'));
 kiem('G5-6b', 'Điều kiện cần (lớp nguồn): mọi cặp EN của mốc đọc tiếp có dạng route /en/ — đích THẬT được kiểm ở lớp dist [G5-D4]', capEnDang, rmCoEN.filter((m) => !pairMap.get(m.readMore).startsWith('/en/')).map((m) => m.slug).join(',') || 'đủ');
 
@@ -161,11 +184,12 @@ const ruleCardAn = [...compRaw.matchAll(reRuleCard)].some((m) => /opacity:\s*0/.
 const peOk = compRaw.includes('reveal-pending') && !ruleCardAn && !compRaw.includes('setTimeout(');
 kiem('G5-8', 'Component có nhãn trạng thái, k/N, anchor + scroll-margin; reveal ẩn-mặc định=false (progressive, không setTimeout)', compOk && peOk, `khuôn=${compOk}, pe=${peOk}`);
 
-// G5-8b (hồi quy TXN-20260913-14): whitelist hash trong component chỉ nhận dạng
-// chuẩn #milestone-0…27 — KHÔNG zero dẫn đầu ("00"/"01" không phải ID thật,
-// ID thật là milestone-0/1) — và #chuong-c1…6. Trích đúng hàm hashHopLe từ
-// nguồn component rồi chạy 12 tình huống; bản từng dùng Number(m[1]) <= 27 đã
-// giữ nhầm #milestone-00/01 qua switcher.
+// G5-8b (hồi quy TXN-20260913-14; cập nhật H07-A): whitelist hash trong component
+// chỉ nhận dạng chuẩn #milestone-0…(số thẻ −1) — KHÔNG zero dẫn đầu ("00"/"01"
+// không phải ID thật, ID thật là milestone-0/1) — và #chuong-c1…6. Trích đúng
+// hàm hashHopLe (đối số maxIdx) từ nguồn component rồi chạy 12 tình huống với
+// maxIdx = số mốc dữ liệu − 1; bản từng dùng Number(m[1]) <= 27 đã giữ nhầm
+// #milestone-00/01 qua switcher.
 function trichHam(src, ten) {
   const batDau = src.indexOf(`const ${ten} = `);
   if (batDau === -1) return null;
@@ -178,19 +202,23 @@ function trichHam(src, ten) {
   return sau === -1 ? null : src.slice(batDau, sau + 1) + ';';
 }
 const hookSrc = trichHam(compRaw, 'hashHopLe');
+// Chú thích kiểu TypeScript trên tham số (bắt buộc cho astro check) phải gỡ
+// trước khi thực thi hàm bằng new Function (chỉ hiểu JS thuần).
+const hookJs = hookSrc === null ? null : hookSrc.replace(/\(maxIdx: number\)/, '(maxIdx)');
 const HASH_HOP_LE = ['#milestone-0', '#milestone-12', '#milestone-27', '#chuong-c1', '#chuong-c6'];
 const HASH_SAI = ['#milestone-00', '#milestone-01', '#milestone-028', '#milestone-999', '#chuong-c7', '#hash-sai', ''];
 let hashOk = hookSrc !== null;
 const hashKetQua = [];
 if (hashOk) {
+  const maxIdx = data.length - 1;
   for (const h of [...HASH_HOP_LE, ...HASH_SAI]) {
-    const thucTe = new Function('location', `${hookSrc}\nreturn hashHopLe();`)({ hash: h });
+    const thucTe = new Function('location', 'maxIdx', `${hookJs}\nreturn hashHopLe(maxIdx);`)({ hash: h }, maxIdx);
     hashKetQua.push(`${h === '' ? '(không hash)' : h}=${thucTe ? 'giữ' : 'bỏ'}`);
     const dung = HASH_HOP_LE.includes(h) ? thucTe === true : thucTe === false;
     if (!dung) hashOk = false;
   }
 }
-kiem('G5-8b', 'Whitelist hash chỉ nhận #milestone-0…27 (không zero dẫn đầu) + #chuong-c1…6 — 12 tình huống trên đúng hàm trong component', hashOk, hookSrc === null ? 'không trích được hashHopLe' : hashKetQua.join(', '));
+kiem('G5-8b', `Whitelist hash chỉ nhận #milestone-0…${data.length - 1} (không zero dẫn đầu) + #chuong-c1…6 — 12 tình huống trên đúng hàm trong component`, hashOk, hookSrc === null ? 'không trích được hashHopLe' : hashKetQua.join(', '));
 
 // ===== Lớp dist =====
 function routeExists(rel) {
@@ -210,7 +238,7 @@ if (!sourceOnly) {
     const enHtml = readFileSync(join(DIST, 'en', 'history', 'index.html'), 'utf8');
     const enHome = readFileSync(join(DIST, 'en', 'index.html'), 'utf8');
 
-    // G5-D1: trang VI
+    // G5-D1: trang VI (các số kỳ vọng tính từ dữ liệu — H07-A)
     const viCards = (viHtml.match(/class="milestone-card"/g) ?? []).length;
     const viChuong = [1, 2, 3, 4, 5, 6].filter((n) => viHtml.includes(`id="chuong-c${n}"`)).length;
     const viNavChuong = (viHtml.match(/data-chapter-link=/g) ?? []).length;
@@ -219,11 +247,13 @@ if (!sourceOnly) {
     const viLimit = (viHtml.match(/>Giới hạn:</g) ?? []).length;
     const viKn = (viHtml.match(/data-chapter-kn/g) ?? []).length;
     const viLabel2013 = viHtml.includes('2013–nay') && !viHtml.includes('2013–present');
-    kiemD('G5-D1', 'Trang VI: 28 thẻ + 6 chương + nav chương 2 nav + k/N ×12 + 52 nguồn + 19 Giới hạn + nhãn "2013–nay" (không "2013–present")',
-      viCards === 28 && viChuong === 6 && viNavChuong === 6 && viChuongMoc && viNguon === 52 && viLimit === 19 && viKn === 12 && viLabel2013,
+    const soNguon = data.reduce((t, m) => t + m.sources.length, 0);
+    const soGioiHan = data.filter((m) => m.limit).length;
+    kiemD('G5-D1', `Trang VI: ${data.length} thẻ + 6 chương + nav chương 2 nav + k/N ×12 + ${soNguon} nguồn + ${soGioiHan} Giới hạn + nhãn "2013–nay" (không "2013–present")`,
+      viCards === data.length && viChuong === 6 && viNavChuong === 6 && viChuongMoc && viNguon === soNguon && viLimit === soGioiHan && viKn === 12 && viLabel2013,
       `thẻ=${viCards}, chương=${viChuong}, nav=${viNavChuong}, nguồn=${viNguon}, giới hạn=${viLimit}, kN=${viKn}, 2013-nay=${viLabel2013}`);
 
-    // G5-D2: trang EN
+    // G5-D2: trang EN (kỳ vọng theo dữ liệu — H07-A: rmCoEN/rmKhong từ G5-6)
     const enCards = (enHtml.match(/class="milestone-card"/g) ?? []).length;
     const enChuong = [1, 2, 3, 4, 5, 6].filter((n) => enHtml.includes(`id="chuong-c${n}"`)).length;
     const enNguon = (enHtml.match(/rel="noopener noreferrer"/g) ?? []).length;
@@ -244,9 +274,9 @@ if (!sourceOnly) {
     enText = enText.replace(/data-unit="[^"]*"/g, 'data-unit=""');
     for (const p of PROPER) enText = enText.split(p).join('');
     const roViet = /[\u0103\u00E2\u0111\u00EA\u00F4\u01A1\u01B0\u1EA1-\u1EF9]/.test(enText);
-    // H03-C (20/09/2026): 6 cặp thương hiệu EN mới → trạng thái đọc tiếp trang EN thành 25/0/3.
-    kiemD('G5-D2', 'Trang EN: 28 thẻ + 6 chương + 52 nguồn + 19 Limit + trạng thái 25/0/3 + "2013–present" + không rò tiếng Việt',
-      enCards === 28 && enChuong === 6 && enNguon === 52 && enLimit === 19 && enNoArticle === 3 && enViOnly === 0 && enLinkEnDoc === 25 && enLinkViDoc === 0 && enTimeLabel2013 && !roViet,
+    // H03-C (20/09/2026): trạng thái đọc tiếp theo dữ liệu; H07-A: số thẻ/nguồn/giới hạn theo dữ liệu.
+    kiemD('G5-D2', `Trang EN: ${data.length} thẻ + 6 chương + ${soNguon} nguồn + ${soGioiHan} Limit + trạng thái ${rmCoEN.length}/0/${rmKhong.length} + "2013–present" + không rò tiếng Việt`,
+      enCards === data.length && enChuong === 6 && enNguon === soNguon && enLimit === soGioiHan && enNoArticle === rmKhong.length && enViOnly === 0 && enLinkEnDoc === rmCoEN.length && enLinkViDoc === 0 && enTimeLabel2013 && !roViet,
       `thẻ=${enCards}, chương=${enChuong}, nguồn=${enNguon}, Limit=${enLimit}, noArticle=${enNoArticle}, viOnly=${enViOnly}, linkEN=${enLinkEnDoc}, linkVI=${enLinkViDoc}, 2013=${enTimeLabel2013}, ròVI=${roViet}`);
 
     // G5-D3: hreflang + switcher + trang chủ EN lối vào

@@ -213,6 +213,33 @@
     "readMore": "/thuong-hieu/patek-philippe"
   },
   {
+    "year": 1884,
+    "timeLabel": "1884",
+    "type": "culture",
+    "slug": "universal-time-1884",
+    "title": "Thế giới chia múi giờ chuẩn từ kinh tuyến Greenwich",
+    "title_en": "The world divides into standard time zones from Greenwich",
+    "description": "Theo dòng \"lịch sử thời gian\" của FHH, năm 1884 Hoa Kỳ và Canada áp dụng giờ phổ biến (Universal Time); Trái Đất được chia thành 24 múi giờ như nhau, tính từ kinh tuyến gốc ở Greenwich (Anh). Các đồng hồ đa múi giờ — như GMT-Master 1955, một mốc sau trong dòng này — đọc theo khung múi giờ chuẩn đó; khoảng cách 71 năm giữa hai sự kiện không tự chứng minh quan hệ nhân quả.",
+    "description_en": "In the FHH's \"history of time\", 1884 is the year the United States and Canada adopt Universal Time; the Earth is divided into 24 identical time zones, measured from the prime meridian in Greenwich, England. Multi-time-zone watches — like the 1955 GMT-Master, a later milestone in this timeline — read against that standard framework; the 71-year gap between the two events does not by itself prove a causal link.",
+    "dayType": "Áp dụng giờ chuẩn (theo FHH)",
+    "dayType_en": "Adoption of standard time (per the FHH)",
+    "claimLevel": "context",
+    "claimScope": "FHH — dòng \"lịch sử thời gian\"",
+    "claimScope_en": "FHH — \"history of time\" section",
+    "limit": "FHH ghi Hoa Kỳ và Canada áp dụng giờ phổ biến vào 1884 — nguồn này không ghi chi tiết Hội nghị Kinh tuyến quốc tế tại Washington tháng 10/1884; mốc là bối cảnh về cách thế giới thống nhất cách tính giờ, không chứng minh nó \"sinh ra\" đồng hồ đa múi giờ",
+    "limit_en": "The FHH records the United States and Canada adopting Universal Time in 1884 — this source does not detail the International Meridian Conference held in Washington in October 1884; the milestone is context on how the world standardised timekeeping, not proof that it \"created\" multi-time-zone watches",
+    "sources": [
+      {
+        "name": "Fondation Haute Horlogerie — History (mục 1884: Universal Time)",
+        "name_en": "Fondation Haute Horlogerie — History (1884: Universal Time entry)",
+        "url": "https://www.hautehorlogerie.org/en/watches-and-culture/history",
+        "checked": "2026-09-20",
+        "proves": "\"The United States and Canada adopt Universal Time. The Earth is divided into 24 identical time zones, measured from the prime meridian in Greenwich, England.\""
+      }
+    ],
+    "readMore": "/tu-dien/gmt"
+  },
+  {
     "year": 1904,
     "timeLabel": "1904",
     "type": "brand",
@@ -338,6 +365,32 @@
       }
     ],
     "readMore": "/thuong-hieu/rolex"
+  },
+  {
+    "year": 1929,
+    "timeLabel": "1929",
+    "type": "culture",
+    "slug": "great-depression-1929",
+    "title": "Đại khủng hoảng kinh tế toàn cầu bắt đầu",
+    "title_en": "The Great Depression begins",
+    "description": "Theo Federal Reserve History, Đại khủng hoảng bắt đầu tháng 8/1929 khi chu kỳ tăng trưởng của thập niên 1920 kết thúc; cú suy thoái bắt đầu từ Hoa Kỳ rồi lan ra toàn cầu, kéo dài cả một thập niên cho tới Thế chiến II. Đây là bối cảnh kinh tế của thập niên 1930 — những năm nằm trên hành trình tới cuộc tái cấu trúc ngành được kể ở mốc Swatch 1983 của dòng thời gian này.",
+    "description_en": "Per Federal Reserve History, the Great Depression began in August 1929, when the economic expansion of the Roaring Twenties came to an end; the contraction began in the United States and spread around the globe, and the Depression lasted a decade, ending during World War II. It is the economic backdrop of the 1930s — the years on the way to the industry restructuring told in this timeline's 1983 Swatch milestone.",
+    "dayType": "Khủng hoảng kinh tế (bắt đầu 8/1929)",
+    "dayType_en": "Economic crisis (from August 1929)",
+    "claimLevel": "context",
+    "claimScope": "Federal Reserve History",
+    "claimScope_en": "Federal Reserve History",
+    "limit": "Nguồn ghi khủng hoảng kéo dài một thập niên và có tính toàn cầu (\"spread around the globe\") — không nêu tác động cụ thể lên doanh số đồng hồ; mốc này là sự kiện cùng thời, không chứng minh quan hệ nhân quả với thay đổi nào của ngành đồng hồ",
+    "limit_en": "The source records a decade-long depression that \"spread around the globe\" — it does not state specific effects on watch sales; this milestone is a same-period event, not proof of any causal effect on the watch industry",
+    "sources": [
+      {
+        "name": "Federal Reserve History — The Great Depression",
+        "url": "https://www.federalreservehistory.org/essays/great-depression",
+        "checked": "2026-09-20",
+        "proves": "\"The Great Depression began in August 1929, when the economic expansion of the Roaring Twenties came to an end.\"; \"The Depression lasted a decade, beginning in 1929 and ending during World War II.\"; \"The contraction began in the United States and spread around the globe.\""
+      }
+    ],
+    "readMore": null
   },
   {
     "year": 1931,
@@ -596,6 +649,32 @@
     "readMore": "/thuong-hieu/tag-heuer"
   },
   {
+    "year": 1967,
+    "timeLabel": "1967",
+    "type": "culture",
+    "slug": "atomic-second-1967",
+    "title": "Giây được định nghĩa lại theo nguyên tử caesium",
+    "title_en": "The second is redefined by the caesium atom",
+    "description": "Theo BIPM, CGPM lần 13 (1967–1968) chọn định nghĩa mới cho giây, dựa trên tần số chuyển siêu tinh (hyperfine) của nguyên tử caesium-133; trước 1960, giây được định nghĩa theo ngày mặt trời trung bình. Chuẩn thời gian của thế giới từ đây là phép đo nguyên tử — bối cảnh đo lường đặt cạnh các mốc quartz 1969 trong dòng này; cùng thời không tự chứng minh quan hệ nhân quả.",
+    "description_en": "Per the BIPM, the 13th CGPM (1967–1968) chose a new definition of the second referenced to the frequency of the ground state hyperfine transition in the caesium-133 atom; before 1960, the second was defined as a fraction of the mean solar day. The world's time standard became an atomic measurement — the metrological backdrop set beside this timeline's 1969 quartz milestones; simultaneity alone is not causation.",
+    "dayType": "Định nghĩa lại đơn vị đo (CGPM lần 13)",
+    "dayType_en": "Unit redefinition (13th CGPM)",
+    "claimLevel": "context",
+    "claimScope": "BIPM — lịch sử đơn vị SI",
+    "claimScope_en": "BIPM — history of SI units",
+    "limit": "Mốc là bối cảnh đo lường: định nghĩa giây không \"làm ra\" đồng hồ quartz và không chứng minh ưu thế của quartz so với cơ khí; lưu ý phát biểu đầy đủ của định nghĩa caesium-133 hiện hành được thông qua tại CGPM lần 26 năm 2018 (BIPM)",
+    "limit_en": "The milestone is metrological context: the definition of the second neither \"created\" the quartz watch nor proves quartz's superiority over mechanics; note that the full current wording of the caesium-133 definition was adopted by the 26th CGPM in 2018 (BIPM)",
+    "sources": [
+      {
+        "name": "BIPM — History of the SI: the second",
+        "url": "https://www.bipm.org/en/history-si/second",
+        "checked": "2026-09-20",
+        "proves": "\"the 13th CGPM (1967-1968) chose a new definition of the second referenced to the frequency of the ground state hyperfine transition in the caesium-133 atom.\"; \"Before 1960, the unit of time the second, was defined as the fraction 1/86 400 of the mean solar day.\""
+      }
+    ],
+    "readMore": null
+  },
+  {
     "year": 1969,
     "timeLabel": "1969",
     "type": "mechanism",
@@ -701,6 +780,32 @@
       }
     ],
     "readMore": "/mau-iconic/royal-oak"
+  },
+  {
+    "year": 1973,
+    "timeLabel": "1973",
+    "type": "culture",
+    "slug": "oil-shock-1973",
+    "title": "Cú sốc dầu mỏ 1973",
+    "title_en": "The 1973 oil shock",
+    "description": "Tháng 10/1973, OAPEC (Tổ chức các nước xuất khẩu dầu mỏ Ả Rập) đặt lệnh cấm vận dầu mỏ lên Hoa Kỳ; các lượt cắt giảm gần như làm giá dầu tăng gấp bốn — từ 2,90 USD/thùng trước cấm vận lên 11,65 USD/thùng vào tháng 1/1974 (Federal Reserve History), và giá dầu cao sau đó tiếp tục duy trì. Suy thoái kèm lạm phát theo sau giá năng lượng cao là bối cảnh kinh tế của thập niên mà ngành đồng hồ Thụy Sĩ bước vào tái cấu trúc (kể ở mốc Swatch 1983).",
+    "description_en": "In October 1973, OAPEC (the Organization of Arab Petroleum Exporting Countries) placed an oil embargo on the United States; the cuts nearly quadrupled the price of oil — from $2.90 a barrel before the embargo to $11.65 a barrel in January 1974 (Federal Reserve History) — and the higher oil prices remained. The recession and inflation that followed high oil prices form the economic backdrop of the decade in which the Swiss watch industry entered its restructuring (told in the 1983 Swatch milestone).",
+    "dayType": "Khủng hoảng năng lượng (cấm vận 10/1973)",
+    "dayType_en": "Energy crisis (embargo, October 1973)",
+    "claimLevel": "context",
+    "claimScope": "Federal Reserve History",
+    "claimScope_en": "Federal Reserve History",
+    "limit": "Mốc là sự kiện cùng thời: cú sốc dầu không được gán làm nguyên nhân của khủng hoảng quartz hay cuộc tái cấu trúc ngành — nguồn này nói về kinh tế, không về đồng hồ; lệnh cấm vận được dỡ bỏ chính thức tháng 3/1974 nhưng giá dầu cao tiếp tục duy trì (theo nguồn)",
+    "limit_en": "The milestone is a same-period event: the oil shock is not assigned as the cause of the quartz crisis or the industry's restructuring — this source is about the economy, not watches; the embargo was officially lifted in March 1974 but the higher oil prices remained (per the source)",
+    "sources": [
+      {
+        "name": "Federal Reserve History — Oil Shock of 1973–74",
+        "url": "https://www.federalreservehistory.org/essays/oil-shock-of-1973-74",
+        "checked": "2026-09-20",
+        "proves": "\"the Organization of Arab Petroleum Exporting Countries (OAPEC) instituted an oil embargo on the United States\"; \"These cuts nearly quadrupled the price of oil from $2.90 a barrel before the embargo to $11.65 a barrel in January 1974.\"; \"The higher oil prices, on the other hand, remained\""
+      }
+    ],
+    "readMore": null
   },
   {
     "year": 1976,

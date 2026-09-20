@@ -1,11 +1,12 @@
 // =============================================================================
-// check-g02-history-timeline.mjs — Kiểm gói G02: chuẩn hóa nguồn 28 mốc timeline
+// check-g02-history-timeline.mjs — Kiểm gói G02: chuẩn hóa nguồn timeline
 // =============================================================================
 // Hai lớp:
-//   Lớp JSON (luôn chạy): schema mới của src/data/timeline.json — 28 mốc, slug
-//     duy nhất, year là SỐ phục vụ sắp xếp/điều hướng, timeLabel là nhãn hiển
-//     thị (giữ ~, khoảng năm), loại ngày, mức claim có phạm vi, nguồn cấp mốc
-//     HTTPS có ngày kiểm, trạng thái đọc tiếp.
+//   Lớp JSON (luôn chạy): schema của src/data/timeline.json — 28 mốc nền + đúng
+//     4 mốc bối cảnh H07 (danh sách kỳ vọng, không giữ số cứng), slug duy nhất,
+//     year là SỐ phục vụ sắp xếp/điều hướng, timeLabel là nhãn hiển thị (giữ ~,
+//     khoảng năm), loại ngày, mức claim có phạm vi, nguồn cấp mốc HTTPS có ngày
+//     kiểm, trạng thái đọc tiếp.
 //   Lớp dist (khi đã build): trang /lich-su render đủ 28 thẻ, nguồn hiển thị,
 //     nhãn "Chưa có bài đọc thêm" khớp số mốc không có link, nút điều hướng
 //     đầu tiên nhảy tới mốc đầu (Peter Henlein ~1510), dải trang chủ hiển thị
@@ -46,9 +47,26 @@ const kiem = (id, ten, dat, chiTiet = '') => {
 
 const ENUM_CLAIM = new Set(['first-known', 'brand-first', 'brand-claim', 'type-first', 'recorded', 'context']);
 
-// ===== G2-1: đủ 28 mốc, slug duy nhất, year số nguyên tăng dần =====
-kiem('G2-1a', 'Đúng 28 mốc', Array.isArray(data) && data.length === 28, `thực tế ${Array.isArray(data) ? data.length : 'không phải mảng'}`);
+// ===== Kỳ vọng cấu trúc dữ liệu (H07-A 20/09/2026): 28 mốc nền + đúng 4 mốc
+// bối cảnh mới. Danh sách mốc mới PHẢI trùng hồ sơ H07-A; thêm mốc lần sau
+// phải cập nhật cả hai danh sách này — không giữ số cứng 28/32.
+const MOC_NEN = [
+  'peter-henlein', 'huygens-hairspring', 'blancpain', 'vacheron-constantin',
+  'breguet-tourbillon', 'breguet-naples', 'patek-first-wristwatch', 'cartier-santos',
+  'trench-watch', 'harwood-automatic', 'rolex-oyster', 'rolex-perpetual',
+  'jlc-reverso', 'iwc-pilot', 'rolex-datejust', 'fifty-fathoms',
+  'rolex-submariner', 'rolex-gmt', 'omega-speedmaster', 'heuer-carrera',
+  'automatic-chronograph-race', 'seiko-astron', 'ap-royal-oak', 'patek-nautilus',
+  'swatch-1983', 'omega-coaxial', 'un-freak', 'silicon-revival',
+];
+const MOC_MOI_H07 = ['universal-time-1884', 'great-depression-1929', 'atomic-second-1967', 'oil-shock-1973'];
+const MONG_DOI = [...MOC_NEN, ...MOC_MOI_H07];
 const slugs = Array.isArray(data) ? data.map((m) => m.slug) : [];
+
+// ===== G2-1: đủ mốc nền + đúng các mốc mới được phép, slug duy nhất, year tăng dần =====
+kiem('G2-1a', 'Đủ 28 mốc nền + đúng 4 mốc bối cảnh H07 (tổng khớp danh sách kỳ vọng)',
+  Array.isArray(data) && data.length === MONG_DOI.length && [...slugs].sort().join() === [...MONG_DOI].sort().join(),
+  `thực tế ${Array.isArray(data) ? data.length : 'không phải mảng'}`);
 kiem('G2-1b', 'Slug duy nhất', new Set(slugs).size === slugs.length, `trùng: ${slugs.filter((s, i) => slugs.indexOf(s) !== i).join(', ') || 'không'}`);
 const yearLoi = (Array.isArray(data) ? data : []).filter((m, i) => {
   if (typeof m.year !== 'number' || !Number.isInteger(m.year) || m.year < 1000) return true;
@@ -116,9 +134,9 @@ if (DIST && existsSync(join(DIST, 'lich-su', 'index.html'))) {
     if (dat !== true) errors.push(`[${id}] ${ten} — ${chiTiet}`);
   };
 
-  // G2-7: đủ 28 thẻ
+  // G2-7: số thẻ khớp số mốc trong JSON (dữ liệu thật — H07-A)
   const soThe = (html.match(/class="milestone-card"/g) ?? []).length;
-  kiemD('G2-7', 'HTML /lich-su render đủ 28 thẻ mốc', soThe === 28, `thực tế ${soThe}`);
+  kiemD('G2-7', `HTML /lich-su render đủ ${data.length} thẻ mốc (khớp JSON)`, soThe === data.length, `thực tế ${soThe}`);
 
   // G2-8: nguồn hiển thị — mỗi thẻ có ít nhất 1 link nguồn HTTPS; nhãn giới hạn
   const soLinkNguon = (html.match(/rel="noopener noreferrer"/g) ?? []).length;
@@ -145,11 +163,16 @@ if (DIST && existsSync(join(DIST, 'lich-su', 'index.html'))) {
   const hong = [...new Set(noiBo)].filter((h) => !routeExists(h));
   kiemD('G2-11', 'Không link nội bộ hỏng trong /lich-su', hong.length === 0, hong.join(', ') || 'không');
 
-  // G2-12: dải trang chủ hiển thị timeLabel (mốc highlight: 0,5,11,16,22,27)
+  // G2-12: dải trang chủ hiển thị timeLabel — tính lại đúng công thức chọn mốc
+  // của src/pages/index.astro (chọn 6 mốc trải đều theo độ dài dữ liệu — H07-A)
   const idxHtml = readFileSync(join(DIST, 'index.html'), 'utf8');
-  const highlights = [0, 5, 11, 16, 22, 27].map((i) => data[i]).filter(Boolean);
+  const total = data.length;
+  const pick = total > 6
+    ? [0, Math.floor(total / 5), Math.floor((2 * total) / 5), Math.floor((3 * total) / 5), Math.floor((4 * total) / 5), total - 1]
+    : data.map((_, i) => i);
+  const highlights = [...new Set(pick)].map((i) => data[i]).filter(Boolean);
   const thieu = highlights.filter((m) => !idxHtml.includes(m.timeLabel));
-  kiemD('G2-12', 'Dải lịch sử trang chủ hiển thị timeLabel', thieu.length === 0, thieu.map((m) => m.slug).join(', ') || 'đủ');
+  kiemD('G2-12', 'Dải lịch sử trang chủ hiển thị timeLabel (công thức chọn mốc của index.astro)', thieu.length === 0, thieu.map((m) => m.slug).join(', ') || 'đủ');
 
   // G2-13: không còn trường cũ internalLink trong dữ liệu xuất bản
   kiemD('G2-13', 'Không còn trường cũ "internalLink" trong JSON', !raw.includes('internalLink'), 'còn sót');

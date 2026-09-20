@@ -1,20 +1,22 @@
 ---
 // =============================================================================
-// TRANG /lich-su — HÀNH TRÌNH LỊCH SỬ 28 MỐC × 6 CHƯƠNG (bản tiếng Việt)
+// TRANG /lich-su — HÀNH TRÌNH LỊCH SỬ × 6 CHƯƠNG (bản tiếng Việt)
 // =============================================================================
 // G05-B: logic hiển thị chuyển sang khuôn chung HistoryTimeline.astro (dùng
 // chung với /en/history/) — trang này chỉ còn wrapper mỏng giữ tiêu đề và
-// mô tả tiếng Việt. Dữ liệu 28 mốc: src/data/timeline.json; khung 6 chương:
-// src/data/historyChapters.ts.
+// mô tả tiếng Việt. Dữ liệu mốc: src/data/timeline.json (số mốc lấy từ dữ
+// liệu — H07-A); khung 6 chương: src/data/historyChapters.ts.
 // =============================================================================
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HistoryTimeline from '../components/history/HistoryTimeline.astro';
+import timelineData from '../data/timeline.json';
+const soMoc = timelineData.length;
 ---
 
 <BaseLayout
   title="500 năm chế tác đồng hồ cơ"
-  description="Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. 28 mốc định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử."
+  description={`Dòng chảy thời gian từ cỗ máy bỏ túi Nuremberg đến kỷ nguyên silicon — hành trình đồng hồ cơ đi từ trong túi áo lên cổ tay con người. ${soMoc} mốc định hình toàn bộ ngành, được kể như một nhà sưu tầm đang dẫn bạn đi dọc hành lang lịch sử.`}
 >
   <HistoryTimeline lang="vi" />
 </BaseLayout>

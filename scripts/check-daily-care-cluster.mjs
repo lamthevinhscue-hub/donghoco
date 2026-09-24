@@ -191,7 +191,7 @@ const ROUTE_PAIRS = [
   { vi: '/tu-dien/day-cot', en: '/en/glossary/mainspring/' },
 ];
 
-const VALID_CATEGORIES = ['bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy'];
+const VALID_CATEGORIES = ['phức tạp cao cấp', 'bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy'];
 const VALID_DIFFICULTIES = ['cơ bản', 'thấp', 'trung bình', 'trung cấp', 'người mới', 'cao'];
 
 // ===== R5: các khẳng định cấm (quét dòng, 12 bài) =====

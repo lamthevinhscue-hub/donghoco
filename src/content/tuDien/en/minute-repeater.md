@@ -3,7 +3,7 @@ title: "Minute Repeater"
 custom_slug: "minute-repeater"
 excerpt: "A watch that strikes the time on demand by a pushpiece or slide; the first minute repeaters appeared in the early 18th century (1700–1710), per FHH."
 term_en: "Minute Repeater"
-category: "phức tạp"
+category: "phức tạp cao cấp"
 has_infographic: false
 interactive: false
 date: "2026-09-04"

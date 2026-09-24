@@ -1,7 +1,7 @@
 ---
 title: "Power Reserve (Trữ cót)"
 excerpt: "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, là thông số công bố cho từng calibre."
-term_en: "Power Reserve / Reserve de marche"
+term_en: "Power Reserve / Réserve de marche"
 category: "bộ máy"
 date: "2026-07-31"
 updated: "2026-09-04"

@@ -2,7 +2,7 @@
 title: "Tourbillon"
 excerpt: "Hệ thống do Abraham-Louis Breguet đăng ký sáng chế năm 1801: bộ thoát trong lồng xoay, bù sai số do trọng lực ở vị trí thẳng đứng (theo FHH)."
 term_en: "Tourbillon"
-category: "phức tạp"
+category: "phức tạp cao cấp"
 has_infographic: true
 interactive: true
 date: "2026-07-31"

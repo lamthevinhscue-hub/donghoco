@@ -3,7 +3,7 @@ title: "Perpetual Calendar"
 custom_slug: "perpetual-calendar"
 excerpt: "A calendar complication accounting for the Gregorian rules — automatically adjusting to 30-day months and the 28 or 29 days of February, thanks to a 48-month mechanical memory, per FHH."
 term_en: "Perpetual Calendar / QP"
-category: "phức tạp"
+category: "phức tạp cao cấp"
 has_infographic: false
 interactive: false
 date: "2026-09-04"

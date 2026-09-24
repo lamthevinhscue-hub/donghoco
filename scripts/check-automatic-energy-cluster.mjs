@@ -207,7 +207,7 @@ const ROUTE_PAIRS = [
   { vi: '/huong-dan/hop-xoay-dong-ho', en: '/en/guides/watch-winders/' },
 ];
 
-const VALID_CATEGORIES = ['nền tảng', 'bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy'];
+const VALID_CATEGORIES = ['phức tạp cao cấp', 'nền tảng', 'bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy'];
 const VALID_DIFFICULTIES = ['cơ bản', 'thấp', 'trung bình', 'trung cấp', 'người mới', 'cao'];
 
 // ===== R5: các khẳng định cấm (quét PHẦN THÂN, 12 bài) =====

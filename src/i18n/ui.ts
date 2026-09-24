@@ -168,7 +168,7 @@ export const translations = {
     brand_group_and_more: 'và {n} hãng khác',
     brand_groups_note: 'Phân hạng mang tính biên tập, không phải bảng xếp hạng chất lượng tuyệt đối.',
     subscribe_title: 'Nhận bài viết mới',
-    subscribe_desc: 'Theo dõi qua RSS — mở feed bằng trình đọc RSS (RSS reader) để nhận thông báo khi có bài mới.',
+    subscribe_desc: 'Theo dõi bài mới qua nguồn cấp tin (RSS) bằng trình đọc RSS.',
     // subscribe_email + subscribe_button: tạm không dùng (form bản tin đã vô hiệu hóa).
     // Giữ lại để khi bật tính năng bản tin thì chỉ cần khôi phục form trong Footer.astro.
     contact_name: 'Họ tên',

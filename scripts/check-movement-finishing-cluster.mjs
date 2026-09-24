@@ -136,7 +136,7 @@ const ROUTE_PAIRS = [
   { vi: '/tu-dien/cotes-de-geneve', en: '/en/glossary/geneva-stripes/' },
 ];
 
-const VALID_CATEGORIES = ['nền tảng', 'bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy', 'chứng nhận', 'hoàn thiện'];
+const VALID_CATEGORIES = ['phức tạp cao cấp', 'nền tảng', 'bổ trợ', 'phức tạp', 'phức tạp chức năng', 'thiết kế', 'bộ máy', 'chứng nhận', 'hoàn thiện'];
 const VALID_DIFFICULTIES = ['cơ bản', 'thấp', 'trung bình', 'trung cấp', 'người mới', 'nâng cao', 'cao', 'rất cao'];
 
 // ===== R7: claim giá/phân khúc/chất lượng/chính xác/bền/đầu tư/làm tay-máy

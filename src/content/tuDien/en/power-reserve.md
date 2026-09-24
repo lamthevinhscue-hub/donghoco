@@ -2,7 +2,7 @@
 title: "Power reserve"
 custom_slug: "power-reserve"
 excerpt: "How long a watch runs on a fully wound mainspring — the mechanical equivalent of battery life, a figure published for each calibre."
-term_en: "Power Reserve / Reserve de marche"
+term_en: "Power Reserve / Réserve de marche"
 category: "bộ máy"
 has_infographic: false
 interactive: false

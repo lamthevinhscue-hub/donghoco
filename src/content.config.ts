@@ -147,7 +147,17 @@ const tuDien = defineCollection({
   schema: z.object({
     ...baseFields,
     term_en: z.string().optional(),                 // Tên tiếng Anh (nếu có)
-    category: z.string().default('chung'),          // Phân nhóm thuật ngữ
+    // Phân nhóm — enum khớp GLOSSARY_CATEGORY_ORDER (src/i18n/ui.ts).
+    // Không default: thiếu/sai category → lỗi schema khi sync/check (chặn tái
+    // diễn lỗi 3 bài "phức tạp" rơi khỏi trang /tu-dien).
+    category: z.enum([
+      'thiết kế',
+      'bộ máy',
+      'hoàn thiện',
+      'phức tạp chức năng',
+      'phức tạp cao cấp',
+      'chứng nhận',
+    ]),
     has_infographic: z.boolean().default(false),    // Có infographic minh họa chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
   }),

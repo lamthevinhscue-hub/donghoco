@@ -3,7 +3,7 @@ title: "Tourbillon"
 custom_slug: "tourbillon"
 excerpt: "A system devised and patented by Abraham-Louis Breguet in 1801: the escapement in a revolving cage, compensating for gravity-related rate errors in upright positions — per FHH."
 term_en: "Tourbillon"
-category: "phức tạp"
+category: "phức tạp cao cấp"
 has_infographic: false
 interactive: false
 date: "2026-09-04"

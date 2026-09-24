@@ -151,7 +151,7 @@ const ROUTE_PAIRS = [
   { vi: '/tu-dien/tachymeter', en: '/en/glossary/tachymeter/' },
 ];
 
-const VALID_CATEGORIES = ['phức tạp', 'phức tạp chức năng', 'thiết kế'];
+const VALID_CATEGORIES = ['phức tạp cao cấp', 'phức tạp', 'phức tạp chức năng', 'thiết kế'];
 const VALID_DIFFICULTIES = ['cơ bản', 'trung bình', 'trung cấp', 'cao'];
 
 const errors = [];

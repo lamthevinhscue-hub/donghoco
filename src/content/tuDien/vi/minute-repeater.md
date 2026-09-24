@@ -2,7 +2,7 @@
 title: "Minute Repeater (Cơ chế điểm chuông)"
 excerpt: "Đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; những cơ cấu minute repeater đầu tiên xuất hiện những năm đầu thế kỷ 18 (theo FHH)."
 term_en: "Minute Repeater"
-category: "phức tạp"
+category: "phức tạp cao cấp"
 has_infographic: true
 interactive: false
 date: "2026-07-31"

@@ -145,7 +145,7 @@ Ví dụ áp dụng: `public/images/timeline/trench-watch.svg` (khung 800x600, 3
 3. Ảnh AI đặt **cạnh** mốc phát minh (mô hình chương Bánh lắc) là lựa chọn biên tập hợp lệ; không phải kết luận pháp lý rằng mọi ảnh có nhãn hiệu đều cấm — nhưng rủi ro sở hữu trí tuệ với hình sản phẩm mang nhãn hiệu **chưa được thẩm định**, nên thận trọng biên tập là giữ ảnh ngoài nhóm đó cho tới khi có thẩm định riêng.
 4. **Nhãn bắt buộc hai ngôn ngữ**, nguyên văn theo mẫu đang chạy: "Minh họa AI tái dựng — không phải ảnh tư liệu" / "AI reconstruction — not a historical photograph"; không giấu, không viết mờ, có cùng nhãn khi mở phóng to (khi tính năng đó có).
 5. **Hồ sơ tạo ảnh** mỗi tấm: mục đích, sự kiện nguồn, chi tiết thời đại, prompt, nội dung cần tránh, alt/chú thích VI/EN, vị trí render, ngày tạo, số lần tạo lại, lý do chọn bản; quyền sử dụng ghi khi liên quan.
-6. **Kiểm trước khi dùng** (một câu không đạt thì tạo lại): có chữ/số lọt vào ảnh; đồng hồ bị vẽ quá rõ (thấy vạch số, kim); chi tiết sai thời đại; tông màu tối bằng dải navy xung quanh (ảnh sáng hơn phá dải liên tục của trang lịch sử).
+6. **Kiểm trước khi dùng** (một câu không đạt thì tạo lại): có chữ/số lọt vào ảnh; đồng hồ bị vẽ quá rõ (thấy vạch số, kim); chi tiết sai thời đại; bảng màu trầm, bão hòa thấp, một nguồn sáng ấm chủ đạo; đặt cạnh ảnh chiến hào v3 không lạc tông; không dùng màu rực, không phong cách hoạt hình.
 7. **Quy cách tệp cho ảnh bối cảnh mốc timeline:** tỷ lệ 4:3, JPEG chất lượng 80, dưới 150 KB ở kích thước dùng thật, tên trùng `slug` trong `timeline.json`, đặt tại `public/images/timeline/<slug>.jpg`. Đây là khuyến nghị cho tệp mới; không phải điều kiện tối thượng nếu bố cục trang đích cần khác và có ghi lý do.
 
 ### B3.3. Hiện trạng cơ chế JPG — phải hiểu đúng khi thêm ảnh
@@ -251,3 +251,4 @@ Checklist tách theo nhóm; áp đúng nhóm của hình. Không còn quy tắc 
 |---|---|---|
 | 19/09/2026 | 1 | Bản đầu (nền `521f5fa`); sau đó được thẩm định bởi kế hoạch hợp nhất mục 3.3 và áp đính chính H01 |
 | 19/09/2026 | 2 (H04) | Phát hành lại: tách ba nhóm hình, dệt đính chính vào quy tắc chính, thêm ví dụ thật từng nhóm và bảng đối chiếu Phần D; loại mọi mệnh đề tuyệt đối mâu thuẫn. Trạng thái: đề xuất trình duyệt |
+| 26/09/2026 | 2.1 (S2) | Đồng bộ quy chuẩn với năm ảnh AI bối cảnh đã được chủ dự án duyệt: sửa câu kiểm số 6 tại B3.2 |

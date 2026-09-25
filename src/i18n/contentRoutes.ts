@@ -75,6 +75,10 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/co-che/pha-trang', en: '/en/mechanisms/moon-phase/' },
   { vi: '/co-che/tourbillon', en: '/en/mechanisms/tourbillon/' },
   { vi: '/co-che/diem-chuong', en: '/en/mechanisms/minute-repeater/' },
+  // Nghề chế tác và chuỗi sản xuất (H14-B)
+  { vi: '/co-che/manufacture-etablisseur', en: '/en/mechanisms/manufacture-etablisseur/' },
+  { vi: '/co-che/ebauche-chuoi-cung-ung', en: '/en/mechanisms/ebauche-supply-chain/' },
+  { vi: '/co-che/eta-sellita', en: '/en/mechanisms/eta-sellita/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },

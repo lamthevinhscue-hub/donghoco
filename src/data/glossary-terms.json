@@ -1,5 +1,15 @@
 [
   {
+    "title": "Điều chỉnh theo vị trí (Adjustment in positions)",
+    "slug": "dieu-chinh-theo-vi-tri",
+    "excerpt": "Hai công bố cụ thể về độ chính xác theo tư thế đặt: Grand Seiko công bố việc đo ở sáu vị trí có liệt kê; Patek Philippe công bố giai đoạn precision-adjusted hai tuần, không nêu số vị trí.",
+    "aliases": [
+      "Điều chỉnh theo vị trí (Adjustment in positions)",
+      "Điều chỉnh theo vị trí",
+      "Adjustment in positions"
+    ]
+  },
+  {
     "title": "Dây tóc & bánh lắc (Hairspring & Balance)",
     "slug": "day-toc-banh-lac",
     "excerpt": "Cặp bánh lắc và dây tóc tạo thành bộ điều tiết — chia thời gian thành các phần bằng nhau nghiêm ngặt, theo FHH.",
@@ -7,6 +17,26 @@
       "Dây tóc & bánh lắc (Hairspring & Balance)",
       "Dây tóc & bánh lắc",
       "Hairspring & Balance Wheel"
+    ]
+  },
+  {
+    "title": "Phương trình thời gian (Equation of time)",
+    "slug": "phuong-trinh-thoi-gian",
+    "excerpt": "Phương trình thời gian là hiệu số giữa giờ mặt trời thật và giờ trung bình — dao động trong khoảng −16 đến +14 phút tùy ngày trong năm, theo hai nguồn FHH và Patek Philippe.",
+    "aliases": [
+      "Phương trình thời gian (Equation of time)",
+      "Phương trình thời gian",
+      "Equation of time"
+    ]
+  },
+  {
+    "title": "Bấm giờ quay về không tức thì (Flyback)",
+    "slug": "flyback",
+    "excerpt": "Flyback cho phép về không và bắt đầu phép đo mới chỉ bằng một lần bấm, không cần dừng bấm giờ trước — chức năng gắn với phát triển hàng không, theo FHH.",
+    "aliases": [
+      "Bấm giờ quay về không tức thì (Flyback)",
+      "Bấm giờ quay về không tức thì",
+      "Flyback"
     ]
   },
   {
@@ -29,6 +59,26 @@
     ]
   },
   {
+    "title": "Sai số vị trí (Positional error)",
+    "slug": "sai-so-vi-tri",
+    "excerpt": "Đồng hồ chạy khác nhau theo tư thế đặt — nằm hay đứng, mặt trên hay mặt dưới. COSC kiểm 5 vị trí, Grand Seiko đo 6 vị trí: số vị trí là của từng tiêu chuẩn.",
+    "aliases": [
+      "Sai số vị trí (Positional error)",
+      "Sai số vị trí",
+      "Positional error"
+    ]
+  },
+  {
+    "title": "Bấm giờ tách giây (Rattrapante)",
+    "slug": "rattrapante",
+    "excerpt": "Rattrapante — bấm giờ tách giây: hai kim cùng trục cho đo hai sự kiện bắt đầu cùng lúc nhưng kết thúc khác nhau, theo định nghĩa FHH.",
+    "aliases": [
+      "Bấm giờ tách giây (Rattrapante)",
+      "Bấm giờ tách giây",
+      "Rattrapante"
+    ]
+  },
+  {
     "title": "Côtes de Genève (Vân Genève)",
     "slug": "cotes-de-geneve",
     "excerpt": "Trang trí bộ máy bằng các đường lượn sóng — mô tả theo mục từ FHH và quy định công bố của Poinçon de Genève cho mặt trên cầu máy.",
@@ -39,12 +89,62 @@
     ]
   },
   {
+    "title": "Tính đẳng thời (Isochronism)",
+    "slug": "tinh-dang-thoi",
+    "excerpt": "Isochronism là tính dao động cùng chu kỳ bất kể biên độ lớn hay nhỏ — điều một bộ điều hòa tốt phải đạt được, và dễ mất đi vì bộ thoát, cân bằng hay dây tóc.",
+    "aliases": [
+      "Tính đẳng thời (Isochronism)",
+      "Tính đẳng thời",
+      "Isochronism"
+    ]
+  },
+  {
+    "title": "Bánh xe cột (Column wheel)",
+    "slug": "banh-xe-cot",
+    "excerpt": "Bánh xe cột là bánh răng điều phối ba chức năng chạy — dừng — về không của kim bấm giờ, theo định nghĩa của FHH.",
+    "aliases": [
+      "Bánh xe cột (Column wheel)",
+      "Bánh xe cột",
+      "Column wheel"
+    ]
+  },
+  {
+    "title": "Lịch năm (Annual Calendar)",
+    "slug": "lich-nam",
+    "excerpt": "Lịch năm biết đúng tháng 30 và 31 ngày, chỉ cần chỉnh một lần mỗi năm vào cuối tháng hai — do Patek Philippe phát minh và cấp bằng sáng chế, ra mắt 1996.",
+    "aliases": [
+      "Lịch năm (Annual Calendar)",
+      "Lịch năm",
+      "Annual Calendar"
+    ]
+  },
+  {
     "title": "Master Chronometer (METAS)",
     "slug": "metas",
     "excerpt": "Chứng nhận của METAS kiểm trên đồng hồ hoàn thiện — gồm chống nước, hiệu năng chronometric, chống từ và trữ cót; tài liệu N001 yêu cầu chống từ 1,5 T (15.000 G).",
     "aliases": [
       "Master Chronometer (METAS)",
       "Master Chronometer"
+    ]
+  },
+  {
+    "title": "Giờ thế giới (World Time)",
+    "slug": "gio-the-gioi",
+    "excerpt": "Giờ thế giới hiển thị cùng lúc giờ của nhiều thành phố trên thế giới qua các mặt phụ quanh mặt số — một định nghĩa theo FHH và một theo Patek Philippe.",
+    "aliases": [
+      "Giờ thế giới (World Time)",
+      "Giờ thế giới",
+      "World Time"
+    ]
+  },
+  {
+    "title": "Giờ nhảy (Jumping hour)",
+    "slug": "gio-nhay",
+    "excerpt": "Giờ nhảy hiển thị giờ qua cửa sổ, thay đổi tức thì mỗi 60 phút — hai định nghĩa trùng khớp từ FHH và Patek Philippe.",
+    "aliases": [
+      "Giờ nhảy (Jumping hour)",
+      "Giờ nhảy",
+      "Jumping hour"
     ]
   },
   {
@@ -84,6 +184,26 @@
       "VPH (tần số dao động)",
       "VPH",
       "Vibrations per hour / Beat rate"
+    ]
+  },
+  {
+    "title": "Kim hồi (Retrograde)",
+    "slug": "kim-hoi",
+    "excerpt": "Kim hồi chạy trên một cung thay vì vòng tròn đầy đủ — và khi hết hành trình, lập tức quay về điểm xuất phát, theo hai định nghĩa trùng khớp FHH và Patek Philippe.",
+    "aliases": [
+      "Kim hồi (Retrograde)",
+      "Kim hồi",
+      "Retrograde"
+    ]
+  },
+  {
+    "title": "Biên độ (Amplitude)",
+    "slug": "bien-do",
+    "excerpt": "Biên độ là khoảng góc giữa hai vị trí cực đại của cán bánh lắc trong mỗi dao động — đo bằng độ, và là một thông số chuẩn trên máy đo chính hãng.",
+    "aliases": [
+      "Biên độ (Amplitude)",
+      "Biên độ",
+      "Amplitude"
     ]
   },
   {

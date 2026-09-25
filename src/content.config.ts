@@ -157,6 +157,7 @@ const tuDien = defineCollection({
       'phức tạp chức năng',
       'phức tạp cao cấp',
       'chứng nhận',
+      'độ chính xác và điều chỉnh',
     ]),
     has_infographic: z.boolean().default(false),    // Có infographic minh họa chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?

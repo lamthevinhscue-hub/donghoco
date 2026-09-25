@@ -615,6 +615,7 @@ export const GLOSSARY_CATEGORY_ORDER = [
   'phức tạp chức năng',
   'phức tạp cao cấp',
   'chứng nhận',
+  'độ chính xác và điều chỉnh',
 ] as const;
 
 export type GlossaryCategory = (typeof GLOSSARY_CATEGORY_ORDER)[number];
@@ -626,6 +627,7 @@ const glossaryCategoryLabels: Record<string, { vi: string; en: string }> = {
   'phức tạp chức năng': { vi: 'Phức tạp — chức năng', en: 'Complications — function' },
   'phức tạp cao cấp': { vi: 'Phức tạp — cao cấp', en: 'Complications — high-end' },
   'chứng nhận': { vi: 'Chứng nhận & tiêu chuẩn', en: 'Certification & standards' },
+  'độ chính xác và điều chỉnh': { vi: 'Độ chính xác & điều chỉnh', en: 'Accuracy & regulation' },
 };
 
 export function getCategoryLabel(category: string, lang: Lang): string {

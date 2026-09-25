@@ -12,11 +12,12 @@ sources:
   - label: "A. Lange & Söhne — 1815 Rattrapante (maker's page)"
     url: "https://www.alange-soehne.com/us-en/timepieces/1815/1815-rattrapante"
 
+sourceNotes:
+  - "The source says nothing about the etymology of 'rattrapante' or about rarity and price."
+
 ---
 
-## The definition
-
-FHH (Fondation de la Haute Horlogerie) calls this construction the **split-seconds chronograph**: "The split-seconds chronograph is used to time different events that begin but do not end together." — for timing events that **start together but finish at different moments**.
+Two racers leave the line together, but one retires mid-run — how do you time each of them with a single chronograph hand? FHH (Fondation de la Haute Horlogerie) calls the construction the **split-seconds chronograph**: "The split-seconds chronograph is used to time different events that begin but do not end together."
 
 ## The mechanism, per the source
 
@@ -28,16 +29,6 @@ The same FHH page describes the operation:
 ## The term in practice
 
 A. Lange & Söhne names a product: "The 1815 RATTRAPANTE is the first pure split-seconds chronograph from A. Lange & Söhne." — the maker uses "Rattrapante" as its term for a split-seconds chronograph, describing additive timing up to 30 minutes and comparative split times up to 60 seconds.
-
-## Reading limits
-
-- The source says nothing about the etymology of "rattrapante" or about rarity and price.
-
-## In short
-
-- Rattrapante = split-seconds chronograph: for events that start together and end differently (FHH).
-- One pusher controls the split-seconds hand; the other, both hands (FHH).
-- Lange uses the term in an official product name.
 
 ## Read next
 

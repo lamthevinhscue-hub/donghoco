@@ -37,8 +37,41 @@ const ROOT = path.resolve(process.env.N2_ROOT ?? process.cwd());
 const NGAY_BAT_DAU = '2026-10-01';
 
 // Danh sách tường minh phục vụ N3 — đường dẫn tệp tương đối so với root, dùng /.
-// HIỆN ĐANG RỖNG. N3 bổ sung vào đây (không tự thêm bài cũ vào).
-const DANH_SACH_N3 = [];
+// Bổ sung bởi gói N3 (30 tệp viết lại theo khối Ghi chú nguồn).
+const DANH_SACH_N3 = [
+  // Ba cặp bài cơ chế
+  'src/content/coChe/vi/manufacture-etablisseur.md',
+  'src/content/coChe/en/manufacture-etablisseur.md',
+  'src/content/coChe/vi/ebauche-chuoi-cung-ung.md',
+  'src/content/coChe/en/ebauche-supply-chain.md',
+  'src/content/coChe/vi/eta-sellita.md',
+  'src/content/coChe/en/eta-sellita.md',
+  // Mười hai cặp mục từ điển
+  'src/content/tuDien/vi/bien-do.md',
+  'src/content/tuDien/en/amplitude.md',
+  'src/content/tuDien/vi/tinh-dang-thoi.md',
+  'src/content/tuDien/en/isochronism.md',
+  'src/content/tuDien/vi/sai-so-vi-tri.md',
+  'src/content/tuDien/en/positional-error.md',
+  'src/content/tuDien/vi/dieu-chinh-theo-vi-tri.md',
+  'src/content/tuDien/en/adjustment-in-positions.md',
+  'src/content/tuDien/vi/banh-xe-cot.md',
+  'src/content/tuDien/en/column-wheel.md',
+  'src/content/tuDien/vi/flyback.md',
+  'src/content/tuDien/en/flyback.md',
+  'src/content/tuDien/vi/rattrapante.md',
+  'src/content/tuDien/en/rattrapante.md',
+  'src/content/tuDien/vi/lich-nam.md',
+  'src/content/tuDien/en/annual-calendar.md',
+  'src/content/tuDien/vi/gio-the-gioi.md',
+  'src/content/tuDien/en/world-time.md',
+  'src/content/tuDien/vi/gio-nhay.md',
+  'src/content/tuDien/en/jumping-hour.md',
+  'src/content/tuDien/vi/kim-hoi.md',
+  'src/content/tuDien/en/retrograde.md',
+  'src/content/tuDien/vi/phuong-trinh-thoi-gian.md',
+  'src/content/tuDien/en/equation-of-time.md',
+];
 
 const NGUONG_TU = { mauIconic: 1200, tuDien: 150, huongDanHieuDung: 600 };
 const CAM_VI = ['bài này không', 'trang nguồn', 'câu nguồn', 'không suy thêm'];

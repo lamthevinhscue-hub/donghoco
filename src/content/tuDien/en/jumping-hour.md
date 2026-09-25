@@ -12,27 +12,21 @@ sources:
   - label: "Patek Philippe — Glossary (Jumping hour entry)"
     url: "https://www.patek.com/en/glossary"
 
+sourceNotes:
+  - "The detailed jumping mechanism (levers, star wheel) is not part of the two quoted sources — the article does not describe it."
+  - "A. Lange & Söhne describes 'jumping numerals' on its ZEITWERK line ('…mechanically driven digital-display watch. Its trailblazing concept with precisely jumping numerals…') — a product description by the maker, not a general definition."
+
 ---
 
-## The definition
+The **jumping hour** is a display in which the hour sits in a window and changes every 60 minutes. Two major sources match on the definition.
 
-**FHH** (Fondation de la Haute Horlogerie): "A means of display in which the hour, shown through an aperture, instantly changes every 60 minutes." — a display where the **hour appears in an aperture** and changes instantaneously every 60 minutes.
+**FHH** (Fondation de la Haute Horlogerie): "A means of display in which the hour, shown through an aperture, instantly changes every 60 minutes."
 
-**Patek Philippe** (maker's glossary, "Jumping hour"): "Hour appearing in an aperture thanks to a rotating disk, and which replaces an Hours hand. It is referred to as "jumping" since, every hour on the hour, it changes by jumping abruptly from one numeral to the next." — the hour appears in an aperture on a **rotating disk**, replacing the hours hand; it "jumps" because, on every hour, it switches abruptly to the next numeral.
+**Patek Philippe** (its official glossary): "Hour appearing in an aperture thanks to a rotating disk, and which replaces an Hours hand. It is referred to as "jumping" since, every hour on the hour, it changes by jumping abruptly from one numeral to the next" — the hour sits in a window on a **rotating disk**, replacing the hour hand; it "jumps" because at every full hour it changes abruptly to the next numeral.
 
-The two sources agree on three points: an aperture display, a rotating disk carrying the numerals, and a jump exactly once per hour.
-
-## Reading limits
-
-- The detailed snap mechanism (lever, star wheel) is not in the two quoted sources — this article does not describe it.
-- One supplementary source may be consulted: A. Lange & Söhne describes the concept of "jumping numerals" on its ZEITWERK line ("…mechanically driven digital-display watch. Its trailblazing concept with precisely jumping numerals…") — a product description by that maker, not a general definition.
-
-## In short
-
-- Jumping hour: the hour shown in an aperture, jumping instantly every 60 minutes (FHH).
-- Patek Philippe: a rotating disk replaces the hours hand; the "jump" is the abrupt numeral change on the hour.
+The two sources agree on three points: the display window, the rotating numbered disk, and the jump exactly on the hour. One extra source is worth noting: A. Lange & Söhne describes "jumping numerals" on its ZEITWERK line — a product description by the maker, not a general definition.
 
 ## Read next
 
-- Hands running on an arc → [Retrograde](/en/glossary/retrograde/)
-- The date that maintains itself → [Perpetual Calendar](/en/glossary/perpetual-calendar/)
+- A hand spread across an arc → [Retrograde](/en/glossary/retrograde/)
+- The calendar that counts for itself → [Perpetual Calendar](/en/glossary/perpetual-calendar/)

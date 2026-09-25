@@ -12,31 +12,21 @@ sources:
   - label: "Patek Philippe — Glossary (Retrograde hand entry)"
     url: "https://www.patek.com/en/glossary"
 
+sourceNotes:
+  - "No variant (retrograde date, retrograde seconds…) is asserted beyond FHH naming hour, minute, seconds or calendar hands as possible types."
+  - "The mechanism performing the snap-back return is not part of the two quoted sources — the article does not describe it."
+
 ---
 
-## The definition
+An hour hand travels a full circle and simply starts another — so familiar that nobody asks about it. The **retrograde** display does the opposite: its hand runs along **an arc only**, and when it reaches the end it snaps back to the start. Two major sources match on the definition.
 
-**FHH** (Fondation de la Haute Horlogerie): "An hour, minute, seconds or calendar hand which moves across a scale and, at the end of its cycle, returns immediately to zero to begin again." — an **hours, minutes, seconds or calendar hand** moving along a scale that, at the end of its cycle, **returns immediately to zero** and starts again.
+**FHH** (Fondation de la Haute Horlogerie): "An hour, minute, seconds or calendar hand which moves across a scale and, at the end of its cycle, returns immediately to zero to begin again" — an **hour, minute, seconds or calendar** hand moves along a scale and **returns immediately to zero** at the end of its cycle.
 
-**Patek Philippe** (maker's glossary, "Retrograde hand"): "A hand with a tip moving over the arc of a circle instead of a circle. When it reaches the end of its path, it returns instantly to its point of departure." — the tip travels over an **arc** rather than a full circle; at the end of the path it returns instantaneously to the point of departure.
+**Patek Philippe** (its official glossary, under "Retrograde hand"): "A hand with a tip moving over the arc of a circle instead of a circle. When it reaches the end of its path, it returns instantly to its point of departure" — the tip travels over **an arc**, not a full circle, and returns instantly at the end.
 
-The two sources match exactly: a display on an **arc**, and an **instant return** when the arc ends.
-
-## Why it is a distinctive display
-
-Because the hand covers only an arc, the scale fans out across the dial — freeing space for additional indications. The return mechanism itself (pivots, return gearwork) is **not in the two quoted sources** — this article does not describe it.
-
-## Reading limits
-
-- No variant (retrograde date, retrograde seconds…) is asserted beyond FHH's list of hand types: hours, minutes, seconds or calendar.
-
-## In short
-
-- Retrograde: the hand runs along a scale and snaps back to zero at the end of its cycle (FHH).
-- Patek Philippe: an arc instead of a circle; an instant return to the point of departure.
-- The hand can be hours, minutes, seconds or calendar (FHH).
+The two sources agree on both points: a display over **an arc**, and an **instant return** at the end. Because the hand covers only an arc, the scale is laid out as a fan.
 
 ## Read next
 
-- Numerals that jump in an aperture → [Jumping hour](/en/glossary/jumping-hour/)
-- The date that maintains itself → [Perpetual Calendar](/en/glossary/perpetual-calendar/)
+- Jumping numerals in a window → [Jumping Hour](/en/glossary/jumping-hour/)
+- The date that counts itself all year → [Perpetual Calendar](/en/glossary/perpetual-calendar/)

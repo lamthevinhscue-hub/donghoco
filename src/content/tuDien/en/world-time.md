@@ -12,30 +12,21 @@ sources:
   - label: "Patek Philippe — Glossary (Time zones / HU entries)"
     url: "https://www.patek.com/en/glossary"
 
+sourceNotes:
+  - "The internal mechanism (city disc, gear ring) is not part of the two quoted sources — the article does not describe it."
+  - "The history of individual brands and product lines is outside these two sources."
+
 ---
 
-## The definition, by two sources
+FHH (Fondation de la Haute Horlogerie) describes the complication: "Describes a watch that indicates, usually by means of subdials surrounding the main dial, local time in different world cities. Often these cities were chosen for their political or economic importance prior to 1883 when universal time was introduced".
 
-**FHH** (Fondation de la Haute Horlogerie): "Describes a watch that indicates, usually by means of subdials surrounding the main dial, local time in different world cities. Often these cities were chosen for their political or economic importance prior to 1883 when universal time was introduced." — a watch showing the local time of **several world cities**, usually on subdials around the main dial; the cities were often chosen for their political or economic importance before 1883, when universal time was established.
+Patek Philippe (its official glossary, under "Time zones") puts it this way: "Simultaneous indication of the time in several time zones. The most common models are dual time zone watches which give home time and local time in the place one is traveling to. Patek Philippe also produces a model called "World Time", which simultaneously displays the time in 24 time zones".
 
-**Patek Philippe** (maker's glossary, "Time zones"): "Simultaneous indication of the time in several time zones. The most common models are dual time zone watches which give home time and local time in the place one is traveling to. Patek Philippe also produces a model called "World Time", which simultaneously displays the time in 24 time zones." — **simultaneous** display of several time zones; the most common form is dual time, and the maker produces a "World Time" line showing 24 zones at once.
+## Where it differs from GMT
 
-## How it differs from GMT
-
-A GMT watch adds **one** alternate time zone; a world time watch shows **several at once**. The practical GMT reading and setting steps already have their own guide: [Reading and setting a GMT watch](/en/guides/reading-and-setting-gmt/) — this entry does not repeat them.
-
-## Reading limits
-
-- The internal mechanism (city disc, gear ring) is not in the two quoted sources — this article does not describe it.
-- Per-brand and per-line history is outside the two sources above.
-
-## In short
-
-- World time: the time of several cities shown at once, usually on subdials (FHH).
-- Patek Philippe: from dual time zone to its own 24-time-zone "World Time" line.
-- GMT is the one-alternate-zone form — see the GMT guide.
+A GMT watch shows **one additional** time zone as a replacement; a world time watch shows **several zones at once**. The reading and setting procedure for GMT has its own guide: [How to read and set a GMT watch](/en/guides/reading-and-setting-gmt/) — this entry does not repeat it.
 
 ## Read next
 
-- Practical GMT use → [Reading and setting a GMT watch](/en/guides/reading-and-setting-gmt/)
-- The date side of complications → [Perpetual Calendar](/en/glossary/perpetual-calendar/)
+- Hands-on GMT setting → [How to read and set a GMT watch](/en/guides/reading-and-setting-gmt/)
+- The calendar that handles dates on its own → [Perpetual Calendar](/en/glossary/perpetual-calendar/)

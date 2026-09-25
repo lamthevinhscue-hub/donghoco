@@ -12,30 +12,21 @@ sources:
   - label: "Patek Philippe — Glossary (Equation of time entry)"
     url: "https://www.patek.com/en/glossary"
 
+sourceNotes:
+  - "The display form (circular dial, arc, subdial) is not part of the two quoted sources — the article does not describe it."
+  - "The dates of the extreme values of the difference were not verified in this round — the article does not state them."
+
 ---
 
-## The definition
+This evening, the sundial in the garden and the watch on your wrist will show two different hours — and both are "right". FHH (Fondation de la Haute Horlogerie) explains: "The equation of time is the difference between true solar time and mean time. True solar time, given by sundials, varies from day to day because of the Earth's elliptical orbit, and according to the longitude of the point of observation" — the **equation of time** is the difference between **true solar time** and **mean time**; true solar time changes from day to day because of the Earth's elliptical orbit and the longitude of the observer.
 
-**FHH** (Fondation de la Haute Horlogerie): "The equation of time is the difference between true solar time and mean time. True solar time, given by sundials, varies from day to day because of the Earth's elliptical orbit, and according to the longitude of the point of observation." — the **equation of time** is the difference between **true solar time** (as shown by sundials) and **mean time**. True solar time changes from day to day because of the Earth's elliptical orbit and the longitude of the observer.
+The same source: "Mean time, given by watches, ignores these variations and for every day of the year mathematically divides time into equal hours" — mean time, the time your watch keeps, ignores those variations and divides the year into equal hours.
 
-The same source: "Mean time, given by watches, ignores these variations and for every day of the year mathematically divides time into equal hours." — mean time, the time watches show, ignores those variations and divides the year into equal hours.
+## How wide is the difference
 
-## How wide the difference runs
-
-**Patek Philippe** (maker's glossary, "Equation of time"): "Complication which indicates the difference between conventional time (mean time) and the time determined by the position of the sun (real time). This difference ranges between –16 and + 14 minutes, depending on the day of the year." — the complication displays that difference, which runs from **−16 to +14 minutes** depending on the day of the year.
-
-## Reading limits
-
-- The display forms (circular track, arc, subdial hand) are not in the quoted passages — this article does not describe them.
-- The extreme-value dates are not among the verified facts of this round — this article does not state them.
-
-## In short
-
-- Equation of time = true solar time − mean time (FHH).
-- The cause: the elliptical orbit plus observation longitude (FHH).
-- The difference ranges between −16 and +14 minutes by day of year (Patek Philippe).
+Patek Philippe (its official glossary, under "Equation of time") states the range: "Complication which indicates the difference between conventional time (mean time) and the time determined by the position of the sun (real time). This difference ranges between –16 and + 14 minutes, depending on the day of the year" — the complication displays that difference, which runs **from −16 to +14 minutes** depending on the day of the year.
 
 ## Read next
 
-- Measuring intervals independently → [The chronograph mechanism](/en/mechanisms/chronograph/)
+- Timing an interval on its own → [Chronograph — the timing mechanism](/en/mechanisms/chronograph/)
 - Several time zones at once → [World Time](/en/glossary/world-time/)

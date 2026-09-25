@@ -14,9 +14,14 @@ sources:
   - label: "Sellita — official site"
     url: "https://www.sellita.ch"
 
+sourceNotes:
+  - "ETA's history page gives no legal detail about Ebauches SA; the milestones above are what that page proves. The ETA source is not used to define the ébauche — that definition belongs to FHH."
+  - "Sellita's official site currently does not describe the company's role or scope of activity — no role or relationship with other brands can be inferred from a news page."
+  - "The sources used here do not allow a quality comparison or any inference about corporate roles beyond the facts stated."
+
 ---
 
-This article summarizes two movement names, **ETA** and **Sellita**, strictly by what each source publishes.
+This article presents two movement names, **ETA** and **Sellita**, strictly by what each side publishes.
 
 ## ETA — history per the official page
 
@@ -27,8 +32,6 @@ ETA's history page (in French; quoted with translation) makes four points:
 3. **1985 — a single company:** the same sentence dates ETA's becoming one single company to 1985.
 4. **Present position:** "ETA Manufacture Horlogère Suisse est le motoriste du temps au sein de Swatch Group" — ETA is the "motoriste du temps" (movement maker) within the Swatch Group.
 
-Source limits: the page gives no legal detail about Ebauches SA, and the milestones above are what this history page proves. The ETA source is **not** used to define the ébauche — that definition belongs to FHH, linked above.
-
 ## Sellita — the current publication
 
 Sellita's official site currently publishes:
@@ -36,20 +39,11 @@ Sellita's official site currently publishes:
 - Address: "Sellita Watch Co S.A., Le Crêt-du-Locle 11, 2301 La Chaux-de-Fonds, Suisse" — the company is based in La Chaux-de-Fonds.
 - Two named products: the **SW200-1** and the **SW200-2 Power+**; for the SW200-2 Power+, the page states "power reserve of 65 hours".
 
-Source limits — the most important part when reading Sellita: the official site currently **does not** describe the company's role or scope of activity (only news, the address, and section links). So this article assigns Sellita no role beyond what the site publishes, and infers no relationship with other brands from a news page. Role information, if needed, must come from the maker's publication current at that time.
-
 ## Reading the two names correctly
 
 - Each name has its **own publication scope**: ETA proves the history and the position within the Swatch Group; Sellita proves the address and the two named product lines.
 - Do not infer one party's role from the other party's publication.
-- The sources used here do not allow a quality comparison or any inference about corporate roles beyond the facts stated.
-
-## In short
-
-- ETA: the group's first ébauche workshop in Fontainemelon 1793 (four master watchmakers); several ébauche factories under the Ebauches SA banner; ETA a single company in 1985; "motoriste du temps" within the Swatch Group — per eta.ch.
-- Sellita: La Chaux-de-Fonds; the SW200-1; the SW200-2 Power+ with a 65-hour power reserve — per the current official site.
-- Sellita's site currently describes no company role — infer nothing further.
-- The sources used here do not allow a quality comparison or any inference about corporate roles beyond the facts stated.
+- Role information for Sellita, if needed, must come from the maker's publication current at that time.
 
 ## Read next
 

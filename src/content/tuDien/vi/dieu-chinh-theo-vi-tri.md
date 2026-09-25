@@ -1,5 +1,5 @@
 ---
-title: "Điều chỉnh theo vị trí (Adjustment in positions)"
+title: "Điều chỉnh theo vị trí (Adjustment in Positions)"
 excerpt: "Hai công bố cụ thể về độ chính xác theo tư thế đặt: Grand Seiko công bố việc đo ở sáu vị trí có liệt kê; Patek Philippe công bố giai đoạn precision-adjusted hai tuần, không nêu số vị trí."
 term_en: "Adjustment in positions"
 category: "độ chính xác và điều chỉnh"
@@ -12,11 +12,13 @@ sources:
   - label: "Patek Philippe — Instruction Manual Caliber 240 (PDF chính thức)"
     url: "https://static.patek.com/pdf/instructionsforuse/PatekPhilippe_P2401_Caliber_240.pdf"
 
+sourceNotes:
+  - "Không có nguồn chính thức nào định nghĩa 'điều chỉnh theo vị trí' như một chuẩn chung — tiêu đề mục là tên gọi, không phải định nghĩa kỹ thuật đã được nguồn chứng minh."
+  - "Hai nguồn là hai công bố riêng biệt của hai hãng: Grand Seiko công bố đo/kiểm ở sáu vị trí được liệt kê; Patek Philippe công bố giai đoạn precision-adjusted hai tuần, không nêu số vị trí — không ghép thành chuẩn chung, không suy ra số vị trí 'chuẩn ngành'."
+
 ---
 
-## Phạm vi của mục này
-
-Hồ sơ nguồn P0-D1 ghi rõ: không có nguồn chính thức nào định nghĩa "điều chỉnh theo vị trí" như một chuẩn chung. Vì vậy mục này **không định nghĩa khái niệm** — nó chỉ trình bày hai công bố cụ thể, mỗi công bố với phạm vi riêng: Grand Seiko công bố việc đo/kiểm ở **sáu vị trí** được liệt kê; Patek Philippe công bố giai đoạn **precision-adjusted** thêm hai tuần, không nêu số vị trí. Tiêu đề mục là tên gọi, không phải một định nghĩa kỹ thuật đã được nguồn chứng minh.
+Bạn đọc mô tả một chiếc đồng hồ được "chỉnh theo các vị trí đặt" — con số vị trí ấy lấy ở đâu, ai quy định? Không có câu trả lời chung: chỉ có những công bố riêng của từng hãng, và mục này trình bày đúng hai công bố đó.
 
 ## Grand Seiko — công bố tiêu chuẩn sáu vị trí
 
@@ -26,16 +28,9 @@ Trang tiêu chuẩn kiểm của Grand Seiko công bố: "Mean daily rate in six
 
 Sổ hướng dẫn chính thức của Patek Philippe (Caliber 240) công bố: "The rate accuracy of Patek Philippe watches is verified in several phases of manufacturing, both with uncased and fully cased movements", và "…its rate accuracy will be monitored and **precision-adjusted** for a further period of two weeks" — độ chính xác được theo dõi và **tinh chỉnh** thêm trong hai tuần. Công bố này nói về giai đoạn tinh chỉnh; nó **không nêu số vị trí**.
 
-## Giới hạn đọc hiểu
+## Hai công bố, hai phạm vi
 
-- Hai nguồn trên là **hai công bố riêng biệt của hai hãng** — không ghép lại thành một chuẩn chung, không suy ra số vị trí "chuẩn ngành".
-- Cụm "adjusted in positions" trong tiêu đề là tên gọi khái niệm; nội dung chỉ được khẳng định những gì từng nguồn nói.
-
-## Tóm tắt
-
-- Grand Seiko: tiêu chuẩn kiểm của hãng xác định **sáu vị trí** cụ thể, có liệt kê từng vị trí.
-- Patek Philippe: độ chính xác được kiểm nhiều giai đoạn sản xuất và **precision-adjusted** thêm hai tuần (không nêu số vị trí).
-- Hai công bố, hai phạm vi — không gộp thành chuẩn chung.
+Grand Seiko cho thấy danh sách vị trí của tiêu chuẩn hãng; Patek Philippe cho thấy giai đoạn tinh chỉnh của quy trình hãng. Mỗi công bố đứng trong phạm vi của mình — đọc song song để so cách nói, không ghép lại thành một chuẩn.
 
 ## Đọc thêm
 

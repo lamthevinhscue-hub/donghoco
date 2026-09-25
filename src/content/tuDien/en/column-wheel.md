@@ -12,30 +12,19 @@ sources:
   - label: "OMEGA — Speedmaster Two Counters, calibre 9301"
     url: "https://www.omegawatches.com/en-gb/watch-omega-speedmaster-two-counters-co-axial-chronometer-chronograph-44-25-mm-31193445101002"
 
+sourceNotes:
+  - "The FHH source says nothing about the history, the origin, or which brands use the column wheel."
+  - "A brand's choice of mechanism is that brand's own product publication."
+
 ---
 
-## The definition
+Press once and the chronograph hand runs. Press again and it stops. A third press and it returns to zero. Who "coordinates" those three actions? FHH (Fondation de la Haute Horlogerie) answers with a definition: "The wheel which coordinates the start, stop and return to zero functions of the chronograph hand".
 
-FHH (Fondation de la Haute Horlogerie) defines it: "The wheel which coordinates the start, stop and return to zero functions of the chronograph hand." — the column wheel **coordinates three functions**: start, stop and return to zero of the chronograph hand.
+The same source adds a practical note: "In a standard quality chronograph, the column wheel is replaced by a system of cames" — in ordinary chronographs, the column wheel is replaced by a system of cames (the source keeps the French word "cames").
 
-The same page adds: "In a standard quality chronograph, the column wheel is replaced by a system of cames" — in ordinary chronographs, the column wheel is replaced by a **cam** system (the source keeps the French word "cames").
-
-## The term in practice
-
-OMEGA describes its Speedmaster Two Counters movement: "Self-winding chronograph movement with **column wheel mechanism** and Co-Axial escapement." The term appears directly in the brand's official product publication.
-
-## Reading limits
-
-- The FHH source says **nothing** about history, origin or which brands use it.
-- A brand's choice of mechanism is that brand's product publication.
-
-## In short
-
-- Column wheel: the wheel coordinating start, stop and return-to-zero of the chronograph hand (FHH).
-- Ordinary chronographs replace it with a cam system (FHH).
-- OMEGA uses "column wheel mechanism" in its official calibre description.
+The term is not only dictionary material. Omega, on the product page for its Speedmaster Two Counters, describes the movement: "Self-winding chronograph movement with **column wheel mechanism** and Co-Axial escapement" — "column wheel mechanism" appears directly in the brand's official product publication.
 
 ## Read next
 
-- The full chronograph mechanism → [The chronograph mechanism](/en/mechanisms/chronograph/)
-- Timing two events separately → [Rattrapante](/en/glossary/rattrapante/)
+- The chronograph as a whole → [Chronograph — the timing mechanism](/en/mechanisms/chronograph/)
+- Timing two separate events → [Rattrapante](/en/glossary/rattrapante/)

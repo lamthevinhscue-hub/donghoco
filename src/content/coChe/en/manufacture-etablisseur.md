@@ -14,45 +14,39 @@ sources:
   - label: "Fondation de la Haute Horlogerie — Etablisseur"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/etablisseur"
 
+sourceNotes:
+  - "These sources provide no measure or comparison of product quality."
+  - "The FHH source states only a degree of production autonomy — 'almost in its entirety' — with no other technical criterion; no percentage of in-house parts can be derived from it."
+  - "The établisseur definition names no step beyond buying ébauches and parts to assemble them."
+
 ---
 
-The word **manufacture** names one role in mechanical watch production. FHH (Fondation de la Haute Horlogerie) places it next to two other roles within the same defining sentence.
+Reading about watch firms, you keep meeting the words **manufacture** and **établisseur**. Why do two watchmakers introduce themselves so differently? The Swiss industry's answer lives in one place: **who does which step**.
 
-## What a manufacture is
+## Manufacture — a firm that makes almost everything
 
-FHH (Fondation de la Haute Horlogerie) records how the Swiss watch industry uses the term manufacture: to differentiate a company that "**manufactures a watch almost in its entirety**" from the workshops and firms named in the same source sentence.
-
-Read the scope correctly: the source states a **degree of production autonomy** — "almost in its entirety" — and no other technical criterion. From this source you cannot derive a percentage of parts that must be made in-house, or a requirement to make the movement itself.
+FHH (Fondation de la Haute Horlogerie) records how the industry uses the term manufacture: to mark out a company that "**manufactures a watch almost in its entirety**", as opposed to the workshops and firms named in the same source sentence.
 
 ## Finishing shop and établisseur — the other two roles
 
-In the same source sentence, FHH places the manufacture next to two groups:
+In that same source sentence, FHH places the manufacture next to two groups:
 
 - **Finishing shop** — per the source: "**only assemble and time the watch, and fit the hands and movement**".
 - **Établisseur** — FHH maintains a separate definition page: "**In Switzerland, a watchmaker who buys ébauches and parts to then assemble them**".
 
-These two roles are not the same: the source describes the finishing shop as doing assembly, timing and fitting hands; the separate établisseur definition only names **buying ébauches and parts to assemble them**. The établisseur page states no further step — no case fitting, no hand fitting, no timing — so this article adds none.
+Side by side, the boundary is easy to see: the finishing shop is described as doing assembly, timing and fitting hands, while the établisseur definition only names **buying ébauches and parts to assemble them**.
 
 ## Ébauche — the établisseur's input
 
-The definition above mentions **ébauches** — unfinished movements sold as such. The term is defined and bounded in its own article: [Ébauche — the unfinished movement in the supply chain](/en/mechanisms/ebauche-supply-chain/).
+The word **ébauches** in that definition refers to unfinished movements sold as such. The term is defined and bounded in its own article: [Ébauche — the unfinished movement in the supply chain](/en/mechanisms/ebauche-supply-chain/).
 
-## Roles and how production is organized
-
-Put side by side, the three roles answer one question: **who does which step**.
+## Three roles, one question: who does which step
 
 - Manufacture: a company that manufactures a watch almost in its entirety (FHH).
 - Finishing shop: a workshop that only assembles and times the watch, and fits the hands and movement (FHH).
 - Établisseur: a watchmaker who buys ébauches and parts to then assemble them (FHH).
 
-Role names describe **how work is divided along the production chain** — who makes what, who buys what to assemble. These sources provide no measure or comparison of product quality.
-
-## In short
-
-- Manufacture: per FHH, a company that "manufactures a watch almost in its entirety" — no other technical criterion in the source.
-- Finishing shop: assembly, timing, fitting hands and movement (per the FHH Manufacture sentence).
-- Établisseur: buys ébauches and parts to then assemble them (FHH Etablisseur) — the source page names no further step.
-- These sources provide no measure or comparison of product quality.
+Role names describe **how work is divided along the production chain** — who makes what, who buys what to assemble.
 
 ## Read next
 

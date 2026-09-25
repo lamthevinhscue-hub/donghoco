@@ -12,28 +12,23 @@ sources:
   - label: "Grand Seiko — Mechanical movements (maker's page)"
     url: "https://www.grand-seiko.com/us-en/collections/movement/mechanical"
 
+sourceNotes:
+  - "The number of test positions belongs to each standard (COSC: 5 positions and 3 temperatures of 8°, 23°, 38°C; Grand Seiko: 6 positions) — no merging into a 'common standard' and no conversion between standards."
+
 ---
 
-## The phenomenon
+Place the watch in different positions and the timing machine shows different numbers: the COSC (Contrôle Officiel Suisse des Chronomètres) FAQ says it up front: "Mechanical watches can vary in precision depending on their position".
 
-The COSC FAQ states it directly: "Mechanical watches can vary in precision depending on their position" — a mechanical watch can run differently depending on **how it sits**: horizontal or vertical, dial up or dial down.
+## Two standards, two position counts
 
-## Two standards, two numbers — not merged
+- **COSC:** "During this time, the watch is tested in five different positions and at three different temperatures (8°, 23°, and 38°C)." COSC also has a criterion named "Difference Between Rates in Horizontal and Vertical Positions".
+- **Grand Seiko** (its official movement page): "The movement is tested in six different positions and at three different temperatures" — that standard tests in **six** positions.
 
-- **COSC:** "During this time, the watch is tested in five different positions and at three different temperatures (8°, 23°, and 38°C)." COSC also names a dedicated criterion, "Difference Between Rates in Horizontal and Vertical Positions".
-- **Grand Seiko** (maker's movement page): "The movement is tested in six different positions and at three different temperatures" — the brand's standard measures in **six** positions.
+Read it in place: **the position count belongs to each testing standard** — every number is tied to the name of its standard.
 
-Read it correctly: **the number of positions belongs to each standard**. This article does not merge them into "watches are tested in N positions" — every figure stays attached to its named standard.
+## How it connects
 
-## Related
-
-The quantity measured across those positions is what is commonly called positional error; the certification detail sits in [Chronometer and COSC](/en/glossary/chronometer/). **Adjusting** the movement for those positions is a separate concept — see [Adjustment in positions](/en/glossary/adjustment-in-positions/).
-
-## In short
-
-- A mechanical watch can vary in precision by position (COSC).
-- COSC: five positions, three temperatures (8°, 23°, 38°C); Grand Seiko: six positions — each standard states its own figure.
-- No conversion, no "common standard".
+The quantity measured across these positions is "positional error" in the common sense; the certification details sit in [Chronometer and COSC](/en/glossary/chronometer/). **Adjusting** the movement to positions is a separate concept — see [Adjustment in positions](/en/glossary/adjustment-in-positions/).
 
 ## Read next
 

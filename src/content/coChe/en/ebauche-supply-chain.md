@@ -16,48 +16,33 @@ sources:
   - label: "ETA — History (official page, in French)"
     url: "https://www.eta.ch/fr/entreprise/histoire"
 
+sourceNotes:
+  - "The FHH source names four parts always missing (regulating organ, mainspring, dial, hands) and one part that varies by model (jewels); beyond those it lists nothing else — no completion percentages or other parts lists can be inferred."
+  - "These sources provide no measure or comparison of product quality."
+
 ---
 
-**Ébauche** is a watchmaking term defined by FHH (Fondation de la Haute Horlogerie). This article presents the definition, the naming and the historical scope exactly as the source states them.
-
-## The definition
-
-FHH (Fondation de la Haute Horlogerie) defines the ébauche in one line: "**An unfinished movement sold as such**".
+You buy a "raw movement" for a build project, or read the specs of a finished watch — and the word **ébauche** appears. What is it, and what is it missing? FHH (Fondation de la Haute Horlogerie) keeps the definition to one line: "**An unfinished movement sold as such**".
 
 ## Modern: what it has, what it lacks
 
-The same source gives the modern definition: "**The modern ébauche is a watch movement, with or without jewels but always without its regulating organ, mainspring, dial and hands**."
-
-Read the scope correctly: the source names four parts **always missing** and one part that varies (jewels). Beyond those four, the source lists nothing else missing — and this article infers nothing further.
+The same source gives the modern definition: "**The modern ébauche is a watch movement, with or without jewels but always without its regulating organ, mainspring, dial and hands**." Jewels are the per-model variable.
 
 ## History: until circa 1850
 
-The same FHH page records the historical scope:
+The same FHH page records the historical scope of the term:
 
 - "**Until circa 1850, an ébauche comprised only the plate, bridges, fusee and barrel**."
-- At that time it was called a **blanc** and was completed at the **établissage** stage ("It was known as a blanc and was finished at the établissage").
-- For today's usage, the source adds: "**It is also known as a blanc roulant**".
+- At that time it was called a **blanc** and was completed at the **établissage** stage.
+- For today's usage, the source adds that the modern ébauche is also known as a **blanc roulant**.
 
-All three term stages sit on the same source page — the distinction between "blanc" (historical) and "blanc roulant" (modern usage) is kept exactly as the source states it.
+The article keeps the source's own distinction between "blanc" (historical) and "blanc roulant" (modern usage).
 
 ## The ébauche in the supply chain
 
-Who buys ébauches? Per the FHH definition of the **établisseur**: "a watchmaker who buys ébauches and parts to then assemble them". The role is covered fully in [Manufacture and établisseur](/en/mechanisms/manufacture-etablisseur/).
+Who buys ébauches? The **établisseur** — per the FHH definition: "a watchmaker who buys ébauches and parts to then assemble them". The role is covered fully in [Manufacture and établisseur](/en/mechanisms/manufacture-etablisseur/).
 
-As for where ébauches were made, the official ETA history page (in French, quoted with translation) records: "**Le premier atelier et commerce d'ébauches du groupe fut ouvert par quatre maîtres-horlogers à Fontainemelon (NE) en 1793**" — the group's first ébauche workshop and trading house was opened by four master watchmakers in Fontainemelon in 1793. The later milestones of this history (Ebauches SA, ETA in 1985) are told by the same page — see [ETA and Sellita](/en/mechanisms/eta-sellita/).
-
-## Reading an ébauche correctly
-
-- Jewels are per-model ("with or without jewels") exactly per the source; beyond the parts already named, the source lists nothing else.
-- Do not infer completion percentages or any parts list beyond what the source names.
-- These sources provide no measure or comparison of product quality.
-
-## In short
-
-- Ébauche: an unfinished movement sold as such (FHH).
-- Modern: jewels optional, always missing the regulating organ, mainspring, dial and hands (FHH).
-- Until circa 1850: only plate, bridges, fusee and barrel; called a blanc, finished at the établissage; the modern term also used is blanc roulant (FHH).
-- The établisseur buys ébauches and parts to assemble them (FHH); the ébauche workshop trade is recorded from Fontainemelon 1793 (eta.ch).
+As for where the trade came from, the official ETA history page (in French, quoted with translation) records: "**Le premier atelier et commerce d'ébauches du groupe fut ouvert par quatre maîtres-horlogers à Fontainemelon (NE) en 1793**" — the group's first ébauche workshop and trading house was opened by four master watchmakers in Fontainemelon in 1793. The later milestones (Ebauches SA, ETA in 1985) are told by the same page — see [ETA and Sellita](/en/mechanisms/eta-sellita/).
 
 ## Read next
 

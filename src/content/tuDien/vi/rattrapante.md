@@ -12,11 +12,12 @@ sources:
   - label: "A. Lange & Söhne — 1815 Rattrapante (trang hãng)"
     url: "https://www.alange-soehne.com/us-en/timepieces/1815/1815-rattrapante"
 
+sourceNotes:
+  - "Nguồn không nói về từ nguyên 'rattrapante' hay mức độ phổ biến/giá thành."
+
 ---
 
-## Định nghĩa
-
-FHH (Fondation de la Haute Horlogerie) gọi cơ cấu này là **split-seconds chronograph**: "The split-seconds chronograph is used to time different events that begin but do not end together." — dùng để **đo các sự kiện bắt đầu cùng lúc nhưng không kết thúc cùng lúc**.
+Hai tay đua xuất phát cùng lúc nhưng một xe bỏ cuộc giữa chừng — làm sao đo được thời gian của từng xe khi chỉ có một kim bấm giờ? FHH (Fondation de la Haute Horlogerie) gọi cơ cấu này là **split-seconds chronograph**: "The split-seconds chronograph is used to time different events that begin but do not end together" — dùng để **đo các sự kiện bắt đầu cùng lúc nhưng không kết thúc cùng lúc**.
 
 ## Nguyên lý theo nguồn
 
@@ -28,16 +29,6 @@ Cùng trang FHH mô tả cách vận hành:
 ## Thuật ngữ trong thực tế
 
 A. Lange & Söhne đặt tên sản phẩm chính thức: "The 1815 RATTRAPANTE is the first pure split-seconds chronograph from A. Lange & Söhne." — hãng dùng "Rattrapante" đồng nghĩa "split-seconds chronograph" và mô tả chức năng đo cộng tối đa 30 phút cùng chức năng đo đoạn so sánh tới 60 giây.
-
-## Giới hạn đọc hiểu
-
-- Nguồn không nói về từ nguyên "rattrapante" hay mức độ phổ biến/giá thành.
-
-## Tóm tắt
-
-- Rattrapante = split-seconds chronograph: đo các sự kiện bắt đầu cùng lúc, kết thúc khác nhau (FHH).
-- Một nút điều khiển kim tách giây, một nút điều khiển cả hai kim (FHH).
-- Lange dùng thuật ngữ trong tên sản phẩm chính thức.
 
 ## Đọc thêm
 

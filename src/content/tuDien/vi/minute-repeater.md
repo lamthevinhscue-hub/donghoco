@@ -1,5 +1,6 @@
 ---
-title: "Minute Repeater (Cơ chế điểm chuông)"
+title: "Điểm chuông (Minute Repeater)"
+aliases: ["Minute Repeater"]
 excerpt: "Đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; những cơ cấu minute repeater đầu tiên xuất hiện những năm đầu thế kỷ 18 (theo FHH)."
 term_en: "Minute Repeater"
 category: "phức tạp cao cấp"

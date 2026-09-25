@@ -1,5 +1,5 @@
 ---
-title: "Bộ thoát đồng trục — Ít dầu, chính xác lâu hơn"
+title: "Bộ thoát đồng trục — cấu tạo và điều nhà sản xuất công bố"
 excerpt: "Bộ thoát Thụy Sĩ truyền lực bằng ma sát trượt nên cần dầu, mà dầu xuống cấp là sai số tăng. Bộ thoát đồng trục truyền lực bằng lực đẩy gần thẳng góc, giảm ma sát."
 category: "phức tạp"
 difficulty: "cao"

@@ -1,5 +1,5 @@
 ---
-title: "Lịch vạn niên — complication lịch theo lịch Gregory"
+title: "Lịch vạn niên — cơ cấu phức tạp (complication) theo lịch Gregory"
 excerpt: "Perpetual calendar tự chỉnh cho tháng 30 ngày và tháng 2 28/29 ngày nhờ một trí nhớ cơ học lặp chuỗi mỗi 48 tháng — định nghĩa theo FHH."
 category: "phức tạp"
 difficulty: "rất cao"

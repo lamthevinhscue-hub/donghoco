@@ -1,5 +1,6 @@
 ---
-title: "Côtes de Genève (Vân Genève)"
+title: "Vân Genève (Côtes de Genève)"
+aliases: ["Côtes de Genève"]
 excerpt: "Trang trí bộ máy bằng các đường lượn sóng — mô tả theo mục từ FHH và quy định công bố của Poinçon de Genève cho mặt trên cầu máy."
 term_en: "Côtes de Genève / Geneva Stripes"
 category: "hoàn thiện"

@@ -40,20 +40,11 @@
     ]
   },
   {
-    "title": "Minute Repeater (Cơ chế điểm chuông)",
-    "slug": "minute-repeater",
-    "excerpt": "Đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; những cơ cấu minute repeater đầu tiên xuất hiện những năm đầu thế kỷ 18 (theo FHH).",
-    "aliases": [
-      "Minute Repeater (Cơ chế điểm chuông)",
-      "Minute Repeater"
-    ]
-  },
-  {
-    "title": "Perpetual Calendar (Lịch vạn niên)",
+    "title": "Lịch vạn niên (Perpetual Calendar)",
     "slug": "perpetual-calendar",
     "excerpt": "Complication lịch tính đến đặc thù lịch Gregory — tự chỉnh tháng 30 ngày và tháng 2 28/29 ngày nhờ trí nhớ cơ học lặp mỗi 48 tháng (theo FHH).",
     "aliases": [
-      "Perpetual Calendar (Lịch vạn niên)",
+      "Lịch vạn niên (Perpetual Calendar)",
       "Perpetual Calendar",
       "Perpetual Calendar / QP"
     ]
@@ -79,11 +70,20 @@
     ]
   },
   {
-    "title": "Côtes de Genève (Vân Genève)",
+    "title": "Điểm chuông (Minute Repeater)",
+    "slug": "minute-repeater",
+    "excerpt": "Đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; những cơ cấu minute repeater đầu tiên xuất hiện những năm đầu thế kỷ 18 (theo FHH).",
+    "aliases": [
+      "Điểm chuông (Minute Repeater)",
+      "Minute Repeater"
+    ]
+  },
+  {
+    "title": "Vân Genève (Côtes de Genève)",
     "slug": "cotes-de-geneve",
     "excerpt": "Trang trí bộ máy bằng các đường lượn sóng — mô tả theo mục từ FHH và quy định công bố của Poinçon de Genève cho mặt trên cầu máy.",
     "aliases": [
-      "Côtes de Genève (Vân Genève)",
+      "Vân Genève (Côtes de Genève)",
       "Côtes de Genève",
       "Côtes de Genève / Geneva Stripes"
     ]
@@ -157,11 +157,11 @@
     ]
   },
   {
-    "title": "Power Reserve (Trữ cót)",
+    "title": "Trữ cót (Power Reserve)",
     "slug": "power-reserve",
     "excerpt": "Thời gian đồng hồ chạy được sau khi dây cót đầy — 'tuổi thọ pin' của đồng hồ cơ, là thông số công bố cho từng calibre.",
     "aliases": [
-      "Power Reserve (Trữ cót)",
+      "Trữ cót (Power Reserve)",
       "Power Reserve",
       "Power Reserve / Réserve de marche"
     ]
@@ -177,11 +177,11 @@
     ]
   },
   {
-    "title": "VPH (tần số dao động)",
+    "title": "Tần số dao động (VPH)",
     "slug": "vph",
     "excerpt": "Đơn vị mô tả tần số dao động của bộ điều tiết — số lần rung mỗi giờ; mỗi dao động qua-lại gồm hai lần rung (theo FHH).",
     "aliases": [
-      "VPH (tần số dao động)",
+      "Tần số dao động (VPH)",
       "VPH",
       "Vibrations per hour / Beat rate"
     ]
@@ -216,11 +216,11 @@
     ]
   },
   {
-    "title": "Movement (Bộ máy)",
+    "title": "Bộ máy (Movement)",
     "slug": "movement",
     "excerpt": "Trái tim của đồng hồ — toàn bộ cơ cấu bên trong khiến đồng hồ chạy.",
     "aliases": [
-      "Movement (Bộ máy)",
+      "Bộ máy (Movement)",
       "Movement",
       "Movement / Caliber"
     ]

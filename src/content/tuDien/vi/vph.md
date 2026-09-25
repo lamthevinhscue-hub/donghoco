@@ -1,5 +1,6 @@
 ---
-title: "VPH (tần số dao động)"
+title: "Tần số dao động (VPH)"
+aliases: ["VPH"]
 excerpt: "Đơn vị mô tả tần số dao động của bộ điều tiết — số lần rung mỗi giờ; mỗi dao động qua-lại gồm hai lần rung (theo FHH)."
 term_en: "Vibrations per hour / Beat rate"
 category: "bộ máy"

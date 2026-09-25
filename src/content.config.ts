@@ -151,6 +151,9 @@ const tuDien = defineCollection({
   schema: z.object({
     ...baseFields,
     term_en: z.string().optional(),                 // Tên tiếng Anh (nếu có)
+    // Bí danh tay (S3) — script sinh JSON sẽ gộp vào danh sách alias tự sinh,
+    // dùng để giữ liên kết tự động khi đổi title sang "Việt trước, Anh sau".
+    aliases: z.array(z.string()).optional(),
     // Phân nhóm — enum khớp GLOSSARY_CATEGORY_ORDER (src/i18n/ui.ts).
     // Không default: thiếu/sai category → lỗi schema khi sync/check (chặn tái
     // diễn lỗi 3 bài "phức tạp" rơi khỏi trang /tu-dien).

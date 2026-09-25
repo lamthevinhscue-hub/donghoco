@@ -1,5 +1,6 @@
 ---
-title: "Perpetual Calendar (Lịch vạn niên)"
+title: "Lịch vạn niên (Perpetual Calendar)"
+aliases: ["Perpetual Calendar"]
 excerpt: "Complication lịch tính đến đặc thù lịch Gregory — tự chỉnh tháng 30 ngày và tháng 2 28/29 ngày nhờ trí nhớ cơ học lặp mỗi 48 tháng (theo FHH)."
 term_en: "Perpetual Calendar / QP"
 category: "phức tạp cao cấp"

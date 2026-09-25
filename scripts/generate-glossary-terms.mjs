@@ -34,16 +34,49 @@ async function main() {
     const slug = file.replace(/\.md$/, '');
     const draft = fm.match(/^draft:\s*(true|false)/m)?.[1];
 
+    // Bí danh tay (S3): `aliases: ["A", "B"]` khai báo trong frontmatter
+    // Bí danh tay (S3): nhận CẢ HAI dạng YAML hợp lệ —
+    //   inline:  aliases: ["Movement", "Caliber"]
+    //   block:   aliases:\n  - "Movement"\n  - "Caliber"
+    const docAliases = (fm) => {
+      const inline = fm.match(/^aliases:\s*\[([^\]]*)\]/m);
+      if (inline) {
+        return inline[1]
+          .split(',')
+          .map((s) => s.trim().replace(/^["']|["']$/g, ''))
+          .filter(Boolean);
+      }
+      const block = fm.match(/^aliases:\s*\r?\n((?:[ \t]+-[ \t]*.+\r?\n?)+)/m);
+      if (block) {
+        return block[1]
+          .split(/\r?\n/)
+          .map((d) => d.replace(/^[ \t]+-[ \t]*/, '').trim().replace(/^["']|["']$/g, ''))
+          .filter(Boolean);
+      }
+      return [];
+    };
+    const aliasesTay = docAliases(fm);
+
     if (draft === 'true') continue;
     if (!title || !excerpt) continue;
 
     // Sinh aliases để khớp linh hoạt hơn:
     // - title đầy đủ
     // - phần trước dấu ngoặc (VD "Dây tóc & bánh lắc (Hairspring & Balance)" → "Dây tóc & bánh lắc")
+    //   — CHỈ áp cho mục KHÔNG có bí danh tay: mục có tay thường đổi title sang
+    //   "Việt trước, Anh sau" mà phần trước ngoặc mới là cụm Việt quá phổ biến
+    //   (VD "Bộ máy"), không được tự thêm
     // - term_en (tên tiếng Anh)
+    // - với mục có bí danh tay: gộp aliases khai báo tay vào danh sách
     const aliases = new Set([title]);
-    const parenPart = title.replace(/\s*\([^)]*\)\s*$/, '').trim();
-    if (parenPart && parenPart.length >= 3) aliases.add(parenPart);
+    if (aliasesTay.length > 0) {
+      for (const alias of aliasesTay) {
+        if (alias.length >= 3) aliases.add(alias);
+      }
+    } else {
+      const parenPart = title.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      if (parenPart && parenPart.length >= 3) aliases.add(parenPart);
+    }
     if (termEn && termEn.length >= 3) aliases.add(termEn);
 
     terms.push({ title, slug, excerpt, aliases: [...aliases] });

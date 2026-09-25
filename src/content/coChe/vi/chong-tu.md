@@ -1,5 +1,5 @@
 ---
-title: "Chống từ (Anti-Magnetic) — Kẻ thù giấu mặt của đồng hồ cơ"
+title: "Chống từ (Anti-Magnetic) — vì sao từ trường làm đồng hồ cơ chạy sai"
 excerpt: "Bộ máy cơ có thể nhiễm từ và ảnh hưởng độ chính xác. Mức chống từ là thông số của từng calibre, từng chứng nhận — không phải một con số chung."
 category: "bổ trợ"
 difficulty: "trung bình"

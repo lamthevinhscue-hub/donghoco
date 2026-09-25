@@ -95,6 +95,33 @@ if (chapOk) {
 }
 kiem('W4', '6 chapter range liên tiếp phủ 0 → số mốc dữ liệu', chapOk, `ranges=${JSON.stringify(rangeList)}, n=${data.length}`);
 
+// ===== W6: ảnh web của 4 mốc (P0-C — ảnh AI bối cảnh đã duyệt) =====
+// Mỗi mốc H07-A phải có tệp JPG đúng slug, tỉ lệ/kích thước 1200×900 (4:3).
+// Đọc kích thước JPEG từ header (SOF0/SOF2) — không cần thư viện ảnh.
+const kichThuocJpeg = (tep) => {
+  const b = readFileSync(tep);
+  let i = 2;
+  while (i < b.length - 9) {
+    if (b[i] !== 0xff) { i++; continue; }
+    const marker = b[i + 1];
+    if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+      return { cao: b.readUInt16BE(i + 5), rong: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  return null;
+};
+{
+  const lech = [];
+  for (const slug of MOC_MOI) {
+    const tep = join(ROOT, 'public', 'images', 'timeline', `${slug}.jpg`);
+    if (!existsSync(tep)) { lech.push(`${slug}: thiếu tệp JPG`); continue; }
+    const kt = kichThuocJpeg(tep);
+    if (!kt || kt.rong !== 1200 || kt.cao !== 900) lech.push(`${slug}: kích thước ${kt ? `${kt.rong}x${kt.cao}` : 'không đọc được'} (cần 1200×900)`);
+  }
+  kiem('W6', `4 mốc H07-A có JPG đúng slug, 1200×900 (4:3) — minh họa AI bối cảnh đã duyệt, không mang ý nghĩa chứng cứ`, lech.length === 0, lech.join(', ') || 'đủ');
+}
+
 // ===== W5: lớp dist =====
 if (DIST) {
   const viPath = join(DIST, 'lich-su', 'index.html');
@@ -135,6 +162,24 @@ if (DIST) {
       if (!existsSync(join(DIST, clean, 'index.html'))) docHong.push(`${m.slug}:${m.readMore}`);
     }
     kiem('W5-d', `Đường đọc tiếp của mốc mới tới đích tồn tại (${docThem.length} mốc có readMore)`, docHong.length === 0, docHong.join(', ') || 'đủ');
+
+    // W5-e (P0-C): dist render đúng JPG + nhãn AI minh bạch đúng ngôn ngữ.
+    // Số mốc dùng ảnh AI = 4 mốc H07-A + trench-watch (map ANH_AI của
+    // HistoryTimeline) = 5 nhãn mỗi trang. Ảnh là minh họa AI bối cảnh đã duyệt
+    // trực quan — không gán ý nghĩa chứng cứ lịch sử/kỹ thuật nào.
+    const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
+    const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
+    const soMocAi = MOC_MOI.length + 1;
+    const thieuJpg = MOC_MOI.filter((slug) => !viHtml.includes(`src="/images/timeline/${slug}.jpg"`) || !enHtml.includes(`src="/images/timeline/${slug}.jpg"`));
+    const viNhan = (viHtml.match(new RegExp(NHAN_AI_VI, 'g')) ?? []).length;
+    const enNhan = (enHtml.match(new RegExp(NHAN_AI_EN, 'g')) ?? []).length;
+    const viLan = viHtml.includes(NHAN_AI_EN);
+    const enLan = enHtml.includes(NHAN_AI_VI);
+    const viAlt = (viHtml.match(/\(minh họa AI tái dựng\)/g) ?? []).length;
+    const enAlt = (enHtml.match(/\(AI reconstruction\)/g) ?? []).length;
+    kiem('W5-e', `Dist: 4 JPG render đúng + nhãn AI đúng ngôn ngữ ×${soMocAi * 2} (thẻ + attr truyền hộp phóng to, mỗi mốc AI 2 chỗ) + alt khuôn H12-A`,
+      thieuJpg.length === 0 && viNhan === soMocAi * 2 && enNhan === soMocAi * 2 && !viLan && !enLan && viAlt === soMocAi * 2 && enAlt === soMocAi * 2,
+      `thiếuJPG=${thieuJpg.join(',') || 'không'}, nhãn VI=${viNhan}, EN=${enNhan}, lẫn=${viLan || enLan ? 'có' : 'không'}, alt VI=${viAlt}, EN=${enAlt}`);
   } else {
     errors.push('[W5] Thiếu dist/lich-su/index.html hoặc dist/en/history/index.html — cần build trước khi kiểm lớp dist.');
   }

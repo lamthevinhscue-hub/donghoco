@@ -2,6 +2,8 @@
 // check-g09-id-unique.mjs — Kiểm G09-B chặng 2: ID pattern guilloché duy nhất/instance
 // =============================================================================
 // Chạy: node scripts/check-g09-id-unique.mjs            → kiểm nguồn + toàn dist
+//       node scripts/check-g09-id-unique.mjs <dist>     → kiểm một thư mục dist khác
+//                                                         (mutation; mặc định vẫn `dist/`)
 //       node scripts/check-g09-id-unique.mjs --quyen D  → kiểm thư mục sandbox (*.html)
 //                                                        (mutation cô lập, ngoài repo chính)
 // Quy tắc:
@@ -10,13 +12,15 @@
 //   D2 mỗi technical plate (figure.watch-image) có ĐÚNG 1 <pattern> trong SVG của nó,
 //      và rect tham chiếu fill="url(#<id pattern đó>)" — tham chiếu khớp đích cùng SVG.
 //   D3 ID pattern duy nhất trong từng tài liệu (không trùng giữa các plate).
-//   D4 số plate = số pattern = số tham chiếu (toàn dist = 125 theo census chặng 1).
+//   D4 số plate = số pattern = số tham chiếu; tổng toàn dist = baseline cố định
+//      69 plate ngoài timeline + số mốc có ảnh × 2 route timeline (P0-C vòng
+//      sửa 1 — công thức hiện hành thay cho con số 125 của census chặng 1).
 //   D5 trang bắt buộc: /lich-su/ 28, /en/history/ 28, /thuong-hieu/audemars-piguet/ 2,
 //      /thuong-hieu/breguet/ 1.
 // Lỗi in rõ lý do (ID trùng / thiếu đích / đếm lệch...). Exit 1 nếu có lỗi.
 // =============================================================================
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { parse } from 'parse5';
 
 const errors = [];
@@ -26,6 +30,9 @@ const dat = (ten, ok, chiTiet) => {
 };
 
 const cheDoQuyen = process.argv[2] === '--quyen' ? process.argv[3] : null;
+// P0-C vòng sửa 1: đường dist tùy chọn phục vụ mutation dist tạm — mặc định
+// vẫn `dist/` của repo nên chuỗi build và lệnh không tham số không đổi.
+const thuMucDist = cheDoQuyen ? null : (process.argv.slice(2).find((a) => !a.startsWith('--')) ?? 'dist');
 
 const attrsOf = (node) => Object.fromEntries((node.attrs || []).map((a) => [a.name, a.value]));
 // phân tích một trang: gom các SVG thuộc technical plate (figure.watch-image) kèm
@@ -111,30 +118,48 @@ if (cheDoQuyen) {
 
   if (!existsSync('dist')) { dat('dist', false, 'chưa có dist — hãy chạy npm run build trước'); process.exit(1); }
 
+  // P0-C vòng sửa 1: số plate hai route timeline tính từ dữ liệu + tệp ảnh
+  // thực tế; baseline ngoài timeline KHÓA CỐ ĐỊNH = 69 (nguồn: census P0-C sau
+  // khi bốn ảnh AI bối cảnh được thêm — output/p0-c-ai-timeline-context/) —
+  // KHÔNG lấy số đo ngoài timeline từ dist làm kỳ vọng của chính nó.
+  const BASELINE_NGOAI_TIMELINE = 69;
+  const dataTimeline = JSON.parse(readFileSync('src/data/timeline.json', 'utf8'));
+  const thuMucAnh = join('public', 'images', 'timeline');
+  const coTimeline = dataTimeline.filter((m) => existsSync(join(thuMucAnh, `${m.slug}.jpg`)) || existsSync(join(thuMucAnh, `${m.slug}.svg`))).length;
+  const ROUTE_TIMELINE = ['lich-su', 'en/history'];
   const TRANG_BAT_BUOC = [
-    ['lich-su', 28],
-    ['en/history', 28],
+    ['lich-su', coTimeline],
+    ['en/history', coTimeline],
     ['thuong-hieu/audemars-piguet', 2],
     ['thuong-hieu/breguet', 1],
   ];
   let tongPlate = 0, tongPattern = 0, tongRef = 0, soTrangPlate = 0;
+  let plateTimeline = 0, plateNgoai = 0;
   const duyet = (d) => {
     for (const e of readdirSync(d, { withFileTypes: true })) {
       const p = join(d, e.name);
       if (e.isDirectory()) duyet(p);
       else if (e.name === 'index.html') {
-        const duongChuan = p.split(/[\\/]+/).join('/');
-        const kq = kiemMotTrang('/' + duongChuan.replace(/^dist\//, '').replace(/\/index\.html$/, '/'), readFileSync(p, 'utf8'), null);
-        if (kq.plates > 0) { tongPlate += kq.plates; tongPattern += kq.patterns; tongRef += kq.refs; soTrangPlate++; }
+        const route = relative(thuMucDist, p).split(/[\\/]+/).join('/').replace(/\/index\.html$/, '');
+        const kq = kiemMotTrang('/' + route + '/', readFileSync(p, 'utf8'), null);
+        if (kq.plates > 0) {
+          tongPlate += kq.plates; tongPattern += kq.patterns; tongRef += kq.refs; soTrangPlate++;
+          if (ROUTE_TIMELINE.includes(route)) plateTimeline += kq.plates;
+          else plateNgoai += kq.plates;
+        }
       }
     }
   };
-  duyet('dist');
-  dat('D4 toàn dist: plate = pattern = tham chiếu (125 theo census chặng 1)',
-    tongPlate === 125 && tongPattern === 125 && tongRef === 125, `${tongPlate}/${tongPattern}/${tongRef} trên ${soTrangPlate} trang`);
+  duyet(thuMucDist);
+  const mongTong = BASELINE_NGOAI_TIMELINE + coTimeline * ROUTE_TIMELINE.length;
+  dat(`D4 toàn dist: plate = pattern = tham chiếu (${BASELINE_NGOAI_TIMELINE} ngoài timeline + ${coTimeline}×2 timeline = ${mongTong})`,
+    plateNgoai === BASELINE_NGOAI_TIMELINE
+      && plateTimeline === coTimeline * ROUTE_TIMELINE.length
+      && tongPlate === mongTong && tongPattern === mongTong && tongRef === mongTong,
+    `đo ${tongPlate}/${tongPattern}/${tongRef} trên ${soTrangPlate} trang; plate timeline=${plateTimeline} (cần ${coTimeline * ROUTE_TIMELINE.length}), ngoài=${plateNgoai} (cần ${BASELINE_NGOAI_TIMELINE})`);
 
   for (const [route, soMong] of TRANG_BAT_BUOC) {
-    const p = join('dist', ...route.split('/'), 'index.html');
+    const p = join(thuMucDist, ...route.split('/'), 'index.html');
     if (!existsSync(p)) { dat(`D5 ${route}`, false, 'không tìm thấy trang'); continue; }
     const kq = kiemMotTrang(route + '/', readFileSync(p, 'utf8'), soMong);
     dat(`D5 ${route}: số plate đúng ${soMong}`, kq.plates === soMong, `thực tế ${kq.plates}`);

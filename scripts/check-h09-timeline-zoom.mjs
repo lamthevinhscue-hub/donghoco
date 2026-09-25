@@ -6,12 +6,15 @@
 //       trang === số mốc có tệp ảnh (jpg/svg) tính từ timeline.json
 // H9-2  Nhãn điều khiển đúng ngôn ngữ: VI "Phóng to ảnh: …" / EN "Zoom in image: …",
 //       không lẫn nhãn ngôn ngữ kia
-// H9-3  4 slug H07-A không ảnh: thẻ không có nút phóng to, không có khung ảnh
+// H9-3  Mốc không ảnh (số tính từ timeline.json + tệp ảnh thực tế — P0-C bỏ
+//       ghi cứng): thẻ không có nút phóng to, không có khung ảnh
 // H9-4  Dialog: đúng 1; không mở sẵn (không attr open); có nút đóng có tên theo
 //       ngôn ngữ; ảnh dialog KHÔNG có src sẵn (không request khi tải trang);
 //       có chỗ giữ nhãn AI [data-zoom-ai] + chú thích [data-zoom-caption]
 // H9-5  Không tăng ảnh: số khung .watch-image mỗi trang === số mốc có ảnh;
 //       dialog không chứa sẵn nhiều <img>
+// H9-6  Mốc ảnh AI (map ANH_AI trích từ HistoryTimeline): nhãn AI ở thẻ đúng
+//       ngôn ngữ + truyền vào hộp phóng to qua data-zoom-ai
 // Chạy: node scripts/check-h09-timeline-zoom.mjs <thư-mục-dist>   (cần dist)
 // Nối trong npm run build, sau check-h07. Exit 1 nếu có lỗi.
 // =============================================================================
@@ -46,6 +49,9 @@ const TRANG = [
   { lang: 'vi', path: join(DIST, 'lich-su', 'index.html'), nhan: 'Phóng to ảnh:', close: 'Đóng hộp xem ảnh phóng to' },
   { lang: 'en', path: join(DIST, 'en', 'history', 'index.html'), nhan: 'Zoom in image:', close: 'Close the zoomed image viewer' },
 ];
+// Nhãn AI minh bạch (B3.2.4) — dùng chung với map ANH_AI của HistoryTimeline
+const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
+const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
 
 for (const { lang, path, nhan, close } of TRANG) {
   if (!existsSync(path)) {
@@ -66,7 +72,8 @@ for (const { lang, path, nhan, close } of TRANG) {
   const soLan = (html.match(new RegExp(`aria-label="${nhanNguonKhac}`, 'g')) ?? []).length;
   kiem(`H9-2-${tag}`, `Nhãn điều khiển đúng ngôn ngữ (${nhan} ×${dungNhan}, lẫn ${soLan})`, dungNhan === soAnhMong && soLan === 0, `đúng=${dungNhan}, lẫn=${soLan}`);
 
-  // H9-3: mốc không ảnh — không nút, không khung ảnh
+  // H9-3: mốc không ảnh — không nút, không khung ảnh (số mốc tính từ dữ liệu
+  // + tệp ảnh thực tế trong public/images/timeline — P0-C: không ghi cứng)
   const lech = [];
   for (const m of khongAnh) {
     const i = data.indexOf(m);
@@ -75,7 +82,7 @@ for (const { lang, path, nhan, close } of TRANG) {
     if (mo[0].includes('data-timeline-zoom')) lech.push(`${m.slug} có nút phóng to`);
     if (mo[0].includes('watch-image')) lech.push(`${m.slug} có khung ảnh`);
   }
-  kiem(`H9-3-${tag}`, `4 mốc không ảnh không có nút phóng to/khung ảnh`, lech.length === 0, lech.join(', ') || 'đủ');
+  kiem(`H9-3-${tag}`, `${khongAnh.length} mốc không ảnh (theo dữ liệu + tệp ảnh thực tế) không có nút phóng to/khung ảnh`, lech.length === 0, lech.join(', ') || 'đủ');
 
   // H9-4: dialog
   const soDialog = (html.match(/<dialog id="timeline-zoom"/g) ?? []).length;
@@ -93,6 +100,25 @@ for (const { lang, path, nhan, close } of TRANG) {
   const soKhung = (html.match(/class="watch-image[ "]/g) ?? []).length;
   const soImgDialog = (html.match(/<img[^>]*data-zoom-img/g) ?? []).length;
   kiem(`H9-5-${tag}`, `Không tăng khung ảnh (${soKhung}/${soAnhMong}), dialog chỉ 1 <img>`, soKhung === soAnhMong && soImgDialog === 1, `khung=${soKhung}, img-dialog=${soImgDialog}`);
+
+  // H9-6 (P0-C): mốc dùng ảnh AI (map ANH_AI của HistoryTimeline — trích từ
+  // nguồn, không ghi cứng) phải có nhãn AI ở thẻ và truyền vào hộp phóng to
+  // qua data-zoom-ai; nhãn đúng ngôn ngữ từng trang.
+  const nguonComponent = readFileSync(join(ROOT, 'src', 'components', 'history', 'HistoryTimeline.astro'), 'utf8');
+  const slugsAi = [...new Set([...nguonComponent.matchAll(/'([a-z0-9-]+)',\s*\{\s*vi: '/g)].map((m) => m[1]))];
+  const nhanNgonNgu = lang === 'vi' ? NHAN_AI_VI : NHAN_AI_EN;
+  const lechAi = [];
+  for (const slug of slugsAi) {
+    const m = data.find((x) => x.slug === slug);
+    if (!m) { lechAi.push(`${slug}: không có trong timeline.json`); continue; }
+    const i = data.indexOf(m);
+    const mo = html.match(new RegExp(`<article[^>]*id="milestone-${i}"[\\s\\S]*?</article>`));
+    if (!mo) { lechAi.push(`${slug}: thiếu thẻ #milestone-${i}`); continue; }
+    if (!/data-zoom-ai="[^]/.test(mo[0])) lechAi.push(`${slug}: data-zoom-ai rỗng/thiếu trên nút phóng to`);
+    if (!mo[0].includes(nhanNgonNgu)) lechAi.push(`${slug}: thiếu nhãn AI đúng ngôn ngữ ở thẻ`);
+  }
+  const soTruyen = (html.match(new RegExp(`data-zoom-ai="${nhanNgonNgu}`, 'g')) ?? []).length;
+  kiem(`H9-6-${tag}`, `${slugsAi.length} mốc ảnh AI: nhãn ở thẻ + truyền vào hộp phóng to (×${soTruyen})`, lechAi.length === 0 && soTruyen === slugsAi.length, `${lechAi.join(', ') || 'đủ'}, truyền=${soTruyen}`);
 }
 
 // ===== Kết luận =====

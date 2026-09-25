@@ -176,13 +176,29 @@ const timelineImage = (slug: string): string | undefined => {
 // H12-A: nhãn AI bắt buộc (QUY-CHUAN-HINH-ANH B3.2.4) cho các mốc dùng ảnh AI
 // bối cảnh — hiển thị ở thẻ, trong alt và hộp phóng to (slot data-zoom-ai).
 // Gỡ ảnh AI = xóa tệp jpg + xóa mục khỏi map này → tự quay về SVG.
-const ANH_AI = new Map([[
-  'trench-watch',
-  {
+// P0-C: thêm 4 mốc H07-A dùng ảnh AI bối cảnh đã được anh Vinh duyệt trực quan.
+const ANH_AI = new Map([
+  ['trench-watch', {
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
-  },
-]] as [string, { vi: string; en: string }][]);
+  }],
+  ['universal-time-1884', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['great-depression-1929', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['atomic-second-1967', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['oil-shock-1973', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+] as [string, { vi: string; en: string }][]);
 const nhanAiOf = (slug: string) => ANH_AI.get(slug);
 // Đọc tiếp: bản EN trỏ cặp EN thật khi có; chỉ có VI thì giữ link VI kèm nhãn rõ
 const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {

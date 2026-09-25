@@ -57,5 +57,5 @@ Tên vai trò mô tả **cách chia việc trong chuỗi sản xuất** — ai t
 ## Đọc thêm
 
 - Nguyên liệu mà établisseur mua → [Ébauche — bộ máy bán thành phẩm trong chuỗi cung ứng](/co-che/ebauche-chuoi-cung-ung)
-- Hai bài liên quan → [ETA và Sellita — hai cái tên trong thế giới bộ máy](/co-che/eta-sellita)
+- Bài liên quan → [ETA và Sellita — hai cái tên trong thế giới bộ máy](/co-che/eta-sellita)
 - Khái niệm liên quan → [Bộ máy in-house — nghĩa là gì và không nghĩa là gì](/co-che/bo-may-in-house)

@@ -57,4 +57,4 @@ Role names describe **how work is divided along the production chain** — who m
 ## Read next
 
 - What the établisseur buys → [Ébauche — the unfinished movement in the supply chain](/en/mechanisms/ebauche-supply-chain/)
-- Two related articles → [ETA and Sellita — two names in the movement world](/en/mechanisms/eta-sellita/)
+- Related article → [ETA and Sellita — two names in the movement world](/en/mechanisms/eta-sellita/)

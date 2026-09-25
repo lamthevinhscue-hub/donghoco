@@ -20,9 +20,6 @@ lineHistory:
   - year: 1851
     title: "Dự triển lãm Great Exhibition London — Nữ hoàng Victoria mua"
     detail: "Tại triển lãm cùng Omega/Cartier, Patek Philippe được Nữ hoàng Victoria và Hoàng thân Albert mua — bắt đầu 175 năm danh tiếng hoàng gia."
-  - year: 1861
-    title: "Patek Philippe Seal — chuẩn nội bộ riêng từ 2009"
-    detail: "Từ 2009, Patek Philippe thay thế dấu ấn Genève bằng chuẩn riêng — Patek Philippe Seal — áp dụng cho cả đồng hồ hoàn thiện (không chỉ bộ máy), khắt khe hơn mọi chứng nhận ngành."
   - year: 1925
     title: "Đồng hồ đeo tay lịch vạn niên đầu tiên thế giới"
     detail: "Patek Philippe chế tạo chiếc wristwatch perpetual calendar đầu tiên cho Thomas Packard (chủ General Motors) — một trong những phức tạp cao cấp sớm nhất trên cổ tay."

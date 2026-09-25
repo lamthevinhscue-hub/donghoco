@@ -5,7 +5,6 @@ brand: "IWC Schaffhausen"
 year: 1948
 references: ["Mark XI", "Mark XII", "Mark XV", "Mark XVIII"]
 category: "pilot"
-movement: "Calibre 32111"
 power_reserve: "72 giờ"
 water_resistance: "60m"
 date: "2026-07-31"
@@ -72,7 +71,7 @@ Buồng lái máy bay thời đó đầy thiết bị điện từ có thể là
 
 ## Bộ máy
 
-Mark XI nguyên bản dùng **calibre 89** của IWC — tay cơ, bền bỉ, chính xác. Các thế hệ dân sự sau dùng caliber JLC 889, rồi ETA 2892 chỉnh sửa. Mark XVIII hiện tại dùng **calibre 35111** (dựa ETA 2892).
+Mark XI nguyên bản dùng **calibre 89** của IWC — tay cơ, bền bỉ, chính xác. Các thế hệ dân sự sau dùng caliber JLC 889, rồi ETA 2892 chỉnh sửa.
 
 ## Vị trí trong lịch sử
 

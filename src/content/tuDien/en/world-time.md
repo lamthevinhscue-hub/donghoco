@@ -2,7 +2,7 @@
 title: "World Time"
 excerpt: "A world time watch shows the time in several world cities at once, usually on subdials around the main dial — FHH's definition, plus Patek Philippe's glossary wording."
 term_en: "World Time"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

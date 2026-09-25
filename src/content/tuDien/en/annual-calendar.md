@@ -2,7 +2,7 @@
 title: "Annual Calendar"
 excerpt: "The annual calendar shows the correct date for 30- and 31-day months and needs one correction per year, at the end of February — invented and patented by Patek Philippe, introduced in 1996."
 term_en: "Annual Calendar"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

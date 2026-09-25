@@ -2,7 +2,7 @@
 title: "Giờ nhảy (Jumping hour)"
 excerpt: "Giờ nhảy hiển thị giờ qua cửa sổ, thay đổi tức thì mỗi 60 phút — hai định nghĩa trùng khớp từ FHH và Patek Philippe."
 term_en: "Jumping hour"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

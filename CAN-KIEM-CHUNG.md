@@ -47,6 +47,8 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 
 **Bổ sung 17/09/2026 (gói G07 chặng 2 — vòng sửa 1, TXN-20260917-24): thêm mục 53 và 54, cả hai ở trạng thái `ĐÃ XỬ LÝ AN TOÀN`.** Hai mục này chưa tính vào bảng phân loại phía trên. Mục 53: gỡ hẳn cụm "lập sau Bức tường Berlin / năm 1990 / bộ sưu tập đầu tiên 1992" khỏi bài NOMOS Tangente (SS2-04 vẫn thiếu nguồn, đã loại khỏi nội dung xuất bản). Mục 54: thu hồi cách dẫn "gần như không đổi" gán cho dòng max bill (câu nguồn "60 years" chỉ nói về đồng hồ/clock) và gỡ nhận định bộ máy Junghans không có nguồn. Nguồn đối chiếu: cùng hồ sơ claim chặng 1 (SS2-04, SS2-07, HD3-05).
 
+**Bổ sung 25/09/2026 (gói S1, TXN-20260925-156): thêm mục 59, trạng thái `CHỜ NGUỒN` (chờ nguồn kỹ thuật về quy ước đo biên độ).** Mục này chưa tính vào bảng phân loại phía trên. Cùng ngày, bốn mục 55–58 được xử lý phía bản tiếng Việt: mục 55 chuyển thành `ĐÃ GIẢI QUYẾT`; mục 56, 57, 58 gỡ phần hiển thị sai/chưa có nguồn khỏi bài VI nhưng giữ trạng thái `CHỜ NGUỒN` để khôi phục dữ kiện khi có nguồn.
+
 ---
 
 ## 1. Năm đăng ký logo Longines — ĐÃ GIẢI QUYẾT
@@ -1221,7 +1223,8 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Vị trí:** `src/content/mauIconic/vi/reverso.md`, mục "Vị trí trong lịch sử": "**biểu tượng của đồng hồ thanhläng thập niên Art Deco**" — chữ "thanh lịch" bị lỗi font/gõ sai thành "thanhläng", **đang hiển thị sai trên trang `/mau-iconic/reverso/`**.
 - **Cách phát hiện:** gói H03-A (19/09/2026) khi dịch bài sang tiếng Anh — bản EN đã dịch đúng ý ("rectangular dress watches") và không thể tự sửa bài VI vì ngoài phạm vi tệp được sửa của gói (chỉ tạo tệp EN mới + bảng cặp route).
 - **Hành động cần làm:** sửa "thanhläng" thành "thanh lịch" trong bài VI — một lượt biên tập riêng ngoài phạm vi H03-A.
-- **Trạng thái:** chờ xử lý biên tập (mục mới 19/09/2026; cờ ưu tiên gắn vào chi tiết đang hiển thị sai).
+- **Cập nhật 25/09/2026 (gói S1, TXN-20260925-156):** đã sửa "thanhläng" thành "thanh lịch" tại mục "Vị trí trong lịch sử" của bài VI; `src/` không còn chuỗi lỗi này.
+- **Trạng thái:** ĐÃ GIẢI QUYẾT (25/09/2026). Lịch sử phát hiện 19/09/2026 giữ nguyên ở trên.
 
 ---
 
@@ -1231,7 +1234,8 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Lý do cần kiểm chứng:** nghi ghi năm ra mắt sai — Tech Gombessa được nhớ là ra mắt năm 2022 nhân kỷ niệm 70 năm Fifty Fathoms; năm 2013 chưa đối chiếu được với nguồn chính hãng ở lượt dịch 19/09/2026.
 - **Hành động đã làm (19/09/2026, vòng sửa 3 H03-A):** bản EN (`src/content/mauIconic/en/fifty-fathoms.md`) **đã gỡ bullet Tech Gombessa (2013)** — không công bố mốc năm đang chờ nguồn, không thay bằng năm khác (quy tắc H03: không xuất bản đoạn đã biết có vấn đề khi chưa xử lý). Tên "Tech Gombessa" vẫn giữ trong `references` frontmatter của cả VI và EN vì chỉ là tên mẫu, không kèm khẳng định năm. **Bài VI vẫn đang hiển thị "(2013)"** — ngoài phạm vi sửa của gói EN, chờ xử lý biên tập.
 - **Nguồn còn thiếu:** trang chính hãng Blancpain (mẫu Tech Gombessa) hoặc Lettres du Brassus để chốt năm ra mắt.
-- **Trạng thái:** CHỜ NGUỒN (19/09/2026) — khi có nguồn chính hãng thì **sửa đồng thời VI và EN cùng lượt**: VI gỡ hoặc chốt năm; EN cân nhắc khôi phục bullet với năm đã xác minh.
+- **Cập nhật 25/09/2026 (gói S1, TXN-20260925-156):** bài VI đã gỡ bullet "**Tech Gombessa** (2013)" khỏi mục "Các thế hệ tham chiếu" — cùng cách bản EN đã làm 19/09; tên "Tech Gombessa" vẫn giữ trong `references` frontmatter của cả VI và EN (chỉ là tên mẫu, không kèm năm). Trang không còn công bố năm chưa có nguồn.
+- **Trạng thái:** CHỜ NGUỒN (19/09/2026; phía hiển thị đã xử lý xong cả VI và EN ngày 25/09/2026) — khi có nguồn chính hãng thì **sửa đồng thời VI và EN cùng lượt**: VI cân nhắc khôi phục bullet với năm đã xác minh; EN cân nhắc khôi phục bullet với năm đã xác minh.
 
 ---
 
@@ -1241,7 +1245,8 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Lý do cần kiểm chứng:** mâu thuẫn nội bộ là bằng chứng cụ thể rằng ít nhất một con số sai; theo trang chính hãng IWC, Mark XVIII thường được ghi với calibre 35111 — nhưng chưa đối chiếu được với nguồn chính hãng ở lượt dịch 20/09/2026, không tự sửa.
 - **Hành động đã làm (20/09/2026, H03-B vòng sửa 1):** bản EN (`src/content/mauIconic/en/iwc-mark-xi.md`) **không còn công bố hai calibre mâu thuẫn** — đã gỡ trường `movement` khỏi frontmatter (schema cho optional; SpecTable tự ẩn dòng rỗng) và gỡ câu "calibre 35111" khỏi mục "The movement"; không thay bằng calibre khác, không suy đoán. Phần calibre có nguồn từ bản VI (calibre 89, JLC 889, ETA 2892, ETA 37524) giữ nguyên. **Bài VI nguyên trạng** — vẫn hiển thị cả hai con số mâu thuẫn, chờ nguồn chính hãng.
 - **Nguồn còn thiếu:** trang sản phẩm Mark XVIII của IWC (hoặc tài liệu kỹ thuật chính hãng) để chốt mã calibre đúng.
-- **Trạng thái:** CHỜ NGUỒN (20/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI chốt số đúng và gỡ số sai; EN bổ sung lại `movement`/câu bộ máy với calibre đã xác minh. Checker H03-B chặn cứng hai chuỗi `32111`/`35111` ở src EN và dist EN cho tới khi xử lý.
+- **Cập nhật 25/09/2026 (gói S1, TXN-20260925-156):** bài VI đã gỡ hai con số mâu thuẫn — bỏ trường `movement: "Calibre 32111"` khỏi frontmatter (bảng thông số tự ẩn dòng rỗng) và bỏ câu "Mark XVIII hiện tại dùng **calibre 35111** (dựa ETA 2892)" khỏi mục "Bộ máy"; giữ nguyên phần calibre có nguồn (calibre 89, JLC 889, ETA 2892, ETA 37524). Bài VI nay xử lý đúng như bản EN từ 20/09. Lưu ý đối chiếu tiêu chí kiểm: mã "32111" còn xuất hiện trong `src/content/thuongHieu/vi/omega.md` và `jaeger-lecoultre.md` là **calibre Omega khác** (bộ máy in-house 120h của hãng đó), không liên quan mục này — không thuộc phạm vi sửa.
+- **Trạng thái:** CHỜ NGUỒN (20/09/2026; phía hiển thị đã xử lý xong cả VI và EN ngày 25/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI chốt số đúng và bổ sung lại thông tin calibre; EN bổ sung lại `movement`/câu bộ máy với calibre đã xác minh. Checker H03-B chặn cứng hai chuỗi `32111`/`35111` ở src EN và dist EN cho tới khi xử lý.
 
 ---
 
@@ -1251,4 +1256,15 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Lý do cần kiểm chứng:** năm ra đời chuẩn Patek Philippe Seal là 2009 (trùng với phần thân bài cùng tệp); mục `year: 1861` nhiều khả năng là lỗi nhập liệu năm — chưa đối chiếu nguồn chính hãng ở lượt dịch 20/09/2026.
 - **Hành động đã làm (20/09/2026, H03-C):** bản EN (`src/content/thuongHieu/en/patek-philippe.md`) **không dịch bullet lệch này** — mục Key milestones gỡ hẳn mục 1861/Seal; thông tin Seal "từ 2009" vẫn được công bố ở mục Watchmaking philosophy theo phần thân bài VI (không mâu thuẫn năm). **Bài VI nguyên trạng** — mục lineHistory lệch vẫn hiển thị trên `/thuong-hieu/patek-philippe/`, chờ xử lý biên tập.
 - **Nguồn còn thiếu:** trang chính hãng Patek Philippe về Patek Philippe Seal để chốt năm áp dụng.
-- **Trạng thái:** CHỜ NGUỒN (20/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI sửa `year` mục lineHistory (hoặc gỡ mục); EN cân nhắc đưa bullet Seal với năm đã xác minh vào Key milestones.
+- **Cập nhật 25/09/2026 (gói S1, TXN-20260925-156):** bài VI đã gỡ nguyên mục `year: 1861` khỏi khối `lineHistory` — cùng cách bản EN đã làm 20/09; thông tin Seal "từ 2009" vẫn được công bố ở phần thân bài (mục hoàn thiện). Trang không còn hiển thị mục có năm trái nội dung.
+- **Trạng thái:** CHỜ NGUỒN (20/09/2026; phía hiển thị đã xử lý xong cả VI và EN ngày 25/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI cân nhắc đưa mục Seal vào `lineHistory` với năm đã xác minh; EN cân nhắc đưa bullet Seal với năm đã xác minh vào Key milestones.
+
+---
+
+## 59. Quy ước đo biên độ trên máy đo nhịp (timegrapher) — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/tuDien/vi/bien-do.md` và `src/content/tuDien/en/amplitude.md` — mục định nghĩa (Định nghĩa / The definition).
+- **Nội dung vấn đề:** quy ước đo biên độ trên máy đo nhịp — tính từ vị trí nghỉ tới một phía hay tổng hai phía. Cần nguồn kỹ thuật (ví dụ tài liệu của Witschi) trước khi viết lại định nghĩa áp dụng cho đồng hồ.
+- **Bối cảnh phát hiện (25/09/2026, gói S1, TXN-20260925-156):** câu định nghĩa gắn chung của FHH với vị trí nghỉ của cán bánh lắc ("biên độ là góc quay của cán bánh lắc qua lại hai bên vị trí đứng yên…" và câu EN tương ứng) đã bị bỏ khỏi cả hai bài vì nối định nghĩa nguồn với quy ước đo chưa được làm rõ. **Không tự viết câu thay thế.** Tên thiết bị đo trong hai bài đã sửa đúng thành "máy đo nhịp (timegrapher)" / "timing machine (timegrapher)".
+- **Nguồn còn thiếu:** tài liệu kỹ thuật của nhà chế tạo máy đo (ví dụ Witschi) nêu rõ quy ước tính biên độ trên thiết bị.
+- **Trạng thái:** CHỜ NGUỒN (25/09/2026) — khi có nguồn kỹ thuật thì viết lại định nghĩa áp dụng cho đồng hồ, đồng thời hai bản VI và EN cùng lượt.

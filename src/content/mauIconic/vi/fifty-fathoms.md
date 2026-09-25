@@ -63,7 +63,6 @@ Năm 1956, nhà làm phim **Louis Malle** và nhà hải học **Jacques-Yves Co
 - **MIL-SPEC** (1957) — phiên bản quân sự Mỹ, có chỉ báo ẩm (moisture indicator).
 - **Bathyscaphe** (1956) — phiên bản nhỏ hơn, thiết kế cho tàu ngầm Trieste lặn tới rãnh Mariana.
 - **500 Fathoms** (2009) — phiên bản lớn (48mm), chống nước 1000m.
-- **Tech Gombessa** (2013) — thêm chức năng "Gombessa" đo thời gian lặn dài.
 
 ## Bộ máy
 

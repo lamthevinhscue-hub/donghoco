@@ -2,7 +2,7 @@
 title: "Jumping hour"
 excerpt: "A jumping hour is shown through an aperture and changes instantly every 60 minutes — two matching definitions from FHH and Patek Philippe."
 term_en: "Jumping hour"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

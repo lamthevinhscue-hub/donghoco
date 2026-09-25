@@ -18,11 +18,9 @@ sources:
 
 FHH (Fondation de la Haute Horlogerie) defines it: "The distance between the two extreme points of a movement or periodic phenomenon (a angle)." Amplitude is the **distance between the two extreme points** of an oscillation, expressed as an **angle**.
 
-In a watch's regulating organ, that angle is the swing of the balance staff on either side of its rest position during each oscillation.
-
 ## How it is measured
 
-Amplitude is one of the standard readings a chronograph timing machine displays. Witschi, a maker of timing instruments, lists "Amplitude" as a measured value on its ChronoMaster line, with resolution given in degrees. In other words: it is a quantity read with **dedicated equipment**, not by eye.
+Amplitude is one of the standard readings a timing machine (timegrapher) displays. Witschi, a maker of timing instruments, lists "Amplitude" as a measured value on its ChronoMaster line, with resolution given in degrees. In other words: it is a quantity read with **dedicated equipment**, not by eye.
 
 ## Reading limits
 
@@ -37,5 +35,5 @@ Amplitude is one of the standard readings a chronograph timing machine displays.
 
 ## Read next
 
-- What the balance swings on → [Escape wheel](/en/glossary/escape-wheel/)
+- The wheel that delivers impulse through the lever → [Escape wheel](/en/glossary/escape-wheel/)
 - The hairspring of the regulating organ → [Hairspring](/en/glossary/hairspring/)

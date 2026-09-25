@@ -2,6 +2,9 @@
 // =============================================================================
 // check-p0-d2-glossary-expansion.mjs (P0-D2, Đợt 5) — kiểm chặng viết 12 mục
 // từ điển song ngữ (4 "độ chính xác và điều chỉnh" + 8 "phức tạp cao cấp").
+// S1 (25/09/2026): 6 mục (column-wheel, flyback, annual-calendar, world-time,
+// jumping-hour, retrograde) đổi nhóm sang "phức tạp chức năng" — rattrapante và
+// equation-of-time giữ "phức tạp cao cấp"; /tu-dien cao cấp 11 → 5.
 //
 // Cách chạy: node scripts/check-p0-d2-glossary-expansion.mjs [dist]
 //   dist: thư mục build (tùy chọn; chuỗi build truyền `dist`).
@@ -14,7 +17,7 @@
 // R4  Cụm cấm theo từng mục (dữ kiện bị cảnh báo trong P0-D1) + claim chất
 //     lượng/xếp hạng/đầu tư trên toàn bộ 24 tệp.
 // R5  Dist: 24 route tồn tại; h1 khớp title; canonical; hreflang vi/en; switcher
-//     hai chiều; /tu-dien hiển thị 45 mục, nhóm mới 4, phức tạp cao cấp 11.
+//     hai chiều; /tu-dien hiển thị 45 mục, nhóm mới 4, phức tạp cao cấp 5.
 // Exit 1 nếu có lỗi.
 // =============================================================================
 import fs from 'node:fs';
@@ -37,22 +40,22 @@ const MUC = [
     camThem: ['điều chỉnh ở 5 vị trí', 'điều chỉnh ở 6 vị trí', 'adjusted in 5 positions', 'adjusted in 6 positions', 'là chuẩn ngành', 'chuẩn ngành cho', 'is the industry standard', 'the industry standard for',
       // Vòng sửa 1: chặn định nghĩa chung vượt nguồn (không nguồn nào định nghĩa khái niệm này)
       'chỉnh bộ máy', 'chạy nhất quán', 'marche nhất quán', 'runs consistently', 'so it runs consistently'] },
-  { slug: 'banh-xe-cot', tenEn: 'column-wheel', vi: '/tu-dien/banh-xe-cot', en: '/en/glossary/column-wheel/', category: 'phức tạp cao cấp',
+  { slug: 'banh-xe-cot', tenEn: 'column-wheel', vi: '/tu-dien/banh-xe-cot', en: '/en/glossary/column-wheel/', category: 'phức tạp chức năng',
     allow: [URL_FHH('column-wheel'), 'https://www.omegawatches.com/en-gb/watch-omega-speedmaster-two-counters-co-axial-chronometer-chronograph-44-25-mm-31193445101002'] },
-  { slug: 'flyback', tenEn: 'flyback', vi: '/tu-dien/flyback', en: '/en/glossary/flyback/', category: 'phức tạp cao cấp',
+  { slug: 'flyback', tenEn: 'flyback', vi: '/tu-dien/flyback', en: '/en/glossary/flyback/', category: 'phức tạp chức năng',
     allow: [URL_FHH('flyback-chronograph'), 'https://us.frederiqueconstant.com/product/FC-760NS4H6.html'] },
   { slug: 'rattrapante', tenEn: 'rattrapante', vi: '/tu-dien/rattrapante', en: '/en/glossary/rattrapante/', category: 'phức tạp cao cấp',
     allow: [URL_FHH('split-seconds-chronograph'), 'https://www.alange-soehne.com/us-en/timepieces/1815/1815-rattrapante'],
     camThem: ['the hand of the chronograph and the hand of the split seconds button'] },
-  { slug: 'lich-nam', tenEn: 'annual-calendar', vi: '/tu-dien/lich-nam', en: '/en/glossary/annual-calendar/', category: 'phức tạp cao cấp',
+  { slug: 'lich-nam', tenEn: 'annual-calendar', vi: '/tu-dien/lich-nam', en: '/en/glossary/annual-calendar/', category: 'phức tạp chức năng',
     allow: ['https://www.patek.com/en/manufacture/quality-and-fine-workmanship/calendar-watches', URL_FHH('annual-calendar')],
     camThem: ['leap years, but not of leap years'] },
-  { slug: 'gio-the-gioi', tenEn: 'world-time', vi: '/tu-dien/gio-the-gioi', en: '/en/glossary/world-time/', category: 'phức tạp cao cấp',
+  { slug: 'gio-the-gioi', tenEn: 'world-time', vi: '/tu-dien/gio-the-gioi', en: '/en/glossary/world-time/', category: 'phức tạp chức năng',
     allow: [URL_FHH('world-time'), 'https://www.patek.com/en/glossary'],
     camThem: ['true solar time'] },
-  { slug: 'gio-nhay', tenEn: 'jumping-hour', vi: '/tu-dien/gio-nhay', en: '/en/glossary/jumping-hour/', category: 'phức tạp cao cấp',
+  { slug: 'gio-nhay', tenEn: 'jumping-hour', vi: '/tu-dien/gio-nhay', en: '/en/glossary/jumping-hour/', category: 'phức tạp chức năng',
     allow: [URL_FHH('jumping-hour'), 'https://www.patek.com/en/glossary'] },
-  { slug: 'kim-hoi', tenEn: 'retrograde', vi: '/tu-dien/kim-hoi', en: '/en/glossary/retrograde/', category: 'phức tạp cao cấp',
+  { slug: 'kim-hoi', tenEn: 'retrograde', vi: '/tu-dien/kim-hoi', en: '/en/glossary/retrograde/', category: 'phức tạp chức năng',
     allow: [URL_FHH('retrograde'), 'https://www.patek.com/en/glossary'] },
   { slug: 'phuong-trinh-thoi-gian', tenEn: 'equation-of-time', vi: '/tu-dien/phuong-trinh-thoi-gian', en: '/en/glossary/equation-of-time/', category: 'phức tạp cao cấp',
     allow: [URL_FHH('equation-of-time'), 'https://www.patek.com/en/glossary'],
@@ -158,8 +161,8 @@ if (DIST) {
     const tong = h.match(/>Tất cả \((\d+)\)/)?.[1];
     const moi = h.match(/>Độ chính xác (&amp;) điều chỉnh \((\d+)\)/)?.[2];
     const cao = h.match(/>Phức tạp — cao cấp \((\d+)\)/)?.[1];
-    const dat45 = tong === '45' && moi === '4' && cao === '11';
-    if (!dat45) fail('R5', '/tu-dien/', `tổng=${tong} (cần 45), nhóm mới=${moi} (cần 4), cao cấp=${cao} (cần 11)`);
+    const dat45 = tong === '45' && moi === '4' && cao === '5';
+    if (!dat45) fail('R5', '/tu-dien/', `tổng=${tong} (cần 45), nhóm mới=${moi} (cần 4), cao cấp=${cao} (cần 5)`);
   }
   // Vòng sửa 1: định nghĩa chung vượt nguồn của cặp "Điều chỉnh theo vị trí"
   // cũng bị chặn trên dist (HTML đã render), không chỉ tệp nguồn.

@@ -2,7 +2,7 @@
 title: "Lịch năm (Annual Calendar)"
 excerpt: "Lịch năm biết đúng tháng 30 và 31 ngày, chỉ cần chỉnh một lần mỗi năm vào cuối tháng hai — do Patek Philippe phát minh và cấp bằng sáng chế, ra mắt 1996."
 term_en: "Annual Calendar"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

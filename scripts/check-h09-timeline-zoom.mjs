@@ -15,11 +15,13 @@
 //       dialog không chứa sẵn nhiều <img>
 // H9-6  Mốc ảnh AI (map ANH_AI trích từ HistoryTimeline): nhãn AI ở thẻ đúng
 //       ngôn ngữ + truyền vào hộp phóng to qua data-zoom-ai
+// H9-7  (S1, 25/09/2026) ANH_AI ↔ tệp JPG khớp hai chiều: mọi JPG trong
+//       public/images/timeline/ có mục trong ANH_AI và mọi mục ANH_AI có JPG.
 // Chạy: node scripts/check-h09-timeline-zoom.mjs <thư-mục-dist>   (cần dist)
 // Nối trong npm run build, sau check-h07. Exit 1 nếu có lỗi.
 // =============================================================================
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const ROOT = process.cwd();
@@ -52,6 +54,8 @@ const TRANG = [
 // Nhãn AI minh bạch (B3.2.4) — dùng chung với map ANH_AI của HistoryTimeline
 const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
+// Nguồn map ANH_AI — đọc một lần, dùng cho H9-6 từng trang và H9-7 hai chiều
+const nguonComponent = readFileSync(join(ROOT, 'src', 'components', 'history', 'HistoryTimeline.astro'), 'utf8');
 
 for (const { lang, path, nhan, close } of TRANG) {
   if (!existsSync(path)) {
@@ -104,7 +108,6 @@ for (const { lang, path, nhan, close } of TRANG) {
   // H9-6 (P0-C): mốc dùng ảnh AI (map ANH_AI của HistoryTimeline — trích từ
   // nguồn, không ghi cứng) phải có nhãn AI ở thẻ và truyền vào hộp phóng to
   // qua data-zoom-ai; nhãn đúng ngôn ngữ từng trang.
-  const nguonComponent = readFileSync(join(ROOT, 'src', 'components', 'history', 'HistoryTimeline.astro'), 'utf8');
   const slugsAi = [...new Set([...nguonComponent.matchAll(/'([a-z0-9-]+)',\s*\{\s*vi: '/g)].map((m) => m[1]))];
   const nhanNgonNgu = lang === 'vi' ? NHAN_AI_VI : NHAN_AI_EN;
   const lechAi = [];
@@ -120,6 +123,20 @@ for (const { lang, path, nhan, close } of TRANG) {
   const soTruyen = (html.match(new RegExp(`data-zoom-ai="${nhanNgonNgu}`, 'g')) ?? []).length;
   kiem(`H9-6-${tag}`, `${slugsAi.length} mốc ảnh AI: nhãn ở thẻ + truyền vào hộp phóng to (×${soTruyen})`, lechAi.length === 0 && soTruyen === slugsAi.length, `${lechAi.join(', ') || 'đủ'}, truyền=${soTruyen}`);
 }
+
+// H9-7 (S1, 25/09/2026): map ANH_AI và tệp JPG trong public/images/timeline/
+// phải khớp nhau hai chiều — JPG nào không có mục nhãn AI (ảnh tư liệu lẫn vào
+// nhầm thành AI, hoặc thêm ảnh AI quên nhãn) và mục nhãn nào không có JPG đều
+// là lệch, thoát mã 1.
+const slugsAiNguon = [...new Set([...nguonComponent.matchAll(/'([a-z0-9-]+)',\s*\{\s*vi: '/g)].map((m) => m[1]))];
+const jpgThucTe = readdirSync(join(ROOT, 'public', 'images', 'timeline'))
+  .filter((f) => f.toLowerCase().endsWith('.jpg'))
+  .map((f) => f.replace(/\.jpe?g$/i, ''));
+const jpgThieuNhan = jpgThucTe.filter((s) => !slugsAiNguon.includes(s));
+const nhanThieuJpg = slugsAiNguon.filter((s) => !jpgThucTe.includes(s));
+kiem('H9-7', `ANH_AI ↔ JPG khớp hai chiều (${jpgThucTe.length} JPG / ${slugsAiNguon.length} mục nhãn)`,
+  jpgThieuNhan.length === 0 && nhanThieuJpg.length === 0,
+  `JPG thiếu nhãn AI: ${jpgThieuNhan.join(', ') || 'không'}; nhãn AI thiếu JPG: ${nhanThieuJpg.join(', ') || 'không'}`);
 
 // ===== Kết luận =====
 ketqua.tongKet = { tongCa: ketqua.ca.length, dat: errors.length === 0, loi: errors.length };

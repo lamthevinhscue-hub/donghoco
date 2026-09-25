@@ -2,7 +2,7 @@
 title: "Kim hồi (Retrograde)"
 excerpt: "Kim hồi chạy trên một cung thay vì vòng tròn đầy đủ — và khi hết hành trình, lập tức quay về điểm xuất phát, theo hai định nghĩa trùng khớp FHH và Patek Philippe."
 term_en: "Retrograde"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

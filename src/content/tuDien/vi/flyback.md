@@ -2,7 +2,7 @@
 title: "Bấm giờ quay về không tức thì (Flyback)"
 excerpt: "Flyback cho phép về không và bắt đầu phép đo mới chỉ bằng một lần bấm, không cần dừng bấm giờ trước — chức năng gắn với phát triển hàng không, theo FHH."
 term_en: "Flyback"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

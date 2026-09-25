@@ -2,7 +2,7 @@
 title: "Bánh xe cột (Column wheel)"
 excerpt: "Bánh xe cột là bánh răng điều phối ba chức năng chạy — dừng — về không của kim bấm giờ, theo định nghĩa của FHH."
 term_en: "Column wheel"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

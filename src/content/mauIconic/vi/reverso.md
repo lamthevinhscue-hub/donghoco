@@ -54,4 +54,4 @@ Reverso dùng calibre **tay cơ** (vì vỏ mỏng), các calibre nổi bật nh
 
 ## Vị trí trong lịch sử
 
-Cùng với Cartier Tank, Reverso là **biểu tượng của đồng hồ thanhläng thập niên Art Deco**. Nhưng Reverso độc đáo ở chỗ: nó có **chức năng thực tế** (bảo vệ mặt số) và **tính cá nhân hóa** (mặt sau khắc) — điều hiếm mẫu nào có được.
+Cùng với Cartier Tank, Reverso là **biểu tượng của đồng hồ thanh lịch thập niên Art Deco**. Nhưng Reverso độc đáo ở chỗ: nó có **chức năng thực tế** (bảo vệ mặt số) và **tính cá nhân hóa** (mặt sau khắc) — điều hiếm mẫu nào có được.

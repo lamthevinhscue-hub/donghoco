@@ -2,7 +2,7 @@
 title: "Giờ thế giới (World Time)"
 excerpt: "Giờ thế giới hiển thị cùng lúc giờ của nhiều thành phố trên thế giới qua các mặt phụ quanh mặt số — một định nghĩa theo FHH và một theo Patek Philippe."
 term_en: "World Time"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

@@ -10,11 +10,12 @@
 
 | Tài liệu | Vai trò | Trạng thái | Gói liên quan | Căn cứ |
 |---|---|---|---|---|
-| [Bộ giao việc GLM 14 gói](BO-GIAO-VIEC-GLM-14-GOI-2026-09-19.md) | Hướng dẫn thực hiện H01–H14: thứ tự gửi, quy tắc chung, mẫu báo cáo, câu lệnh phát hành mục 8 | **Hiện hành** | H01 đến H14 | Soạn 19/09/2026; chưa được Git theo dõi, đề nghị lưu cùng đợt H01 |
-| [Kế hoạch phát triển hợp nhất](KE-HOACH-PHAT-TRIEN-HOP-NHAT-2026-09-19.md) | Kế hoạch đã thẩm định trên HEAD `a715fd0`; **mục 3 là bản đính chính chính thức của bốn tài liệu nguồn**; mục 5 là phạm vi chi tiết gói EN | **Hiện hành** | H01 đến H14 | Soạn 19/09/2026; chưa được Git theo dõi, đề nghị lưu cùng đợt H01 |
-| Tệp này (CHI-MUC-KE-HOACH-HIEN-HANH.md) | Chỉ mục phân biệt hiện hành với lịch sử | **Hiện hành** | H01 (tạo), các gói sau (cập nhật) | Gói H01 |
+| [Kế hoạch hợp nhất giai đoạn 3](KE-HOACH-HOP-NHAT-GIAI-DOAN-3-2026-09-25.md) | Kế hoạch điều phối hiện hành: 30 gói S1–K4 trên 8 nhóm (sửa lỗi S, nền tảng N, mẫu iconic chuyên sâu I, loạt "Hiểu đúng" U, từ điển T, lịch sử và hình ảnh L, công cụ và phân phối C, kỹ thuật K), lịch 10 tuần | **Hiện hành** | S1 đến K4 (đang làm S1) | Phán quyết anh Vinh ngày 25/09/2026; danh mục DHC-GD3-20260925 v1.0.0; chưa được Git theo dõi, đề nghị lưu cùng đợt S1 |
+| [Bộ giao việc GLM 14 gói](BO-GIAO-VIEC-GLM-14-GOI-2026-09-19.md) | Hướng dẫn thực hiện H01–H14: thứ tự gửi, quy tắc chung, mẫu báo cáo, câu lệnh phát hành mục 8 | Đã chốt sổ qua P0-E (25/09/2026) — chỉ còn giá trị truy vết; quy tắc phát hành tiếp tục áp dụng theo thông lệ H01–H14 | H01 đến H14 | Soạn 19/09/2026 |
+| [Kế hoạch phát triển hợp nhất](KE-HOACH-PHAT-TRIEN-HOP-NHAT-2026-09-19.md) | Kế hoạch đã thẩm định trên HEAD `a715fd0`; **mục 3 là bản đính chính chính thức của bốn tài liệu nguồn**; mục 5 là phạm vi chi tiết gói EN | Đã chốt sổ qua P0-E (25/09/2026) — chỉ còn giá trị truy vết | H01 đến H14 | Soạn 19/09/2026 |
+| Tệp này (CHI-MUC-KE-HOACH-HIEN-HANH.md) | Chỉ mục phân biệt hiện hành với lịch sử | **Hiện hành** | H01 (tạo), các gói sau (cập nhật), S1 (đăng ký kế hoạch giai đoạn 3) | Gói H01 |
 
-Mọi lệnh thi công khác ngoài ba tệp trên **không còn hiệu lực**, kể cả các bộ prompt và kế hoạch đã dẫn ở mục 4 và 5.
+Mọi lệnh thi công khác ngoài kế hoạch giai đoạn 3 và các tệp điều phối nêu trên **không còn hiệu lực**, kể cả các bộ prompt và kế hoạch đã dẫn ở mục 4 và 5.
 
 ## 2. Số liệu và quy tắc hiện hành đã chốt — đọc trước khi dùng tài liệu nào khác
 
@@ -102,3 +103,4 @@ Ngoài `docs/`, ba tệp gốc cũng thuộc hệ tài liệu: `AGENTS.md` (ch�
 | Ngày | Việc | Gói |
 |---|---|---|
 | 19/09/2026 | Lập chỉ mục; áp đính chính cho bốn tài liệu nguồn; bổ sung liên kết điều phối vào `ra-soat-toan-bo-2026-09-05.md` | H01 |
+| 25/09/2026 | Đăng ký kế hoạch giai đoạn 3 (`KE-HOACH-HOP-NHAT-GIAI-DOAN-3-2026-09-25.md`, DHC-GD3-20260925 v1.0.0, 30 gói S1–K4) vào mục 1 làm kế hoạch hiện hành theo phán quyết anh Vinh; chuyển bộ H01–H14 sang đã chốt sổ qua P0-E, chỉ còn giá trị truy vết | S1 |

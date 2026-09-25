@@ -32,7 +32,6 @@ A. Lange & Söhne đặt tên sản phẩm chính thức: "The 1815 RATTRAPANTE 
 ## Giới hạn đọc hiểu
 
 - Nguồn không nói về từ nguyên "rattrapante" hay mức độ phổ biến/giá thành.
-- Trang FHH hiện có một câu lỗi ngắt câu — bài chỉ dùng các câu sạch nêu trên.
 
 ## Tóm tắt
 

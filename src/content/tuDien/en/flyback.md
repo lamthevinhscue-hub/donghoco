@@ -2,7 +2,7 @@
 title: "Flyback"
 excerpt: "Flyback lets you reset to zero and start a new measurement in one press, without stopping the chronograph first — a function tied to airborne navigation, per FHH."
 term_en: "Flyback"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

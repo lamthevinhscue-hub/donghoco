@@ -32,7 +32,6 @@ A. Lange & Söhne names a product: "The 1815 RATTRAPANTE is the first pure split
 ## Reading limits
 
 - The source says nothing about the etymology of "rattrapante" or about rarity and price.
-- The FHH page currently contains one broken sentence — this article uses only the clean sentences quoted above.
 
 ## In short
 

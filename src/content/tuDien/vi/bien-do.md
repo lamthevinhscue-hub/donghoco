@@ -18,11 +18,9 @@ sources:
 
 FHH (Fondation de la Haute Horlogerie) định nghĩa: "The distance between the two extreme points of a movement or periodic phenomenon (a angle)." — biên độ là **khoảng cách giữa hai điểm cực đại** của một dao động, tính bằng **góc**.
 
-Đặt vào bộ điều hòa của đồng hồ cơ: biên độ là góc quay của cán bánh lắc (balance staff) qua lại hai bên vị trí đứng yên trong mỗi nhịp dao động.
-
 ## Đo bằng gì
 
-Biên độ là một trong các thông số chuẩn mà máy đo chronograph hiển thị. Witschi — nhà chế tạo máy đo — liệt kê "Amplitude" là một chỉ số đo của dòng máy ChronoMaster, kèm độ phân giải đọc theo độ. Nói cách khác: đây là đại lượng được đo bằng **thiết bị chuyên dụng**, không phải con số đọc bằng mắt.
+Biên độ là một trong các thông số chuẩn mà máy đo nhịp (timegrapher) hiển thị. Witschi — nhà chế tạo máy đo — liệt kê "Amplitude" là một chỉ số đo của dòng máy ChronoMaster, kèm độ phân giải đọc theo độ. Nói cách khác: đây là đại lượng được đo bằng **thiết bị chuyên dụng**, không phải con số đọc bằng mắt.
 
 ## Giới hạn đọc hiểu
 
@@ -32,10 +30,10 @@ Biên độ là một trong các thông số chuẩn mà máy đo chronograph hi
 ## Tóm tắt
 
 - Biên độ = khoảng góc giữa hai điểm cực đại của dao động (FHH).
-- Đo bằng độ, là thông số chuẩn của máy đo chronograph chính hãng (Witschi).
+- Đo bằng độ, là thông số chuẩn của máy đo nhịp (timegrapher) chính hãng (Witschi).
 - Không có "con số chuẩn chung" trong nguồn trích — đừng tự chẩn đoán chỉ qua một chỉ số.
 
 ## Đọc thêm
 
-- Cán bánh lắc dao động trên gì → [Bánh thoát](/tu-dien/banh-thoat)
+- Bộ phận nhận xung lực từ bánh lắc qua ngựa → [Bánh thoát](/tu-dien/banh-thoat)
 - Dây tóc liên quan trực tiếp bộ điều hòa → [Dây tóc & bánh lắc](/tu-dien/day-toc-banh-lac)

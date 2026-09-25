@@ -2,7 +2,7 @@
 title: "Column wheel"
 excerpt: "The column wheel coordinates the start, stop and return-to-zero functions of the chronograph hand — FHH's definition, and a term Omega uses in its own calibre descriptions."
 term_en: "Column wheel"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

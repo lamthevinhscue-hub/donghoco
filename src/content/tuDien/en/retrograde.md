@@ -2,7 +2,7 @@
 title: "Retrograde"
 excerpt: "A retrograde hand runs along an arc instead of a full circle — and at the end of its path it returns instantly to its starting point: two matching definitions from FHH and Patek Philippe."
 term_en: "Retrograde"
-category: "phức tạp cao cấp"
+category: "phức tạp chức năng"
 date: "2026-09-25"
 draft: false
 

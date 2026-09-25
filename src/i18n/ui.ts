@@ -195,6 +195,8 @@ export const translations = {
     spec_references: 'Các thế hệ tham chiếu',
     // Khối "Nguồn tham khảo" cuối bài (SourceList.astro)
     sources_title: 'Nguồn tham khảo',
+    // Khối "Ghi chú nguồn" thu gọn (SourceNotes.astro — gói N1)
+    source_notes_heading: 'Ghi chú nguồn',
     // Footer — ghi chú bản tin + link điều khoản bản quyền (trước đây hard-code)
     footer_newsletter_note:
       '✉ Tính năng nhận bài mới qua thư đang được chuẩn bị. Bạn có thể lưu trang và quay lại, hoặc theo dõi qua trang Liên hệ để nhận thông báo khi sẵn sàng.',
@@ -407,6 +409,8 @@ export const translations = {
     spec_references: 'References',
     // "Sources" block at end of article (SourceList.astro)
     sources_title: 'Sources',
+    // Collapsible "Source notes" block (SourceNotes.astro — N1)
+    source_notes_heading: 'Source notes',
     // Footer — newsletter note + copyright terms link (trước đây hard-code tiếng Việt)
     footer_newsletter_note:
       '✉ Email updates are being prepared. You can bookmark this page and come back later, or use the Contact page to reach out.',

@@ -14,6 +14,9 @@ sources:
   - label: "Fondation de la Haute Horlogerie — Etablisseur"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/etablisseur"
 
+sourceNotes:
+  - "Các nguồn trích trong bài không đưa ra thước đo hay so sánh về chất lượng sản phẩm."
+
 ---
 
 Chữ **manufacture** (hãng chế tác) chỉ một vai trò trong sản xuất đồng hồ cơ. FHH (Fondation de la Haute Horlogerie) đặt nó cạnh hai vai trò khác ngay trong cùng câu định nghĩa.

@@ -13,6 +13,7 @@ import WatchImage from '../components/WatchImage.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import RelatedArticles, { type RelatedItem } from '../components/RelatedArticles.astro';
 import SourceList from '../components/SourceList.astro';
+import SourceNotes from '../components/SourceNotes.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import { getLangFromUrl, t, localizedPath, SITE_AUTHOR, SITE_PUBLISHER } from '../i18n/ui';
 
@@ -41,6 +42,8 @@ interface Props {
   compareHref?: string;
   /** Nguồn tham khảo — hiện cuối bài qua SourceList.astro */
   sources?: { label: string; url: string }[];
+  /** Ghi chú giới hạn nguồn (N1) — khối thu gọn ngay trước SourceList */
+  sourceNotes?: string[];
   /** Ghi đè schema JSON-LD (VD: DefinedTerm cho trang từ điển) — thay Article mặc định */
   schemaOverride?: object;
 }
@@ -48,7 +51,7 @@ interface Props {
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
 const tr = t(lang);
 
-const { title, excerpt, date, updated, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [], schemaOverride } = Astro.props;
+const { title, excerpt, date, updated, cover_image, backHref, meta, headings = [], relatedArticles = [], compareHref, sources = [], sourceNotes, schemaOverride } = Astro.props;
 
 // Breadcrumb + Article schema cho SEO
 // Ánh xạ đường dẫn danh sách → nhãn dịch (tránh hiển thị slug thô như "co che").
@@ -166,6 +169,9 @@ const formattedUpdated = updatedStr && updatedStr !== dateStr ? fmtDate(updatedS
         <div class="prose-content text-ink dark:text-dark-text">
           <slot />
         </div>
+
+        <!-- Khối "Ghi chú nguồn" (N1) — ngay trước danh sách nguồn, chỉ render khi có ghi chú -->
+        <SourceNotes notes={sourceNotes} />
 
         <!-- Khối nguồn tham khảo — đặt ngay sau nội dung, trước khối "Đọc tiếp" -->
         <SourceList sources={sources} />

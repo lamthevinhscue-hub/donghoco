@@ -1,0 +1,48 @@
+---
+// =============================================================================
+// SOURCE NOTES — Khối "Ghi chú nguồn" thu gọn cuối bài (gói N1)
+// =============================================================================
+// Ghi chú giới hạn nguồn đặt NGAY TRƯỚC danh sách nguồn tham khảo
+// (SourceList.astro), không chen vào thân bài.
+//
+// Nguyên tắc:
+//   - Chỉ render khi mảng sourceNotes có ít nhất một ghi chú không rỗng —
+//     bài không có ghi chú không sinh HTML nào (không khung trống).
+//   - <details>/<summary> HTML native: mặc định đóng, mở/đóng bằng Enter và
+//     Space trên bàn phím sẵn có của trình duyệt, KHÔNG dùng JavaScript.
+//   - Nội dung là HTML tĩnh trong DOM từ lúc tải trang → Pagefind lập chỉ
+//     mục được cả phần nằm trong <details> chưa mở.
+//   - Nhãn tiêu đề lấy từ src/i18n/ui.ts (khóa source_notes_heading, không
+//     viết cứng); màu/viền theo token hiện có, đọc được ở chế độ sáng và tối.
+// =============================================================================
+
+import { getLangFromUrl, t } from '../i18n/ui';
+
+interface Props {
+  notes?: string[];
+}
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+
+const { notes = [] } = Astro.props;
+
+// Chỉ giữ ghi chú có nội dung thật. Nếu rỗng thì không xuất HTML.
+const validNotes = (notes ?? []).filter((n) => typeof n === 'string' && n.trim() !== '');
+---
+
+{validNotes.length > 0 && (
+  <details class="source-notes not-prose group mt-12 rounded-lg border border-brass/30 bg-brass/5 dark:border-dark-brass/40 dark:bg-dark-brass/5">
+    <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 rounded-lg px-4 py-3 text-sm font-semibold text-brass outline-none transition-colors hover:bg-brass/10 focus-visible:ring-2 focus-visible:ring-brass/60 dark:text-dark-brass dark:hover:bg-dark-brass/10 dark:focus-visible:ring-dark-brass/60 [&::-webkit-details-marker]:hidden">
+      {tr.source_notes_heading}
+      <span aria-hidden="true" class="text-base leading-none transition-transform group-open:rotate-45">+</span>
+    </summary>
+    <div class="px-4 pb-4 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+      <ul class="list-disc space-y-1 pl-5">
+        {validNotes.map((n) => (
+          <li>{n}</li>
+        ))}
+      </ul>
+    </div>
+  </details>
+)}

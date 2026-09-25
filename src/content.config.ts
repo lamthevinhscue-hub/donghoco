@@ -124,6 +124,8 @@ const mauIconic = defineCollection({
     // Trống = bài không có liên kết biên tập, khối "Kết nối cùng chủ đề" không hiện.
     relatedModels: z.array(relatedLink).default([]),      // → các bài mẫu iconic khác
     relatedMechanisms: z.array(relatedLink).default([]),  // → các bài cơ chế (/co-che)
+    // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)
+    sourceNotes: z.array(z.string()).optional(),
   }),
 });
 
@@ -138,6 +140,8 @@ const coChe = defineCollection({
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
     // Liên kết biên tập (tùy chọn): bài cơ chế dẫn tới mẫu iconic ứng dụng nguyên lý này.
     relatedModels: z.array(relatedLink).default([]),
+    // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)
+    sourceNotes: z.array(z.string()).optional(),
   }),
 });
 
@@ -161,6 +165,8 @@ const tuDien = defineCollection({
     ]),
     has_infographic: z.boolean().default(false),    // Có infographic minh họa chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
+    // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)
+    sourceNotes: z.array(z.string()).optional(),
   }),
 });
 
@@ -170,6 +176,8 @@ const huongDan = defineCollection({
   schema: z.object({
     ...baseFields,
     difficulty: z.enum(['người mới', 'trung cấp', 'nâng cao']).default('người mới'),
+    // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)
+    sourceNotes: z.array(z.string()).optional(),
   }),
 });
 

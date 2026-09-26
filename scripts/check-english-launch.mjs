@@ -37,6 +37,16 @@ const PROPER_NOUNS = [
   'Genève',
   'Perlage',               // thuật ngữ hoàn thiện (không dấu, liệt kê để khỏi nhầm với từ thường)
   'perlage',
+  // Thuật ngữ tiếng Pháp trong bài EN (allowlist hẹp theo chuỗi đầy đủ — K3 vòng
+  // sửa 1, TXN-20260926-213); chữ Việt thật đặt cạnh vẫn bị bắt.
+  'Ébauche',
+  'ébauche',
+  'établisseur',
+  'Établisseur',
+  'chronomètre',
+  // TXN-20260926-215: CHỈ cụm đầy đủ là tên pháp lý hãng (nhãn nguồn
+  // isochronism EN); 'Chronométrie' đứng riêng KHÔNG được phép.
+  'Chronométrie Ferdinand Berthoud',
 ];
 
 function walk(dir) {
@@ -56,6 +66,9 @@ function routeExistsInDist(href) {
     join(DIST, clean, 'index.html'),
     join(DIST, `${clean}.html`),
   ];
+  // Endpoint tĩnh có đuôi tệp (ví dụ /en/rss.xml ↔ dist/en/rss.xml — tính năng
+  // RSS H08): chỉ nhận khi segment cuối có đuôi tệp và tệp tồn tại trực tiếp.
+  if (/\/[^/]+\.[^./]+$/.test(clean)) candidates.push(join(DIST, clean));
   return candidates.some((c) => existsSync(c) && statSync(c).isFile());
 }
 
@@ -214,7 +227,34 @@ function stripProperNouns(text) {
 function stripInvisible(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ');
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' '); // HTML comment không phải văn bản hiển thị (K3 vòng sửa 1)
+}
+// Tự kiểm K3 chạy mỗi lần (TXN-20260926-213) — sai thì checker báo lỗi ngay
+{
+  // (a) /en/rss.xml được chấp nhận khi tệp XML thật tồn tại
+  const fileRss = join(DIST, 'en', 'rss.xml');
+  const xmlThat = existsSync(fileRss) ? routeExistsInDist('/en/rss.xml') === true : true;
+  // (b) URL XML không tồn tại vẫn bị từ chối
+  const fileSai = join(DIST, 'en', 'k3-selftest-khong-ton-tai.xml');
+  const xmlSaiBiTuChoi = !existsSync(fileSai) && routeExistsInDist('/en/k3-selftest-khong-ton-tai.xml') === false;
+  // (c) thuật ngữ Pháp đúng allowlist không bị bắt
+  const phapDuocPhep = !viCharRe.test(stripProperNouns('Ébauche — the unfinished movement in the supply chain'))
+    && !viCharRe.test(stripProperNouns('Manufacture and établisseur'))
+    && !viCharRe.test(stripProperNouns('One chronomètre maker’s view'));
+  // (d) thuật ngữ Pháp đặt cạnh chữ Việt thật vẫn bị bắt
+  const phapVanBatVi = viCharRe.test(stripProperNouns('Ébauche trăng giả'));
+  // (e) chuỗi Việt thật "Pha trăng" trong anchor vẫn bị bắt (pipeline nhóm 6)
+  const mauAnchor = '<a href="/en/mechanisms/moon-phase/">Pha trăng — the moon-phase complication</a>';
+  const phaTrangVanBat = viCharRe.test(stripProperNouns(stripInvisible(mauAnchor).replace(/<[^>]*>/g, ' ')));
+  // (f)(g)(h) TXN-20260926-215: cụm đầy đủ được loại, từ riêng và cụm kèm
+  // chữ Việt thật vẫn bị bắt
+  const cumDayDuDuocPhep = !viCharRe.test(stripProperNouns('Chronométrie Ferdinand Berthoud — FB 1.2.3'));
+  const tuRiengVanBat = viCharRe.test(stripProperNouns('Chronométrie'));
+  const cumCanhPhaTrang = viCharRe.test(stripProperNouns('Chronométrie Ferdinand Berthoud — Pha trăng'));
+  if (!xmlThat || !xmlSaiBiTuChoi || !phapDuocPhep || !phapVanBatVi || !phaTrangVanBat || !cumDayDuDuocPhep || !tuRiengVanBat || !cumCanhPhaTrang) {
+    errors.push(`Tự kiểm K3 sai: xmlThat=${xmlThat}, xmlSaiBiTuChoi=${xmlSaiBiTuChoi}, phapDuocPhep=${phapDuocPhep}, phapVanBatVi=${phapVanBatVi}, phaTrangVanBat=${phaTrangVanBat}, cumDayDuDuocPhep=${cumDayDuDuocPhep}, tuRiengVanBat=${tuRiengVanBat}, cumCanhPhaTrang=${cumCanhPhaTrang}`);
+  }
 }
 const viLeak = [];
 for (const file of enHtml) {

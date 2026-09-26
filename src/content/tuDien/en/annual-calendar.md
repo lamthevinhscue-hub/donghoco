@@ -29,4 +29,4 @@ The difference sits in **February**: the annual calendar needs one correction a 
 ## Read next
 
 - A related calendar complication → [Perpetual Calendar](/en/glossary/perpetual-calendar/)
-- The moon-phase display → [Pha trăng — the moon-phase complication](/en/mechanisms/moon-phase/)
+- The moon-phase display → [Moon phase — the moon-phase complication](/en/mechanisms/moon-phase/)

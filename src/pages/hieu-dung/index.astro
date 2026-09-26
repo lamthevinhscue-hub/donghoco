@@ -1,0 +1,40 @@
+---
+// Trang tổng hợp: loạt "Hiểu đúng" (gói U1)
+// Chỉ liệt kê bài trong collection huongDan có tag `hieu-dung`.
+// Chưa có bài nào gắn thẻ → hiển thị trạng thái trống trung thực.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Card from '../../components/Card.astro';
+import { getCollectionRoute, getEntriesByLang, getSlug, isEntryOf } from '../../lib/content';
+import { getLangFromUrl, t } from '../../i18n/ui';
+
+const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
+const entries = (await getEntriesByLang('huongDan', lang))
+  .filter(isEntryOf('huongDan'))
+  .filter((entry) => entry.data.tags?.includes('hieu-dung'));
+const route = getCollectionRoute('huongDan');
+---
+
+<BaseLayout title={tr.hieudung_hub_title} description={tr.hieudung_hub_description}>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading title={tr.hieudung_hub_title} level={1} subtitle={tr.hieudung_hub_description} />
+
+    {entries.length === 0 ? (
+      <p class="py-12 text-center text-ink-soft dark:text-dark-text-soft">
+        {tr.hieudung_empty}
+      </p>
+    ) : (
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {entries.map((entry) => (
+          <Card
+            href={`${route}/${getSlug(entry)}`}
+            title={entry.data.title}
+            excerpt={entry.data.excerpt}
+            image={entry.data.cover_image}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

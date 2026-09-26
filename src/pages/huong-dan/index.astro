@@ -2,9 +2,10 @@
 // Trang danh sách: HƯỚNG DẪN THỰC HÀNH
 import CollectionListLayout from '../../layouts/CollectionListLayout.astro';
 import { getEntriesByLang, isEntryOf } from '../../lib/content';
-import { getLangFromUrl } from '../../i18n/ui';
+import { getLangFromUrl, t } from '../../i18n/ui';
 
 const lang = getLangFromUrl(new URL(Astro.url.pathname, Astro.site));
+const tr = t(lang);
 const entries = (await getEntriesByLang('huongDan', lang)).filter(isEntryOf('huongDan'));
 ---
 
@@ -14,6 +15,9 @@ const entries = (await getEntriesByLang('huongDan', lang)).filter(isEntryOf('huo
   description={lang === 'vi'
     ? 'Lên dây, bảo dưỡng, đo sai số, chọn đồng hồ đầu tiên — nội dung thực tế, ít cạnh tranh.'
     : 'Winding, servicing, measuring accuracy, buying your first watch.'}
+  descriptionLink={lang === 'vi'
+    ? { href: '/hieu-dung', label: tr.hieudung_entry }
+    : { href: '/en/myths/', label: tr.hieudung_entry }}
   entries={entries}
   getBadge={(e) => ('difficulty' in e.data ? e.data.difficulty : undefined)}
 />

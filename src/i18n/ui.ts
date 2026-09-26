@@ -197,6 +197,11 @@ export const translations = {
     sources_title: 'Nguồn tham khảo',
     // Khối "Ghi chú nguồn" thu gọn (SourceNotes.astro — gói N1)
     source_notes_heading: 'Ghi chú nguồn',
+    // Khung loạt "Hiểu đúng" (U1) — hub, trạng thái trống và liên kết dẫn
+    hieudung_hub_title: 'Hiểu đúng',
+    hieudung_hub_description: 'Loạt bài xem lại các khái niệm đồng hồ cơ thường bị hiểu nhầm — mỗi bài bám nguồn đã kiểm.',
+    hieudung_empty: 'Chưa có bài nào trong loạt này. Hãy quay lại sau!',
+    hieudung_entry: 'Xem loạt "Hiểu đúng"',
     // Footer — ghi chú bản tin + link điều khoản bản quyền (trước đây hard-code)
     footer_newsletter_note:
       '✉ Tính năng nhận bài mới qua thư đang được chuẩn bị. Bạn có thể lưu trang và quay lại, hoặc theo dõi qua trang Liên hệ để nhận thông báo khi sẵn sàng.',
@@ -411,6 +416,11 @@ export const translations = {
     sources_title: 'Sources',
     // Collapsible "Source notes" block (SourceNotes.astro — N1)
     source_notes_heading: 'Source notes',
+    // "Mechanical Watch Myths" series frame (U1) — hub, empty state, entry link
+    hieudung_hub_title: 'Mechanical Watch Myths',
+    hieudung_hub_description: 'A series revisiting mechanical watch concepts that are often misunderstood — each article stays within its checked sources.',
+    hieudung_empty: 'No articles in this series yet. Please check back later!',
+    hieudung_entry: 'Explore the "Mechanical Watch Myths" series',
     // Footer — newsletter note + copyright terms link (trước đây hard-code tiếng Việt)
     footer_newsletter_note:
       '✉ Email updates are being prepared. You can bookmark this page and come back later, or use the Contact page to reach out.',

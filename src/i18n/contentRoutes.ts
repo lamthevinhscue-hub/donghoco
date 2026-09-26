@@ -45,6 +45,8 @@ export const INDEX_PAIRS: RoutePair[] = [
   { vi: '/co-che', en: '/en/mechanisms/' },
   { vi: '/tu-dien', en: '/en/glossary/' },
   { vi: '/huong-dan', en: '/en/guides/' },
+  // Khung loạt "Hiểu đúng" (U1) — các bài thuộc loạt nằm trong huongDan với tag `hieu-dung`
+  { vi: '/hieu-dung', en: '/en/myths/' },
 ];
 
 // Bài nội dung đã có bản tiếng Anh (English launch pack)

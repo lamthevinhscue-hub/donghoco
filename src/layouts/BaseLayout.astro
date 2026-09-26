@@ -173,14 +173,9 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
       <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     )}
 
-    <!-- Tải font từ Google Fonts: Newsreader (tiêu đề, 500-700) + Be Vietnam Pro (nội dung/UI, 400-700).
-         Chỉ tải các weight thực dùng; display=swap để chữ hiện ngay bằng font dự phòng. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500..700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Phông chữ tự lưu (K2): Newsreader (tiêu đề, variable 500-700) + Be Vietnam Pro
+         (nội dung/UI, 400-700) — stylesheet local trong public/fonts/, cùng origin. -->
+    <link rel="stylesheet" href="/fonts/fonts.css" />
   </head>
   <body class="flex min-h-screen flex-col bg-cream text-ink dark:bg-dark-bg dark:text-dark-text">
     <!-- Pagefind: bộ lọc ngôn ngữ của trang — client search lọc kết quả theo giá trị này -->

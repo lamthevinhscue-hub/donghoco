@@ -1,0 +1,39 @@
+/* Phông chữ tự lưu (K2) — giấy phép SIL OFL 1.1, bản sao tại OFL-*.txt cùng thư mục.
+   Nguồn: github.com/google/fonts (ofl/bevietnampro, ofl/newsreader). Nén woff2 giữ
+   nguyên toàn bộ cmap — đầy đủ ký tự tiếng Việt và tiếng Anh. */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-700.woff2') format('woff2');
+}
+/* Newsreader variable: một tệp phủ trục wght 500-700 (opsz tự áp theo cỡ chữ). */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('/fonts/newsreader-opsz-wght.woff2') format('woff2');
+}

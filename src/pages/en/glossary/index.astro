@@ -1,21 +1,149 @@
 ---
-// EN index — Glossary: /en/glossary/
-import EnCollectionIndex from '../../../components/templates/EnCollectionIndex.astro';
+// =============================================================================
+// Trang danh sách EN: GLOSSARY — nhóm theo nhóm + lọc nhóm (K4)
+// =============================================================================
+// Đối xứng với /tu-dien/: thuật ngữ EN được nhóm theo GLOSSARY_CATEGORY_ORDER,
+// có hàng nút lọc (All + từng nhóm) chạy ở trình duyệt, không cần tải lại trang.
+// Không có JavaScript: toàn bộ nhóm và thẻ vẫn hiển thị đầy đủ (hiện trạng tĩnh).
+// Bộ lọc chữ cái HOÃN đến khi từ điển đạt khoảng 80 mục theo kế hoạch từ điển —
+// không dựng UI chữ cái trong lúc này.
+// =============================================================================
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getEntriesByLang, getSlug, isEntryOf } from '../../../lib/content';
-import { getCategoryLabel } from '../../../i18n/ui';
+import { GLOSSARY_CATEGORY_ORDER, getCategoryLabel } from '../../../i18n/ui';
 
 const entries = (await getEntriesByLang('tuDien', 'en')).filter(isEntryOf('tuDien'));
-const items = entries.map((e) => ({
-  href: `/en/glossary/${getSlug(e)}/`,
-  title: e.data.title,
-  excerpt: e.data.excerpt,
-  meta: getCategoryLabel(e.data.category, 'en'),
-}));
+
+// Nhóm theo thứ tự chuẩn (từ cơ bản đến nâng cao), bỏ nhóm chưa có mục
+const groups = GLOSSARY_CATEGORY_ORDER.map((category) => ({
+  category,
+  label: getCategoryLabel(category, 'en'),
+  items: entries.filter((e) => e.data.category === category),
+})).filter((g) => g.items.length > 0);
 ---
 
-<EnCollectionIndex
+<BaseLayout
   title="Glossary"
   description="Watchmaking terms in plain English — movement, calibre, escapement, hairspring, rotor, power reserve."
-  intro="The vocabulary of mechanical watchmaking, each term explained in a few paragraphs with sources — no jargon walls."
-  items={items}
-/>
+>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+    <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">Glossary</h1>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft">
+      The vocabulary of mechanical watchmaking, each term explained in a few paragraphs with sources — no jargon walls.
+    </p>
+
+    <!-- Hàng nút lọc theo nhóm -->
+    <div class="mt-8 flex flex-wrap gap-2" id="en-cat-filter">
+      <button
+        type="button"
+        data-cat="all"
+        aria-pressed="true"
+        class="en-filter-btn rounded-full border border-navy bg-navy px-4 py-1.5 text-xs font-medium text-cream transition-colors"
+      >
+        All ({entries.length})
+      </button>
+      {groups.map((g) => (
+        <button
+          type="button"
+          data-cat={g.category}
+          aria-pressed="false"
+          class="en-filter-btn rounded-full border border-cream-dark bg-white px-4 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft dark:hover:border-dark-brass dark:hover:text-dark-brass"
+        >
+          {g.label} ({g.items.length})
+        </button>
+      ))}
+    </div>
+
+    <!-- Danh sách nhóm theo nhóm -->
+    <div class="mt-12 space-y-16">
+      {groups.map((group) => (
+        <div data-cat-group={group.category} class="en-cat-group">
+          <div class="mb-6 border-l-4 border-brass pl-4">
+            <h2 class="font-serif text-2xl text-navy dark:text-dark-text">{group.label}</h2>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((item) => (
+              <article class="flex flex-col rounded-xl border border-line bg-surface-raised p-6 transition-colors hover:border-brass/40 dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-brass/40">
+                <h3 class="font-serif text-xl leading-tight text-navy dark:text-dark-text">
+                  <a
+                    href={`/en/glossary/${getSlug(item)}/`}
+                    class="transition-colors hover:text-brass dark:hover:text-dark-brass"
+                  >
+                    {item.data.title}
+                  </a>
+                </h3>
+                <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+                  {item.data.excerpt}
+                </p>
+                <a
+                  href={`/en/glossary/${getSlug(item)}/`}
+                  class="mt-4 inline-flex min-h-11 items-center self-start text-sm font-semibold text-steel transition-colors hover:text-brass dark:hover:text-dark-brass"
+                  aria-label={`Read more: ${item.data.title}`}
+                >
+                  Read more →
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Thông báo khi không có kết quả (khi lọc) -->
+    <p id="en-no-results" class="hidden py-12 text-center text-ink-soft dark:text-dark-text-soft">
+      No terms in this category.
+    </p>
+  </section>
+</BaseLayout>
+
+<script>
+  // Lọc theo nhóm — chạy ở trình duyệt, không cần tải lại trang.
+  // Không có JavaScript thì script này không chạy và mọi nhóm vẫn hiển thị.
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.en-filter-btn');
+  const groups = document.querySelectorAll<HTMLElement>('.en-cat-group');
+  const noResults = document.getElementById('en-no-results');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.cat;
+
+      // Cập nhật trạng thái nút: nút đang chọn nền navy, aria-pressed=true.
+      // Trạng thái "chưa chọn" gồm đủ biến thể dark để không giữ nền trắng ở chế độ tối.
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.classList.remove('bg-navy', 'text-cream', 'border-navy');
+        b.classList.add(
+          'bg-white',
+          'text-ink-soft',
+          'border-cream-dark',
+          'dark:bg-dark-surface',
+          'dark:text-dark-text-soft',
+          'dark:border-dark-border',
+        );
+        if (active) {
+          b.classList.remove(
+            'bg-white',
+            'text-ink-soft',
+            'border-cream-dark',
+            'dark:bg-dark-surface',
+            'dark:text-dark-text-soft',
+            'dark:border-dark-border',
+          );
+          b.classList.add('bg-navy', 'text-cream', 'border-navy');
+        }
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      // Hiển thị nhóm tương ứng
+      let anyVisible = false;
+      groups.forEach((group) => {
+        const show = selected === 'all' || group.dataset.catGroup === selected;
+        group.classList.toggle('hidden', !show);
+        if (show) anyVisible = true;
+      });
+      noResults?.classList.toggle('hidden', anyVisible);
+    });
+  });
+</script>

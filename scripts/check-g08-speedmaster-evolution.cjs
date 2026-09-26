@@ -8,9 +8,9 @@
 // G2 khớp hồ sơ: từng mốc vi/en/year/reference/sourceUrl/sourceName == JSON.
 // G3 tương ứng VI–EN: các số ≥2 chữ số trong vi và en phải trùng nhau từng trường.
 // G4 đăng ký: import + DATASETS trong modelEvolution.ts; slug duy nhất toàn src/data.
-// G5 dist: data-evolution chỉ render đúng các route mô hình có dataset
-//   (omega-speedmaster, rolex-submariner, rolex-gmt-master × VI/EN), 7 nút/route,
-//   7 URL nguồn xuất hiện ở cả hai route Speedmaster.
+// G5 dist: data-evolution render đủ mọi slug đăng ký (suy từ src/data/*.Evolution.ts)
+//   × VI/EN — vòng sửa I4 (TXN-20260926-260) thay hard-code ba slug; vẫn kiểm
+//   Speedmaster đúng 7 nút/7 URL, Submariner + GMT-Master 8 nút mỗi ngôn ngữ.
 // G6 hai route Speedmaster không còn 8 nhóm claim cũ (VI + EN) + G7 reference hiển thị.
 // Exit 1 nếu có lỗi.
 // =============================================================================
@@ -87,11 +87,14 @@ for (let i = 0; i < 7; i++) {
   }
 }
 
-// G4: đăng ký + slug duy nhất
+// G4: đăng ký + slug duy nhất — vòng sửa I4 (TXN-20260926-260): chỉ kiểm import
+// và việc omegaSpeedmasterEvolution CÓ MẶT trong mảng DATASETS, không phụ thuộc
+// vị trí đầu mảng (dataset tiến hóa mới đăng ký thêm theo alphabet là hợp lệ).
 const dangKy = fs.readFileSync(TEP_DANG_KY, 'utf8');
+const khoiMang = (dangKy.match(/DATASETS[^=]*=\s*\[([\s\S]*?)\];/) || [])[1] || '';
 dat('G4 import + DATASETS đăng ký Speedmaster',
   dangKy.includes("import { omegaSpeedmasterEvolution } from './omegaSpeedmasterEvolution';") &&
-  /DATASETS[^;]*\[omegaSpeedmasterEvolution,/.test(dangKy.replace(/\s+/g, ' ')));
+  khoiMang.includes('omegaSpeedmasterEvolution'));
 const cacSlug = [];
 for (const f of fs.readdirSync('src/data').filter((f) => f.endsWith('.ts') && f !== 'modelEvolution.ts')) {
   const s = fs.readFileSync(path.join('src/data', f), 'utf8');
@@ -112,7 +115,20 @@ if (!fs.existsSync('dist')) {
   dat('G5/G6 dist', false, 'chưa có dist — hãy chạy npm run build trước');
 } else {
   const duong = (lang, slug) => path.join('dist', ...(lang === 'vi' ? ['mau-iconic'] : ['en', 'iconic-watches']), slug, 'index.html');
-  const duKienModel = new Set(['omega-speedmaster', 'rolex-submariner', 'rolex-gmt-master']);
+  // Tập slug có sơ đồ suy ĐÚNG TỪ REGISTRY DATASETS — vòng sửa hẹp cuối I4
+  // (TXN-20260926-262): parse import + phần tử thực tế của mảng DATASETS trong
+  // modelEvolution.ts; dataset chỉ nằm trên đĩa mà không được đăng ký thì KHÔNG
+  // thuộc tập — route của nó sẽ bị tính là "lọt".
+  const duKienModel = new Set();
+  for (const m of khoiMang.matchAll(/([A-Za-z]\w*Evolution)\b/g)) {
+    const imp = (dangKy.match(new RegExp(`import\\s*\\{\\s*${m[1]}\\s*\\}\\s*from\\s*'\\.\\/([\\w-]+)';`)) || [])[1];
+    if (!imp) continue;
+    const tep = path.join('src/data', imp + '.ts');
+    if (!fs.existsSync(tep)) continue;
+    const slug = (fs.readFileSync(tep, 'utf8').match(/slug:\s*'([^']+)'/) || [])[1];
+    if (slug) duKienModel.add(slug);
+  }
+  dat('G5 tập slug đăng ký (từ DATASETS) không rỗng', duKienModel.size > 0, `${duKienModel.size} slug từ registry`);
   const thayTrenRoute = [];
   for (const slug of duKienModel) {
     for (const lang of ['vi', 'en']) {
@@ -120,7 +136,7 @@ if (!fs.existsSync('dist')) {
       if (fs.existsSync(p) && fs.readFileSync(p, 'utf8').includes('data-evolution')) thayTrenRoute.push(`${lang}:${slug}`);
     }
   }
-  dat('G5 sơ đồ chỉ render đúng 3 route mô hình × VI/EN', thayTrenRoute.length === 6, thayTrenRoute.sort().join(' · '));
+  dat('G5 sơ đồ render đủ mọi slug đăng ký × VI/EN', thayTrenRoute.length === duKienModel.size * 2, `đăng ký ${duKienModel.size} slug · thấy ${thayTrenRoute.length} route — ${thayTrenRoute.sort().join(' · ')}`);
 
   // không route nào khác (mọi trang iconic) chứa sơ đồ
   let lech = [];

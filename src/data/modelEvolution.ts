@@ -69,11 +69,21 @@ export interface ModelEvolutionDataset {
 }
 
 // --- Sổ đăng ký: thêm dataset mới vào mảng này (giữ thứ tự alphabet theo slug)
+import { audemarsPiguetRoyalOakEvolution } from './audemarsPiguetRoyalOakEvolution';
+import { blancpainFiftyFathomsEvolution } from './blancpainFiftyFathomsEvolution';
+import { jaegerLeCoultreReversoEvolution } from './jaegerLeCoultreReversoEvolution';
 import { omegaSpeedmasterEvolution } from './omegaSpeedmasterEvolution';
 import { rolexGmtMasterEvolution } from './rolexGmtMasterEvolution';
 import { submarinerEvolution } from './submarinerEvolution';
 
-const DATASETS: ModelEvolutionDataset[] = [omegaSpeedmasterEvolution, rolexGmtMasterEvolution, submarinerEvolution];
+const DATASETS: ModelEvolutionDataset[] = [
+  audemarsPiguetRoyalOakEvolution,
+  blancpainFiftyFathomsEvolution,
+  jaegerLeCoultreReversoEvolution,
+  omegaSpeedmasterEvolution,
+  rolexGmtMasterEvolution,
+  submarinerEvolution,
+];
 
 /**
  * Lấy dataset sơ đồ tiến hóa cho một slug bài iconic, theo ngôn ngữ trang.

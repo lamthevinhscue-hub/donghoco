@@ -1,0 +1,19 @@
+---
+// =============================================================================
+// TRANG /en/accuracy-log — công cụ "Accuracy log" (wrapper tiếng Anh, C1)
+// =============================================================================
+// Khuôn chung ở src/components/AccuracyLog.astro (vi/en). Trang này chỉ giữ
+// BaseLayout + tiêu đề/mô tả tab trình duyệt; mọi chức năng nằm ở component.
+// Dữ liệu người dùng chỉ lưu localStorage phía trình duyệt — không backend.
+// =============================================================================
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AccuracyLog from '../../../components/AccuracyLog.astro';
+---
+
+<BaseLayout
+  title="Accuracy log"
+  description="Record your watch’s day-by-day offset from a time reference, across several watches — data stays in your browser, with CSV export/import."
+>
+  <AccuracyLog lang="en" />
+</BaseLayout>

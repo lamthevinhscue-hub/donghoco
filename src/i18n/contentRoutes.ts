@@ -35,6 +35,8 @@ export const STATIC_PAIRS: RoutePair[] = [
   { vi: '/giai-phau', en: '/en/anatomy/' },
   // G06-B chặng 2: công cụ so sánh song ngữ — khuôn chung CompareExperience, duyệt TXN-20260914-10
   { vi: '/so-sanh', en: '/en/compare/' },
+  // C1: công cụ "Nhật ký sai số" — khuôn chung AccuracyLog, duyệt TXN-20260926-265
+  { vi: '/nhat-ky-sai-so', en: '/en/accuracy-log/' },
 ];
 
 // Trang danh sách (index) từng khu vực nội dung

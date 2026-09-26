@@ -1,0 +1,798 @@
+---
+// =============================================================================
+// ACCURACY LOG — công cụ "Nhật ký sai số" (C1, vi/en)
+// =============================================================================
+// Wrappers: vi = /nhat-ky-sai-so (src/pages/nhat-ky-sai-so/index.astro),
+// en = /en/accuracy-log (src/pages/en/accuracy-log/index.astro).
+//
+// Nguyên tắc đã duyệt (TXN-20260926-265):
+//   - HOÀN TOÀN CỤC BỘ: dữ liệu chỉ nằm trong localStorage của trình duyệt
+//     (khóa c1-accuracy-log-v1); không tài khoản, không fetch/XHR/WebSocket,
+//     không analytics riêng. Thông báo local-only + khuyến nghị tự sao lưu CSV
+//     hiển thị ngay đầu công cụ.
+//   - CHỈ GHI NHẬN, KHÔNG CHẨN ĐOÁN: không ngưỡng màu, không nhãn đánh giá,
+//     không khuyến nghị kỹ thuật theo số liệu; chuỗi cấm được checker chặn.
+//   - Nhiều đồng hồ (tạo/đổi tên/xóa có xác nhận), bản ghi gồm đồng hồ + ngày
+//     quan sát + độ lệch giây (+ nhanh, − chậm) + ghi chú tùy chọn.
+//   - Bảng HTML thật song hành biểu đồ SVG; SVG chỉ minh họa, không phải nơi
+//     duy nhất chứa dữ liệu. Không thư viện biểu đồ ngoài.
+//   - CSV xuất UTF-8 (BOM) header ổn định; nhập chỉ-thêm có xác nhận, bỏ dòng
+//     không hợp lệ, không thực thi nội dung tệp.
+//   - No-JS: khối công cụ ẩn sẵn (attribute hidden), trang vẫn còn H1, phần
+//     giới thiệu, thông báo cần JavaScript và liên kết bài hướng dẫn.
+//   - Mọi chuỗi hiển thị qua khóa acc_* trong src/i18n/ui.ts.
+// =============================================================================
+
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: 'vi' | 'en';
+}
+
+const { lang } = Astro.props as Props;
+const tr = t(lang);
+const guideHref = lang === 'vi' ? '/huong-dan/do-sai-so' : '/en/guides/accuracy-tracking/';
+// Chuỗi hiển thị cho script client: chỉ các khóa acc_*
+const trJson = JSON.stringify(Object.fromEntries(Object.entries(tr).filter(([k]) => k.startsWith('acc_'))));
+---
+
+<section class="acc mx-auto max-w-4xl px-4 py-16" data-accuracy-log data-lang={lang} data-tr={trJson}>
+  <div class="mb-3 h-1 w-12 rounded bg-brass"></div>
+  <h1 class="font-serif text-4xl text-navy dark:text-dark-text sm:text-5xl">{tr.acc_h1}</h1>
+  <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.acc_intro}</p>
+
+  <div class="mt-6 rounded-xl border border-line bg-surface-raised p-5 dark:border-dark-border dark:bg-dark-surface">
+    <h2 class="font-serif text-xl text-navy dark:text-dark-text">{tr.acc_notice_local_title}</h2>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.acc_notice_local}</p>
+    <p class="mt-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.acc_notice_backup}</p>
+  </div>
+
+  <p class="acc-nojs mt-4 rounded-lg border border-line bg-surface-raised p-4 text-sm leading-relaxed text-ink-soft dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
+    {tr.acc_nojs}
+  </p>
+
+  <p class="mt-6">
+    <a
+      class="inline-flex min-h-11 items-center text-sm font-semibold text-steel underline-offset-4 hover:underline dark:text-dark-brass"
+      href={guideHref}
+    >
+      {tr.acc_link_guide} ↗
+    </a>
+  </p>
+
+  <div id="acc-tool" class="mt-10 space-y-12" hidden>
+    <!-- ===== Đồng hồ ===== -->
+    <fieldset class="rounded-xl border border-line p-5 dark:border-dark-border">
+      <legend class="px-2 font-serif text-lg text-navy dark:text-dark-text">{tr.acc_watch_legend}</legend>
+      <div class="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
+        <div>
+          <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-new-name">
+            {tr.acc_watch_name_label}
+          </label>
+          <input
+            id="acc-new-name"
+            type="text"
+            autocomplete="off"
+            maxlength="60"
+            aria-describedby="acc-new-name-err"
+            class="mt-1 w-full rounded-lg border border-line bg-surface-raised px-3 py-2 text-navy dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+          />
+          <p id="acc-new-name-err" class="mt-1 hidden text-sm text-red-700 dark:text-red-400" role="alert"></p>
+        </div>
+        <div class="flex gap-3">
+          <button
+            id="acc-add-watch"
+            type="button"
+            class="min-h-11 rounded-full bg-navy px-5 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-brass dark:text-dark-bg dark:hover:text-cream"
+          >
+            {tr.acc_watch_add}
+          </button>
+          <button
+            id="acc-rename-watch"
+            type="button"
+            class="min-h-11 rounded-full border border-line px-5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft"
+          >
+            {tr.acc_watch_rename}
+          </button>
+          <button
+            id="acc-delete-watch"
+            type="button"
+            class="min-h-11 rounded-full border border-line px-5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-red-700 hover:text-red-700 dark:border-dark-border dark:text-dark-text-soft"
+          >
+            {tr.acc_watch_delete}
+          </button>
+        </div>
+      </div>
+      <div id="acc-watch-area" class="mt-5" hidden>
+        <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-watch-select">
+          {tr.acc_watch_selected_label}
+        </label>
+        <select
+          id="acc-watch-select"
+          class="mt-1 w-full max-w-md rounded-lg border border-line bg-surface-raised px-3 py-2 text-navy dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+        ></select>
+      </div>
+      <p id="acc-watch-empty" class="mt-3 text-sm text-ink-soft dark:text-dark-text-soft" hidden>{tr.acc_empty_watches}</p>
+    </fieldset>
+
+    <!-- ===== Bản ghi quan sát ===== -->
+    <fieldset id="acc-record-box" class="rounded-xl border border-line p-5 dark:border-dark-border" hidden>
+      <legend class="px-2 font-serif text-lg text-navy dark:text-dark-text">{tr.acc_record_legend}</legend>
+      <form id="acc-record-form" novalidate>
+        <input id="acc-editing-id" type="hidden" value="" />
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div>
+            <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-date">
+              {tr.acc_date_label}
+            </label>
+            <input
+              id="acc-date"
+              type="date"
+              aria-describedby="acc-date-err"
+              class="mt-1 w-full rounded-lg border border-line bg-surface-raised px-3 py-2 text-navy dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            />
+            <p id="acc-date-err" class="mt-1 hidden text-sm text-red-700 dark:text-red-400" role="alert"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-offset">
+              {tr.acc_offset_label}
+            </label>
+            <input
+              id="acc-offset"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              aria-describedby="acc-offset-err"
+              class="mt-1 w-full rounded-lg border border-line bg-surface-raised px-3 py-2 text-navy dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            />
+            <p id="acc-offset-err" class="mt-1 hidden text-sm text-red-700 dark:text-red-400" role="alert"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-note">
+              {tr.acc_note_label}
+            </label>
+            <input
+              id="acc-note"
+              type="text"
+              maxlength="200"
+              class="mt-1 w-full rounded-lg border border-line bg-surface-raised px-3 py-2 text-navy dark:border-dark-border dark:bg-dark-surface dark:text-dark-text"
+            />
+          </div>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <button
+            id="acc-record-submit"
+            type="submit"
+            class="min-h-11 rounded-full bg-navy px-5 py-2 text-sm font-medium text-cream transition-colors hover:bg-brass dark:bg-dark-brass dark:text-dark-bg dark:hover:text-cream"
+          >
+            {tr.acc_record_add}
+          </button>
+          <button
+            id="acc-record-cancel"
+            type="button"
+            class="min-h-11 rounded-full border border-line px-5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft"
+            hidden
+          >
+            {tr.acc_record_cancel}
+          </button>
+        </div>
+      </form>
+    </fieldset>
+
+    <!-- ===== Biểu đồ + bảng ===== -->
+    <div id="acc-view-box" hidden>
+      <h2 class="font-serif text-xl text-navy dark:text-dark-text">{tr.acc_chart_title}</h2>
+      <p id="acc-chart-empty" class="mt-3 rounded-lg border border-line bg-surface-raised p-4 text-sm text-ink-soft dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft" hidden>
+        {tr.acc_chart_empty}
+      </p>
+      <svg id="acc-chart" class="acc-chart mt-4 w-full" viewBox="0 0 640 240" role="img"></svg>
+      <div class="mt-6 overflow-x-auto">
+        <table id="acc-table" class="w-full border-collapse text-left text-sm">
+          <caption class="sr-only">{tr.acc_table_caption}</caption>
+          <thead>
+            <tr class="border-b border-line dark:border-dark-border">
+              <th scope="col" class="py-2 pr-4 font-medium text-navy dark:text-dark-text">{tr.acc_th_date}</th>
+              <th scope="col" class="py-2 pr-4 font-medium text-navy dark:text-dark-text">{tr.acc_th_offset}</th>
+              <th scope="col" class="py-2 pr-4 font-medium text-navy dark:text-dark-text">{tr.acc_th_note}</th>
+              <th scope="col" class="py-2 font-medium text-navy dark:text-dark-text">{tr.acc_th_actions}</th>
+            </tr>
+          </thead>
+          <tbody id="acc-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== CSV ===== -->
+    <fieldset class="rounded-xl border border-line p-5 dark:border-dark-border">
+      <legend class="px-2 font-serif text-lg text-navy dark:text-dark-text">{tr.acc_csv_title}</legend>
+      <div class="flex flex-wrap items-end gap-4">
+        <button
+          id="acc-csv-export"
+          type="button"
+          class="min-h-11 rounded-full border border-line px-5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft"
+        >
+          {tr.acc_csv_export}
+        </button>
+        <div>
+          <label class="block text-sm font-medium text-navy dark:text-dark-text" for="acc-import-file">
+            {tr.acc_csv_import_label}
+          </label>
+          <input
+            id="acc-import-file"
+            type="file"
+            accept=".csv,text/csv"
+            class="mt-1 block w-full max-w-sm text-sm text-ink-soft dark:text-dark-text-soft"
+          />
+        </div>
+        <button
+          id="acc-import"
+          type="button"
+          class="min-h-11 rounded-full border border-line px-5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-brass hover:text-brass dark:border-dark-border dark:text-dark-text-soft"
+        >
+          {tr.acc_csv_import_add}
+        </button>
+      </div>
+      <p id="acc-csv-report" class="mt-3 text-sm text-ink-soft dark:text-dark-text-soft" role="alert"></p>
+    </fieldset>
+
+    <p id="acc-live" class="sr-only" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+  // Toàn bộ logic chạy cục bộ trong trình duyệt — không có bất kỳ lời gọi mạng nào.
+  interface AccWatch {
+    id: string;
+    name: string;
+  }
+  interface AccRecord {
+    id: string;
+    watchId: string;
+    date: string;
+    seconds: number;
+    note: string;
+  }
+  interface AccStore {
+    version: 1;
+    watches: AccWatch[];
+    records: AccRecord[];
+  }
+
+  const STORAGE_KEY = 'c1-accuracy-log-v1';
+  const CSV_HEADER = 'watch_id,watch_name,date,offset_seconds,note';
+  const RE_DATE = /^\d{4}-\d{2}-\d{2}$/;
+  const RE_NUM = /^[+-]?\d+(\.\d+)?$/;
+
+  const root = document.querySelector<HTMLElement>('[data-accuracy-log]');
+  if (root) {
+    const tr = JSON.parse(root.dataset.tr ?? '{}') as Record<string, string>;
+    const $ = <T extends Element>(id: string): T => document.getElementById(id) as unknown as T;
+    const tool = $<HTMLElement>('acc-tool');
+    const nojsEls = root.querySelectorAll<HTMLElement>('.acc-nojs');
+    const live = $<HTMLElement>('acc-live');
+
+    // ---- lưu tải (localStorage) ----
+    function load(): AccStore {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as AccStore;
+          if (parsed && Array.isArray(parsed.watches) && Array.isArray(parsed.records)) {
+            return { version: 1, watches: parsed.watches, records: parsed.records };
+          }
+        }
+      } catch {
+        /* nội dung không đọc được theo đúng dạng — coi như chưa có dữ liệu */
+      }
+      return { version: 1, watches: [], records: [] };
+    }
+    function save(store: AccStore): void {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      } catch {
+        live.textContent = tr['acc_notice_backup'] ?? '';
+      }
+    }
+    function uid(): string {
+      return 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    }
+    function fmt(tpl: string, map: Record<string, string | number>): string {
+      return tpl.replace(/\{(\w+)\}/g, (_, k: string) => String(map[k] ?? ''));
+    }
+
+    let store = load();
+    let currentWatchId = store.watches[0]?.id ?? '';
+    let editingId = '';
+
+    const nameInput = $<HTMLInputElement>('acc-new-name');
+    const nameErr = $<HTMLElement>('acc-new-name-err');
+    const watchArea = $<HTMLElement>('acc-watch-area');
+    const watchSelect = $<HTMLSelectElement>('acc-watch-select');
+    const watchEmpty = $<HTMLElement>('acc-watch-empty');
+    const recordBox = $<HTMLElement>('acc-record-box');
+    const recordForm = $<HTMLFormElement>('acc-record-form');
+    const editingIdInput = $<HTMLInputElement>('acc-editing-id');
+    const dateInput = $<HTMLInputElement>('acc-date');
+    const dateErr = $<HTMLElement>('acc-date-err');
+    const offsetInput = $<HTMLInputElement>('acc-offset');
+    const offsetErr = $<HTMLElement>('acc-offset-err');
+    const noteInput = $<HTMLInputElement>('acc-note');
+    const recordSubmit = $<HTMLButtonElement>('acc-record-submit');
+    const recordCancel = $<HTMLButtonElement>('acc-record-cancel');
+    const viewBox = $<HTMLElement>('acc-view-box');
+    const chartEmpty = $<HTMLElement>('acc-chart-empty');
+    const chart = $<SVGSVGElement>('acc-chart');
+    const tbody = $<HTMLElement>('acc-tbody');
+    const csvReport = $<HTMLElement>('acc-csv-report');
+    const importFile = $<HTMLInputElement>('acc-import-file');
+
+    function currentWatch(): AccWatch | undefined {
+      return store.watches.find((w) => w.id === currentWatchId);
+    }
+    function currentRecords(): AccRecord[] {
+      return store.records
+        .filter((r) => r.watchId === currentWatchId)
+        .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    }
+    function setErr(el: HTMLElement, input: HTMLInputElement, msg: string): void {
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      input.setAttribute('aria-invalid', 'true');
+    }
+    function clearErr(el: HTMLElement, input: HTMLInputElement): void {
+      el.textContent = '';
+      el.classList.add('hidden');
+      input.removeAttribute('aria-invalid');
+    }
+    function fmtSeconds(v: number): string {
+      return (v > 0 ? '+' : '') + String(v);
+    }
+
+    // ---- render ----
+    function renderWatches(): void {
+      watchSelect.textContent = '';
+      for (const w of store.watches) {
+        const opt = document.createElement('option');
+        opt.value = w.id;
+        opt.textContent = w.name;
+        watchSelect.appendChild(opt);
+      }
+      if (currentWatchId) watchSelect.value = currentWatchId;
+      const co = store.watches.length > 0;
+      watchArea.hidden = !co;
+      watchEmpty.hidden = co;
+      recordBox.hidden = !co;
+      viewBox.hidden = !co;
+    }
+
+    function renderRecords(): void {
+      tbody.textContent = '';
+      const rs = currentRecords();
+      if (rs.length === 0) {
+        chartEmpty.hidden = false;
+        chart.setAttribute('hidden', '');
+        return;
+      }
+      chartEmpty.hidden = true;
+      chart.removeAttribute('hidden');
+      drawChart(rs);
+      for (const r of rs) {
+        const trR = document.createElement('tr');
+        trR.className = 'border-b border-line/60 dark:border-dark-border/60';
+        const tdDate = document.createElement('td');
+        tdDate.textContent = r.date;
+        const tdOff = document.createElement('td');
+        tdOff.textContent = fmtSeconds(r.seconds);
+        const tdNote = document.createElement('td');
+        tdNote.textContent = r.note;
+        const tdAct = document.createElement('td');
+        const btnEdit = document.createElement('button');
+        btnEdit.type = 'button';
+        btnEdit.dataset.edit = r.id;
+        btnEdit.textContent = tr['acc_record_edit'] ?? '';
+        btnEdit.className = 'mr-3 min-h-11 text-steel underline-offset-4 hover:underline dark:text-dark-brass';
+        const btnDel = document.createElement('button');
+        btnDel.type = 'button';
+        btnDel.dataset.del = r.id;
+        btnDel.textContent = tr['acc_record_delete'] ?? '';
+        btnDel.className = 'min-h-11 text-steel underline-offset-4 hover:underline dark:text-dark-brass';
+        tdAct.appendChild(btnEdit);
+        tdAct.appendChild(btnDel);
+        trR.appendChild(tdDate);
+        trR.appendChild(tdOff);
+        trR.appendChild(tdNote);
+        trR.appendChild(tdAct);
+        tbody.appendChild(trR);
+      }
+    }
+
+    function drawChart(rs: AccRecord[]): void {
+      while (chart.firstChild) chart.removeChild(chart.firstChild);
+      const W = 640, H = 240, padL = 56, padR = 16, padT = 16, padB = 34;
+      const vals = rs.map((r) => r.seconds);
+      let lo = Math.min(...vals, 0);
+      let hi = Math.max(...vals, 0);
+      if (lo === hi) {
+        lo -= 1;
+        hi += 1;
+      }
+      const gap = (hi - lo) * 0.12;
+      lo -= gap;
+      hi += gap;
+      const x = (i: number) => padL + ((W - padL - padR) * i) / (rs.length - 1 || 1);
+      const y = (v: number) => padT + ((hi - v) * (H - padT - padB)) / (hi - lo);
+      const NS = 'http://www.w3.org/2000/svg';
+      const el = (tag: string) => document.createElementNS(NS, tag);
+
+      const g = el('g');
+      g.setAttribute('stroke', 'currentColor');
+      g.setAttribute('fill', 'currentColor');
+      (g as SVGGElement).style.color = 'var(--c-ink-soft, #617574)';
+      chart.appendChild(g);
+
+      const zero = el('line');
+      zero.setAttribute('x1', String(padL));
+      zero.setAttribute('x2', String(W - padR));
+      zero.setAttribute('y1', String(y(0)));
+      zero.setAttribute('y2', String(y(0)));
+      zero.setAttribute('stroke-width', '1');
+      zero.setAttribute('opacity', '0.5');
+      g.appendChild(zero);
+
+      const poly = el('polyline');
+      poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke-width', '2');
+      poly.setAttribute('points', rs.map((r, i) => `${x(i)},${y(r.seconds)}`).join(' '));
+      poly.setAttribute('class', 'acc-chart-line');
+      g.appendChild(poly);
+
+      for (let i = 0; i < rs.length; i++) {
+        const c = el('circle');
+        c.setAttribute('cx', String(x(i)));
+        c.setAttribute('cy', String(y(rs[i].seconds)));
+        c.setAttribute('r', '3.5');
+        g.appendChild(c);
+      }
+
+      const lbl = (txt: string, cx: number, cy: number, anchor: string) => {
+        const t = el('text');
+        t.setAttribute('x', String(cx));
+        t.setAttribute('y', String(cy));
+        t.setAttribute('text-anchor', anchor);
+        t.setAttribute('font-size', '12');
+        t.setAttribute('stroke', 'none');
+        t.textContent = txt;
+        g.appendChild(t);
+      };
+      lbl(rs[0].date, padL, H - 10, 'start');
+      if (rs.length > 1) lbl(rs[rs.length - 1].date, W - padR, H - 10, 'end');
+      lbl(String(Math.max(...vals)), padL - 6, y(Math.max(...vals)) + 4, 'end');
+      lbl(String(Math.min(...vals)), padL - 6, y(Math.min(...vals)) + 4, 'end');
+
+      const w = currentWatch();
+      chart.setAttribute(
+        'aria-label',
+        fmt(tr['acc_chart_aria'] ?? '', { name: w?.name ?? '', count: rs.length }),
+      );
+    }
+
+    function renderAll(): void {
+      renderWatches();
+      renderRecords();
+    }
+
+    // ---- đồng hồ ----
+    $('acc-add-watch').addEventListener('click', () => {
+      const ten = nameInput.value.trim();
+      if (!ten) {
+        setErr(nameErr, nameInput, tr['acc_err_name'] ?? '');
+        return;
+      }
+      clearErr(nameErr, nameInput);
+      const w = { id: uid(), name: ten };
+      store.watches.push(w);
+      currentWatchId = w.id;
+      nameInput.value = '';
+      save(store);
+      renderAll();
+      live.textContent = tr['acc_saved'] ?? '';
+    });
+
+    $('acc-rename-watch').addEventListener('click', () => {
+      const w = currentWatch();
+      if (!w) return;
+      const ten = nameInput.value.trim();
+      if (!ten) {
+        setErr(nameErr, nameInput, tr['acc_err_name'] ?? '');
+        return;
+      }
+      clearErr(nameErr, nameInput);
+      w.name = ten;
+      save(store);
+      renderAll();
+      live.textContent = tr['acc_saved'] ?? '';
+    });
+
+    $('acc-delete-watch').addEventListener('click', () => {
+      const w = currentWatch();
+      if (!w) return;
+      const so = store.records.filter((r) => r.watchId === w.id).length;
+      const msg = fmt(tr['acc_confirm_delete_watch'] ?? '', { name: w.name, count: so });
+      if (!window.confirm(msg)) return;
+      store.watches = store.watches.filter((x) => x.id !== w.id);
+      store.records = store.records.filter((r) => r.watchId !== w.id);
+      currentWatchId = store.watches[0]?.id ?? '';
+      save(store);
+      renderAll();
+      live.textContent = tr['acc_deleted'] ?? '';
+    });
+
+    watchSelect.addEventListener('change', () => {
+      currentWatchId = watchSelect.value;
+      editingId = '';
+      renderRecords();
+      resetRecordForm();
+    });
+
+    // ---- bản ghi ----
+    function resetRecordForm(): void {
+      editingId = '';
+      editingIdInput.value = '';
+      recordForm.reset();
+      clearErr(dateErr, dateInput);
+      clearErr(offsetErr, offsetInput);
+      recordSubmit.textContent = tr['acc_record_add'] ?? '';
+      recordCancel.hidden = true;
+    }
+
+    function isValidDate(v: string): boolean {
+      if (!RE_DATE.test(v)) return false;
+      const y = Number(v.slice(0, 4));
+      const m = Number(v.slice(5, 7));
+      const d = Number(v.slice(8, 10));
+      if (m < 1 || m > 12 || d < 1 || d > 31) return false;
+      const dt = new Date(y, m - 1, d);
+      return dt.getFullYear() === y && dt.getMonth() === m - 1 && dt.getDate() === d;
+    }
+
+    recordForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const w = currentWatch();
+      if (!w) return;
+      let ok = true;
+      const date = dateInput.value;
+      const offsetRaw = offsetInput.value.trim().replace(',', '.');
+      const note = noteInput.value.trim();
+      if (!isValidDate(date)) {
+        setErr(dateErr, dateInput, tr['acc_err_date'] ?? '');
+        ok = false;
+      } else clearErr(dateErr, dateInput);
+      if (!RE_NUM.test(offsetRaw)) {
+        setErr(offsetErr, offsetInput, tr['acc_err_offset'] ?? '');
+        ok = false;
+      } else clearErr(offsetErr, offsetInput);
+      if (!ok) return;
+      const seconds = Number(offsetRaw);
+      if (editingId) {
+        const r = store.records.find((x) => x.id === editingId);
+        if (r) {
+          r.date = date;
+          r.seconds = seconds;
+          r.note = note;
+        }
+      } else {
+        store.records.push({ id: uid(), watchId: w.id, date, seconds, note });
+      }
+      save(store);
+      resetRecordForm();
+      renderRecords();
+      live.textContent = tr['acc_saved'] ?? '';
+    });
+
+    recordCancel.addEventListener('click', () => {
+      resetRecordForm();
+    });
+
+    tbody.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!(target instanceof HTMLButtonElement)) return;
+      const editId = target.dataset.edit;
+      const delId = target.dataset.del;
+      if (editId) {
+        const r = store.records.find((x) => x.id === editId);
+        if (!r) return;
+        editingId = r.id;
+        editingIdInput.value = r.id;
+        dateInput.value = r.date;
+        offsetInput.value = String(r.seconds);
+        noteInput.value = r.note;
+        recordSubmit.textContent = tr['acc_record_save'] ?? '';
+        recordCancel.hidden = false;
+        dateInput.focus();
+      } else if (delId) {
+        const r = store.records.find((x) => x.id === delId);
+        if (!r) return;
+        const msg = fmt(tr['acc_confirm_delete_record'] ?? '', { date: r.date });
+        if (!window.confirm(msg)) return;
+        store.records = store.records.filter((x) => x.id !== delId);
+        save(store);
+        if (editingId === delId) resetRecordForm();
+        renderRecords();
+        live.textContent = tr['acc_deleted'] ?? '';
+      }
+    });
+
+    // ---- CSV ----
+    function csvField(v: string): string {
+      return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+    }
+
+    $('acc-csv-export').addEventListener('click', () => {
+      const lines = [CSV_HEADER];
+      for (const r of store.records) {
+        const w = store.watches.find((x) => x.id === r.watchId);
+        lines.push(
+          [csvField(r.watchId), csvField(w?.name ?? ''), csvField(r.date), csvField(String(r.seconds)), csvField(r.note)].join(','),
+        );
+      }
+      const blob = new Blob(['\uFEFF' + lines.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = root.dataset.lang === 'vi' ? 'nhat-ky-sai-so.csv' : 'accuracy-log.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      live.textContent = tr['acc_saved'] ?? '';
+    });
+
+    // Parser CSV TOÀN VĂN, quote-aware: dấu phẩy và xuống dòng nằm trong ngoặc
+    // kép là nội dung trường; "" là dấu nháy literal. Ngoặc chưa đóng đến cuối
+    // văn bản → biHong = true (tệp cấu trúc lỗi — bỏ an toàn, không nhập gì).
+    function parseCsvVanBan(vanBan: string): { rows: string[][]; biHong: boolean } {
+      const rows: string[][] = [];
+      let row: string[] = [];
+      let cur = '';
+      let inQuotes = false;
+      let biHong = false;
+      const pushField = () => {
+        row.push(cur);
+        cur = '';
+      };
+      const pushRow = () => {
+        pushField();
+        if (!(row.length === 1 && row[0].trim() === '')) rows.push(row);
+        row = [];
+      };
+      for (let i = 0; i < vanBan.length; i++) {
+        const c = vanBan[i];
+        if (inQuotes) {
+          if (c === '"') {
+            if (vanBan[i + 1] === '"') {
+              cur += '"';
+              i++;
+            } else inQuotes = false;
+          } else cur += c;
+        } else if (c === '"') inQuotes = true;
+        else if (c === ',') pushField();
+        else if (c === '\n' || c === '\r') {
+          if (c === '\r' && vanBan[i + 1] === '\n') i++;
+          pushRow();
+        } else cur += c;
+      }
+      if (inQuotes) biHong = true;
+      if (cur !== '' || row.length > 0) pushRow();
+      return { rows, biHong };
+    }
+
+    $('acc-import').addEventListener('click', () => {
+      const file = importFile.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        const text = (reader.result ?? '') as string;
+        const { rows, biHong } = parseCsvVanBan(text.replace(/^\uFEFF/, ''));
+        if (biHong) {
+          csvReport.textContent = tr['acc_err_csv_header'] ?? '';
+          return;
+        }
+        if (rows.length < 2) {
+          csvReport.textContent = tr['acc_err_csv_header'] ?? '';
+          return;
+        }
+        const cols = rows[0].map((c) => c.trim());
+        const idx = {
+          id: cols.indexOf('watch_id'),
+          name: cols.indexOf('watch_name'),
+          date: cols.indexOf('date'),
+          sec: cols.indexOf('offset_seconds'),
+          note: cols.indexOf('note'),
+        };
+        if (idx.name < 0 || idx.date < 0 || idx.sec < 0) {
+          csvReport.textContent = tr['acc_err_csv_header'] ?? '';
+          return;
+        }
+        const bad: string[] = [];
+        const moi: AccRecord[] = [];
+        const watchesMoi: AccWatch[] = [];
+        const watchByName = new Map(store.watches.map((w) => [w.name.toLowerCase(), w]));
+        const watchMoiByName = new Map<string, AccWatch>();
+        const seen = new Set(store.records.map((r) => `${r.watchId}|${r.date}|${r.seconds}|${r.note}`));
+        let dup = 0;
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i];
+          const name = (cells[idx.name] ?? '').trim();
+          const date = (cells[idx.date] ?? '').trim();
+          const secRaw = (cells[idx.sec] ?? '').trim().replace(',', '.');
+          if (!name || !isValidDate(date) || !RE_NUM.test(secRaw)) {
+            bad.push(fmt(tr['acc_row'] ?? '', { n: i + 1, msg: !name ? tr['acc_err_name'] : !isValidDate(date) ? tr['acc_err_date'] : tr['acc_err_offset'] }));
+            continue;
+          }
+          let w = watchByName.get(name.toLowerCase()) ?? watchMoiByName.get(name.toLowerCase());
+          if (!w) {
+            w = { id: uid(), name };
+            // chỉ ghi vào danh sách TẠM — chưa đụng store trước khi xác nhận
+            watchesMoi.push(w);
+            watchMoiByName.set(name.toLowerCase(), w);
+          }
+          const seconds = Number(secRaw);
+          const note = idx.note >= 0 ? (cells[idx.note] ?? '').trim() : '';
+          const khoa = `${w.id}|${date}|${seconds}|${note}`;
+          if (seen.has(khoa)) {
+            dup += 1;
+            continue;
+          }
+          seen.add(khoa);
+          moi.push({ id: uid(), watchId: w.id, date, seconds, note });
+        }
+        const msg = fmt(tr['acc_confirm_import'] ?? '', { add: moi.length, bad: bad.length, dup });
+        if (moi.length > 0 && !window.confirm(msg)) {
+          // người dùng hủy: store, localStorage và giao diện giữ nguyên tuyệt đối
+          return;
+        }
+        // BẮT ĐẦU GHI — mọi thay đổi store chỉ diễn ra sau khi người dùng xác nhận
+        store.watches.push(...watchesMoi);
+        store.records.push(...moi);
+        save(store);
+        renderAll();
+        // KẾT THÚC GHI
+        csvReport.textContent = [
+          fmt(tr['acc_csv_result'] ?? '', { add: moi.length, bad: bad.length, dup }),
+          ...bad,
+        ].join(' ');
+        live.textContent = tr['acc_saved'] ?? '';
+        importFile.value = '';
+      });
+      reader.readAsText(file, 'utf8');
+    });
+
+    // ---- khởi tạo: bật công cụ, ẩn thông báo no-JS ----
+    renderAll();
+    tool.hidden = false;
+    nojsEls.forEach((el) => el.remove());
+  }
+</script>
+
+<style>
+  /* Khối công cụ ẩn bằng attribute hidden cho đến khi có JavaScript */
+  .acc [hidden] {
+    display: none !important;
+  }
+
+  /* Đường biểu đồ dùng token ngữ nghĩa, tự đổi theo .dark */
+  .acc-chart .acc-chart-line {
+    stroke: var(--c-steel, #66758a);
+  }
+  :global(.dark) .acc-chart .acc-chart-line {
+    stroke: var(--c-dark-brass, #d0b27b);
+  }
+
+  /* Tôn trọng reduced-motion: không chuyển động nào tự chạy */
+  @media (prefers-reduced-motion: reduce) {
+    .acc *,
+    .acc *::before,
+    .acc *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>

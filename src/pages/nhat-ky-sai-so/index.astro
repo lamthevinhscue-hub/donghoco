@@ -1,0 +1,19 @@
+---
+// =============================================================================
+// TRANG /nhat-ky-sai-so — công cụ "Nhật ký sai số" (wrapper tiếng Việt, C1)
+// =============================================================================
+// Khuôn chung ở src/components/AccuracyLog.astro (vi/en). Trang này chỉ giữ
+// BaseLayout + tiêu đề/mô tả tab trình duyệt; mọi chức năng nằm ở component.
+// Dữ liệu người dùng chỉ lưu localStorage phía trình duyệt — không backend.
+// =============================================================================
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AccuracyLog from '../../components/AccuracyLog.astro';
+---
+
+<BaseLayout
+  title="Nhật ký sai số"
+  description="Ghi nhận độ lệch hiển thị thời gian so với mốc tham chiếu theo ngày, cho nhiều đồng hồ — dữ liệu lưu trên trình duyệt của bạn, có thể xuất/nhập CSV."
+>
+  <AccuracyLog lang="vi" />
+</BaseLayout>

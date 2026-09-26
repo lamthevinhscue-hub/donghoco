@@ -49,6 +49,10 @@ If your notes show a **long-lasting change**, or if you are simply **unsure**, t
 
 What you record at home makes that conversation more concrete (observation period, differences, conditions noted). It does **not** allow you — or anyone — to conclude the condition of the movement from a few observed numbers.
 
+## Where to keep your observations
+
+If you want to record day-by-day offsets across several watches, the [Accuracy Log](/en/accuracy-log/) page is a tool that runs right in your browser: data stays on your device, and you can export or import CSV to keep your own backup. The tool only **records** — any conclusion about the movement belongs with a qualified specialist.
+
 ## Related reading
 
 - [Anti-magnetism](/en/mechanisms/anti-magnetism/) — magnetic resistance as a per-calibre, per-certification specification

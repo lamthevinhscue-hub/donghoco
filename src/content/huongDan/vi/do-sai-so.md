@@ -46,6 +46,10 @@ Khi ghi nhận thấy **thay đổi kéo dài**, hoặc đơn giản khi **có n
 
 Những gì bạn ghi được ở nhà giúp cuộc trao đổi đó cụ thể hơn (thời gian quan sát, độ lệch, điều kiện ghi nhận). Nó **không cho phép bạn — hay bất kỳ ai — tự kết luận** nguyên nhân hoặc tình trạng bộ máy từ vài con số quan sát.
 
+## Ghi lại quan sát của bạn ở đâu?
+
+Nếu muốn ghi độ lệch theo ngày cho nhiều đồng hồ, trang [Nhật ký sai số](/nhat-ky-sai-so) là một công cụ chạy ngay trong trình duyệt: dữ liệu chỉ lưu trên thiết bị của bạn, và bạn có thể xuất hoặc nhập CSV để tự sao lưu. Công cụ chỉ giúp **ghi nhận** — mọi kết luận về tình trạng bộ máy hãy trao đổi với đơn vị có chuyên môn.
+
 ## Đọc thêm
 
 - [Chứng nhận Chronometer](/tu-dien/chronometer) và [Master Chronometer](/tu-dien/metas)

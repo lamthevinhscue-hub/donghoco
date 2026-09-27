@@ -83,6 +83,12 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/co-che/manufacture-etablisseur', en: '/en/mechanisms/manufacture-etablisseur/' },
   { vi: '/co-che/ebauche-chuoi-cung-ung', en: '/en/mechanisms/ebauche-supply-chain/' },
   { vi: '/co-che/eta-sellita', en: '/en/mechanisms/eta-sellita/' },
+  // T3 — phần cơ chế còn thiếu (5 bài)
+  { vi: '/co-che/bo-may-in-house', en: '/en/mechanisms/in-house-movements/' },
+  { vi: '/co-che/bo-thoat-dong-truc', en: '/en/mechanisms/co-axial-escapement/' },
+  { vi: '/co-che/da-quang', en: '/en/mechanisms/lume/' },
+  { vi: '/co-che/hien-thi-ngay', en: '/en/mechanisms/date-display/' },
+  { vi: '/co-che/kinh-dong-ho', en: '/en/mechanisms/watch-crystals/' },
   // Từ điển
   { vi: '/tu-dien/movement', en: '/en/glossary/movement/' },
   { vi: '/tu-dien/calibre', en: '/en/glossary/calibre/' },
@@ -120,6 +126,17 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/tu-dien/gio-nhay', en: '/en/glossary/jumping-hour/' },
   { vi: '/tu-dien/kim-hoi', en: '/en/glossary/retrograde/' },
   { vi: '/tu-dien/phuong-trinh-thoi-gian', en: '/en/glossary/equation-of-time/' },
+  // T3 — phần từ điển còn thiếu (10 mục)
+  { vi: '/tu-dien/bezel', en: '/en/glossary/bezel/' },
+  { vi: '/tu-dien/cau-may', en: '/en/glossary/bridge/' },
+  { vi: '/tu-dien/day-vo', en: '/en/glossary/caseback/' },
+  { vi: '/tu-dien/khoa-day', en: '/en/glossary/clasp/' },
+  { vi: '/tu-dien/lo-may', en: '/en/glossary/skeleton/' },
+  { vi: '/tu-dien/microbrand', en: '/en/glossary/microbrand/' },
+  { vi: '/tu-dien/ngua', en: '/en/glossary/pallet-fork/' },
+  { vi: '/tu-dien/poincon-de-geneve', en: '/en/glossary/geneva-seal/' },
+  { vi: '/tu-dien/vat-canh', en: '/en/glossary/anglage/' },
+  { vi: '/tu-dien/vau-day', en: '/en/glossary/lug/' },
   { vi: '/huong-dan/hoan-thien-thu-cong-dong-ho', en: '/en/guides/movement-finishing/' },
   // Thương hiệu
   { vi: '/thuong-hieu/patek-philippe', en: '/en/brands/patek-philippe/' },

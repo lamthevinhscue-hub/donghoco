@@ -1,0 +1,28 @@
+{
+  "dir": "/images/og/l3",
+  "timelineSource": "src/data/timeline.json",
+  "historyFilePattern": "og-lich-su-{slug}.jpg",
+  "modelFilePattern": "og-mau-{slug}.jpg",
+  "models": [
+    { "slugVi": "rolex-submariner", "slugEn": "rolex-submariner" },
+    { "slugVi": "omega-speedmaster", "slugEn": "omega-speedmaster" },
+    { "slugVi": "rolex-gmt-master", "slugEn": "rolex-gmt-master" },
+    { "slugVi": "royal-oak", "slugEn": "royal-oak" },
+    { "slugVi": "patek-nautilus", "slugEn": "patek-nautilus" },
+    { "slugVi": "reverso", "slugEn": "reverso" },
+    { "slugVi": "cartier-tank", "slugEn": "cartier-tank" },
+    { "slugVi": "fifty-fathoms", "slugEn": "fifty-fathoms" },
+    { "slugVi": "zenith-el-primero", "slugEn": "zenith-el-primero" },
+    { "slugVi": "monaco", "slugEn": null },
+    { "slugVi": "grand-seiko-snowflake", "slugEn": null },
+    { "slugVi": "seiko-62mas", "slugEn": null },
+    { "slugVi": "tudor-black-bay", "slugEn": null },
+    { "slugVi": "tissot-prx", "slugEn": null },
+    {
+      "slugVi": "orient-bambino",
+      "slugEn": null,
+      "deferred": true,
+      "deferredReason": "Chờ hồ sơ nguồn riêng xác minh năm trước khi được thêm trở lại"
+    }
+  ]
+}

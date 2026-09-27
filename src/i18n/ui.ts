@@ -133,6 +133,8 @@ export const translations = {
     search_placeholder: 'Tìm bài viết, thương hiệu, thuật ngữ...',
     // Mô tả ảnh chia sẻ (OG) cho trình đọc màn hình
     og_image_alt: 'Kiến Thức Đồng Hồ Cơ — bách khoa tiếng Việt về đồng hồ cơ, từ nguyên lý bộ máy đến nghệ thuật sưu tầm',
+    // L3: tiền tố alt cho ảnh chia sẻ riêng của trang (nối với tiêu đề riêng)
+    og_share_alt_prefix: 'Ảnh chia sẻ: ',
     // Nhãn cho header/menu/tìm kiếm/chủ đề (Gói 2 Prompt 2)
     skip_to_content: 'Bỏ qua tới nội dung chính',
     footer_a11y: 'Khả năng tiếp cận',
@@ -360,6 +362,8 @@ export const translations = {
     search_placeholder: 'Search articles, brands, terms...',
     // OG share image description for screen readers
     og_image_alt: 'Kiến Thức Đồng Hồ Cơ — a Vietnamese encyclopedia of mechanical watches, from movement principles to the art of collecting',
+    // L3: alt prefix for a page's own share image (concatenated with the page title)
+    og_share_alt_prefix: 'Share image: ',
     // Labels for header/menu/search/theme (Gói 2 Prompt 2)
     skip_to_content: 'Skip to main content',
     footer_a11y: 'Accessibility',

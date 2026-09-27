@@ -13,6 +13,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage } from '../i18n/ui';
 import { getAlternates } from '../i18n/contentRoutes';
+import l3Share from '../data/l3-share-images.json';
 import Analytics from '@vercel/analytics/astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
@@ -74,9 +75,24 @@ const hreflangUrls = alternates.en
 const ogLocale = lang === 'vi' ? 'vi_VN' : 'en_US';
 const schemaLanguage = lang === 'vi' ? 'vi-VN' : 'en';
 
-// OG image: ưu tiên cover_image > ảnh theo khu vực > ảnh mặc định
-const ogImage = getOgImage(Astro.url.pathname, cover_image);
+// OG image: ưu tiên ảnh chia sẻ riêng L3 của 15 mẫu iconic > cover_image >
+// ảnh theo khu vực > ảnh mặc định. Ảnh L3 tra theo đường dẫn trang từ tệp
+// dữ liệu l3-share-images.json (nguồn duy nhất, dùng chung với script sinh
+// ảnh và checker); VI và EN của cùng một mẫu dùng chung một ảnh.
+const l3Model = (() => {
+  const duong = Astro.url.pathname.replace(/\/+$/, '');
+  const khop = duong.match(/^\/(?:mau-iconic|en\/iconic-watches)\/([^/]+)$/);
+  if (!khop) return null;
+  return l3Share.models.find((m) => !m.deferred && (m.slugVi === khop[1] || m.slugEn === khop[1])) ?? null;
+})();
+const shareImage = l3Model
+  ? `${l3Share.dir}/${l3Share.modelFilePattern.replace('{slug}', l3Model.slugVi)}`
+  : null;
+const ogImage = shareImage ?? getOgImage(Astro.url.pathname, cover_image);
 const ogImageUrl = new URL(ogImage, siteUrl).href;
+// Alt: trang có ảnh riêng thì alt nối tiền tố ngôn ngữ với tiêu đề riêng của
+// trang; các trang khác giữ alt chung hiện có.
+const ogImageAlt = shareImage ? `${tr.og_share_alt_prefix}${title ?? tr.siteName}` : tr.og_image_alt;
 ---
 
 <!doctype html>
@@ -129,7 +145,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content={ogImage.endsWith('.png') ? 'image/png' : 'image/jpeg'} />
-    <meta property="og:image:alt" content={tr.og_image_alt} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:locale" content={ogLocale} />
 
     <!-- Twitter Card -->
@@ -137,7 +153,7 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
     <meta name="twitter:title" content={title ?? tr.siteName} />
     <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:image:alt" content={tr.og_image_alt} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Structured Data: WebSite schema (cho mọi trang) -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify({

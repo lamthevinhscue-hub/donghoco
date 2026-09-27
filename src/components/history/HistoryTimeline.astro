@@ -155,8 +155,11 @@ milestones.forEach((m, i) => {
 });
 
 const altFor = (m: Milestone) => {
-  const goc = (isVi ? m.title : m.title_en) + S.altSuffix;
   const nhan = nhanAiOf(m.slug);
+  // L2-B: 5 ảnh AI đợt 2 dùng mô tả thay thế riêng (tài liệu nguồn) + nhận diện AI
+  const moTa = altAiMoRongOf(m.slug);
+  if (nhan && moTa) return isVi ? `${moTa.vi} (minh họa AI tái dựng)` : `${moTa.en} (AI reconstruction)`;
+  const goc = (isVi ? m.title : m.title_en) + S.altSuffix;
   if (!nhan) return goc;
   return isVi ? `${goc} (minh họa AI tái dựng)` : `${goc} (AI reconstruction)`;
 };
@@ -198,8 +201,56 @@ const ANH_AI = new Map([
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
   }],
+  // L2-B: 5 mốc đợt 2 "năm cảnh mạnh nhất" — ảnh AI anh Vinh duyệt 27/09/2026
+  ['rolex-oyster', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['jlc-reverso', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['rolex-submariner', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['heuer-carrera', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['patek-nautilus', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
 ] as [string, { vi: string; en: string }][]);
 const nhanAiOf = (slug: string) => ANH_AI.get(slug);
+// L2-B: mô tả thay thế VI/EN riêng của từng ảnh AI đợt 2 — nguyên văn từ
+// docs/bo-cau-lenh-anh-ai-dong-thoi-gian-2026-09-24.md (mục 12, 15, 19, 22, 28).
+// Có mục ở đây thì alt dùng mô tả thay thế kèm nhận diện AI; không có thì
+// giữ khuôn cũ (title + hậu tố + nhận diện) như 4 mốc H07-A.
+const ALT_AI_MO_RONG = new Map([
+  ['rolex-oyster', {
+    vi: 'Người bơi đường dài nhỏ giữa biển lúc bình minh, một chiếc thuyền chèo theo sau, vách đá trắng mờ phía xa',
+    en: 'A long-distance swimmer far out at sea at dawn, a rowing boat following, pale cliffs in the distance',
+  }],
+  ['jlc-reverso', {
+    vi: 'Trận polo thập niên 1930 nhìn từ xa, ngựa phi tung bụi vàng trong nắng chiều',
+    en: 'A 1930s polo match seen from afar, galloping horses raising golden dust in late light',
+  }],
+  ['rolex-submariner', {
+    vi: 'Trại thám hiểm vùng núi cao đầu thập niên 1950, đoàn leo núi buộc dây đi về phía sống tuyết',
+    en: 'An early-1950s high-altitude expedition camp; roped climbers head toward a snow ridge',
+  }],
+  ['heuer-carrera', {
+    vi: 'Xe đua cổ lao qua con đường bụi giữa vùng đất khô, bụi tung thành vệt dài',
+    en: 'A vintage race car speeds along a dusty road across dry country, trailing a plume of dust',
+  }],
+  ['patek-nautilus', {
+    vi: 'Ô cửa kính tròn khung đồng trên tàu biển, nhìn ra mặt biển lặng',
+    en: 'A round brass porthole on an ocean liner, looking out onto a calm sea',
+  }],
+] as [string, { vi: string; en: string }][]);
+const altAiMoRongOf = (slug: string) => ALT_AI_MO_RONG.get(slug);
 // Đọc tiếp: bản EN trỏ cặp EN thật khi có; chỉ có VI thì giữ link VI kèm nhãn rõ
 const readMoreOf = (m: Milestone): { href: string; kind: 'en' | 'vi' } => {
   if (!isVi) {

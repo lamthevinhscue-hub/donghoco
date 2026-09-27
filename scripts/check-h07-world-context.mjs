@@ -163,23 +163,49 @@ if (DIST) {
     }
     kiem('W5-d', `Đường đọc tiếp của mốc mới tới đích tồn tại (${docThem.length} mốc có readMore)`, docHong.length === 0, docHong.join(', ') || 'đủ');
 
-    // W5-e (P0-C): dist render đúng JPG + nhãn AI minh bạch đúng ngôn ngữ.
-    // Số mốc dùng ảnh AI = 4 mốc H07-A + trench-watch (map ANH_AI của
-    // HistoryTimeline) = 5 nhãn mỗi trang. Ảnh là minh họa AI bối cảnh đã duyệt
+    // W5-e (P0-C, hồi quy L2-B TXN-20260926-317): dist render đúng JPG + nhãn
+    // AI minh bạch đúng ngôn ngữ. Tổng số mốc dùng ảnh AI SUY ĐỘNG từ bảng
+    // ANH_AI trong HistoryTimeline.astro (không hard-code); ranh giới H07 giữ
+    // nguyên: 4 JPG H07-A bắt buộc render trên hai trang. Với MỌI slug trong
+    // ANH_AI: nút zoom phải có data-zoom-src trỏ đúng ảnh kèm data-zoom-ai
+    // nguyên văn theo ngôn ngữ trang. Ảnh là minh họa AI bối cảnh đã duyệt
     // trực quan — không gán ý nghĩa chứng cứ lịch sử/kỹ thuật nào.
     const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
     const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
-    const soMocAi = MOC_MOI.length + 1;
+    const tepComponent = join(process.cwd(), 'src', 'components', 'history', 'HistoryTimeline.astro');
+    const componentText = readFileSync(tepComponent, 'utf8');
+    const dauMap = componentText.indexOf('const ANH_AI = new Map([');
+    const cuoiMap = componentText.indexOf('] as [string, { vi: string; en: string }][]', dauMap);
+    const slugAnhAi = dauMap >= 0 && cuoiMap > dauMap
+      ? [...componentText.slice(dauMap, cuoiMap).matchAll(/\['([a-z0-9-]+)', \{/g)].map((m) => m[1])
+      : [];
+    const soMocAi = slugAnhAi.length;
     const thieuJpg = MOC_MOI.filter((slug) => !viHtml.includes(`src="/images/timeline/${slug}.jpg"`) || !enHtml.includes(`src="/images/timeline/${slug}.jpg"`));
+    // Mỗi mốc AI: caption nhãn + attr data-zoom-ai → 2 lần nhãn mỗi trang;
+    // nút zoom: data-zoom-src trỏ đúng ảnh slug và data-zoom-ai nguyên văn ngay sau
     const viNhan = (viHtml.match(new RegExp(NHAN_AI_VI, 'g')) ?? []).length;
     const enNhan = (enHtml.match(new RegExp(NHAN_AI_EN, 'g')) ?? []).length;
     const viLan = viHtml.includes(NHAN_AI_EN);
     const enLan = enHtml.includes(NHAN_AI_VI);
     const viAlt = (viHtml.match(/\(minh họa AI tái dựng\)/g) ?? []).length;
     const enAlt = (enHtml.match(/\(AI reconstruction\)/g) ?? []).length;
-    kiem('W5-e', `Dist: 4 JPG render đúng + nhãn AI đúng ngôn ngữ ×${soMocAi * 2} (thẻ + attr truyền hộp phóng to, mỗi mốc AI 2 chỗ) + alt khuôn H12-A`,
-      thieuJpg.length === 0 && viNhan === soMocAi * 2 && enNhan === soMocAi * 2 && !viLan && !enLan && viAlt === soMocAi * 2 && enAlt === soMocAi * 2,
-      `thiếuJPG=${thieuJpg.join(',') || 'không'}, nhãn VI=${viNhan}, EN=${enNhan}, lẫn=${viLan || enLan ? 'có' : 'không'}, alt VI=${viAlt}, EN=${enAlt}`);
+    const viZoomAi = (viHtml.match(new RegExp(`data-zoom-ai="${NHAN_AI_VI}"`, 'g')) ?? []).length;
+    const enZoomAi = (enHtml.match(new RegExp(`data-zoom-ai="${NHAN_AI_EN}"`, 'g')) ?? []).length;
+    const zoomLech = slugAnhAi.filter((slug) => {
+      const anh = `/images/timeline/${slug}.jpg`;
+      const mauVi = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${NHAN_AI_VI}"`);
+      const mauEn = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${NHAN_AI_EN}"`);
+      return !mauVi.test(viHtml) || !mauEn.test(enHtml);
+    });
+    kiem('W5-e', `Dist: 4 JPG H07-A render đúng + ${soMocAi} mốc AI suy từ ANH_AI — nhãn AI ×${soMocAi * 2} (thẻ + attr), data-zoom-ai ×${soMocAi}, data-zoom-src đúng slug, alt khuôn H12-A, không lẫn ngôn ngữ`,
+      slugAnhAi.length >= MOC_MOI.length + 1
+      && thieuJpg.length === 0
+      && viNhan === soMocAi * 2 && enNhan === soMocAi * 2
+      && !viLan && !enLan
+      && viAlt === soMocAi * 2 && enAlt === soMocAi * 2
+      && viZoomAi === soMocAi && enZoomAi === soMocAi
+      && zoomLech.length === 0,
+      `slugs ANH_AI=${soMocAi} (${slugAnhAi.join(', ')}), thiếuJPG=${thieuJpg.join(',') || 'không'}, nhãn VI=${viNhan}, EN=${enNhan}, lẫn=${viLan || enLan ? 'có' : 'không'}, alt VI=${viAlt}, EN=${enAlt}, zoom-ai VI=${viZoomAi}, EN=${enZoomAi}, zoom lệch slug=${zoomLech.join(',') || 'không'}`);
   } else {
     errors.push('[W5] Thiếu dist/lich-su/index.html hoặc dist/en/history/index.html — cần build trước khi kiểm lớp dist.');
   }

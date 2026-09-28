@@ -1,8 +1,12 @@
 # Hồ sơ nguồn I3 — Năm mẫu ưu tiên Việt Nam (pha 1)
 
-- Giao dịch: TXN-20260926-323 (lập hồ sơ, 27/09/2026) và TXN-20260926-324
-  (vòng sửa nguồn và hồ sơ, 28/09/2026 — chuẩn độc lập khác tổ chức, hạ
-  Snowflake về CẦN THU HẸP), danh mục DHC-GD3-20260925, gói I3 pha 1
+- Giao dịch (chuỗi đầy đủ): TXN-20260926-323 (lập hồ sơ, 27/09/2026);
+  TXN-20260926-324 (vòng sửa chuẩn độc lập, 28/09/2026);
+  TXN-20260926-330 (thực hiện pha 1b, 28/09/2026, phát hành sau `9b89d5d`);
+  TXN-20260926-331 (điều phối/tái nghiệm thu pha 1b);
+  TXN-20260926-332 (vòng đồng bộ tài liệu, 28/09/2026);
+  TXN-20260926-333 (điều phối/tái nghiệm thu vòng đồng bộ).
+  Danh mục DHC-GD3-20260925, gói I3 pha 1
 - Ngày lập: 27/09/2026; nền repo: `043be67` (= origin/main khi bắt đầu)
 - Quyết định chủ sở hữu 27/09/2026: mở I3 ngay, bỏ phụ thuộc C4
 - Phạm vi: CHỈ hồ sơ nguồn làm căn cứ cho gói viết sâu song ngữ sau. Chưa viết
@@ -24,9 +28,10 @@ Quy tắc đã áp dụng:
   cho năm, reference, calibre hay thông số.
 - Trích dẫn là nguyên văn tiếng Anh, mỗi trích tối đa 25 từ; hai đoạn cắt rời
   trong cùng câu nối bằng `...`, cả hai phần đều là chuỗi nguyên văn.
-- Ngày kiểm mọi URL: 27/09/2026. Mọi URL đã xác minh còn sống khi lập hồ sơ;
-  tudorwatch.com và orientwatchusa.com chặn truy cập tự động trực tiếp, nội
-  dung đọc qua trình đọc trang — trích vẫn là nguyên văn trên trang.
+- Ngày kiểm: 27/09/2026 cho lượt tra cứu pha 1; 28/09/2026 cho các hàng bổ
+  sung của pha 1b — ghi trên từng hàng. Mọi URL đã xác minh còn sống khi lập
+  hồ sơ; tudorwatch.com và orientwatchusa.com chặn truy cập tự động trực
+  tiếp, nội dung đọc qua trình đọc trang — trích vẫn là nguyên văn trên trang.
 - Hai URL cùng một hãng chỉ là đối chiếu nội bộ của hãng, không gọi là xác
   nhận độc lập. Chuẩn hiện hành (TXN-20260926-324): trạng thái SẴN SÀNG phải
   có tối thiểu hai nguồn trực tiếp độc lập — khác cả tổ chức và miền URL;
@@ -41,10 +46,13 @@ Quy tắc đã áp dụng:
 | Grand Seiko Snowflake | grand-seiko-snowflake | CẦN THU HẸP | Bằng chứng dày (mỗi nhóm claim hai URL trở lên) nhưng toàn bộ cùng tổ chức grand-seiko.com — chưa có nguồn độc lập khác tổ chức theo chuẩn hiện hành |
 | Seiko 62MAS | seiko-62mas | CẦN THU HẸP | Claim cốt lõi (1965, 150m, tái hiện) đạt hai URL trở lên, có bảo tàng độc lập; riêng mã calibre 6217 / reference 6217-8000 chưa có nguồn đạt — phải thu hẹp |
 | Tudor Black Bay | tudor-black-bay | CẦN THU HẸP | Chỉ trang tudorwatch.com (đối chiếu nội bộ); ba claim cốt lõi (2012, kim Snowflake, BB54) mới một URL trực tiếp mỗi claim; hai số liệu trong bài cần chỉnh theo nguồn |
-| Tissot PRX | tissot-prx | CẦN THU HẸP | 1978, Powermatic 80, Nivachron, dây liền vỏ đạt nguồn; riêng ý nghĩa tên P/R/X, "bản gốc 1978 chạy quartz", "nền ETA 2824" không có nguồn đạt — phải loại |
+| Tissot PRX | tissot-prx | CẦN THU HẸP | Pha 1b mở cấm ba mệnh đề (tên P/R/X, quartz bản gốc 1978, nền ETA 2824 — đã có nguyên văn chính hãng, mục 6); "độc quyền của Tissot" loại có căn cứ (Certina dùng Powermatic 80); trạng thái giữ vì toàn bộ nguồn thuộc Swatch Group — chưa có độc lập |
 | Orient Bambino | orient-bambino | CẦN THU HẸP | Nguồn đạt chỉ ở cấp phân phối chính thức (một domain); nguồn bài đang trích (tạp chí, cửa hàng hướng dẫn, wiki) không đạt chuẩn; mẹo chữ trên mặt số và mốc 2022 không có nguồn |
 
 Tổng kết phân loại: 0 SẴN SÀNG, 5 CẦN THU HẸP, 0 CHƯA ĐỦ NGUỒN (tổng 5 mẫu).
+Sau pha 1b (TXN-20260926-330): không mẫu nào nâng SẴN SÀNG — không mẫu nào
+có nguồn độc lập ngoài tập đoàn của mình; PRX được mở ba mục cấm nhờ nguồn
+chính hãng mới, Bambino bổ sung trang chính hãng toàn cầu (chi tiết mục 12).
 
 ## 3. grand-seiko-snowflake — CẦN THU HẸP
 
@@ -94,6 +102,7 @@ frontmatter hiện có: trang Prospex tái hiện 1965 và thông cáo 2025 — 
 | Năm 1965 Seiko giới thiệu đồng hồ lặn đầu tiên của hãng và của Nhật | https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index | "In 1965, Seiko introduced its, and Japan's, first-ever diver's watch." | 2026-09-27 | chính hãng | Không thêm "tự động đầu tiên thế giới" |
 | (cùng claim — URL hai) | https://www.seikowatches.com/us-en/news/2025/pr/20250306_psx | "Known to fans as the 62MAS, the 1965 diver's watch incorporated an automatic mechanical movement and delivered 150m water resistance." | 2026-09-27 | chính hãng | Tên "62MAS" là tên giới chơi gọi, nguồn ghi "Known to fans" — giữ sắc thái |
 | (cùng claim — URL ba, độc lập) | https://museum.seiko.co.jp/en/collections/watch_previousterm/collect015/ | "The first Japan-made diver's watch, waterproof to a depth of 150 meters." | 2026-09-27 | bảo tàng | Bảo tàng Seiko Ginza — xác nhận độc lập duy nhất trong khối |
+| (cùng claim — URL tư, pha 1b) | https://www.seikowatches.com/no-en/news/20230111 | "In 1965, Seiko introduced its, and Japan's, first-ever diver's watch." | 2026-09-28 | chính hãng | Thông báo chính hãng khác khu vực; trang dùng biệt danh "62MAS" nhưng không chứa mã 6217 |
 | Chống nước 150m | https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index | "With an automatic movement and water resistance to 150 meters" | 2026-09-27 | chính hãng | Ghi "150m" đúng số nguồn |
 | Tái hiện 62MAS cho dòng Prospex hiện đại | https://www.seikowatches.com/us-en/products/prospex/special/1965_6L/index | "Today, Seiko introduces a re-creation of the 1965 watch, known to fans as the 62MAS." | 2026-09-27 | chính hãng | Trang là bản giới hạn 2023 (6L35) — không viết thành dòng đại trà |
 | (cùng claim — URL hai) | https://www.seikowatches.com/us-en/news/20230704 | "Today, Seiko introduces into the Prospex collection a re-creation of the 1965 watch, known to fans as the 62MAS." | 2026-09-27 | chính hãng | Thông cáo 04/07/2023 |
@@ -147,20 +156,24 @@ lại. Bản tiếng Anh: chưa có (chỉ ghi nhận).
 |---|---|---|---|---|---|
 | Tissot ra mắt PRX năm 1978; bản hiện đại là bản tôn vinh mẫu gốc | https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html | "Discover the PRX collection, a selection of timeless watches thought as a tribute to the original timepiece from 1978." | 2026-09-27 | chính hãng | Cùng hãng Tissot ở hai URL — đối chiếu nội bộ |
 | (cùng claim — URL hai) | https://www.tissotwatches.com/en-us/T1372101111100.html | "In 1978 the Tissot PRX was born, now we celebrate it's comeback." | 2026-09-27 | chính hãng | Trích giữ nguyên chính tả "it's" của trang, kèm "[sic]" khi dẫn |
-| PRX hiện đại có bản quartz và bản Powermatic 80 tự động | https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html | "Now available in quartz or powered by our automatic Powermatic 80 movement." | 2026-09-27 | chính hãng | Chỉ nói hiện nay; không suy ngược "bản 1978 chạy quartz" (mục 8) |
+| PRX hiện đại có bản quartz và bản Powermatic 80 tự động | https://www.tissotwatches.com/en-us/collection/main-collections/tissot-prx.html | "Now available in quartz or powered by our automatic Powermatic 80 movement." | 2026-09-27 | chính hãng | Hàng này chỉ nói lựa chọn hiện nay; bộ máy bản 1978 có nguồn riêng ở hàng dưới (mở cấm pha 1b) |
 | Powermatic 80 cho trữ cót 80 giờ | https://www.tissotwatches.com/en-us/T1374071104100.html | "The Powermatic 80 movement boasts 80 hours of power reserve" | 2026-09-27 | chính hãng | Số 80 giờ đúng nguyên văn |
 | Powermatic 80 dùng tóc cân bằng Nivachron | https://www.tissotwatches.com/en-us/T1374071104100.html | "The self-winding Powermatic 80 movement delivers reliability and precision thanks to the innovative Nivachron hairspring." | 2026-09-27 | chính hãng | Bổ trợ cho khối ETA dưới |
 | Họ calibre C07 của ETA không có hệ điều chỉnh, trữ cót điển hình 80 giờ | https://www.eta.ch/en/mechanical/precision-stability | "The calibres C07.xxx and A31.xxx, among others, are not equipped with a regulator system" | 2026-09-27 | chính hãng (ETA) | ETA không nối tường minh "Powermatic 80 = C07" trên trang — viết "họ C07 của ETA (điều chỉnh bằng laser); Powermatic 80 là tên Tissot dùng", không viết "nền ETA 2824" (mục 8) |
 | (cùng khối — trích trữ cót) | https://www.eta.ch/en/mechanical/power-reserve | "(Typical power reserve: 80 h)" | 2026-09-27 | chính hãng (ETA) | Bổ trợ cho hàng trên |
 | Nivachron là tóc cân bằng gốc titan, không từ tính, nhãn hiệu Nivarox-FAR | https://www.eta.ch/en/our-knowhow/mechanical/amagnetic-nivachron | "The Nivachron balance spring is produced in the traditional way using a non-magnetic titanium-based compensating alloy." | 2026-09-27 | chính hãng (ETA) | Không liệt kê thêm tác dụng nếu không trích được |
 | (cùng claim — trích thương hiệu) | https://www.eta.ch/en/our-knowhow/mechanical/amagnetic-nivachron | "The name Nivachron is an internationally-registered trademark by Nivarox-FAR." | 2026-09-27 | chính hãng (ETA) | Bổ trợ cho hàng trên |
+| Tên PRX: PR = precise và robust, X = số La Mã 10 và áp suất 10 bar | https://www.tissotwatches.com/en-us/T9312074135100.html | ""PR" stands for "precise" and "robust". The "X" stands for the Roman numeral ten and the pressure of 10 bar" | 2026-09-28 | chính hãng | Trang PRX Gold 35mm (T9312074135100), phần mô tả; phiên bản de-de cùng mẫu xác nhận cùng đoạn — mở cấm mục 8.1 |
+| Bản PRX gốc 1978 là mẫu quartz | https://www.tissotwatches.com/en-us/T9312074135100.html | "In 1978, Tissot created a quartz model that featured a slim case, narrow hour markers and a steel bracelet." | 2026-09-28 | chính hãng | Trang chính hãng phát biểu trực tiếp về mẫu 1978 — mở cấm mục 8.1; pressroom bổ trợ nhưng không nói quartz |
+| Powermatic 80 là bước phát triển từ calibre 2824 của ETA | https://pressroom.tissotwatches.com/powermatic80/ | "A technical evolution of the famous 2824 caliber, created through Tissot's collaboration with the manufacturer ETA." | 2026-09-28 | chính hãng | Tissot Pressroom, bài về Powermatic 80 — mở cấm mục 8.1; pressroom cùng tổ chức Tissot |
 | PRX vỏ mảnh, dây thép liền vỏ, mang ngôn ngữ mẫu 1978 | https://www.tissotwatches.com/en-us/T1372101111100.html | "A tapered and slim case and a solid, yet ergonomic stainless steel integrated bracelet make the PRX an iconic blast from the past..." | 2026-09-27 | chính hãng | Cụm "blast from the past" là lời trang của hãng — dịch trung tính "gợi mẫu cũ" |
 | (cùng claim — trích kích thước bản 35mm) | https://www.tissotwatches.com/en-us/T1372101111100.html | "The new PRX is exactly the same size as the original watch from 1978: 35mm - making it even more desirable." | 2026-09-27 | chính hãng | Chỉ khẳng định bản 35mm same-size bản gốc; không suy rộng sang các cỡ khác |
 
-Mười hàng, năm URL (ba tissotwatches.com + hai eta.ch). Trạng thái CẦN THU
-HẸP: ba mệnh đề trong bài không có nguồn đạt và phải loại khi viết sâu (nghĩa
-tên P/R/X, "bản gốc 1978 chạy quartz", "nền calibre 2824 của ETA"), cùng mệnh
-đề "độc quyền của Tissot" cho Powermatic 80 (mục 8).
+Mười bốn hàng, bảy URL (năm tissotwatches.com gồm cả pressroom + hai eta.ch).
+Pha 1b mở cấm ba mệnh đề (tên P/R/X, quartz bản gốc 1978, nền 2824 — đã có
+nguồn chính hãng, ngày kiểm 28/09); mệnh đề "độc quyền của Tissot" bị loại có
+căn cứ (mục 8.1). Trạng thái vẫn CẦN THU HẸP: toàn bộ nguồn thuộc Swatch
+Group — chưa có nguồn độc lập khác tổ chức.
 
 ## 7. orient-bambino — CẦN THU HẸP
 
@@ -185,14 +198,19 @@ Anh: chưa có (chỉ ghi nhận).
 | Dòng Bambino có bản 38mm gọn hơn | https://www.orientwatchusa.com/products/ra-ac0m03s30b | "Everything you want in an Orient Bambino, now in a more compact 38mm form." | 2026-09-27 | phân phối chính thức | Chỉ khẳng định có bản 38mm; mốc năm 2022 không có nguồn (mục 8) |
 | Chống nước 30m | https://www.orientwatchusa.com/products/ra-ac0m03s30b | "Water Resistance 30m" | 2026-09-27 | phân phối chính thức | Số 30m đúng nguyên văn |
 | (cùng claim — URL hai) | https://www.orientwatchusa.com/products/tac08003a0 | "water resistant to 30m" | 2026-09-27 | phân phối chính thức | Bổ trợ cho hàng trên |
+| F6724 xác nhận trên trang chính hãng toàn cầu (miền khác phân phối Mỹ) | https://orient-watch.com/en/orient/collection/classic/classic-and-simple-style-38/RA-AC0M04Y/ | "Calibre Code F6724" | 2026-09-28 | chính hãng | Trang sản phẩm global (bắt buộc giữ dấu "/" cuối); dòng này là "Classic & Simple Style 38" — chính hãng toàn cầu không dùng chữ "Bambino" ở bản tiếng Anh |
+| Kính hộp (Box crystal) là kính mặt trước trên bản global | https://orient-watch.com/en/orient/collection/classic/classic-and-simple-style-38/RA-AC0M04Y/ | "Glass Material (Front) Box crystal" | 2026-09-28 | chính hãng | Chính hãng global dùng "Box crystal" (kính hộp), phân phối Mỹ dùng "domed mineral crystal" (kính khoáng vòm) — hai cách gọi, không suy ngược thành cùng một chỉ định kỹ thuật |
+| Chống nước 3 bar (30m) theo chính hãng toàn cầu | https://orient-watch.com/en/orient/collection/classic/classic-and-simple-style-38/RA-AC0M04Y/ | "Water Resistance 3 bar (30 m)" | 2026-09-28 | chính hãng | Khớp số 30m của phân phối Mỹ; cỡ vỏ global ghi 38.4 mm |
 | Cách gọi "Version" (1–7) do chính phân phối chính thức dùng | https://www.orientwatchusa.com/products/tac08003a0 | "Orient Bambino Version 4 Classic Watch" | 2026-09-27 | phân phối chính thức | Tiêu đề sản phẩm (đoạn sau là mã TAC08003A0 đã có trong URL); chỉ chứng minh cách gọi, không chứng minh ranh giới chi tiết giữa các version |
 | (cùng claim — URL hai) | https://www.orientwatchusa.com/products/ra-ac0m03s30b | "Orient Bambino Version 7 Classic Watch" | 2026-09-27 | phân phối chính thức | Bổ trợ cho hàng trên |
 
-Sáu URL, bốn domain con của phân phối/chính hãng (orientwatchusa.com ×5,
-orient-watch.com ×1). Trạng thái CẦN THU HẸP: nguồn đạt là phân phối chính
-thức, chưa có trang sản phẩm riêng của orient-watch.com (global) cho Bambino
-để xác nhận độc lập; mẹo phân biệt đời máy bằng chữ in trên mặt số và mốc năm
-2022 không có nguồn đạt (mục 8).
+Mười bốn hàng, năm URL (orientwatchusa.com ×3, orient-watch.com ×2). Pha 1b
+bổ sung trang sản phẩm riêng của chính hãng toàn cầu (RA-AC0M04Y — F6724, 3
+bar/30 m, Box crystal, 38.4 mm), nhưng trang này đặt tên dòng là "Classic &
+Simple Style 38", không dùng chữ "Bambino" ở bản tiếng Anh. Trạng thái vẫn
+CẦN THU HẸP: hai miền (Epson America, Seiko Epson) là hai pháp nhân nhưng
+cùng lợi ích thương hiệu — không có đối chiếu độc lập ngoài tập đoàn; mẹo chữ
+trên mặt số và mốc năm 2022 vẫn không có nguồn đạt (mục 8).
 
 ## 8. Claim bị loại, chưa chứng minh và điều cấm viết
 
@@ -204,13 +222,13 @@ thức, chưa có trang sản phẩm riêng của orient-watch.com (global) cho 
 | Black Bay 54 cỡ "39mm" | LOẠI — sai số | trang chính hãng ghi "Black Bay 54 37mm steel case"; bộ lọc đường kính cũng là 37 |
 | Black Bay dùng "MT5602" thuần | LOẠI ở dạng cũ — cập nhật | trang hiện hành ghi MT5602-U (COSC và METAS); mẫu MT5602 cũ đã rút khỏi site |
 | Kim "snowflake" là đặc trưng chính thức của Tudor | SỬA SẮC THÁI | chính hãng ghi là "later nicknamed 'Snowflake' by collectors" — biệt danh giới sưu tầm |
-| Tên PRX: P = precise, R = robust, X = 10 atmosphere | LOẠI | Không trang Tissot nào giải mã P/R/X; trang thông cáo dùng mô-típ chữ tương tự cho dòng PRC (Precise, Robust, Classic) — lẫn dòng |
-| "Bản gốc 1978 dùng bộ máy quartz" | LOẠI ở dạng khẳng định | trang chính hãng chỉ nói bản hiện nay "available in quartz or powered by ... Powermatic 80"; không nói về bộ máy bản 1978 |
-| Powermatic 80 "phát triển trên nền calibre 2824 của ETA" | LOẠI | Không trang chính hãng nào nói nền 2824; ETA chỉ ghi họ C07.xxx |
-| Powermatic 80 là "bộ máy độc quyền của Tissot" | LOẠI | Không có nguồn; trang ETA trình bày họ C07 không gắn với một thương hiệu duy nhất — bỏ mệnh đề độc quyền khi viết sâu |
-| Bambino 38mm ra mắt năm 2022 | LOẠI mốc năm | trang chính hãng/phân phối không ghi năm; lưu trữ web tạm ngừng trong phiên kiểm nên không dùng được |
-| Mẹo phân biệt đời Bambino qua chữ "Water Resist"/"Water Resistance" trên mặt số | LOẠI | chỉ thấy trên blog/diễn đàn; không trang chính hãng/phân phối nào nói |
-| 62MAS "calibre 6217" và reference "6217-8000" | CHƯA CHỨNG MINH | đã rà trang chính hãng và bảo tàng Seiko, không trang nào chứa chuỗi "6217"; thông cáo chỉ ghi "automatic mechanical movement". Khi viết sâu phải bỏ mã hoặc đánh dấu riêng; ghi thêm vào CAN-KIEM-CHUNG.md |
+| Tên PRX: P = precise, R = robust, X = 10 atmosphere | GỠ KHỎI CẤM (pha 1b, 28/09) | trang PRX Gold 35mm chính hãng giải mã nguyên văn ""PR" stands for "precise" and "robust". The "X" stands for the Roman numeral ten and the pressure of 10 bar" — vào bảng claim mục 6; viết đúng theo trích |
+| "Bản gốc 1978 dùng bộ máy quartz" | GỠ KHỎI CẤM (pha 1b, 28/09) | trang chính hãng phát biểu trực tiếp "In 1978, Tissot created a quartz model..." — vào bảng claim mục 6 |
+| Powermatic 80 "phát triển trên nền calibre 2824 của ETA" | GỠ KHỎI CẤM (pha 1b, 28/09) | pressroom chính hãng: "A technical evolution of the famous 2824 caliber..." — vào bảng claim mục 6 |
+| Powermatic 80 là "bộ máy độc quyền của Tissot" | LOẠI CÓ CĂN CỨ (pha 1b) | không trang chính hãng nào khẳng định độc quyền; Swatch Group archive ghi Certina DS-1 Powermatic 80 ("The beating heart of the new trio is a modern Powermatic movement...") — cùng nhóm dùng bộ máy này, mệnh đề độc quyền cấm viết |
+| Bambino 38mm ra mắt năm 2022 | GIỮ LOẠI mốc năm — rà lại 28/09 vẫn không có | chính hãng global ghi thông số bản 38mm (38.4 mm) nhưng không ghi năm; chỉ trang bán lẻ/blog ghi "introduced in 2022" — ngoài danh mục |
+| Mẹo phân biệt đời Bambino qua chữ "Water Resist"/"Water Resistance" trên mặt số | GIỮ LOẠI — rà lại 28/09 vẫn không có | chính hãng dùng "Water Resistance" làm nhãn thông số, không phải nội dung mặt số; không trang đạt nào nói sự khác chữ |
+| 62MAS "calibre 6217" và reference "6217-8000" | GIỮ CHƯA CHỨNG MINH — rà lại 28/09 vẫn không có | rà thêm 15+ trang chính hãng (jp-ja/us-en/global-en/de-de/no-en), sitemap seikousa.com (272 URL), seiko.co.jp, bảo tàng Seiko JP+EN: không trang nào chứa chuỗi "6217"; hãng nhất quán chỉ dùng biệt danh "62MAS". Giữ khóa viết; ghi CAN-KIEM-CHUNG.md |
 
 ### 8.2 Tên/reference/năm chưa chứng minh trong frontmatter (không đưa vào pha viết nếu không có hồ sơ nguồn riêng)
 
@@ -225,9 +243,13 @@ thức, chưa có trang sản phẩm riêng của orient-watch.com (global) cho 
 - tissot-prx: không có reference cụ thể (bản ghi mô tả); chi tiết "so với mức
   42 giờ thông thường".
 - orient-bambino: chi tiết V1–V7 phân biệt mặt số; power_reserve "40 giờ" có
-  nguồn (mục 7) nhưng cỡ 40,5mm/11,8mm/46mm/21mm chưa có bảng nguồn riêng.
+  nguồn (mục 7) nhưng cỡ 40,5mm/11,8mm/46mm/21mm chưa có bảng nguồn riêng;
+  bản 38mm có thông số chính hãng global 28/09 (38.4 mm, Box crystal) — bài
+  ghi "38mm" là cách gọi tròn, ghi chú khi viết sâu.
 
-### 8.3 URL hỏng/không dùng được trong phiên kiểm (27/09/2026)
+### 8.3 URL hỏng/không dùng được trong phiên kiểm
+
+Phiên 27/09 (pha 1):
 
 - https://www.grand-seiko.com/us-en/collections/sbga011g — HTTP 200 nhưng
   nội dung là trang 404 (soft-404); không dùng làm nguồn cho SBGA011.
@@ -243,6 +265,19 @@ thức, chưa có trang sản phẩm riêng của orient-watch.com (global) cho 
 - web.archive.org — tạm ngừng trong phiên kiểm; không dùng snapshot nào làm
   bằng chứng.
 
+Phiên 28/09 (pha 1b):
+
+- federation.horlogerie.com — lỗi SSL (tên miền không được host); tổ chức
+  ngành đúng là FH, fhs.swiss — rà được nhưng không có dữ liệu liên quan.
+- eta.ch — timeout trong phiên; các trích ETA trong bảng giữ ngày kiểm
+  27/09 khi trang còn truy cập được.
+- Smithsonian (collections.si.edu), Espacenet, Justia, bảo tàng Epson — 403;
+  MIH (mih.ch) và seiko-watch.co.jp — timeout; seikomuseumginza.jp — DNS lỗi.
+- Google Patents — truy cập gián đoạn (503 chống bot): hai văn bằng đọc được
+  (US3937001A — ETS S.A., 1972; WO2002004836A2 — Seiko Epson, về lò xo chính)
+  không phát biểu hành vi "kim trượt" hay thông số ±1s/ngày; 96 kết quả nhãn
+  "Montres Tudor" không có văn bằng trước 1997 — không dùng làm chứng cứ.
+
 ### 8.4 Điều cấm viết khi mở pha viết sâu
 
 - Cấm mọi superlative không nguồn: "một trong những lume tốt nhất ngành",
@@ -254,6 +289,9 @@ thức, chưa có trang sản phẩm riêng của orient-watch.com (global) cho 
 - Cấm dùng Wikipedia, cửa hàng, tạp chí, wiki, diễn đàn làm nguồn duy nhất
   cho năm, reference, calibre, thông số.
 - Cấm gọi hai URL cùng hãng là "xác nhận độc lập".
+- Cấm gọi cặp nguồn hãng + nhà phân phối chính thức là "độc lập" — hai pháp
+  nhân (Seiko Epson, Epson America) cùng có lợi ích thương hiệu; chuẩn độc
+  lập cần đối chiếu từ tổ chức ngoài lợi ích (bảo tàng, tổ chức ngành).
 
 ## 9. Bảng chống trùng nội bộ
 
@@ -290,16 +328,48 @@ của dự án. Việc tạo tệp và route EN nằm ngoài pha hồ sơ này.
 
 ## 11. Việc tiếp theo khi mở pha viết
 
-Theo chuẩn độc lập hiện hành, cả năm mẫu đang CẦN THU HẸP: pha kế tiếp phải
-là thu hẹp/bổ sung nguồn cho cả năm mẫu; chưa mở pha viết song ngữ cho mẫu
-nào cho đến khi có mẫu đạt chuẩn hai nguồn độc lập khác cả tổ chức và miền.
+Sau pha 1b, cả năm mẫu vẫn CẦN THU HẸP vì không mẫu nào có nguồn độc lập
+ngoài tập đoàn của mình: chưa mở pha viết song ngữ cho mẫu nào cho đến khi có
+mẫu đạt chuẩn hai nguồn độc lập khác cả tổ chức và miền.
 
 1. Thu hẹp theo mục 8.1 trước khi đặt bút: sửa "Hyūga" → "Hotaka", BB54 37mm,
-   MT5602-U, bỏ nghĩa tên P/R/X, bỏ quartz bản gốc, bỏ nền 2824, bỏ mệnh đề
-   độc quyền, bỏ mẹo chữ mặt số, bỏ mốc 2022 của Bambino 38mm.
-2. Thay nguồn Bambino trong frontmatter bằng nguồn mục 7.
-3. Tìm thêm URL thứ hai cho ba claim Tudor còn một URL (2012, Snowflake,
-   BB54) — ưu tiên trang heritage/archive hãng.
+   MT5602-U, bỏ mệnh đề "độc quyền" của Powermatic 80, bỏ mẹo chữ mặt số và
+   mốc 2022 của Bambino 38mm; các mệnh đề PRX đã mở cấm viết theo trích mục 6.
+2. Thay nguồn Bambino trong frontmatter bằng nguồn mục 7; ghi chú tên dòng
+   chính hãng toàn cầu ("Classic & Simple Style 38") cạnh tên "Bambino".
+3. Tìm nguồn độc lập (bảo tàng, tổ chức ngành) cho các claim lịch sử còn chỉ
+   có nguồn nội bộ hãng: Snowflake (cảm hứng mặt số, kim trượt, 9R65),
+   Tudor (2012, kim Snowflake, BB54).
 4. Ghi mã "6217"/"6217-8000" vào CAN-KIEM-CHUNG.md như mục 8.1 đã nêu.
 5. Với mỗi bài viết sâu: Việt trước, Anh theo khuôn song ngữ hiện hành, không
    thêm route mới ngoài cặp bài.
+
+## 12. Pha 1b — bổ sung và thu hẹp nguồn (TXN-20260926-330, 28/09/2026)
+
+Pha tiếp nối hồ sơ đã phát hành tại `9b89d5d`; chỉ sửa hồ sơ nguồn, không
+viết bài, không tạo tệp mới ngoài output nội bộ. Kết quả theo mẫu:
+
+- **grand-seiko-snowflake** — giữ CẦN THU HẸP. Rà các kênh độc lập ngoài
+  Seiko Group cho cảm hứng Hotaka/Shinshu, kim giây trượt, 9R65 ±1s/ngày:
+  không kênh nào cho nguyên văn đạt (bảo tàng trong danh mục không lưu hồ sơ
+  về Snowflake; FHH lỗi SSL; bằng sáng chế đọc được không phát biểu claim;
+  nguồn chứa thông số đều cùng tập đoàn hoặc tạp chí/bán lẻ bị cấm).
+- **seiko-62mas** — giữ CẦN THU HẸP. Mã "6217"/"6217-8000" vẫn không có nguồn
+  đạt sau khi rà lại toàn bộ trang chính hãng đa khu vực, sitemap seikousa.com,
+  seiko.co.jp và bảo tàng Seiko (JP+EN) — hãng nhất quán không in mã này;
+  bổ sung một URL chính hãng khác khu vực cho claim 1965 vào bảng mục 4.
+- **tudor-black-bay** — giữ CẦN THU HẸP. Không có nguồn độc lập đạt cho 2012,
+  kim Snowflake 1969, BB58 39mm, BB54 37mm (bảo tàng không có dữ liệu; bằng
+  sáng chế kiểu dáng Tudor không chứng minh các claim). Dữ kiện cần sửa giữ
+  nguyên: BB54 37mm (bài ghi 39mm — sai), calibre hiện hành MT5602-U.
+- **tissot-prx** — bổ sung nguồn lớn nhất pha này: tên P/R/X, quartz bản gốc
+  1978 và nền ETA 2824 đều đã có nguyên văn chính hãng (ngày kiểm 28/09) —
+  gỡ ba mục khỏi cấm viết; mệnh đề "độc quyền của Tissot" bị loại có căn cứ
+  (Swatch Group archive cho thấy Certina dùng Powermatic 80). Trạng thái vẫn
+  CẦN THU HẸP: toàn bộ nguồn Swatch Group, chưa có độc lập.
+- **orient-bambino** — bổ sung trang sản phẩm chính hãng toàn cầu
+  (RA-AC0M04Y: F6724, 3 bar/30 m, Box crystal, 38.4 mm) làm cột mốc đối chiếu
+  miền thứ hai cạnh phân phối Mỹ; hai pháp nhân cùng lợi ích thương hiệu nên
+  chưa tính là độc lập; mẹo chữ mặt số và mốc 2022 rà lại vẫn không có nguồn.
+- Không mẫu nào hạ xuống CHƯA ĐỦ NGUỒN: mỗi mẫu vẫn có nguồn đạt cho phần lớn
+  claim cốt lõi; các điểm khóa giữ nguyên trạng thái khóa.

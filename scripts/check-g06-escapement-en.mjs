@@ -42,8 +42,8 @@
 //   D5  không trang EN nào khác có data-mechanism (+ 3 tự kiểm cây thử)
 //   D6  G04 giữ nguyên: /co-che/day-toc-banh-lac/ và
 //       /en/mechanisms/balance-and-hairspring/ KHÔNG data-mechanism
-//   D7  tổng trang render khung = 20 (15 co-che + 5 tu-dien; Bộ thoát vi/en
-//       và Pha trăng vi đã rút)
+//   D7  tổng trang render khung = 19 (14 co-che + 5 tu-dien; Bộ thoát vi/en,
+//       Pha trăng vi, Điểm chuông vi đã rút)
 //   D8  legend KHÔNG được chứng nhận bằng dist (dist không có data-part-target —
 //       legend sinh bằng JS; tiêu chí legend thuộc tầng trình duyệt)
 //   D10 trang EN Bộ thoát không tham chiếu chunk 3D (exploded3d)
@@ -323,7 +323,7 @@ if (doi) {
   const g04En = join(distRoot, 'en/mechanisms/balance-and-hairspring/index.html');
   ghi('D6 G04', existsSync(g04Vi) && !doc(g04Vi).includes('data-mechanism') && existsSync(g04En) && !doc(g04En).includes('data-mechanism'), 'hai trang G04 không render khung');
 
-  // D7 — tổng 20 trang (23 gốc − 2 Bộ thoát vi/en − 1 Pha trăng vi)
+  // D7 — tổng 19 trang (23 gốc − 2 Bộ thoát vi/en − Pha trăng vi − Điểm chuông vi)
   let tong = 0;
   const quet2 = (thuMuc) => {
     for (const ten of readdirSync(thuMuc)) {
@@ -333,7 +333,7 @@ if (doi) {
     }
   };
   quet2(distRoot);
-  ghi('D7 tổng 20', tong === 20, `${tong} trang render khung (15 co-che + 5 tu-dien)`);
+  ghi('D7 tổng 19', tong === 19, `${tong} trang render khung (14 co-che + 5 tu-dien)`);
 
   // D8 — legend không chứng nhận bằng dist
   ghi('D8 legend JS', !enHtml.includes('data-part-target'), 'dist không chứa legend (kiểm legend ở trình duyệt, không dùng dist)');

@@ -3,8 +3,9 @@ title: "Điểm chuông — đồng hồ điểm giờ theo yêu cầu"
 excerpt: "Repeater là đồng hồ điểm giờ theo yêu cầu qua nút bấm hoặc cần gạt; minute repeater chỉ định số phút đã qua, xuất hiện những năm đầu thế kỷ 18 — theo FHH."
 category: "phức tạp"
 difficulty: "rất cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/diem-chuong-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 
@@ -20,9 +21,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Repeater là gì?
 

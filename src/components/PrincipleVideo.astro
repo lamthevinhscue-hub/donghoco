@@ -1,0 +1,50 @@
+---
+// =============================================================================
+// PrincipleVideo — khối video minh họa nguyên lý có thuyết minh (song ngữ)
+// =============================================================================
+// Hiện khi bài frontmatter có khóa `principle_video` (đường dẫn mp4 cùng nguồn).
+// Poster suy ra từ src (.mp4 → .jpg) đặt cạnh trong /public/videos/.
+// Mỗi bài ngôn ngữ tự trỏ clip ngôn ngữ đó: giao diện VI xem clip VI, EN xem EN.
+// preload="none" — trình phát chỉ tải video khi người xem bấm, không đè băng thông
+// tải trang; poster giữ đúng bố cục khung 16:9 trước khi phát.
+interface Props {
+  lang: 'vi' | 'en';
+  src: string;
+  title: string;
+}
+const { lang, src, title } = Astro.props;
+const poster = src.replace(/\.mp4$/, '.jpg');
+const la =
+  lang === 'en'
+    ? {
+        label: 'Principle video',
+        hint: 'Narrated walkthrough — turn on the sound. The file loads only when you press play.',
+        fallback: 'Your browser cannot play this video.',
+        open: 'Open the video file',
+      }
+    : {
+        label: 'Video nguyên lý',
+        hint: 'Video có thuyết minh — bật âm thanh để nghe. Trình phát chỉ tải video khi bạn bấm phát.',
+        fallback: 'Trình duyệt không phát được video.',
+        open: 'Mở tệp video',
+      };
+---
+
+<figure
+  class="my-8 overflow-hidden rounded-lg border border-cream-dark bg-white dark:border-dark-border dark:bg-dark-surface"
+>
+  <figcaption
+    class="flex flex-wrap items-baseline gap-2 border-b border-cream-dark px-4 py-3 text-sm font-semibold text-navy sm:px-6 dark:border-dark-border dark:text-dark-text"
+  >
+    <span>{la.label}</span>
+    <span class="text-xs font-normal text-ink-soft dark:text-dark-text-soft">· {title}</span>
+  </figcaption>
+  <video controls playsinline preload="none" poster={poster} width="1280" height="720" class="block h-auto w-full">
+    <source src={src} type="video/mp4" />
+    <p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">
+      {la.fallback}
+      <a class="text-brass underline" href={src}>{la.open}</a>
+    </p>
+  </video>
+  <p class="px-4 py-3 text-xs text-ink-soft/90 sm:px-6 dark:text-dark-text-soft/70">{la.hint}</p>
+</figure>

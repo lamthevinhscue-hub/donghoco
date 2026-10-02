@@ -138,6 +138,9 @@ const coChe = defineCollection({
     difficulty: z.enum(['thấp', 'trung bình', 'cao', 'rất cao']),       // Độ khó
     has_infographic: z.boolean().default(false),    // Có infographic động chưa?
     interactive: z.boolean().default(false),        // Infographic có tương tác (play/pause) chưa?
+    // Video nguyên lý có thuyết minh (tùy chọn) — mp4 cùng nguồn trong /public/videos/,
+    // poster cùng tên đuôi .jpg; bài mỗi ngôn ngữ trỏ clip đúng ngôn ngữ đó.
+    principle_video: z.string().optional(),
     // Liên kết biên tập (tùy chọn): bài cơ chế dẫn tới mẫu iconic ứng dụng nguyên lý này.
     relatedModels: z.array(relatedLink).default([]),
     // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)

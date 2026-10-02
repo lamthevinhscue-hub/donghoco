@@ -33,6 +33,7 @@ import { collectionHref } from '../../i18n/contentRoutes';
 import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
+import PrincipleVideo from '../PrincipleVideo.astro';
 import BalanceHairspringChapter from '../history/BalanceHairspringChapter.astro';
 
 interface Props {
@@ -164,6 +165,14 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
   {hasBalanceChapter && <BalanceHairspringChapter />}
 
   {data.has_infographic && Infographic && <Infographic lang={lang} />}
+
+  {data.principle_video && (
+    <PrincipleVideo
+      lang={lang}
+      src={data.principle_video}
+      title={lang === 'en' ? 'Swiss lever escapement — how it works' : 'Bộ thoát móc Thụy Sĩ — nguyên lý hoạt động'}
+    />
+  )}
 
   {data.has_infographic === false && lang === 'vi' && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">

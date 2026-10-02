@@ -6,6 +6,7 @@ category: "nền tảng"
 difficulty: "cao"
 has_infographic: true
 interactive: true
+principle_video: "/videos/bo-thoat-nguyen-ly-en.mp4"
 date: "2026-08-02"
 updated: "2026-09-15"
 draft: false

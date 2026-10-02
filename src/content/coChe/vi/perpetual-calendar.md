@@ -3,8 +3,9 @@ title: "Lịch vạn niên — cơ cấu phức tạp (complication) theo lịch
 excerpt: "Perpetual calendar tự chỉnh cho tháng 30 ngày và tháng 2 28/29 ngày nhờ một trí nhớ cơ học lặp chuỗi mỗi 48 tháng — định nghĩa theo FHH."
 category: "phức tạp"
 difficulty: "rất cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/perpetual-calendar-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
 
@@ -25,9 +26,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Complication là gì?
 

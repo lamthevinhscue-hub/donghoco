@@ -7,10 +7,10 @@
 //
 //   R1. 6 bài EN (5 nội dung + 1 trang legacy tương thích) frontmatter hợp lệ
 //       (custom_slug khớp slug tệp; hai cờ has_infographic/interactive theo
-//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring
-//       (G04-B TXN-20260912-23, chương tương tác riêng); enum category/difficulty;
-//       ≥2 nguồn HTTPS). Bộ thoát EN từng thuộc ngoại lệ G06-C nhưng đã rút
-//       infographic từ 02/10/2026 — video nguyên lý thay, trở lại false/false.
+//       quy tắc từng tệp — false với mọi bài EN; enum category/difficulty;
+//       ≥2 nguồn HTTPS). Bộ thoát (G06-C) và Bánh lắc (G04-B) từng thuộc ngoại
+//       lệ cờ true nhưng đã rút infographic thay bằng video nguyên lý cùng
+//       ngày 02/10/2026 — cả hai trở lại false/false.
 //   R2. Đủ 3 cặp route mới trong src/i18n/contentRoutes.ts.
 //   R3. Mọi liên kết nội bộ bắt buộc cụm (vi + en) có trong bài và đích tồn tại;
 //       trang legacy /en/glossary/escapement/ phải trỏ tới /en/glossary/escape-wheel/.
@@ -162,9 +162,9 @@ const FRONTMATTER_RULES = {
 //     TXN-20260915-11); gate MechanismArticle khóa đúng slug 'escapement'.
 // Các bài EN khác vẫn false. R1 không được bỏ kiểm cờ và không miễn nguyên
 // tệp khỏi R1.
-const FLAG_TRUE_FILES = new Set([
-  'src/content/coChe/en/balance-and-hairspring.md',
-]);
+// Hiện RỖNG — mọi bài EN đều false/false. Bộ thoát (G06-C) và Bánh lắc (G04-B)
+// đã rút infographic thay bằng video nguyên lý cùng ngày 02/10/2026.
+const FLAG_TRUE_FILES = new Set([]);
 
 const ROUTE_PAIRS = [
   { vi: '/co-che/day-toc-banh-lac', en: '/en/mechanisms/balance-and-hairspring/' },

@@ -4,8 +4,9 @@ custom_slug: "balance-and-hairspring"
 excerpt: "The oscillating wheel and the fine spring that together divide time into strictly equal parts — and what determines the duration of each swing, per FHH."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/day-toc-banh-lac-nguyen-ly-en.mp4"
 date: "2026-09-04"
 draft: false
 updated: "2026-09-12"

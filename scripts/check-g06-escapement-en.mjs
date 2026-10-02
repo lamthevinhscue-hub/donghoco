@@ -25,8 +25,8 @@
 //   S10b   frontmatter vi/bo-thoat.md: hai cờ false + principle_video VI
 //   S10c   ghi chú "Infographic động cho chủ đề này chưa có" phải có điều kiện
 //          !data.principle_video — không hiện trên bài đã có video
-//   S11    check-regulating-cluster.mjs: FLAG_TRUE_FILES đúng 1 tệp (G04;
-//          escapement đã rút khỏi Set)
+//   S11    check-regulating-cluster.mjs: FLAG_TRUE_FILES rỗng (mọi bài EN
+//          false/false — Bộ thoát và Bánh lắc G04 đã rút infographic)
 //   S12    package.json: check:g06c + nối check/build
 //   S13    RM tương tác trong MechanismAnimation: matchMedia + canRun + chặn Phát
 //          + guard chống nhân đôi listener
@@ -184,14 +184,15 @@ ghi(
   'thông báo "chưa có infographic" không hiện trên bài có video'
 );
 
-// S11 — ngoại lệ cờ: một Set, đúng 1 tệp (Bánh lắc G04). Bộ thoát đã rút
-// infographic (02/10/2026) nên không còn trong Set.
+// S11 — ngoại lệ cờ: một Set, hiện RỖNG. Bộ thoát (02/10/2026) và Bánh lắc
+// G04 (cùng ngày) đã rút infographic thay bằng video nguyên lý — mọi bài EN
+// false/false.
 const flagCau = regulating.match(/const FLAG_TRUE_FILES = new Set\(\[([\s\S]*?)\]\);/);
 const flagFiles = flagCau ? (flagCau[1].match(/'([^']+)'/g) || []).map((s) => s.slice(1, -1)) : [];
 ghi(
   'S11 regulating',
-  flagFiles.length === 1 && flagFiles.includes('src/content/coChe/en/balance-and-hairspring.md') && regulating.includes('const flagTrue = FLAG_TRUE_FILES.has(f);') && !regulating.includes('FLAG_TRUE_FILES_G06C'),
-  `Set ngoại lệ = [${flagFiles.join(', ')}]`
+  flagFiles.length === 0 && regulating.includes('const flagTrue = FLAG_TRUE_FILES.has(f);') && !regulating.includes('FLAG_TRUE_FILES_G06C'),
+  `Set ngoại lệ = [${flagFiles.join(', ')}] (kỳ vọng rỗng)`
 );
 
 // S12 — package.json

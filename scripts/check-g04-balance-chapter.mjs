@@ -9,13 +9,13 @@
 //   G4-1 Nhánh tích hợp MechanismArticle: import + gate infographic cũ +
 //        render chương, đúng 2 slug; TermArticle vẫn giữ Hairspring (không
 //        phá trang từ điển).
-//   G4-2 Component chương: đủ chuỗi bắt buộc 2 ngôn ngữ (chú thích AI, ghi
-//        chú mô hình giản lược, phạm vi "không tức thì"), 5 nút điều khiển,
-//        reduced-motion + IntersectionObserver + visibilitychange + dọn
-//        listener, SVG aria-hidden, không animation CSS infinite, không
-//        autoplay, img có alt + width/height.
-//   G4-3 Hai bài Markdown: VI bỏ intro lặp, giữ đủ 3 nguồn FHH; EN hai cờ
-//        true theo quyết định GPT Work (vòng sửa TXN-20260912-23).
+//   G4-2 Component chương: đủ chuỗi bắt buộc 2 ngôn ngữ (chú thích AI, phạm
+//        vi "không tức thì"), video nguyên lý nhúng hai ngôn ngữ, img có
+//        alt + width/height. (Khối sơ đồ SVG tương tác + điều khiển đã RÚT
+//        02/10/2026 — video nguyên lý thay; các kiểm điều khiển/reduced-motion
+//        đi theo khối đã bỏ.)
+//   G4-3 Hai bài Markdown: VI bỏ intro lặp, giữ đủ 3 nguồn FHH; hai cờ false
+//        + principle_video (video nguyên lý thay infographic 02/10/2026).
 //   G4-4 package.json nối check-g04 vào chuỗi check và build; nới R1
 //        check-regulating hẹp đúng 1 tệp EN; ảnh web ≤150KB.
 //   G4-9 mọi var(--…) trong component chương phải được khai báo trong
@@ -26,11 +26,11 @@
 //   G4-5 data-bhc-root chỉ xuất hiện trên đúng 2 route đích.
 //   G4-6 Infographic cũ (hairspring-svg) biến mất khỏi 2 trang đích, vẫn còn
 //        ở /tu-dien/day-toc-banh-lac (không hồi quy trang từ điển).
-//   G4-7 Đủ nhãn/chuỗi VI trên trang VI, EN trên trang EN; điều khiển EN
-//        không rò chữ tiếng Việt; ảnh tồn tại ≤150KB, img có width/height;
-//        link nội bộ trong chương tồn tại trong dist.
-//   G4-8 Trạng thái khởi tạo tĩnh: chuỗi trạng thái đầu là Tĩnh/Static,
-//        nút Phát aria-pressed=false; không có chuỗi autoplay.
+//   G4-7 Đủ nhãn/chuỗi VI trên trang VI, EN trên trang EN; video nguyên lý
+//        đúng ngôn ngữ trên mỗi trang và có trong dist; EN không rò chữ
+//        tiếng Việt; ảnh tồn tại ≤150KB, img có width/height; link nội bộ
+//        trong chương tồn tại trong dist.
+//   (G4-8 khởi tạo tĩnh đã bỏ cùng khối điều khiển 02/10/2026.)
 // Exit 1 nếu có lỗi.
 // =============================================================================
 
@@ -50,8 +50,8 @@ const EN_ROUTE = 'dist/en/mechanisms/balance-and-hairspring/index.html';
 const IMG_WEB = 'public/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg';
 const CAP_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const CAP_EN = 'AI reconstruction — not a historical photograph';
-const MODEL_VI = 'không phải phép đo và không phải cơ cấu theo tỷ lệ';
-const MODEL_EN = 'not a measurement and not a to-scale mechanism';
+const VID_VI = 'day-toc-banh-lac-nguyen-ly-vi';
+const VID_EN = 'day-toc-banh-lac-nguyen-ly-en';
 
 // ===== Lớp nguồn — luôn chạy ==================================================
 console.log('— Lớp nguồn (src/) —');
@@ -61,7 +61,7 @@ console.log('— Lớp nguồn (src/) —');
   const s = read('src/components/templates/MechanismArticle.astro');
   const hasImport = s.includes("import BalanceHairspringChapter from '../history/BalanceHairspringChapter.astro';");
   const hasGate = /!hasBalanceChapter && lang === 'vi' && data\.has_infographic/.test(s);
-  const hasRender = /\{hasBalanceChapter && <BalanceHairspringChapter \/>\}/.test(s);
+  const hasRender = /\{hasBalanceChapter && <BalanceHairspringChapter principleVideo=\{data\.principle_video\} \/>\}/.test(s);
   const slugs = s.match(/G04_BALANCE_CHAPTER_SLUGS = \[([^\]]+)\]/)?.[1] ?? '';
   const twoSlugs =
     slugs.includes("'day-toc-banh-lac'") &&
@@ -86,23 +86,12 @@ console.log('— Lớp nguồn (src/) —');
   const need = [
     [CAP_VI, 'chú thích AI VI'],
     [CAP_EN, 'chú thích AI EN'],
-    [MODEL_VI, 'ghi chú mô hình giản lược VI'],
-    [MODEL_EN, 'ghi chú mô hình giản lược EN'],
     ['không có nghĩa là đồng hồ bỏ túi thay thế con lắc tức thì', 'phạm vi không-thay-thế-tức-thì VI'],
     ['do not mean pocket watches replaced the pendulum overnight', 'phạm vi không-thay-thế-tức-thì EN'],
-    ['data-bhc-action="static"', 'nút Tĩnh'],
-    ['data-bhc-action="play"', 'nút Phát'],
-    ['data-bhc-action="pause"', 'nút Tạm dừng'],
-    ['data-bhc-action="step"', 'nút Bước'],
-    ['data-bhc-action="reset"', 'nút Đặt lại'],
-    ['prefers-reduced-motion', 'đọc reduced-motion'],
-    ['IntersectionObserver', 'dừng khi rời viewport'],
-    ['visibilitychange', 'dừng khi tab ẩn'],
-    ["addEventListener('pagehide'", 'dừng vòng lặp khi rời trang'],
-    ["addEventListener('pageshow'", 'đồng bộ lại khi trang phục hồi (bfcache)'],
-    ['cancelAnimationFrame', 'hủy vòng lặp rAF'],
-    ["Math.sin(Math.PI * t)", 'phối lại vòng xoắn triệt tiêu tại hai đầu'],
-    ['aria-live="polite"', 'hiển thị trạng thái aria-live'],
+    ["import PrincipleVideo from '../PrincipleVideo.astro';", 'import video nguyên lý'],
+    ['<PrincipleVideo lang={lang} src={principleVideo} title={s.videoTitle} />', 'render video nguyên lý'],
+    ['Dây tóc và bánh lắc — nguyên lý hoạt động', 'tiêu đề video VI'],
+    ['Balance and hairspring — how it works', 'tiêu đề video EN'],
     ['width="1200"', 'img width'],
     ['height="675"', 'img height'],
     ['1657', 'mốc 1657'],
@@ -114,32 +103,15 @@ console.log('— Lớp nguồn (src/) —');
   ];
   const missing = need.filter(([needle]) => !s.includes(needle)).map(([, ten]) => ten);
   if (missing.length === 0) {
-    ok('G4-2 Component: đủ chuỗi bắt buộc (2 ngôn ngữ, điều khiển, reduced-motion, nguồn)');
+    ok('G4-2 Component: đủ chuỗi bắt buộc (2 ngôn ngữ, video nguyên lý, nguồn)');
   } else {
     fail('G4-2 Component thiếu: ' + missing.join(', '));
-  }
-
-  const svgTag = s.match(/<svg\n[^>]*bhc-svg[^>]*>/)?.[0] ?? s.match(/<svg[^>]*bhc-svg[^>]*>/)?.[0] ?? '';
-  if (svgTag && /aria-hidden="true"/.test(svgTag) && !/role="img"/.test(svgTag)) {
-    ok('G4-2 SVG nguyên lý aria-hidden (thông tin có bản chữ HTML)');
-  } else {
-    fail('G4-2 SVG nguyên lý chưa phân loại aria-hidden đúng: ' + svgTag.slice(0, 60));
   }
 
   if (/animation:[^;]*infinite/.test(s) || /animation-iteration-count:\s*infinite/.test(s)) {
     fail('G4-2 Component có animation CSS infinite');
   } else {
     ok('G4-2 Không có animation CSS infinite trong component');
-  }
-
-  // Không autoplay: trạng thái khởi tạo là static + play() chỉ gọi từ nút
-  const initStatic = /let state: 'static' \| 'playing' \| 'paused' = 'static';/.test(s);
-  const playCallSites = (s.match(/(?<!function )play\(\)/g) ?? []).length;
-  const pressedFalse = /data-bhc-action="play"\s*\n\s*aria-pressed="false"/.test(s);
-  if (initStatic && playCallSites === 1 && pressedFalse) {
-    ok('G4-2 Khởi tạo tĩnh: state=static, play() chỉ gọi từ nút, aria-pressed=false');
-  } else {
-    fail(`G4-2 Khởi tạo không tĩnh (init=${initStatic}, playCalls=${playCallSites}, pressed=${pressedFalse})`);
   }
 
   // Không dùng id/url(#) trong SVG component
@@ -157,16 +129,21 @@ console.log('— Lớp nguồn (src/) —');
   const vi = read('src/content/coChe/vi/day-toc-banh-lac.md');
   const en = read('src/content/coChe/en/balance-and-hairspring.md');
   const viNoIntro = !vi.includes('Infographic động đã có');
-  const viFlags = /has_infographic: true/.test(vi) && /interactive: true/.test(vi);
+  // Hai cờ false + principle_video: sơ đồ SVG tương tác (lớp 3 chương G04)
+  // đã rút 02/10/2026, video nguyên lý thay.
+  const viFlags =
+    /has_infographic: false/.test(vi) &&
+    /interactive: false/.test(vi) &&
+    /^principle_video:[ \t]*"\/videos\/day-toc-banh-lac-nguyen-ly-vi\.mp4"$/m.test(vi);
   const viSources = (vi.match(/hautehorlogerie\.org\/en\/watches-and-culture\/watchmaking-knowledge\/encyclopedia\//g) ?? []).length === 3;
-  // EN: theo quyết định GPT Work (vòng sửa TXN-20260912-23), hai cờ của DUY
-  // NHẤT bài này là true — phản ánh chương tương tác thật; check-regulating
-  // R1 đã được nới hẹp theo đúng tệp này (kiểm ở G4-4).
-  const enFlags = /has_infographic: true/.test(en) && /interactive: true/.test(en);
+  const enFlags =
+    /has_infographic: false/.test(en) &&
+    /interactive: false/.test(en) &&
+    /^principle_video:[ \t]*"\/videos\/day-toc-banh-lac-nguyen-ly-en\.mp4"$/m.test(en);
   const enSources = (en.match(/hautehorlogerie\.org\/en\/watches-and-culture\/watchmaking-knowledge\/encyclopedia\//g) ?? []).length === 3;
   const enUpdated = /updated: "2026-09-12"/.test(en);
   if (viNoIntro && viFlags && viSources && enFlags && enSources && enUpdated) {
-    ok('G4-3 Markdown: VI bỏ intro lặp + giữ 3 nguồn FHH; EN hai cờ true theo quyết định GPT Work, đủ 3 nguồn, cập nhật 12/09');
+    ok('G4-3 Markdown: VI bỏ intro lặp + giữ 3 nguồn FHH; hai bài hai cờ false + principle_video (video thay infographic 02/10), EN đủ 3 nguồn, cập nhật 12/09');
   } else {
     fail(`G4-3 Markdown lệch (viNoIntro=${viNoIntro}, viFlags=${viFlags}, viSources=${viSources}, enFlags=${enFlags}, enSources=${enSources}, enUpdated=${enUpdated})`);
   }
@@ -191,26 +168,23 @@ console.log('— Lớp nguồn (src/) —');
     else fail(`G4-4 Ảnh web ${bytes} byte vượt ngưỡng 150 KB`);
   }
 
-  // G4-4 Nới R1 check-regulating theo chính sách hiện hành: ngoại lệ gồm ĐÚNG
-  // 1 tệp — Bánh lắc (chương G04-B, TXN-20260912-23). Bộ thoát từng nằm ngoại
-  // lệ (G06-C, TXN-20260915-8) nhưng đã rút infographic từ 02/10/2026 — video
-  // nguyên lý thay, trở lại quy tắc chung false/false; các bài EN khác vẫn
-  // kiểm false; không bỏ kiểm cờ.
+  // G4-4 Nới R1 check-regulating theo chính sách hiện hành: Set ngoại lệ RỖNG
+  // — Bộ thoát (G06-C) và Bánh lắc (G04-B) đã rút infographic thay bằng video
+  // nguyên lý cùng ngày 02/10/2026; mọi bài EN kiểm false/false; không bỏ
+  // kiểm cờ.
   {
     const s = read('scripts/check-regulating-cluster.mjs');
     const setCau = s.match(/const FLAG_TRUE_FILES = new Set\(\[([\s\S]*?)\]\);/);
     const cacTep = setCau ? (setCau[1].match(/'([^']+)'/g) || []).map((x) => x.slice(1, -1)) : [];
-    const dungMotTep =
-      cacTep.length === 1 &&
-      cacTep.includes('src/content/coChe/en/balance-and-hairspring.md');
+    const setRong = cacTep.length === 0;
     const coNgoaiLe =
-      dungMotTep &&
+      setRong &&
       s.includes("flagTrue ? 'true' : 'false'") &&
       s.includes("rules.includes('infographic')") &&
       s.includes("rules.includes('interactive')");
     const escapementVanCoQuyTacSchema = s.includes("'src/content/coChe/en/escapement.md': ['category', 'difficulty', 'infographic', 'interactive']");
     if (coNgoaiLe && escapementVanCoQuyTacSchema) {
-      ok('G4-4 R1 check-regulating ngoại lệ đúng 1 tệp (Bánh lắc G04); Bộ thoát đã rút infographic (video nguyên lý thay), bài EN khác vẫn kiểm false');
+      ok('G4-4 R1 check-regulating: Set ngoại lệ rỗng — mọi bài EN false/false (Bộ thoát + Bánh lắc đã rút infographic, video nguyên lý thay)');
     } else {
       fail(`G4-4 Nới R1 sai (ngoạiLệ=${coNgoaiLe}, escapementVanCoQuyTacSchema=${escapementVanCoQuyTacSchema}, tệp=[${cacTep.join(', ')}])`);
     }
@@ -282,48 +256,57 @@ if (process.argv[2] === 'dist') {
     const vi = read(VI_ROUTE);
     const en = read(EN_ROUTE);
 
-    const viNeed = [CAP_VI, MODEL_VI, 'Tĩnh', 'Phát', 'Tạm dừng', 'Bước', 'Đặt lại', '1657', '1675', 'strongly contested', 'banh-lac-day-toc-hero.jpg'];
+    const viNeed = [CAP_VI, `${VID_VI}.mp4`, `${VID_VI}.jpg`, '1657', '1675', 'strongly contested', 'banh-lac-day-toc-hero.jpg'];
     const viMissing = viNeed.filter((n) => !vi.includes(n));
-    if (viMissing.length === 0) ok('G4-7 Trang VI đủ chuỗi chương (điều khiển, chú thích AI, mốc, ảnh)');
+    if (viMissing.length === 0) ok('G4-7 Trang VI đủ chuỗi chương (video nguyên lý VI, chú thích AI, mốc, ảnh)');
     else fail('G4-7 Trang VI thiếu: ' + viMissing.join(', '));
 
-    const enBtn = (action, label) =>
-      new RegExp(`data-bhc-action="${action}"[^>]*>\\s*${label}\\s*<`).test(en);
-    const enAllButtons =
-      enBtn('static', 'Static') &&
-      enBtn('play', 'Play') &&
-      enBtn('pause', 'Pause') &&
-      enBtn('step', 'Step') &&
-      enBtn('reset', 'Reset');
     const enNeed = [
       [CAP_EN, 'chú thích AI'],
-      [MODEL_EN, 'ghi chú mô hình'],
-      [enAllButtons ? 'ok' : '', '5 nút EN (Static/Play/Pause/Step/Reset)'],
+      [`${VID_EN}.mp4`, 'video nguyên lý EN'],
+      [`${VID_EN}.jpg`, 'poster EN'],
       ['1657', 'mốc 1657'],
       ['1675', 'mốc 1675'],
       ['strongly contested', 'giới hạn Hooke'],
       ['banh-lac-day-toc-hero.jpg', 'ảnh hero'],
     ];
     const enMissing = enNeed.filter(([needle]) => !needle || !en.includes(needle)).map(([, ten]) => ten);
-    if (enMissing.length === 0) ok('G4-7 Trang EN đủ chuỗi chương (điều khiển EN, chú thích AI, mốc, ảnh)');
+    if (enMissing.length === 0) ok('G4-7 Trang EN đủ chuỗi chương (video nguyên lý EN, chú thích AI, mốc, ảnh)');
     else fail('G4-7 Trang EN thiếu: ' + enMissing.join(', '));
 
-    // Rò VI trong điều khiển EN: cắt vùng chương của trang EN, bỏ HTML comment
-    // (Astro giữ comment template vào output) và thuộc tính — chỉ kiểm VĂN BẢN
-    // hiển thị; nút điều khiển được kiểm riêng bên dưới.
-    const bhcEnRaw = en.split('data-bhc-root')[1] ?? '';
+    // Video nguyên lý đúng ngôn ngữ: không lẫn clip ngược chiều
+    if (!vi.includes(`${VID_EN}.mp4`) && !vi.includes(`${VID_EN}.jpg`) && !en.includes(`${VID_VI}.mp4`) && !en.includes(`${VID_VI}.jpg`)) {
+      ok('G4-7 Video mỗi trang đúng ngôn ngữ (không lẫn clip/poster ngược chiều)');
+    } else {
+      fail('G4-7 Trang lẫn clip/poster ngược ngôn ngữ');
+    }
+
+    // Video + poster đã vào dist
+    for (const vid of [VID_VI, VID_EN]) {
+      const mp4 = `dist/videos/${vid}.mp4`;
+      if (!existsSync(mp4)) fail('G4-7 Video chưa vào dist: ' + mp4);
+      else ok(`G4-7 ${mp4} có trong dist`);
+    }
+
+    // Rò VI trong vùng chương EN: cắt ĐÚNG vùng <section> chương (từ
+    // data-bhc-root đến </section> gần nhất — script chương đã rút nên không
+    // còn lần xuất hiện thứ hai làm mốc), bỏ HTML comment, nội dung <script>
+    // và thuộc tính — chỉ kiểm VĂN BẢN hiển thị.
+    const catChuong = (html) => {
+      const goc = html.indexOf('data-bhc-root');
+      if (goc < 0) return '';
+      const cuoi = html.indexOf('</section>', goc);
+      return cuoi < 0 ? '' : html.slice(goc, cuoi);
+    };
+    const bhcEnRaw = catChuong(en);
     const bhcEn = bhcEnRaw
+      .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
       .replace(/<!--[\s\S]*?-->/g, ' ')
       .replace(/<[^>]*>/g, ' ');
     const viCharRe = /[ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ]/i;
     if (bhcEn && !viCharRe.test(bhcEn)) ok('G4-7 Vùng chương EN không rò chữ tiếng Việt hiển thị');
     else if (!bhcEn) fail('G4-7 Không tách được vùng chương trang EN');
     else fail('G4-7 Vùng chương EN còn chữ tiếng Việt hiển thị: ' + (bhcEn.match(/[^\s]*[ăâđêôơưáàảãạéèẻẽẹíìỉĩịóòỏõọúùủũụýỳỵ][^\s]*/i)?.[0] ?? '?'));
-    const enButtons = [...bhcEnRaw.replace(/<!--[\s\S]*?-->/g, ' ').matchAll(/<button\b[^>]*>([\s\S]*?)<\/button>/g)].map((m) => m[1].replace(/<[^>]*>/g, ' '));
-    const btnLeak = enButtons.filter((t) => viCharRe.test(t));
-    if (enButtons.length >= 5 && btnLeak.length === 0) ok(`G4-7 ${enButtons.length} nút trong vùng EN đều thuần tiếng Anh`);
-    else if (btnLeak.length > 0) fail('G4-7 Nút EN rò chữ VI: ' + btnLeak[0].trim().slice(0, 40));
-    else fail('G4-7 Vùng EN không tách được nút để kiểm rò');
 
     // Ảnh tồn tại trong dist + img có width/height
     const imgDist = 'dist/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg';
@@ -347,17 +330,18 @@ if (process.argv[2] === 'dist') {
       fail('G4-7 Ảnh được tham chiếu !== 1 lần trên một trong hai trang');
     }
 
-    // Link nội bộ trong vùng chương tồn tại trong dist
-    const viBhc = vi.split('data-bhc-root')[1] ?? '';
-    const enBhc = en.split('data-bhc-root')[1] ?? '';
+    // Link nội bộ trong vùng chương tồn tại trong dist (miễn trừ /videos/ —
+    // link "Mở tệp video" trỏ mp4, tệp đã được kiểm tồn tại riêng phía trên)
+    const viBhc = catChuong(vi);
+    const enBhc = catChuong(en);
     const routeExists = (href) => {
       const clean = href.replace(/\/$/, '');
       return (
         existsSync(join('dist', clean, 'index.html')) || existsSync(join('dist', `${clean}.html`))
       );
     };
-    const viLinks = [...viBhc.matchAll(/href="(\/(?!\/)[^"]*)"/g)].map((m) => m[1]).filter((h) => !h.startsWith('/images/') && !h.startsWith('/_astro/'));
-    const enLinks = [...enBhc.matchAll(/href="(\/(?!\/)[^"]*)"/g)].map((m) => m[1]).filter((h) => !h.startsWith('/images/') && !h.startsWith('/_astro/'));
+    const viLinks = [...viBhc.matchAll(/href="(\/(?!\/)[^"]*)"/g)].map((m) => m[1]).filter((h) => !h.startsWith('/images/') && !h.startsWith('/_astro/') && !h.startsWith('/videos/'));
+    const enLinks = [...enBhc.matchAll(/href="(\/(?!\/)[^"]*)"/g)].map((m) => m[1]).filter((h) => !h.startsWith('/images/') && !h.startsWith('/_astro/') && !h.startsWith('/videos/'));
     const broken = [...viLinks, ...enLinks].filter((h) => !routeExists(h));
     if (broken.length === 0 && viLinks.length > 0 && enLinks.length > 0) {
       ok(`G4-7 Link nội bộ trong chương tồn tại (VI: ${viLinks.length}, EN: ${enLinks.length})`);
@@ -367,16 +351,6 @@ if (process.argv[2] === 'dist') {
     // EN không được trỏ /lich-su (không tạo trang lịch sử EN giả)
     if (enBhc && !enBhc.includes('/lich-su')) ok('G4-7 Chương EN không dẫn trang lịch sử EN giả');
     else fail('G4-7 Chương EN có liên hệ /lich-su — route này không có bản EN');
-  }
-
-  // G4-8 khởi tạo tĩnh trong HTML tĩnh (trước JS)
-  {
-    const vi = read(VI_ROUTE);
-    const en = read(EN_ROUTE);
-    const viInit = vi.includes('aria-pressed="false"') && vi.includes('data-bhc-status');
-    const enInit = en.includes('aria-pressed="false"') && en.includes('data-bhc-status');
-    if (viInit && enInit) ok('G4-8 HTML tĩnh có nút Phát aria-pressed=false + vùng trạng thái (khởi tạo tĩnh)');
-    else fail(`G4-8 HTML tĩnh thiếu dấu hiệu khởi tạo tĩnh (vi=${viInit}, en=${enInit})`);
   }
 }
 

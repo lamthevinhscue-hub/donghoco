@@ -3,8 +3,9 @@ title: "Dây tóc & bánh lắc — Bộ điều tiết của đồng hồ cơ"
 excerpt: "Bánh lắc và dây tóc tạo thành bộ điều tiết — chia thời gian thành các phần bằng nhau. Thời lượng mỗi dao động do chiều dài dây tóc và quán tính bánh lắc quy định (theo FHH)."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/day-toc-banh-lac-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
 

@@ -162,11 +162,13 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
   sources={data.sources}
   sourceNotes={data.sourceNotes}
 >
-  {hasBalanceChapter && <BalanceHairspringChapter />}
+  {hasBalanceChapter && <BalanceHairspringChapter principleVideo={data.principle_video} />}
 
   {data.has_infographic && Infographic && <Infographic lang={lang} />}
 
-  {data.principle_video && (
+  {/* Video nguyên lý (Bộ thoát); bài có chương G04 tự nhúng video trong
+      chương — chặn render kép ở đây. */}
+  {data.principle_video && !hasBalanceChapter && (
     <PrincipleVideo
       lang={lang}
       src={data.principle_video}

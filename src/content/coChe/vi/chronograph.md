@@ -3,8 +3,9 @@ title: "Chronograph — Cơ chế bấm giờ"
 excerpt: "Chronograph biến đồng hồ thành dụng cụ đo thời gian độc lập — qua ly hợp, bánh răng cột hoặc cam, và chu kỳ ba pha: chạy, dừng, đặt lại."
 category: "phức tạp"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/chronograph-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
 
@@ -49,7 +50,7 @@ Chronograph **không phải bộ máy thứ hai** chạy song song. Nó nhận n
 
 ### Ba trạng thái vận hành
 
-Quan sát hoạt ảnh trên, bạn sẽ thấy 3 pha lặp lại:
+Chu trình bấm giờ gồm 3 pha lặp lại:
 
 1. **DỪNG (stopped)** — Ly hợp mở: bánh giây chronograph đứng yên, kim giây phụ bất động. Đồng hồ vẫn chạy bình thường (xem giờ), chỉ chức năng bấm giờ tắt.
 2. **CHẠY (running)** — Bấm START: ly hợp đóng, năng lượng truyền từ bộ máy chính sang bánh giây chronograph → kim giây phụ bắt đầu quay. Một cơ cấu bánh răng trung gian (đếm phút, đếm giờ) đi kèm để ghi nhận tổng thời gian đã trôi.

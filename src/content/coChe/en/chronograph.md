@@ -6,6 +6,7 @@ category: "phức tạp"
 difficulty: "cao"
 has_infographic: false
 interactive: false
+principle_video: "/videos/chronograph-nguyen-ly-en.mp4"
 date: "2026-08-02"
 draft: false
 

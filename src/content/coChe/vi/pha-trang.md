@@ -3,8 +3,9 @@ title: "Pha trăng — hiển thị các pha của mặt trăng"
 excerpt: "Moon phase là cơ cấu và hiển thị các pha trăng: một tuần trăng (lunation) dài 29 ngày 12 giờ 44 phút 2,8 giây và chia thành bốn pha — theo FHH."
 category: "phức tạp"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/pha-trang-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 
@@ -20,9 +21,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Moon phase là gì?
 

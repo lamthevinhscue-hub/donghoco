@@ -6,6 +6,7 @@ category: "phức tạp"
 difficulty: "cao"
 has_infographic: false
 interactive: false
+principle_video: "/videos/bo-thoat-dong-truc-nguyen-ly-en.mp4"
 date: "2026-09-27"
 updated: "2026-09-27"
 draft: false

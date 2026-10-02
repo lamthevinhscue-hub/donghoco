@@ -3,8 +3,9 @@ title: "Bộ thoát đồng trục — cấu tạo và điều nhà sản xuất
 excerpt: "Bộ thoát Thụy Sĩ truyền lực bằng ma sát trượt nên cần dầu, mà dầu xuống cấp là sai số tăng. Bộ thoát đồng trục truyền lực bằng lực đẩy gần thẳng góc, giảm ma sát."
 category: "phức tạp"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/bo-thoat-dong-truc-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 
@@ -22,9 +23,6 @@ sources:
     url: "https://media.omegawatches.com/documents/manuals/31032425004001_User_Manual_EN.pdf"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Hiện tượng — bạn nhìn thấy gì?
 
@@ -51,7 +49,7 @@ Lực đẩy ma sát **rất nhỏ** so với ma sát trượt. Vì vậy:
 
 Kết quả: đồng hồ có bộ thoát đồng trục **giữ độ chính xác lâu hơn giữa hai lần bảo dưỡng** — có thể nhiều năm mà sai số vẫn ổn, trong khi bộ thoát Thụy Sĩ cần thay dầu 3-5 năm một lần.
 
-> 💡 Trong hoạt ảnh: so sánh hai bên. Bên trái (Thụy Sĩ) có **dấu chấm dầu** ở điểm ma sát — phải thay định kỳ. Bên phải (đồng trục) truyền lực **đẩy**, ít dầu. Ngựa đồng trục có **ba viên đá** (thay vì hai) — đặc trưng nhận diện.
+> 💡 So sánh hai thiết kế: bộ thoát Thụy Sĩ có **dấu chấm dầu** ở điểm ma sát — phải thay định kỳ. Bộ thoát đồng trục truyền lực **đẩy**, ít dầu. Ngựa đồng trục có **ba viên đá** (thay vì hai) — đặc trưng nhận diện.
 
 ## Vì sao không phải ai cũng dùng?
 

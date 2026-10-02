@@ -21,7 +21,9 @@
 //   T3-7  Dist: 15 trang EN + 15 trang VI tồn tại; đúng 1 H1; canonical,
 //         hreflang en/vi và nút chuyển ngôn ngữ hai chiều đúng cặp.
 //   T3-8  Dist: mọi link nội bộ trong <article> của trang EN là route /en/
-//         tồn tại trong dist — không link nhầm về route VI.
+//         tồn tại trong dist — không link nhầm về route VI. Miễn trừ tài sản
+//         tĩnh /videos/ (link "Mở tệp video" của PrincipleVideo, không phải
+//         route nội dung).
 //   T3-9  Dist: khối source-notes render TRƯỚC khối source-list, nội dung
 //         ghi chú có thật trong HTML tĩnh.
 //   T3-10 Dist: Pagefind lập chỉ mục từng trang (fragments .pf_fragment giải
@@ -361,8 +363,12 @@ if (KIEM_DIST) {
     else fail(id, loi.join('; '));
 
     // T3-8 — link nội bộ trong <article> chỉ trỏ route /en/ tồn tại
+    // (miễn trừ /videos/ — link "Mở tệp video" của PrincipleVideo là tài sản
+    // tĩnh, không phải route nội dung hai ngôn ngữ)
     const bai = htmlEn.match(/<article[\s\S]*?<\/article>/)?.[0] ?? '';
-    const linkNoiBo = [...bai.matchAll(/href="(\/[^"#]*)"/g)].map((m) => m[1]);
+    const linkNoiBo = [...bai.matchAll(/href="(\/[^"#]*)"/g)]
+      .map((m) => m[1])
+      .filter((h) => !h.startsWith('/videos/'));
     // "/en" chính xác là trang chủ EN (breadcrumb trong article) — vẫn là route EN
     const saiNgonNgu = linkNoiBo.filter((h) => h !== '/en' && !h.startsWith('/en/'));
     const hong = linkNoiBo.filter((h) => h.startsWith('/en/') && !routeTonTai(h));

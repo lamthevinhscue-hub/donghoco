@@ -174,7 +174,7 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
     />
   )}
 
-  {data.has_infographic === false && lang === 'vi' && (
+  {data.has_infographic === false && !data.principle_video && lang === 'vi' && (
     <div class="mb-8 rounded-lg border border-brass/30 bg-brass/5 p-4 text-sm text-ink-soft">
       <strong class="text-brass">ℹ︎</strong>
       {' '}Infographic động cho chủ đề này chưa có. Tạm thời chỉ có phần giải thích bằng chữ.

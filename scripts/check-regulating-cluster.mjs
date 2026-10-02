@@ -7,10 +7,10 @@
 //
 //   R1. 6 bài EN (5 nội dung + 1 trang legacy tương thích) frontmatter hợp lệ
 //       (custom_slug khớp slug tệp; hai cờ has_infographic/interactive theo
-//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring và escapement (G06-C)
-//       phải true theo quyết định GPT Work ở vòng sửa G04-B
-//       TXN-20260912-23 vì có chương tương tác riêng; enum category/difficulty;
-//       ≥2 nguồn HTTPS).
+//       quy tắc từng tệp — false với mọi bài EN, TRỪ balance-and-hairspring
+//       (G04-B TXN-20260912-23, chương tương tác riêng); enum category/difficulty;
+//       ≥2 nguồn HTTPS). Bộ thoát EN từng thuộc ngoại lệ G06-C nhưng đã rút
+//       infographic từ 02/10/2026 — video nguyên lý thay, trở lại false/false.
 //   R2. Đủ 3 cặp route mới trong src/i18n/contentRoutes.ts.
 //   R3. Mọi liên kết nội bộ bắt buộc cụm (vi + en) có trong bài và đích tồn tại;
 //       trang legacy /en/glossary/escapement/ phải trỏ tới /en/glossary/escape-wheel/.
@@ -164,7 +164,6 @@ const FRONTMATTER_RULES = {
 // tệp khỏi R1.
 const FLAG_TRUE_FILES = new Set([
   'src/content/coChe/en/balance-and-hairspring.md',
-  'src/content/coChe/en/escapement.md',
 ]);
 
 const ROUTE_PAIRS = [

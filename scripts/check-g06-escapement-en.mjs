@@ -1,46 +1,53 @@
 #!/usr/bin/env node
 // =============================================================================
-// check-g06-escapement-en.mjs — kiểm chống hồi quy G06-C chặng 2
-// Tích hợp infographic Bộ thoát song ngữ (TXN-20260915-8)
+// check-g06-escapement-en.mjs — kiểm chống hồi quy Bộ thoát (G06)
 // =============================================================================
-// Nền: aaea528. Chuỗi câu chữ + mã GK chuẩn theo
-// output/g06-escapement-en-audit/bang-cong-noi-dung.md (vòng sửa 3).
+// Lịch sử: script sinh ra cho G06-C chặng 2 — tích hợp infographic Bộ thoát
+// song ngữ (TXN-20260915-8). Từ 02/10/2026 infographic đã RÚT trên cả hai trang
+// (/co-che/bo-thoat và /en/mechanisms/escapement) — video nguyên lý có thuyết
+// minh VI/EN thay (commit c454654 nhúng video + gói rút infographic). Script
+// giữ nguyên tên và vị trí trong chuỗi check/build, đổi mục tiêu:
+//   1) khóa trạng thái mới "không khung + có video đúng ngôn ngữ" trên hai trang;
+//   2) giữ nguyên các kiểm nguồn Escapement.astro / MechanismAnimation.astro —
+//      component ngừng render nhưng còn trong cây như tài sản, chuỗi chữ duyệt
+//      trước không được sửa lậu;
+//   3) giữ các guard quét dist: không trang EN nào khác dính khung, G04 nguyên
+//      trạng, tổng trang khung, không 3D.
 //
 // Tầng NGUỒN (S1…S15 — luôn chạy):
-//   S1  GK-1  label hai ngôn ngữ trong Escapement.astro
-//   S2  GK-2  desc khung hai ngôn ngữ
-//   S3  GK-3…7  stepsEn nguyên văn chốt (t/e/d ×5; GK-3e = "Towards the centre")
-//   S4  steps VI nguyên văn chốt (GK-3/4d/5/5d/6d/7d)
-//   S5  GK-16a/16b nhãn giới hạn hai ngôn ngữ (hiển thị dưới khung)
-//   S6  GK-9/9d aria-label + desc SVG hai ngôn ngữ
-//   S7  GK-11a…e PART_INFO role VI chốt + roleEn; cấm chuỗi cũ không căn cứ
-//   S8  GK-15  EN không lộ tên VI: panel/tooltip rẽ nhánh theo lang; legend
-//              (MechanismAnimation) nhãn EN-only theo data-lang
-//   S8b GK-13  nhãn khung hai ngôn ngữ (markup + JS setPlaying/counter) + thông
-//              báo reduced-motion VI/EN nguyên văn
-//   S9  Gate MechanismArticle: ngoại lệ EN duy nhất slug 'escapement' (2 cờ);
-//              truyền lang cho Infographic; nhánh G04 giữ nguyên
-//   S10 frontmatter en/escapement.md: hai cờ true + draft false + custom_slug
-//   S11 check-regulating-cluster.mjs: FLAG_TRUE_FILES đúng 2 tệp (G04 + escapement)
-//   S12 package.json: check:g06c + nối check/build
-//   S13 RM tương tác trong MechanismAnimation: matchMedia + canRun + chặn Phát
-//              + guard chống nhân đôi listener
-//   S14 không phụ thuộc lịch sử Git (không lệnh git/spawn trong đường kiểm)
+//   S1…S8b chuỗi chữ duyệt của Escapement.astro + MechanismAnimation.astro
+//          (giữ nguyên làm bằng chứng tài sản; ngoại lệ nhãn động ở mục 7
+//          checker motion vẫn bám vào nguồn)
+//   S9     Gate MechanismArticle: dòng gate EN + nhánh G04 giữ nguyên (gate
+//          bất hoạt thực tế vì hai cờ false — S10 khóa điều đó)
+//   S10    frontmatter en/escapement.md: hai cờ false + principle_video EN +
+//          draft false + custom_slug
+//   S10b   frontmatter vi/bo-thoat.md: hai cờ false + principle_video VI
+//   S10c   ghi chú "Infographic động cho chủ đề này chưa có" phải có điều kiện
+//          !data.principle_video — không hiện trên bài đã có video
+//   S11    check-regulating-cluster.mjs: FLAG_TRUE_FILES đúng 1 tệp (G04;
+//          escapement đã rút khỏi Set)
+//   S12    package.json: check:g06c + nối check/build
+//   S13    RM tương tác trong MechanismAnimation: matchMedia + canRun + chặn Phát
+//          + guard chống nhân đôi listener
+//   S14    không phụ thuộc lịch sử Git (không lệnh git/spawn trong đường kiểm)
 //
-// Tầng DIST (D1…D10 — chạy khi truyền "dist" hoặc "dist <dir>"):
-//   D1  /en/mechanisms/escapement/ có khung enhanced + data-lang="en" + cờ RM
-//   D2  chuỗi EN tĩnh đúng bản duyệt (label/bước/aria/ghi chú/thông báo RM)
-//   D3  KHÔNG chuỗi hiển thị VI lọt trang EN (quét HTML tĩnh — không quét bundle
-//       JS dùng chung hai ngôn ngữ)
-//   D4  /co-che/bo-thoat/ giữ khung VI nguyên trạng + ghi chú VI
-//   D5  không trang EN nào khác có data-mechanism
+// Tầng DIST (D… — chạy khi truyền "dist" hoặc "dist <dir>"):
+//   D1  /en/mechanisms/escapement/ KHÔNG khung (data-mechanism/data-enhanced)
+//   D1b trang EN nhúng video EN + poster; KHÔNG tham chiếu clip VI
+//   D2  trang EN không còn chuỗi hiển thị khung (Step 1/5, ● TICK, escapement-svg…)
+//   D3  /co-che/bo-thoat/ KHÔNG khung
+//   D3b trang VI nhúng video VI + poster; KHÔNG tham chiếu clip EN
+//   D3d trang VI không còn chuỗi hiển thị khung VI
+//   D5  không trang EN nào khác có data-mechanism (+ 3 tự kiểm cây thử)
 //   D6  G04 giữ nguyên: /co-che/day-toc-banh-lac/ và
 //       /en/mechanisms/balance-and-hairspring/ KHÔNG data-mechanism
-//   D7  tổng trang render khung = 23 (17 co-che + 5 tu-dien + 1 EN Bộ thoát)
+//   D7  tổng trang render khung = 21 (16 co-che + 5 tu-dien; Bộ thoát vi/en rút)
 //   D8  legend KHÔNG được chứng nhận bằng dist (dist không có data-part-target —
 //       legend sinh bằng JS; tiêu chí legend thuộc tầng trình duyệt)
-//   D9  beat tĩnh EN "● TICK" / VI "● TÍC"
 //   D10 trang EN Bộ thoát không tham chiếu chunk 3D (exploded3d)
+//   (D9/D11 cũ — kiểm nhãn SVG render trên dist — đã bỏ cùng lượt rút
+//   infographic; sự vắng mặt của escapement-svg được khóa ở D2/D3d.)
 //
 // Cú pháp: node scripts/check-g06-escapement-en.mjs [dist [thuMucDist]]
 // Exit 1 nếu có lỗi.
@@ -62,12 +69,14 @@ const escPath = 'src/components/infographics/Escapement.astro';
 const khungPath = 'src/components/infographics/MechanismAnimation.astro';
 const articlePath = 'src/components/templates/MechanismArticle.astro';
 const baiEnPath = 'src/content/coChe/en/escapement.md';
+const baiViPath = 'src/content/coChe/vi/bo-thoat.md';
 const regulatingPath = 'scripts/check-regulating-cluster.mjs';
 
 const esc = doc(escPath);
 const khung = doc(khungPath);
 const article = doc(articlePath);
 const baiEn = doc(baiEnPath);
+const baiVi = doc(baiViPath);
 const regulating = doc(regulatingPath);
 const pkg = JSON.parse(doc('package.json'));
 
@@ -147,15 +156,41 @@ ghi('S8b GK-13 JS', khung.includes("counter: (i: number, n: number) => `Step ${i
 ghi('S9 gate', article.includes("lang === 'en' && slug === 'escapement' && data.has_infographic && data.interactive") && article.includes('<Infographic lang={lang} />'), 'ngoại lệ EN duy nhất + truyền lang');
 ghi('S9 G04', article.includes("G04_BALANCE_CHAPTER_SLUGS = ['day-toc-banh-lac', 'balance-and-hairspring']") && article.includes('!hasBalanceChapter &&'), 'nhánh chương G04 giữ nguyên');
 
-// S10 — frontmatter EN
-ghi('S10 cờ', /^has_infographic:[ \t]*true$/m.test(baiEn) && /^interactive:[ \t]*true$/m.test(baiEn) && /^draft:[ \t]*false$/m.test(baiEn) && /^custom_slug:[ \t]*"escapement"$/m.test(baiEn), 'escapement.md hai cờ + draft + slug');
+// S10 — frontmatter EN: hai cờ FALSE (infographic rút 02/10/2026, video thay)
+// + principle_video EN + draft false + custom_slug
+ghi(
+  'S10 cờ EN',
+  /^has_infographic:[ \t]*false$/m.test(baiEn) &&
+    /^interactive:[ \t]*false$/m.test(baiEn) &&
+    /^principle_video:[ \t]*"\/videos\/bo-thoat-nguyen-ly-en\.mp4"$/m.test(baiEn) &&
+    /^draft:[ \t]*false$/m.test(baiEn) &&
+    /^custom_slug:[ \t]*"escapement"$/m.test(baiEn),
+  'escapement.md hai cờ false + video EN + draft + slug'
+);
 
-// S11 — ngoại lệ cờ: một Set, đúng 2 tệp (Bánh lắc G04 + Bộ thoát G06-C)
+// S10b — frontmatter VI: hai cờ false + principle_video VI
+ghi(
+  'S10b cờ VI',
+  /^has_infographic:[ \t]*false$/m.test(baiVi) &&
+    /^interactive:[ \t]*false$/m.test(baiVi) &&
+    /^principle_video:[ \t]*"\/videos\/bo-thoat-nguyen-ly-vi\.mp4"$/m.test(baiVi),
+  'bo-thoat.md hai cờ false + video VI'
+);
+
+// S10c — ghi chú "chưa có infographic" phải tắt khi bài có principle_video
+ghi(
+  'S10c gate ghi chú',
+  article.includes("data.has_infographic === false && !data.principle_video && lang === 'vi'"),
+  'thông báo "chưa có infographic" không hiện trên bài có video'
+);
+
+// S11 — ngoại lệ cờ: một Set, đúng 1 tệp (Bánh lắc G04). Bộ thoát đã rút
+// infographic (02/10/2026) nên không còn trong Set.
 const flagCau = regulating.match(/const FLAG_TRUE_FILES = new Set\(\[([\s\S]*?)\]\);/);
 const flagFiles = flagCau ? (flagCau[1].match(/'([^']+)'/g) || []).map((s) => s.slice(1, -1)) : [];
 ghi(
   'S11 regulating',
-  flagFiles.length === 2 && flagFiles.includes('src/content/coChe/en/balance-and-hairspring.md') && flagFiles.includes('src/content/coChe/en/escapement.md') && regulating.includes('const flagTrue = FLAG_TRUE_FILES.has(f);') && !regulating.includes('FLAG_TRUE_FILES_G06C'),
+  flagFiles.length === 1 && flagFiles.includes('src/content/coChe/en/balance-and-hairspring.md') && regulating.includes('const flagTrue = FLAG_TRUE_FILES.has(f);') && !regulating.includes('FLAG_TRUE_FILES_G06C'),
   `Set ngoại lệ = [${flagFiles.join(', ')}]`
 );
 
@@ -218,25 +253,32 @@ if (doi) {
   const enHtml = doc(enTrang);
   const viHtml = doc(viTrang);
 
-  // D1
-  ghi('D1 khung EN', enHtml.includes('data-mechanism') && enHtml.includes('data-enhanced="true"') && enHtml.includes('data-lang="en"') && enHtml.includes('data-reduce-interactive="true"'), 'khung enhanced EN + lang + RM');
-  ghi('D4 khung VI', viHtml.includes('data-mechanism') && viHtml.includes('data-enhanced="true"') && viHtml.includes('data-lang="vi"') && viHtml.includes('data-reduce-interactive="true"'), 'khung VI giữ cờ RM');
+  // D1 — trang EN: khung đã RÚT (không data-mechanism/data-enhanced)
+  ghi('D1 EN không khung', !enHtml.includes('data-mechanism') && !enHtml.includes('data-enhanced="true"'), 'khung infographic rút khỏi trang EN');
 
-  // D2 — chuỗi EN tĩnh
-  const enCan = ['Swiss lever escapement', 'Five cause-and-effect steps make the tick-tock beat.', 'The balance moves towards the centre', 'In this model, the balance moves from the left towards the central position.', 'This is a simplified teaching diagram.', 'FHH identifies the escape wheel, lever and roller as the three parts of the escapement.', 'Step-by-step diagram of a Swiss lever escapement', 'Reduced motion is enabled. Use the step controls to explore the diagram.', 'Step 1/5', 'The part&#39;s English name and its role will appear here.', '● TICK'];
-  enCan.forEach((s) => ghi(`D2 EN tĩnh`, enHtml.includes(s), s.slice(0, 50)));
+  // D1b — trang EN nhúng video nguyên lý EN + poster; KHÔNG tham chiếu clip VI
+  ghi('D1b EN video', enHtml.includes('/videos/bo-thoat-nguyen-ly-en.mp4') && enHtml.includes('bo-thoat-nguyen-ly-en.jpg') && enHtml.includes('<video'), 'video + poster EN');
+  ghi('D1c EN đúng clip', !enHtml.includes('bo-thoat-nguyen-ly-vi.mp4') && !enHtml.includes('bo-thoat-nguyen-ly-vi.jpg'), 'không tham chiếu clip VI');
 
-  // D3 — KHÔNG chuỗi hiển thị VI (markup server-render; bỏ nội dung <script> —
-  // script inline dùng chung hai ngôn ngữ chứa hằng hiển thị của cả hai nhánh
-  // lang, tương tự bundle JS dùng chung, không phải chữ hiển thị tĩnh)
-  const viCam = ['Bộ thoát Swiss lever (Escapement)', 'Bước trước', 'Phát hoạt ảnh', 'Bước tiếp theo', 'Đặt lại về bước đầu', 'Bước 1/5', 'Bấm Phát để xem chu trình từng bước', 'Tên tiếng Việt, tiếng Anh và vai trò', '>Bộ phận<', 'Bánh lắc chuyển động về phía giữa', 'quay một nhịp nhỏ', 'rời vị trí bị khóa', 'Sơ đồ hướng dẫn đã giản lược', 'Theo FHH, bộ thoát gồm bánh thoát', 'Đang giảm chuyển động', '● TÍC'];
+  // D2 — trang EN không còn chuỗi hiển thị khung (bỏ nội dung <script> — hằng
+  // hiển thị trong bundle/script dùng chung không phải chữ render tĩnh)
+  const khungEnCam = ['Step 1/5', '● TICK', 'Five cause-and-effect steps make the tick-tock beat.', 'Reduced motion is enabled. Use the step controls to explore the diagram.', 'escapement-svg', 'The part&#39;s English name and its role will appear here.'];
   const enHtmlKhongScript = enHtml.replace(/<script\b[\s\S]*?<\/script>/gi, '');
-  const viLot = viCam.filter((s) => enHtmlKhongScript.includes(s));
-  ghi('D3 không rò VI', viLot.length === 0, viLot.length ? 'lọt: ' + viLot.join(' | ') : 'sạch chuỗi hiển thị VI (markup, đã loại script)');
+  const enLot = khungEnCam.filter((s) => enHtmlKhongScript.includes(s));
+  ghi('D2 EN sạch khung', enLot.length === 0, enLot.length ? 'còn: ' + enLot.join(' | ') : 'không còn chuỗi khung (markup, đã loại script)');
 
-  // D4b — VI giữ chuỗi VI
-  const viCan = ['Bộ thoát Swiss lever (Escapement)', 'Bước 1/5', 'Bánh lắc chuyển động về phía giữa', 'Sơ đồ hướng dẫn đã giản lược', 'Theo FHH, bộ thoát gồm bánh thoát, ngựa và roller', 'Đang giảm chuyển động', '● TÍC'];
-  viCan.forEach((s) => ghi(`D4 VI tĩnh`, viHtml.includes(s), s.slice(0, 44)));
+  // D3 — trang VI: khung đã RÚT
+  ghi('D3 VI không khung', !viHtml.includes('data-mechanism') && !viHtml.includes('data-enhanced="true"'), 'khung infographic rút khỏi trang VI');
+
+  // D3b — trang VI nhúng video nguyên lý VI + poster; KHÔNG tham chiếu clip EN
+  ghi('D3b VI video', viHtml.includes('/videos/bo-thoat-nguyen-ly-vi.mp4') && viHtml.includes('bo-thoat-nguyen-ly-vi.jpg') && viHtml.includes('<video'), 'video + poster VI');
+  ghi('D3c VI đúng clip', !viHtml.includes('bo-thoat-nguyen-ly-en.mp4') && !viHtml.includes('bo-thoat-nguyen-ly-en.jpg'), 'không tham chiếu clip EN');
+
+  // D3d — trang VI không còn chuỗi hiển thị khung VI (cùng quy tắc bỏ script)
+  const khungViCam = ['Bước 1/5', '● TÍC', 'Bộ thoát Swiss lever (Escapement)', 'Phát hoạt ảnh', 'Sơ đồ hướng dẫn đã giản lược', 'Đang giảm chuyển động', 'escapement-svg'];
+  const viHtmlKhongScript = viHtml.replace(/<script\b[\s\S]*?<\/script>/gi, '');
+  const viLot = khungViCam.filter((s) => viHtmlKhongScript.includes(s));
+  ghi('D3d VI sạch khung', viLot.length === 0, viLot.length ? 'còn: ' + viLot.join(' | ') : 'không còn chuỗi khung (markup, đã loại script)');
 
   // D5 — không trang EN khác có khung. Hàm quét DÙNG CHUNG (cấp module,
   // `demTrangEnKhac`) — dist thật LẪN cây thử đều đi qua đúng hàm này; mutation
@@ -279,7 +321,7 @@ if (doi) {
   const g04En = join(distRoot, 'en/mechanisms/balance-and-hairspring/index.html');
   ghi('D6 G04', existsSync(g04Vi) && !doc(g04Vi).includes('data-mechanism') && existsSync(g04En) && !doc(g04En).includes('data-mechanism'), 'hai trang G04 không render khung');
 
-  // D7 — tổng 23 trang
+  // D7 — tổng 21 trang (Bộ thoát VI + EN đã rút khung: 23 − 2)
   let tong = 0;
   const quet2 = (thuMuc) => {
     for (const ten of readdirSync(thuMuc)) {
@@ -289,30 +331,17 @@ if (doi) {
     }
   };
   quet2(distRoot);
-  ghi('D7 tổng 23', tong === 23, `${tong} trang render khung (17+5+1)`);
+  ghi('D7 tổng 21', tong === 21, `${tong} trang render khung (16 co-che + 5 tu-dien)`);
 
   // D8 — legend không chứng nhận bằng dist
   ghi('D8 legend JS', !enHtml.includes('data-part-target'), 'dist không chứa legend (kiểm legend ở trình duyệt, không dùng dist)');
 
-  // D9 — beat VI tĩnh đã ở D2/D4; đích svg aria
-  ghi('D9 aria EN tĩnh', enHtml.includes('aria-label="Step-by-step diagram'), 'aria SVG EN server-render');
-
   // D10 — không 3D
   ghi('D10 không 3D', !enHtml.includes('exploded3d'), 'trang EN Bộ thoát không tham chiếu chunk 3D');
 
-  // D11 — SVG Bộ thoát trên dist VI lẫn EN: role="img", KHÔNG aria-hidden="true",
-  // nhãn không rỗng và ĐÚNG NGÔN NGỮ (bằng chứng render thật cho nhãn động
-  // `aria-label={svgAria}` mà mục 7 checker motion không thể chứng minh từ nguồn)
-  const svgTag = (html) => (html.match(/<svg\b[^>]*id="escapement-svg"[^>]*>/g) || [])[0] ?? '';
-  const tagEn = svgTag(enHtml);
-  const tagVi = svgTag(viHtml);
-  const nhanEn = (tagEn.match(/aria-label="([^"]*)"/) || [])[1] ?? '';
-  const nhanVi = (tagVi.match(/aria-label="([^"]*)"/) || [])[1] ?? '';
-  ghi('D11 EN role/hidden', tagEn.includes('role="img"') && !tagEn.includes('aria-hidden="true"'), 'role=img, không aria-hidden');
-  ghi('D11 EN nhãn', nhanEn.startsWith('Step-by-step diagram of a Swiss lever escapement'), `length=${nhanEn.length}`);
-  ghi('D11 VI role/hidden', tagVi.includes('role="img"') && !tagVi.includes('aria-hidden="true"'), 'role=img, không aria-hidden');
-  ghi('D11 VI nhãn', nhanVi.startsWith('Sơ đồ hướng dẫn bộ thoát Swiss lever'), `length=${nhanVi.length}`);
-  ghi('D11 đúng ngôn ngữ', nhanEn !== '' && nhanVi !== '' && nhanEn !== nhanVi && !/^Sơ đồ/.test(nhanEn) && !/^Step-by-step/.test(nhanVi), 'nhãn mỗi trang đúng ngôn ngữ, không hoán đổi');
+  // (D9/D11 cũ — kiểm nhãn SVG render trên dist — đã bỏ cùng lượt rút
+  // infographic; sự vắng mặt của escapement-svg trên hai trang được khóa ở
+  // D2/D3d, nhãn trong nguồn do mục 7 checker motion tiếp tục trông giữ.)
 }
 
 // ============================== TỔNG KẾT ====================================

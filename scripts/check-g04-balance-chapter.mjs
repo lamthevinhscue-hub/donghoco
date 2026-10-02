@@ -192,25 +192,25 @@ console.log('— Lớp nguồn (src/) —');
   }
 
   // G4-4 Nới R1 check-regulating theo chính sách hiện hành: ngoại lệ gồm ĐÚNG
-  // 2 tệp — Bánh lắc (chương G04-B, TXN-20260912-23) và Bộ thoát (infographic
-  // song ngữ G06-C chặng 2, TXN-20260915-8); các bài EN khác vẫn kiểm false;
-  // không bỏ kiểm cờ.
+  // 1 tệp — Bánh lắc (chương G04-B, TXN-20260912-23). Bộ thoát từng nằm ngoại
+  // lệ (G06-C, TXN-20260915-8) nhưng đã rút infographic từ 02/10/2026 — video
+  // nguyên lý thay, trở lại quy tắc chung false/false; các bài EN khác vẫn
+  // kiểm false; không bỏ kiểm cờ.
   {
     const s = read('scripts/check-regulating-cluster.mjs');
     const setCau = s.match(/const FLAG_TRUE_FILES = new Set\(\[([\s\S]*?)\]\);/);
     const cacTep = setCau ? (setCau[1].match(/'([^']+)'/g) || []).map((x) => x.slice(1, -1)) : [];
-    const dungHaiTep =
-      cacTep.length === 2 &&
-      cacTep.includes('src/content/coChe/en/balance-and-hairspring.md') &&
-      cacTep.includes('src/content/coChe/en/escapement.md');
+    const dungMotTep =
+      cacTep.length === 1 &&
+      cacTep.includes('src/content/coChe/en/balance-and-hairspring.md');
     const coNgoaiLe =
-      dungHaiTep &&
+      dungMotTep &&
       s.includes("flagTrue ? 'true' : 'false'") &&
       s.includes("rules.includes('infographic')") &&
       s.includes("rules.includes('interactive')");
     const escapementVanCoQuyTacSchema = s.includes("'src/content/coChe/en/escapement.md': ['category', 'difficulty', 'infographic', 'interactive']");
     if (coNgoaiLe && escapementVanCoQuyTacSchema) {
-      ok('G4-4 R1 check-regulating ngoại lệ đúng 2 tệp (Bánh lắc G04 + Bộ thoát G06-C), bài EN khác vẫn kiểm false');
+      ok('G4-4 R1 check-regulating ngoại lệ đúng 1 tệp (Bánh lắc G04); Bộ thoát đã rút infographic (video nguyên lý thay), bài EN khác vẫn kiểm false');
     } else {
       fail(`G4-4 Nới R1 sai (ngoạiLệ=${coNgoaiLe}, escapementVanCoQuyTacSchema=${escapementVanCoQuyTacSchema}, tệp=[${cacTep.join(', ')}])`);
     }

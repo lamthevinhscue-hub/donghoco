@@ -3,8 +3,8 @@ title: "Bộ thoát (Escapement) — chia năng lượng thành nhịp"
 excerpt: "Cơ cấu nằm giữa chuỗi bánh răng và bộ điều tiết — chặn-nhả chuyển động định kỳ và cấp năng lượng cho bánh lắc. Định nghĩa và phân loại theo FHH."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
 principle_video: "/videos/bo-thoat-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
@@ -25,8 +25,6 @@ sources:
 
 ---
 
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Bộ thoát là gì?
 

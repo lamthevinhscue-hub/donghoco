@@ -4,8 +4,8 @@ custom_slug: "escapement"
 excerpt: "A mechanism fitted between the gear train and the regulating organ — suspending the gears' motion at regular intervals and supplying energy to the balance, as FHH defines it."
 category: "nền tảng"
 difficulty: "cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
 principle_video: "/videos/bo-thoat-nguyen-ly-en.mp4"
 date: "2026-08-02"
 updated: "2026-09-15"

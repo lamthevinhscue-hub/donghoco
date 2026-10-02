@@ -3,8 +3,9 @@ title: "GMT — Cơ chế hai múi giờ và kim 24 giờ"
 excerpt: "GMT hiển thị múi giờ thứ hai qua một kim 24 giờ. Hiểu nguyên lý hiển thị, khi nào vành 24 giờ xoay mở thêm một múi giờ thay thế đọc được, và vì sao thao tác chỉnh luôn phải theo đúng từng mẫu."
 category: "phức tạp"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/gmt-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
 

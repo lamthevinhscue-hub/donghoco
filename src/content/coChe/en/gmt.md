@@ -6,6 +6,7 @@ category: "phức tạp"
 difficulty: "trung bình"
 has_infographic: false
 interactive: false
+principle_video: "/videos/gmt-nguyen-ly-en.mp4"
 date: "2026-09-01"
 draft: false
 

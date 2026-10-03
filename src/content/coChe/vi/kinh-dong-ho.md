@@ -3,8 +3,9 @@ title: "Kính đồng hồ — Ba loại và vì sao sapphire không phải luô
 excerpt: "Acrylic dẻo không vỡ vụn đánh bóng lại được, khoáng cứng vừa rẻ, sapphire gần như không xước nhưng giòn hơn. Vintage và quân đội thường dùng acrylic có lý do."
 category: "bổ trợ"
 difficulty: "thấp"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/kinh-dong-ho-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 

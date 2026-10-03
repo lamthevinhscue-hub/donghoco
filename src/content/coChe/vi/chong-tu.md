@@ -3,8 +3,9 @@ title: "Chống từ (Anti-Magnetic) — vì sao từ trường làm đồng h�
 excerpt: "Bộ máy cơ có thể nhiễm từ và ảnh hưởng độ chính xác. Mức chống từ là thông số của từng calibre, từng chứng nhận — không phải một con số chung."
 category: "bổ trợ"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/chong-tu-nguyen-ly-vi.mp4"
 date: "2026-08-01"
 draft: false
 
@@ -22,9 +23,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/anti-magnetic"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Từ trường ảnh hưởng bộ máy cơ thế nào?
 

@@ -3,8 +3,9 @@ title: "Trữ cót (Power Reserve) — Đồng hồ cơ chạy được bao lâu
 excerpt: "Khi đặt đồng hồ xuống, nó chạy được bao lâu? Dây cót, thùng cót, và vì sao mức trữ cót là thông số của từng calibre."
 category: "bổ trợ"
 difficulty: "thấp"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/tru-cot-nguyen-ly-vi.mp4"
 date: "2026-08-01"
 draft: false
 

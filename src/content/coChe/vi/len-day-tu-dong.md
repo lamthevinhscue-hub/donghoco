@@ -3,8 +3,9 @@ title: "Cơ chế lên dây tự động"
 excerpt: "Chuyển động cổ tay thành năng lượng lên dây — rotor quay tự do, hệ truyền cụ thể của từng calibre, và vì sao mức lên dây thực tế phụ thuộc nhiều yếu tố."
 category: "nền tảng"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/len-day-tu-dong-nguyen-ly-vi.mp4"
 date: "2026-07-31"
 draft: false
 

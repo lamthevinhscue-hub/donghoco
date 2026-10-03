@@ -6,6 +6,7 @@ category: "nền tảng"
 difficulty: "trung bình"
 has_infographic: false
 interactive: false
+principle_video: "/videos/len-day-tu-dong-nguyen-ly-en.mp4"
 date: "2026-09-04"
 draft: false
 

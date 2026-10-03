@@ -6,6 +6,7 @@ category: "nền tảng"
 difficulty: "thấp"
 has_infographic: false
 interactive: false
+principle_video: "/videos/hien-thi-ngay-nguyen-ly-en.mp4"
 date: "2026-09-27"
 updated: "2026-09-27"
 draft: false

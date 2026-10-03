@@ -3,8 +3,9 @@ title: "Hiển thị ngày và cơ cấu lịch"
 excerpt: "Đĩa ngày 31 vị trí, bánh răng đẩy một nấc mỗi 24 giờ. Phân biệt lịch nhảy tức thời và lịch bò dần — và khung giờ nguy hiểm khi chỉnh."
 category: "nền tảng"
 difficulty: "thấp"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/hien-thi-ngay-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 

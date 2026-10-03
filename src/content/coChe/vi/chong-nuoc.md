@@ -3,8 +3,9 @@ title: "Chống nước hoạt động thế nào"
 excerpt: "Vì sao '50m' không có nghĩa là bơi được 50m — các điểm niêm phong, vai trò gioăng, và vì sao bảng dùng được là của từng hãng."
 category: "bổ trợ"
 difficulty: "thấp"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/chong-nuoc-nguyen-ly-vi.mp4"
 date: "2026-07-31"
 draft: false
 
@@ -28,9 +29,6 @@ sources:
     url: "https://www.iso.org/standard/45334.html"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Vấn đề cốt lõi
 

@@ -6,6 +6,7 @@ category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: false
 interactive: false
+principle_video: "/videos/chong-nuoc-nguyen-ly-en.mp4"
 date: "2026-07-31"
 draft: false
 

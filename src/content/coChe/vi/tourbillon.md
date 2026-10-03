@@ -3,8 +3,9 @@ title: "Tourbillon — lồng xoay và sai số vị trí"
 excerpt: "Tourbillon do Abraham-Louis Breguet nghĩ ra và đăng ký sáng chế năm 1801: bộ thoát gắn trong lồng xoay, bù sai số do trọng lực ở vị trí thẳng đứng — theo FHH."
 category: "phức tạp"
 difficulty: "rất cao"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/tourbillon-nguyen-ly-vi.mp4"
 date: "2026-08-02"
 draft: false
 
@@ -24,9 +25,6 @@ sources:
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/complication"
 
 ---
-
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Tourbillon là gì?
 

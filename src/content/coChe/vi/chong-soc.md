@@ -3,8 +3,9 @@ title: "Chống sốc — Vì sao đồng hồ rơi mà không hỏng"
 excerpt: "Hệ chống sốc dùng chân kính đàn hồi để hấp thụ lực va đập trước khi tới trục bánh lắc — theo định nghĩa của FHH. Incabloc là một hệ chống sốc cụ thể, không phải tên chung."
 category: "bổ trợ"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/chong-soc-nguyen-ly-vi.mp4"
 date: "2026-08-08"
 draft: false
 
@@ -23,9 +24,6 @@ sources:
 
 ---
 
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
-> Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
-
 ## Chống sốc bảo vệ cái gì?
 
 Trong bộ máy, các bộ phận quay quay quanh những **trục rất mảnh**, được đỡ bằng [chân kính](/tu-dien/chan-kinh). Khi đồng hồ va đập, lực có thể dồn thẳng vào các trục đó.
@@ -41,7 +39,7 @@ Chi tiết cơ cấu dưới đây là **mô tả của Incabloc SA trên trang 
 - **Lò xo lyre (lyre spring®)** chỉ đảm nhiệm vai trò **định vị và lực trả về**: nó có hai điểm tiếp xúc, và độ đàn hồi dự trữ cho phép nó **phản ứng tức thì với sốc**.
 - Hệ làm việc theo **hai pha**: năng lượng sốc — truyền qua phần chịu lực của bánh lắc (trục) — được **hấp thụ trọn bởi khối đỡ**; sau đó hệ **lập tức trở về đúng tâm** nhờ lò xo lyre.
 
-> 💡 Trong hoạt ảnh: khi mũi tên "sốc" xuất hiện, hãy để ý khối chân kính **dịch chuyển rồi trở về vị trí** — mô phỏng hai pha hấp thụ và trả vị trí theo mô tả trên.
+> 💡 Khi có va đập, khối chân kính **dịch chuyển rồi trở về vị trí** — hai pha hấp thụ và trả vị trí theo mô tả trên. Video nguyên lý ở đầu bài chạy lại đúng chu trình này chậm cho dễ nhìn.
 
 ## Những con số Incabloc SA công bố cho hệ của hãng
 

@@ -3,8 +3,9 @@ title: "Chuỗi truyền động: dây cót đến bánh lắc"
 excerpt: "Đoạn đường mà năng lượng đi từ dây cót đến kim đồng hồ — cốt lõi của mọi chiếc đồng hồ cơ."
 category: "nền tảng"
 difficulty: "trung bình"
-has_infographic: true
-interactive: true
+has_infographic: false
+interactive: false
+principle_video: "/videos/chuyen-dong-co-nguyen-ly-vi.mp4"
 date: "2026-07-31"
 draft: false
 

@@ -5,6 +5,7 @@ excerpt: "The path energy takes from the mainspring to the hands — the core of
 category: "nền tảng"
 difficulty: "trung bình"
 has_infographic: false
+principle_video: "/videos/chuyen-dong-co-nguyen-ly-en.mp4"
 date: "2026-07-31"
 updated: "2026-09-01"
 draft: false

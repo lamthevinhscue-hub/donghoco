@@ -38,14 +38,14 @@ Hãy xem mỗi bộ phận như một trạm trên dòng chảy của năng lư�
 
 Dây cót là một dải thép dài, cuộn quanh trục trong một hộp gọi là **thùng cót (barrel)**. Khi bạn lên dây (vặn nút), dây cót bị cuộn chặt — tích trữ năng lượng. Khi nhả, nó từ từ mở ra, giải phóng năng lượng để chạy đồng hồ.
 
-Dây cót như một **pin cơ học**: bạn "sạc" nó bằng cách lên dây, và nó từ từ "xả" ra trong nhiều giờ (thường 38–80 giờ tùy đồng hồ).
+Dây cót như một **pin cơ học**: bạn "sạc" nó bằng cách lên dây, và nó từ từ "xả" ra trong nhiều giờ. Thời lượng cụ thể của mỗi chiếc là thông số do hãng công bố — đọc cách hiểu con số này ở bài [Trữ cót (Power Reserve)](/co-che/tru-cot).
 
 ## Bộ bánh răng — truyền năng lượng
 
 Năng lượng từ thùng cót không đi thẳng tới kim đồng hồ — nó phải đi qua **một loạt bánh răng** với kích thước khác nhau. Bộ bánh răng làm hai việc:
 
 - **Truyền** năng lượng từ thùng cót sang bộ thoát.
-- **Giảm tốc** — bánh răng lớn quay chậm, bánh răng nhỏ quay nhanh hơn, cuối cùng lái các kim giây/phút/giờ.
+- **Tăng tốc, giảm lực** — đi từ thùng cót về bộ thoát, mỗi cặp bánh lớn – nhông nhỏ làm bánh kế tiếp quay nhanh hơn và lực nhỏ dần; các kim trên mặt số chạy nhờ nhịp quay được truyền dọc chuỗi này.
 
 ## Bộ thoát — chia năng lượng thành nhịp
 
@@ -57,12 +57,12 @@ Bộ thoát làm nhiệm vụ **chia** năng lượng thành những **nhịp nh
 
 **Bánh lắc** là một bánh xe nhỏ dao động qua lại (như con lắc trong đồng hồ quả lắc cổ). Mỗi lần nó qua lại, bộ thoát nhả đúng một nhịp năng lượng.
 
-Tốc độ dao động của bánh lắc — được đo bằng **vph** (vibration per hour, số lần dao động mỗi giờ) — quyết định độ mượt của kim giây và phần nào độ chính xác. Đồng hồ phổ thông thường 21.600 hoặc 28.800 vph; đồng hồ cao cấp có thể cao hơn.
+Nhịp chạy của bánh lắc được đo bằng **vph** ([tần số dao động](/tu-dien/vph) — vibrations per hour, số lần rung mỗi giờ): mỗi dao động qua-lại của bánh lắc gồm hai lần rung, nên 28.800 vph tương đương 4 dao động mỗi giây. Nhịp này quyết định độ mượt của kim giây và phần nào độ chính xác. Đồng hồ phổ thông thường 21.600 hoặc 28.800 vph; đồng hồ cao cấp có thể cao hơn.
 
 ## Tóm lại
 
 Hãy nhớ dòng chảy này:
 
-**Dây cót** (năng lượng) → **Bộ bánh răng** (truyền + giảm tốc) → **Bộ thoát** (chia nhịp) → **Bánh lắc** (gác nhịp) → **Kim đồng hồ**.
+**Dây cót** (năng lượng) → **Bộ bánh răng** (truyền + tăng tốc) → **Bộ thoát** (chia nhịp) → **Bánh lắc** (gác nhịp) → **Kim đồng hồ**.
 
 Hiểu được dòng chảy này là chìa khóa để hiểu mọi cơ chế phức tạp hơn — từ chronograph đến tourbillon.

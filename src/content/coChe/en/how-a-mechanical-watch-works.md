@@ -32,14 +32,14 @@ Think of each part as a station along the flow of energy.
 
 The mainspring is a long strip of steel coiled around an arbor inside a housing called the **barrel**. When you wind the watch, the spring is coiled tighter — storing energy. As it unwinds, it releases that energy slowly to run the watch.
 
-It works like a **mechanical battery**: you "charge" it by winding, and it "discharges" over many hours — commonly 38–80 hours depending on the watch. That figure is the [power reserve](/en/mechanisms/power-reserve/).
+It works like a **mechanical battery**: you "charge" it by winding, and it "discharges" over many hours. The exact figure is each maker's specification — read as the [power reserve](/en/mechanisms/power-reserve/).
 
 ## The gear train — transmitting energy
 
 Energy from the barrel does not go straight to the hands — it passes through **a series of geared wheels** of different sizes. The gear train does two jobs:
 
 - **Transmits** energy from the barrel to the escapement.
-- **Slows it down** — large wheels turning slowly drive smaller wheels turning faster, ultimately steering the hour, minute and seconds hands.
+- **Speeds it up, trades off force** — from the barrel towards the escapement, each large wheel driving a small pinion makes the next wheel turn faster with less force; the hands run off this chain.
 
 ## The escapement — dividing energy into beats
 

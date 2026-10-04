@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 // =============================================================================
-// check-l2-timeline-ai.mjs (L2-B, GD3) — kiểm 5 ảnh AI bối cảnh đợt 2
+// check-l2-timeline-ai.mjs (L2-B, GD3) — kiểm 5 ảnh L2-B và 4 ảnh được duyệt ngày 04/10/2026
 // =============================================================================
 // Chạy KHÔNG tham số → kiểm nguồn (L2-1..L2-4).
 // Chạy `dist`          → kiểm nguồn + kiểm dist (L2-5..L2-7).
 //
-//   L2-1  Đúng 5 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
+//   L2-1  Đúng 9 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
 //         1200×900 (SOF), ≤150 KB, hash không trùng.
 //   L2-2  JPG ↔ ANH_AI hai chiều: mọi tệp .jpg timeline đều có slug trong
 //         bảng ANH_AI của HistoryTimeline.astro và ngược lại.
-//   L2-3  Nhãn nguyên văn + mô tả thay thế: 5 slug mới có nhãn VI/EN
+//   L2-3  Nhãn nguyên văn + mô tả thay thế: 9 slug có nhãn VI/EN
 //         "Minh họa AI tái dựng — không phải ảnh tư liệu" / "AI reconstruction
 //         — not a historical photograph" và mục alt riêng trong ALT_AI_MO_RONG.
 //   L2-4  Checker được nối vào cuối cả `check` và `build` trong package.json.
-//   L2-5  Dist hai trang: 5 mốc render ảnh jpg đúng, alt theo mô tả thay thế
+//   L2-5  Dist hai trang: 9 mốc render ảnh jpg đúng, alt theo mô tả thay thế
 //         + nhận diện AI, nhãn AI ở thẻ và trong data-zoom (hộp phóng to).
 //   L2-6  Không ảnh AI ngoài danh sách: mọi "/images/timeline/*.jpg" trong
-//         hai trang thuộc tập 10 slug cho phép; SVG đối chứng không bị thay.
+//         hai trang thuộc tập 14 slug cho phép; SVG đối chứng không bị thay.
 //
 // Biến môi trường cho mutation trên bản sao: L2B_ROOT (mặc định cwd),
 // L2B_DIST (mặc định <L2B_ROOT>/dist). Exit 1 nếu có lỗi.
@@ -30,10 +30,10 @@ const ROOT = process.env.L2B_ROOT ?? process.cwd();
 const KIEM_DIST = process.argv[2] === 'dist';
 const DIST = process.env.L2B_DIST ?? join(ROOT, 'dist');
 
-const SLUGS = ['rolex-oyster', 'jlc-reverso', 'rolex-submariner', 'heuer-carrera', 'patek-nautilus'];
+const SLUGS = ['peter-henlein', 'huygens-hairspring', 'rolex-gmt', 'ap-royal-oak', 'rolex-oyster', 'jlc-reverso', 'rolex-submariner', 'heuer-carrera', 'patek-nautilus'];
 const NHAN_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const NHAN_EN = 'AI reconstruction — not a historical photograph';
-// Tập slug ảnh timeline hợp lệ sau L2-B: 5 ảnh cũ (trench + H07-A) + 5 mới
+// Tập slug ảnh timeline hợp lệ sau L2-B: 5 ảnh nền (trench + H07-A) + 5 ảnh L2-B + 4 ảnh đã duyệt
 const SLUG_JPG_HOP_LE = new Set([
   'trench-watch', 'universal-time-1884', 'great-depression-1929',
   'atomic-second-1967', 'oil-shock-1973', ...SLUGS,
@@ -41,6 +41,22 @@ const SLUG_JPG_HOP_LE = new Set([
 
 // Alt kỳ vọng (nguồn chốt — mô tả thay thế tài liệu + nhận diện AI, khớp altFor)
 const ALT_KY_VONG = {
+  'peter-henlein': {
+    vi: 'Vỏ đồng hồ bằng đồng, chìa lên dây và dụng cụ trên bàn thợ, tái dựng bối cảnh đầu thế kỷ XVI (minh họa AI tái dựng)',
+    en: 'A brass watch housing, winding key and tools on a workbench, reconstructing an early sixteenth-century setting (AI reconstruction)',
+  },
+  'huygens-hairspring': {
+    vi: 'Mô hình minh họa dây tóc xoắn phía trên bánh lắc bằng đồng, không phải hiện vật lịch sử (minh họa AI tái dựng)',
+    en: 'An educational model of a spiral spring above a brass balance wheel, not a historical artifact (AI reconstruction)',
+  },
+  'rolex-gmt': {
+    vi: 'Minh họa GMT-Master theo tham chiếu năm 1955, phía sau là nhà ga và máy bay cánh quạt (minh họa AI tái dựng)',
+    en: 'An illustration of the GMT-Master based on a 1955 reference, with an airport terminal and propeller aircraft behind it (AI reconstruction)',
+  },
+  'ap-royal-oak': {
+    vi: 'Minh họa Royal Oak 5402ST trên bàn thiết kế cùng thước thép và sổ phác thảo (minh họa AI tái dựng)',
+    en: 'An illustration of the Royal Oak 5402ST on a design desk with a steel ruler and sketchbook (AI reconstruction)',
+  },
   'rolex-oyster': {
     vi: 'Người bơi đường dài nhỏ giữa biển lúc bình minh, một chiếc thuyền chèo theo sau, vách đá trắng mờ phía xa (minh họa AI tái dựng)',
     en: 'A long-distance swimmer far out at sea at dawn, a rowing boat following, pale cliffs in the distance (AI reconstruction)',
@@ -102,7 +118,7 @@ function slugAnnhAi(text) {
 }
 
 if (component) {
-  // ---- L2-1 Đúng 5 slug/ảnh web ----
+  // ---- L2-1 Đúng 9 slug/ảnh web ----
   const loi1 = [];
   const hashDaThay = new Set();
   for (const slug of SLUGS) {
@@ -121,7 +137,7 @@ if (component) {
     if (hashDaThay.has(h)) loi1.push(`${slug}.jpg trùng byte với ảnh khác`);
     hashDaThay.add(h);
   }
-  if (loi1.length === 0) ok('L2-1', '5 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
+  if (loi1.length === 0) ok('L2-1', '9 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
   else fail('L2-1', loi1.join('; '));
 
   // ---- L2-2 JPG ↔ ANH_AI hai chiều ----
@@ -149,7 +165,7 @@ if (component) {
       loi3.push(`${slug}: thiếu mô tả thay thế trong ALT_AI_MO_RONG`);
     }
   }
-  if (loi3.length === 0) ok('L2-3', '5 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
+  if (loi3.length === 0) ok('L2-3', '9 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
   else fail('L2-3', loi3.join('; '));
 
   // ---- L2-4 Nối build ----
@@ -197,11 +213,11 @@ if (KIEM_DIST) {
       if (!khoi.includes(`data-zoom-alt="${altKyVong}"`)) loi5.push(`${ngon}/${slug}: data-zoom-alt thiếu/lech`);
     }
     const soNhan = html.split(nhan).length - 1;
-    if (soNhan < 5) loi5.push(`${duong}: nhãn AI chỉ xuất hiện ${soNhan} lần (<5)`);
+    if (soNhan < SLUGS.length) loi5.push(`${duong}: nhãn AI chỉ xuất hiện ${soNhan} lần (<${SLUGS.length})`);
     const soZoomAi = html.split('data-zoom-ai=').length - 1;
-    if (soZoomAi < 5) loi5.push(`${duong}: data-zoom-ai chỉ ${soZoomAi} (<5)`);
+    if (soZoomAi < SLUGS.length) loi5.push(`${duong}: data-zoom-ai chỉ ${soZoomAi} (<${SLUGS.length})`);
   }
-  if (loi5.length === 0) ok('L2-5', `2 trang dist: 5 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
+  if (loi5.length === 0) ok('L2-5', `2 trang dist: 9 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
   else fail('L2-5', loi5.slice(0, 8).join('; '));
 
   // ---- L2-6 Không ảnh AI ngoài danh sách ----
@@ -213,16 +229,16 @@ if (KIEM_DIST) {
       if (!SLUG_JPG_HOP_LE.has(m[1])) loi6.push(`${duong}: ảnh lạ ${m[1]}.jpg`);
     }
   }
-  // SVG đối chứng không bị thay: 5 mốc L2 phải vẫn giữ tệp svg trong dist assets? (svg cùng slug vẫn tồn tại ở public)
-  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 10 slug cho phép');
+  // SVG đối chứng không bị thay: 9 mốc L2 phải vẫn giữ tệp svg trong dist assets? (svg cùng slug vẫn tồn tại ở public)
+  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 14 slug cho phép');
   else fail('L2-6', loi6.join('; '));
 }
 
-console.log('KIỂM TRA L2-B — 5 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
+console.log('KIỂM TRA L2-B — 9 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
 for (const line of report) console.log(`  ĐẠT  ${line}`);
 if (errors.length > 0) {
   console.log('  KẾT LUẬN: KHÔNG ĐẠT:');
   for (const e of errors) console.log(`    LỖI  ${e}`);
   process.exit(1);
 }
-console.log('  KẾT LUẬN: ĐẠT — 5 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');
+console.log('  KẾT LUẬN: ĐẠT — 9 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');

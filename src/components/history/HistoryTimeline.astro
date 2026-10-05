@@ -181,6 +181,22 @@ const timelineImage = (slug: string): string | undefined => {
 // Gỡ ảnh AI = xóa tệp jpg + xóa mục khỏi map này → tự quay về SVG.
 // P0-C: thêm 4 mốc H07-A dùng ảnh AI bối cảnh đã được anh Vinh duyệt trực quan.
 const ANH_AI = new Map([
+  ['patek-first-wristwatch', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['universal-time-1884', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['cartier-santos', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['harwood-automatic', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
   ['blancpain', {
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
@@ -214,10 +230,6 @@ const ANH_AI = new Map([
     en: 'AI reconstruction — not a historical photograph',
   }],
   ['trench-watch', {
-    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
-    en: 'AI reconstruction — not a historical photograph',
-  }],
-  ['universal-time-1884', {
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
   }],
@@ -261,6 +273,22 @@ const nhanAiOf = (slug: string) => ANH_AI.get(slug);
 // Có mục ở đây thì alt dùng mô tả thay thế kèm nhận diện AI; không có thì
 // giữ khuôn cũ (title + hậu tố + nhận diện) như 4 mốc H07-A.
 const ALT_AI_MO_RONG = new Map([
+  ['patek-first-wristwatch', {
+    vi: 'Bờ hồ Geneva thập niên 1860 lúc chạng vạng, hộp nhung kín trên lan can đá và nhân vật nhìn từ phía sau',
+    en: 'Lake Geneva in the 1860s at dusk, a closed velvet case on a stone balustrade and a figure seen from behind',
+  }],
+  ['universal-time-1884', {
+    vi: 'Sân ga cuối thế kỷ 19 nhìn từ cao, đồng hồ treo có mặt mờ, tàu hơi nước và ba hành khách nhìn từ phía sau',
+    en: 'A late nineteenth-century station seen from above, with a blurred hanging clock, steam train and three travellers seen from behind',
+  }],
+  ['cartier-santos', {
+    vi: 'Bãi cỏ ven Paris lúc bình minh thời kỳ đầu hàng không, một phi công nhìn từ phía sau đi về phía máy bay vải không ký hiệu',
+    en: 'A field near Paris at dawn in the pioneering era of flight, an aviator seen from behind walking toward an unmarked fabric aircraft',
+  }],
+  ['harwood-automatic', {
+    vi: 'Bàn thợ đồng hồ Anh thập niên 1920 bên cửa sổ mưa, đèn bàn xanh và dụng cụ trên tấm da',
+    en: 'A 1920s English watchmaker’s bench by a rainy window, with a green lamp and tools on a leather mat',
+  }],
   ['blancpain', {
     vi: 'Bên trong xưởng nhìn ra làng Jura phủ tuyết lúc chạng vạng, dụng cụ thủ công ở tiền cảnh',
     en: 'A workshop interior looking onto a snow-covered Jura village at dusk, with hand tools in the foreground',

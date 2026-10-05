@@ -158,7 +158,12 @@ const altFor = (m: Milestone) => {
   const nhan = nhanAiOf(m.slug);
   // L2-B: 5 ảnh AI đợt 2 dùng mô tả thay thế riêng (tài liệu nguồn) + nhận diện AI
   const moTa = altAiMoRongOf(m.slug);
-  if (nhan && moTa) return isVi ? `${moTa.vi} (minh họa AI tái dựng)` : `${moTa.en} (AI reconstruction)`;
+  if (nhan && moTa) {
+    const hauTo = SLUG_MO_HINH_3D.has(m.slug)
+      ? (isVi ? 'mô hình 3D minh họa nguyên lý do AI tái dựng' : 'AI-generated educational 3D principle model')
+      : (isVi ? 'minh họa AI tái dựng' : 'AI reconstruction');
+    return isVi ? `${moTa.vi} (${hauTo})` : `${moTa.en} (${hauTo})`;
+  }
   const goc = (isVi ? m.title : m.title_en) + S.altSuffix;
   if (!nhan) return goc;
   return isVi ? `${goc} (minh họa AI tái dựng)` : `${goc} (AI reconstruction)`;
@@ -181,6 +186,22 @@ const timelineImage = (slug: string): string | undefined => {
 // Gỡ ảnh AI = xóa tệp jpg + xóa mục khỏi map này → tự quay về SVG.
 // P0-C: thêm 4 mốc H07-A dùng ảnh AI bối cảnh đã được anh Vinh duyệt trực quan.
 const ANH_AI = new Map([
+  ['rolex-perpetual', {
+    vi: 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm',
+    en: 'AI-generated educational 3D principle model — not a product replica',
+  }],
+  ['rolex-datejust', {
+    vi: 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm',
+    en: 'AI-generated educational 3D principle model — not a product replica',
+  }],
+  ['omega-coaxial', {
+    vi: 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm',
+    en: 'AI-generated educational 3D principle model — not a product replica',
+  }],
+  ['un-freak', {
+    vi: 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm',
+    en: 'AI-generated educational 3D principle model — not a product replica',
+  }],
   ['iwc-pilot', {
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
@@ -296,11 +317,28 @@ const ANH_AI = new Map([
   }],
 ] as [string, { vi: string; en: string }][]);
 const nhanAiOf = (slug: string) => ANH_AI.get(slug);
+const SLUG_MO_HINH_3D = new Set(['rolex-perpetual', 'rolex-datejust', 'omega-coaxial', 'un-freak']);
 // L2-B: mô tả thay thế VI/EN riêng của từng ảnh AI đợt 2 — nguyên văn từ
 // docs/bo-cau-lenh-anh-ai-dong-thoi-gian-2026-09-24.md (mục 12, 15, 19, 22, 28).
 // Có mục ở đây thì alt dùng mô tả thay thế kèm nhận diện AI; không có thì
 // giữ khuôn cũ (title + hậu tố + nhận diện) như 4 mốc H07-A.
 const ALT_AI_MO_RONG = new Map([
+  ['rolex-perpetual', {
+    vi: 'Mô hình 3D rotor bán nguyệt trên trục giữa, không phải bản sao sản phẩm',
+    en: 'An educational 3D model of a semi-circular rotor on a central pivot, not a product replica',
+  }],
+  ['rolex-datejust', {
+    vi: 'Mô hình 3D đĩa lịch trống dưới ô cửa sổ, không phải bản sao sản phẩm',
+    en: 'An educational 3D model of a blank calendar disc beneath an aperture, not a product replica',
+  }],
+  ['omega-coaxial', {
+    vi: 'Mô hình 3D hai bánh xe ở hai tầng chung trục, không phải hình học bằng sáng chế',
+    en: 'An educational 3D model of two wheels at different heights on a shared axis, not patented geometry',
+  }],
+  ['un-freak', {
+    vi: 'Mô hình 3D cầu máy quay trên nền tròn trống, không phải bản sao sản phẩm',
+    en: 'An educational 3D model of a rotating bridge on a blank circular base, not a product replica',
+  }],
   ['iwc-pilot', {
     vi: 'Sân bay cỏ giữa thập niên 1930 lúc sáng sớm, phi công áo da nhìn từ phía sau đi về phía máy bay cánh quạt không ký hiệu',
     en: 'A mid-1930s grass airfield at dawn, a leather-jacketed pilot seen from behind walking toward an unmarked propeller aircraft',

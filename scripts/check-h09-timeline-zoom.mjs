@@ -54,6 +54,12 @@ const TRANG = [
 // Nhãn AI minh bạch (B3.2.4) — dùng chung với map ANH_AI của HistoryTimeline
 const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
+const NHAN_3D_VI = 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm';
+const NHAN_3D_EN = 'AI-generated educational 3D principle model — not a product replica';
+const SLUG_3D = new Set(['rolex-perpetual', 'rolex-datejust', 'omega-coaxial', 'un-freak']);
+const nhanOf = (slug, ngon) => SLUG_3D.has(slug)
+  ? (ngon === 'vi' ? NHAN_3D_VI : NHAN_3D_EN)
+  : (ngon === 'vi' ? NHAN_AI_VI : NHAN_AI_EN);
 // Nguồn map ANH_AI — đọc một lần, dùng cho H9-6 từng trang và H9-7 hai chiều
 const nguonComponent = readFileSync(join(ROOT, 'src', 'components', 'history', 'HistoryTimeline.astro'), 'utf8');
 
@@ -109,7 +115,6 @@ for (const { lang, path, nhan, close } of TRANG) {
   // nguồn, không ghi cứng) phải có nhãn AI ở thẻ và truyền vào hộp phóng to
   // qua data-zoom-ai; nhãn đúng ngôn ngữ từng trang.
   const slugsAi = [...new Set([...nguonComponent.matchAll(/'([a-z0-9-]+)',\s*\{\s*vi: '/g)].map((m) => m[1]))];
-  const nhanNgonNgu = lang === 'vi' ? NHAN_AI_VI : NHAN_AI_EN;
   const lechAi = [];
   for (const slug of slugsAi) {
     const m = data.find((x) => x.slug === slug);
@@ -118,10 +123,10 @@ for (const { lang, path, nhan, close } of TRANG) {
     const mo = html.match(new RegExp(`<article[^>]*id="milestone-${i}"[\\s\\S]*?</article>`));
     if (!mo) { lechAi.push(`${slug}: thiếu thẻ #milestone-${i}`); continue; }
     if (!/data-zoom-ai="[^]/.test(mo[0])) lechAi.push(`${slug}: data-zoom-ai rỗng/thiếu trên nút phóng to`);
-    if (!mo[0].includes(nhanNgonNgu)) lechAi.push(`${slug}: thiếu nhãn AI đúng ngôn ngữ ở thẻ`);
+    if (!mo[0].includes(nhanOf(slug, lang))) lechAi.push(`${slug}: thiếu nhãn ảnh đúng ngôn ngữ ở thẻ`);
   }
-  const soTruyen = (html.match(new RegExp(`data-zoom-ai="${nhanNgonNgu}`, 'g')) ?? []).length;
-  kiem(`H9-6-${tag}`, `${slugsAi.length} mốc ảnh AI: nhãn ở thẻ + truyền vào hộp phóng to (×${soTruyen})`, lechAi.length === 0 && soTruyen === slugsAi.length, `${lechAi.join(', ') || 'đủ'}, truyền=${soTruyen}`);
+  const soTruyen = slugsAi.filter((slug) => html.includes(`data-zoom-ai="${nhanOf(slug, lang)}"`)).length;
+  kiem(`H9-6-${tag}`, `${slugsAi.length} mốc ảnh AI/3D: nhãn ở thẻ + truyền vào hộp phóng to (×${soTruyen})`, lechAi.length === 0 && soTruyen === slugsAi.length, `${lechAi.join(', ') || 'đủ'}, truyền=${soTruyen}`);
 }
 
 // H9-7 (S1, 25/09/2026): map ANH_AI và tệp JPG trong public/images/timeline/

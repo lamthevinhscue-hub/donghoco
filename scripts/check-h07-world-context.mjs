@@ -172,6 +172,12 @@ if (DIST) {
     // trực quan — không gán ý nghĩa chứng cứ lịch sử/kỹ thuật nào.
     const NHAN_AI_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
     const NHAN_AI_EN = 'AI reconstruction — not a historical photograph';
+    const NHAN_3D_VI = 'Mô hình 3D minh họa nguyên lý do AI tái dựng — không phải bản sao sản phẩm';
+    const NHAN_3D_EN = 'AI-generated educational 3D principle model — not a product replica';
+    const SLUG_3D = new Set(['rolex-perpetual', 'rolex-datejust', 'omega-coaxial', 'un-freak']);
+    const nhanOf = (slug, ngon) => SLUG_3D.has(slug)
+      ? (ngon === 'vi' ? NHAN_3D_VI : NHAN_3D_EN)
+      : (ngon === 'vi' ? NHAN_AI_VI : NHAN_AI_EN);
     const tepComponent = join(process.cwd(), 'src', 'components', 'history', 'HistoryTimeline.astro');
     const componentText = readFileSync(tepComponent, 'utf8');
     const dauMap = componentText.indexOf('const ANH_AI = new Map([');
@@ -183,21 +189,23 @@ if (DIST) {
     const thieuJpg = MOC_MOI.filter((slug) => !viHtml.includes(`src="/images/timeline/${slug}.jpg"`) || !enHtml.includes(`src="/images/timeline/${slug}.jpg"`));
     // Mỗi mốc AI: caption nhãn + attr data-zoom-ai → 2 lần nhãn mỗi trang;
     // nút zoom: data-zoom-src trỏ đúng ảnh slug và data-zoom-ai nguyên văn ngay sau
-    const viNhan = (viHtml.match(new RegExp(NHAN_AI_VI, 'g')) ?? []).length;
-    const enNhan = (enHtml.match(new RegExp(NHAN_AI_EN, 'g')) ?? []).length;
-    const viLan = viHtml.includes(NHAN_AI_EN);
-    const enLan = enHtml.includes(NHAN_AI_VI);
-    const viAlt = (viHtml.match(/\(minh họa AI tái dựng\)/g) ?? []).length;
-    const enAlt = (enHtml.match(/\(AI reconstruction\)/g) ?? []).length;
-    const viZoomAi = (viHtml.match(new RegExp(`data-zoom-ai="${NHAN_AI_VI}"`, 'g')) ?? []).length;
-    const enZoomAi = (enHtml.match(new RegExp(`data-zoom-ai="${NHAN_AI_EN}"`, 'g')) ?? []).length;
+    const demNhan = (html, ngon) => [...new Set(slugAnhAi.map((slug) => nhanOf(slug, ngon)))].reduce((tong, nhan) => tong + (html.match(new RegExp(nhan, 'g')) ?? []).length, 0);
+    const viNhan = demNhan(viHtml, 'vi');
+    const enNhan = demNhan(enHtml, 'en');
+    const viLan = [NHAN_AI_EN, NHAN_3D_EN].some((nhan) => viHtml.includes(nhan));
+    const enLan = [NHAN_AI_VI, NHAN_3D_VI].some((nhan) => enHtml.includes(nhan));
+    const viAlt = (viHtml.match(/\((?:minh họa AI tái dựng|mô hình 3D minh họa nguyên lý do AI tái dựng)\)/g) ?? []).length;
+    const enAlt = (enHtml.match(/\((?:AI reconstruction|AI-generated educational 3D principle model)\)/g) ?? []).length;
+    const demZoom = (html, ngon) => [...new Set(slugAnhAi.map((slug) => nhanOf(slug, ngon)))].reduce((tong, nhan) => tong + (html.match(new RegExp(`data-zoom-ai="${nhan}"`, 'g')) ?? []).length, 0);
+    const viZoomAi = demZoom(viHtml, 'vi');
+    const enZoomAi = demZoom(enHtml, 'en');
     const zoomLech = slugAnhAi.filter((slug) => {
       const anh = `/images/timeline/${slug}.jpg`;
-      const mauVi = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${NHAN_AI_VI}"`);
-      const mauEn = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${NHAN_AI_EN}"`);
+      const mauVi = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${nhanOf(slug, 'vi')}"`);
+      const mauEn = new RegExp(`data-zoom-src="${anh}"[^>]*data-zoom-ai="${nhanOf(slug, 'en')}"`);
       return !mauVi.test(viHtml) || !mauEn.test(enHtml);
     });
-    kiem('W5-e', `Dist: 4 JPG H07-A render đúng + ${soMocAi} mốc AI suy từ ANH_AI — nhãn AI ×${soMocAi * 2} (thẻ + attr), data-zoom-ai ×${soMocAi}, data-zoom-src đúng slug, alt khuôn H12-A, không lẫn ngôn ngữ`,
+    kiem('W5-e', `Dist: 4 JPG H07-A render đúng + ${soMocAi} mốc AI/3D suy từ ANH_AI — nhãn ×${soMocAi * 2} (thẻ + attr), data-zoom-ai ×${soMocAi}, data-zoom-src đúng slug, alt khuôn H12-A, không lẫn ngôn ngữ`,
       slugAnhAi.length >= MOC_MOI.length + 1
       && thieuJpg.length === 0
       && viNhan === soMocAi * 2 && enNhan === soMocAi * 2

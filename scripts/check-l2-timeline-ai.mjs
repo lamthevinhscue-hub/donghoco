@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 // =============================================================================
-// check-l2-timeline-ai.mjs (L2-B, GD3) — kiểm 5 ảnh L2-B và 4 ảnh được duyệt ngày 04/10/2026
+// check-l2-timeline-ai.mjs (L2-B, GD3) — kiểm 5 ảnh L2-B và 8 ảnh được duyệt theo lô
 // =============================================================================
 // Chạy KHÔNG tham số → kiểm nguồn (L2-1..L2-4).
 // Chạy `dist`          → kiểm nguồn + kiểm dist (L2-5..L2-7).
 //
-//   L2-1  Đúng 9 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
+//   L2-1  Đúng 13 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
 //         1200×900 (SOF), ≤150 KB, hash không trùng.
 //   L2-2  JPG ↔ ANH_AI hai chiều: mọi tệp .jpg timeline đều có slug trong
 //         bảng ANH_AI của HistoryTimeline.astro và ngược lại.
-//   L2-3  Nhãn nguyên văn + mô tả thay thế: 9 slug có nhãn VI/EN
+//   L2-3  Nhãn nguyên văn + mô tả thay thế: 13 slug có nhãn VI/EN
 //         "Minh họa AI tái dựng — không phải ảnh tư liệu" / "AI reconstruction
 //         — not a historical photograph" và mục alt riêng trong ALT_AI_MO_RONG.
 //   L2-4  Checker được nối vào cuối cả `check` và `build` trong package.json.
-//   L2-5  Dist hai trang: 9 mốc render ảnh jpg đúng, alt theo mô tả thay thế
+//   L2-5  Dist hai trang: 13 mốc render ảnh jpg đúng, alt theo mô tả thay thế
 //         + nhận diện AI, nhãn AI ở thẻ và trong data-zoom (hộp phóng to).
 //   L2-6  Không ảnh AI ngoài danh sách: mọi "/images/timeline/*.jpg" trong
-//         hai trang thuộc tập 14 slug cho phép; SVG đối chứng không bị thay.
+//         hai trang thuộc tập 18 slug cho phép; SVG đối chứng không bị thay.
 //
 // Biến môi trường cho mutation trên bản sao: L2B_ROOT (mặc định cwd),
 // L2B_DIST (mặc định <L2B_ROOT>/dist). Exit 1 nếu có lỗi.
@@ -30,10 +30,14 @@ const ROOT = process.env.L2B_ROOT ?? process.cwd();
 const KIEM_DIST = process.argv[2] === 'dist';
 const DIST = process.env.L2B_DIST ?? join(ROOT, 'dist');
 
-const SLUGS = ['peter-henlein', 'huygens-hairspring', 'rolex-gmt', 'ap-royal-oak', 'rolex-oyster', 'jlc-reverso', 'rolex-submariner', 'heuer-carrera', 'patek-nautilus'];
+const SLUGS = [
+  'blancpain', 'vacheron-constantin', 'breguet-tourbillon', 'breguet-naples',
+  'peter-henlein', 'huygens-hairspring', 'rolex-gmt', 'ap-royal-oak',
+  'rolex-oyster', 'jlc-reverso', 'rolex-submariner', 'heuer-carrera', 'patek-nautilus',
+];
 const NHAN_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const NHAN_EN = 'AI reconstruction — not a historical photograph';
-// Tập slug ảnh timeline hợp lệ sau L2-B: 5 ảnh nền (trench + H07-A) + 5 ảnh L2-B + 4 ảnh đã duyệt
+// Tập slug ảnh timeline hợp lệ: 5 ảnh nền + 5 ảnh L2-B + 8 ảnh đã duyệt theo lô
 const SLUG_JPG_HOP_LE = new Set([
   'trench-watch', 'universal-time-1884', 'great-depression-1929',
   'atomic-second-1967', 'oil-shock-1973', ...SLUGS,
@@ -41,6 +45,22 @@ const SLUG_JPG_HOP_LE = new Set([
 
 // Alt kỳ vọng (nguồn chốt — mô tả thay thế tài liệu + nhận diện AI, khớp altFor)
 const ALT_KY_VONG = {
+  'blancpain': {
+    vi: 'Bên trong xưởng nhìn ra làng Jura phủ tuyết lúc chạng vạng, dụng cụ thủ công ở tiền cảnh (minh họa AI tái dựng)',
+    en: 'A workshop interior looking onto a snow-covered Jura village at dusk, with hand tools in the foreground (AI reconstruction)',
+  },
+  'vacheron-constantin': {
+    vi: 'Xưởng đồng hồ Geneva thế kỷ 18 trên tầng áp mái, hai người thợ nhìn từ phía sau bên dãy cửa sổ cao (minh họa AI tái dựng)',
+    en: 'An eighteenth-century Geneva attic workshop, two craftspeople seen from behind by tall windows (AI reconstruction)',
+  },
+  'breguet-tourbillon': {
+    vi: 'Xưởng đồng hồ Paris khoảng năm 1800, người thợ nhìn từ phía sau cúi qua kính lúp dưới ánh nến (minh họa AI tái dựng)',
+    en: 'A Paris watchmaking workshop around 1800, a watchmaker seen from behind leaning over a loupe by candlelight (AI reconstruction)',
+  },
+  'breguet-naples': {
+    vi: 'Phòng khách phong cách Empire, hộp nhung kín trên bàn đá cẩm thạch và nhân vật nhìn từ phía sau (minh họa AI tái dựng)',
+    en: 'An Empire-style salon, a closed velvet case on marble and a figure seen from behind (AI reconstruction)',
+  },
   'peter-henlein': {
     vi: 'Vỏ đồng hồ bằng đồng, chìa lên dây và dụng cụ trên bàn thợ, tái dựng bối cảnh đầu thế kỷ XVI (minh họa AI tái dựng)',
     en: 'A brass watch housing, winding key and tools on a workbench, reconstructing an early sixteenth-century setting (AI reconstruction)',
@@ -118,7 +138,7 @@ function slugAnnhAi(text) {
 }
 
 if (component) {
-  // ---- L2-1 Đúng 9 slug/ảnh web ----
+  // ---- L2-1 Đúng 13 slug/ảnh web ----
   const loi1 = [];
   const hashDaThay = new Set();
   for (const slug of SLUGS) {
@@ -137,7 +157,7 @@ if (component) {
     if (hashDaThay.has(h)) loi1.push(`${slug}.jpg trùng byte với ảnh khác`);
     hashDaThay.add(h);
   }
-  if (loi1.length === 0) ok('L2-1', '9 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
+  if (loi1.length === 0) ok('L2-1', '13 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
   else fail('L2-1', loi1.join('; '));
 
   // ---- L2-2 JPG ↔ ANH_AI hai chiều ----
@@ -165,7 +185,7 @@ if (component) {
       loi3.push(`${slug}: thiếu mô tả thay thế trong ALT_AI_MO_RONG`);
     }
   }
-  if (loi3.length === 0) ok('L2-3', '9 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
+  if (loi3.length === 0) ok('L2-3', '13 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
   else fail('L2-3', loi3.join('; '));
 
   // ---- L2-4 Nối build ----
@@ -217,7 +237,7 @@ if (KIEM_DIST) {
     const soZoomAi = html.split('data-zoom-ai=').length - 1;
     if (soZoomAi < SLUGS.length) loi5.push(`${duong}: data-zoom-ai chỉ ${soZoomAi} (<${SLUGS.length})`);
   }
-  if (loi5.length === 0) ok('L2-5', `2 trang dist: 9 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
+  if (loi5.length === 0) ok('L2-5', `2 trang dist: 13 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
   else fail('L2-5', loi5.slice(0, 8).join('; '));
 
   // ---- L2-6 Không ảnh AI ngoài danh sách ----
@@ -229,16 +249,16 @@ if (KIEM_DIST) {
       if (!SLUG_JPG_HOP_LE.has(m[1])) loi6.push(`${duong}: ảnh lạ ${m[1]}.jpg`);
     }
   }
-  // SVG đối chứng không bị thay: 9 mốc L2 phải vẫn giữ tệp svg trong dist assets? (svg cùng slug vẫn tồn tại ở public)
-  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 14 slug cho phép');
+  // SVG đối chứng vẫn giữ tệp cùng slug trong public.
+  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 18 slug cho phép');
   else fail('L2-6', loi6.join('; '));
 }
 
-console.log('KIỂM TRA L2-B — 9 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
+console.log('KIỂM TRA 13 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
 for (const line of report) console.log(`  ĐẠT  ${line}`);
 if (errors.length > 0) {
   console.log('  KẾT LUẬN: KHÔNG ĐẠT:');
   for (const e of errors) console.log(`    LỖI  ${e}`);
   process.exit(1);
 }
-console.log('  KẾT LUẬN: ĐẠT — 9 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');
+console.log('  KẾT LUẬN: ĐẠT — 13 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');

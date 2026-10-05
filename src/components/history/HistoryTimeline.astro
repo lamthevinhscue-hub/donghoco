@@ -181,6 +181,34 @@ const timelineImage = (slug: string): string | undefined => {
 // Gỡ ảnh AI = xóa tệp jpg + xóa mục khỏi map này → tự quay về SVG.
 // P0-C: thêm 4 mốc H07-A dùng ảnh AI bối cảnh đã được anh Vinh duyệt trực quan.
 const ANH_AI = new Map([
+  ['iwc-pilot', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['fifty-fathoms', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['omega-speedmaster', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['automatic-chronograph-race', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['seiko-astron', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['swatch-1983', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
+  ['silicon-revival', {
+    vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
+    en: 'AI reconstruction — not a historical photograph',
+  }],
   ['patek-first-wristwatch', {
     vi: 'Minh họa AI tái dựng — không phải ảnh tư liệu',
     en: 'AI reconstruction — not a historical photograph',
@@ -273,6 +301,34 @@ const nhanAiOf = (slug: string) => ANH_AI.get(slug);
 // Có mục ở đây thì alt dùng mô tả thay thế kèm nhận diện AI; không có thì
 // giữ khuôn cũ (title + hậu tố + nhận diện) như 4 mốc H07-A.
 const ALT_AI_MO_RONG = new Map([
+  ['iwc-pilot', {
+    vi: 'Sân bay cỏ giữa thập niên 1930 lúc sáng sớm, phi công áo da nhìn từ phía sau đi về phía máy bay cánh quạt không ký hiệu',
+    en: 'A mid-1930s grass airfield at dawn, a leather-jacketed pilot seen from behind walking toward an unmarked propeller aircraft',
+  }],
+  ['fifty-fathoms', {
+    vi: 'Hai thợ lặn thập niên 1950 thành bóng đen dưới làn nước, bơi lên phía mặt nước có nắng',
+    en: 'Two 1950s divers silhouetted underwater, rising toward the sunlit surface',
+  }],
+  ['omega-speedmaster', {
+    vi: 'Phi hành gia mặc bộ đồ vũ trụ nhìn từ phía sau đứng trên mặt Trăng, Trái Đất nhỏ phía chân trời',
+    en: 'An astronaut in a spacesuit seen from behind stands on the lunar surface, the small Earth above the horizon',
+  }],
+  ['automatic-chronograph-race', {
+    vi: 'Ba bàn thợ đồng hồ đặt cạnh nhau cuối thập niên 1960, mỗi bàn một ngọn đèn, ba người làm việc song song',
+    en: 'Three watchmaking benches side by side in the late 1960s, each under its own lamp, worked in parallel',
+  }],
+  ['seiko-astron', {
+    vi: 'Phòng thí nghiệm điện tử cuối thập niên 1960, kỹ thuật viên nhìn từ phía sau bên kính hiển vi và thiết bị không nhãn',
+    en: 'A late-1960s electronics lab, a technician seen from behind at a microscope beside unmarked equipment',
+  }],
+  ['swatch-1983', {
+    vi: 'Dây chuyền lắp ráp tự động đầu thập niên 1980, tay robot và khay linh kiện nhiều màu',
+    en: 'An early-1980s automated assembly line with robot arms and trays of colourful components',
+  }],
+  ['silicon-revival', {
+    vi: 'Phòng sạch ánh vàng hổ phách, kỹ thuật viên nhìn từ phía sau giơ tấm silicon có bề mặt bắt sáng',
+    en: 'An amber-lit cleanroom, a technician seen from behind holding up a light-catching silicon wafer',
+  }],
   ['patek-first-wristwatch', {
     vi: 'Bờ hồ Geneva thập niên 1860 lúc chạng vạng, hộp nhung kín trên lan can đá và nhân vật nhìn từ phía sau',
     en: 'Lake Geneva in the 1860s at dusk, a closed velvet case on a stone balustrade and a figure seen from behind',

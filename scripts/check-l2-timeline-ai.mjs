@@ -5,18 +5,18 @@
 // Chạy KHÔNG tham số → kiểm nguồn (L2-1..L2-4).
 // Chạy `dist`          → kiểm nguồn + kiểm dist (L2-5..L2-7).
 //
-//   L2-1  Đúng 17 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
+//   L2-1  Đúng 24 slug/ảnh web: public/images/timeline/<slug>.jpg, JPEG
 //         1200×900 (SOF), ≤150 KB, hash không trùng.
 //   L2-2  JPG ↔ ANH_AI hai chiều: mọi tệp .jpg timeline đều có slug trong
 //         bảng ANH_AI của HistoryTimeline.astro và ngược lại.
-//   L2-3  Nhãn nguyên văn + mô tả thay thế: 17 slug có nhãn VI/EN
+//   L2-3  Nhãn nguyên văn + mô tả thay thế: 24 slug có nhãn VI/EN
 //         "Minh họa AI tái dựng — không phải ảnh tư liệu" / "AI reconstruction
 //         — not a historical photograph" và mục alt riêng trong ALT_AI_MO_RONG.
 //   L2-4  Checker được nối vào cuối cả `check` và `build` trong package.json.
-//   L2-5  Dist hai trang: 17 mốc render ảnh jpg đúng, alt theo mô tả thay thế
+//   L2-5  Dist hai trang: 24 mốc render ảnh jpg đúng, alt theo mô tả thay thế
 //         + nhận diện AI, nhãn AI ở thẻ và trong data-zoom (hộp phóng to).
 //   L2-6  Không ảnh AI ngoài danh sách: mọi "/images/timeline/*.jpg" trong
-//         hai trang thuộc tập 21 slug cho phép; SVG đối chứng không bị thay.
+//         hai trang thuộc tập 28 slug cho phép; SVG đối chứng không bị thay.
 //
 // Biến môi trường cho mutation trên bản sao: L2B_ROOT (mặc định cwd),
 // L2B_DIST (mặc định <L2B_ROOT>/dist). Exit 1 nếu có lỗi.
@@ -31,6 +31,8 @@ const KIEM_DIST = process.argv[2] === 'dist';
 const DIST = process.env.L2B_DIST ?? join(ROOT, 'dist');
 
 const SLUGS = [
+  'iwc-pilot', 'fifty-fathoms', 'omega-speedmaster', 'automatic-chronograph-race',
+  'seiko-astron', 'swatch-1983', 'silicon-revival',
   'patek-first-wristwatch', 'universal-time-1884', 'cartier-santos', 'harwood-automatic',
   'blancpain', 'vacheron-constantin', 'breguet-tourbillon', 'breguet-naples',
   'peter-henlein', 'huygens-hairspring', 'rolex-gmt', 'ap-royal-oak',
@@ -38,7 +40,7 @@ const SLUGS = [
 ];
 const NHAN_VI = 'Minh họa AI tái dựng — không phải ảnh tư liệu';
 const NHAN_EN = 'AI reconstruction — not a historical photograph';
-// Tập slug ảnh timeline hợp lệ: 4 ảnh nền + 5 ảnh L2-B + 12 ảnh đã duyệt theo lô
+// Tập slug ảnh timeline hợp lệ: 4 ảnh nền + 5 ảnh L2-B + 19 ảnh đã duyệt theo lô
 const SLUG_JPG_HOP_LE = new Set([
   'trench-watch', 'great-depression-1929',
   'atomic-second-1967', 'oil-shock-1973', ...SLUGS,
@@ -46,6 +48,34 @@ const SLUG_JPG_HOP_LE = new Set([
 
 // Alt kỳ vọng (nguồn chốt — mô tả thay thế tài liệu + nhận diện AI, khớp altFor)
 const ALT_KY_VONG = {
+  'iwc-pilot': {
+    vi: 'Sân bay cỏ giữa thập niên 1930 lúc sáng sớm, phi công áo da nhìn từ phía sau đi về phía máy bay cánh quạt không ký hiệu (minh họa AI tái dựng)',
+    en: 'A mid-1930s grass airfield at dawn, a leather-jacketed pilot seen from behind walking toward an unmarked propeller aircraft (AI reconstruction)',
+  },
+  'fifty-fathoms': {
+    vi: 'Hai thợ lặn thập niên 1950 thành bóng đen dưới làn nước, bơi lên phía mặt nước có nắng (minh họa AI tái dựng)',
+    en: 'Two 1950s divers silhouetted underwater, rising toward the sunlit surface (AI reconstruction)',
+  },
+  'omega-speedmaster': {
+    vi: 'Phi hành gia mặc bộ đồ vũ trụ nhìn từ phía sau đứng trên mặt Trăng, Trái Đất nhỏ phía chân trời (minh họa AI tái dựng)',
+    en: 'An astronaut in a spacesuit seen from behind stands on the lunar surface, the small Earth above the horizon (AI reconstruction)',
+  },
+  'automatic-chronograph-race': {
+    vi: 'Ba bàn thợ đồng hồ đặt cạnh nhau cuối thập niên 1960, mỗi bàn một ngọn đèn, ba người làm việc song song (minh họa AI tái dựng)',
+    en: 'Three watchmaking benches side by side in the late 1960s, each under its own lamp, worked in parallel (AI reconstruction)',
+  },
+  'seiko-astron': {
+    vi: 'Phòng thí nghiệm điện tử cuối thập niên 1960, kỹ thuật viên nhìn từ phía sau bên kính hiển vi và thiết bị không nhãn (minh họa AI tái dựng)',
+    en: 'A late-1960s electronics lab, a technician seen from behind at a microscope beside unmarked equipment (AI reconstruction)',
+  },
+  'swatch-1983': {
+    vi: 'Dây chuyền lắp ráp tự động đầu thập niên 1980, tay robot và khay linh kiện nhiều màu (minh họa AI tái dựng)',
+    en: 'An early-1980s automated assembly line with robot arms and trays of colourful components (AI reconstruction)',
+  },
+  'silicon-revival': {
+    vi: 'Phòng sạch ánh vàng hổ phách, kỹ thuật viên nhìn từ phía sau giơ tấm silicon có bề mặt bắt sáng (minh họa AI tái dựng)',
+    en: 'An amber-lit cleanroom, a technician seen from behind holding up a light-catching silicon wafer (AI reconstruction)',
+  },
   'patek-first-wristwatch': {
     vi: 'Bờ hồ Geneva thập niên 1860 lúc chạng vạng, hộp nhung kín trên lan can đá và nhân vật nhìn từ phía sau (minh họa AI tái dựng)',
     en: 'Lake Geneva in the 1860s at dusk, a closed velvet case on a stone balustrade and a figure seen from behind (AI reconstruction)',
@@ -174,7 +204,7 @@ if (component) {
     if (hashDaThay.has(h)) loi1.push(`${slug}.jpg trùng byte với ảnh khác`);
     hashDaThay.add(h);
   }
-  if (loi1.length === 0) ok('L2-1', '17 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
+  if (loi1.length === 0) ok('L2-1', '24 ảnh web 1200×900 JPEG ≤150 KB, hash riêng');
   else fail('L2-1', loi1.join('; '));
 
   // ---- L2-2 JPG ↔ ANH_AI hai chiều ----
@@ -202,7 +232,7 @@ if (component) {
       loi3.push(`${slug}: thiếu mô tả thay thế trong ALT_AI_MO_RONG`);
     }
   }
-  if (loi3.length === 0) ok('L2-3', '17 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
+  if (loi3.length === 0) ok('L2-3', '24 slug có nhãn VI/EN nguyên văn + mô tả thay thế riêng');
   else fail('L2-3', loi3.join('; '));
 
   // ---- L2-4 Nối build ----
@@ -254,7 +284,7 @@ if (KIEM_DIST) {
     const soZoomAi = html.split('data-zoom-ai=').length - 1;
     if (soZoomAi < SLUGS.length) loi5.push(`${duong}: data-zoom-ai chỉ ${soZoomAi} (<${SLUGS.length})`);
   }
-  if (loi5.length === 0) ok('L2-5', `2 trang dist: 17 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
+  if (loi5.length === 0) ok('L2-5', `2 trang dist: 24 mốc mỗi trang có ảnh + alt mô tả thay thế + nhãn AI ở thẻ và data-zoom`);
   else fail('L2-5', loi5.slice(0, 8).join('; '));
 
   // ---- L2-6 Không ảnh AI ngoài danh sách ----
@@ -267,15 +297,15 @@ if (KIEM_DIST) {
     }
   }
   // SVG đối chứng vẫn giữ tệp cùng slug trong public.
-  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 21 slug cho phép');
+  if (loi6.length === 0) ok('L2-6', 'không ảnh timeline .jpg nào ngoài 28 slug cho phép');
   else fail('L2-6', loi6.join('; '));
 }
 
-console.log('KIỂM TRA 17 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
+console.log('KIỂM TRA 24 ẢNH AI BỐI CẢNH TRÊN DÒNG THỜI GIAN' + (KIEM_DIST ? ' (kèm dist)' : ' (nguồn)'));
 for (const line of report) console.log(`  ĐẠT  ${line}`);
 if (errors.length > 0) {
   console.log('  KẾT LUẬN: KHÔNG ĐẠT:');
   for (const e of errors) console.log(`    LỖI  ${e}`);
   process.exit(1);
 }
-console.log('  KẾT LUẬN: ĐẠT — 17 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');
+console.log('  KẾT LUẬN: ĐẠT — 24 ảnh AI tích hợp đúng nhãn, alt và phạm vi.');

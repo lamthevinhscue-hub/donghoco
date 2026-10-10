@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- ============================================================
+  V3 trang encode — WebCodecs VP9 + muxer WebM (EBML) tự viết
+  ============================================================
+  Đọc 240 frame PNG từ /frames/, encode VP9 keyframe mỗi giây,
+  đóng gói WebM (không dùng thư viện ngoài, không ffmpeg).
+  Kết quả: window.__webm() trả Uint8Array sau khi encode xong.
+============================================================ -->
+<html lang="vi">
+<head><meta charset="utf-8" /><title>V3 encode</title></head>
+<body>
+<script type="module">
+const W = 960, H = 540, FPS = 30, TONG = 240;
+
+// ===== EBML helpers =====
+const u8 = (...b) => new Uint8Array(b);
+const ghi = (n) => { // EBML element ID (đã biết độ dài theo byte đầu)
+  return n; // dùng mảng byte viết tay từng ID
+};
+function sizeVint(x) {
+  let n = 1;
+  while (x >= Math.pow(2, 7 * n) - 1) n++;
+  const kq = new Uint8Array(n);
+  for (let i = n - 1; i >= 0; i--) kq[i] = x & 0xff, x >>= 8; // eslint-disable-line no-sequences
+  kq[0] |= 0x80 >> (n - 1);
+  return kq;
+}
+function uintPayload(x) {
+  let n = 1;
+  while (x >= Math.pow(2, 8 * n)) n++;
+  const kq = new Uint8Array(n);
+  for (let i = n - 1; i >= 0; i--) kq[i] = x & 0xff, x >>= 8; // eslint-disable-line no-sequences
+  return kq;
+}
+function float64Payload(x) {
+  const kq = new Uint8Array(8);
+  new DataView(kq.buffer).setFloat64(0, x);
+  return kq;
+}
+function chuoiPayload(s) { return new TextEncoder().encode(s); }
+function el(idBytes, payload) {
+  const kq = new Uint8Array(idBytes.length + sizeVint(payload.length).length + payload.length);
+  kq.set(idBytes, 0);
+  kq.set(sizeVint(payload.length), idBytes.length);
+  kq.set(payload, idBytes.length + sizeVint(payload.length).length);
+  return kq;
+}
+function ghep(mang) {
+  const tong = mang.reduce((a, b) => a + b.length, 0);
+  const kq = new Uint8Array(tong);
+  let o = 0;
+  for (const b of mang) { kq.set(b, o); o += b.length; }
+  return kq;
+}
+// EBML element IDs (byte hằng)
+const ID_EBML = u8(0x1a, 0x45, 0xdf, 0xa3), ID_EBMLVER = u8(0x42, 0x86), ID_EBMLREAD = u8(0x42, 0xf7),
+  ID_MAXID = u8(0x42, 0xf2), ID_MAXSIZE = u8(0x42, 0xf3), ID_DOCTYPE = u8(0x42, 0x82),
+  ID_DOCTYPEVER = u8(0x42, 0x87), ID_DOCTYPEREAD = u8(0x42, 0x85),
+  ID_SEGMENT = u8(0x18, 0x53, 0x80, 0x67), ID_INFO = u8(0x15, 0x49, 0xa9, 0x66),
+  ID_TIMESCALE = u8(0x2a, 0xd7, 0xb1), ID_DURATION = u8(0x44, 0x89),
+  ID_MUXAPP = u8(0x4d, 0x80), ID_WRAPP = u8(0x57, 0x41),
+  ID_TRACKS = u8(0x16, 0x54, 0xae, 0x6b), ID_TENTRY = u8(0xae), ID_TNUM = u8(0xd7),
+  ID_TUID = u8(0x73, 0xc5), ID_TTYPE = u8(0x83), ID_CODEC = u8(0x86),
+  ID_VIDEO = u8(0xe0), ID_PXW = u8(0xb0), ID_PXH = u8(0xba),
+  ID_CLUSTER = u8(0x1f, 0x43, 0xb6, 0x75), ID_CTIME = u8(0xe7), ID_SBLOCK = u8(0xa3),
+  ID_CUES = u8(0x1c, 0x53, 0xbb, 0x6b), ID_CUEPOINT = u8(0xbb), ID_CUETIME = u8(0xb3),
+  ID_CUEPOS = u8(0xb7), ID_CUETRACK = u8(0xf7), ID_CUECLUSTER = u8(0xf1);
+
+function dungWebm(ky, videoId, width, height, durationMs) {
+  const header = el(ID_EBML, ghep([
+    el(ID_EBMLVER, uintPayload(1)), el(ID_EBMLREAD, uintPayload(1)),
+    el(ID_MAXID, uintPayload(4)), el(ID_MAXSIZE, uintPayload(8)),
+    el(ID_DOCTYPE, chuoiPayload('webm')), el(ID_DOCTYPEVER, uintPayload(4)),
+    el(ID_DOCTYPEREAD, uintPayload(2)),
+  ]));
+  const info = el(ID_INFO, ghep([
+    el(ID_TIMESCALE, uintPayload(1000000)),
+    el(ID_DURATION, float64Payload(durationMs)),
+    el(ID_MUXAPP, chuoiPayload('v3-glm-webcodecs')),
+    el(ID_WRAPP, chuoiPayload('v3-glm-webcodecs')),
+  ]));
+  const tracks = el(ID_TRACKS, el(ID_TENTRY, ghep([
+    el(ID_TNUM, uintPayload(1)), el(ID_TUID, uintPayload(1)),
+    el(ID_TTYPE, uintPayload(1)), el(ID_CODEC, chuoiPayload('V_VP9')),
+    el(ID_VIDEO, ghep([el(ID_PXW, uintPayload(width)), el(ID_PXH, uintPayload(height))])),
+  ])));
+  // mỗi frame một Cluster (Timestamp = ms tuyệt đối, SimpleBlock rel 0)
+  const cacCluster = [];
+  const viTriCluster = [];
+  let offset = info.length + tracks.length;
+  for (const k of ky) {
+    const ms = Math.round((k.ts / 1000) * FPS) / FPS * 1000; // giữ ms khớp timestamp
+    const msFrame = Math.round(k.ts / 1000);
+    const block = ghep([
+      u8(0x81),
+      u8(0, 0), // rel timecode 0 — ghi bên dưới
+      u8(k.key ? 0x80 : 0x00),
+      k.data,
+    ]);
+    new DataView(block.buffer).setInt16(1, 0); // rel = 0 (cluster time = tuyệt đối)
+    const cl = el(ID_CLUSTER, ghep([el(ID_CTIME, uintPayload(msFrame)), el(ID_SBLOCK, block)]));
+    viTriCluster.push(offset);
+    offset += cl.length;
+    cacCluster.push(cl);
+  }
+  // Cues: mỗi 30 frame (1 giây)
+  const cueDiem = [];
+  for (let i = 0; i < ky.length; i += 30) {
+    cueDiem.push(el(ID_CUEPOINT, ghep([
+      el(ID_CUETIME, uintPayload(Math.round(i * 1000 / FPS))),
+      el(ID_CUEPOS, ghep([el(ID_CUETRACK, uintPayload(1)), el(ID_CUECLUSTER, uintPayload(viTriCluster[i]))])),
+    ])));
+  }
+  const cues = el(ID_CUES, ghep(cueDiem));
+  const segment = el(ID_SEGMENT, ghep([info, tracks, ...cacCluster, cues]));
+  return ghep([header, segment]);
+}
+
+window.__encodeXong = false; window.__loi = null; window.__tienDo = '';
+async function chay() {
+  try {
+    const hoTro = await VideoEncoder.isConfigSupported({ codec: 'vp09.00.10.08', width: W, height: H, bitrate: 1200000, framerate: FPS });
+    if (!hoTro.supported) throw new Error('VP9 không được hỗ trợ');
+    const canvas = new OffscreenCanvas(W, H);
+    const ctx = canvas.getContext('2d');
+    const ky = [];
+    let encoder = new VideoEncoder({
+      output: (chunk) => {
+        const data = new Uint8Array(chunk.byteLength);
+        chunk.copyTo(data);
+        ky.push({ ts: chunk.timestamp, key: chunk.type === 'key', data });
+      },
+      error: (e) => { window.__loi = String(e); },
+    });
+    encoder.configure({ codec: 'vp09.00.10.08', width: W, height: H, bitrate: 1200000, framerate: FPS });
+    for (let i = 0; i < TONG; i++) {
+      const blob = await (await fetch(`/output/v3-escapement-slider/frames/f${String(i).padStart(4, '0')}.png`)).blob();
+      const bmp = await createImageBitmap(blob);
+      ctx.drawImage(bmp, 0, 0);
+      bmp.close();
+      const vf = new VideoFrame(canvas, { timestamp: Math.round((i * 1e6) / FPS), duration: Math.round(1e6 / FPS) });
+      encoder.encode(vf, { keyFrame: i % 30 === 0 });
+      vf.close();
+      if (encoder.encodeQueueSize > 8) await new Promise((r) => setTimeout(r, 4));
+      if (i % 30 === 0) window.__tienDo = `encode ${i}/${TONG}`;
+      if (window.__loi) throw new Error(window.__loi);
+    }
+    await encoder.flush();
+    encoder.close();
+    window.__tienDo = 'mux webm';
+    const webm = dungWebm(ky, 1, W, H, (TONG * 1000) / FPS);
+    window.__webm = webm;
+    window.__encodeXong = true;
+  } catch (e) {
+    window.__loi = String(e && e.stack ? e.stack : e);
+  }
+}
+window.__batDau = chay;
+</script>
+</body>
+</html>

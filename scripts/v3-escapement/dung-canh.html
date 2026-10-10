@@ -1,0 +1,286 @@
+<!doctype html>
+<!-- ============================================================
+  V3 trang dựng cảnh bộ thoát — script tái tạo video trượt pha
+  ============================================================
+  Cảnh Three.js mô tả bộ thoát đòn bẩy theo đúng vật lý đã duyệt
+  của SVG Escapement hiện có (bánh thoát 15 răng, tiến 24°/rung,
+  ngựa đổi chiều mỗi rung, bánh lắc một nửa dao động mỗi rung).
+  Video biểu diễn ĐỦ MỘT DAO ĐỘNG (hai rung) theo phas.json.
+  Không nhúng chữ vào khung hình — nhãn pha do HTML trình đọc vẽ.
+  Không tải tài sản ngoài; mọi hình học dựng tại chỗ.
+  Chạy bằng render-frames.mjs (server tĩnh + playwright).
+============================================================ -->
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>V3 dựng cảnh bộ thoát</title>
+<style>
+  html, body { margin: 0; background: #20242a; }
+  canvas { display: block; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "/node_modules/three/build/three.module.js",
+    "three/addons/": "/node_modules/three/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const DEG = Math.PI / 180;
+const TONG_FRAME = 240;      // khớp phas.json: 8000ms @ 30fps
+const KICH_THUOC = { w: 960, h: 540 };
+
+// ===== Động học theo phas.json (nguồn duy nhất) =====
+let PHAS = null;
+async function taiPhas() {
+  const r = await fetch('/src/data/v3-escapement-phas.json');
+  PHAS = await r.json();
+}
+
+// Tiến độ quay trong một rung — cửa sổ cơ khí gọn QUANH vị trí giữa của bánh
+// lắc (xung lực đúng pha: truyền lúc pin quét qua khe ngựa, |góc| < ~12°):
+// nhả (.445-.475, 4°) → xung lực (.475-.545, 18°, easeOutCubic) → rơi
+// (.545-.575, 2°) → khóa đứng. Tổng 24°/rung — khớp vật lý SVG đã duyệt
+// và các mốc pha trong phas.json.
+function tienDoRung(u) {
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const giat = (x) => Math.min(1, Math.max(0, x));
+  if (u < 0.445) return 0;
+  if (u < 0.475) return 0.1667 * ease(giat((u - 0.445) / 0.03));
+  if (u < 0.545) return 0.1667 + 0.75 * ease(giat((u - 0.475) / 0.07));
+  if (u < 0.575) return 0.9167 + 0.0833 * giat((u - 0.545) / 0.03);
+  return 1;
+}
+
+// Trạng thái toàn cảnh tại thời điểm t (ms)
+function trangThai(t) {
+  const half = PHAS.durationMs / 2;
+  const rung = Math.floor(t / half);
+  const u = (t % half) / half;
+  const A = 140 * DEG; // biên dao động minh họa (giản lược, không phải thông số)
+  const amDuong = rung % 2 === 0 ? 1 : -1;
+  const gocLac = amDuong * A * Math.cos(Math.PI * u); // rung 0: trái→phải; rung 1: ngược lại
+  const w = tienDoRung(u);
+  const gocBanh = 24 * DEG * (rung + w);   // bánh thoát LUÔN tiến, 24°/rung
+  const gocNgua = (rung % 2 === 0 ? -1 : 1) * (-6 * DEG + 12 * DEG * w); // ngựa đổi chiều mỗi rung
+  return { rung, u, gocLac, gocBanh, gocNgua };
+}
+
+// ===== Dựng cảnh =====
+let renderer, scene, camera, banhThoat, ngua, banhLac, dayToc, pin;
+
+function vat(color, metalness, roughness, extra = {}) {
+  const m = new THREE.MeshStandardMaterial({ color, metalness, roughness, ...extra });
+  return m;
+}
+
+function dungBanhThoat() {
+  const g = new THREE.Group();
+  const r1 = 20, r2 = 28, soRang = 15;
+  const shape = new THREE.Shape();
+  for (let i = 0; i < soRang; i++) {
+    const a = (i / soRang) * Math.PI * 2;
+    const a0 = a, a1 = a + 3.4 * DEG, a2 = a + 9 * DEG, a3 = a + 14 * DEG;
+    const p = (rr, ang) => [Math.cos(ang) * rr, Math.sin(ang) * rr];
+    const [x0, y0] = p(r1, a0), [x1, y1] = p(r2, a1), [x2, y2] = p(r2, a2), [x3, y3] = p(r1, a3);
+    if (i === 0) shape.moveTo(x0, y0); else shape.lineTo(x0, y0);
+    shape.lineTo(x1, y1); // mặt khóa xiên lên mũi
+    shape.lineTo(x2, y2); // mũi răng
+    shape.lineTo(x3, y3); // lưng răng xuống chân
+    shape.absarc(0, 0, r1, a3, a + Math.PI * 2 / soRang, false);
+  }
+  shape.closePath();
+  const geo = new THREE.ExtrudeGeometry(shape, { depth: 3, bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.4, bevelSegments: 2, curveSegments: 6 });
+  const rang = new THREE.Mesh(geo, vat(0xaeb4bd, 0.9, 0.32));
+  rang.castShadow = rang.receiveShadow = true;
+  g.add(rang);
+  // đĩa trong + 4 nan + mo trục
+  const dia = new THREE.Mesh(new THREE.CylinderGeometry(r1 - 3.2, r1 - 3.2, 2.6, 40), vat(0x9aa1ab, 0.85, 0.4));
+  dia.rotation.x = Math.PI / 2; dia.castShadow = true; g.add(dia);
+  for (let i = 0; i < 4; i++) {
+    const nan = new THREE.Mesh(new THREE.BoxGeometry(3.2, r1 - 4, 2.2), vat(0x8b929c, 0.85, 0.42));
+    nan.rotation.z = (i / 4) * Math.PI; nan.castShadow = true; g.add(nan);
+  }
+  const mo = new THREE.Mesh(new THREE.CylinderGeometry(3, 3, 5, 20), vat(0xb08d3e, 1, 0.3));
+  mo.rotation.x = Math.PI / 2; g.add(mo);
+  g.position.set(-58, 0, 0);
+  return g;
+}
+
+function dungNgua() {
+  // Hình học ngựa tính NGƯỢC từ điểm chạm trên vòng bánh thoát để bảo đảm
+  // tiếp xúc tại tư thế khóa (yêu cầu nguyên lý: đá chặn răng, không lơ lửng).
+  // Tâm bánh thoát W = (-58, 0); mũi răng R = 28; đặt đá chạm trên vòng R = 25.
+  // Đá vào chạm tại góc 72° (răng 3 khi khóa); đá ra tại 24° (răng 2 sau bước).
+  const W = { x: -58, y: 0 };
+  const gocVao = 72 * DEG;
+  const diemVao = { x: W.x + 25 * Math.cos(gocVao), y: W.y + 25 * Math.sin(gocVao) }; // mặt khóa chạm răng từ trong
+  // Đá ra đặt NGOÀI vòng mũi răng, giữa răng 1 (24°) và răng 2 (48°) ở tư thế
+  // khóa; sau bước 24° mũi răng 2 (48°→24°) mới chạm mặt dưới của nó (rơi-khóa).
+  const gocRa = 33 * DEG;
+  const diemRa = { x: W.x + 30.5 * Math.cos(gocRa), y: W.y + 30.5 * Math.sin(gocRa) };
+  const P = { x: -16, y: 24 }; // trục ngựa trên-phải bánh thoát
+  const g = new THREE.Group();
+  // Ngựa nằm ở TẦNG THẤP (z = -7) — cùng tầng với roller/pin của bánh lắc;
+  // vành balance ở tầng trên (z = +3) như cấu tạo thật, tránh chồng lấn.
+  g.position.set(P.x, P.y, -7);
+  const that = vat(0xaeb4bd, 0.9, 0.35);
+
+  // hai nhánh từ pivot tới đá — vị trí/chiều dài tính từ tọa độ thật
+  const nhanh = (diem, name) => {
+    const dx = diem.x - P.x, dy = diem.y - P.y;
+    const dai = Math.hypot(dx, dy);
+    const m = new THREE.Mesh(new THREE.BoxGeometry(dai, 3.2, 3), that);
+    m.position.set(dx / 2, dy / 2, 0);
+    m.rotation.z = Math.atan2(dy, dx);
+    m.castShadow = true;
+    g.add(m);
+    return dai;
+  };
+  nhanh(diemVao);
+  nhanh(diemRa);
+  const tru = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 5, 16), vat(0xb08d3e, 1, 0.3));
+  tru.rotation.x = Math.PI / 2; tru.castShadow = true; g.add(tru);
+
+  // hai đá pallet ruby — trục dài theo tiếp tuyến điểm chạm, nghiêng thêm để
+  // có mặt khóa + mặt xung lực riêng (FHH: Impulse — mặt xung lực của đá)
+  const dungDa = (diem, gocCham, nghieng) => {
+    const da = new THREE.Mesh(
+      new THREE.BoxGeometry(3.4, 7, 3.4),
+      new THREE.MeshPhysicalMaterial({ color: 0xc21f3a, metalness: 0, roughness: 0.14, clearcoat: 1, transparent: true, opacity: 0.94 })
+    );
+    da.position.set(diem.x - P.x, diem.y - P.y, 0);
+    da.rotation.z = gocCham + nghieng;
+    da.castShadow = true;
+    g.add(da);
+  };
+  dungDa(diemVao, gocVao, 0.30);
+  dungDa(diemRa, gocRa, -0.35);
+
+  // cuống ngựa về phía bánh lắc, kết thúc bằng hai hàm tạo khe đón pin roller.
+  // Pin gắn trên roller bán kính 5.4 quanh tâm bánh lắc (42, 0): khi bánh lắc
+  // qua giữa (|góc| nhỏ) pin nằm quanh (47.4, 0) — khe hàm ôm đúng chỗ đó.
+  const diemHa = { x: 45.5 - P.x, y: 0 - P.y };
+  const daiCuong = Math.hypot(diemHa.x, diemHa.y) - 2;
+  const huongCuong = Math.atan2(diemHa.y, diemHa.x);
+  const cuong = new THREE.Mesh(new THREE.BoxGeometry(daiCuong, 2.8, 3), that);
+  cuong.position.set(Math.cos(huongCuong) * daiCuong / 2, Math.sin(huongCuong) * daiCuong / 2, 0);
+  cuong.rotation.z = huongCuong;
+  cuong.castShadow = true;
+  g.add(cuong);
+  for (const s of [-1, 1]) {
+    const ham = new THREE.Mesh(new THREE.BoxGeometry(6, 2.4, 3), that);
+    ham.position.set(diemHa.x - 2, diemHa.y + s * 2.3, 0);
+    ham.rotation.z = huongCuong + s * 0.5;
+    ham.castShadow = true;
+    g.add(ham);
+  }
+  return g;
+}
+
+function dungBanhLac() {
+  const g = new THREE.Group();
+  const vanh = new THREE.Mesh(new THREE.TorusGeometry(19, 2.1, 14, 60), vat(0xaeb4bd, 0.92, 0.28));
+  vanh.position.z = 3;
+  vanh.castShadow = true; g.add(vanh);
+  for (let i = 0; i < 2; i++) {
+    const nan = new THREE.Mesh(new THREE.BoxGeometry(36, 2.6, 1.6), vat(0x9aa1ab, 0.88, 0.36));
+    nan.position.z = 3;
+    nan.rotation.z = (i / 2) * Math.PI; nan.castShadow = true; g.add(nan);
+  }
+  const truc = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 18, 14), vat(0xb08d3e, 1, 0.3));
+  truc.rotation.x = Math.PI / 2; truc.position.z = 0; g.add(truc);
+  // roller + pin truyền xung lực (FHH Safety roller) — TẦNG THẤP cùng ngựa
+  const roller = new THREE.Mesh(new THREE.CylinderGeometry(5.4, 5.4, 2.4, 24), vat(0x8b929c, 0.85, 0.4));
+  roller.rotation.x = Math.PI / 2; roller.position.z = -7; roller.castShadow = true; g.add(roller);
+  pin = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 3.6, 10), new THREE.MeshPhysicalMaterial({ color: 0xc21f3a, metalness: 0, roughness: 0.14, clearcoat: 1 }));
+  pin.rotation.x = Math.PI / 2; pin.position.set(5.4, 0, -7); pin.castShadow = true; g.add(pin);
+  // dây tóc xoắn giản lược (minh họa, không mô phỏng nhịp thở thật)
+  const diem = [];
+  const vong = 2.5, mau = 140;
+  for (let i = 0; i <= mau; i++) {
+    const k = i / mau;
+    const a = k * vong * Math.PI * 2;
+    const r = 3.5 + k * 7.5;
+    diem.push(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, 5));
+  }
+  const duong = new THREE.CatmullRomCurve3(diem);
+  dayToc = new THREE.Mesh(new THREE.TubeGeometry(duong, 200, 0.32, 6, false), vat(0x3d5a80, 0.4, 0.5));
+  g.add(dayToc);
+  g.position.set(42, 0, 0);
+  return g;
+}
+
+async function khoiTao() {
+  await taiPhas();
+  renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setSize(KICH_THUOC.w, KICH_THUOC.h);
+  renderer.setPixelRatio(1);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  document.body.appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x2b3038);
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+  camera = new THREE.PerspectiveCamera(30, KICH_THUOC.w / KICH_THUOC.h, 1, 600);
+  camera.position.set(-2, 60, 205);
+  camera.lookAt(-6, 4, 0);
+
+  const key = new THREE.DirectionalLight(0xffffff, 2.6);
+  key.position.set(70, 90, 80);
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.left = -110; key.shadow.camera.right = 110;
+  key.shadow.camera.top = 80; key.shadow.camera.bottom = -80;
+  scene.add(key);
+  const am = new THREE.PointLight(0xffd9a0, 900, 400);
+  am.position.set(-60, 40, 60);
+  scene.add(am);
+  scene.add(new THREE.AmbientLight(0xdfe6f0, 0.5));
+
+  const de = new THREE.Mesh(new THREE.CylinderGeometry(80, 80, 4, 64), vat(0x545b66, 0.6, 0.8));
+  de.position.y = -34; de.receiveShadow = true; scene.add(de);
+
+  banhThoat = dungBanhThoat();
+  ngua = dungNgua();
+  banhLac = dungBanhLac();
+  scene.add(banhThoat, ngua, banhLac);
+
+  // gá hai trục (trụ đứng mờ để rõ trục quay)
+  for (const [x, h] of [[-58, 12], [42, 12]]) {
+    const ga = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, h, 12), vat(0x6b7280, 0.7, 0.5));
+    ga.position.set(x, -22, 0); scene.add(ga);
+  }
+  return { frames: TONG_FRAME, durationMs: PHAS.durationMs };
+}
+
+// Cập nhật tư thế toàn bộ theo trạng thái động học
+function capNhat(t) {
+  const s = trangThai(t);
+  banhThoat.rotation.z = -s.gocBanh; // bánh thoát quay ngược chiều kim đồng hồ nhìn từ camera
+  ngua.rotation.z = s.gocNgua;
+  banhLac.rotation.z = s.gocLac;
+  // pin gắn bánh lắc rồi (con của group bánh lắc) — tự đi theo
+  // dây tóc giãn nhẹ theo góc (giản lược)
+  if (dayToc) dayToc.scale.setScalar(1 + 0.05 * Math.sin(Math.abs(s.gocLac) / DEG / 140 * Math.PI));
+}
+
+async function renderFrame(i) {
+  const t = (i * 1000) / PHAS.fps;
+  capNhat(Math.min(t, PHAS.durationMs - 1));
+  renderer.render(scene, camera);
+  return renderer.domElement.toDataURL('image/png');
+}
+
+window.__v3 = { khoiTao, renderFrame, trangThai };
+</script>
+</body>
+</html>

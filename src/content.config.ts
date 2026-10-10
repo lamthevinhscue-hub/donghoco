@@ -141,6 +141,9 @@ const coChe = defineCollection({
     // Video nguyên lý có thuyết minh (tùy chọn) — mp4 cùng nguồn trong /public/videos/,
     // poster cùng tên đuôi .jpg; bài mỗi ngôn ngữ trỏ clip đúng ngôn ngữ đó.
     principle_video: z.string().optional(),
+    // V3: bản thử video trượt pha (chu kỳ bộ thoát dựng sẵn) — chỉ có ý nghĩa
+    // trên đúng hai bài bộ thoát; gate slug trong MechanismArticle khóa phần còn lại.
+    slider_video: z.boolean().default(false),
     // Liên kết biên tập (tùy chọn): bài cơ chế dẫn tới mẫu iconic ứng dụng nguyên lý này.
     relatedModels: z.array(relatedLink).default([]),
     // Ghi chú giới hạn nguồn (N1) — khối "Ghi chú nguồn" thu gọn cuối bài (SourceNotes.astro)

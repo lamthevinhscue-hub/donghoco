@@ -395,7 +395,7 @@ if (has('/en/compare/index.html')) {
   }, 'cần 3 thẻ link alternate đúng URL');
   kiemDauRa('Cặp so sánh /en/compare: mục Compare desktop aria-current="page" (1)', countCurrent(desktop, '/en/compare/', 'page') === 1, `count=${countCurrent(desktop, '/en/compare/', 'page')}`);
   kiemDauRa('Cặp so sánh /en/compare: mục Compare mobile aria-current="page" (1)', countCurrent(mobile, '/en/compare/', 'page') === 1, `count=${countCurrent(mobile, '/en/compare/', 'page')}`);
-  kiemDauRa('Cặp so sánh /en/compare: og:image là og-mau-iconic.jpg', /property="og:image" content="[^"]*\/images\/og\/og-mau-iconic\.jpg"/.test(html), 'og:image không phải og-mau-iconic.jpg');
+  kiemDauRa('Cặp so sánh /en/compare: og:image là og-mau-iconic-en.jpg', /property="og:image" content="[^"]*\/images\/og\/og-mau-iconic-en\.jpg"/.test(html), 'og:image không phải og-mau-iconic-en.jpg');
   kiemDauRa('Cặp so sánh /en/compare: header không còn "Vietnamese only"', !desktop.includes('Vietnamese only'), 'còn mục VI-only trong header');
 } else {
   kiemDauRa('Cặp so sánh /en/compare (dist/en/compare/index.html)', false, 'thiếu tệp');

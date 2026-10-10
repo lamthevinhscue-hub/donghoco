@@ -55,13 +55,21 @@ export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
   { match: '/tu-dien', image: '/images/og/og-co-che.jpg' },
   { match: '/huong-dan', image: '/images/og/og-co-che.jpg' },
   { match: '/lich-su', image: '/images/og/og-lich-su.jpg' },
-  { match: '/en/history', image: '/images/og/og-lich-su.jpg' },
-  { match: '/giai-phau', image: '/images/og/og-lich-su.jpg' },
-  // G06-A: bản EN giải phẫu dùng chung ảnh OG hiện có (quyết TXN-20260913-23 — không tạo ảnh mới)
-  { match: '/en/anatomy', image: '/images/og/og-lich-su.jpg' },
-  // G06-B chặng 2: cặp công cụ so sánh dùng og-mau-iconic.jpg hiện có (duyệt TXN-20260914-10)
+  { match: '/en/history', image: '/images/og/og-lich-su-en.jpg' },
+  { match: '/giai-phau', image: '/images/og/og-co-che.jpg' },
+  // G06-A: bản EN giải phẫu dùng bản EN của ảnh khu vực cơ chế (bộ ảnh OG EN 10/10/2026)
+  { match: '/en/anatomy', image: '/images/og/og-co-che-en.jpg' },
+  // G06-B chặng 2: cặp công cụ so sánh — VI dùng ảnh mẫu iconic (duyệt TXN-20260914-10), EN dùng bản EN của ảnh đó
   { match: '/so-sanh', image: '/images/og/og-mau-iconic.jpg' },
-  { match: '/en/compare', image: '/images/og/og-mau-iconic.jpg' },
+  { match: '/en/compare', image: '/images/og/og-mau-iconic-en.jpg' },
+  // Khu vực EN còn lại: cùng nhóm khu với bản VI, dùng bộ ảnh EN
+  { match: '/en/mechanisms', image: '/images/og/og-co-che-en.jpg' },
+  { match: '/en/glossary', image: '/images/og/og-co-che-en.jpg' },
+  { match: '/en/guides', image: '/images/og/og-co-che-en.jpg' },
+  { match: '/en/iconic-watches', image: '/images/og/og-mau-iconic-en.jpg' },
+  { match: '/en/brands', image: '/images/og/og-thuong-hieu-en.jpg' },
+  // Mặc định EN: mọi trang Anh còn lại (trang chủ, about, myths, accuracy-log...) không rơi về ảnh tiếng Việt
+  { match: '/en', image: '/images/og/og-default-en.jpg' },
 ];
 
 export const OG_DEFAULT_IMAGE = '/og-default.jpg';

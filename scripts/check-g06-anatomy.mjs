@@ -18,7 +18,7 @@
 //          lang=vi; không cột vật liệu; có 'Điều tiết'/'Đóng vỏ'.
 //     G6-D2 /en/anatomy/: 12 thẻ data khớp (EN); không rò tiếng Việt (strip
 //          script/style/comment, loại tên riêng 'ĐỒNG HỒ CƠ'); blob lang=en.
-//     G6-D3 title/OG: hai trang có title riêng + og:image og-lich-su.jpg.
+//     G6-D3 title/OG: hai trang có title riêng + og:image VI og-co-che.jpg / EN og-co-che-en.jpg.
 //     G6-D4 link đích: mọi href nội bộ của hai trang tồn tại trong dist
 //          (kiểm nội bộ — KHÔNG phải kiểm HTTP nguồn ngoài).
 //     G6-D5 sitemap: có /giai-phau/ và /en/anatomy/ trong sitemap-0.xml.
@@ -211,10 +211,10 @@ if (!sourceOnly) {
       `lệch=${d2.lech.slice(0, 4).join(',') || 'không'}, blob=${blobEn}, ròVI=${roViet}, aria=${ariaEn.chiTiet}`,
     );
 
-    // G6-D3: title + OG ảnh hiện có
+    // G6-D3: title + OG ảnh khu vực
     const titleOk = viHtml.includes('<title>Giải phẫu đồng hồ cơ') && enHtml.includes('<title>The anatomy of a mechanical watch');
-    const ogOk = viHtml.includes('/images/og/og-lich-su.jpg') && enHtml.includes('/images/og/og-lich-su.jpg');
-    kiemD('G6-D3', 'Title riêng hai trang + OG dùng ảnh hiện có (og-lich-su.jpg)', titleOk && ogOk, `title=${titleOk}, og=${ogOk}`);
+    const ogOk = viHtml.includes('/images/og/og-co-che.jpg') && enHtml.includes('/images/og/og-co-che-en.jpg');
+    kiemD('G6-D3', 'Title riêng hai trang + OG dùng ảnh khu vực (VI og-co-che.jpg, EN og-co-che-en.jpg)', titleOk && ogOk, `title=${titleOk}, og=${ogOk}`);
 
     // G6-D4: mọi href nội bộ của hai trang tồn tại trong dist
     const STATIC_EXT = /\.(css|js|mjs|svg|png|jpe?g|webp|gif|ico|woff2?|ttf|xml|txt|json|webmanifest)$/i;

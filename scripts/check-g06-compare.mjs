@@ -86,7 +86,7 @@ function kiemNguon() {
   kiem('S14', 'Chuyển ngôn ngữ: dùng data-lang-hash-keep + sessionStorage một lần, cấm dropped', () => comp.includes('data-lang-hash-keep') && comp.includes("'compare-lang-switch'") && comp.includes('removeItem') && !comp.includes('dropped'));
   kiem('S15', 'Khôi phục URL chuẩn hóa (lọc + loại trùng + giới hạn ba)', /function restoreFromUrl[\s\S]{0,200}chuanHoa\(m\.split\(','\)\)/.test(comp));
   kiem('S16', 'Nhãn thể loại qua getIconicCategoryLabel; không bảng nhãn cạnh tranh', comp.includes('getIconicCategoryLabel') && !/const categoryLabels/.test(comp));
-  kiem('S17', 'contentRoutes có cặp /so-sanh ↔ /en/compare/; ui.ts OG hai route', chua(routes, ["{ vi: '/so-sanh', en: '/en/compare/' }"]) && chua(uiTs, ["{ match: '/so-sanh', image: '/images/og/og-mau-iconic.jpg' }", "{ match: '/en/compare', image: '/images/og/og-mau-iconic.jpg' }"]));
+  kiem('S17', 'contentRoutes có cặp /so-sanh ↔ /en/compare/; ui.ts OG hai route', chua(routes, ["{ vi: '/so-sanh', en: '/en/compare/' }"]) && chua(uiTs, ["{ match: '/so-sanh', image: '/images/og/og-mau-iconic.jpg' }", "{ match: '/en/compare', image: '/images/og/og-mau-iconic-en.jpg' }"]));
   kiem('S18', 'Không chuyển động nội dung: không rAF/setInterval/animation (RM-C2)', () => !/requestAnimationFrame|setInterval|@keyframes|animation:/.test(comp));
   kiem('S19', 'No-JS: noscript ẩn điều khiển + giải thích tĩnh + liên kết bài thật', () => comp.includes('<noscript>') && comp.includes('#compare-controls') && comp.includes('display: none') && /noJsTieuDe|noJsTieude/.test(comp) && comp.includes('linkDanhSach') && comp.includes('linkBai'));
   // ===== Vòng sửa 1 (TXN-20260914-13) =====
@@ -165,7 +165,7 @@ function kiemDist(dirDist) {
   }, 'tìm thấy href="/en/so-sanh');
   kiem('D8', 'Cặp route: switcher thẳng + hreflang + og-image (VI và EN)', () => {
     const viOk = chua(trangVi, ['href="/en/compare/"', 'og-mau-iconic.jpg']) && !trangVi.includes('data-lang-switch="untranslated"') && /hreflang="vi" href="[^"]*\/so-sanh\/"/.test(trangVi) && /hreflang="en" href="[^"]*\/en\/compare\/"/.test(trangVi);
-    const enOk = chua(trangEn, ['href="/so-sanh"', 'og-mau-iconic.jpg']) && !trangEn.includes('href="/so-sanh/"') && !trangEn.includes('data-lang-switch="untranslated"') && /hreflang="vi" href="[^"]*\/so-sanh"/.test(trangEn) && /hreflang="en" href="[^"]*\/en\/compare\/"/.test(trangEn);
+    const enOk = chua(trangEn, ['href="/so-sanh"', 'og-mau-iconic-en.jpg']) && !trangEn.includes('href="/so-sanh/"') && !trangEn.includes('data-lang-switch="untranslated"') && /hreflang="vi" href="[^"]*\/so-sanh"/.test(trangEn) && /hreflang="en" href="[^"]*\/en\/compare\/"/.test(trangEn);
     return viOk && enOk;
   }, 'thiếu link thẳng/hreflang/og');
   kiem('D9', 'Vùng cuộn bảng: tabindex + role="region" + aria-label trong HTML tĩnh (cả hai trang)', () => {

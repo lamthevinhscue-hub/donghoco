@@ -34,7 +34,6 @@ import type { Lang } from '../../i18n/ui';
 import type { RelatedItem } from '../../components/RelatedArticles.astro';
 import RelatedEditorial from '../../components/RelatedEditorial.astro';
 import PrincipleVideo from '../PrincipleVideo.astro';
-import EscapementSliderVideo from '../EscapementSliderVideo.astro';
 import BalanceHairspringChapter from '../history/BalanceHairspringChapter.astro';
 
 interface Props {
@@ -94,13 +93,7 @@ const viInfographic = !hasBalanceChapter && lang === 'vi' && data.has_infographi
 const enEscapementAllowed =
   lang === 'en' && slug === 'escapement' && data.has_infographic && data.interactive;
 
-// V3 (TXN-20261010-003): bản thử video trượt pha — chỉ bật khi khóa
-// slider_video = true trên đúng hai bài bộ thoát; khi bật, giữ SVG tương tác
-// hiển thị kèm để so sánh. Bài khác không đổi hành vi.
-const V3_SLIDER_SLUGS = ['bo-thoat', 'escapement'];
-const sliderAllowed = data.slider_video === true && V3_SLIDER_SLUGS.includes(slug);
-
-const Infographic = viInfographic || enEscapementAllowed || sliderAllowed ? infographics[slug] : null;
+const Infographic = viInfographic || enEscapementAllowed ? infographics[slug] : null;
 
 // ====== Gợi ý "Đọc tiếp" (tối đa 3) — theo lộ trình đọc ======
 const diffOrder = ['thấp', 'trung bình', 'cao', 'rất cao'];
@@ -171,10 +164,7 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
 >
   {hasBalanceChapter && <BalanceHairspringChapter principleVideo={data.principle_video} />}
 
-  {/* V3: bản thử video trượt pha — đặt cạnh SVG tương tác để so sánh */}
-  {sliderAllowed && <EscapementSliderVideo lang={lang} />}
-
-  {Infographic && <Infographic lang={lang} />}
+  {data.has_infographic && Infographic && <Infographic lang={lang} />}
 
   {/* Video nguyên lý (Bộ thoát); bài có chương G04 tự nhúng video trong
       chương — chặn render kép ở đây. */}
@@ -193,7 +183,7 @@ const backHref = lang === 'vi' ? '/co-che' : '/en/mechanisms';
     </div>
   )}
 
-  <div class={Infographic ? 'mt-16 border-t border-cream-dark pt-12' : ''}>
+  <div class={data.has_infographic && Infographic ? 'mt-16 border-t border-cream-dark pt-12' : ''}>
     <Content />
   </div>
 

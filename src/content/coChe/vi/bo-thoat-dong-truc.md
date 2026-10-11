@@ -49,7 +49,7 @@ Lực đẩy ma sát **rất nhỏ** so với ma sát trượt. Vì vậy:
 
 Kết quả: đồng hồ có bộ thoát đồng trục **giữ độ chính xác lâu hơn giữa hai lần bảo dưỡng** — có thể nhiều năm mà sai số vẫn ổn, trong khi bộ thoát Thụy Sĩ cần thay dầu 3-5 năm một lần.
 
-> 💡 So sánh hai thiết kế: bộ thoát Thụy Sĩ có **dấu chấm dầu** ở điểm ma sát — phải thay định kỳ. Bộ thoát đồng trục truyền lực **đẩy**, ít dầu. Ngựa đồng trục có **ba viên đá** (thay vì hai) — đặc trưng nhận diện.
+> **Ghi chú:** So sánh hai thiết kế: bộ thoát Thụy Sĩ có **dấu chấm dầu** ở điểm ma sát — phải thay định kỳ. Bộ thoát đồng trục truyền lực **đẩy**, ít dầu. Ngựa đồng trục có **ba viên đá** (thay vì hai) — đặc trưng nhận diện.
 
 ## Vì sao không phải ai cũng dùng?
 

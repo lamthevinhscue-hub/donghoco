@@ -39,7 +39,7 @@ Chi tiết cơ cấu dưới đây là **mô tả của Incabloc SA trên trang 
 - **Lò xo lyre (lyre spring®)** chỉ đảm nhiệm vai trò **định vị và lực trả về**: nó có hai điểm tiếp xúc, và độ đàn hồi dự trữ cho phép nó **phản ứng tức thì với sốc**.
 - Hệ làm việc theo **hai pha**: năng lượng sốc — truyền qua phần chịu lực của bánh lắc (trục) — được **hấp thụ trọn bởi khối đỡ**; sau đó hệ **lập tức trở về đúng tâm** nhờ lò xo lyre.
 
-> 💡 Khi có va đập, khối chân kính **dịch chuyển rồi trở về vị trí** — hai pha hấp thụ và trả vị trí theo mô tả trên. Video nguyên lý ở đầu bài chạy lại đúng chu trình này chậm cho dễ nhìn.
+> **Ghi chú:** Khi có va đập, khối chân kính **dịch chuyển rồi trở về vị trí** — hai pha hấp thụ và trả vị trí theo mô tả trên. Video nguyên lý ở đầu bài chạy lại đúng chu trình này chậm cho dễ nhìn.
 
 ## Những con số Incabloc SA công bố cho hệ của hãng
 

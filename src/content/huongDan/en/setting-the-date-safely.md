@@ -27,7 +27,7 @@ A calendar watch changes its date **around midnight** — Seiko describes it: "T
 
 The essential point: **21:00–01:00 is the window Seiko records in the manual of Caliber 6L37** — one specific calibre. Other calibres — including other Seiko ones — may name a different window in their manuals. **There is no forbidden window that applies to every watch.**
 
-> 💡 The tool below is a **simulation of the principle**: the highlighted 20:00–04:00 band is a visual example only — it does not determine any hours for your watch.
+> **Note:** The tool below is a **simulation of the principle**: the highlighted 20:00–04:00 band is a visual example only — it does not determine any hours for your watch.
 
 ## The single standard: the manual of the exact calibre
 

@@ -32,7 +32,7 @@ Kim nào chỉnh được và chỉnh như thế nào là đặc tính của t�
 
 Ví dụ có nguồn: **Rolex GMT-Master II** — từ bộ máy năm 1982, kim giờ địa phương chỉnh **nhảy từng giờ qua núm vặn**, không ảnh hưởng kim phút, kim giây và kim 24 giờ; kim GMT vẫn giữ giờ tham chiếu.
 
-> 💡 Trong dụng cụ: nút "Tăng giờ địa phương" mô phỏng kiểu nhảy từng giờ vừa mô tả (kim GMT đứng yên); nút "Tăng giờ nhà" chỉ minh họa quan hệ hiển thị giữa kim GMT và thang 24 giờ. Cả hai đều là **mô phỏng nguyên lý** — không thay thế hướng dẫn của nhà sản xuất.
+> **Ghi chú:** Trong dụng cụ: nút "Tăng giờ địa phương" mô phỏng kiểu nhảy từng giờ vừa mô tả (kim GMT đứng yên); nút "Tăng giờ nhà" chỉ minh họa quan hệ hiển thị giữa kim GMT và thang 24 giờ. Cả hai đều là **mô phỏng nguyên lý** — không thay thế hướng dẫn của nhà sản xuất.
 
 ## Đọc thêm một múi giờ thay thế bằng vành 24 giờ xoay
 
@@ -43,7 +43,7 @@ Chỉ mẫu có **vành 24 giờ xoay** mới dùng được nguyên tắc sau:
 
 Khi vành đang dùng cho múi giờ thay thế, **giờ tham chiếu không còn đọc trực tiếp theo vành** (Rolex mô tả đúng như vậy cho GMT-Master II); đưa vành về vị trí trung lập — tam giác về đúng 12 giờ — để đọc lại. Không có công thức chiều xoay hay số nấc áp chung cho các mẫu; chi tiết thao tác theo tài liệu của mẫu.
 
-> 💡 Trong dụng cụ: bấm "Vành 24h ⟳"/"⟲ Vành 24h" hoặc kéo vành trực tiếp để xem ô "Múi giờ thay thế" — mô phỏng nguyên lý trên một mẫu có vành xoay.
+> **Ghi chú:** Trong dụng cụ: bấm "Vành 24h ⟳"/"⟲ Vành 24h" hoặc kéo vành trực tiếp để xem ô "Múi giờ thay thế" — mô phỏng nguyên lý trên một mẫu có vành xoay.
 
 ## Khi nào dùng GMT?
 

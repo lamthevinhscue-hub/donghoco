@@ -27,7 +27,7 @@ sources:
 
 Ví dụ: một xe mất 30 giây đi hết 1 km. Kim giây dừng ở số 120 trên thang — xe chạy trung bình **120 km/h**.
 
-> 💡 Trong dụng cụ: nhập quãng đường (mặc định 1 km), bấm "Bắt đầu", đợi vài giây, bấm "Dừng". Xem tốc độ hiện ra. Thử các quãng đường khác nhau.
+> **Ghi chú:** Trong dụng cụ: nhập quãng đường (mặc định 1 km), bấm "Bắt đầu", đợi vài giây, bấm "Dừng". Xem tốc độ hiện ra. Thử các quãng đường khác nhau.
 
 ## Vì sao thang không chia đều?
 

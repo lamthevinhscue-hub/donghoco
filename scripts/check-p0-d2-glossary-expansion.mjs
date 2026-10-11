@@ -29,7 +29,7 @@ const DIST = process.argv[2] ? path.resolve(process.argv[2]) : null;
 const URL_FHH = (t) => `https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/${t}`;
 const MUC = [
   { slug: 'bien-do', tenEn: 'amplitude', vi: '/tu-dien/bien-do', en: '/en/glossary/amplitude/', category: 'độ chính xác và điều chỉnh',
-    allow: [URL_FHH('amplitude'), 'https://www.witschi.com/en/products/chronomaster-auto/'] },
+    allow: [URL_FHH('amplitude'), 'https://www.witschi.com/en/products/chronomaster-auto/', 'https://www.hswalsh.com/usercontent/doc/30780/HWAIO%20-%20Witschi%20WAIO%20Operating%20Instructions.pdf'] },
   { slug: 'tinh-dang-thoi', tenEn: 'isochronism', vi: '/tu-dien/tinh-dang-thoi', en: '/en/glossary/isochronism/', category: 'độ chính xác và điều chỉnh',
     allow: [URL_FHH('isochronism'), 'https://www.ferdinandberthoud.ch/en/newsletter/newsletter-chronometre-fb-1-2-3.html'] },
   { slug: 'sai-so-vi-tri', tenEn: 'positional-error', vi: '/tu-dien/sai-so-vi-tri', en: '/en/glossary/positional-error/', category: 'độ chính xác và điều chỉnh',

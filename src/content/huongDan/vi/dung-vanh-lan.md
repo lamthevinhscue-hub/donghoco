@@ -25,7 +25,7 @@ sources:
 
 Ví dụ: lúc 10:00 bạn đặt mốc 0 vào kim phút. 35 phút sau, kim phút chỉ vào vạch số 35 trên vành — bạn biết đã trôi 35 phút.
 
-> 💡 Thử dụng cụ trên: bấm "Đặt mốc 0 vào kim phút", rồi bấm "Chạy kim". Xem số phút đã trôi nhảy theo kim.
+> **Ghi chú:** Thử dụng cụ trên: bấm "Đặt mốc 0 vào kim phút", rồi bấm "Chạy kim". Xem số phút đã trôi nhảy theo kim.
 
 ## Vì sao vành chỉ xoay một chiều?
 
@@ -38,7 +38,7 @@ Hãy tưởng tượng bạn đang lặn, và vô tình xoay vành trong lúc di
 
 Vì vậy, thiết kế chỉ cho vành xoay một chiều đảm bảo rằng **lỗi vô tình luôn nghiêng về phía an toàn**: tốt hơn là nổi lên sớm hơn, không phải ở lại lâu hơn.
 
-> 💡 Trong dụng cụ trên, thử kéo vành ngược chiều kim đồng hồ — nó **kẹt**, không xoay. Đó chính cơ cấu ratchet (bánh lép) của vành lặn thật.
+> **Ghi chú:** Trong dụng cụ trên, thử kéo vành ngược chiều kim đồng hồ — nó **kẹt**, không xoay. Đó chính cơ cấu ratchet (bánh lép) của vành lặn thật.
 
 ## Hai loại vành lặn
 

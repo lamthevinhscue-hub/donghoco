@@ -39,7 +39,7 @@ Vì không có con số dùng chung, cách đọc đúng là tra thông số c�
 - **Ví dụ một calibre:** Oris ghi trên trang Calibre 400 rằng calibre này dùng **hơn 30 linh kiện phi từ**, và sau khi tiếp xúc **2.250 gauss**, độ lệch còn **dưới 10 giây/ngày** — Oris mô tả calibre này vượt chuẩn ISO 764. Đây là thông số công bố cho calibre đó.
 - **Ví dụ một chứng nhận:** METAS có chứng nhận **MASTER CHRONOMETER** kiểm tra cả "khả năng kháng từ trường". Tài liệu yêu cầu của chứng nhận này nêu mức **1,5 T (15.000 gauss)**. Theo METAS, chứng nhận mở cho **mọi hãng** có đồng hồ Swiss Made với bộ máy đạt chứng nhận chronometer theo ISO 3159.
 
-⚠️ **15.000 gauss là tiêu chí của chứng nhận MASTER CHRONOMETER — không phải mức chống từ chung của đồng hồ cơ**, và không phải mức của một hãng hay dòng nào khác trong các nguồn bài này dùng.
+Lưu ý: **15.000 gauss là tiêu chí của chứng nhận MASTER CHRONOMETER — không phải mức chống từ chung của đồng hồ cơ**, và không phải mức của một hãng hay dòng nào khác trong các nguồn bài này dùng.
 
 ## Đồng hồ chạy bất thường — nên làm gì?
 

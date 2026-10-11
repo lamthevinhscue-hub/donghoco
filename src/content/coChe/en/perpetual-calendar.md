@@ -12,8 +12,10 @@ draft: false
 updated: "2026-09-04"
 
 sources:
-  - label: "FHH — Perpetual calendar (definition, 48-month mechanical memory, 2100/2400 adjustments)"
+  - label: "FHH — Perpetual calendar (definition, 48-month mechanical memory)"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/perpetual-calendar"
+  - label: "USNO — Introduction to Calendars (Gregorian century leap-year rule)"
+    url: "https://aa.usno.navy.mil/faq/calendars"
   - label: "FHH — Annual Calendar (definition, telling the two apart)"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/annual-calendar"
   - label: "FHH — Complication (what a complication is)"
@@ -39,7 +41,7 @@ The two mechanisms differ in scope — one accounts for leap years, the other do
 
 ## The exceptional adjustments — per FHH
 
-FHH notes that a perpetual calendar **must only be adjusted for the exceptionally non-leap years, the next being 2100 and 2400** — exceptions to the leap-year rule of the Gregorian calendar, as stated in the entry itself.
+FHH notes that a perpetual calendar must only be adjusted for the exceptionally non-leap years. A conventional perpetual calendar assumes a leap year every four years, so it **only needs adjusting in century years that are not leap years — the next being 2100**, then 2200 and 2300. The year 2400 is divisible by 400 and remains a leap year under the Gregorian rule (the century leap-year rule per USNO), so it falls outside that set of century exceptions. The FHH entry also lists 2400; this article does not follow that point.
 
 ## Related reading
 

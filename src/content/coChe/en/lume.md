@@ -1,7 +1,7 @@
 ---
 title: "Lume: why a watch glows in the dark"
 custom_slug: "lume"
-excerpt: "How phosphorescence works: absorb light, re-emit it later. Three generations of material — radium (abandoned), tritium (weaker), Super-LumiNova (non-radioactive, needs charging)."
+excerpt: "Three generations of lume: radium and tritium glow by themselves because radiation excites a phosphor; modern Super-LumiNova is phosphorescent, non-radioactive and needs charging."
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: false
@@ -20,6 +20,10 @@ sources:
     url: "https://www.panerai.com/en/world-of-panerai/history.html"
   - label: "Fondation de la Haute Horlogerie — Watchmaking's material world"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watchmaking-s-material-world"
+  - label: "RC Tritec — history of luminous pigments (radians → tritium → LumiNova)"
+    url: "https://www.rctritec.com/en/superluminova/history-of-luminous-pigments"
+  - label: "Luminox — Super-LumiNova (a chargeable phosphorescent material)"
+    url: "https://luminox.com/pages/super-luminova"
 
 ---
 
@@ -27,9 +31,9 @@ sources:
 
 Leave the watch under a lamp for a few minutes, then take it into a dark room: **the hands and hour markers glow green** — enough to read the time in darkness. This is **lume** — one of the most useful features a wristwatch can have, particularly in the days when electric light was new.
 
-## The principle — what phosphorescence is
+## The principle — two ways to glow
 
-Watch lume uses **phosphorescence**: a substance absorbs the energy of light, stores it temporarily, and then **re-emits it as light** in the dark. The process **needs no other energy source** — "charged" by ordinary light (a lamp, the sun), the material glows and slowly fades as its stored energy runs out.
+Watch lume glows in two different ways. **Phosphorescent materials** (phosphorescence) — the kind used today — absorb the energy of light, store it briefly and **release it slowly in the dark**; they must be "charged" by ordinary light (a lamp, the sun) and fade as their stored energy runs out. **Radium and tritium**, used earlier, glowed continuously without charging: the radioactive substance constantly excited a phosphor mixed with it (radioluminescence).
 
 Modern phosphorescent materials glow in different colours — green, blue, white — depending on their composition.
 
@@ -37,15 +41,15 @@ Modern phosphorescent materials glow in different colours — green, blue, white
 
 ### Generation 1 — radium (abandoned)
 
-In the early 20th century, **radium** — a radioactive element — was mixed into luminous paint. Radium **glowed continuously by itself**, no charging needed — it radiated on its own. That was the great advantage at the time: a watch that glowed forever, by day or by night.
+In the early 20th century, **radium** — a radioactive element — was mixed into luminous paint. Radium **glowed continuously**, no charging needed: the radioactive substance constantly excited the phosphor mixed into the paint — the element itself does not emit visible light. That was the great advantage at the time: a watch that glowed by day and by night without charging.
 
-But radium is **strongly radioactive**, and the women who painted radium dials — the first to do that work — paid the price. They had the habit of licking their brushes to a fine point, not knowing radium was dangerous. Their story is one of the earliest industrial occupational-safety tragedies, and the reason the watch industry dropped radium completely.
+But radium is **strongly radioactive**, and the women who painted radium dials — the first to do that work — paid the price. They had the habit of licking their brushes to a fine point, not knowing radium was dangerous. Their story is one of the earliest painful lessons in industrial occupational safety, and the reason the watch industry dropped radium completely.
 
 > This story is told at a level of **respect**, without detail of the illnesses. What matters is the lesson about responsibility towards the people doing the work.
 
 ### Generation 2 — tritium (much weaker)
 
-From the mid-20th century the industry replaced radium with **tritium** — also radioactive but **far weaker**, safe under normal wearing conditions. Tritium still **glows by itself**, no charging needed, since it too radiates (weakly). On older watches you can find **"T Swiss T"** or **"T<25"** printed at the bottom of the dial — tritium markings, with radioactivity below the safety threshold.
+From the mid-20th century the industry replaced radium with **tritium** — also radioactive but **far weaker**, safe under normal wearing conditions. Tritium also **glowed continuously** without charging: its radiation excites the phosphor mixed with it. On older watches you can find **"T Swiss T"** or **"T<25"** printed at the bottom of the dial — tritium markings, with radioactivity below the safety threshold.
 
 ### Generation 3 — Super-LumiNova (modern, non-radioactive)
 

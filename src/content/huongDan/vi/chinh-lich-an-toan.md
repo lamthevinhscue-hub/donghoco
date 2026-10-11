@@ -26,7 +26,7 @@ sources:
 
 Điều cần nhớ: **21:00–01:00 là khung mà Seiko ghi trong manual của calibre 6L37** — một calibre cụ thể. Các calibre khác — kể cả của chính Seiko — có thể nêu khoảng khác. **Không tồn tại một khung giờ cấm áp dụng cho mọi đồng hồ.**
 
-> 💡 Dụng cụ bên dưới là **mô phỏng nguyên lý**: vùng tô 20:00–04:00 chỉ là ví dụ trực quan, không xác định khung giờ cho đồng hồ của bạn.
+> **Ghi chú:** Dụng cụ bên dưới là **mô phỏng nguyên lý**: vùng tô 20:00–04:00 chỉ là ví dụ trực quan, không xác định khung giờ cho đồng hồ của bạn.
 
 ## Nguyên tắc duy nhất: manual của đúng calibre
 

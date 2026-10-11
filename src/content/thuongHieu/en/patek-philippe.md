@@ -10,6 +10,8 @@ updated: "2026-09-20"
 draft: false
 
 sources:
+  - label: "Patek Philippe — The Patek Philippe Seal"
+    url: "https://www.patek.com/en/manufacture/a-story-of-independence/the-patek-philippe-seal"
   - label: "Patek Philippe — A story of independence: anchored in Geneva and Switzerland"
     url: "https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland"
   - label: "Patek Philippe — The founders"
@@ -37,7 +39,7 @@ Founded in 1839 in Geneva, Patek Philippe is regarded as one of the most prestig
 
 ## Watchmaking philosophy
 
-Patek Philippe pursues **absolute finishing**. Since 2009, the brand has applied its own **Patek Philippe Seal** — a stricter internal standard than the Geneva Seal, covering the finished watch (not just the movement). Every watch must meet demanding technical and aesthetic criteria, and the company makes all of its own movements, from simple calibres to some of the most complicated in the world.
+Patek Philippe pursues **absolute finishing**. Since 2009, the brand has applied its own **Patek Philippe Seal** — the brand's own internal standard, covering the finished watch rather than the movement alone. Every watch must meet demanding technical and aesthetic criteria, and the company makes all of its own movements, from simple calibres to some of the most complicated in the world.
 
 ## Key lines
 

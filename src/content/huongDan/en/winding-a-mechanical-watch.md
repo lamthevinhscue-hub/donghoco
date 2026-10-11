@@ -78,9 +78,9 @@ There is no universal number of wear-hours or "safe days" — the actual power r
 
 ## What to avoid
 
-- ❌ **Forcing the winding** — the number of turns and the stopping point belong to the model's manual; forcing is not in any maker's instructions. Anything feels abnormal → stop and contact an appropriate service.
-- ❌ **Handling near water with the crown open** — for a screw-down crown, always screw it back after adjusting (OMEGA's rule); for a plain crown, push it flush against the case.
-- ❌ **Assuming every calibre works the same** — crown positions and the winding method differ by calibre. When in doubt, read the manual.
+- **Avoid: forcing the winding** — the number of turns and the stopping point belong to the model's manual; forcing is not in any maker's instructions. Anything feels abnormal → stop and contact an appropriate service.
+- **Avoid: handling near water with the crown open** — for a screw-down crown, always screw it back after adjusting (OMEGA's rule); for a plain crown, push it flush against the case.
+- **Avoid: assuming every calibre works the same** — crown positions and the winding method differ by calibre. When in doubt, read the manual.
 
 ## Frequently asked questions
 

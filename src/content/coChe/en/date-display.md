@@ -1,7 +1,7 @@
 ---
 title: "Date display: how the date mechanism works"
 custom_slug: "date-display"
-excerpt: "A 31-position disk advanced one step every 24 hours. The difference between an instant and a slow date change — and the danger window when setting."
+excerpt: "A 31-position disk advanced one step every 24 hours by a finger. The difference between an instant and a slow date change — and the setting window to check the manual for."
 category: "nền tảng"
 difficulty: "thấp"
 has_infographic: false
@@ -12,7 +12,7 @@ updated: "2026-09-27"
 draft: false
 
 sourceNotes:
-  - "The engagement window (from about 8 pm to about 4 am), the 2–3 hour span of the rolling date, and the hands-to-6-o'clock habit follow the Vietnamese edition and its FHH source; the mechanism described here is the simple date only."
+  - "The engagement window around midnight differs by movement; the exact hours are not stated here and the reader is directed to the maker's manual for their specific model and calibre. The mechanism described is the simple date only."
   - "The 'no correction needed until 2100' remark applies to the perpetual calendar as described in the Vietnamese edition, not to the simple date mechanism."
 
 sources:
@@ -23,7 +23,7 @@ sources:
 
 ## The phenomenon — what you see
 
-Most mechanical watches carry a small window showing the date — usually at 3 o'clock, sometimes at 6. Through a display back, if the watch has one, you can make out the part inside: a **round disk printed with the numbers 1 to 31**, turning slowly. It is the simplest and the most widespread of watch complications — nearly every watch has one.
+Most mechanical watches carry a small window showing the date — usually at 3 o'clock, sometimes at 6. The number is printed on a **round disk carrying 1 to 31**, sitting just beneath the dial; it is usually not visible through a display back, because it lies on the dial side of the movement. It is the simplest and the most widespread of watch complications — nearly every watch has one.
 
 ## The principle — how the date disk works
 
@@ -31,24 +31,24 @@ Most mechanical watches carry a small window showing the date — usually at 3 o
 
 The date disk is a large wheel with **31 positions** — matching the 31 days of the longest month. The numbers 1 through 31 are printed around its rim. A small window in the dial shows whichever number currently sits at that spot.
 
-### One step forward every 24 hours
+### The finger and the date jumper
 
-Every 24 hours, a **date jumper** advances the disk by **one step**. The mechanism works like a detent: it holds the disk still all day, then releases it briefly around midnight so the disk turns to the next number.
+A date-driving wheel turns once every 24 hours and carries a **finger**. Around midnight the finger catches a tooth of the date disk and moves it on by **one step**. A spring detent called the **date jumper** holds the disk in position all day; how the parts store and release energy depends on each movement's design.
 
 Because the disk has exactly 31 positions, it returns from 31 to 1 — but it **has no idea how many days each month has**. For 30-day months (and February's 28), you advance the disk by hand — one, two, three extra steps. That is why you correct the date five or six times a year.
 
 ### Two styles of date change
 
 - **Instant (jumping) date** — at midnight exactly, the disk **snaps** to the new number in an instant, driven by a spring that stores energy and then releases it. Most modern watches use this style: clear to read, no half-turned digits.
-- **Slow (rolling) date** — the disk **creeps along** over 2–3 hours around midnight; the old and the new number both show halfway through. The older style, mechanically cheaper — but at night the date reads blurred.
+- **Slow (rolling) date** — the disk **creeps along** in the period around midnight; during the changeover the number can sit between two positions, old and new overlapping so it reads poorly.
 
 ## The danger window — the mistake that costs money
 
-This is the most important thing to know about a date mechanism: **the date gearing starts to engage from around 8 pm** to prepare the midnight jump, and **releases again around 4 am**. Throughout that window the mechanism is meshed.
+This is the most important thing to know about a date mechanism: for **a few hours around midnight**, the finger is engaged with the date disk to prepare the change. The exact window differs by movement.
 
 If you set the date with the [crown](/en/glossary/crown/) during that window, you push against the engaged mechanism — **teeth can break or chip**. This is the most common costly mistake beginners make.
 
-> The safe habit: **before changing the date, move the hour hand to about 6 o'clock** — by then the gearing has fully released. Step by step: [setting the date safely](/en/guides/setting-the-date-safely/).
+> The safe habit: consult the maker's manual for your specific model and calibre before setting the date; without documentation, avoid the quickset date function. Step by step: [setting the date safely](/en/guides/setting-the-date-safely/) — the simulation tool there is a visual example only.
 
 ## The historical significance
 

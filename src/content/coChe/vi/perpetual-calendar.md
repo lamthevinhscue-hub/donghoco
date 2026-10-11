@@ -18,8 +18,10 @@ relatedModels:
 updated: "2026-09-04"
 
 sources:
-  - label: "FHH — Perpetual calendar (định nghĩa, trí nhớ 48 tháng, điểm chỉnh 2100/2400)"
+  - label: "FHH — Perpetual calendar (định nghĩa, trí nhớ 48 tháng)"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/perpetual-calendar"
+  - label: "USNO — Introduction to Calendars (quy tắc năm nhuận thế kỷ của lịch Gregory)"
+    url: "https://aa.usno.navy.mil/faq/calendars"
   - label: "FHH — Annual Calendar (định nghĩa lịch niên, phân biệt hai cơ cấu)"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/watchmaking-knowledge/encyclopedia/annual-calendar"
   - label: "FHH — Complication (định nghĩa phức tạp)"
@@ -45,7 +47,7 @@ Hai cơ cấu này **khác nhau ở phạm vi tính toán** — một bên tính
 
 ## Điểm chỉnh ngoại lệ — theo FHH
 
-Theo FHH, perpetual calendar **chỉ cần chỉnh cho các năm không-nhuận ngoại lệ — kế tiếp là 2100 và 2400**. Đây là các ngoại lệ của quy tắc năm nhuận trong lịch Gregory, được chính mục từ của FHH nêu.
+FHH ghi rằng perpetual calendar chỉ cần chỉnh cho các năm không-nhuận ngoại lệ. Lịch vạn niên thông thường giả định cứ bốn năm có một năm nhuận, nên **chỉ phải chỉnh vào những năm tròn thế kỷ không nhuận — kế tiếp là 2100**, rồi 2200 và 2300. Năm 2400 chia hết cho 400 nên vẫn là năm nhuận theo quy tắc lịch Gregory (quy tắc năm nhuận thế kỷ — nguồn USNO), nằm ngoài nhóm ngoại lệ thế kỷ ấy. Mục từ của FHH ghi cả 2400 vào danh sách cần chỉnh; bài này không theo điểm đó.
 
 ## Đọc thêm
 

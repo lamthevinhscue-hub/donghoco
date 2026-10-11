@@ -1,6 +1,6 @@
 ---
 title: "Dạ quang — Vì sao đồng hồ sáng trong bóng tối"
-excerpt: "Nguyên lý lân quang: hấp thụ ánh sáng rồi phát lại. Ba thế hệ vật liệu: radium (đã bỏ), tritium (yếu hơn), Super-LumiNova (không phóng xạ, cần nạp sáng)."
+excerpt: "Ba thế hệ vật liệu dạ quang: radium và tritium tự sáng nhờ phóng xạ kích thích chất phát quang; Super-LumiNova hiện đại là lân quang, không phóng xạ, phải nạp sáng."
 category: "bổ trợ"
 difficulty: "thấp"
 has_infographic: false
@@ -19,6 +19,10 @@ sources:
     url: "https://www.panerai.com/en/world-of-panerai/history.html"
   - label: "Fondation de la Haute Horlogerie — Vật liệu trong chế tác đồng hồ"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watchmaking-s-material-world"
+  - label: "RC Tritec — Lịch sử vật liệu phát sáng (radians → tritium → LumiNova)"
+    url: "https://www.rctritec.com/en/superluminova/history-of-luminous-pigments"
+  - label: "Luminox — Super-LumiNova (vật liệu lân quang cần nạp sáng)"
+    url: "https://luminox.com/pages/super-luminova"
 
 ---
 
@@ -26,9 +30,9 @@ sources:
 
 Để đồng hồ dưới đèn vài phút rồi mang vào phòng tối, bạn thấy **kim và cọc số phát sáng xanh lét** — đủ đọc giờ trong bóng tối. Đây là **dạ quang** (lume) — một trong những tính năng hữu dụng nhất của đồng hồ đeo tay, nhất là khi mới có điện.
 
-## Nguyên lý — lân quang là gì?
+## Nguyên lý — hai cách phát sáng
 
-Dạ quang đồng hồ dùng hiện tượng **lân quang** (phosphorescence): một chất hấp thụ năng lượng ánh sáng, lưu trữ tạm thời, rồi **phát lại dưới dạng ánh sáng** trong bóng tối. Quá trình này **không cần nguồn năng lượng nào khác** — chỉ cần "nạp" bằng ánh sáng thường (đèn, mặt trời), vật liệu tự sáng dần rồi tắt khi hết năng lượng.
+Dạ quang đồng hồ phát sáng theo hai cách khác nhau. **Vật liệu lân quang** (phosphorescence) — loại dùng phổ biến hiện nay — hấp thụ năng lượng ánh sáng, lưu tạm rồi **phát lại dần trong bóng tối**; phải "nạp" bằng ánh sáng thường (đèn, mặt trời) và tắt dần khi hết năng lượng. Còn **radium và tritium** trước đây tự sáng liên tục, không cần nạp: chất phóng xạ liên tục kích thích một chất phát quang trộn cùng (radioluminescence).
 
 Vật liệu lân quang hiện đại phát sáng màu khác nhau — xanh lá, xanh dương, trắng — tùy chất cấu thành.
 
@@ -36,15 +40,15 @@ Vật liệu lân quang hiện đại phát sáng màu khác nhau — xanh lá, 
 
 ### Thế hệ 1 — Radium (đã bỏ)
 
-Đầu thế kỷ 20, người ta trộn **radium** — một nguyên tố phóng xạ — vào sơn dạ quang. Radium **tự phát sáng liên tục**, không cần nạp — vì nó tự bức xạ. Đây là ưu điểm lớn lúc đó: đồng hồ sáng mãi mãi, bất kể ngày hay đêm.
+Đầu thế kỷ 20, người ta trộn **radium** — một nguyên tố phóng xạ — vào sơn dạ quang. Radium **sáng liên tục**, không cần nạp: chất phóng xạ liên tục kích thích chất phát quang trộn trong sơn — nguyên tố phóng xạ không tự phát ánh sáng nhìn thấy được. Đây là ưu điểm lớn lúc đó: đồng hồ sáng cả ngày lẫn đêm mà không phải nạp.
 
-Nhưng radium **phóng xạ mạnh**, và những nữ công nhân sơn radium — những người đầu tiên — đã trả giá. Họ có thói quen liếm cọ sơn cho nhọn đầu, không biết radium nguy hiểm. Câu chuyện của họ là một trong những thảm kỷ niệm sớm nhất về an toàn lao động trong công nghiệp, và là lý do ngành đồng hồ bỏ radium hoàn toàn.
+Nhưng radium **phóng xạ mạnh**, và những nữ công nhân sơn radium — những người đầu tiên — đã trả giá. Họ có thói quen liếm cọ sơn cho nhọn đầu, không biết radium nguy hiểm. Câu chuyện của họ là một trong những bài học đau xót sớm nhất về an toàn lao động trong công nghiệp, và là lý do ngành đồng hồ bỏ radium hoàn toàn.
 
 > Kể câu chuyện này ở mức **tôn trọng**, không kể chi tiết bệnh tật. Điều quan trọng là bài học về trách nhiệm với người lao động.
 
 ### Thế hệ 2 — Tritium (yếu hơn nhiều)
 
-Từ giữa thế kỷ 20, ngành thay radium bằng **tritium** — cũng phóng xạ nhưng **yếu hơn rất nhiều**, an toàn trong điều kiện đeo bình thường. Tritium vẫn **tự phát sáng** không cần nạp, vì nó cũng bức xạ (nhẹ). Trên đồng hồ cũ, bạn thấy chữ **"T Swiss T"** hoặc **"T<25"** ở đáy mặt số — đó là dấu hiệu tritium, với mức phóng xạ dưới ngưỡng an toàn.
+Từ giữa thế kỷ 20, ngành thay radium bằng **tritium** — cũng phóng xạ nhưng **yếu hơn rất nhiều**, an toàn trong điều kiện đeo bình thường. Tritium cũng **sáng liên tục** không cần nạp: bức xạ của nó kích thích chất phát quang trộn cùng. Trên đồng hồ cũ, bạn thấy chữ **"T Swiss T"** hoặc **"T<25"** ở đáy mặt số — đó là dấu hiệu tritium, với mức phóng xạ dưới ngưỡng an toàn.
 
 ### Thế hệ 3 — Super-LumiNova (hiện đại, không phóng xạ)
 

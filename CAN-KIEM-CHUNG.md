@@ -49,6 +49,8 @@ Ngoài ba liên kết trên, **chưa xác định được chi tiết nào khác
 
 **Bổ sung 25/09/2026 (gói S1, TXN-20260925-156): thêm mục 59, trạng thái `CHỜ NGUỒN` (chờ nguồn kỹ thuật về quy ước đo biên độ).** Mục này chưa tính vào bảng phân loại phía trên. Cùng ngày, bốn mục 55–58 được xử lý phía bản tiếng Việt: mục 55 chuyển thành `ĐÃ GIẢI QUYẾT`; mục 56, 57, 58 gỡ phần hiển thị sai/chưa có nguồn khỏi bài VI nhưng giữ trạng thái `CHỜ NGUỒN` để khôi phục dữ kiện khi có nguồn.
 
+**Bổ sung 11/10/2026 (gói B1+B2, TXN-20261011-07): mục 57 và 59 chuyển thành `ĐÃ GIẢI QUYẾT`** (57: tách Mark 11/Mark XX theo nguồn IWC; 59: quy ước đo biên độ theo Witschi WAIO trang in 44). **Thêm mục 60, trạng thái `CHỜ NGUỒN`** (thông số thế hệ Mark XII–XVIII chờ nguồn IWC). Hai mục 57, 59 và mục 60 chưa tính lại vào bảng phân loại phía trên (bảng rà 30/08/2026 giữ vai trò lịch sử).
+
 ---
 
 ## 1. Năm đăng ký logo Longines — ĐÃ GIẢI QUYẾT
@@ -1239,14 +1241,15 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 ---
 
-## 57. Mâu thuẫn calibre trong bài IWC Mark XI: frontmatter "Calibre 32111" đối lập thân bài "calibre 35111" — CHỜ NGUỒN
+## 57. Mâu thuẫn calibre trong bài IWC Mark XI: frontmatter "Calibre 32111" đối lập thân bài "calibre 35111" — ĐÃ GIẢI QUYẾT (11/10/2026)
 
 - **Vị trí:** `src/content/mauIconic/vi/iwc-mark-xi.md` — frontmatter `movement: "Calibre 32111"` trong khi mục "Bộ máy" ghi "Mark XVIII hiện tại dùng **calibre 35111** (dựa ETA 2892)". Hai con số trong cùng một bài.
 - **Lý do cần kiểm chứng:** mâu thuẫn nội bộ là bằng chứng cụ thể rằng ít nhất một con số sai; theo trang chính hãng IWC, Mark XVIII thường được ghi với calibre 35111 — nhưng chưa đối chiếu được với nguồn chính hãng ở lượt dịch 20/09/2026, không tự sửa.
 - **Hành động đã làm (20/09/2026, H03-B vòng sửa 1):** bản EN (`src/content/mauIconic/en/iwc-mark-xi.md`) **không còn công bố hai calibre mâu thuẫn** — đã gỡ trường `movement` khỏi frontmatter (schema cho optional; SpecTable tự ẩn dòng rỗng) và gỡ câu "calibre 35111" khỏi mục "The movement"; không thay bằng calibre khác, không suy đoán. Phần calibre có nguồn từ bản VI (calibre 89, JLC 889, ETA 2892, ETA 37524) giữ nguyên. **Bài VI nguyên trạng** — vẫn hiển thị cả hai con số mâu thuẫn, chờ nguồn chính hãng.
 - **Nguồn còn thiếu:** trang sản phẩm Mark XVIII của IWC (hoặc tài liệu kỹ thuật chính hãng) để chốt mã calibre đúng.
 - **Cập nhật 25/09/2026 (gói S1, TXN-20260925-156):** bài VI đã gỡ hai con số mâu thuẫn — bỏ trường `movement: "Calibre 32111"` khỏi frontmatter (bảng thông số tự ẩn dòng rỗng) và bỏ câu "Mark XVIII hiện tại dùng **calibre 35111** (dựa ETA 2892)" khỏi mục "Bộ máy"; giữ nguyên phần calibre có nguồn (calibre 89, JLC 889, ETA 2892, ETA 37524). Bài VI nay xử lý đúng như bản EN từ 20/09. Lưu ý đối chiếu tiêu chí kiểm: mã "32111" còn xuất hiện trong `src/content/thuongHieu/vi/omega.md` và `jaeger-lecoultre.md` là **calibre Omega khác** (bộ máy in-house 120h của hãng đó), không liên quan mục này — không thuộc phạm vi sửa.
-- **Trạng thái:** CHỜ NGUỒN (20/09/2026; phía hiển thị đã xử lý xong cả VI và EN ngày 25/09/2026) — khi có nguồn thì **sửa đồng thời VI và EN cùng lượt**: VI chốt số đúng và bổ sung lại thông tin calibre; EN bổ sung lại `movement`/câu bộ máy với calibre đã xác minh. Checker H03-B chặn cứng hai chuỗi `32111`/`35111` ở src EN và dist EN cho tới khi xử lý.
+- **Cập nhật 11/10/2026 (gói B1+B2, TXN-20261011-07): ĐÃ GIẢI QUYẾT.** Hai bài VI/EN đã tách mẫu gốc với các thế hệ sau: frontmatter bỏ `power_reserve`/`water_resistance` (không thuộc mẫu gốc 1948), `references` thành `["Mark 11", "Mark XX"]`; mục "Sự tiến hóa của dòng Mark" thay mới theo nguồn IWC Press (calibre 89, giao RAF từ 11/1949, tới 1981, đổi tritium 1963) và IWC IW328208 (40 mm, calibre 32111, 120 giờ, 10 bar — gắn đúng Mark XX, không vào frontmatter mẫu gốc); gỡ ngưỡng "~1.000 gauss" chưa có nguồn. Không còn con số calibre mâu thuẫn nào.
+- **Trạng thái (lịch sử 20/09–25/09/2026):** CHỜ NGUỒN khi đó — các nhận định chờ xử lý và ghi chú "Checker H03-B chặn cứng hai chuỗi `32111`/`35111`" dưới đây là ràng buộc lịch sử, không còn là ràng buộc hiện hành (chưa xác minh lại). **Trạng thái hiện hành: ĐÃ GIẢI QUYẾT (11/10/2026, gói B1+B2, TXN-20261011-07)** — xem bullet cập nhật phía trên.
 
 ---
 
@@ -1261,10 +1264,19 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 
 ---
 
-## 59. Quy ước đo biên độ trên máy đo nhịp (timegrapher) — CHỜ NGUỒN
+## 59. Quy ước đo biên độ trên máy đo nhịp (timegrapher) — ĐÃ GIẢI QUYẾT (11/10/2026)
 
 - **Vị trí:** `src/content/tuDien/vi/bien-do.md` và `src/content/tuDien/en/amplitude.md` — mục định nghĩa (Định nghĩa / The definition).
 - **Nội dung vấn đề:** quy ước đo biên độ trên máy đo nhịp — tính từ vị trí nghỉ tới một phía hay tổng hai phía. Cần nguồn kỹ thuật (ví dụ tài liệu của Witschi) trước khi viết lại định nghĩa áp dụng cho đồng hồ.
 - **Bối cảnh phát hiện (25/09/2026, gói S1, TXN-20260925-156):** câu định nghĩa gắn chung của FHH với vị trí nghỉ của cán bánh lắc ("biên độ là góc quay của cán bánh lắc qua lại hai bên vị trí đứng yên…" và câu EN tương ứng) đã bị bỏ khỏi cả hai bài vì nối định nghĩa nguồn với quy ước đo chưa được làm rõ. **Không tự viết câu thay thế.** Tên thiết bị đo trong hai bài đã sửa đúng thành "máy đo nhịp (timegrapher)" / "timing machine (timegrapher)".
 - **Nguồn còn thiếu:** tài liệu kỹ thuật của nhà chế tạo máy đo (ví dụ Witschi) nêu rõ quy ước tính biên độ trên thiết bị.
-- **Trạng thái:** CHỜ NGUỒN (25/09/2026) — khi có nguồn kỹ thuật thì viết lại định nghĩa áp dụng cho đồng hồ, đồng thời hai bản VI và EN cùng lượt.
+- **Cập nhật 11/10/2026 (gói B1+B2, TXN-20261011-07): ĐÃ GIẢI QUYẾT.** Nguồn đã có: Witschi — WAIO Operating Instructions (trang in 44, xác định biên độ là góc từ vị trí cân bằng tới điểm quay đầu). Hai bài VI/EN thêm đoạn quy ước đo hẹp trên máy đo nhịp (vị trí cân bằng → điểm quay đầu, một phía của dao động) tách rõ với định nghĩa khái quát của FHH; trích dẫn FHH giữ nguyên vai trò định nghĩa. Đoạn "Đọc thêm" VI sửa chiều truyền xung lực ("Bộ phận truyền xung lực tới bánh lắc qua ngựa").
+- **Trạng thái (lịch sử 25/09/2026):** CHỜ NGUỒN khi đó — yêu cầu "khi có nguồn thì viết lại định nghĩa đồng thời hai bản" đã thực hiện. **Trạng thái hiện hành: ĐÃ GIẢI QUYẾT (11/10/2026, gói B1+B2, TXN-20261011-07)** — xem bullet cập nhật phía trên.
+
+## 60. Năm, kích thước và bộ máy của Mark XII đến Mark XVIII — đã gỡ khỏi bài, chờ nguồn IWC — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/mauIconic/vi/iwc-mark-xi.md` và `src/content/mauIconic/en/iwc-mark-xi.md`.
+- **Nội dung vấn đề:** thông số chi tiết từng thế hệ dân sự (Mark XII 1994 JLC 889, Mark XV 1999 38 mm ETA 37524, Mark XVI 2006 40 mm, Mark XVIII 2016 40 mm) từng liệt kê trong bài nhưng không đối chiếu được với nguồn chính hãng IWC theo thế hệ.
+- **Hành động đã làm (11/10/2026, gói B1+B2, TXN-20261011-07):** gỡ danh sách thông số theo thế hệ khỏi cả hai bài; thay bằng một dòng khái quát "mỗi thế hệ có kích thước và bộ máy riêng; thông số từng thế hệ không dùng thay cho mẫu gốc". Chỉ giữ dữ kiện có nguồn: Mark 11 (IWC Press) và Mark XX IW328208 (trang IWC).
+- **Nguồn còn thiếu:** tài liệu IWC chính hãng cho từng thế hệ Mark XII, XV, XVI, XVII, XVIII (năm, kích thước, calibre).
+- **Trạng thái:** CHỜ NGUỒN (11/10/2026) — khi có nguồn thì bổ sung lại bảng thế hệ đồng thời VI và EN cùng lượt.

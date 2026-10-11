@@ -4,15 +4,17 @@ custom_slug: "iwc-mark-xi"
 excerpt: "A military watch for the RAF (1948) — the benchmark of the pilot watch, and the origin of every IWC pilot watch that followed."
 brand: "IWC Schaffhausen"
 year: 1948
-references: ["Mark XI", "Mark XII", "Mark XV", "Mark XVIII"]
+references: ["Mark 11", "Mark XX"]
 category: "pilot"
-power_reserve: "72 hours"
-water_resistance: "60m"
 date: "2026-07-31"
 updated: "2026-09-20"
 draft: false
 
 sources:
+  - label: "IWC Press — Pilot's Watches Historical References (Mark 11, calibre 89)"
+    url: "https://press.iwc.com/iwc-sihh2019-historicalreferences-en/"
+  - label: "IWC — Pilot's Watch Mark XX IW328208"
+    url: "https://www.iwc.com/us-en/watches/pilot-watches/iw328208-pilots-watch-mark-xx"
   - label: "Wikipedia — IWC Schaffhausen"
     url: "https://en.wikipedia.org/wiki/IWC_Schaffhausen"
   - label: "IWC — Company history"
@@ -50,19 +52,17 @@ The Mark XI shaped the "Flieger" (German pilot) aesthetic and the pilot watch in
 
 ## Anti-magnetic — the key point
 
-Cockpits of that era were full of electromagnetic equipment that could disrupt a mechanical watch. The Mark XI has a **soft-iron cage** around the movement, protecting it from fields of around 1,000 gauss. It is the feature that sets the Mark XI apart from an ordinary dress watch.
+Cockpits of that era were full of electromagnetic equipment that could disrupt a mechanical watch. The Mark XI has a **soft-iron cage** around the movement, protecting the movement from magnetic fields — a requirement the RAF specified for this watch, according to IWC. It is the feature that sets the Mark XI apart from an ordinary dress watch.
 
 ## The evolution of the Mark line
 
-- **Mark XI** (1948–1981) — the original military issue, extremely rare.
-- **Mark XII** (1994) — the first civilian version, using the JLC calibre 889.
-- **Mark XV** (1999) — a larger version (38mm), using the ETA 37524.
-- **Mark XVI** (2006) — a bigger case (40mm).
-- **Mark XVIII** (2016–present) — the current generation, 40mm.
+- **Mark 11** (from 1948) — the original for the Royal Air Force, with the hand-wound calibre 89. According to IWC, it reached RAF pilots and navigators from November 1949 and stayed in service until 1981; radium dials were replaced by tritium dials (marked with an encircled "T") from 1963.
+- **Later civilian generations** (Mark XII, XV, XVI, XVII, XVIII) — each with its own size and movement; their specifications do not apply to the original.
+- **Mark XX** — the current generation on IWC's site: reference IW328208, 40 mm case, IWC-manufactured automatic calibre 32111, 120-hour power reserve, water-resistant to 10 bar.
 
 ## The movement
 
-The original Mark XI used IWC's **calibre 89** — hand-wound, durable, accurate. The later civilian generations used the JLC calibre 889, then a modified ETA 2892.
+The original Mark XI used IWC's **calibre 89** — hand-wound, durable, accurate. Later civilian generations used different movements; the current Mark XX uses the IWC-manufactured calibre 32111.
 
 ## Its place in history
 

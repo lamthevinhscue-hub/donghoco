@@ -77,9 +77,9 @@ Không có con số giờ đeo hay số ngày "an toàn" áp dụng cho mọi b�
 
 ## Những điều cần tránh
 
-- ❌ **Ép vặn** — số vòng và điểm dừng thuộc về manual của mẫu; ép vặn không nằm trong hướng dẫn của hãng. Cảm giác bất thường → dừng, liên hệ dịch vụ phù hợp.
-- ❌ **Thao tác gần nước khi núm chưa đóng kín** — với núm vặn ren, luôn vặn ren lại sau khi chỉnh (nguyên tắc Omega); với núm thường, đẩy sát vỏ.
-- ❌ **Giả định thiết kế giống nhau** — cấu trúc nấc núm và cách vặn tùy calibre. Khi không chắc, tra manual.
+- **Tránh: ép vặn** — số vòng và điểm dừng thuộc về manual của mẫu; ép vặn không nằm trong hướng dẫn của hãng. Cảm giác bất thường → dừng, liên hệ dịch vụ phù hợp.
+- **Tránh: thao tác gần nước khi núm chưa đóng kín** — với núm vặn ren, luôn vặn ren lại sau khi chỉnh (nguyên tắc Omega); với núm thường, đẩy sát vỏ.
+- **Tránh: giả định thiết kế giống nhau** — cấu trúc nấc núm và cách vặn tùy calibre. Khi không chắc, tra manual.
 
 ## Câu hỏi thường gặp
 

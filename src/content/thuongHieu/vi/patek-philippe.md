@@ -85,6 +85,8 @@ segmentComparison:
     philosophy: "Deutsche Wertarbeit (chế tác Đức) — không bắt chước Thụy Sĩ, hoàn thiện Đức lạnh lùng, exactitud."
 collectorNote: "Chọn Patek Philippe khi bạn tìm kiếm **đỉnh cao tuyệt đối của haute horlogerie** — một thương hiệu 3 thế hệ gia đình Stern sở hữu, slogan 'bạn chỉ giữ cho thế hệ sau' nói lên tất cả. Patek là **món gia sản truyền đời**, không phải 'đồng hồ để đeo' đơn thuần — Nautilus/Aquanaut săn đón nhất ngành, Calatrava là dress watch chuẩn mực, Grand Complications là tác phẩm nghệ thuật. Hợp với người đã có mọi thứ và muốn một mảnh 'vĩnh cửu' — không hợp với người mua để 'khoe' (Patek ít nổi tiếng với công chúng hơn Rolex). Nếu ưu tiên **sport-luxury thép táo bạo**, chọn AP Royal Oak (đẹp hơn Nautilus ở 'attitude'). Nếu yêu **nhà chế tác lâu đời nhất + tinh tế**, chọn Vacheron Constantin (Overseas). Nếu thích **chế tác Đức lạnh lùng + moon phase**, chọn A. Lange & Söhne (LANGE 1). Patek Philippe hợp với nhà sưu tập dạn dày, người trân trọng **di sản gia đình**."
 sources:
+  - label: "Patek Philippe — Dấu ấn Patek Philippe"
+    url: "https://www.patek.com/en/manufacture/a-story-of-independence/the-patek-philippe-seal"
   - label: "Patek Philippe — Lịch sử tại Genève và Thụy Sĩ"
     url: "https://www.patek.com/en/manufacture/a-story-of-independence/anchored-in-geneva-and-switzerland"
   - label: "Patek Philippe — Câu chuyện những người sáng lập"
@@ -99,7 +101,7 @@ Patek Philippe, thành lập năm 1839 tại Genève, được xem là một tro
 
 ## Triết lý chế tác
 
-Patek theo đuổi **hoàn thiện tuyệt đối**. Từ 2009, hãng áp dụng **Patek Philippe Seal** — chuẩn nội bộ riêng, khắt khe hơn dấu ấn Genève, áp dụng cho cả đồng hồ hoàn thiện (không chỉ bộ máy). Mỗi chiếc đồng hồ phải thỏa nhiều tiêu chuẩn kỹ thuật và thẩm mỹ nghiêm ngặt.
+Patek theo đuổi **hoàn thiện tuyệt đối**. Từ 2009, hãng áp dụng **Patek Philippe Seal** — chuẩn nội bộ riêng của hãng, áp dụng cho cả chiếc đồng hồ hoàn thiện chứ không chỉ bộ máy. Mỗi chiếc đồng hồ phải thỏa nhiều tiêu chuẩn kỹ thuật và thẩm mỹ nghiêm ngặt.
 
 ## Dòng sản phẩm chủ lực
 

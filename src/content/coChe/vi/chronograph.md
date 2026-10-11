@@ -71,7 +71,7 @@ Ngoài cách điều khiển, chronograph còn khác nhau ở cách gắn vào b
 
 ## Ý nghĩa lịch sử — đo thời gian, định nghĩa thể thao
 
-**1816**: Louis Moinet chế tạo "compteur de tierces" — thiết bị đo tới 1/60 giây, chạy 216.000 vph (30 Hz), có hai nút, phục vụ quan sát thiên văn. FHH coi đây là phát minh của chronograph. **1821**: Nicolas Mathieu Rieussec — thợ hồ được nhà vua Pháp bổ nhiệm — trình diễn thiết bị đo đua ngựa, chính xác tới 1/5 giây, **rắc giọt mực** lên mặt số xoay để ghi thời gian; tên "chronograph" (tiếng Hy Lạp: "viết thời gian") ra đời từ đó. **Khoảng 1861**: bản chronograph hiện đại với kim bấm giờ xuất hiện (Henri-Ferréol Piguet, cho Nicole & Capt — theo FHH).
+**1816**: Louis Moinet chế tạo "compteur de tierces" — thiết bị đo tới 1/60 giây, chạy 216.000 vph (30 Hz), có hai nút, phục vụ quan sát thiên văn. FHH coi đây là phát minh của chronograph. **1821**: Nicolas Mathieu Rieussec — thợ đồng hồ được nhà vua Pháp bổ nhiệm — trình diễn thiết bị đo đua ngựa, chính xác tới 1/5 giây, **rắc giọt mực** lên mặt số xoay để ghi thời gian; tên "chronograph" (tiếng Hy Lạp: "viết thời gian") ra đời từ đó. **Khoảng 1861**: bản chronograph hiện đại với kim bấm giờ xuất hiện (Henri-Ferréol Piguet, cho Nicole & Capt — theo FHH).
 
 **Thế kỷ 20** là kỷ hoàng kim của chronograph gắn với tốc độ: đua xe (Heuer Carrera 1963, Monaco 1969 — theo TAG Heuer), hàng không (flyback — theo FHH, ra đời phục vụ phi công), thám hiểm không gian (Omega Speedmaster — [đồng hồ đeo trên Mặt Trăng 1969 theo Omega](/mau-iconic/omega-speedmaster)).
 

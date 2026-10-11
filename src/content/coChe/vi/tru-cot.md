@@ -26,7 +26,6 @@ sources:
 
 ---
 
-> **✅ Infographic động đã có!** Cuộn xuống để xem hình minh họa hoạt động.
 > Phần chữ dưới đây dành cho người muốn đọc sâu hơn.
 
 ## Trữ cót là gì?

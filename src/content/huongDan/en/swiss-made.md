@@ -8,7 +8,7 @@ draft: false
 updated: "2026-09-20"
 
 sources:
-  - label: "Fedlex — Ordinance on the use of 'Swiss' for watches (SR 817.021.51)"
+  - label: "Fedlex — Ordinance on the use of 'Swiss' for watches (SR 232.119)"
     url: "https://www.fedlex.admin.ch/eli/cc/1971/1908_1915_1915/en"
   - label: "IGE — Revision of the Ordinance on the use of 'Swiss' for watches"
     url: "https://www.ige.ch/en/law-and-policy/national-ip-law/indications-of-source/swiss-indications-of-source/industry-ordinances/revision-of-the-ordinance-on-the-use-of-swiss-for-watches"

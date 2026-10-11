@@ -36,7 +36,7 @@ Because there is no universal figure, the reliable way to read anti-magnetic cla
 - **One calibre's figure:** Oris states on its Calibre 400 page that the calibre is engineered with **over 30 non-ferrous, anti-magnetic components**, and that it deviated **less than 10 seconds a day after exposure to 2,250 gauss** — which Oris describes as surpassing ISO 764 standards. That is the published specification of that calibre.
 - **One certification's criterion:** METAS operates the **MASTER CHRONOMETER** certification, which covers "resistance to magnetic fields" among its criteria. The requirement document for this certification specifies **1.5 T (15,000 gauss)**. According to METAS, the certification is open to **all brands** whose Swiss Made watches carry a movement certified as a chronometer under ISO 3159.
 
-⚠️ **15,000 gauss is the criterion of the MASTER CHRONOMETER certification — it is not a general level for mechanical watches**, and not a level attributed to any other brand or model in the sources this article uses.
+Note: **15,000 gauss is the criterion of the MASTER CHRONOMETER certification — it is not a general level for mechanical watches**, and not a level attributed to any other brand or model in the sources this article uses.
 
 ## If a watch starts running oddly
 

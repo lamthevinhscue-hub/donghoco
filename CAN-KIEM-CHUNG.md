@@ -1280,3 +1280,12 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Hành động đã làm (11/10/2026, gói B1+B2, TXN-20261011-07):** gỡ danh sách thông số theo thế hệ khỏi cả hai bài; thay bằng một dòng khái quát "mỗi thế hệ có kích thước và bộ máy riêng; thông số từng thế hệ không dùng thay cho mẫu gốc". Chỉ giữ dữ kiện có nguồn: Mark 11 (IWC Press) và Mark XX IW328208 (trang IWC).
 - **Nguồn còn thiếu:** tài liệu IWC chính hãng cho từng thế hệ Mark XII, XV, XVI, XVII, XVIII (năm, kích thước, calibre).
 - **Trạng thái:** CHỜ NGUỒN (11/10/2026) — khi có nguồn thì bổ sung lại bảng thế hệ đồng thời VI và EN cùng lượt.
+
+## 61. Claim "FHH: bộ máy chất lượng thường có 15 đến 21 chân kính" — đã gỡ khỏi hai bài "Hiểu đúng", chờ nguồn FHH — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/huongDan/vi/chan-kinh-nhieu-co-tot-hon.md` và `src/content/huongDan/en/are-more-jewels-better.md` (excerpt, thân bài, sourceNotes) — vị trí đã gỡ ngày 12/10/2026 (gói B7, TXN-20261011-15).
+- **Nội dung vấn đề:** đầu vào soạn sẵn gán cho FHH số "15 đến 21 chân kính" cho bộ máy chất lượng và định nghĩa giảm ma sát. Khi đối chiếu (12/10/2026): URL encyclopedia "jewels" của FHH chỉ còn SPA shell; Wayback không có snapshot của URL này; CDX 77 slug encyclopedia không có jewel; bản lưu mục từ "jewel" (glossary, 22/06/2019) chỉ chứa "To set or push fit jewels (ruby bearings) in a watch movement." — không có số 15–21, không có định nghĩa giảm ma sát. Attribution chưa xác minh được — không đồng nghĩa dữ kiện sai, nhưng không đủ căn cứ xuất bản.
+- **Hành động đã làm:** gỡ toàn bộ claim và attribution khỏi hai bản; bài viết lại chỉ dựa trên FHH mục Stone (đá làm bearing/endstone/pallet-stone, gọi là jewels) và Incabloc (giảm ma sát, hốc dầu trong hệ chống sốc Incabloc); không chuyển số 15–21 lên phần công khai dưới hình thức nào.
+- **Nguồn còn thiếu:** tài liệu FHH (bản chính thức còn sống hoặc bản lưu được FHH xác nhận) nêu khoảng số chân kính phổ biến ở bộ máy chất lượng.
+- **Điều kiện xem xét lại:** có nguồn FHH sống được đối chiếu nguyên văn thì cân nhắc đưa lại, kèm attribution chính xác; VI và EN cùng lượt.
+- **Trạng thái:** CHỜ NGUỒN (12/10/2026, gói B7, TXN-20261011-15).

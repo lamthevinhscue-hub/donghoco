@@ -15,8 +15,8 @@
 //   DIST
 //   U1-5  Hai route hub tồn tại sau build; mỗi trang đúng một H1.
 //   U1-6  canonical + hreflang vi/en + switcher hai chiều đúng cặp.
-//   U1-7  Trạng thái trống hiển thị (nhãn hieudung_empty) khi chưa có bài
-//         gắn thẻ; không có thẻ bài không mang tag `hieu-dung`.
+//   U1-7  Theo dữ liệu nguồn từng ngôn ngữ: không bài → nhãn trống + 0 thẻ;
+//         có bài → tập thẻ khớp tập bài (thiếu/thừa/trùng/sai route đều fail).
 //   U1-8  Bốn trang dẫn (2 trang chủ + 2 trang danh sách Hướng dẫn) có
 //         liên kết đúng ngôn ngữ tới hub; không rò URL VI vào EN và ngược lại
 //         (trừ switcher và hreflang hợp lệ).
@@ -120,11 +120,47 @@ for (const [ten, tep] of [['hub VI', distVi, 'en/myths'], ['hub EN', distEn, 'hi
   if (html.includes(switcher)) pass(`U1-6`, `${ten}: switcher trỏ đúng hub ngôn ngữ kia (${switcher})`);
   else fail(`U1-6`, `${ten}: thiếu switcher ${switcher}`);
 
-  const rong = html.includes('hieudung_empty') || (ten === 'hub VI'
+  // U1-7 (vá B7, TXN-20261011-14): trạng thái theo DỮ LIỆU NGUỒN từng ngôn ngữ.
+  // Không bài đủ điều kiện (tag hieu-dung, draft !== true) → bắt buộc nhãn trống
+  // và không có thẻ bài. Có bài → cấm nhãn trống; TẬP liên kết thẻ bài trong
+  // vùng nội dung hub phải khớp tập bài nguồn — bắt cả thiếu, thừa, trùng và
+  // sai route/ngôn ngữ. Đọc frontmatter thật, không suy từ thân bài hay dist.
+  const laHubVi = ten === 'hub VI';
+  const thuMucBai = laHubVi ? 'vi' : 'en';
+  const mauThe = laHubVi ? /href="(\/huong-dan\/[a-z0-9-]+)"/g : /href="(\/en\/guides\/[a-z0-9-]+\/)"/g;
+  const vungNoiDung = html.slice(
+    html.indexOf('</h1>') + 5,
+    html.indexOf('</main>') > 0 ? html.indexOf('</main>') : undefined
+  );
+  const theTrongHub = [...vungNoiDung.matchAll(mauThe)].map((m) => m[1]);
+  const baiNguon = [];
+  const muc = path.join(ROOT, 'src', 'content', 'huongDan', thuMucBai);
+  for (const tenTep of fs.existsSync(muc) ? fs.readdirSync(muc) : []) {
+    if (!tenTep.endsWith('.md')) continue;
+    const fm = fs.readFileSync(path.join(muc, tenTep), 'utf8').split(/^---\r?\n/m)[1] ?? '';
+    const coTag = /tags:\s*\[[^\]]*hieu-dung/.test(fm) || /tags:\s*\n\s+-\s+hieu-dung/.test(fm);
+    const nhap = /draft:\s*true/.test(fm);
+    if (coTag && !nhap) baiNguon.push(tenTep.replace(/\.md$/, ''));
+  }
+  const kyVong = (laHubVi
+    ? baiNguon.map((s) => `/huong-dan/${s}`)
+    : baiNguon.map((s) => `/en/guides/${s}/`)
+  ).sort();
+  const thucTe = [...new Set(theTrongHub)].sort();
+  const trung = theTrongHub.length !== thucTe.length;
+  const rong = html.includes('hieudung_empty') || (laHubVi
     ? html.includes('Chưa có bài nào trong loạt này')
     : html.includes('No articles in this series yet'));
-  if (rong) pass(`U1-7`, `${ten}: trạng thái trống hiển thị`);
-  else fail(`U1-7`, `${ten}: không thấy trạng thái trống`);
+  if (baiNguon.length === 0) {
+    if (rong && theTrongHub.length === 0) pass(`U1-7`, `${ten}: không có bài — nhãn trống đúng, không thẻ`);
+    else fail(`U1-7`, `${ten}: không có bài nhưng nhãn trống=${rong}, số thẻ=${theTrongHub.length}`);
+  } else if (!rong && !trung && JSON.stringify(kyVong) === JSON.stringify(thucTe)) {
+    pass(`U1-7`, `${ten}: ${thucTe.length} thẻ bài khớp đúng tập nguồn, không nhãn trống`);
+  } else {
+    const thieu = kyVong.filter((x) => !thucTe.includes(x));
+    const thua = thucTe.filter((x) => !kyVong.includes(x));
+    fail(`U1-7`, `${ten}: nhãn trống=${rong}, trùng=${trung}, thiếu=[${thieu}], thừa=[${thua}]`);
+  }
 }
 
 // Bốn trang dẫn — liên kết đúng ngôn ngữ tới hub

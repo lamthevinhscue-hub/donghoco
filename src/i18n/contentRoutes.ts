@@ -62,6 +62,9 @@ export const ARTICLE_PAIRS: RoutePair[] = [
   { vi: '/huong-dan/len-day-dong-ho', en: '/en/guides/winding-a-mechanical-watch/' },
   { vi: '/huong-dan/muc-chong-nuoc', en: '/en/guides/water-resistance/' },
   { vi: '/huong-dan/chinh-lich-an-toan', en: '/en/guides/setting-the-date-safely/' },
+  { vi: '/huong-dan/chan-kinh-nhieu-co-tot-hon', en: '/en/guides/are-more-jewels-better/' },
+  { vi: '/huong-dan/dong-ho-co-can-deo-moi-ngay', en: '/en/guides/do-mechanical-watches-need-daily-wear/' },
+  { vi: '/huong-dan/nam-cham-lam-dong-ho-chay-sai', en: '/en/guides/can-magnets-affect-watch-accuracy/' },
   { vi: '/huong-dan/hop-xoay-dong-ho', en: '/en/guides/watch-winders/' },
   { vi: '/huong-dan/do-sai-so', en: '/en/guides/accuracy-tracking/' },
   // Cơ chế

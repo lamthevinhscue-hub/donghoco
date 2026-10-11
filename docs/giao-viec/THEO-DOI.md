@@ -11,8 +11,8 @@ Trạng thái dùng: Chưa mở / Đang chuẩn bị / Đang thi công / Chờ n
 
 | Mã | Việc | Trạng thái | Biên bản | Nghiệm thu GPT Work | Commit | Ngày hoàn tất | Ghi chú |
 |---|---|---|---|---|---|---|---|
-| E1 | Đăng ký kế hoạch hiện hành | **Chờ nghiệm thu** (vòng sửa 1 xong) | [Biên bản E1](../nghiem-thu/E1-dang-ky-ke-hoach-hien-hanh-2026-10-11.md) | — | — | — | Câu lệnh TXN-20261011-01: đúng 6 tệp; vòng 1 CHƯA ĐẠT (TXN-02: nhãn trước duyệt D4 + số phép kiểm biên bản) đã sửa xong; CHI-MUC sửa dở từ phiên trước được tiếp nhận làm nền |
-| C0 | Sửa phạm vi bộ kiểm tra (`tsconfig.json` loại `output`) | Chưa mở | — | — | — | — | |
+| E1 | Đăng ký kế hoạch hiện hành | **Hoàn tất** | [Biên bản E1](../nghiem-thu/E1-dang-ky-ke-hoach-hien-hanh-2026-10-11.md) | ĐẠT (TXN-20261011-03, sau vòng sửa 1) | `97ed0af` | 11/10/2026 | 6 tệp, +804/−6; push `6e60c37..97ed0af` đã đối chiếu ls-remote; gói docs-only nên trang thật không đổi; vòng 1 CHƯA ĐẠT đã sửa (nhãn trước duyệt D4 + số phép kiểm) |
+| C0 | Sửa phạm vi bộ kiểm tra (`tsconfig.json` loại `output`) | **Chờ nghiệm thu** (vòng sửa 1 xong) | [Biên bản C0](../nghiem-thu/C0-pham-vi-bo-kiem-tra-2026-10-11.md) | — | — | — | Câu lệnh TXN-20261011-04: đúng 7 tệp; tách fixture G08 sang scripts/fixtures/ (nguyên byte); checker C0 9 phép kiểm nối trước check:types; astro check 332 hints → 0/0/0; vòng 1 CHƯA ĐẠT (TXN-05) đã sửa: K1a đúng tập + build bản sao không output/ + tách kịch bản/lệnh + trả hàng Hồ sơ |
 | B1 + B2 | Sửa 8 lỗi chuyên môn, bỏ biểu tượng ✅⚠️❌💡 | Chưa mở | — | — | — | — | Đầu vào `dot-1/B1-B2-sua-loi-chuyen-mon.md` |
 | B7 | Xuất bản 3 bài "Hiểu đúng" | Chưa mở | — | — | — | — | Đầu vào `dot-1/B7-hieu-dung/` (3 tệp); bản EN do GLM dịch |
 | A1 | Đẩy lập chỉ mục (15 địa chỉ) | Chưa mở | — | — | — | — | GPT thao tác Search Console (anh cho phép 11/10); GLM chuyển danh sách |

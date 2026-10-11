@@ -3,7 +3,9 @@
 // =============================================================================
 // Dùng: node scripts/check-g08-speedmaster-evolution.cjs
 // Nguồn sự thật: docs/ho-so-du-lieu-tien-hoa-omega-speedmaster.md +
-//   output/g08-speedmaster-evolution-audit/du-kien-g08-a.json (7 mốc đã duyệt).
+//   scripts/fixtures/g08-speedmaster-source-baseline.json (7 mốc đã duyệt —
+//   bản chuẩn phiên bản có quản lý, sao nguyên byte từ hồ sơ duyệt G08;
+//   C0 TXN-20261011-04: chuỗi check/build không phụ thuộc thư mục output/).
 // G1 dataset: slug/publishedLangs/đúng 7 mốc/năm tăng dần/reference khớp hồ sơ.
 // G2 khớp hồ sơ: từng mốc vi/en/year/reference/sourceUrl/sourceName == JSON.
 // G3 tương ứng VI–EN: các số ≥2 chữ số trong vi và en phải trùng nhau từng trường.
@@ -19,7 +21,7 @@ const path = require('path');
 
 const TEP_DATASET = 'src/data/omegaSpeedmasterEvolution.ts';
 const TEP_DANG_KY = 'src/data/modelEvolution.ts';
-const JSON_HO_SO = 'output/g08-speedmaster-evolution-audit/du-kien-g08-a.json';
+const JSON_HO_SO = 'scripts/fixtures/g08-speedmaster-source-baseline.json';
 
 const errors = [];
 const dat = (ten, ok, chiTiet) => {

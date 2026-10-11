@@ -35,6 +35,10 @@ const ROOT = process.env.L3_ROOT ?? process.cwd();
 const KIEM_DIST = process.argv[2] === 'dist';
 const DIST = process.env.L3_DIST ?? join(ROOT, 'dist');
 const SITE = 'https://www.kienthucdonghoco.vn';
+// Phiên bản ảnh OG đọc từ nguồn duy nhất src/i18n/ui.ts — URL og:image mang
+// đuôi ?v=<OG_IMAGE_VERSION> để Zalo/Facebook bỏ bản đã cache khi thay ảnh.
+const OG_V =
+  readFileSync(join(ROOT, 'src', 'i18n', 'ui.ts'), 'utf8').match(/OG_IMAGE_VERSION = '([^']+)'/)?.[1] ?? '';
 
 // Danh sách 15 mẫu kế hoạch (nguồn chốt của checker): 14 mẫu active + đúng
 // một mẫu deferred là orient-bambino (giá trị null = không có bản EN; chữ
@@ -234,7 +238,7 @@ if (KIEM_DIST) {
         }
         const html = readFileSync(tep, 'utf8');
         const ogImage = meta(html, 'og:image');
-        const kyVong = SITE + `${cauHinh.dir}/${tepAnh}`;
+        const kyVong = SITE + `${cauHinh.dir}/${tepAnh}` + `?v=${OG_V}`;
         if (ogImage !== kyVong) loi7.push(`${duong}: og:image=${ogImage} !== ${kyVong}`);
         if (meta(html, 'og:image:width') !== '1200') loi7.push(`${duong}: og:image:width sai`);
         if (meta(html, 'og:image:height') !== '630') loi7.push(`${duong}: og:image:height sai`);
@@ -257,10 +261,10 @@ if (KIEM_DIST) {
     const ALT_CHUNG_EN = 'Kiến Thức Đồng Hồ Cơ — a Vietnamese encyclopedia of mechanical watches, from movement principles to the art of collecting';
     const loi8 = [];
     const doiChung = [
-      ['/co-che/bo-thoat/', `${SITE}/images/og/og-co-che.jpg`, ALT_CHUNG_VI],
-      ['/en/glossary/movement/', `${SITE}/og-default.jpg`, ALT_CHUNG_EN],
+      ['/co-che/bo-thoat/', `${SITE}/images/og/og-co-che.jpg?v=${OG_V}`, ALT_CHUNG_VI],
+      ['/en/glossary/movement/', `${SITE}/og-default.jpg?v=${OG_V}`, ALT_CHUNG_EN],
       // Orient Bambino deferred — phải về OG khu vực /mau-iconic + alt chung
-      ['/mau-iconic/orient-bambino/', `${SITE}/images/og/og-mau-iconic.jpg`, ALT_CHUNG_VI],
+      ['/mau-iconic/orient-bambino/', `${SITE}/images/og/og-mau-iconic.jpg?v=${OG_V}`, ALT_CHUNG_VI],
     ];
     for (const [duong, anhKyVong, altKyVong] of doiChung) {
       const tep = join(DIST, duong.replace(/^\//, ''), 'index.html');

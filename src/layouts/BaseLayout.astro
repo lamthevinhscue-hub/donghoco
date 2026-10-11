@@ -11,7 +11,7 @@
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage } from '../i18n/ui';
+import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage, OG_IMAGE_VERSION } from '../i18n/ui';
 import { getAlternates } from '../i18n/contentRoutes';
 import l3Share from '../data/l3-share-images.json';
 import Analytics from '@vercel/analytics/astro';
@@ -89,7 +89,7 @@ const shareImage = l3Model
   ? `${l3Share.dir}/${l3Share.modelFilePattern.replace('{slug}', l3Model.slugVi)}`
   : null;
 const ogImage = shareImage ?? getOgImage(Astro.url.pathname, cover_image);
-const ogImageUrl = new URL(ogImage, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href + `?v=${OG_IMAGE_VERSION}`;
 // Alt: trang có ảnh riêng thì alt nối tiền tố ngôn ngữ với tiêu đề riêng của
 // trang; các trang khác giữ alt chung hiện có.
 const ogImageAlt = shareImage ? `${tr.og_share_alt_prefix}${title ?? tr.siteName}` : tr.og_image_alt;

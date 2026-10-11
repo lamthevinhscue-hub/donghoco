@@ -74,6 +74,10 @@ export const OG_IMAGE_MAP: ReadonlyArray<{ match: string; image: string }> = [
 
 export const OG_DEFAULT_IMAGE = '/og-default.jpg';
 
+// Số phiên bản ảnh chia sẻ (OG): tăng số này mỗi khi thay ảnh chia sẻ để
+// Zalo, Facebook lấy ảnh mới thay vì dùng bản đã cache theo địa chỉ cũ.
+export const OG_IMAGE_VERSION = '20261010';
+
 /** Chọn ảnh OG theo đường dẫn trang. Ưu tiên cover_image (nếu có) > ảnh khu vực > mặc định. */
 export function getOgImage(pathname: string, coverImage?: string): string {
   if (coverImage) return coverImage;

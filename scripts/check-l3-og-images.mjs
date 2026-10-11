@@ -262,7 +262,7 @@ if (KIEM_DIST) {
     const loi8 = [];
     const doiChung = [
       ['/co-che/bo-thoat/', `${SITE}/images/og/og-co-che.jpg?v=${OG_V}`, ALT_CHUNG_VI],
-      ['/en/glossary/movement/', `${SITE}/og-default.jpg?v=${OG_V}`, ALT_CHUNG_EN],
+      ['/en/glossary/movement/', `${SITE}/images/og/og-co-che-en.jpg?v=${OG_V}`, ALT_CHUNG_EN],
       // Orient Bambino deferred — phải về OG khu vực /mau-iconic + alt chung
       ['/mau-iconic/orient-bambino/', `${SITE}/images/og/og-mau-iconic.jpg?v=${OG_V}`, ALT_CHUNG_VI],
     ];

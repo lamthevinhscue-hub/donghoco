@@ -34,14 +34,16 @@ Thư mục `src/components/infographics/` có 13 component; `MechanismAnimation.
 
 Hệ quả: cùng một chi tiết (chân kính, thép) có hai sắc khác nhau tùy tệp, vì hai hệ token định nghĩa giá trị khác nhau. Chuyển hàng loạt sang một hệ là việc có rủi ro hồi quy, văn bản này không yêu cầu (xem Phần F).
 
-## A3. Ảnh raster và ảnh AI bối cảnh — 1 tấm AI duy nhất
+## A3. Ảnh raster và ảnh AI bối cảnh
 
 | Tài sản | Đo được |
 |---|---|
-| Ảnh AI bối cảnh | `public/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg` — duy nhất, dùng trong `src/components/history/BalanceHairspringChapter.astro` |
+| Ảnh AI bối cảnh | `public/images/history/balance-hairspring/banh-lac-day-toc-hero.jpg` — dùng trong `src/components/history/BalanceHairspringChapter.astro` |
 | Nhãn ảnh AI | Có đầy đủ hai ngôn ngữ trong component: "Minh họa AI tái dựng — không phải ảnh tư liệu" / "AI reconstruction — not a historical photograph" (tại `aiCaption` VI và EN) |
 | Ảnh raster khác | Bộ ảnh OG (`public/images/og/`), ảnh mẫu/thương hiệu theo manifest; không thuộc hệ token sơ đồ |
 | Cơ chế JPG mốc timeline | Hàm `hasImage` và phần chọn `imageSrc` trong `src/components/history/HistoryTimeline.astro`: có `public/images/timeline/<slug>.jpg` thì ưu tiên JPG, không thì dùng SVG. Thẻ mốc render qua `WatchImage`; **chưa có cơ chế nhãn AI hay chú thích riêng cho JPG** |
+
+**Bổ sung 10/10/2026 — bộ ảnh chia sẻ (OG):** 10 ảnh OG mới (5 tiếng Việt, 5 tiếng Anh) trong `public/images/og/` và `public/og-default.jpg` dựng từ 5 ảnh gốc do ChatGPT tạo ngày 10/10/2026; chỉ dùng để tạo không khí cho ảnh chia sẻ, không dùng làm minh họa kỹ thuật; ảnh gốc và mã ghép chữ lưu trong `output/og-moi/` (hồ sơ `output/og-moi/ho-so-anh.md`); mỗi lần thay ảnh phải tăng `OG_IMAGE_VERSION` trong `src/i18n/ui.ts` — địa chỉ ảnh trong thẻ og:image/twitter:image kèm `?v=<phiên bản>` để Zalo, Facebook lấy bản mới thay vì bản đã cache.
 
 ## A4. Cơ chế ID của `WatchImage`
 
@@ -252,3 +254,4 @@ Checklist tách theo nhóm; áp đúng nhóm của hình. Không còn quy tắc 
 | 19/09/2026 | 1 | Bản đầu (nền `521f5fa`); sau đó được thẩm định bởi kế hoạch hợp nhất mục 3.3 và áp đính chính H01 |
 | 19/09/2026 | 2 (H04) | Phát hành lại: tách ba nhóm hình, dệt đính chính vào quy tắc chính, thêm ví dụ thật từng nhóm và bảng đối chiếu Phần D; loại mọi mệnh đề tuyệt đối mâu thuẫn. Trạng thái: đề xuất trình duyệt |
 | 26/09/2026 | 2.1 (S2) | Đồng bộ quy chuẩn với năm ảnh AI bối cảnh đã được chủ dự án duyệt: sửa câu kiểm số 6 tại B3.2 |
+| 11/10/2026 | 2.2 | Bổ sung ghi chú A3 về bộ 10 ảnh chia sẻ (OG) dựng từ 5 ảnh gốc ChatGPT 10/10/2026 và quy tắc tăng `OG_IMAGE_VERSION` khi thay ảnh |

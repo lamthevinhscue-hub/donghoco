@@ -2,6 +2,7 @@
 
 **Ngày lập:** 19/09/2026 (gói H01, danh mục DHC-H14-20260919, giao dịch TXN-20260919-02)
 **Nền:** HEAD `a715fd0` = `origin/main`
+**Cập nhật:** 11/10/2026 (gói E1, danh mục DHC-HOAN-THIEN-20261011, giao dịch TXN-20261011-01, nền HEAD `6e60c37` = `origin/main`)
 **Vai trò của tệp này:** điểm vào duy nhất để biết tài liệu nào đang điều phối công việc, tài liệu nào là lịch sử hoặc tham khảo. Khi có kế hoạch mới, cập nhật tệp này trước rồi mới bổ sung tệp kế hoạch vào `docs/`. Chỉ mục không xóa tài liệu lịch sử.
 
 ---
@@ -10,14 +11,16 @@
 
 | Tài liệu | Vai trò | Trạng thái | Gói liên quan | Căn cứ |
 |---|---|---|---|---|
-| [Kế hoạch hợp nhất giai đoạn 3](KE-HOACH-HOP-NHAT-GIAI-DOAN-3-2026-09-25.md) | Kế hoạch điều phối hiện hành: 30 gói S1–K4 trên 8 nhóm (sửa lỗi S, nền tảng N, mẫu iconic chuyên sâu I, loạt "Hiểu đúng" U, từ điển T, lịch sử và hình ảnh L, công cụ và phân phối C, kỹ thuật K), lịch 10 tuần | **Hiện hành** | S1 đến K4 (đang làm S1) | Phán quyết anh Vinh ngày 25/09/2026; danh mục DHC-GD3-20260925 v1.0.0; chưa được Git theo dõi, đề nghị lưu cùng đợt S1 |
-| [Bộ giao việc GLM 14 gói](BO-GIAO-VIEC-GLM-14-GOI-2026-09-19.md) | Hướng dẫn thực hiện H01–H14: thứ tự gửi, quy tắc chung, mẫu báo cáo, câu lệnh phát hành mục 8 | Đã chốt sổ qua P0-E (25/09/2026) — chỉ còn giá trị truy vết; quy tắc phát hành tiếp tục áp dụng theo thông lệ H01–H14 | H01 đến H14 | Soạn 19/09/2026 |
-| [Kế hoạch phát triển hợp nhất](KE-HOACH-PHAT-TRIEN-HOP-NHAT-2026-09-19.md) | Kế hoạch đã thẩm định trên HEAD `a715fd0`; **mục 3 là bản đính chính chính thức của bốn tài liệu nguồn**; mục 5 là phạm vi chi tiết gói EN | Đã chốt sổ qua P0-E (25/09/2026) — chỉ còn giá trị truy vết | H01 đến H14 | Soạn 19/09/2026 |
-| Tệp này (CHI-MUC-KE-HOACH-HIEN-HANH.md) | Chỉ mục phân biệt hiện hành với lịch sử | **Hiện hành** | H01 (tạo), các gói sau (cập nhật), S1 (đăng ký kế hoạch giai đoạn 3) | Gói H01 |
+| [Kế hoạch hoàn thiện cuối cùng — kienthucdonghoco.vn](KE-HOACH-HOAN-THIEN-CUOI-2026-10-11.md) | Kế hoạch tổng hợp: **mục 0 là quyết định anh Vinh 11/10/2026, hiệu lực cao nhất**; mục 3 danh mục việc nhóm A–E; mục 4 lịch 4 đợt | **Hiện hành — anh Vinh duyệt 11/10/2026** | DHC-HOAN-THIEN-20261011 (24 gói, 4 đợt) | Lệnh anh Vinh trong phiên điều phối ZCode 11/10/2026; nền HEAD `6e60c37` |
+| [Điều phối tổng — kế hoạch hoàn thiện tháng 10–12/2026](giao-viec/00-DIEU-PHOI-TONG.md) | Quy trình điều phối: phân vai, vòng đời một gói, quy tắc chung, danh mục gói 4 đợt, phụ thuộc giữa các gói | **Hiện hành — đi kèm kế hoạch 11/10/2026** | Mọi gói DHC-HOAN-THIEN-20261011 | Anh Vinh duyệt 11/10/2026 |
+| [Bảng theo dõi thi công](giao-viec/THEO-DOI.md) | Bảng trạng thái từng gói và nhật ký giao dịch với GPT Work | **Hiện hành — cập nhật sau mỗi bước** | Mọi gói DHC-HOAN-THIEN-20261011 | Theo quy trình điều phối |
+| Tệp này (CHI-MUC-KE-HOACH-HIEN-HANH.md) | Chỉ mục phân biệt hiện hành với lịch sử | **Hiện hành** | H01 (tạo), các gói sau (cập nhật), E1 (đăng ký kế hoạch 11/10/2026) | Gói H01, gói E1 |
 
-Mọi lệnh thi công khác ngoài kế hoạch giai đoạn 3 và các tệp điều phối nêu trên **không còn hiệu lực**, kể cả các bộ prompt và kế hoạch đã dẫn ở mục 4 và 5.
+Mọi lệnh thi công khác ngoài bộ điều phối nêu trên **không còn hiệu lực**, kể cả các bộ prompt và kế hoạch đã dẫn ở mục 4 và 5. Thi công từng gói theo vòng đời ở `giao-viec/00-DIEU-PHOI-TONG.md` mục 2: GPT Work đọc đầu vào và tạo câu lệnh thi công, GLM thi công và viết biên bản, GPT Work nghiệm thu độc lập trên tệp thật; **commit và phát hành chỉ khi GPT Work nghiệm thu ĐẠT và cho phép rõ phạm vi tệp**. Các tài liệu cũ chỉ còn giá trị truy vết.
 
-## 2. Số liệu và quy tắc hiện hành đã chốt — đọc trước khi dùng tài liệu nào khác
+## 2. Số liệu và quy tắc đã chốt tại gói H01 (19/09/2026) — lịch sử truy vết
+
+**Lưu ý E1 (11/10/2026):** các điểm dưới đây là đính chính và số liệu chốt tại gói H01 — giữ nguyên làm lịch sử truy vết; **không phải số liệu hoặc quy tắc hiện hành** của kế hoạch 11/10/2026. Quy tắc phát hành hiện hành theo bộ điều phối ở mục 1 (GPT Work nghiệm thu ĐẠT và cho phép phạm vi tệp thì GLM mới commit/push).
 
 Các điểm dưới đây theo mục 3 của kế hoạch hợp nhất; tài liệu nguồn đã được ghi đính chính ngay tại chỗ (19/09/2026, gói H01):
 
@@ -46,6 +49,10 @@ Trạng thái chung của mục này: **lịch sử hoặc tham khảo** — s�
 
 | Tài liệu | Vai trò tại thời điểm lập | Ghi chú |
 |---|---|---|
+| [Kế hoạch hợp nhất giai đoạn 3](KE-HOACH-HOP-NHAT-GIAI-DOAN-3-2026-09-25.md) | Kế hoạch điều phối 30 gói S1–K4 trên 8 nhóm (danh mục DHC-GD3-20260925 v1.0.0, phán quyết anh Vinh 25/09/2026) | Lịch sử — đã được kế hoạch 11/10/2026 thay thế về điều phối; tạm dừng có điều kiện từ 27/09/2026; kết quả các gói đã nghiệm thu giữ nguyên |
+| [Kế hoạch bổ sung “Minh họa AI, hoạt ảnh thực hơn và nội dung cho người sưu tầm”](ke-hoach-bo-sung-hinh-anh-hoat-anh-2026-09-26.md) | Kế hoạch 20 gói M1–M6, V1–V4, D1–D7, G1–G3 (danh mục DHC-ANH-HOAT-ANH-20260926 v1.0.0, anh Vinh phê duyệt 28/09/2026) | Lịch sử — đã được kế hoạch 11/10/2026 thay thế về điều phối; V1 phát hành `7a0b27f`, hồ sơ D5 xong, V3 thử rồi rút lại 10/10/2026 (`7250239` hoàn tác bằng `77ae889`); phần còn lại chuyển theo kế hoạch mới |
+| [Bộ giao việc GLM 14 gói](BO-GIAO-VIEC-GLM-14-GOI-2026-09-19.md) | Hướng dẫn thực hiện H01–H14: thứ tự gửi, quy tắc chung, mẫu báo cáo, câu lệnh phát hành mục 8 | Lịch sử — đã chốt sổ qua P0-E (25/09/2026), chuyển khỏi bảng điều phối hiện hành tại gói E1; chỉ còn giá trị truy vết |
+| [Kế hoạch phát triển hợp nhất](KE-HOACH-PHAT-TRIEN-HOP-NHAT-2026-09-19.md) | Kế hoạch đã thẩm định trên HEAD `a715fd0`; mục 3 là bản đính chính chính thức của bốn tài liệu nguồn | Lịch sử — đã chốt sổ qua P0-E (25/09/2026), chuyển khỏi bảng điều phối hiện hành tại gói E1; chỉ còn giá trị truy vết |
 | [LO-TRINH-PHAT-TRIEN-HIEN-TAI.md](LO-TRINH-PHAT-TRIEN-HIEN-TAI.md) | Tài liệu trạng thái chính thức tới mốc lần 22 (05/09/2026) | Lịch sử; số trang, số link là mốc cũ. H01 không sửa tệp này — cập nhật khi có lượt rà trạng thái mới |
 | [KE-HOACH-PHAT-TRIEN-FINAL-2026-09-12.md](KE-HOACH-PHAT-TRIEN-FINAL-2026-09-12.md) | Kế hoạch đợt G01–G09 | Lịch sử; G01–G09 đã thực hiện xong 12 đến 19/09/2026 (xem git log) |
 | [ra-soat-toan-bo-2026-09-05.md](ra-soat-toan-bo-2026-09-05.md) | Rà toàn bộ dự án 05/09 | Lịch sử; mục 8 đã dẫn kế hoạch mới và chỉ mục này |
@@ -79,6 +86,8 @@ Ngoài `docs/`, ba tệp gốc cũng thuộc hệ tài liệu: `AGENTS.md` (ch�
 
 ## 7. Danh sách đề nghị lưu Git khi H01 đạt — tách riêng với bằng chứng nội bộ
 
+**Lưu ý E1 (11/10/2026):** đây là danh sách phát hành **lịch sử của gói H01** — không phải phạm vi commit hiện hành; phạm vi commit của từng gói mới do GPT Work chốt trong câu lệnh thi công.
+
 **Đề nghị lưu Git (tệp thuộc hoặc phụ thuộc H01):**
 
 1. `docs/CHI-MUC-KE-HOACH-HIEN-HANH.md` — mới, tệp này.
@@ -95,6 +104,7 @@ Ngoài `docs/`, ba tệp gốc cũng thuộc hệ tài liệu: `AGENTS.md` (ch�
 ## 8. Quy tắc duy trì chỉ mục
 
 - Khi có kế hoạch hoặc bộ gói mới: thêm vào mục 1, chuyển tài liệu bị thay thế xuống mục 4 hoặc 5, không xóa tệp lịch sử.
+- Từ E1 (11/10/2026): phát hành chỉ sau khi GPT Work nghiệm thu ĐẠT và cho phép rõ phạm vi tệp; trạng thái từng gói theo dõi ở `giao-viec/THEO-DOI.md` và danh mục `DHC-HOAN-THIEN-20261011`.
 - Mục 4 đến 6 liệt kê theo tệp cho nhóm điều phối và theo nhóm cho dữ liệu; thư mục `docs/nghiem-thu/` tra theo tên gói.
 - Chỉ mục lập tại H01 trên danh sách 112 tệp `docs/*.md`; tệp mới phát sinh sau H01 do gói tương ứng tự khai báo trong biên bản của mình.
 
@@ -104,3 +114,4 @@ Ngoài `docs/`, ba tệp gốc cũng thuộc hệ tài liệu: `AGENTS.md` (ch�
 |---|---|---|
 | 19/09/2026 | Lập chỉ mục; áp đính chính cho bốn tài liệu nguồn; bổ sung liên kết điều phối vào `ra-soat-toan-bo-2026-09-05.md` | H01 |
 | 25/09/2026 | Đăng ký kế hoạch giai đoạn 3 (`KE-HOACH-HOP-NHAT-GIAI-DOAN-3-2026-09-25.md`, DHC-GD3-20260925 v1.0.0, 30 gói S1–K4) vào mục 1 làm kế hoạch hiện hành theo phán quyết anh Vinh; chuyển bộ H01–H14 sang đã chốt sổ qua P0-E, chỉ còn giá trị truy vết | S1 |
+| 11/10/2026 | E1 (giao dịch TXN-20261011-01, danh mục DHC-HOAN-THIEN-20261011, câu lệnh GPT Work): đăng ký kế hoạch hoàn thiện 11/10/2026 + điều phối tổng `giao-viec/00-DIEU-PHOI-TONG.md` + `giao-viec/THEO-DOI.md` làm bộ hiện hành ở mục 1; chuyển kế hoạch giai đoạn 3 và kế hoạch 26/09 sang lịch sử (mục 4); chuyển bộ H01–H14 khỏi bảng điều phối hiện hành (mục 4); gắn nhãn lịch sử cho mục 2, 7; đồng bộ mục 5, 8. Sửa dở chưa commit từ phiên trước (đã đăng ký kế hoạch 26/09 vào mục 1, chưa phát hành lần nào) được tiếp nhận trong E1 làm nền truy vết, không tính là một lần phát hành. Các tệp đích liên kết (kế hoạch 11/10, điều phối tổng, THEO-DOI, kế hoạch 26/09) lưu Git cùng đợt E1 | E1 |

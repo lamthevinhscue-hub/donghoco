@@ -17,7 +17,7 @@ Trạng thái dùng: Chưa mở / Đang chuẩn bị / Đang thi công / Chờ n
 | B7 | Xuất bản 3 bài "Hiểu đúng" | **Hoàn tất** | [Biên bản B7](../nghiem-thu/B7-hieu-dung-2026-10-12.md) | ĐẠT (TXN-20261011-18, sau 5 vòng: dừng nguồn PA1 + 3 vòng sửa) | `cb9e567` | 12/10/2026 | 14 tệp, +1054/−9; push `405ff64..cb9e567`; production: 6/6 bài + 2 hub 200, nội dung + khối nguồn xác nhận (ổ đỡ, incabloc, thẻ hub); bộ thử 15/15 mutation + 2/2 U1 + 2/2 lượt sạch |
 | A1 | Đẩy lập chỉ mục (15 địa chỉ) | Chưa mở | — | — | — | — | GPT thao tác Search Console (anh cho phép 11/10); GLM chuyển danh sách |
 | A2 | Bật Speed Insights | **Chờ nghiệm thu** (vòng sửa TXN-05 xong) | [Biên bản A2](../nghiem-thu/A2-speed-insights-2026-10-12.md) | — | — | — | TXN-01 câu lệnh; TXN-02, TXN-03, TXN-04, TXN-05 bốn vòng siết checker + bộ thử (11 ca sandbox, bundle-chỉ-chú-thích) + đồng bộ hồ sơ; build exit 0 361 trang, hints 5. Hàng A1 giữ nguyên |
-| A3 | Biểu tượng trang ICO, PNG, iPhone | Chưa mở | — | — | — | — | |
+| A3 | Biểu tượng trang ICO, PNG, iPhone | **Chờ nghiệm thu** (vòng sửa TXN-14 xong) | [Biên bản A3](../nghiem-thu/A3-bieu-tuong-trang-2026-10-12.md) | — | — | — | TXN-10 câu lệnh; TXN-12 → SVG hash + ICO sharp pixel + alpha mọi pixel + 404; TXN-13 → ICO an toàn + payload pixel; TXN-14 → PNG signature+pixel+format; 13/13 mutation + 2/2 lượt sạch; hints 6 (1 ngoài A3). Hàng A1/A2 giữ nguyên |
 | C1 (bước 1) | Khảo sát giảm dung lượng video | Chưa mở | — | — | — | — | Chỉ miễn phí; **dừng chờ anh duyệt** trước bước 2 |
 | Hồ sơ | Hai việc tồn đợt ảnh chia sẻ | Chưa mở | — | — | — | — | Commit `6e60c37` đã có; chỉ xác minh rồi ghi Hoàn tất |
 

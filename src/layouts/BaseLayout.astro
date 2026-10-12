@@ -114,8 +114,11 @@ const ogImageAlt = shareImage ? `${tr.og_share_alt_prefix}${title ?? tr.siteName
     <title>{fullTitle}</title>
     <meta name="description" content={metaDescription} />
 
-    <!-- Favicon (G09-A) — SVG nội bộ, tránh trình duyệt tự dò /favicon.ico rồi nhận 404 -->
+    <!-- Favicon (G09-A + A3) — SVG nội bộ; ICO/PNG sinh từ SVG (generate-a3-icons) -->
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Ngôn ngữ nội dung -->
     <meta name="language" content={lang} />

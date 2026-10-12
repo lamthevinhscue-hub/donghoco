@@ -15,6 +15,7 @@ import { getLangFromUrl, t, SITE_AUTHOR, SITE_PUBLISHER, getOgImage, OG_IMAGE_VE
 import { getAlternates } from '../i18n/contentRoutes';
 import l3Share from '../data/l3-share-images.json';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import '../styles/global.css';
 
@@ -207,6 +208,7 @@ const ogImageAlt = shareImage ? `${tr.og_share_alt_prefix}${title ?? tr.siteName
     <Footer />
     <ScrollToTop />
     <Analytics />
+    <SpeedInsights />
     <script>
       // Bảng rộng: bọc trong vùng cuộn ngang riêng + gắn bóng mờ mép phải và
       // dòng chú thích "kéo ngang" ngay dưới bảng để người dùng mobile biết

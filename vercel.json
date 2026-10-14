@@ -4,6 +4,12 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
+  "git": {
+    "deploymentEnabled": {
+      "dependabot/**": false
+    }
+  },
+  "ignoreCommand": "n=$(git diff --name-only HEAD^ HEAD 2>/dev/null | wc -l); m=$(git diff --name-only HEAD^ HEAD 2>/dev/null | grep -cE '^(docs/|output/)'); if [ \"$n\" -gt 0 ] && [ \"$n\" -eq \"$m\" ]; then exit 0; else exit 1; fi",
   "headers": [
     {
       "source": "/rss.xml",

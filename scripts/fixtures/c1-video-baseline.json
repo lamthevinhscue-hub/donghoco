@@ -1,0 +1,744 @@
+{
+ "version": 2,
+ "goi": "C1-B2 (TXN-20261015-27: thay 14 tệp của 7 tiền tố; giữ nguyên 22 MP4 + 36 poster)",
+ "cau_hinh": {
+  "codec": "libx264",
+  "preset": "slow",
+  "crf": 22,
+  "pix_fmt": "yuv420p",
+  "audio": "copy",
+  "movflags": "+faststart",
+  "g": "round(2 × fps nguồn)"
+ },
+ "nguong": {
+  "vmaf_mean": 95,
+  "vmaf_p5": 90,
+  "ssim": 0.98
+ },
+ "so": {
+  "nen": 14,
+  "giu_goc": 22,
+  "khoa_byte": [
+   "chronograph-nguyen-ly-vi.mp4",
+   "chronograph-nguyen-ly-en.mp4",
+   "diem-chuong-nguyen-ly-vi.mp4",
+   "diem-chuong-nguyen-ly-en.mp4"
+  ],
+  "khong_dat": [
+   "bo-thoat-dong-truc-nguyen-ly-en.mp4",
+   "bo-thoat-dong-truc-nguyen-ly-vi.mp4",
+   "chong-nuoc-nguyen-ly-en.mp4",
+   "chong-nuoc-nguyen-ly-vi.mp4",
+   "chong-soc-nguyen-ly-en.mp4",
+   "chong-soc-nguyen-ly-vi.mp4",
+   "da-quang-nguyen-ly-en.mp4",
+   "da-quang-nguyen-ly-vi.mp4",
+   "gmt-nguyen-ly-en.mp4",
+   "gmt-nguyen-ly-vi.mp4",
+   "hien-thi-ngay-nguyen-ly-en.mp4",
+   "hien-thi-ngay-nguyen-ly-vi.mp4",
+   "kinh-dong-ho-nguyen-ly-en.mp4",
+   "kinh-dong-ho-nguyen-ly-vi.mp4",
+   "pha-trang-nguyen-ly-en.mp4",
+   "pha-trang-nguyen-ly-vi.mp4",
+   "tourbillon-nguyen-ly-en.mp4",
+   "tourbillon-nguyen-ly-vi.mp4"
+  ]
+ },
+ "nen": [
+  {
+   "file": "bo-thoat-nguyen-ly-vi.mp4",
+   "goc_bytes": 9709763,
+   "goc_sha256": "ed6fbad4228590b7a08665f36c6a510b1c188e62192e3c444a46208d4da2f2bb",
+   "bytes": 6652265,
+   "sha256": "d56b507542674d7a2286887bda970f729304d44363a8499cefb089e32cfd6ab1",
+   "vmaf_mean": 96.347,
+   "vmaf_p5": 94.926,
+   "ssim_mean": 0.995279,
+   "audio_sha256": "e69de6706e5da87ceb89efb42b52eb212ad3dac7e17e7fca7621bfd1bab1ded5",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 1560,
+   "frames_goc": 1560,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.105,
+   "cua_so_5s_vmaf_mean": 95.527,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 1560,
+   "so_frame_so_sanh": 1560,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "bo-thoat-nguyen-ly-en.mp4",
+   "goc_bytes": 9804275,
+   "goc_sha256": "06ce579d060f74c27fa99aaf75608d79f2d3f5aa0f34a9f21d25811227be094e",
+   "bytes": 6718923,
+   "sha256": "ecc6be0ae0886b27cd7f9d6865175bb62b8f9b84d98d491ab9648e6b12c67b46",
+   "vmaf_mean": 96.374,
+   "vmaf_p5": 94.916,
+   "ssim_mean": 0.995283,
+   "audio_sha256": "f2c6174d70375fec1c3312441409c7494e25506a51e428cb65009dcc7ef8e867",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 1560,
+   "frames_goc": 1560,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.106,
+   "cua_so_5s_vmaf_mean": 95.535,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 1560,
+   "so_frame_so_sanh": 1560,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "chong-tu-nguyen-ly-vi.mp4",
+   "goc_bytes": 13148484,
+   "goc_sha256": "7a43582bc63d43f33343ad55498e61645cef4b857fd0853339a02de1e4d4b6ec",
+   "bytes": 11381304,
+   "sha256": "12befeb1e371b1183436b49eeee9b2ada21f08e65f56a3c61c8b4ff4e1902a8c",
+   "vmaf_mean": 95.968,
+   "vmaf_p5": 94.617,
+   "ssim_mean": 0.996498,
+   "audio_sha256": "2e2ba2811ddd7cfad2778b81f39c09736126a0308ec02a10d8c3a1b8166764b6",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2460,
+   "frames_goc": 2460,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.373,
+   "cua_so_5s_vmaf_mean": 95.088,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2460,
+   "so_frame_so_sanh": 2460,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "chong-tu-nguyen-ly-en.mp4",
+   "goc_bytes": 13283558,
+   "goc_sha256": "95be80904c4f6abf39353a63e1e17f3d46c7dba7f0c5e56668b1a416ce52d7d0",
+   "bytes": 11486555,
+   "sha256": "5f747a62ed434c3259ba71c504f2670cecd15cc72d700836411d2e95cf0f7891",
+   "vmaf_mean": 96.018,
+   "vmaf_p5": 94.729,
+   "ssim_mean": 0.996494,
+   "audio_sha256": "366d3dcee9ec5fcb1362f6f9dcaba47862795f57e50af0d7585bf50d19e001c9",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2460,
+   "frames_goc": 2460,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.373,
+   "cua_so_5s_vmaf_mean": 95.168,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2460,
+   "so_frame_so_sanh": 2460,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "chuyen-dong-co-nguyen-ly-vi.mp4",
+   "goc_bytes": 15892937,
+   "goc_sha256": "a2da74e0de89b0ebdd3b03a6ef65aebde51afcf799e4667b6ac9046e274448ca",
+   "bytes": 11512254,
+   "sha256": "256e60ab1e69811f846675333c2e3a38864ef99a1e0796dd6bdfa4f7a9fc137a",
+   "vmaf_mean": 96.101,
+   "vmaf_p5": 94.836,
+   "ssim_mean": 0.995493,
+   "audio_sha256": "589c987cbd1dcb6365368ff043cf338b9b432e3c81735e8aff8637905c030ddf",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2430,
+   "frames_goc": 2430,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.137,
+   "cua_so_5s_vmaf_mean": 95.005,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2430,
+   "so_frame_so_sanh": 2430,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "chuyen-dong-co-nguyen-ly-en.mp4",
+   "goc_bytes": 15947479,
+   "goc_sha256": "ad3d2532c4ad23ced88453b1666e95ed08849a3f8cca1fc43dd16198fc9edc07",
+   "bytes": 11579123,
+   "sha256": "d3a963a57c9835477e578a7732606e7248fcfe35c052de77f8af990412a958d8",
+   "vmaf_mean": 96.115,
+   "vmaf_p5": 94.877,
+   "ssim_mean": 0.995484,
+   "audio_sha256": "581d8cd980fbd0868e4069a4b32a85c0baefa38876350fa7f14a8eeafb07aa96",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2430,
+   "frames_goc": 2430,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 98.137,
+   "cua_so_5s_vmaf_mean": 95.079,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2430,
+   "so_frame_so_sanh": 2430,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "day-toc-banh-lac-nguyen-ly-vi.mp4",
+   "goc_bytes": 20724318,
+   "goc_sha256": "d400cfcb61393ee04ea1cf0bf19e664b8c998ae9b12102574f55f57dc1b385f1",
+   "bytes": 13066873,
+   "sha256": "b1dbd7f640c31a230579662484ee580994e84079b6f0c9638a10b122bb8f375d",
+   "vmaf_mean": 96.48,
+   "vmaf_p5": 95.015,
+   "ssim_mean": 0.994105,
+   "audio_sha256": "606b7c486f69d1be889fe452036555d8edce674f2a9b65370ccefba71401e968",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2340,
+   "frames_goc": 2340,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 99.111,
+   "cua_so_5s_vmaf_mean": 95.549,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2340,
+   "so_frame_so_sanh": 2340,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "day-toc-banh-lac-nguyen-ly-en.mp4",
+   "goc_bytes": 20829992,
+   "goc_sha256": "1821f4a76edc8642ce8ed6c79f308ca5aa4b94a99927fb91b1e94a8c099457b6",
+   "bytes": 13169778,
+   "sha256": "c28004f47c831e69aa9ab3c368ba9c2ecbc5515fd395456195323f3ebcb205dd",
+   "vmaf_mean": 96.517,
+   "vmaf_p5": 95.099,
+   "ssim_mean": 0.994133,
+   "audio_sha256": "80f034053153e1127cce6102adf1fbed540dbeb2baa302b888e0629de85cf147",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2340,
+   "frames_goc": 2340,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 99.11,
+   "cua_so_5s_vmaf_mean": 95.539,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2340,
+   "so_frame_so_sanh": 2340,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "len-day-tu-dong-nguyen-ly-vi.mp4",
+   "goc_bytes": 9728330,
+   "goc_sha256": "9cfd76185da71bfd80f34cee80bc165acf6d652d9f2d6465f78b5979710fab74",
+   "bytes": 9217809,
+   "sha256": "1d7c35414da8e59ad836754be7407edaa2d08b43951c8c09350adf0b50d26a55",
+   "vmaf_mean": 96.311,
+   "vmaf_p5": 95.316,
+   "ssim_mean": 0.997237,
+   "audio_sha256": "3205bc5494201d10de2ddacd0beb81710b2f5e053bb041aaa26b3a61c8dfbc17",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2692,
+   "frames_goc": 2692,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.872,
+   "cua_so_5s_vmaf_mean": 95.559,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2692,
+   "so_frame_so_sanh": 2692,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "len-day-tu-dong-nguyen-ly-en.mp4",
+   "goc_bytes": 9761238,
+   "goc_sha256": "6f9f7a4f7931058606d4f63510a3ff237c251d4a663ecb5a7ba9d7dc7075bb37",
+   "bytes": 9191149,
+   "sha256": "4d7330a5c1ead9a283b02b34d801f0fd6a17cf12662a945fa5a553aa637e3653",
+   "vmaf_mean": 96.294,
+   "vmaf_p5": 95.217,
+   "ssim_mean": 0.997245,
+   "audio_sha256": "d9120bdb6d221c6ceb70129d387361dece7c74870dde7ead56dc0b32bc853571",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2692,
+   "frames_goc": 2692,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.87,
+   "cua_so_5s_vmaf_mean": 95.624,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2692,
+   "so_frame_so_sanh": 2692,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "perpetual-calendar-nguyen-ly-vi.mp4",
+   "goc_bytes": 6189004,
+   "goc_sha256": "188c51e957288bb1b373b5b8c1e0c907bd6b4f05c556989c9470e787d0c8a538",
+   "bytes": 5264265,
+   "sha256": "0e9245e62348b3fa93bad4e70d34c044819d864b35f132bfbeb6da2a7e28834d",
+   "vmaf_mean": 96.667,
+   "vmaf_p5": 95.458,
+   "ssim_mean": 0.998214,
+   "audio_sha256": "c540337f62070060036b756431cf60a6c063768b3b5dd8b5afb636a2e033664a",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2520,
+   "frames_goc": 2520,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.644,
+   "cua_so_5s_vmaf_mean": 95.892,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2520,
+   "so_frame_so_sanh": 2520,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "perpetual-calendar-nguyen-ly-en.mp4",
+   "goc_bytes": 6307934,
+   "goc_sha256": "d34ebed608ab46cd121e1bfbe35b086d68a2ff8ef308b6b54eb67d8416aa3ae2",
+   "bytes": 5373737,
+   "sha256": "44b293d6a9ccde630de27d7573345e59318bfd54294637912ef2ac0d5a15a510",
+   "vmaf_mean": 96.669,
+   "vmaf_p5": 95.438,
+   "ssim_mean": 0.998203,
+   "audio_sha256": "a7ec1477b5dd5504eee4a47f93738bf0325610103e40aac3426d4846ff8c320a",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2520,
+   "frames_goc": 2520,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.644,
+   "cua_so_5s_vmaf_mean": 95.924,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2520,
+   "so_frame_so_sanh": 2520,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "tru-cot-nguyen-ly-vi.mp4",
+   "goc_bytes": 10255784,
+   "goc_sha256": "fbfeb97fc89e48d27c85122a4b86a47c81631be6ced2f7c1d41afbff22774568",
+   "bytes": 9135993,
+   "sha256": "9687adf34e0099c177eae72ce68bd88d815b0bdb1d4ee5c72bc18969a534a30e",
+   "vmaf_mean": 96.623,
+   "vmaf_p5": 95.498,
+   "ssim_mean": 0.997136,
+   "audio_sha256": "c7a2734cd77bbb1e3c27f6933a9ed74543e0515abab8b7d7faa74824f2866769",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2880,
+   "frames_goc": 2880,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.963,
+   "cua_so_5s_vmaf_mean": 95.758,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2880,
+   "so_frame_so_sanh": 2880,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  },
+  {
+   "file": "tru-cot-nguyen-ly-en.mp4",
+   "goc_bytes": 10318523,
+   "goc_sha256": "aed922cc74f0692fbdd966baeaf06e0ef9c05f06d45018f3e909e2becdd03580",
+   "bytes": 9209975,
+   "sha256": "53ce1741c30b71d3f387e9a534f1e0e4776d1c8c22d0278bc200b1e84ead657d",
+   "vmaf_mean": 96.646,
+   "vmaf_p5": 95.554,
+   "ssim_mean": 0.997143,
+   "audio_sha256": "a02794b5cf8e995649a07d5e2646fa48ab79c0ab51703dd7a9642071d515cd05",
+   "decode_exit": 0,
+   "delta_video_ms": 0,
+   "delta_audio_ms": 0,
+   "delta_container_ms": 0,
+   "moov_truoc_mdat": true,
+   "frames_cand": 2880,
+   "frames_goc": 2880,
+   "drift_ms": 0,
+   "self_ref_vmaf_mean": 97.963,
+   "cua_so_5s_vmaf_mean": 95.903,
+   "max_lech_pts_ms": 0,
+   "max_lech_frame_idx": 0,
+   "so_muc_pts_cand": 2880,
+   "so_frame_so_sanh": 2880,
+   "vi_tri_null_goc": [],
+   "vi_tri_null_cand": []
+  }
+ ],
+ "giu_goc": [
+  {
+   "file": "bo-thoat-dong-truc-nguyen-ly-en.mp4",
+   "bytes": 9223467,
+   "sha256": "6d50b8a7c83901f73fcceb10abcab554e7e2cc4fdf355663ba8e437c1240840d",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "bo-thoat-dong-truc-nguyen-ly-vi.mp4",
+   "bytes": 9110707,
+   "sha256": "14abe1926ba62fe2cee8a1fd573d78c5f0db0a13cf01710e3ef972379925d47c",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "chong-nuoc-nguyen-ly-en.mp4",
+   "bytes": 3964984,
+   "sha256": "d72960a503d312384961dcccc86810a340fbb6349287de15b735a9e73a59bf01",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "chong-nuoc-nguyen-ly-vi.mp4",
+   "bytes": 3853097,
+   "sha256": "187b665b65d57527f02413b7421071fd3a862e00fee913151546bee0015ce340",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "chong-soc-nguyen-ly-en.mp4",
+   "bytes": 5500651,
+   "sha256": "30241a641b41c11c4c4cf63c5349aabf00a9590e96d178a1e491c8499c1dabec",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "chong-soc-nguyen-ly-vi.mp4",
+   "bytes": 5450556,
+   "sha256": "c5484b6fe7aabee4fccf3eadb875d8ab0a4e39b28e18d9daa0dc3ad006084019",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "chronograph-nguyen-ly-en.mp4",
+   "bytes": 10703853,
+   "sha256": "4863ffd17b87be083080319f90c59dfe8baf8a5e1734dc233d0f8f14c786ae7b",
+   "ly_do": "khoa byte theo cau lenh C1-B2 (chronograph/diem-chuong)"
+  },
+  {
+   "file": "chronograph-nguyen-ly-vi.mp4",
+   "bytes": 10629380,
+   "sha256": "66d0dc260560dc5d65dd52f5b8b46f1b5e7ed2b52c1b46923d3c782af51d4cb3",
+   "ly_do": "khoa byte theo cau lenh C1-B2 (chronograph/diem-chuong)"
+  },
+  {
+   "file": "da-quang-nguyen-ly-en.mp4",
+   "bytes": 3710900,
+   "sha256": "875faad52350b50efa0d7c595aa3d6199a51e76a2d96232fc644edac9ba00896",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "da-quang-nguyen-ly-vi.mp4",
+   "bytes": 3732491,
+   "sha256": "a2ce4691343ffac0080a7f23de84525dad543ffd7ca69320d0dac3b9ff1cae33",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "diem-chuong-nguyen-ly-en.mp4",
+   "bytes": 8132519,
+   "sha256": "14914a4b9b66ce2e45eb2d608af75d8f431846dcb435008b4442868c190f1de2",
+   "ly_do": "khoa byte theo cau lenh C1-B2 (chronograph/diem-chuong)"
+  },
+  {
+   "file": "diem-chuong-nguyen-ly-vi.mp4",
+   "bytes": 8109326,
+   "sha256": "dc9ebc5008edfedc281e31a6cebee7e1e3aa824e10d8c9582d49e3e80bc555a1",
+   "ly_do": "khoa byte theo cau lenh C1-B2 (chronograph/diem-chuong)"
+  },
+  {
+   "file": "gmt-nguyen-ly-en.mp4",
+   "bytes": 6180764,
+   "sha256": "4a0b3a05123d5e663e11e24433925b33f31471c64897c729fefc5da26a802f9c",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "gmt-nguyen-ly-vi.mp4",
+   "bytes": 6147400,
+   "sha256": "09305a2c06f052db6c710918b4ec4d0992616786905f4d757ca6d6f88852f2f1",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "hien-thi-ngay-nguyen-ly-en.mp4",
+   "bytes": 5598258,
+   "sha256": "bd51cd3252b89b4946cbd51c1b312bf61eea51046cde9d423bde9dab1c0de6f8",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "hien-thi-ngay-nguyen-ly-vi.mp4",
+   "bytes": 5491461,
+   "sha256": "9b462929b96bf682e8fda8a18c04e159e6b384dbeb38b9f1658e30d535d9dce2",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "kinh-dong-ho-nguyen-ly-en.mp4",
+   "bytes": 663577,
+   "sha256": "c6f3bfc5bef7f499d6992e81c066c5b45c5c3e9c8d19bea398e815d4d6589d92",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "kinh-dong-ho-nguyen-ly-vi.mp4",
+   "bytes": 726739,
+   "sha256": "26127ce3146369a9b88832bc1d00ac7bd3c0591ee5d454ef6262000385ffd716",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "pha-trang-nguyen-ly-en.mp4",
+   "bytes": 7234971,
+   "sha256": "4b665ec8206a8dbc1cd7f72b5a8662aac15f8fe68d9b9cca533a5cfcb249b7a2",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "pha-trang-nguyen-ly-vi.mp4",
+   "bytes": 7173460,
+   "sha256": "d5e57f5388294e257fa80a8ea52b7be8f8eda16c7725db2396d3a9bcf9cf19af",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "tourbillon-nguyen-ly-en.mp4",
+   "bytes": 11063852,
+   "sha256": "7f9b6364bb22ef93deb370fe4e16290eb16a597fc2394d1ff00f1d4f9b6c799f",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  },
+  {
+   "file": "tourbillon-nguyen-ly-vi.mp4",
+   "bytes": 10958808,
+   "sha256": "623f2d2a53db1525476f8b097b78d5791a11eff2b6860858bd1549a57a4a5a40",
+   "ly_do": "khong dat cong chat luong hoac bytes (TXN-20261015-27)"
+  }
+ ],
+ "poster": [
+  {
+   "file": "bo-thoat-dong-truc-nguyen-ly-en.jpg",
+   "bytes": 39632,
+   "sha256": "c31ba540140bae5f46b0b059eea37dda6b5e6d5f762897bba8aaca771950e5f2"
+  },
+  {
+   "file": "bo-thoat-dong-truc-nguyen-ly-vi.jpg",
+   "bytes": 39777,
+   "sha256": "324f1b9cd5bd69864e998ed400a84fa1789dd07cf29ec09d397c76838b1151e9"
+  },
+  {
+   "file": "bo-thoat-nguyen-ly-en.jpg",
+   "bytes": 37172,
+   "sha256": "1aa9b48415437e8d0ad6da3e97664bc33b3d74d39f56522da09a83dfeefce542"
+  },
+  {
+   "file": "bo-thoat-nguyen-ly-vi.jpg",
+   "bytes": 37447,
+   "sha256": "e293aaeee421df476e8942acd1584d2144ca8a6dd1c118e31f6b2fbef4dabeaa"
+  },
+  {
+   "file": "chong-nuoc-nguyen-ly-en.jpg",
+   "bytes": 42857,
+   "sha256": "195411afd17bc3fb8f39ee24473419f616a02b55d29dda5666ba2ea42e994fd2"
+  },
+  {
+   "file": "chong-nuoc-nguyen-ly-vi.jpg",
+   "bytes": 40056,
+   "sha256": "03f87e3ecb6936a0ca1eba115ad0741d461833cff6328bb011f9ef6bb0dc223f"
+  },
+  {
+   "file": "chong-soc-nguyen-ly-en.jpg",
+   "bytes": 30272,
+   "sha256": "16dadbdc7e8eca129d1a07801a3be52b7e614d7f5329d0eda2ea9a4789ae7b80"
+  },
+  {
+   "file": "chong-soc-nguyen-ly-vi.jpg",
+   "bytes": 26878,
+   "sha256": "a542625b80754bc8698856f350e8890bb192377c4654a200944c8f8f59e6606e"
+  },
+  {
+   "file": "chong-tu-nguyen-ly-en.jpg",
+   "bytes": 115200,
+   "sha256": "111fbc8378916ca3493b9119f6322201af547eccedc9501252924136251ab657"
+  },
+  {
+   "file": "chong-tu-nguyen-ly-vi.jpg",
+   "bytes": 114851,
+   "sha256": "13ad3a7327da1bb5419da36df023514b354f8002a125e4c9b4f6b5f16646e92a"
+  },
+  {
+   "file": "chronograph-nguyen-ly-en.jpg",
+   "bytes": 30909,
+   "sha256": "c31b5a29840ad043332f6c48bfb1724e1be671b5016aadda6d36d4ed556b60a5"
+  },
+  {
+   "file": "chronograph-nguyen-ly-vi.jpg",
+   "bytes": 28067,
+   "sha256": "25b8a6c5deb4006da8b42e3f3c3efbde3436453b1b0d350e6521a9785077d0d3"
+  },
+  {
+   "file": "chuyen-dong-co-nguyen-ly-en.jpg",
+   "bytes": 44104,
+   "sha256": "ee1b3e7bc245630a435f2a094431e1f45b8aaaed9741d51d08ec0ba86129b667"
+  },
+  {
+   "file": "chuyen-dong-co-nguyen-ly-vi.jpg",
+   "bytes": 46154,
+   "sha256": "c15738388e8fda27492ce31e7e0a3791340f9fc783af0071c5b8d5b3019e4fe3"
+  },
+  {
+   "file": "da-quang-nguyen-ly-en.jpg",
+   "bytes": 59219,
+   "sha256": "33cf0b3bc44be1cf3c6065939970e179566d5d74f9af26e9fb072067860e1890"
+  },
+  {
+   "file": "da-quang-nguyen-ly-vi.jpg",
+   "bytes": 54823,
+   "sha256": "47dca0148a36f5ed59e7d1dd4f36e06dbf81cbb0615f33b986f661035f5932a3"
+  },
+  {
+   "file": "day-toc-banh-lac-nguyen-ly-en.jpg",
+   "bytes": 38775,
+   "sha256": "c36c18ee8661777da305495ae0e92c3ed07dd7ed73d38011a363fb67640c9d6e"
+  },
+  {
+   "file": "day-toc-banh-lac-nguyen-ly-vi.jpg",
+   "bytes": 35287,
+   "sha256": "c778200dc4ddca4ae9dc4683e06cc027d84d33f2668ea7c09986937eafa2b1ea"
+  },
+  {
+   "file": "diem-chuong-nguyen-ly-en.jpg",
+   "bytes": 28663,
+   "sha256": "50467120f553959a73d4a7443738e5c05a94a8833a9014a6ea20c4fa20e37848"
+  },
+  {
+   "file": "diem-chuong-nguyen-ly-vi.jpg",
+   "bytes": 28804,
+   "sha256": "ddbd27193cb7b0e52ee074f05649a18dc4a296cefa16b6d5557ee19d6d162e0f"
+  },
+  {
+   "file": "gmt-nguyen-ly-en.jpg",
+   "bytes": 65497,
+   "sha256": "8a3e908e3aa7462815825bc721f1414a1907fbc0b5ff5eeb7adcf500d3c43926"
+  },
+  {
+   "file": "gmt-nguyen-ly-vi.jpg",
+   "bytes": 66335,
+   "sha256": "6c9ccc804ac73c9265f0a9364d56db181afe3a9d3e402b286b95771c7e70fe22"
+  },
+  {
+   "file": "hien-thi-ngay-nguyen-ly-en.jpg",
+   "bytes": 104933,
+   "sha256": "00fc669ba6bf2d7a7506ceb2d67f768aebca3b4ca2dd9aa18a42d6c383bbeeca"
+  },
+  {
+   "file": "hien-thi-ngay-nguyen-ly-vi.jpg",
+   "bytes": 105660,
+   "sha256": "e4c463239eae54b9828f7338e62364d17c39ba0fda029ee57dca25c89527df2e"
+  },
+  {
+   "file": "kinh-dong-ho-nguyen-ly-en.jpg",
+   "bytes": 45036,
+   "sha256": "7c174099dda651073299c639ef6d1700b72afe0ee6eccbb5cc656ac3d71fe421"
+  },
+  {
+   "file": "kinh-dong-ho-nguyen-ly-vi.jpg",
+   "bytes": 46318,
+   "sha256": "b570f831dd5850bba4020c7fa78ca56d0eef2abc4b8683cd1bede6206a626291"
+  },
+  {
+   "file": "len-day-tu-dong-nguyen-ly-en.jpg",
+   "bytes": 31822,
+   "sha256": "722eb1bbda3edca9dbebf8aa5488b7f92ffe7ab804b2bf261b9ccbc9c080907f"
+  },
+  {
+   "file": "len-day-tu-dong-nguyen-ly-vi.jpg",
+   "bytes": 30094,
+   "sha256": "08b683dfbacd91055fe92001527ebcd3ec6b222ffb9dd6829663cca370ddcd40"
+  },
+  {
+   "file": "perpetual-calendar-nguyen-ly-en.jpg",
+   "bytes": 27190,
+   "sha256": "b09f487ec577ffa043d053f61b0210d7ea547f4a935679f00ea4a0b6ad94ba6c"
+  },
+  {
+   "file": "perpetual-calendar-nguyen-ly-vi.jpg",
+   "bytes": 26844,
+   "sha256": "de76fe186ae907373a1a2d9050d2280fa1136cb014523ef9189a487b3e43f253"
+  },
+  {
+   "file": "pha-trang-nguyen-ly-en.jpg",
+   "bytes": 29359,
+   "sha256": "8bc70f0dcfb3d7f87859136dc8c84c3c7cf263aa8e5f246aabb4660b6a0e9313"
+  },
+  {
+   "file": "pha-trang-nguyen-ly-vi.jpg",
+   "bytes": 28652,
+   "sha256": "9f10099e634808cc4d1ea279f2ca37d862cd806c394eeb4a8d3b7e9e3d08ff8e"
+  },
+  {
+   "file": "tourbillon-nguyen-ly-en.jpg",
+   "bytes": 30709,
+   "sha256": "7ce255c4f1414616fcf14757385c31e30d5e231d91ed4e503e81658bca2de0a7"
+  },
+  {
+   "file": "tourbillon-nguyen-ly-vi.jpg",
+   "bytes": 27169,
+   "sha256": "8f0ef315e156979b09f7c0935a2854c51aa1562594fa111dcc942c200cf9c48c"
+  },
+  {
+   "file": "tru-cot-nguyen-ly-en.jpg",
+   "bytes": 29475,
+   "sha256": "87e38f9140a064467bc768941b94e71c8b87c97989348894a331aa49990a7b35"
+  },
+  {
+   "file": "tru-cot-nguyen-ly-vi.jpg",
+   "bytes": 26606,
+   "sha256": "876f657c318c9547def046a9482ad5995df521f5181d6ac895d2d86d767ec8d2"
+  }
+ ]
+}

@@ -127,7 +127,7 @@ const brandGroups = TIER_ORDER.map((tier) => {
 }).filter((g) => g.count > 0); // microbrand chưa có hãng nào — không hiển thị
 ---
 
-<BaseLayout>
+<BaseLayout meta_description={tr.home_meta_description}>
   <!-- ===== 1. HERO — value proposition + CTA, không trang trí lớn chắn đường ===== -->
   <section class="border-b border-line bg-surface-tech/50 dark:bg-dark-surface/30">
     <div class="mx-auto max-w-6xl px-4 py-14 sm:py-20">

@@ -22,6 +22,8 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  /** Ghi đè riêng thẻ meta name="description" (không đụng OG/Twitter) — chỉ trang chủ dùng */
+  meta_description?: string;
   cover_image?: string;
   breadcrumb?: { name: string; path: string }[];
   articleSchema?: object;
@@ -35,6 +37,7 @@ const tr = t(lang);
 const {
   title,
   description = tr.siteTagline,
+  meta_description,
   cover_image,
   breadcrumb,
   articleSchema,
@@ -56,6 +59,8 @@ function truncateMeta(text: string, max = 165): string {
   return cut.slice(0, at).trimEnd() + '…';
 }
 const metaDescription = description ? truncateMeta(description) : undefined;
+// Ghi đè riêng thẻ meta description (A4): khi prop không truyền, bằng metaDescription — HTML không đổi.
+const homeMetaDescription = meta_description ? truncateMeta(meta_description) : metaDescription;
 
 // URL đầy đủ (canonical + OG url)
 const siteUrl = Astro.site ?? new URL('https://www.kienthucdonghoco.vn');
@@ -112,7 +117,7 @@ const ogImageAlt = shareImage ? `${tr.og_share_alt_prefix}${title ?? tr.siteName
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
-    <meta name="description" content={metaDescription} />
+    <meta name="description" content={homeMetaDescription} />
 
     <!-- Favicon (G09-A + A3) — SVG nội bộ; ICO/PNG sinh từ SVG (generate-a3-icons) -->
     <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico" />

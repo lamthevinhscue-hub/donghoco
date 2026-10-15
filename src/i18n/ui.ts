@@ -111,6 +111,7 @@ export const translations = {
   vi: {
     siteName: 'Đồng Hồ Cơ',
     siteTagline: 'Nền tảng nội dung tiếng Việt chuyên sâu về đồng hồ cơ',
+    home_meta_description: 'Kiến thức đồng hồ cơ bằng tiếng Việt: bộ máy hoạt động ra sao, lịch sử, thương hiệu và mẫu tiêu biểu, giải thích dễ hiểu và có dẫn nguồn.',
     nav_home: 'Trang chủ',
     nav_brands: 'Thương hiệu',
     nav_iconic: 'Mẫu iconic',
@@ -339,6 +340,7 @@ export const translations = {
   en: {
     siteName: 'Mechanical Watch Knowledge',
     siteTagline: 'A practical, source-led guide to mechanical watches — from first principles to collecting.',
+    home_meta_description: 'Mechanical watch knowledge in Vietnamese and English: how movements work, watch history, brands and iconic models, explained clearly with sources.',
     nav_home: 'Home',
     nav_brands: 'Brands',
     nav_iconic: 'Iconic Watches',

@@ -26,7 +26,7 @@ Trạng thái dùng: Chưa mở / Đang chuẩn bị / Đang thi công / Chờ n
 
 | Mã | Việc | Trạng thái | Ghi chú |
 |---|---|---|---|
-| A4 | Mô tả trang chủ | Chưa mở | Đầu vào `dot-1/A1-A4-lap-chi-muc-va-mo-ta.md` |
+| A4 | Mô tả trang chủ | **Hoàn tất** | [Biên bản A4](../nghiem-thu/A4-mo-ta-trang-chu-2026-10-15.md) (mục 7) | TXN-37/38/39/40 CHƯA ĐẠT (giảm dần 4→3→1→điểm cuối) → đã sửa đủ | — | — | **Vòng v6 (TXN-40): đối chứng 1 hoàn nguyên dist/index từ bak + đối chiếu SHA; thêm lượt xác minh toàn bộ src/dist khớp bản gốc trước lượt sạch cuối; bỏ nhận định "fail 1/1" (GPT kiểm exit 0 — thiếu sót là byte chưa hoàn nguyên, bộ thử tự phát hiện qua SHA); biên bản mục 1/3/4/6-7 đồng bộ; bộ thử **14/14 (9 mutation + 2 lượt sạch + 2 đối chứng + 1 xác minh toàn bộ)**; không build lại; **TXN-20261015-42 xác nhận hồ sơ — phát hành kèm commit này** |
 | A1 (đợt 2) | Lập chỉ mục trang mới sửa | Chưa mở | Sau B1, B7 |
 | C1 (bước 2) | Thi công phương án video | Chưa mở | Chỉ sau anh duyệt báo cáo bước 1 |
 | C2 | Video "học được" (phụ đề, lời đọc) | Chưa mở | Sau C1 |

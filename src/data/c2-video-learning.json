@@ -1,0 +1,2561 @@
+{
+ "goi": "C2 — video học được",
+ "cau_lenh": "TXN-20261015-43 (anh Vinh duyệt mở sớm 15/10/2026)",
+ "nguyen_tac": "Dữ liệu ánh xạ theo đường dẫn MP4 chính xác; lời đọc là bản chữ trung thành nguyên văn nguồn đã duyệt; phụ đề và hình tóm tắt truy vết về nguồn dựng",
+ "anh_xa": {
+  "/videos/bo-thoat-dong-truc-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/bo-thoat-dong-truc-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[bo-thoat-dong-truc-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The co-axial escapement: its design, and what the maker claims."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "In the Swiss lever escapement, the escape-wheel tooth slides along the pallet stone. Sliding friction means this surface needs oil, and oil degrades over time."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.800",
+     "chu": "In the co-axial escapement, the teeth and stones are redesigned so the force acts almost at right angles to the surface: pushing rather than sliding."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:27.800",
+     "chu": "The same impulse compared: on the left, a long slide; on the right, almost a pure push."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:36.800",
+     "chu": "How to recognise it: a two-tier escape wheel on one arbor, a lever with three stones, and a roller on the balance staff."
+    },
+    {
+     "bat_dau": "00:00:37.200",
+     "ket_thuc": "00:00:48.800",
+     "chu": "It still locks and releases the escape wheel in time with the balance; the difference lies in how impulse is delivered. The animation is an identification diagram, not an exact simulation."
+    },
+    {
+     "bat_dau": "00:00:49.200",
+     "ket_thuc": "00:00:54.800",
+     "chu": "According to Swatch Group, Omega put George Daniels' escapement into production in 1999."
+    },
+    {
+     "bat_dau": "00:00:55.200",
+     "ket_thuc": "00:01:01.800",
+     "chu": "According to the maker, lower friction reduces dependence on oil and keeps the watch accurate for longer between services."
+    },
+    {
+     "bat_dau": "00:01:02.200",
+     "ket_thuc": "00:01:06.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/bo-thoat-dong-truc-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # bo-thoat-dong-truc-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=bo-thoat-dong-truc-v1] doan[].en",
+    "khung_giay": 5
+   }
+  },
+  "/videos/bo-thoat-dong-truc-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/bo-thoat-dong-truc-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[bo-thoat-dong-truc-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Bộ thoát đồng trục: cấu tạo, và điều nhà sản xuất công bố."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Ở bộ thoát Thụy Sĩ, răng bánh thoát trượt dọc mặt đá pallet. Ma sát trượt khiến bề mặt này cần dầu, và dầu xuống cấp theo thời gian."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.800",
+     "chu": "Ở bộ thoát đồng trục, hình dạng răng và vị trí đá được thiết kế lại để lực truyền gần như vuông góc với bề mặt: đẩy thay vì trượt."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:27.800",
+     "chu": "Cùng một lần truyền xung lực: bên trái trượt một quãng dài, bên phải gần như chỉ đẩy."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:36.800",
+     "chu": "Cách nhận diện: bánh thoát hai tầng trên cùng một trục, ngựa có ba viên đá, và roller trên trục bánh lắc."
+    },
+    {
+     "bat_dau": "00:00:37.200",
+     "ket_thuc": "00:00:48.800",
+     "chu": "Bộ thoát đồng trục vẫn khóa và nhả bánh thoát theo nhịp bánh lắc; điểm khác nằm ở cách truyền xung lực. Hoạt ảnh là sơ đồ nhận diện, không mô phỏng từng điểm tiếp xúc."
+    },
+    {
+     "bat_dau": "00:00:49.200",
+     "ket_thuc": "00:00:54.800",
+     "chu": "Theo Swatch Group, Omega đưa bộ thoát do George Daniels phát minh vào sản xuất năm 1999."
+    },
+    {
+     "bat_dau": "00:00:55.200",
+     "ket_thuc": "00:01:01.800",
+     "chu": "Theo hãng, ma sát thấp hơn giúp giảm phụ thuộc vào dầu, và giữ độ chính xác lâu hơn giữa hai lần bảo dưỡng."
+    },
+    {
+     "bat_dau": "00:01:02.200",
+     "ket_thuc": "00:01:06.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/bo-thoat-dong-truc-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # bo-thoat-dong-truc-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=bo-thoat-dong-truc-v1] doan[].vi",
+    "khung_giay": 5
+   }
+  },
+  "/videos/bo-thoat-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/bo-thoat-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[bo-thoat-nguyen-ly-v3].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:03.500",
+     "chu": "The Swiss lever escapement: how it works."
+    },
+    {
+     "bat_dau": "00:00:03.600",
+     "ket_thuc": "00:00:12.400",
+     "chu": "The main parts: the escape wheel, two pallet stones, the pallet fork, the banking pins, the impulse pin on the roller, the balance and the hairspring."
+    },
+    {
+     "bat_dau": "00:00:12.600",
+     "ket_thuc": "00:00:17.400",
+     "chu": "According to the FHH, it has three parts: escape wheel, lever and roller."
+    },
+    {
+     "bat_dau": "00:00:17.500",
+     "ket_thuc": "00:00:27.300",
+     "chu": "Slow motion. Locking: a pallet stone stops the escape wheel. Unlocking: the impulse pin swings the lever. Impulse: the balance receives energy. Drop: the wheel turns freely, briefly."
+    },
+    {
+     "bat_dau": "00:00:27.400",
+     "ket_thuc": "00:00:39.400",
+     "chu": "The other pallet locks. The balance is free of the lever as it swings, so this is a detached escapement. The cycle repeats: unlock, impulse, drop, lock."
+    },
+    {
+     "bat_dau": "00:00:39.500",
+     "ket_thuc": "00:00:46.800",
+     "chu": "At real speed: eight beats a second, twenty-eight thousand eight hundred an hour."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:51.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/bo-thoat-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # bo-thoat-nguyen-ly-v3",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=bo-thoat-nguyen-ly-v3] doan[].en",
+    "khung_giay": 10
+   }
+  },
+  "/videos/bo-thoat-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/bo-thoat-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[bo-thoat-nguyen-ly-v3].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:03.500",
+     "chu": "Bộ thoát móc Thụy Sĩ: nguyên lý hoạt động."
+    },
+    {
+     "bat_dau": "00:00:03.600",
+     "ket_thuc": "00:00:12.400",
+     "chu": "Các bộ phận chính: bánh thoát, hai đá pallet, ngựa, chốt chặn, chốt xung lực trên roller, bánh lắc và dây tóc."
+    },
+    {
+     "bat_dau": "00:00:12.600",
+     "ket_thuc": "00:00:17.400",
+     "chu": "Theo FHH, bộ thoát gồm bánh thoát, ngựa và roller. Bánh lắc và dây tóc định nhịp."
+    },
+    {
+     "bat_dau": "00:00:17.500",
+     "ket_thuc": "00:00:27.300",
+     "chu": "Tua chậm. Khóa: đá pallet chặn răng bánh thoát. Nhả khóa: chốt xung lực gạt ngựa. Xung lực: bánh lắc nhận thêm năng lượng. Rơi: bánh thoát quay tự do một đoạn rất ngắn."
+    },
+    {
+     "bat_dau": "00:00:27.400",
+     "ket_thuc": "00:00:39.400",
+     "chu": "Đá pallet bên kia khóa lại. Bánh lắc tách khỏi ngựa và dao động tự do, vì thế bộ thoát này thuộc nhóm tách rời. Chu trình lặp lại: nhả khóa, xung lực, rơi, khóa."
+    },
+    {
+     "bat_dau": "00:00:39.500",
+     "ket_thuc": "00:00:46.800",
+     "chu": "Tốc độ thật: tám nhịp mỗi giây, tức hai mươi tám nghìn tám trăm nhịp mỗi giờ."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:51.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/bo-thoat-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # bo-thoat-nguyen-ly-v3",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=bo-thoat-nguyen-ly-v3] doan[].vi",
+    "khung_giay": 10
+   }
+  },
+  "/videos/chong-nuoc-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-nuoc-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-nuoc-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Water resistance: gaskets, screw-down crowns and pressure."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Every ten metres or so adds about one bar of pressure. The case must keep water out at every joint."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:24.800",
+     "chu": "The sealing points: crystal and gasket, case middle, caseback and gasket, crown and tube. According to Omega, gaskets sit between crown, pushers, crystal and case."
+    },
+    {
+     "bat_dau": "00:00:25.200",
+     "ket_thuc": "00:00:34.800",
+     "chu": "The O-ring sits in a groove. Tightened together, the parts squeeze it flat to fill the gap, and water is stopped."
+    },
+    {
+     "bat_dau": "00:00:35.200",
+     "ket_thuc": "00:00:47.800",
+     "chu": "A loose crown leaves a path for water. Screwed in, it presses its gasket against the tube and seals the path. Omega says: always screw it in after handling."
+    },
+    {
+     "bat_dau": "00:00:48.200",
+     "ket_thuc": "00:00:58.800",
+     "chu": "On some divers' watches, helium seeps in during long stays in pressure chambers. During decompression the valve lets it out, so the crystal is not pushed off."
+    },
+    {
+     "bat_dau": "00:00:59.200",
+     "ket_thuc": "00:01:07.300",
+     "chu": "The rating is a laboratory test pressure, not a depth you can simply swim to. Divers' watches under ISO 6425 are tested at a hundred and twenty-five percent of rated depth."
+    },
+    {
+     "bat_dau": "00:01:07.700",
+     "ket_thuc": "00:01:12.800",
+     "chu": "Each maker has its own table; check the one for your model."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:22.800",
+     "chu": "Gaskets age with heat, chemicals, salt water and time. According to Omega, they must be replaced regularly, with a water-resistance check every year."
+    },
+    {
+     "bat_dau": "00:01:23.200",
+     "ket_thuc": "00:01:27.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-nuoc-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-nuoc-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-nuoc-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chong-nuoc-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-nuoc-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-nuoc-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Chống nước: gioăng, núm ren và áp suất."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Cứ xuống sâu khoảng mười mét, áp suất nước tăng thêm khoảng một bar. Vỏ đồng hồ phải chặn nước ở mọi chỗ có khe hở."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:24.800",
+     "chu": "Các điểm niêm phong: kính và gioăng kính, vỏ giữa, nắp lưng và gioăng, núm vặn cùng ống núm. Theo Omega, gioăng nằm giữa núm, nút bấm, kính và vỏ."
+    },
+    {
+     "bat_dau": "00:00:25.200",
+     "ket_thuc": "00:00:34.800",
+     "chu": "Gioăng nằm trong rãnh. Khi hai chi tiết siết vào nhau, gioăng bị ép dẹt và lấp kín khe, nước bị chặn lại."
+    },
+    {
+     "bat_dau": "00:00:35.200",
+     "ket_thuc": "00:00:47.800",
+     "chu": "Núm thả lỏng để lại khe cho nước đi vào. Vặn núm vào ren, gioăng bị ép chặt vào ống và khe được bịt kín. Theo Omega, luôn vặn kín núm sau khi thao tác."
+    },
+    {
+     "bat_dau": "00:00:48.200",
+     "ket_thuc": "00:00:58.800",
+     "chu": "Trên một số đồng hồ lặn, helium thấm dần vào vỏ khi thợ lặn ở lâu trong buồng áp suất. Khi giảm áp, van mở cho helium thoát ra, tránh đẩy bật kính."
+    },
+    {
+     "bat_dau": "00:00:59.200",
+     "ket_thuc": "00:01:07.300",
+     "chu": "Con số trên vỏ là áp suất thử trong phòng thí nghiệm, không phải độ sâu cứ thế bơi được. Đồng hồ lặn theo ISO 6425 được thử ở một trăm hai mươi lăm phần trăm độ sâu ghi."
+    },
+    {
+     "bat_dau": "00:01:07.700",
+     "ket_thuc": "00:01:12.800",
+     "chu": "Mỗi hãng có bảng dùng riêng; hãy xem bảng của đúng mẫu."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:22.800",
+     "chu": "Gioăng lão hóa theo nhiệt, hóa chất, nước biển và thời gian. Theo Omega, gioăng phải được thay định kỳ, và nên kiểm tra chống nước hằng năm."
+    },
+    {
+     "bat_dau": "00:01:23.200",
+     "ket_thuc": "00:01:27.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-nuoc-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-nuoc-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-nuoc-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chong-soc-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-soc-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-soc-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Shock protection: guarding the balance staff."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:10.300",
+     "chu": "The balance is fairly heavy, yet it turns on two very fine pivots. With fixed jewels, a knock goes straight into them."
+    },
+    {
+     "bat_dau": "00:00:10.600",
+     "ket_thuc": "00:00:15.800",
+     "chu": "A pivot can bend or break, a common repair before shock protection."
+    },
+    {
+     "bat_dau": "00:00:16.200",
+     "ket_thuc": "00:00:22.800",
+     "chu": "According to the FHH, it is a resilient bearing for the balance pivots. Most watches today use the Incabloc system."
+    },
+    {
+     "bat_dau": "00:00:23.200",
+     "ket_thuc": "00:00:33.800",
+     "chu": "Inside the Incabloc system: the hole jewel, the endstone, the jewel setting, the conical seat in the bearing block, and the lyre spring."
+    },
+    {
+     "bat_dau": "00:00:34.200",
+     "ket_thuc": "00:00:42.800",
+     "chu": "An axial shock pushes the jewels up against the spring. The staff follows until its thick shoulder meets the block, so the sturdy part takes the load."
+    },
+    {
+     "bat_dau": "00:00:43.100",
+     "ket_thuc": "00:00:48.800",
+     "chu": "Straight after, the lyre spring pushes the jewels back into place."
+    },
+    {
+     "bat_dau": "00:00:49.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "A lateral shock slides the setting along the cone until the staff meets the wall of the hole. According to Incabloc, the double cone brings it back to centre."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:08.800",
+     "chu": "According to Incabloc, there are two phases: the block absorbs the shock, then the spring re-centres it. The maker cites about five thousand g for a one-metre drop."
+    },
+    {
+     "bat_dau": "00:01:09.200",
+     "ket_thuc": "00:01:16.400",
+     "chu": "Around 1790, Breguet devised the parachute. According to Incabloc, production began in 1933 and the lyre spring was finalised in 1938."
+    },
+    {
+     "bat_dau": "00:01:16.600",
+     "ket_thuc": "00:01:20.800",
+     "chu": "Other systems include KIF, Diashock and Paraflex."
+    },
+    {
+     "bat_dau": "00:01:21.200",
+     "ket_thuc": "00:01:25.800",
+     "chu": "A simplified principle diagram; movements are exaggerated."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-soc-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-soc-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-soc-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chong-soc-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-soc-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-soc-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Chống sốc: bảo vệ trục bánh lắc."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:10.300",
+     "chu": "Bánh lắc tương đối nặng, nhưng quay trên hai ngõng trục rất mảnh. Với chân kính cố định, va đập dồn thẳng vào ngõng."
+    },
+    {
+     "bat_dau": "00:00:10.600",
+     "ket_thuc": "00:00:15.800",
+     "chu": "Ngõng có thể cong hoặc gãy, một hỏng hóc thường gặp trước khi có chống sốc."
+    },
+    {
+     "bat_dau": "00:00:16.200",
+     "ket_thuc": "00:00:22.800",
+     "chu": "Theo FHH, hệ chống sốc là chân kính đàn hồi giảm chấn cho ngõng trục bánh lắc. Phần lớn đồng hồ ngày nay dùng hệ Incabloc."
+    },
+    {
+     "bat_dau": "00:00:23.200",
+     "ket_thuc": "00:00:33.800",
+     "chu": "Cấu tạo hệ Incabloc: chân kính lỗ, đá lưng, khung đỡ chân kính, ổ hình nón trong khối đỡ, và lò xo lyre."
+    },
+    {
+     "bat_dau": "00:00:34.200",
+     "ket_thuc": "00:00:42.800",
+     "chu": "Sốc theo chiều trục: cụm chân kính bị đẩy lên, nén lò xo. Trục đi theo cho tới khi phần vai dày chạm khối đỡ; phần chắc chịu lực, ngõng mảnh được bảo vệ."
+    },
+    {
+     "bat_dau": "00:00:43.100",
+     "ket_thuc": "00:00:48.800",
+     "chu": "Ngay sau đó, lò xo lyre đẩy cụm chân kính về đúng chỗ cũ."
+    },
+    {
+     "bat_dau": "00:00:49.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "Sốc theo chiều ngang: khung đỡ trượt lệch theo mặt nón cho tới khi thân trục chạm thành lỗ. Theo Incabloc, cấu hình nón kép đưa cụm chân kính trở về đúng tâm."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:08.800",
+     "chu": "Theo Incabloc, có hai pha: khối đỡ hấp thụ năng lượng sốc, rồi lò xo đưa hệ về tâm. Hãng nêu: rơi từ khoảng một mét tương đương khoảng năm nghìn g."
+    },
+    {
+     "bat_dau": "00:01:09.200",
+     "ket_thuc": "00:01:16.400",
+     "chu": "Khoảng năm 1790, Breguet chế tạo hệ chống sốc parachute. Theo Incabloc, sản xuất bắt đầu năm 1933, và lò xo lyre hoàn thiện năm 1938."
+    },
+    {
+     "bat_dau": "00:01:16.600",
+     "ket_thuc": "00:01:20.800",
+     "chu": "Ngoài Incabloc còn có KIF, Diashock và Paraflex."
+    },
+    {
+     "bat_dau": "00:01:21.200",
+     "ket_thuc": "00:01:25.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược; độ dịch chuyển được phóng đại."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-soc-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-soc-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-soc-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chong-tu-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-tu-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-tu-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Anti-magnetism: magnetic fields and the hairspring."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Phone speakers, laptops and magnetic bag clasps all create magnetic fields. According to the FHH, an anti-magnetic watch is protected against them."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.300",
+     "chu": "A traditional hairspring can be magnetised. Its coils then cling together, the working length shortens, and the balance swings faster."
+    },
+    {
+     "bat_dau": "00:00:21.700",
+     "ket_thuc": "00:00:27.800",
+     "chu": "The result is usually a clearly fast watch, possibly by minutes a day."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "At a qualified workshop, a demagnetiser removes the magnetism in seconds, and the rate returns to normal."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:46.800",
+     "chu": "Method one: a soft-iron inner case around the movement channels the field lines around it instead of through it."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:57.800",
+     "chu": "Method two: non-magnetic materials for key parts, such as silicon hairsprings. The field passes, but the parts are not magnetised."
+    },
+    {
+     "bat_dau": "00:00:58.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "ISO 764 requires about sixty gauss. Oris states two thousand two hundred and fifty gauss for its Calibre 400. METAS Master Chronometer certification tests at fifteen thousand gauss."
+    },
+    {
+     "bat_dau": "00:01:10.200",
+     "ket_thuc": "00:01:16.800",
+     "chu": "A watch can drift for many reasons; do not assume magnetism, take it to a qualified workshop."
+    },
+    {
+     "bat_dau": "00:01:17.200",
+     "ket_thuc": "00:01:21.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-tu-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-tu-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-tu-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chong-tu-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/chong-tu-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chong-tu-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Chống từ: từ trường và dây tóc."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Loa điện thoại, máy tính, khóa nam châm trên túi xách đều tạo từ trường. Theo FHH, đồng hồ chống từ là đồng hồ được bảo vệ trước từ trường."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.300",
+     "chu": "Dây tóc truyền thống có thể nhiễm từ. Khi đó các vòng dây hút dính vào nhau, phần làm việc ngắn lại, bánh lắc dao động nhanh hơn."
+    },
+    {
+     "bat_dau": "00:00:21.700",
+     "ket_thuc": "00:00:27.800",
+     "chu": "Kết quả thường là đồng hồ chạy nhanh rõ rệt, có thể nhiều phút mỗi ngày."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "Ở cơ sở có chuyên môn, máy khử từ xóa từ tính trong vài giây, nhịp trở lại bình thường."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:46.800",
+     "chu": "Cách thứ nhất: vỏ trong bằng sắt mềm bao quanh bộ máy, dẫn đường sức từ đi vòng thay vì xuyên qua."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:57.800",
+     "chu": "Cách thứ hai: dùng vật liệu không nhiễm từ cho chi tiết then chốt, như dây tóc silicon. Từ trường đi qua nhưng chi tiết không bị từ hóa."
+    },
+    {
+     "bat_dau": "00:00:58.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "Chuẩn ISO 764 yêu cầu khoảng sáu mươi gauss. Oris công bố Calibre 400 chịu hai nghìn hai trăm năm mươi gauss. Chứng nhận Master Chronometer của METAS kiểm tra ở mười lăm nghìn gauss."
+    },
+    {
+     "bat_dau": "00:01:10.200",
+     "ket_thuc": "00:01:16.800",
+     "chu": "Đồng hồ lệch giờ có nhiều nguyên nhân; đừng tự kết luận là nhiễm từ, hãy mang tới nơi có chuyên môn."
+    },
+    {
+     "bat_dau": "00:01:17.200",
+     "ket_thuc": "00:01:21.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chong-tu-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chong-tu-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chong-tu-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chronograph-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/chronograph-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chronograph-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The chronograph: the stopwatch mechanism."
+    },
+    {
+     "bat_dau": "00:00:04.100",
+     "ket_thuc": "00:00:06.900",
+     "chu": "Three stages: start, stop, reset."
+    },
+    {
+     "bat_dau": "00:00:07.000",
+     "ket_thuc": "00:00:11.400",
+     "chu": "Press the upper pusher: the timing hand starts."
+    },
+    {
+     "bat_dau": "00:00:11.500",
+     "ket_thuc": "00:00:14.400",
+     "chu": "Press again: it stops."
+    },
+    {
+     "bat_dau": "00:00:14.500",
+     "ket_thuc": "00:00:16.900",
+     "chu": "The lower pusher: back to zero."
+    },
+    {
+     "bat_dau": "00:00:17.100",
+     "ket_thuc": "00:00:22.900",
+     "chu": "It is not a second movement: energy comes from the main movement through a clutch."
+    },
+    {
+     "bat_dau": "00:00:23.100",
+     "ket_thuc": "00:00:31.900",
+     "chu": "According to the FHH, the column wheel is the traditional technique. Each press turns it one step. The lever drops into a gap, the clutch engages, the hand runs."
+    },
+    {
+     "bat_dau": "00:00:32.100",
+     "ket_thuc": "00:00:40.900",
+     "chu": "Press again: the lever rides onto a column, the clutch opens and the hand stops, while the watch keeps running."
+    },
+    {
+     "bat_dau": "00:00:41.100",
+     "ket_thuc": "00:00:50.900",
+     "chu": "On reset, a hammer strikes the heart-shaped cam. Its shape always turns it to the same position, so the hand returns to zero from any angle."
+    },
+    {
+     "bat_dau": "00:00:51.100",
+     "ket_thuc": "00:00:59.900",
+     "chu": "According to the FHH, the column wheel is traditional and cams are more rational to produce; integrated designs are considered nobler, modules less costly."
+    },
+    {
+     "bat_dau": "00:01:00.100",
+     "ket_thuc": "00:01:07.900",
+     "chu": "According to the FHH: 1816, Louis Moinet; 1821, the name chronograph; 1969, the first automatic chronographs."
+    },
+    {
+     "bat_dau": "00:01:08.200",
+     "ket_thuc": "00:01:12.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chronograph-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chronograph-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chronograph-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chronograph-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/chronograph-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chronograph-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Chronograph: cơ chế bấm giờ."
+    },
+    {
+     "bat_dau": "00:00:04.100",
+     "ket_thuc": "00:00:06.900",
+     "chu": "Ba pha: chạy, dừng, đặt lại."
+    },
+    {
+     "bat_dau": "00:00:07.000",
+     "ket_thuc": "00:00:11.400",
+     "chu": "Bấm nút trên: kim bấm giờ bắt đầu chạy."
+    },
+    {
+     "bat_dau": "00:00:11.500",
+     "ket_thuc": "00:00:14.400",
+     "chu": "Bấm lần nữa: kim dừng lại."
+    },
+    {
+     "bat_dau": "00:00:14.500",
+     "ket_thuc": "00:00:16.900",
+     "chu": "Nút dưới: kim về không."
+    },
+    {
+     "bat_dau": "00:00:17.100",
+     "ket_thuc": "00:00:22.900",
+     "chu": "Chronograph không phải bộ máy thứ hai. Nó nhận năng lượng từ bộ máy chính qua một ly hợp."
+    },
+    {
+     "bat_dau": "00:00:23.100",
+     "ket_thuc": "00:00:31.900",
+     "chu": "Theo FHH, bánh răng cột là kỹ thuật truyền thống. Mỗi lần bấm, bánh cột xoay một bước. Đầu đòn rơi vào khe, ly hợp đóng, kim chạy."
+    },
+    {
+     "bat_dau": "00:00:32.100",
+     "ket_thuc": "00:00:40.900",
+     "chu": "Bấm lần nữa: đầu đòn lên đỉnh cột, ly hợp mở, kim dừng, nhưng đồng hồ vẫn chạy bình thường."
+    },
+    {
+     "bat_dau": "00:00:41.100",
+     "ket_thuc": "00:00:50.900",
+     "chu": "Khi đặt lại, búa đập vào cam hình tim. Hình dạng cam khiến nó luôn xoay về cùng một vị trí, nên kim về đúng không, dù đang dừng ở góc nào."
+    },
+    {
+     "bat_dau": "00:00:51.100",
+     "ket_thuc": "00:00:59.900",
+     "chu": "Theo FHH, bánh răng cột là kỹ thuật truyền thống, hệ thống cam hợp lý hơn về sản xuất. Cơ chế tích hợp được coi là cao quý hơn, module ít tốn kém hơn."
+    },
+    {
+     "bat_dau": "00:01:00.100",
+     "ket_thuc": "00:01:07.900",
+     "chu": "Theo FHH: năm 1816, Louis Moinet; năm 1821, tên gọi chronograph ra đời; năm 1969, những chronograph tự động đầu tiên."
+    },
+    {
+     "bat_dau": "00:01:08.200",
+     "ket_thuc": "00:01:12.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chronograph-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chronograph-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chronograph-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chuyen-dong-co-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/chuyen-dong-co-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chuyen-dong-co-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The going train: from mainspring to balance."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:11.300",
+     "chu": "Energy passes through the barrel, the centre wheel, the third and fourth wheels, the escape wheel and the pallet fork, to the balance."
+    },
+    {
+     "bat_dau": "00:00:11.700",
+     "ket_thuc": "00:00:16.800",
+     "chu": "The spring supplies energy, the train carries it, the escapement divides it, the balance keeps time."
+    },
+    {
+     "bat_dau": "00:00:17.200",
+     "ket_thuc": "00:00:25.800",
+     "chu": "Each wheel drives a small pinion. Eighty teeth driving ten: the pinion turns eight times faster, with that much less force."
+    },
+    {
+     "bat_dau": "00:00:26.200",
+     "ket_thuc": "00:00:33.300",
+     "chu": "At real speed: the centre wheel turns once an hour, carrying the minute hand; the fourth wheel once a minute; the escape wheel step by step."
+    },
+    {
+     "bat_dau": "00:00:33.700",
+     "ket_thuc": "00:00:39.800",
+     "chu": "The balance sets the pace: here three oscillations a second, half a tooth per vibration."
+    },
+    {
+     "bat_dau": "00:00:40.200",
+     "ket_thuc": "00:00:49.800",
+     "chu": "Without the escapement, the train races and the spring runs down at once. With it, the energy lasts for many hours."
+    },
+    {
+     "bat_dau": "00:00:50.200",
+     "ket_thuc": "00:01:01.800",
+     "chu": "On the dial side, the cannon pinion drives the minute wheel and the hour wheel: twelve to one, one hour-hand turn for twelve of the minute hand."
+    },
+    {
+     "bat_dau": "00:01:02.200",
+     "ket_thuc": "00:01:08.800",
+     "chu": "The arbors turn on fine pivots set in jewels, to reduce friction and wear."
+    },
+    {
+     "bat_dau": "00:01:09.200",
+     "ket_thuc": "00:01:15.800",
+     "chu": "In short: spring, train, escapement, balance; and from the train to the hands."
+    },
+    {
+     "bat_dau": "00:01:16.200",
+     "ket_thuc": "00:01:20.800",
+     "chu": "A simplified principle diagram; tooth counts are examples."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chuyen-dong-co-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chuyen-dong-co-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chuyen-dong-co-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/chuyen-dong-co-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/chuyen-dong-co-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[chuyen-dong-co-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Chuỗi truyền động: từ dây cót đến bánh lắc."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:11.300",
+     "chu": "Năng lượng đi qua hộp cót, bánh trung tâm, bánh thứ ba, bánh thứ tư, bánh thoát, ngựa, rồi tới bánh lắc."
+    },
+    {
+     "bat_dau": "00:00:11.700",
+     "ket_thuc": "00:00:16.800",
+     "chu": "Dây cót cấp năng lượng, bánh răng truyền đi, bộ thoát chia nhịp, bánh lắc giữ nhịp đều."
+    },
+    {
+     "bat_dau": "00:00:17.200",
+     "ket_thuc": "00:00:25.800",
+     "chu": "Mỗi bánh lớn dẫn một nhông nhỏ. Tám mươi răng dẫn mười răng: nhông quay nhanh gấp tám lần, lực đi tiếp nhỏ đi bấy nhiêu."
+    },
+    {
+     "bat_dau": "00:00:26.200",
+     "ket_thuc": "00:00:33.300",
+     "chu": "Ở tốc độ thật: bánh trung tâm một vòng mỗi giờ, mang kim phút; bánh thứ tư một vòng mỗi phút; bánh thoát nhích từng bước."
+    },
+    {
+     "bat_dau": "00:00:33.700",
+     "ket_thuc": "00:00:39.800",
+     "chu": "Bánh lắc định nhịp: ở đây ba dao động mỗi giây, mỗi lần rung bánh thoát nhích nửa răng."
+    },
+    {
+     "bat_dau": "00:00:40.200",
+     "ket_thuc": "00:00:49.800",
+     "chu": "Bỏ bộ thoát, chuỗi bánh răng quay vùn vụt và dây cót xả hết rất nhanh. Có bộ thoát, năng lượng được dùng dần trong nhiều giờ."
+    },
+    {
+     "bat_dau": "00:00:50.200",
+     "ket_thuc": "00:01:01.800",
+     "chu": "Ở mặt số, nhông phút dẫn bánh trung gian rồi tới bánh giờ: tỷ số mười hai trên một, kim giờ đi một vòng khi kim phút đi mười hai vòng."
+    },
+    {
+     "bat_dau": "00:01:02.200",
+     "ket_thuc": "00:01:08.800",
+     "chu": "Các trục quay trên ngõng mảnh đặt trong chân kính để giảm ma sát và mài mòn."
+    },
+    {
+     "bat_dau": "00:01:09.200",
+     "ket_thuc": "00:01:15.800",
+     "chu": "Tóm lại: dây cót, bánh răng, bộ thoát, bánh lắc; và từ bánh răng tới các kim."
+    },
+    {
+     "bat_dau": "00:01:16.200",
+     "ket_thuc": "00:01:20.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược; số răng chỉ là ví dụ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/chuyen-dong-co-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # chuyen-dong-co-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=chuyen-dong-co-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/da-quang-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/da-quang-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[da-quang-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Lume: why a watch glows in the dark."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Leave a watch in the light, then take it into the dark: the hands and markers glow enough to read the time."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:22.300",
+     "chu": "Light lifts electrons to a higher energy level. Some are held in traps and escape slowly; each time one returns, it emits light."
+    },
+    {
+     "bat_dau": "00:00:22.700",
+     "ket_thuc": "00:00:27.800",
+     "chu": "Today's common material is strontium aluminate, not radioactive; Super-LumiNova is a familiar trade name."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:37.800",
+     "chu": "Right after charging it glows brightly, falls fast in the first minutes, then fades over hours. Charge it again and it glows again."
+    },
+    {
+     "bat_dau": "00:00:38.200",
+     "ket_thuc": "00:00:47.300",
+     "chu": "Three generations: radium, self-luminous and dangerous, now abandoned; tritium, far weaker but fading over the years; and strontium aluminate, not radioactive, needing a charge."
+    },
+    {
+     "bat_dau": "00:00:47.700",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Tritium dials usually carry a T. Radiomir and Luminor were once Panerai's luminous materials."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "Some watches use glass tubes of tritium gas, glowing constantly without charging and dimming over the years."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:06.800",
+     "chu": "In the 1920s, many American women who painted radium dials were harmed; their story helped change worker-protection laws."
+    },
+    {
+     "bat_dau": "00:01:07.200",
+     "ket_thuc": "00:01:14.800",
+     "chu": "Green usually looks brightest in the dark. Sunlight or strong lamps charge faster than weak light."
+    },
+    {
+     "bat_dau": "00:01:15.200",
+     "ket_thuc": "00:01:19.800",
+     "chu": "A simplified principle diagram; brightness is illustrative."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/da-quang-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # da-quang-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=da-quang-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/da-quang-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/da-quang-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[da-quang-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Dạ quang: vì sao đồng hồ sáng trong bóng tối."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Để đồng hồ dưới ánh sáng một lúc rồi mang vào chỗ tối, kim và cọc số phát sáng đủ để đọc giờ."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:22.300",
+     "chu": "Ánh sáng kích thích electron lên mức năng lượng cao. Một phần bị giữ lại ở các bẫy rồi thoát ra dần; mỗi lần trở về, chúng phát ra ánh sáng."
+    },
+    {
+     "bat_dau": "00:00:22.700",
+     "ket_thuc": "00:00:27.800",
+     "chu": "Vật liệu phổ biến ngày nay là strontium aluminate, không phóng xạ; Super-LumiNova là tên thương mại thường gặp."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:37.800",
+     "chu": "Ngay sau khi nạp, vật liệu sáng rất mạnh, giảm nhanh trong những phút đầu rồi mờ dần nhiều giờ. Nạp lại là sáng trở lại."
+    },
+    {
+     "bat_dau": "00:00:38.200",
+     "ket_thuc": "00:00:47.300",
+     "chu": "Ba thế hệ: radium tự sáng nhờ phóng xạ, nguy hiểm, đã bị bỏ; tritium yếu hơn nhiều nhưng mờ dần qua năm tháng; và strontium aluminate không phóng xạ, cần nạp sáng."
+    },
+    {
+     "bat_dau": "00:00:47.700",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Mặt số dùng tritium thường in chữ T. Radiomir và Luminor từng là tên vật liệu phát quang của Panerai."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "Một số đồng hồ dùng ống thủy tinh chứa khí tritium, sáng liên tục không cần nạp, mờ dần qua nhiều năm."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:06.800",
+     "chu": "Thập niên 1920, nhiều nữ công nhân sơn mặt số bằng radium ở Mỹ bị tổn hại sức khỏe; câu chuyện của họ góp phần thay đổi luật bảo vệ người lao động."
+    },
+    {
+     "bat_dau": "00:01:07.200",
+     "ket_thuc": "00:01:14.800",
+     "chu": "Màu xanh lá thường sáng nhất với mắt người trong bóng tối. Ánh nắng hoặc đèn mạnh nạp nhanh hơn đèn yếu."
+    },
+    {
+     "bat_dau": "00:01:15.200",
+     "ket_thuc": "00:01:19.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược; độ sáng chỉ mang tính minh họa."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/da-quang-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # da-quang-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=da-quang-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/day-toc-banh-lac-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/day-toc-banh-lac-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[day-toc-banh-lac-v2].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The hairspring and balance: the regulating organ of the watch."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:10.800",
+     "chu": "Rim, arms and hairspring; the inner end is fixed to the staff, the outer end to the balance cock."
+    },
+    {
+     "bat_dau": "00:00:11.100",
+     "ket_thuc": "00:00:15.900",
+     "chu": "According to the FHH, together they form the regulating organ."
+    },
+    {
+     "bat_dau": "00:00:16.100",
+     "ket_thuc": "00:00:22.400",
+     "chu": "The balance turns and the spring winds; its elasticity pulls it back, past the point of rest."
+    },
+    {
+     "bat_dau": "00:00:22.600",
+     "ket_thuc": "00:00:29.900",
+     "chu": "Each swing there and back is one oscillation, made of two vibrations. Regular oscillations divide time into equal parts."
+    },
+    {
+     "bat_dau": "00:00:30.100",
+     "ket_thuc": "00:00:36.900",
+     "chu": "According to the FHH, the period depends on the spring's length and the balance's inertia. A longer spring swings more slowly."
+    },
+    {
+     "bat_dau": "00:00:37.100",
+     "ket_thuc": "00:00:43.900",
+     "chu": "A heavier rim, with more inertia, also swings more slowly."
+    },
+    {
+     "bat_dau": "00:00:44.100",
+     "ket_thuc": "00:00:55.800",
+     "chu": "Because the spring's length can be changed, it is used to regulate the watch. The index moves two pins: a shorter working length runs faster, a longer one slower."
+    },
+    {
+     "bat_dau": "00:00:56.100",
+     "ket_thuc": "00:01:01.900",
+     "chu": "Without energy, friction and air resistance make the oscillation die away."
+    },
+    {
+     "bat_dau": "00:01:02.100",
+     "ket_thuc": "00:01:07.900",
+     "chu": "According to the FHH, the escapement gives a small impulse each time the balance passes its rest point."
+    },
+    {
+     "bat_dau": "00:01:08.100",
+     "ket_thuc": "00:01:12.900",
+     "chu": "At real speed: four oscillations, eight vibrations every second."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:17.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/day-toc-banh-lac-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # day-toc-banh-lac-v2",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=day-toc-banh-lac-v2] doan[].en",
+    "khung_giay": 6
+   }
+  },
+  "/videos/day-toc-banh-lac-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/day-toc-banh-lac-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[day-toc-banh-lac-v2].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Dây tóc và bánh lắc: bộ điều tiết của đồng hồ."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:10.800",
+     "chu": "Vành bánh lắc, nan hoa, dây tóc; đầu trong gắn vào trục bánh lắc, đầu ngoài gắn vào giá đỡ."
+    },
+    {
+     "bat_dau": "00:00:11.100",
+     "ket_thuc": "00:00:15.900",
+     "chu": "Theo FHH, bánh lắc và dây tóc kết hợp thành bộ điều tiết."
+    },
+    {
+     "bat_dau": "00:00:16.100",
+     "ket_thuc": "00:00:22.400",
+     "chu": "Bánh lắc quay, dây tóc bị vặn; lực đàn hồi kéo nó quay ngược lại, vượt qua điểm cân bằng."
+    },
+    {
+     "bat_dau": "00:00:22.600",
+     "ket_thuc": "00:00:29.900",
+     "chu": "Mỗi lần đi và về là một dao động, gồm hai lần rung. Dao động đều đặn chia thời gian thành những phần bằng nhau."
+    },
+    {
+     "bat_dau": "00:00:30.100",
+     "ket_thuc": "00:00:36.900",
+     "chu": "Theo FHH, chu kỳ do chiều dài dây tóc và moment quán tính quyết định. Dây tóc dài hơn thì dao động chậm hơn."
+    },
+    {
+     "bat_dau": "00:00:37.100",
+     "ket_thuc": "00:00:43.900",
+     "chu": "Vành nặng hơn, moment quán tính lớn hơn, cũng dao động chậm hơn."
+    },
+    {
+     "bat_dau": "00:00:44.100",
+     "ket_thuc": "00:00:55.800",
+     "chu": "Vì chiều dài dây tóc thay đổi được, người ta dùng nó để điều tiết. Cần chỉnh dịch hai chốt: phần làm việc ngắn lại thì nhanh hơn, dài ra thì chậm hơn."
+    },
+    {
+     "bat_dau": "00:00:56.100",
+     "ket_thuc": "00:01:01.900",
+     "chu": "Không được cấp năng lượng, ma sát và lực cản không khí làm dao động tắt dần."
+    },
+    {
+     "bat_dau": "00:01:02.100",
+     "ket_thuc": "00:01:07.900",
+     "chu": "Theo FHH, bộ thoát cấp năng lượng cho bánh lắc: mỗi lần qua điểm cân bằng, nó nhận một xung lực nhỏ."
+    },
+    {
+     "bat_dau": "00:01:08.100",
+     "ket_thuc": "00:01:12.900",
+     "chu": "Tốc độ thật: bốn dao động, tức tám lần rung mỗi giây."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:17.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/day-toc-banh-lac-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # day-toc-banh-lac-v2",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=day-toc-banh-lac-v2] doan[].vi",
+    "khung_giay": 6
+   }
+  },
+  "/videos/diem-chuong-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/diem-chuong-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[diem-chuong-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The repeater: a watch that strikes the time on demand."
+    },
+    {
+     "bat_dau": "00:00:04.100",
+     "ket_thuc": "00:00:08.000",
+     "chu": "A repeater strikes the time on demand, says the FHH."
+    },
+    {
+     "bat_dau": "00:00:13.600",
+     "ket_thuc": "00:00:14.900",
+     "chu": "Three thirty-seven."
+    },
+    {
+     "bat_dau": "00:00:15.100",
+     "ket_thuc": "00:00:16.900",
+     "chu": "Two hammers, two gongs."
+    },
+    {
+     "bat_dau": "00:00:19.700",
+     "ket_thuc": "00:00:21.900",
+     "chu": "One low note, one high note."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:24.100",
+     "chu": "Hours: one low strike each."
+    },
+    {
+     "bat_dau": "00:00:26.400",
+     "ket_thuc": "00:00:27.400",
+     "chu": "Quarters: low, high."
+    },
+    {
+     "bat_dau": "00:00:29.600",
+     "ket_thuc": "00:00:30.800",
+     "chu": "Minutes: high."
+    },
+    {
+     "bat_dau": "00:00:35.500",
+     "ket_thuc": "00:00:41.900",
+     "chu": "Three hours, two quarters, seven minutes: three thirty-seven. This is the common sequence; details depend on the design."
+    },
+    {
+     "bat_dau": "00:00:42.100",
+     "ket_thuc": "00:00:52.800",
+     "chu": "According to the FHH: the quarter repeater strikes hours and quarters; the five-minute repeater adds five-minute intervals; the minute repeater gives the exact minutes."
+    },
+    {
+     "bat_dau": "00:00:53.100",
+     "ket_thuc": "00:01:02.400",
+     "chu": "According to the FHH, striking can happen in passing or on demand. The grande sonnerie strikes hours and quarters at every quarter; the petite sonnerie does not repeat the hours."
+    },
+    {
+     "bat_dau": "00:01:02.600",
+     "ket_thuc": "00:01:05.900",
+     "chu": "And a slide can silence it."
+    },
+    {
+     "bat_dau": "00:01:06.100",
+     "ket_thuc": "00:01:14.900",
+     "chu": "According to the FHH: the quarter repeater appeared in England around 1675; the first minute repeaters, 1700 to 1710; Thomas Mudge, around 1750."
+    },
+    {
+     "bat_dau": "00:01:15.200",
+     "ket_thuc": "00:01:19.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/diem-chuong-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # diem-chuong-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=diem-chuong-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/diem-chuong-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/diem-chuong-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[diem-chuong-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Điểm chuông: đồng hồ điểm giờ theo yêu cầu."
+    },
+    {
+     "bat_dau": "00:00:04.100",
+     "ket_thuc": "00:00:08.000",
+     "chu": "Theo FHH, repeater điểm giờ khi được kích hoạt bằng nút bấm hoặc cần gạt."
+    },
+    {
+     "bat_dau": "00:00:13.600",
+     "ket_thuc": "00:00:14.900",
+     "chu": "Ba giờ ba mươi bảy phút."
+    },
+    {
+     "bat_dau": "00:00:15.100",
+     "ket_thuc": "00:00:16.900",
+     "chu": "Hai búa gõ vào hai gông."
+    },
+    {
+     "bat_dau": "00:00:19.700",
+     "ket_thuc": "00:00:21.900",
+     "chu": "Một âm trầm, một âm cao."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:24.100",
+     "chu": "Giờ: mỗi giờ một tiếng trầm."
+    },
+    {
+     "bat_dau": "00:00:26.400",
+     "ket_thuc": "00:00:27.400",
+     "chu": "Quý: cặp trầm cao."
+    },
+    {
+     "bat_dau": "00:00:29.600",
+     "ket_thuc": "00:00:30.800",
+     "chu": "Phút: tiếng cao."
+    },
+    {
+     "bat_dau": "00:00:35.500",
+     "ket_thuc": "00:00:41.900",
+     "chu": "Ba giờ, hai quý, bảy phút: ba giờ ba mươi bảy phút. Đây là cách điểm phổ biến; trình tự cụ thể tùy thiết kế."
+    },
+    {
+     "bat_dau": "00:00:42.100",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Theo FHH: quarter repeater điểm giờ và quý; five-minute repeater điểm thêm các khoảng năm phút; minute repeater chỉ định chính xác số phút."
+    },
+    {
+     "bat_dau": "00:00:53.100",
+     "ket_thuc": "00:01:02.400",
+     "chu": "Theo FHH, cơ cấu có thể tự điểm khi qua mốc, hoặc điểm theo yêu cầu. Grande sonnerie điểm cả giờ và quý ở mỗi quý; petite sonnerie không lặp lại số giờ."
+    },
+    {
+     "bat_dau": "00:01:02.600",
+     "ket_thuc": "00:01:05.900",
+     "chu": "Và có thể làm im lặng bằng cần gạt."
+    },
+    {
+     "bat_dau": "00:01:06.100",
+     "ket_thuc": "00:01:14.900",
+     "chu": "Theo FHH: quarter repeater xuất hiện ở Anh khoảng năm 1675; minute repeater đầu tiên từ 1700 đến 1710; Thomas Mudge, khoảng năm 1750."
+    },
+    {
+     "bat_dau": "00:01:15.200",
+     "ket_thuc": "00:01:19.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/diem-chuong-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # diem-chuong-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=diem-chuong-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/gmt-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/gmt-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[gmt-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "GMT: the twenty-four-hour hand and a second time zone."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:14.800",
+     "chu": "A GMT watch adds a hand that turns once every twenty-four hours, read on a twenty-four-hour scale. The hour hand turns every twelve hours; the GMT hand at half that speed."
+    },
+    {
+     "bat_dau": "00:00:15.200",
+     "ket_thuc": "00:00:26.800",
+     "chu": "A common arrangement: from the hour wheel, an intermediate pair reduces two to one to drive the GMT wheel, on the same axis as the hour wheel."
+    },
+    {
+     "bat_dau": "00:00:27.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "A twelve-hour hand at eight cannot say morning or evening. On a twenty-four-hour scale, eight and twenty are different positions."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:46.800",
+     "chu": "The hour and minute hands show local time; the GMT hand shows a reference, such as home. Here: local fifteen hundred, home ten hundred."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:57.800",
+     "chu": "With a rotating bezel, turn it by the time difference and read the GMT hand on it. According to Rolex, return it to neutral to read the reference again."
+    },
+    {
+     "bat_dau": "00:00:58.200",
+     "ket_thuc": "00:01:11.800",
+     "chu": "Two common setting styles: the local hour hand jumps hour by hour, handy when travelling, at Rolex since 1982; or the GMT hand jumps, handy for tracking another zone."
+    },
+    {
+     "bat_dau": "00:01:12.200",
+     "ket_thuc": "00:01:18.800",
+     "chu": "A limit: places with non-whole offsets, such as India or Nepal, cannot be shown exactly in one-hour steps."
+    },
+    {
+     "bat_dau": "00:01:19.200",
+     "ket_thuc": "00:01:27.800",
+     "chu": "According to Rolex, the GMT-Master launched in 1955 for travellers across time zones, and became the official watch of Pan Am."
+    },
+    {
+     "bat_dau": "00:01:28.200",
+     "ket_thuc": "00:01:32.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/gmt-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # gmt-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=gmt-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/gmt-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/gmt-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[gmt-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "GMT: kim hai mươi bốn giờ và múi giờ thứ hai."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:14.800",
+     "chu": "Đồng hồ GMT có thêm một kim đi hết một vòng trong hai mươi bốn giờ, đọc trên thang hai mươi bốn giờ. Kim giờ thường đi một vòng mỗi mười hai giờ; kim GMT chậm bằng một nửa."
+    },
+    {
+     "bat_dau": "00:00:15.200",
+     "ket_thuc": "00:00:26.800",
+     "chu": "Một cách làm thường gặp: từ bánh giờ, một cặp bánh trung gian giảm tốc hai trên một để dẫn bánh GMT, đặt đồng trục với bánh giờ."
+    },
+    {
+     "bat_dau": "00:00:27.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "Kim mười hai giờ chỉ số tám thì không biết sáng hay tối. Trên thang hai mươi bốn giờ, tám giờ và hai mươi giờ nằm ở hai vị trí khác nhau."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:46.800",
+     "chu": "Kim giờ và kim phút chỉ giờ địa phương; kim GMT chỉ giờ tham chiếu, ví dụ giờ nhà. Ở đây: địa phương mười lăm giờ, giờ nhà mười giờ."
+    },
+    {
+     "bat_dau": "00:00:47.200",
+     "ket_thuc": "00:00:57.800",
+     "chu": "Với vành hai mươi bốn giờ xoay, xoay vành theo chênh lệch múi giờ rồi đọc kim GMT trên vành. Theo Rolex, đưa vành về vị trí trung lập để đọc lại giờ tham chiếu."
+    },
+    {
+     "bat_dau": "00:00:58.200",
+     "ket_thuc": "00:01:11.800",
+     "chu": "Có hai cách chỉnh thường gặp: kim giờ địa phương nhảy từng giờ, tiện khi đi lại, Rolex có từ năm 1982; hoặc kim GMT nhảy từng giờ, tiện khi theo dõi một múi giờ khác."
+    },
+    {
+     "bat_dau": "00:01:12.200",
+     "ket_thuc": "00:01:18.800",
+     "chu": "Giới hạn: những nơi lệch giờ không tròn, như Ấn Độ hay Nepal, không thể hiện chính xác bằng nấc một giờ."
+    },
+    {
+     "bat_dau": "00:01:19.200",
+     "ket_thuc": "00:01:27.800",
+     "chu": "Theo Rolex, GMT-Master ra mắt năm 1955 cho người đi qua nhiều múi giờ, và trở thành đồng hồ chính thức của hãng hàng không Pan Am."
+    },
+    {
+     "bat_dau": "00:01:28.200",
+     "ket_thuc": "00:01:32.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/gmt-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # gmt-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=gmt-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/hien-thi-ngay-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/hien-thi-ngay-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[hien-thi-ngay-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The date display: the date ring and its twenty-four-hour beat."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:11.800",
+     "chu": "The date window usually sits at three o'clock. Each night, around midnight, the number moves on."
+    },
+    {
+     "bat_dau": "00:00:12.200",
+     "ket_thuc": "00:00:22.800",
+     "chu": "Beneath the dial: a thirty-one-position date ring, the hour wheel, a date wheel with a finger turning once a day, and a jumper holding the ring in place."
+    },
+    {
+     "bat_dau": "00:00:23.200",
+     "ket_thuc": "00:00:31.300",
+     "chu": "From around nine in the evening, the finger catches a tooth and slowly pushes the ring, lifting the jumper."
+    },
+    {
+     "bat_dau": "00:00:31.700",
+     "ket_thuc": "00:00:39.800",
+     "chu": "Around midnight the tooth passes the jumper's peak and the spring snaps the ring on. The red zone is when the finger is engaged."
+    },
+    {
+     "bat_dau": "00:00:40.200",
+     "ket_thuc": "00:00:51.800",
+     "chu": "Three types: drag, creeping for hours; instantaneous, changing almost exactly at midnight; and, most common, the semi-instantaneous type just shown."
+    },
+    {
+     "bat_dau": "00:00:52.200",
+     "ket_thuc": "00:00:59.300",
+     "chu": "Quick-setting while the finger is engaged makes the parts fight, and teeth can be damaged. This is usually about nine at night to three in the morning."
+    },
+    {
+     "bat_dau": "00:00:59.700",
+     "ket_thuc": "00:01:04.800",
+     "chu": "The safe way: move the hands to around six, then set the date."
+    },
+    {
+     "bat_dau": "00:01:05.200",
+     "ket_thuc": "00:01:13.800",
+     "chu": "The ring does not know the month: after a thirty-day month or February, it needs correcting, about five times a year."
+    },
+    {
+     "bat_dau": "00:01:14.200",
+     "ket_thuc": "00:01:20.800",
+     "chu": "From here: the day-date, the big date, and the annual and perpetual calendars."
+    },
+    {
+     "bat_dau": "00:01:21.200",
+     "ket_thuc": "00:01:25.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/hien-thi-ngay-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # hien-thi-ngay-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=hien-thi-ngay-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/hien-thi-ngay-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/hien-thi-ngay-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[hien-thi-ngay-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Hiển thị ngày: đĩa ngày và nhịp hai mươi bốn giờ."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:11.800",
+     "chu": "Ô ngày thường ở vị trí ba giờ. Mỗi đêm, quanh nửa đêm, con số đổi sang ngày mới."
+    },
+    {
+     "bat_dau": "00:00:12.200",
+     "ket_thuc": "00:00:22.800",
+     "chu": "Dưới mặt số: đĩa ngày ba mươi mốt vị trí, bánh giờ, bánh dẫn lịch có ngón đẩy quay một vòng mỗi hai mươi bốn giờ, và cá nhảy giữ đĩa đúng chỗ."
+    },
+    {
+     "bat_dau": "00:00:23.200",
+     "ket_thuc": "00:00:31.300",
+     "chu": "Từ khoảng chín giờ tối, ngón đẩy bắt vào một răng và đẩy đĩa ngày từ từ, nâng cá nhảy lên."
+    },
+    {
+     "bat_dau": "00:00:31.700",
+     "ket_thuc": "00:00:39.800",
+     "chu": "Quanh nửa đêm, răng vượt qua đỉnh cá nhảy, lò xo búng đĩa sang số mới. Vùng đỏ là lúc ngón đẩy đang ăn khớp."
+    },
+    {
+     "bat_dau": "00:00:40.200",
+     "ket_thuc": "00:00:51.800",
+     "chu": "Có ba kiểu: kéo dần, đĩa trôi chậm trong vài giờ; tức thời, số đổi gần như đúng nửa đêm; và phổ biến nhất là bán tức thời như vừa thấy."
+    },
+    {
+     "bat_dau": "00:00:52.200",
+     "ket_thuc": "00:00:59.300",
+     "chu": "Chỉnh nhanh lúc ngón đẩy đang ăn khớp, hai lực chống nhau và răng có thể hỏng. Khung giờ này thường khoảng chín giờ tối đến ba giờ sáng."
+    },
+    {
+     "bat_dau": "00:00:59.700",
+     "ket_thuc": "00:01:04.800",
+     "chu": "Cách an toàn: đưa kim về khoảng sáu giờ, rồi mới chỉnh ngày."
+    },
+    {
+     "bat_dau": "00:01:05.200",
+     "ket_thuc": "00:01:13.800",
+     "chu": "Đĩa ngày không biết tháng: sau tháng ba mươi ngày hay tháng Hai, phải chỉnh tay, khoảng năm lần mỗi năm."
+    },
+    {
+     "bat_dau": "00:01:14.200",
+     "ket_thuc": "00:01:20.800",
+     "chu": "Từ đĩa ngày đi xa hơn: lịch ngày thứ, ngày lớn, lịch năm và lịch vạn niên."
+    },
+    {
+     "bat_dau": "00:01:21.200",
+     "ket_thuc": "00:01:25.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/hien-thi-ngay-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # hien-thi-ngay-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=hien-thi-ngay-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/kinh-dong-ho-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/kinh-dong-ho-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/video-kinh-dong-ho/narration/en_01..04.txt (nguyên văn) + kênh thời gian"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:01.600",
+     "ket_thuc": "00:00:06.600",
+     "chu": "Scratch test: acrylic scratches deep, mineral lightly, sapphire not at all."
+    },
+    {
+     "bat_dau": "00:00:06.600",
+     "ket_thuc": "00:00:11.600",
+     "chu": "Impact test: acrylic dents without breaking, mineral chips, sapphire shatters."
+    },
+    {
+     "bat_dau": "00:00:11.600",
+     "ket_thuc": "00:00:15.800",
+     "chu": "Polish: only acrylic recovers — mineral and sapphire must be replaced."
+    },
+    {
+     "bat_dau": "00:00:15.800",
+     "ket_thuc": "00:00:20.300",
+     "chu": "No single crystal is best in every respect."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/kinh-dong-ho-nguyen-ly-en.jpg",
+    "alt": "Still frame from the watch-crystal video: Acrylic — Mineral — Sapphire columns with the three test results (simplified)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/video-kinh-dong-ho/narration/en_01..04.txt + kenh-thoi-gian.md",
+    "vtt_nhan_hinh_goc": null,
+    "khung_giay": 8.5
+   }
+  },
+  "/videos/kinh-dong-ho-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/kinh-dong-ho-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/video-kinh-dong-ho/narration/vi_01..04.txt (nguyên văn) + kênh thời gian"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:01.600",
+     "ket_thuc": "00:00:06.600",
+     "chu": "Thử xước: acrylic xước sâu, khoáng xước nhẹ, sapphire không xước."
+    },
+    {
+     "bat_dau": "00:00:06.600",
+     "ket_thuc": "00:00:11.600",
+     "chu": "Thử va đập: acrylic móp nhưng không vỡ, khoáng mẻ, sapphire nứt vỡ."
+    },
+    {
+     "bat_dau": "00:00:11.600",
+     "ket_thuc": "00:00:15.800",
+     "chu": "Đánh bóng: chỉ acrylic phục hồi được — khoáng và sapphire phải thay."
+    },
+    {
+     "bat_dau": "00:00:15.800",
+     "ket_thuc": "00:00:20.300",
+     "chu": "Không loại nào tốt nhất ở mọi mặt."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/kinh-dong-ho-nguyen-ly-vi.jpg",
+    "alt": "Hình tĩnh từ video kinh đồng hồ: ba cột Acrylic — Khoáng — Sapphire với kết quả ba phép thử (sơ đồ giản lược)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/video-kinh-dong-ho/narration/vi_01..04.txt + kenh-thoi-gian.md",
+    "vtt_nhan_hinh_goc": null,
+    "khung_giay": 8.5
+   }
+  },
+  "/videos/len-day-tu-dong-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/len-day-tu-dong-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[len-day-tu-dong-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Automatic winding: the rotor and the wrist."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:15.800",
+     "chu": "According to the FHH, an automatic uses the arm's movement to turn a rotor, which winds the spring through dedicated gears. Weighted on one side, the rotor hangs down; as the wrist turns, the movement turns around it."
+    },
+    {
+     "bat_dau": "00:00:16.200",
+     "ket_thuc": "00:00:25.800",
+     "chu": "The parts: a semicircular rotor with a heavy rim, a central ball bearing, a reverser wheel, a reduction wheel, and the ratchet wheel on the barrel."
+    },
+    {
+     "bat_dau": "00:00:26.200",
+     "ket_thuc": "00:00:38.800",
+     "chu": "The rotor swings with the wrist. The reverser turns both directions into one; reduction wheels multiply the force, so the rotor turns many times per barrel turn."
+    },
+    {
+     "bat_dau": "00:00:39.200",
+     "ket_thuc": "00:00:47.800",
+     "chu": "Reversing: one branch engages while the other freewheels, then they swap. Solutions include reverser wheels, Seiko's Magic Lever and IWC's Pellaton."
+    },
+    {
+     "bat_dau": "00:00:48.200",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Some movements wind in one direction only."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:01:02.800",
+     "chu": "When full, the spring's outer end slips along the barrel wall. The automatic works are decoupled from the crown, so the rotor does not turn it."
+    },
+    {
+     "bat_dau": "00:01:03.200",
+     "ket_thuc": "00:01:12.800",
+     "chu": "Three kinds of rotor: the common central rotor; the micro-rotor set into the movement for thinness; and the peripheral rotor running round the edge."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:23.800",
+     "chu": "The FHH links self-winding to Abraham-Louis Perrelet, around 1770. In 1923 John Harwood patented a self-winding wristwatch; in 1931 Rolex introduced a full-turn rotor."
+    },
+    {
+     "bat_dau": "00:01:24.200",
+     "ket_thuc": "00:01:28.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/len-day-tu-dong-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # len-day-tu-dong-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=len-day-tu-dong-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/len-day-tu-dong-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/len-day-tu-dong-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[len-day-tu-dong-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Lên dây tự động: rotor và cổ tay."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:15.800",
+     "chu": "Theo FHH, cơ cấu tự động dùng chuyển động của cánh tay làm rotor quay, rồi qua các bánh răng riêng để lên dây cót. Rotor nặng một bên nên luôn rủ xuống; khi tay xoay, bộ máy quay quanh nó."
+    },
+    {
+     "bat_dau": "00:00:16.200",
+     "ket_thuc": "00:00:25.800",
+     "chu": "Cấu tạo: rotor bán nguyệt có vành nặng, ổ bi ở tâm, bánh đảo chiều, bánh giảm tốc, và bánh cóc trên hộp cót."
+    },
+    {
+     "bat_dau": "00:00:26.200",
+     "ket_thuc": "00:00:38.800",
+     "chu": "Rotor quay qua lại theo cổ tay. Bánh đảo chiều biến cả hai chiều quay thành một chiều; các bánh giảm tốc nhân lực lên, để rotor quay rất nhiều vòng mới cuộn hộp cót một vòng."
+    },
+    {
+     "bat_dau": "00:00:39.200",
+     "ket_thuc": "00:00:47.800",
+     "chu": "Đảo chiều: chiều này một nhánh ăn khớp, nhánh kia quay trơn; đổi chiều thì ngược lại. Có bánh đảo chiều, Magic Lever của Seiko, hệ Pellaton của IWC."
+    },
+    {
+     "bat_dau": "00:00:48.200",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Một số bộ máy chỉ lên dây theo một chiều quay."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:01:02.800",
+     "chu": "Khi dây cót đầy, đầu ngoài dây cót trượt dọc thành hộp để không căng quá. Cơ cấu tự động cũng tách khỏi núm, nên rotor không làm núm quay theo."
+    },
+    {
+     "bat_dau": "00:01:03.200",
+     "ket_thuc": "00:01:12.800",
+     "chu": "Ba kiểu rotor: rotor trung tâm phổ biến nhất; micro-rotor lọt trong mặt bộ máy, giúp máy mỏng; rotor ngoại vi chạy quanh mép, để lộ toàn bộ cơ cấu."
+    },
+    {
+     "bat_dau": "00:01:13.200",
+     "ket_thuc": "00:01:23.800",
+     "chu": "FHH gắn cơ cấu tự động với Abraham-Louis Perrelet, khoảng năm 1770. Năm 1923, John Harwood được cấp bằng sáng chế đồng hồ đeo tay tự động; năm 1931, Rolex giới thiệu rotor quay trọn vòng."
+    },
+    {
+     "bat_dau": "00:01:24.200",
+     "ket_thuc": "00:01:28.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/len-day-tu-dong-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # len-day-tu-dong-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=len-day-tu-dong-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/perpetual-calendar-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/perpetual-calendar-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[lich-van-nien-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The perpetual calendar."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:13.800",
+     "chu": "According to the FHH, it is devised around the specificities of the Gregorian calendar. Shown here: date, month and the leap-year cycle."
+    },
+    {
+     "bat_dau": "00:00:14.200",
+     "ket_thuc": "00:00:23.800",
+     "chu": "Months differ: thirty-one days, thirty days, and February with twenty-eight or twenty-nine. A counter that only runs from one to thirty-one must be corrected after every short month."
+    },
+    {
+     "bat_dau": "00:00:24.100",
+     "ket_thuc": "00:00:27.900",
+     "chu": "A thirty-one-day month: a full circuit."
+    },
+    {
+     "bat_dau": "00:00:28.100",
+     "ket_thuc": "00:00:31.900",
+     "chu": "A thirty-day month: the thirty-first is skipped."
+    },
+    {
+     "bat_dau": "00:00:32.100",
+     "ket_thuc": "00:00:35.900",
+     "chu": "February, common year: three dates skipped."
+    },
+    {
+     "bat_dau": "00:00:36.100",
+     "ket_thuc": "00:00:41.900",
+     "chu": "A leap year: the twenty-ninth appears, then March."
+    },
+    {
+     "bat_dau": "00:00:42.100",
+     "ket_thuc": "00:00:47.400",
+     "chu": "According to the FHH, a mechanical memory repeats every forty-eight months, matching the leap-year cycle."
+    },
+    {
+     "bat_dau": "00:00:47.600",
+     "ket_thuc": "00:00:57.900",
+     "chu": "Illustrated after a common design: a forty-eight-step program wheel, one step a month. The deeper the notch, the more dates are skipped."
+    },
+    {
+     "bat_dau": "00:00:58.100",
+     "ket_thuc": "00:01:06.900",
+     "chu": "According to the FHH, the annual calendar handles months under thirty-one days but not leap years, and must be adjusted once a year."
+    },
+    {
+     "bat_dau": "00:01:07.100",
+     "ket_thuc": "00:01:12.400",
+     "chu": "According to the FHH, it only needs adjusting in exceptional common years, the next being 2100."
+    },
+    {
+     "bat_dau": "00:01:12.600",
+     "ket_thuc": "00:01:18.900",
+     "chu": "By the Gregorian rule, century years are not leap years unless divisible by four hundred; 2400 still is."
+    },
+    {
+     "bat_dau": "00:01:19.200",
+     "ket_thuc": "00:01:23.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/perpetual-calendar-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # lich-van-nien-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=lich-van-nien-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/perpetual-calendar-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/perpetual-calendar-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[lich-van-nien-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Lịch vạn niên."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:13.800",
+     "chu": "Theo FHH, lịch vạn niên được thiết kế theo các đặc thù của lịch Gregory. Ở đây có ngày, tháng và chu kỳ năm nhuận."
+    },
+    {
+     "bat_dau": "00:00:14.200",
+     "ket_thuc": "00:00:23.800",
+     "chu": "Các tháng không dài bằng nhau: ba mươi mốt ngày, ba mươi ngày, và tháng Hai hai mươi tám hoặc hai mươi chín ngày. Bộ đếm chỉ chạy từ một đến ba mươi mốt sẽ phải chỉnh tay sau mỗi tháng ngắn."
+    },
+    {
+     "bat_dau": "00:00:24.100",
+     "ket_thuc": "00:00:27.900",
+     "chu": "Tháng ba mươi mốt ngày: kim ngày đi hết vòng."
+    },
+    {
+     "bat_dau": "00:00:28.100",
+     "ket_thuc": "00:00:31.900",
+     "chu": "Tháng ba mươi ngày: bỏ qua ngày ba mươi mốt."
+    },
+    {
+     "bat_dau": "00:00:32.100",
+     "ket_thuc": "00:00:35.900",
+     "chu": "Tháng Hai năm thường: bỏ qua ba ngày."
+    },
+    {
+     "bat_dau": "00:00:36.100",
+     "ket_thuc": "00:00:41.900",
+     "chu": "Năm nhuận: thêm ngày hai mươi chín, rồi mới sang tháng Ba."
+    },
+    {
+     "bat_dau": "00:00:42.100",
+     "ket_thuc": "00:00:47.400",
+     "chu": "Theo FHH, cơ cấu có một trí nhớ cơ học, lặp lại mỗi bốn mươi tám tháng, đúng chu kỳ năm nhuận."
+    },
+    {
+     "bat_dau": "00:00:47.600",
+     "ket_thuc": "00:00:57.900",
+     "chu": "Minh họa theo cách làm phổ biến: đĩa chương trình bốn mươi tám nấc, mỗi tháng một nấc. Rãnh càng sâu, càng nhiều ngày được bỏ qua."
+    },
+    {
+     "bat_dau": "00:00:58.100",
+     "ket_thuc": "00:01:06.900",
+     "chu": "Theo FHH, lịch niên tính được các tháng dưới ba mươi mốt ngày nhưng không tính năm nhuận, và phải chỉnh một lần mỗi năm."
+    },
+    {
+     "bat_dau": "00:01:07.100",
+     "ket_thuc": "00:01:12.400",
+     "chu": "Theo FHH, lịch vạn niên chỉ cần chỉnh cho các năm không nhuận ngoại lệ, kế tiếp là năm 2100."
+    },
+    {
+     "bat_dau": "00:01:12.600",
+     "ket_thuc": "00:01:18.900",
+     "chu": "Theo lịch Gregory, năm chia hết cho một trăm không nhuận, trừ khi chia hết cho bốn trăm. Vì vậy năm 2400 vẫn là năm nhuận."
+    },
+    {
+     "bat_dau": "00:01:19.200",
+     "ket_thuc": "00:01:23.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/perpetual-calendar-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # lich-van-nien-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=lich-van-nien-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/pha-trang-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/pha-trang-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[pha-trang-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The moon phase: showing the phases of the moon."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "According to the FHH, the moon phase displays the moon's different phases. It is a complication: a function beyond hours, minutes and seconds."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:20.800",
+     "chu": "In the aperture: a disc carrying two moons, two humps that gradually hide them, and the sky."
+    },
+    {
+     "bat_dau": "00:00:21.100",
+     "ket_thuc": "00:00:36.900",
+     "chu": "According to the FHH, a lunation lasts twenty-nine days, twelve hours, forty-four minutes and two point eight seconds. Four phases: first quarter, full moon, last quarter and new moon."
+    },
+    {
+     "bat_dau": "00:00:37.200",
+     "ket_thuc": "00:00:46.400",
+     "chu": "Beneath the dial, in a common design, a fifty-nine-tooth disc carries two moons. Once a day, a finger advances it by one tooth."
+    },
+    {
+     "bat_dau": "00:00:46.800",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Fifty-nine teeth for two moons: each moon crosses the aperture in twenty-nine and a half days."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:01:02.800",
+     "chu": "The display is forty-four minutes and two point eight seconds shorter than a lunation. After about thirty-three lunations it runs a day ahead and needs resetting."
+    },
+    {
+     "bat_dau": "00:01:03.200",
+     "ket_thuc": "00:01:07.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/pha-trang-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # pha-trang-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=pha-trang-v1] doan[].en",
+    "khung_giay": 6
+   }
+  },
+  "/videos/pha-trang-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/pha-trang-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[pha-trang-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Pha trăng: hiển thị các pha của mặt trăng."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Theo FHH, pha trăng là cơ cấu hiển thị các pha khác nhau của mặt trăng; một phức tạp, tức chức năng ngoài giờ, phút, giây."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:20.800",
+     "chu": "Trong cửa sổ: đĩa trăng mang hai mặt trăng, hai gờ che dần mặt trăng, và nền trời."
+    },
+    {
+     "bat_dau": "00:00:21.100",
+     "ket_thuc": "00:00:36.900",
+     "chu": "Theo FHH, một tuần trăng dài hai mươi chín ngày, mười hai giờ, bốn mươi bốn phút và hai phẩy tám giây. Bốn pha: trăng thượng huyền, trăng tròn, trăng hạ huyền và trăng non."
+    },
+    {
+     "bat_dau": "00:00:37.200",
+     "ket_thuc": "00:00:46.400",
+     "chu": "Bên dưới mặt số, theo một cách làm phổ biến: đĩa năm mươi chín răng mang hai mặt trăng. Mỗi ngày, một ngón gạt đẩy đĩa đi một răng."
+    },
+    {
+     "bat_dau": "00:00:46.800",
+     "ket_thuc": "00:00:52.800",
+     "chu": "Năm mươi chín răng cho hai mặt trăng: mỗi mặt trăng qua cửa sổ trong hai mươi chín ngày rưỡi."
+    },
+    {
+     "bat_dau": "00:00:53.200",
+     "ket_thuc": "00:01:02.800",
+     "chu": "Chu kỳ hiển thị ngắn hơn tuần trăng bốn mươi bốn phút hai phẩy tám giây. Sau khoảng ba mươi ba tuần trăng, hiển thị đi nhanh hơn trăng thật một ngày và cần chỉnh lại."
+    },
+    {
+     "bat_dau": "00:01:03.200",
+     "ket_thuc": "00:01:07.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/pha-trang-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # pha-trang-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=pha-trang-v1] doan[].vi",
+    "khung_giay": 6
+   }
+  },
+  "/videos/tourbillon-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/tourbillon-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[tourbillon-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "The tourbillon: the revolving cage and positional error."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "According to the FHH, the tourbillon was devised and patented by Abraham-Louis Breguet in 1801, to compensate for rate errors caused by gravity in upright positions."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.800",
+     "chu": "The escapement is mounted in a revolving cage: the balance at the centre, the escape wheel and lever on the cage, and beneath them the fixed fourth wheel."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:27.800",
+     "chu": "According to the FHH, the escape-wheel pinion turns about the fixed fourth wheel, while the escapement works as usual."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "According to the FHH, the cage generally revolves once a minute. This part runs ten times faster."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:40.400",
+     "chu": "According to the FHH, pocket watches spend most of their time upright."
+    },
+    {
+     "bat_dau": "00:00:40.600",
+     "ket_thuc": "00:00:48.800",
+     "chu": "A fixed escapement always meets gravity from one direction; the cage carries it through every orientation. According to the FHH, this compensates for the vertical-position error."
+    },
+    {
+     "bat_dau": "00:00:49.100",
+     "ket_thuc": "00:00:52.900",
+     "chu": "The source ties this purpose to pocket watches."
+    },
+    {
+     "bat_dau": "00:00:53.100",
+     "ket_thuc": "00:00:57.400",
+     "chu": "According to the FHH, a tourbillon can use a lever or a detent escapement."
+    },
+    {
+     "bat_dau": "00:00:57.600",
+     "ket_thuc": "00:01:04.800",
+     "chu": "The karussel is simpler and more robust: according to the FHH, its cage is driven by the third wheel, not the fourth."
+    },
+    {
+     "bat_dau": "00:01:05.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/tourbillon-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # tourbillon-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=tourbillon-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/tourbillon-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/tourbillon-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[tourbillon-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Tourbillon: lồng xoay và sai số vị trí."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Theo FHH, tourbillon do Abraham-Louis Breguet nghĩ ra và đăng ký sáng chế năm 1801, nhằm bù sai số chạy do trọng lực ở các vị trí thẳng đứng."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:21.800",
+     "chu": "Bộ thoát được gắn trong một lồng xoay: bánh lắc ở tâm, bánh thoát và ngựa gắn trên lồng, bên dưới là bánh thứ tư cố định."
+    },
+    {
+     "bat_dau": "00:00:22.200",
+     "ket_thuc": "00:00:27.800",
+     "chu": "Theo FHH, bánh pignon bánh thoát quay quanh bánh thứ tư cố định, trong khi bộ thoát vẫn làm việc bình thường."
+    },
+    {
+     "bat_dau": "00:00:28.200",
+     "ket_thuc": "00:00:35.800",
+     "chu": "Theo FHH, lồng thông thường quay một vòng mỗi phút. Đoạn này tua nhanh gấp mười lần."
+    },
+    {
+     "bat_dau": "00:00:36.200",
+     "ket_thuc": "00:00:40.400",
+     "chu": "Theo FHH, đồng hồ bỏ túi dành phần lớn thời gian ở vị trí thẳng đứng."
+    },
+    {
+     "bat_dau": "00:00:40.600",
+     "ket_thuc": "00:00:48.800",
+     "chu": "Bộ thoát cố định luôn chịu trọng lực theo cùng một hướng; lồng xoay đưa nó qua mọi hướng. Theo FHH, việc xoay này bù sai số do vị trí thẳng đứng."
+    },
+    {
+     "bat_dau": "00:00:49.100",
+     "ket_thuc": "00:00:52.900",
+     "chu": "Nguồn nêu mục đích này gắn với đồng hồ bỏ túi."
+    },
+    {
+     "bat_dau": "00:00:53.100",
+     "ket_thuc": "00:00:57.400",
+     "chu": "Theo FHH, tourbillon có thể dùng bộ thoát lever hoặc detent."
+    },
+    {
+     "bat_dau": "00:00:57.600",
+     "ket_thuc": "00:01:04.800",
+     "chu": "Karussel đơn giản và chắc chắn hơn: theo FHH, lồng của nó được dẫn từ bánh thứ ba, không phải bánh thứ tư."
+    },
+    {
+     "bat_dau": "00:01:05.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/tourbillon-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # tourbillon-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=tourbillon-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  },
+  "/videos/tru-cot-nguyen-ly-en.mp4": {
+   "ngan_ngu": "en",
+   "phu_de": {
+    "vtt": "/videos/captions/tru-cot-nguyen-ly-en.vtt",
+    "nhan": "English",
+    "nguon": "output/long-tieng/loi-doc.json — videos[tru-cot-dien-anh-v1].doan[].en (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Power reserve: how long a mechanical watch runs."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Power reserve is how long a watch runs after a full wind before it stops. Each maker states it for each movement."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:19.800",
+     "chu": "The energy source is the barrel: the toothed drum, the arbor, the mainspring, the ratchet wheel and the click."
+    },
+    {
+     "bat_dau": "00:00:20.200",
+     "ket_thuc": "00:00:24.800",
+     "chu": "The spring's inner end hooks to the arbor, its outer end to the barrel wall."
+    },
+    {
+     "bat_dau": "00:00:25.200",
+     "ket_thuc": "00:00:37.800",
+     "chu": "Turning the crown turns the ratchet and the arbor; the spring coils tight around it, storing energy. The click skips over each tooth and stops it turning back."
+    },
+    {
+     "bat_dau": "00:00:38.200",
+     "ket_thuc": "00:00:50.800",
+     "chu": "When running, the arbor stays put and the spring turns the barrel very slowly. Its teeth drive the train to the escapement as the spring uncoils towards the wall."
+    },
+    {
+     "bat_dau": "00:00:51.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "The force is not constant: strongest when full, then falling, and dropping fast at the end. Less force means a smaller balance amplitude."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "With a hand-wound watch, stop when the crown feels firm. Automatics usually have a slipping bridle, so a full spring slips along the wall instead of overwinding."
+    },
+    {
+     "bat_dau": "00:01:10.200",
+     "ket_thuc": "00:01:16.300",
+     "chu": "For a longer reserve: a longer spring, several barrels, or a lower beat rate."
+    },
+    {
+     "bat_dau": "00:01:16.600",
+     "ket_thuc": "00:01:21.800",
+     "chu": "Many movements run about forty hours; many newer ones reach seventy or more."
+    },
+    {
+     "bat_dau": "00:01:22.200",
+     "ket_thuc": "00:01:30.800",
+     "chu": "The reserve indicator is usually driven through a differential: winding pushes it up, running brings it down."
+    },
+    {
+     "bat_dau": "00:01:31.200",
+     "ket_thuc": "00:01:35.800",
+     "chu": "A simplified principle diagram, not to scale."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/tru-cot-nguyen-ly-en.jpg",
+    "alt": "Simplified diagram illustrating the principle shown in the video (not to scale)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # tru-cot-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=tru-cot-dien-anh-v1] doan[].en",
+    "khung_giay": 8
+   }
+  },
+  "/videos/tru-cot-nguyen-ly-vi.mp4": {
+   "ngan_ngu": "vi",
+   "phu_de": {
+    "vtt": "/videos/captions/tru-cot-nguyen-ly-vi.vtt",
+    "nhan": "Tiếng Việt",
+    "nguon": "output/long-tieng/loi-doc.json — videos[tru-cot-dien-anh-v1].doan[].vi (nguyên văn, mốc giây nguồn)"
+   },
+   "lo_doc": [
+    {
+     "bat_dau": "00:00:00.300",
+     "ket_thuc": "00:00:04.000",
+     "chu": "Trữ cót: đồng hồ cơ chạy được bao lâu."
+    },
+    {
+     "bat_dau": "00:00:04.200",
+     "ket_thuc": "00:00:12.800",
+     "chu": "Trữ cót là thời gian đồng hồ chạy được sau khi lên dây đầy, cho tới khi dừng. Đây là thông số hãng công bố cho từng bộ máy."
+    },
+    {
+     "bat_dau": "00:00:13.200",
+     "ket_thuc": "00:00:19.800",
+     "chu": "Nguồn năng lượng là hộp cót: hộp có răng, trục, dây cót, bánh cóc và cá cóc."
+    },
+    {
+     "bat_dau": "00:00:20.200",
+     "ket_thuc": "00:00:24.800",
+     "chu": "Đầu trong dây cót móc vào trục, đầu ngoài móc vào thành hộp."
+    },
+    {
+     "bat_dau": "00:00:25.200",
+     "ket_thuc": "00:00:37.800",
+     "chu": "Khi vặn núm, bánh cóc quay trục hộp cót, dây cót cuộn chặt dần quanh trục, năng lượng được tích lại. Cá cóc lách qua từng răng, giữ trục không quay ngược."
+    },
+    {
+     "bat_dau": "00:00:38.200",
+     "ket_thuc": "00:00:50.800",
+     "chu": "Khi chạy, trục đứng yên, dây cót đẩy hộp cót quay rất chậm. Răng hộp cót dẫn chuỗi bánh răng tới bộ thoát, còn dây cót nở dần ra sát thành hộp."
+    },
+    {
+     "bat_dau": "00:00:51.200",
+     "ket_thuc": "00:00:59.800",
+     "chu": "Lực cót không đều: mạnh nhất khi lên đầy, yếu dần, và giảm nhanh ở đoạn cuối. Lực yếu làm biên độ bánh lắc nhỏ lại."
+    },
+    {
+     "bat_dau": "00:01:00.200",
+     "ket_thuc": "00:01:09.800",
+     "chu": "Đồng hồ lên tay: thấy núm vặn chặt thì dừng. Đồng hồ tự động thường có đầu dây cót trượt được, nên khi đầy, dây trượt dọc thành hộp thay vì căng quá."
+    },
+    {
+     "bat_dau": "00:01:10.200",
+     "ket_thuc": "00:01:16.300",
+     "chu": "Muốn trữ cót dài hơn: dây cót dài hơn, nhiều hộp cót, hoặc tần số thấp hơn."
+    },
+    {
+     "bat_dau": "00:01:16.600",
+     "ket_thuc": "00:01:21.800",
+     "chu": "Nhiều bộ máy chạy khoảng bốn mươi giờ; nhiều bộ máy mới đạt bảy mươi giờ trở lên."
+    },
+    {
+     "bat_dau": "00:01:22.200",
+     "ket_thuc": "00:01:30.800",
+     "chu": "Kim báo trữ cót thường được dẫn qua bộ vi sai: lên dây đẩy kim lên, đồng hồ chạy kéo kim xuống."
+    },
+    {
+     "bat_dau": "00:01:31.200",
+     "ket_thuc": "00:01:35.800",
+     "chu": "Đây là sơ đồ nguyên lý giản lược, không theo tỷ lệ."
+    }
+   ],
+   "hinh_tom_tat": {
+    "src": "/images/video-summaries/tru-cot-nguyen-ly-vi.jpg",
+    "alt": "Sơ đồ giản lược minh họa nguyên lý trong video (không theo tỷ lệ)."
+   },
+   "truy_vet": {
+    "loi_doc": "output/long-tieng/loi-doc.json # tru-cot-dien-anh-v1",
+    "vtt_nhan_hinh_goc": "output/long-tieng/loi-doc.json # videos[ten=tru-cot-dien-anh-v1] doan[].vi",
+    "khung_giay": 8
+   }
+  }
+ }
+}

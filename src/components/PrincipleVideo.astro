@@ -7,6 +7,11 @@
 // Mỗi bài ngôn ngữ tự trỏ clip ngôn ngữ đó: giao diện VI xem clip VI, EN xem EN.
 // preload="none" — trình phát chỉ tải video khi người xem bấm, không đè băng thông
 // tải trang; poster giữ đúng bố cục khung 16:9 trước khi phát.
+// C2 — video "học được": khi src có dữ liệu trong src/data/c2-video-learning.json,
+// khối video được thêm track phụ đề (WebVTT), bản lời đọc dạng <details> (đọc được
+// cả khi tắt JavaScript) và hình tĩnh tóm tắt nguyên lý (tải lười).
+import c2DuLieu from '../data/c2-video-learning.json';
+
 interface Props {
   lang: 'vi' | 'en';
   src: string;
@@ -21,13 +26,28 @@ const la =
         hint: 'Narrated walkthrough — turn on the sound. The file loads only when you press play.',
         fallback: 'Your browser cannot play this video.',
         open: 'Open the video file',
+        chu: 'Read the narration',
+        hinh: 'Diagram summary of the principle (simplified)',
+        nhan: 'English',
       }
     : {
         label: 'Video nguyên lý',
         hint: 'Video có thuyết minh — bật âm thanh để nghe. Trình phát chỉ tải video khi bạn bấm phát.',
         fallback: 'Trình duyệt không phát được video.',
         open: 'Mở tệp video',
+        chu: 'Đọc lời thuyết minh',
+        hinh: 'Hình tóm tắt sơ đồ nguyên lý (giản lược)',
+        nhan: 'Tiếng Việt',
       };
+// C2: dữ liệu "học được" theo đúng đường dẫn MP4; không có dữ liệu → khối như cũ.
+const c2 = (c2DuLieu.anh_xa as Record<string, {
+  phu_de: { vtt: string; nhan: string; nguon: string };
+  lo_doc: { bat_dau: string; ket_thuc: string; chu: string }[];
+  hinh_tom_tat: { src: string; alt: string };
+}>)[src];
+const c2PhuDe = c2?.phu_de ?? null;
+const c2LoDoc = c2?.lo_doc ?? null;
+const c2Hinh = c2?.hinh_tom_tat ?? null;
 ---
 
 <figure
@@ -41,10 +61,42 @@ const la =
   </figcaption>
   <video controls playsinline preload="none" poster={poster} width="1280" height="720" class="block h-auto w-full">
     <source src={src} type="video/mp4" />
+    {c2PhuDe && <track kind="subtitles" src={c2PhuDe.vtt} srclang={lang} label={la.nhan} />}
     <p class="px-4 py-3 text-sm text-ink-soft dark:text-dark-text-soft">
       {la.fallback}
       <a class="text-brass underline" href={src}>{la.open}</a>
     </p>
   </video>
   <p class="px-4 py-3 text-xs text-ink-soft/90 sm:px-6 dark:text-dark-text-soft/70">{la.hint}</p>
+  {
+    c2Hinh && (
+      <figure class="px-4 pb-4 sm:px-6">
+        <img
+          src={c2Hinh.src}
+          alt={c2Hinh.alt}
+          loading="lazy"
+          width="1280"
+          height="720"
+          decoding="async"
+          class="block h-auto w-full rounded border border-cream-dark dark:border-dark-border"
+        />
+        <figcaption class="mt-2 text-xs text-ink-soft/90 sm:px-0 dark:text-dark-text-soft/70">{la.hinh}</figcaption>
+      </figure>
+    )
+  }
+  {
+    c2LoDoc && c2LoDoc.length > 0 && (
+      <details class="border-t border-cream-dark px-4 py-3 sm:px-6 dark:border-dark-border">
+        <summary class="cursor-pointer text-sm font-semibold text-navy dark:text-dark-text">{la.chu}</summary>
+        <ol class="mt-2 space-y-1 text-sm text-ink dark:text-dark-text">
+          {c2LoDoc.map((doan) => (
+            <li>
+              <span class="mr-2 font-mono text-xs text-ink-soft/80 dark:text-dark-text-soft/80">{doan.bat_dau}</span>
+              {doan.chu}
+            </li>
+          ))}
+        </ol>
+      </details>
+    )
+  }
 </figure>

@@ -1331,3 +1331,31 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Nội dung vấn đề:** video chống nước minh họa gioăng chữ O chưa ép thì nước lọt, ép dẹt thì nước bị chặn. Chưa có nguồn kỹ thuật trực tiếp cho diễn giải hình học này — bài giữ mô tả gioăng hiện có (theo Omega) không thêm hình học.
 - **Nguồn còn thiếu:** tài liệu kỹ thuật về niêm phong bằng gioăng chữ O áp dụng cho vỏ đồng hồ.
 - **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 68. Năm ra mắt GMT-Master: 1954 (mục từ FHH) mâu thuẫn 1955 (Rolex) — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/gmt.md` và `src/content/coChe/en/gmt.md` (gói B3 đợt 2, TXN-20261017-87).
+- **Nội dung vấn đề:** mục từ GMT trong từ điển FHH nêu 1954 là năm ra mắt GMT-Master; Rolex Newsroom ghi 1955. Hai nguồn mâu thuẫn trực tiếp. Bài giữ 1955 theo Rolex (nguồn đương sự), không đưa 1954.
+- **Nguồn còn thiếu:** nguồn thứ ba độc lập hoặc văn bản lưu trữ Rolex chốt năm ra mắt.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 69. Mắt người cảm nhận xanh lục sáng nhất — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/da-quang.md` và `src/content/coChe/en/lume.md` (gói B3 đợt 2, TXN-20261017-87).
+- **Nội dung vấn đề:** GHI-CHU video dạ quang nêu mắt người nhạy nhất với dải xanh lục-lam. Nguồn duy nhất tìm được là tuyên bố nhà sản xuất (trigalight/mb-microtec: "the colour perceived brightest by the human eye") — không phải nghiên cứu. Bài không nêu nhận định này.
+- **Nguồn còn thiếu:** tài liệu nghiên cứu trực tiếp về độ nhạy phổ của mắt người ở điều kiện nhìn ban đêm.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 70. Công thức hóa bột LumiNova (aluminate, hoạt chất Eu/Dy) — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/da-quang.md` và `src/content/coChe/en/lume.md` (gói B3 đợt 2, TXN-20261017-87).
+- **Nội dung vấn đề:** trang Nemoto (đọc 17/10/2026) chỉ nói chung dòng bột aluminate phát sáng lưu sáng dài, không nêu hoạt chất hoạt hóa cụ thể; trang RC Tritec không nêu công thức. Bài không đưa chi tiết hóa học.
+- **Nguồn còn thiếu:** tài liệu kỹ thuật của Nemoto hoặc RC Tritec công bố cấu tạo hóa học cụ thể của bột LumiNova/Super-LumiNova.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 71. Hiện hành của ISO 3157 (khung quy chiếu ký hiệu T) — CHỜ KIỂM TRA
+
+- **Vị trí:** `src/content/coChe/vi/da-quang.md` và `src/content/coChe/en/lume.md` (gói B3 đợt 2, TXN-20261017-87).
+- **Nội dung vấn đề:** mục từ FHH "Swiss T 25" mô tả các ký hiệu T trong khung ISO 3157. Chưa kiểm tra trực tiếp tình trạng hiện hành hay thu hồi của ISO 3157 trên trang iso.org — bài chỉ ghi "FHH ghi khung quy chiếu là ISO 3157", không khẳng định chuẩn còn hiệu lực.
+- **Nguồn còn thiếu:** trang chuẩn ISO 3157 còn hiệu lực trên iso.org.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).

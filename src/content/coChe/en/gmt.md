@@ -14,19 +14,25 @@ relatedModels:
   - slug: "rolex-gmt-master"
     relation: "The GMT-Master (1955) brought the dual time zone mechanism to the public with a 24-hour hand and a two-colour bezel — the line later became the official watch of the Pan Am airline"
 
-updated: "2026-09-01"
+updated: "2026-10-17"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Watch complications"
     url: "https://www.hautehorlogerie.org/en/watches-and-culture/library/watch-complications"
   - label: "Rolex Newsroom — GMT-Master II"
     url: "https://newsroom.rolex.com/watches/oyster-collection/gmt-master-ii"
+  - label: "Seiko — 4R34 instructions: setting the time, the 24-hour hand and the date"
+    url: "https://www.seikowatches.com/instructions/html/SEIKO_4R34_EN/BONDSYvfxjvcwv"
+  - label: "Seiko — 4R34 instructions: using the rotating bezel with 24-hour scale"
+    url: "https://www.seikowatches.com/instructions/html/SEIKO_4R34_EN/BONDSYaubyrlud"
+  - label: "IANA — Time Zone Database (tzdb 2026e, accessed 17 Oct 2026)"
+    url: "https://www.iana.org/time-zones"
 
 ---
 
 ## What you see
 
-A GMT watch carries an **additional hand**, distinguished by its own design or colour, that completes **one revolution every 24 hours** (rather than 12 like the regular hour hand). The 24-hour scale lets you read this hand against absolute hours of the day.
+A GMT watch carries an **additional hand**, distinguished by its own design or colour — the Fondation de la Haute Horlogerie describes the home time as an additional hand, usually in a different colour or design, read over a 24-hour scale. This hand completes **one revolution every 24 hours** (rather than 12 like the regular hour hand); the 24-hour scale lets you read it against absolute hours of the day.
 
 GMT (short for *Greenwich Mean Time*) is the complication that **displays a second time zone** — useful for frequent flyers, international work, or family abroad. On models with a **rotatable 24-hour bezel**, the bezel can also be used to read one more, **alternative time zone**.
 
@@ -39,11 +45,9 @@ The core difference of GMT lies in the speed of the extra hand:
 
 Each position of the GMT hand corresponds to one specific hour of the day, with no twice-a-day repetition as on a 12-hour scale — so the second time zone reads without morning/afternoon ambiguity. How the GMT hand is linked to the rest of the hand set is a **property of each calibre**.
 
-As for what happens inside the movement: different calibres achieve this speed in their own ways. One common construction described by the Fondation de la Haute Horlogerie uses additional gearing to **halve the speed** delivered to the 24-hour hand — but that describes one specific way of doing it, not a general rule.
-
 ## Why 24 hours (not 12)?
 
-The GMT hand completes one turn per 24 hours so that you can **tell day from night**. If the hand points at "8" on the 24-hour scale, it is 8 in the morning; at "20", it is 8 in the evening. On a 12-hour hand you could never tell which "8" it is.
+The GMT hand completes one turn per 24 hours so that you can **tell day from night**. If the hand points at "8" on the 24-hour scale, it is 8 in the morning; at "20", it is 8 in the evening. On a 12-hour hand you could never tell which "8" it is. Seiko's 4R34 instructions describe exactly this use: read as a 24-hour hand, it tells whether the displayed time is AM or PM.
 
 ## The rotatable 24-hour bezel — reading one alternative time zone
 
@@ -55,13 +59,17 @@ The 24-hour scale may sit on the bezel or elsewhere, depending on the model. **O
 
 There is no universal direction or counting formula shared across models — the principle and the detailed operation follow the manufacturer's documentation.
 
-A bezel split into two different colours makes the day half and the night half distinguishable at a glance.
+The 24-hour hand can also be used without the bezel: Seiko's 4R34 instructions describe setting the 24-hour hand to a region different from what the hour and minute hands show, and on the model with a rotatable 24-hour bezel, turning the bezel lets you read three different time zones at once. Both statements describe those instructions only, not a rule shared across calibres.
+
+Time-zone differences are not always whole hours either: per the IANA time zone database (tzdb 2026e, accessed 17 Oct 2026), India currently runs at +5:30 and Nepal at +5:45. How any specific model reads such fractional differences still follows that maker's documentation.
 
 ## Setting it — a property of each movement
 
 Which hand can be set, and how, is a **property of each calibre** — there is no setting procedure shared across GMT watches. Before adjusting anything, read **the documentation for the exact model** you use; do not pull the crown and experiment on guesses.
 
 One sourced example: **the Rolex GMT-Master II** — from the **1982** movement, Rolex allows the local hour hand to be set **in one-hour jumps via the winding crown**, without affecting the minute hand, the seconds hand, or the 24-hour hand. This describes that specific model, not a general standard.
+
+A second sourced example: **the Seiko 4R34** — per Seiko's documentation, the 24-hour hand is set on its own at the first crown click, the seconds hand keeps running while setting, and the crown is turned clockwise to adjust the 24-hour hand.
 
 ## A little history — born for people who cross time zones
 

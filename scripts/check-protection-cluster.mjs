@@ -43,6 +43,7 @@
 // =============================================================================
 
 import { readFileSync, existsSync } from 'node:fs';
+import yaml from 'js-yaml';
 
 const FILES = {
   vi: [
@@ -257,6 +258,45 @@ if (!errors.some((e) => e.includes('[R3]'))) {
 }
 
 // ===== R4 + R5: quét dòng 6 bài (theo phần thân) =====
+// Ngoại lệ hẹp B3 đợt 1 (duyệt GPT Work TXN-20261017-82 + lệnh "SỬA TỐI HẸP"
+// sau TXN-20261017-83): chỉ 2 bài chống từ VI/EN; chỉ 2 rule được nới, và
+// CHỈ miễn TỪNG MATCH thuộc đúng nhóm thuật ngữ của đoạn đã duyệt — các từ
+// khác cùng rule trên cùng dòng (KIF, VND, milgauss...) vẫn FAIL kể cả dòng
+// có attribution. Nguồn: parse YAML frontmatter, chỉ nhận mảng `sources`
+// (đúng khóa), so URL TUYỆT ĐỐI với phần tử url; URL ở khóa khác/bị đổi →
+// mất miễn trừ. Không áp cho component (R7).
+const B3_NGOAI_LE = {
+  'src/content/coChe/vi/chong-tu.md': [
+    // đúng ĐOẠN đã duyệt: dòng phải chứa cả hướng dẫn chuyên môn (Seiko) VÀ
+    // giới hạn không tự thực hiện; thiếu một trong hai → mọi match của rule
+    // 4 trên dòng đó FAIL ("Seiko: tự khử từ tại nhà." không lọt)
+    { rule: 4, can: [/Seiko hướng dẫn mang tới trung tâm dịch vụ của hãng để/, /không phải thao tác tự làm tại nhà/], tu: /khử từ|demagnetiz|demagnetis/i, url: 'https://www.seikowatches.com/sg-en/customerservice/faq/care-maintenance-5' },
+    { rule: 0, can: [/IWC/], tu: /Ingenieur|sắt mềm|soft[- ]?iron/i, url: 'https://press.iwc.com/iwc-schaffhausen-revisits-gerald-gentas-iconic-design-with-the-new-ingenieur-automatic-40-en/' },
+  ],
+  'src/content/coChe/en/anti-magnetism.md': [
+    { rule: 4, can: [/Seiko's guidance is to have the watch demagnetized at a service centre/, /not a do-it-yourself step at home/], tu: /demagnetiz|demagnetis|khử từ/i, url: 'https://www.seikowatches.com/sg-en/customerservice/faq/care-maintenance-5' },
+    { rule: 0, can: [/IWC/i], tu: /Ingenieur|soft[- ]?iron|sắt mềm/i, url: 'https://press.iwc.com/iwc-schaffhausen-revisits-gerald-gentas-iconic-design-with-the-new-ingenieur-automatic-40-en/' },
+  ],
+};
+function frontmatterOf(text) {
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  return m ? m[1] : '';
+}
+// nguồn hợp lệ = mảng sources có phần tử url khớp TUYỆT ĐỐI URL được duyệt
+const nguonHopLeB3 = new Map();
+for (const f of Object.keys(B3_NGOAI_LE)) {
+  let ok = false;
+  try {
+    const data = yaml.load(frontmatterOf(textOf[f]));
+    if (data && Array.isArray(data.sources)) {
+      const urls = data.sources.map((s) => (s && typeof s.url === 'string' ? s.url : ''));
+      ok = (B3_NGOAI_LE[f] ?? []).every((c) => urls.includes(c.url));
+    }
+  } catch { ok = false; }
+  nguonHopLeB3.set(f, ok);
+}
+let ngoaiLeDaDung = 0;
+
 for (const f of [...FILES.vi, ...FILES.en]) {
   const lines = bodyOf(textOf[f]).split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
@@ -269,9 +309,20 @@ for (const f of [...FILES.vi, ...FILES.en]) {
         }
       }
     }
-    for (const { re, why } of BANNED) {
-      const m = re.exec(line);
-      if (m) fail('R5', f, i + 1, `${why}: "${m[0]}"`);
+    for (const [ruleIdx, { re, why }] of BANNED.entries()) {
+      const cuaSo = (B3_NGOAI_LE[f] ?? []).find((c) => c.rule === ruleIdx);
+      const duocMien = cuaSo && nguonHopLeB3.get(f) && cuaSo.can.every((mau) => mau.test(line));
+      if (!duocMien) {
+        const m = re.exec(line);
+        if (m) fail('R5', f, i + 1, `${why}: "${m[0]}"`);
+        continue;
+      }
+      // chỉ miễn TỪNG match thuộc nhóm thuật ngữ đã duyệt; match khác vẫn FAIL
+      const reToanCuc = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
+      for (const m of line.matchAll(reToanCuc)) {
+        if (cuaSo.tu.test(m[0])) { ngoaiLeDaDung++; continue; }
+        fail('R5', f, i + 1, `${why}: "${m[0]}"`);
+      }
     }
     if (GAUSS_RE.test(line)) {
       const next = lines[i + 1] ?? '';
@@ -296,7 +347,10 @@ for (const f of [...FILES.vi, ...FILES.en]) {
   }
 }
 if (!errors.some((e) => e.includes('[R4]'))) report.push('R4: 3 bài EN không có link nội bộ về route tiếng Việt');
-if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳng định cấm (lịch sử/hãng không nguồn, bảng/dải gauss, 15.000 gauss ngoài cửa sổ chứng nhận, thiết bị+rủi ro, khử từ/chi phí, tự chẩn đoán, "toàn ngành/mọi đồng hồ", "majority" không attribution, lời hứa độ bền, 0,1 mm, "vài nghìn G", 5.000 g không attribution, cơ chế nhiễm từ chi tiết, nhận biết bằng mắt, khuyến nghị mua)');
+if (!errors.some((e) => e.includes('[R5]'))) report.push(`R5: sạch các khẳng định cấm (lịch sử/hãng không nguồn, bảng/dải gauss, 15.000 gauss ngoài cửa sổ chứng nhận, thiết bị+rủi ro, khử từ/chi phí, tự chẩn đoán, "toàn ngành/mọi đồng hồ", "majority" không attribution, lời hứa độ bền, 0,1 mm, "vài nghìn G", 5.000 g không attribution, cơ chế nhiễm từ chi tiết, nhận biết bằng mắt, khuyến nghị mua)`);
+if (ngoaiLeDaDung > 0 && !errors.some((e) => e.includes('[R5]'))) {
+  report.push(`Ngoại lệ B3 đợt 1 (TXN-20261017-82): ${ngoaiLeDaDung} dòng thuộc đoạn Seiko (khử từ nơi chuyên môn) / IWC (vỏ sắt mềm) có attribution + URL nguồn trong khối sources — rule khác và dòng khác giữ nguyên`);
+}
 
 // ===== R6: hồ sơ + biên bản =====
 report.push(`Hồ sơ nguồn + biên bản nghiệm thu tồn tại (${DOC_FILES.length} tệp)`);

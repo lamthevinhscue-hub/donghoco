@@ -16,7 +16,7 @@ relatedModels:
     relation: "Amphibia minh họa cách dùng chính áp lực nước để làm kín vỏ — hướng ngược của tư duy chống nước thông thường"
   - slug: "oris-aquis-depth-gauge"
     relation: "Aquis Depth Gauge dùng áp suất nước để tạo số đọc độ sâu — ứng dụng trực tiếp của nguyên lý trong bài"
-updated: "2026-09-15"
+updated: "2026-10-17"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Water-resistance"
@@ -27,12 +27,22 @@ sources:
     url: "https://www.seikowatches.com/us-en/customerservice/faq/general-information-8"
   - label: "ISO 22810 — Chuẩn quốc tế về đồng hồ chống nước (tham chiếu)"
     url: "https://www.iso.org/standard/45334.html"
+  - label: "ISO 6425:2018 — Horology — Divers' watches (trang chuẩn)"
+    url: "https://www.iso.org/standard/66517.html"
+  - label: "NOAA — How does pressure change with ocean depth?"
+    url: "https://oceanservice.noaa.gov/facts/pressure.html"
+  - label: "Rolex — Behind the crown: Mastering waterproofness (van thoát helium, lặn bão hòa)"
+    url: "https://www.rolex.com/about-rolex/behind-the-crown/mastering-waterproofness"
 
 ---
 
 ## Vấn đề cốt lõi
 
 "100m" trên vỏ đồng hồ **không** tự động có nghĩa bạn bơi được 100m. Con số khắc trên vỏ chỉ có ý nghĩa **kèm điều kiện công bố của từng hãng** — và khả năng chống nước thay đổi theo thời gian sử dụng.
+
+## Áp suất tăng theo độ sâu — đọc đúng phần tăng thêm
+
+NOAA (cơ quan đại dương và khí quyển Hoa Kỳ) mô tả: "Pressure increases with ocean depth", và "For every 33 feet (10.06 meters) you go down, the pressure increases by one atmosphere" — đi xuống thêm khoảng 10 mét, áp suất nước **tăng thêm xấp xỉ một áp suất khí quyển**. Đây là phần tăng thêm theo cột nước, không phải áp suất tổng tại chỗ; và đó cũng không phải thước đo để suy ra một chiếc đồng hồ được phép làm gì ở mức nào — điều kiện dùng vẫn là công bố của từng hãng như các mục sau nêu.
 
 ## Vì sao không có bảng dùng chung?
 
@@ -46,19 +56,19 @@ Hai hãng, hai cách công bố, và không có bảng nào quy đổi giữa c�
 Ngoài công bố của từng hãng, FHH (Fondation de la Haute Horlogerie) mô tả phạm vi sử dụng theo **nhóm chuẩn**:
 
 - **Nhóm đồng hồ chống nước** — chiếc đồng hồ được mô tả là chống nước, có hoặc không kèm chỉ số áp suất dư, phải đạt và được thử theo NIHS 92-10 (tương đương chuẩn quốc tế ISO-2281). Nhóm này dùng cho **sinh hoạt thường ngày, gồm cả những lúc ngập trong nước như bơi giải trí**, dùng được khi áp suất khí, áp suất nước hay nhiệt độ thay đổi — nhưng **không dành cho lặn dưới nước**, kể cả khi có ghi chỉ số áp suất dư.
-- **Nhóm đồng hồ lặn** — làm để đeo dưới nước ở độ sâu **tối thiểu 100 m (330 feet)**, phải có thiết bị kiểm soát thời gian và đạt đầy đủ NIHS 92-11 (ISO 6425) về độ phát sáng, chịu va đập, chống từ và độ bền dây.
+- **Nhóm đồng hồ lặn** — làm để đeo dưới nước ở độ sâu **tối thiểu 100 m (330 feet)**, phải có thiết bị kiểm soát thời gian và đạt đầy đủ NIHS 92-11 (ISO 6425) về độ phát sáng, chịu va đập, chống từ và độ bền dây. Trang chuẩn ISO 6425:2018 trên iso.org nêu cùng mốc: chuẩn áp dụng cho đồng hồ lặn "designed to withstand diving in water at depths of at least 100 m" — thiết kế để lặn ở độ sâu ít nhất 100 m, có hệ thống đo thời gian lặn hiển thị được trong bóng tối; phụ lục riêng của chuẩn dành cho đồng hồ lặn bão hòa. Đọc đúng mốc: đây là phạm vi áp dụng của chuẩn — một chiếc đồng hồ khắc 100 m có đạt chuẩn hay không là công bố của nhà sản xuất, không suy ngược từ con số trên vỏ.
 
-Đơn vị đo là bar — theo diễn đạt của FHH, 1 bar bằng 1 atm. Cần đọc đúng mức: phân nhóm này cho biết **phạm vi ở cấp nhóm chuẩn**, còn điều kiện dùng của từng mẫu cụ thể vẫn là công bố của từng hãng như đã nêu ở trên — hai tầng thông tin đó không thay thế nhau.
+Đơn vị đo là bar — mục từ của FHH diễn đạt "a unit of pressure where 1 bar equals 1 atmosphere or atm"; đây là cách nói làm tròn của mục từ, hai đơn vị gần nhau chứ không đồng nhất tuyệt đối. Cần đọc đúng mức: phân nhóm này cho biết **phạm vi ở cấp nhóm chuẩn**, còn điều kiện dùng của từng mẫu cụ thể vẫn là công bố của từng hãng như đã nêu ở trên — hai tầng thông tin đó không thay thế nhau.
 
 ## Các điểm niêm phong
 
-Theo Omega, khả năng chống nước được bảo đảm bởi các **gioăng** đặt giữa **núm vặn, nút bấm, kính và vỏ**; một số mẫu có thêm **van helium**. Mỗi điểm hở đều là đường vào của nước:
+Theo Omega, khả năng chống nước được bảo đảm bởi các **gioăng** đặt giữa **núm vặn, nút bấm, kính và vỏ**. Mỗi điểm hở đều là đường vào của nước:
 
 - **Kính (crystal)** — gioăng viền kính.
 - **[Núm vặn](/tu-dien/num-van)** — điểm thao tác nhiều nhất; núm ren phải vặn kín sau mỗi lần chỉnh (nguyên tắc Omega: "always screw it in after handling it").
 - **Nắp lưng (caseback)** — gioăng viền nắp.
 - **Nút bấm (pushers)** — Omega: "Avoid operating the **chronograph pushers under water**"; ngoại lệ do hãng công bố: một số Seamaster 300M/600M chronograph bấm được dưới nước.
-- **Van helium** — trên một số mẫu lặn sâu.
+- **Van helium** — trên một số mẫu lặn chuyên dụng. Rolex mô tả bối cảnh lặn bão hòa: trong buồng nén, đồng hồ đeo trên người thợ lặn dần đầy khí helium — nguyên tử của khí này nhỏ đến mức "atoms so tiny they can penetrate" các điểm niêm phong của vỏ; khi giảm áp, helium còn kẹt trong vỏ, với rủi ro tạo chênh áp so với môi trường bên ngoài. Van thoát helium được Rolex công bố năm 1967 là "a safety release valve that activates automatically when the pressure inside the case is too high, allowing the surplus gas to escape" — van an toàn tự mở khi áp suất trong vỏ quá cao, cho khí dư thoát ra. Đây là cách Rolex mô tả thiết kế cho các mẫu của hãng; van helium không phải bộ phận bắt buộc của mọi đồng hồ lặn.
 
 ### Gioăng — bộ phận bị mòn
 

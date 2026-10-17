@@ -17,7 +17,7 @@ relatedModels:
     relation: "The Amphibia illustrates using water pressure itself to seal the case — the opposite direction from conventional thinking"
   - slug: "oris-aquis-depth-gauge"
     relation: "The Aquis Depth Gauge turns water pressure into a depth reading — a direct application of the principle in this article"
-updated: "2026-09-15"
+updated: "2026-10-17"
 
 sources:
   - label: "Fondation de la Haute Horlogerie — Water-resistance"
@@ -28,12 +28,22 @@ sources:
     url: "https://www.seikowatches.com/us-en/customerservice/faq/general-information-8"
   - label: "ISO 22810 — Water-resistant watches standard (reference)"
     url: "https://www.iso.org/standard/45334.html"
+  - label: "ISO 6425:2018 — Horology — Divers' watches (standard page)"
+    url: "https://www.iso.org/standard/66517.html"
+  - label: "NOAA — How does pressure change with ocean depth?"
+    url: "https://oceanservice.noaa.gov/facts/pressure.html"
+  - label: "Rolex — Behind the crown: Mastering waterproofness (helium escape valve, saturation diving)"
+    url: "https://www.rolex.com/about-rolex/behind-the-crown/mastering-waterproofness"
 
 ---
 
 ## The core problem
 
 "100m" on a caseback **does not automatically** mean you can swim to 100 metres. The figure on the watch only has meaning **together with the conditions each manufacturer publishes** — and water resistance itself changes with use over time.
+
+## Pressure grows with depth — read the added part right
+
+NOAA (the US ocean and atmosphere agency) describes it: "Pressure increases with ocean depth", and "For every 33 feet (10.06 meters) you go down, the pressure increases by one atmosphere" — roughly every 10 metres of depth, water pressure **adds approximately one atmosphere**. That figure is the added pressure of the water column, not the total pressure at the spot; and it is not a rule for inferring what a watch is allowed to do at any level — conditions of use remain each maker's own publication, as the sections below state.
 
 ## Why is there no shared table?
 
@@ -47,19 +57,19 @@ Two makers, two publications, and no table converts between them — **the manua
 Beyond each maker's own publication, FHH (Fondation de la Haute Horlogerie) describes usage scope by **standard group**:
 
 - **Water-resistant watches** — a watch described as water-resistant, with or without an overpressure indication, must conform to and be tested against NIHS 92-10 (equivalent to the ISO-2281 international standard). This group is meant for **ordinary everyday use, including periods of immersion in water such as leisure swimming**, and can be used under changing air pressure, water pressure or temperature — but it is **not intended for underwater diving**, even with an overpressure indication.
-- **Diving watches** — made to be worn underwater at a depth of **at least 100 metres (330 feet)**; they must include a time control device and fully conform to NIHS 92-11 (ISO 6425) in terms of luminosity, shock-resistance, anti-magnetism and the solidity of the strap.
+- **Diving watches** — made to be worn underwater at a depth of **at least 100 metres (330 feet)**; they must include a time control device and fully conform to NIHS 92-11 (ISO 6425) in terms of luminosity, shock-resistance, anti-magnetism and the solidity of the strap. The ISO 6425:2018 standard page on iso.org states the same mark: the standard applies to watches "designed to withstand diving in water at depths of at least 100 m", equipped with a secured diving-time system that is visible in darkness; a dedicated annex of the standard covers saturation divers' watches. Read the mark right: this is the standard's scope of application — whether a watch stamped 100 m actually conforms is the maker's publication, not something inferred backwards from the figure on the case.
 
-The unit of measurement is the bar — in FHH's phrasing, 1 bar equals 1 atmosphere (atm). Read the levels right: this grouping states scope **at the standard-group level**, while the conditions of use for each specific model remain each maker's own publication above — the two layers do not replace each other.
+The unit of measurement is the bar — the FHH entry phrases it as "a unit of pressure where 1 bar equals 1 atmosphere or atm"; a rounded way of speaking within that entry — the two units sit close together but are not strictly identical. Read the levels right: this grouping states scope **at the standard-group level**, while the conditions of use for each specific model remain each maker's own publication above — the two layers do not replace each other.
 
 ## The sealing points
 
-Per OMEGA, water resistance is ensured by **gaskets** seated between the **crown, the pushers, the crystal and the case**; some models add a **helium valve**. Every gap is a way in for water:
+Per OMEGA, water resistance is ensured by **gaskets** seated between the **crown, the pushers, the crystal and the case**. Every gap is a way in for water:
 
 - **Crystal** — the gasket around the glass.
 - **The [crown](/en/glossary/crown/)** — the most-handled point; a screw-down crown must be screwed tight after every adjustment (OMEGA's rule: "always screw it in after handling it").
 - **Caseback** — the gasket around the back cover.
 - **Pushers** — OMEGA: "Avoid operating the **chronograph pushers under water**"; the published exception: some Seamaster 300M/600M chronographs can be operated under water.
-- **Helium valve** — on some deep-dive models.
+- **Helium valve** — on some purpose-built dive watches. Rolex describes the saturation-diving context: inside the hyperbaric chamber, the diver's watch gradually fills with helium — its atoms are "so tiny they can penetrate" the case's seals; during decompression, that helium stays trapped in the case, with the risk of a pressure differential against the outside. Rolex's helium escape valve, patented in 1967, is "a safety release valve that activates automatically when the pressure inside the case is too high, allowing the surplus gas to escape". This is how Rolex describes the design for its own models; a helium valve is not a mandatory part of every dive watch.
 
 ### Gaskets — the wearing part
 

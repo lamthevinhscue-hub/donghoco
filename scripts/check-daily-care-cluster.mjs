@@ -26,6 +26,7 @@
 // =============================================================================
 
 import { readFileSync, existsSync } from 'node:fs';
+import yaml from 'js-yaml';
 
 const FILES = {
   vi: [
@@ -199,7 +200,7 @@ const BANNED = [
   { re: /\d+\s*vòng|\d+\s*turns/i, why: 'số vòng lên dây (không nguồn, bỏ khỏi cụm)', allow: /số vòng|number of turns|no number/i },
   { re: /3\s*[–-]\s*5\s*năm|3\s*[–-]\s*5\s*years/i, why: 'chu kỳ lão hóa gioăng "3–5 năm" (bỏ)' },
   { re: /khung giờ nguy hiểm|danger zone/i, why: 'khung giờ cấm chỉnh lịch như khái quát chung' },
-  { re: /waterproof/i, why: '"waterproof" — lời hứa tuyệt đối' },
+  { re: /waterproof/i, why: '"waterproof" — lời hứa tuyệt đối', id: 'waterproof' },
   { re: /chống nước tuyệt đối/i, why: '"chống nước tuyệt đối"' },
   { re: /automatic[^.\n]*(không cần (lên|vặn))|automatic[^.\n]*never needs? winding/i, why: 'khẳng định automatic không cần lên dây' },
   { re: /vặn[^\n]{0,24}(đến khi|khi thấy)[^\n]{0,24}(căng|cứng)|wind until[^\n]{0,24}(tight|firm|resistance is felt)/i, why: 'hướng dẫn "vặn đến khi căng"' },
@@ -207,6 +208,52 @@ const BANNED = [
 ];
 // Ngưỡng chống nước gắn hoạt động mà dòng không kèm manual/nguồn/giới hạn
 const WR_LIMIT = /manual|theo |per |công bố|maker|hãng|seiko|omega|reference|tham khảo|table|bảng|guide/i;
+
+// ===== Ngoại lệ có cấu trúc B3 đợt 1 (duyệt GPT Work — "PHÁN QUYẾT TIẾP TỤC
+// B3 ĐỢT 1 — NGOẠI LỆ NGUỒN ROLEX" + lệnh "SỬA TỐI HẸP" sau TXN-20261017-83)
+// =====
+// Chỉ 2 bài chống nước. Parse YAML frontmatter bằng thư viện: CHỈ phần tử của
+// mảng `sources` (đúng khóa) có url khớp TUYỆT ĐỐI URL Rolex dưới đây và label
+// chứa tiêu đề nguồn "Mastering waterproofness" được miễn — và chỉ miễn chuỗi
+// URL + tiêu đề trên ĐÚNG 2 dòng label/url của chính phần tử đó (định vị trong
+// khối sources, so dòng `url: "..."` nguyên văn). Khóa đổi tên, URL ở khóa
+// khác, URL cộng đuôi/tiền tố, thân bài, phần còn lại của label, bài khác,
+// component → kiểm như cũ.
+const ROLEX_URL_B3 = 'https://www.rolex.com/about-rolex/behind-the-crown/mastering-waterproofness';
+const ROLEX_TUA_B3 = 'Mastering waterproofness';
+const FILE_NGOAI_LE_ROLEX_B3 = new Set([
+  'src/content/coChe/vi/chong-nuoc.md',
+  'src/content/coChe/en/water-resistance.md',
+]);
+function dongMienKiemRolexB3(text) {
+  const ketQua = new Set();
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!m) return ketQua;
+  let data = null;
+  try { data = yaml.load(m[1]); } catch { return ketQua; }
+  if (!data || !Array.isArray(data.sources)) return ketQua;
+  const phanTu = data.sources.find((s) => s && s.url === ROLEX_URL_B3 && typeof s.label === 'string' && s.label.includes(ROLEX_TUA_B3));
+  if (!phanTu) return ketQua;
+  // định vị 2 dòng của CHÍNH phần tử này trong khối `sources:`
+  const fmDong = m[1].split(/\r?\n/);
+  let trongSources = false, nhanHienTai = -1;
+  for (let i = 0; i < fmDong.length; i++) {
+    const d = fmDong[i];
+    if (/^[A-Za-z_-]+:/.test(d)) trongSources = d.startsWith('sources:');
+    if (!trongSources) continue;
+    if (/^\s*-\s*label:/.test(d)) nhanHienTai = i;
+    if (nhanHienTai >= 0 && d.trim() === 'url: "' + ROLEX_URL_B3 + '"') {
+      if (fmDong[nhanHienTai].includes(ROLEX_TUA_B3)) { ketQua.add(nhanHienTai + 1); ketQua.add(i + 1); }
+      break;
+    }
+  }
+  return ketQua;
+}
+const cheRolexB3 = {};
+for (const f of FILE_NGOAI_LE_ROLEX_B3) {
+  if (existsSync(f)) cheRolexB3[f] = dongMienKiemRolexB3(readFileSync(f, 'utf8'));
+}
+let ngoaiLeRolexB3DaDung = 0;
 
 // P0.2 — mẫu cấm chỉ áp cho component chống nước (R5c), đúng yêu cầu hàng rào:
 // ma trận mức mét theo hoạt động; "50 m" kèm bơi; lịch bảo dưỡng/gioăng cố
@@ -313,9 +360,15 @@ for (const f of [...FILES.vi, ...FILES.en]) {
         }
       }
     }
-    for (const { re, why, allow } of BANNED) {
+    for (const { re, why, allow, id } of BANNED) {
       const m = re.exec(line);
       if (m && !(allow && allow.test(line))) {
+        // Ngoại lệ Rolex B3: dòng thuộc phần tử sources đúng URL → che đúng
+        // chuỗi URL/tiêu đề rồi thử lại; "waterproof" còn lại → vẫn FAIL.
+        if (id === 'waterproof' && cheRolexB3[f]?.has(i)) {
+          const daChe = line.split(ROLEX_URL_B3).join('¤').split(ROLEX_TUA_B3).join('¤');
+          if (!re.test(daChe)) { ngoaiLeRolexB3DaDung++; continue; }
+        }
         fail('R5', f, i + 1, `${why}: "${m[0]}"`);
       }
     }
@@ -415,6 +468,9 @@ if (!errors.some((e) => e.includes('[R5c]'))) {
 }
 if (!errors.some((e) => e.includes('[R4]'))) report.push('R4: 6 bài EN không có link nội bộ về route tiếng Việt');
 if (!errors.some((e) => e.includes('[R5]'))) report.push('R5: sạch các khẳng định cấm (số vòng, khung giờ cấm chung, waterproof, automatic-không-cần-lên-dây, vặn-đến-căng, ngưỡng-không-kèm-manual)');
+if (ngoaiLeRolexB3DaDung > 0 && !errors.some((e) => e.includes('[R5]'))) {
+  report.push(`Ngoại lệ Rolex B3 (duyệt GPT Work): ${ngoaiLeRolexB3DaDung} dòng thuộc phần tử sources đúng URL (label "Mastering waterproofness" + url rolex.com/.../mastering-waterproofness) — chỉ miễn chuỗi trong URL/tiêu đề nguồn, phần còn lại kiểm như cũ`);
+}
 
 // ===== R6: hồ sơ + biên bản =====
 report.push(`Hồ sơ nguồn + biên bản nghiệm thu tồn tại (${DOC_FILES.length} tệp)`);

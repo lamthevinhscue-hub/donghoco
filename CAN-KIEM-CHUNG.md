@@ -1289,3 +1289,45 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Nguồn còn thiếu:** tài liệu FHH (bản chính thức còn sống hoặc bản lưu được FHH xác nhận) nêu khoảng số chân kính phổ biến ở bộ máy chất lượng.
 - **Điều kiện xem xét lại:** có nguồn FHH sống được đối chiếu nguyên văn thì cân nhắc đưa lại, kèm attribution chính xác; VI và EN cùng lượt.
 - **Trạng thái:** CHỜ NGUỒN (12/10/2026, gói B7, TXN-20261011-15).
+
+## 62. Cơ chế "vòng dây tóc dính nhau làm đồng hồ chạy nhanh" khi nhiễm từ — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-tu.md` và `src/content/coChe/en/anti-magnetism.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** video chống từ trình bày cơ chế "các vòng dây hút dính vào nhau, phần làm việc ngắn lại, bánh lắc dao động nhanh hơn". Seiko FAQ (đã đọc 17/10/2026) chỉ nêu "the oscillation of the balance will be unstable" — không mô tả cơ chế vòng dây dính nhau; chưa có nguồn trực tiếp cho chính mệnh đề này nên bài chỉ viết theo mức Seiko xác nhận.
+- **Nguồn còn thiếu:** tài liệu kỹ thuật hãng (ví dụ trang từ trường của Omega hoặc Rolex) nêu rõ cơ chế các vòng dây tóc dính nhau.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 63. Dây tóc silicon và hợp kim thuận từ — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-tu.md` và `src/content/coChe/en/anti-magnetism.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** video chống từ nêu "vật liệu không nhiễm từ: dây tóc silicon". Chưa kiểm được trang kỹ thuật hãng nào công bố dùng dây tóc silicon/hợp kim thuận từ cho bộ máy cơ (các trang Patek, Omega, Ulysse Nardin chưa đọc nguyên văn trong đợt 1).
+- **Nguồn còn thiếu:** trang kỹ thuật của hãng dùng dây tóc silicon hoặc hợp kim thuận từ (nguyên văn công bố).
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 64. Mức sai số "nhiều phút mỗi ngày" khi dây tóc nhiễm từ — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-tu.md` và `src/content/coChe/en/anti-magnetism.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** GHI-CHU video chống từ tự ghi: con số "nhiều phút mỗi ngày" là mức thường gặp, không gắn bộ máy cụ thể. Chưa có nguồn trực tiếp — bài không nêu mức này.
+- **Nguồn còn thiếu:** nguồn kỹ thuật ghi rõ sai số điển hình khi nhiễm từ, có giới hạn áp dụng.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 65. ISO 764: mức 4.800 A/m và quy đổi khoảng 60 gauss — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-tu.md` và `src/content/coChe/en/anti-magnetism.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** abstract của ISO 764:2020 (trang iso.org/standard/70610.html, đọc 17/10/2026) không nêu 4.800 A/m; bản ISO 764:2002 có nêu nhưng đã bị thu hồi — không trích bản đã thu hồi. Bài chỉ mô tả vai trò chuẩn, không nêu số.
+- **Nguồn còn thiếu:** nguồn công khai còn hiệu lực của ISO (ví dụ OBP preview bản 2020) nêu 4.800 A/m.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 66. ISO 6425: mức thử 125% độ sâu ghi — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-nuoc.md` và `src/content/coChe/en/water-resistance.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** abstract của ISO 6425:2018 (trang iso.org/standard/66517.html, đọc 17/10/2026) xác nhận "ít nhất 100 m" và phụ lục lặn bão hòa, nhưng không nêu mức thử 125% (nội dung thân chuẩn, không công khai). Bài chỉ dẫn phần có trong abstract.
+- **Nguồn còn thiếu:** nguồn công khai chính thức (ISO hoặc tổ chức chuẩn hóa) nêu mức thử 125% của ISO 6425.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 67. Gioăng dạng vòng chữ O bị ép dẹt trong rãnh — CHỜ NGUỒN
+
+- **Vị trí:** `src/content/coChe/vi/chong-nuoc.md` và `src/content/coChe/en/water-resistance.md` (gói B3 đợt 1, TXN-20261017-82).
+- **Nội dung vấn đề:** video chống nước minh họa gioăng chữ O chưa ép thì nước lọt, ép dẹt thì nước bị chặn. Chưa có nguồn kỹ thuật trực tiếp cho diễn giải hình học này — bài giữ mô tả gioăng hiện có (theo Omega) không thêm hình học.
+- **Nguồn còn thiếu:** tài liệu kỹ thuật về niêm phong bằng gioăng chữ O áp dụng cho vỏ đồng hồ.
+- **Trạng thái:** CHỜ NGUỒN (17/10/2026).

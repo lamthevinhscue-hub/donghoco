@@ -16,6 +16,10 @@
 
 export type SearchStatus = 'idle' | 'preparing' | 'ready' | 'none' | 'error';
 
+// Bộ làm sạch đoạn trích dùng chung — tách module để bộ kiểm C3 gọi ĐÚNG hàm
+// sản phẩm đang dùng (sanitizeSearchExcerpt.mjs, thuần JS không dependency).
+import { sanitizeExcerpt } from './sanitizeSearchExcerpt.mjs';
+
 // Đường dẫn runtime Pagefind — dùng biến (không literal) để TS bỏ kiểm module
 // (tệp /pagefind/*.js chỉ tồn tại trong dist sau khi Pagefind chạy).
 const PAGEFIND_UI_PATH = '/pagefind/pagefind-ui.js';
@@ -89,11 +93,6 @@ function sectionOf(url: string): string {
   if (url.includes('/en/iconic-watches')) return sectionLabels.iconic ?? 'Iconic watch';
   if (url.includes('/en/guides')) return sectionLabels.guide ?? 'Guides';
   return sectionLabels.article ?? 'Bài viết';
-}
-
-// Chỉ giữ thẻ <mark>…</mark>, loại bỏ mọi thẻ khác (phòng thủ theo chiều sâu)
-function sanitizeExcerpt(raw: string): string {
-  return raw.replace(/<\/?(?!mark\b)[^>]*>/gi, '');
 }
 
 // ----- Instance Pagefind duy nhất ------------------------------------------------

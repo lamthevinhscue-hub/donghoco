@@ -34,4 +34,4 @@ In-house production is often taken as a sign of serious watchmaking, but it is n
 - Movements come in two broad kinds: **mechanical (manual)** and **automatic** (self-winding).
 - Each calibre has its own **beat rate** — which shapes how smoothly the seconds hand moves.
 
-Related terms: [movement](/en/glossary/movement/), [escapement](/en/glossary/escapement/), [hairspring](/en/glossary/hairspring/).
+Related terms: [movement](/en/glossary/movement/), [escapement](/en/mechanisms/escapement/), [hairspring](/en/glossary/hairspring/).

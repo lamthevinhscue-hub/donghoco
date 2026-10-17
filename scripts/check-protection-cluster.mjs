@@ -89,17 +89,17 @@ const REQUIRED_LINKS = {
   'src/content/coChe/en/anti-magnetism.md': [
     '](/en/glossary/movement/)',
     '](/en/glossary/hairspring/)',
-    '](/en/glossary/escapement/)',
+    '](/en/mechanisms/escapement/)',
   ],
   'src/content/coChe/en/shock-protection.md': [
     '](/en/glossary/movement/)',
     '](/en/glossary/incabloc/)',
-    '](/en/glossary/escapement/)',
+    '](/en/mechanisms/escapement/)',
   ],
   'src/content/tuDien/en/incabloc.md': [
     '](/en/mechanisms/shock-protection/)',
     '](/en/glossary/hairspring/)',
-    '](/en/glossary/escapement/)',
+    '](/en/mechanisms/escapement/)',
   ],
 };
 

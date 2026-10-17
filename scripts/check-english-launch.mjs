@@ -117,7 +117,6 @@ const REQUIRED_EN = [
   '/en/glossary/movement/',
   '/en/glossary/calibre/',
   '/en/glossary/escape-wheel/',
-  '/en/glossary/escapement/',
   '/en/glossary/perpetual-calendar/',
   '/en/glossary/tourbillon/',
   '/en/glossary/minute-repeater/',

@@ -316,10 +316,17 @@ report.push(`Hồ sơ nguồn + biên bản nghiệm thu tồn tại (${DOC_FILE
 // việc "tồn tại sau build" do check-english-launch + check-links đảm nhiệm.
 if (existsSync('dist')) {
   const legacyHtml = 'dist/en/glossary/escapement/index.html';
-  if (existsSync(legacyHtml)) {
-    report.push('R7: route legacy /en/glossary/escapement/ tạo HTML sau build và trang trỏ tới /en/glossary/escape-wheel/');
-  } else if (existsSync('dist/en/glossary/escape-wheel/index.html')) {
-    errors.push('[R7] Route legacy /en/glossary/escapement/ thiếu HTML sau build trong khi route hiện hành escape-wheel đã có (kỳ vọng dist/en/glossary/escapement/index.html)');
+  // C4: vai trò tương thích chuyển cho redirect vĩnh viễn — alias không còn là
+  // trang; vercel.json phải có 2 redirect 308 đúng đích và dist không còn HTML alias.
+  let vercelC4 = null;
+  try { vercelC4 = JSON.parse(readFileSync('vercel.json', 'utf8')); } catch { vercelC4 = null; }
+  const redirectsC4 = (vercelC4 && Array.isArray(vercelC4.redirects)) ? vercelC4.redirects : [];
+  const đủ308Slash = redirectsC4.some((r) => r.source === '/en/glossary/escapement/' && r.destination === '/en/glossary/escape-wheel/' && r.permanent === true);
+  const đủ308Trống = redirectsC4.some((r) => r.source === '/en/glossary/escapement' && r.destination === '/en/glossary/escape-wheel/' && r.permanent === true);
+  if (đủ308Slash && đủ308Trống) {
+    report.push('R7: alias /en/glossary/escapement[/] chuyển hướng 308 vĩnh viễn tới escape-wheel — HTML alias đã loại khỏi build');
+  } else {
+    errors.push('[R7] vercel.json thiếu redirect 308 vĩnh viễn cho /en/glossary/escapement[/] → /en/glossary/escape-wheel/');
   }
 }
 

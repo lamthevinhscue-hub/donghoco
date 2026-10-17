@@ -25,7 +25,7 @@ sources:
 
 Oris states the problem plainly on its Calibre 400 page: **"Swiss watch movements can magnetise, affecting accuracy."**
 
-A mechanical [movement](/en/glossary/movement/) contains fine metal components — among them the [hairspring](/en/glossary/hairspring/) of the [escapement](/en/glossary/escapement/). How strongly a given movement is affected depends on its design, which is why this article does not quote a "typical watch withstands X" figure — manufacturers publish different figures for their own constructions.
+A mechanical [movement](/en/glossary/movement/) contains fine metal components — among them the [hairspring](/en/glossary/hairspring/) of the [escapement](/en/mechanisms/escapement/). How strongly a given movement is affected depends on its design, which is why this article does not quote a "typical watch withstands X" figure — manufacturers publish different figures for their own constructions.
 
 The Fondation de la Haute Horlogerie (FHH) defines **anti-magnetic** as describing "a watch that is protected against magnetic fields".
 
@@ -48,4 +48,4 @@ A watch that suddenly drifts can have **many different causes**. From a single s
 ## Related reading
 
 - [Hairspring](/en/glossary/hairspring/) — the fine regulating spring mentioned above
-- [Escapement](/en/glossary/escapement/)
+- [Escapement](/en/mechanisms/escapement/)

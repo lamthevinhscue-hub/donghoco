@@ -51,7 +51,7 @@ Full entry → [Incabloc](/en/glossary/incabloc/) in the glossary.
 
 ## Related reading
 
-- [Escapement](/en/glossary/escapement/) — the balance and its staff, the parts a shock absorber serves
+- [Escapement](/en/mechanisms/escapement/) — the balance and its staff, the parts a shock absorber serves
 - [Hairspring](/en/glossary/hairspring/) — the regulating spring of the balance
 
 ## The history, as published by the maker

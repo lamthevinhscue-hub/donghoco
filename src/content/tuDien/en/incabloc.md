@@ -49,4 +49,4 @@ The shape of the mechanism seen through the caseback is **not certain proof**. T
 ## Related reading
 
 - The general principle → [Shock protection](/en/mechanisms/shock-protection/)
-- The [hairspring](/en/glossary/hairspring/) and [escapement](/en/glossary/escapement/) — the regulating parts shock protection serves
+- The [hairspring](/en/glossary/hairspring/) and [escapement](/en/mechanisms/escapement/) — the regulating parts shock protection serves

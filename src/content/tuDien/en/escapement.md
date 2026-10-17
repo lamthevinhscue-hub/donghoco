@@ -7,7 +7,7 @@ category: "bộ máy"
 has_infographic: false
 interactive: false
 date: "2026-09-04"
-draft: false
+draft: true
 updated: "2026-09-04"
 sources:
   - label: "Fondation de la Haute Horlogerie — Assortiment (the three parts of the escapement)"

@@ -43,7 +43,7 @@ export const learningPaths: LearningPath[] = [
     number: 1,
     title: 'Bắt đầu chơi đồng hồ cơ',
     description:
-      'Từ chọn chiếc đồng hồ cơ đầu tiên đến biết giữ nó chạy đúng — năm bước cần thiết nhất cho người mới, không đòi hỏi kiến thức nền.',
+      'Từ chọn chiếc đồng hồ cơ đầu tiên đến biết giữ nó chạy đúng — sáu bước cần thiết nhất cho người mới, không đòi hỏi kiến thức nền.',
     audience: 'Người chưa có hoặc vừa có chiếc đồng hồ cơ đầu tiên.',
     steps: [
       {
@@ -70,6 +70,11 @@ export const learningPaths: LearningPath[] = [
         href: '/huong-dan/bao-duong-dong-ho',
         label: 'Bảo dưỡng đồng hồ cơ',
         why: 'Chăm sóc lâu dài: bảo dưỡng khi nào, ở đâu và chi phí khoảng bao nhiêu để chiếc đầu tiên bền.',
+      },
+      {
+        href: '/nhat-ky-sai-so',
+        label: 'Nhật ký sai số',
+        why: 'Ghi lại độ lệch bạn quan sát được và tự sao lưu các bản ghi.',
       },
     ],
   },

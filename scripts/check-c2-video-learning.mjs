@@ -167,11 +167,11 @@ for (const g of haiGoi) {
 // ---- N5: package.json nối đúng vị trí ----
 const pkgText = readFileSync(join(root, 'package.json'), 'utf8');
 
-if (!pkgText.includes('node scripts/check-c2-video-learning.mjs && node scripts/check-a4-home-description.mjs && node scripts/check-a2-speed-insights.mjs')) {
-  fail('C2-N5', 'C2 nguồn phải đứng ngay trước A4 nguồn (và A4 ngay trước A2)');
+if (!pkgText.includes('node scripts/check-c2-video-learning.mjs && node scripts/check-d10-accuracy-discovery.mjs && node scripts/check-a4-home-description.mjs && node scripts/check-a2-speed-insights.mjs')) {
+  fail('C2-N5', 'chuỗi nguồn C2 → D10 → A4 → A2 phải liền nhau');
 }
-if (!pkgText.includes('node scripts/check-c2-video-learning.mjs --dist dist && node scripts/check-c4-glossary-merge.mjs --dist dist && node scripts/check-a3-icons.mjs dist"')) {
-  fail('C2-N5', 'dist C2 chưa đặt ngay trước A3 dist cuối chuỗi build');
+if (!pkgText.includes('node scripts/check-c2-video-learning.mjs --dist dist && node scripts/check-c4-glossary-merge.mjs --dist dist && node scripts/check-d10-accuracy-discovery.mjs --dist dist && node scripts/check-a3-icons.mjs dist"')) {
+  fail('C2-N5', 'chuỗi dist C2 → C4 → D10 → A3 phải liền nhau ở cuối build');
 }
 if (!pkgText.includes('node scripts/check-c1-videos.mjs --dist dist && node scripts/check-a4-home-description.mjs --dist dist')) {
   fail('C2-N5', 'C1 dist phải chạy đầy đủ phía trước C2 dist');

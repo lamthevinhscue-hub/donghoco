@@ -47,6 +47,17 @@ const trJson = JSON.stringify(Object.fromEntries(Object.entries(tr).filter(([k])
     <p class="mt-1 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">{tr.acc_notice_backup}</p>
   </div>
 
+  <div class="mt-6 rounded-xl border border-line bg-surface-raised p-5 dark:border-dark-border dark:bg-dark-surface">
+    <h2 class="font-serif text-xl text-navy dark:text-dark-text">{tr.acc_guide_first_title}</h2>
+    <ol class="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-ink-soft dark:text-dark-text-soft">
+      <li>{tr.acc_guide_first_1}</li>
+      <li>{tr.acc_guide_first_2}</li>
+      <li>{tr.acc_guide_first_3}</li>
+      <li>{tr.acc_guide_first_4}</li>
+      <li>{tr.acc_guide_first_5}</li>
+    </ol>
+  </div>
+
   <p class="acc-nojs mt-4 rounded-lg border border-line bg-surface-raised p-4 text-sm leading-relaxed text-ink-soft dark:border-dark-border dark:bg-dark-surface dark:text-dark-text-soft">
     {tr.acc_nojs}
   </p>

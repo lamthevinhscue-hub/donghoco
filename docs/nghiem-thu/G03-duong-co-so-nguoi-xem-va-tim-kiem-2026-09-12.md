@@ -3,6 +3,7 @@
 - Giao dịch: TXN-20260912-12 · Danh mục DHC-NEXT-20260912 v1.0.0
 - Thực hiện: GLM thực thi · Ngày: 12/09/2026 · Nền: `02309e6` (main, khớp `origin/main`; commit chỉ refresh evidence G02, không đụng mã website)
 - Trạng thái: **đã thực hiện xong phép kiểm kê/đo trong phạm vi quyền có sẵn; chưa commit, chưa push. Dừng chờ GPT Work nghiệm thu. Chưa chuyển G04.** Báo cáo này là báo cáo kiểm kê — không gọi G03 "hoàn tất" trước khi được nghiệm thu.
+- **Cập nhật hiện hành (E3, 17/10/2026):** tám tệp của gói (biên bản này + 7 tệp bằng chứng) **đã phát hành trong commit `234fa2644faa3e2b6ab3b2721a3409b3c4d90123`** ("docs(analytics): record audience and search baseline"). Các câu "chưa commit, chưa push, dừng chờ nghiệm thu, chưa chuyển G04" ở mục 5, 7, 8 và dòng trạng thái trên là **trạng thái lịch sử tại thời điểm lập 12/09/2026** — giữ nguyên làm lịch sử, không mang nghĩa hiện hành. Xem phụ lục 9 (rà soát và đính chính E3).
 
 ## 1. Xác minh hiện trạng dựa trên kiểm tra thực tế (không suy từ tài liệu)
 
@@ -20,18 +21,20 @@
 | --- | --- | --- |
 | HTTP trang chủ | 200 | 200 |
 | Canonical trong HTML | `https://www.kienthucdonghoco.vn/` | `https://www.kienthucdonghoco.vn/` |
-| Script insights trong HTML xuất bản | **Không có** | **Không có** |
-| Request Analytics khi tải trang (1 lượt trình duyệt/domain, chờ 8s) | **0 request** | **0 request** |
+| Script insights trong HTML xuất bản | **Không phát hiện theo phép tìm chuỗi** (mục đính chính) | **Không phát hiện theo phép tìm chuỗi** (mục đính chính) |
+| Request Analytics khi tải trang (1 lượt trình duyệt/domain, chờ 8s) | **0 request trong tập lọc** | **0 request trong tập lọc** |
 | Endpoint `/_vercel/insights/script.js` | **HTTP 200** (~3,1 KB) | **HTTP 200** (~3,1 KB) |
 | Lỗi console trong lượt kiểm | 1 (không liên quan Analytics) | 0 |
 
 Bằng chứng: `production-lot-2-ket-qua.json` (kết quả lượt kiểm sâu cả hai domain), `kiem-runtime-ket-qua.json` (lượt đầu), script `pw-production-sau.js`. Giới hạn: mỗi domain mới 1 lượt trình duyệt — số lượt kiểm nhỏ, kết quả "0 request" là **chưa quan sát** trong các lượt đó, không khẳng định trạng thái mọi lượt truy cập.
 
-**Kết luận hiện trạng (theo đúng bằng chứng):** component `<Analytics />` có trong mã nhưng script insights **không xuất hiện trong HTML production của cả hai domain** và **chưa quan sát thấy beacon nào** trong các lượt kiểm. Endpoint trả 200 chỉ chứng minh nền Vercel sẵn sàng serve, **không chứng minh Analytics đang thu dữ liệu**; không có script/request trong các lượt kiểm chỉ là **chưa quan sát** — không khẳng định nguyên nhân hay trạng thái cấu hình dashboard. Nguyên nhân script không được chèn cần điều tra riêng — **ngoài phạm vi G03 (không sửa mã/cấu hình)**.
+**Đính chính phương pháp (E3, 17/10/2026 — theo đúng văn bản chỉ dẫn):** phép kiểm ngày 12/09 chỉ tìm một số chuỗi tên đường dẫn nên có thể bỏ sót tài nguyên/request Analytics. Quan sát được ghi trong tài liệu 19/09 (`docs/huong-dan-bat-do-luong-2026-09-19.md`, đính chính H01) cho thấy hạn chế của phương pháp này; **không đủ để kết luận Analytics ngày 12/09 có hoặc không hoạt động, cũng không xác lập nguyên nhân của kết quả 0**. Endpoint HTTP 200 không thay thế bằng chứng dashboard; dữ liệu Speed Insights không thay thế Web Analytics.
+
+**Kết luận hiện trạng (theo đúng bằng chứng; đã đính chính E3):** component `<Analytics />` có trong mã; phép kiểm ngày 12/09 chỉ tìm một số chuỗi tên đường dẫn nên có thể bỏ sót tài nguyên/request Analytics — kết quả ghi trong bảng trên là "không phát hiện theo phép tìm chuỗi" và "0 request trong tập lọc", **không phải** kiểm kê đầy đủ. Quan sát được ghi trong tài liệu 19/09 cho thấy hạn chế của phương pháp này; không đủ để kết luận Analytics ngày 12/09 có hoặc không hoạt động, cũng không xác lập nguyên nhân của kết quả 0. Endpoint trả 200 chỉ chứng minh nền Vercel sẵn sàng serve, **không chứng minh Analytics đang thu dữ liệu**; đối chiếu dashboard cần làm riêng (ngoài phạm vi G03 — không sửa mã/cấu hình).
 
 ### 1.3. Runtime preview cục bộ
 
-`/_vercel/insights/script.js` → **HTTP 404** (endpoint chỉ tồn tại trên Vercel) — hành vi đúng của môi trường cục bộ, không phải lỗi; đồng thời xác nhận preview không gửi dữ liệu gì.
+`/_vercel/insights/script.js` → **HTTP 404** (endpoint chỉ tồn tại trên Vercel) — hành vi đúng của môi trường cục bộ, không phải lỗi. *(Đính chính E3: không suy 404 này thành xác nhận "preview không gửi dữ liệu gì" — phép kiểm chỉ tìm theo chuỗi tên đường dẫn, có thể bỏ sót.)*
 
 ## 2. Blocker quyền đọc dashboard (không vượt, không đăng nhập)
 
@@ -45,7 +48,7 @@ Kiểm lúc 08:03 UTC 12/09/2026 bằng trình duyệt tự động với contex
 
 Bằng chứng: `kiem-runtime-ket-qua.json` (ghi URL yêu cầu/URL cuối/tiêu đề; đã che tham số truy vấn).
 
-→ **Search Console, Google Analytics, Vercel Analytics dashboard: CHƯA QUAN SÁT ĐƯỢC dữ liệu** trong gói này (blocker: không có phiên đăng nhập trong môi trường GLM). Không suy "traffic bằng 0" — chỉ ghi "chưa có dữ liệu được đọc". Việc đọc số từ dashboard cần anh Vinh cung cấp quyền phiên (hoặc GPT Work đọc và tổng hợp) — tách khỏi G03.
+→ **Search Console, Google Analytics, Vercel Analytics dashboard: CHƯA QUAN SÁT ĐƯỢC dữ liệu** trong gói này (blocker: không có phiên đăng nhập trong môi trường GLM). Không suy "traffic bằng 0" — chỉ ghi "chưa có dữ liệu được đọc". Việc đọc số từ dashboard cần anh Vinh cung cấp quyền phiên (hoặc GPT Work đọc và tổng hợp) — tách khỏi G03. **Ghi chú E3:** blocker này là tình trạng phiên của môi trường GLM ngày 12/09/2026 — không suy quyền truy cập hiện nay và không suy lượng truy cập từ nó.
 
 ## 3. Đo tìm kiếm trên bản build cục bộ
 
@@ -58,14 +61,14 @@ Bằng chứng: `kiem-runtime-ket-qua.json` (ghi URL yêu cầu/URL cuối/tiêu
 
 Bằng chứng: `do-tim-kiem-ket-qua.json` (ghi thời điểm từng phép), script `pw-do-tim-kiem.js`.
 
-Đọc kết quả đúng mức: lần tải đầu chậm hơn lần sau ở cả hai ngôn ngữ (phù hợp cơ chế Pagefind nạp index theo nhu cầu). **Không quan sát thấy lượt nào không ra kết quả trong 6 phép** — không kết luận về "lỗi chậm ở một mốc đơn lẻ" vì không có bằng chứng lặp lại; và các số này chỉ áp dụng cho môi trường preview cục bộ (production CDN có thể khác — chưa đo). Không thay đổi Pagefind/UI/kiến trúc tìm kiếm.
+Đọc kết quả đúng mức: lần tải đầu chậm hơn lần sau ở cả hai ngôn ngữ (phù hợp cơ chế Pagefind nạp index theo nhu cầu). **Không quan sát thấy lượt nào không ra kết quả trong 6 phép** — không kết luận về "lỗi chậm ở một mốc đơn lẻ" vì không có bằng chứng lặp lại; và các số này chỉ áp dụng cho môi trường preview cục bộ (production CDN có thể khác — chưa đo). Không thay đổi Pagefind/UI/kiến trúc tìm kiếm. **Ghi chú E3:** các số 452/326 ms và các lượt tiếp theo là **phép đo preview lịch sử ngày 12/09/2026**, không phải hiệu năng production hiện tại.
 
 ## 4. Bảng KPI trước/sau — khung đo (chưa có số "trước")
 
 | KPI | Nguồn dữ liệu hiện có | Đo được ngay? | Giới hạn | Cách đo đề nghị |
 | --- | --- | --- | --- | --- |
 | Lượt nhấp tự nhiên, hiển thị, CTR theo truy vấn/trang đích | Google Search Console | **Không** — blocker đăng nhập (mục 2) | Chỉ GSC có dữ liệu tự nhiên | GPT Work/anh Vinh đọc dashboard Performance, xuất tổng hợp 28 ngày (truy vấn, trang đích, thiết bị, quốc gia) — mức tổng hợp |
-| Thiết bị/ngôn ngữ người xem | Vercel Analytics | **Không** — beacon không phát (mục 1.2) | Cần Analytics hoạt động thật trước | Xác nhận script được nhúng (mục 6) rồi đọc dashboard theo kỳ 28 ngày |
+| Thiết bị/ngôn ngữ người xem | Vercel Analytics | **Không** — 0 request trong tập lọc (mục 1.2, đính chính E3); không đủ kết luận Analytics có hoặc không hoạt động | Cần xác nhận Analytics hoạt động thật trước (đối chiếu dashboard — ngoài G03) | Xác nhận script được nhúng (mục 6) rồi đọc dashboard theo kỳ 28 ngày |
 | Chuyển từ Lịch sử sang bài Cơ chế | Chưa có kênh dữ liệu hành vi | **Không** — không event click nào tồn tại | Pagefind/timeline đều client | Event tổng hợp đếm click "Đọc chi tiết" trên thẻ timeline (danh sách đề nghị E2) |
 | Sử dụng tương tác (tìm kiếm, lọc lớp, infographic) | Pagefind chạy client, không telemetry; event `pagefind_error` trong mã chỉ phát khi lỗi — không đủ cho KPI sử dụng | **Không** | Truy vấn không rời máy — không có số | Event tổng hợp đếm lượt tìm kiếm (danh sách đề nghị E1) + đếm mở infographic (E3) |
 | Người đọc quay lại | Cần nền tảng có phân tách phiên/người | **Không** — chưa có nền tảng hoạt động | Rủi ro riêng tư cao nhất trong các KPI | Vercel Analytics audience (nếu bật) — ghi rõ mức tổng hợp; không dùng định danh cá nhân |
@@ -115,4 +118,14 @@ Tổng: 8 tệp mới, 0 tệp sửa.
 
 ---
 
-G03 đã thực hiện xong phép kiểm kê/đo trong phạm vi quyền và tự kiểm trong phạm vi báo cáo; chưa commit, chưa push, chưa deploy. Dừng chờ GPT Work nghiệm thu độc lập. Chưa chuyển G04.
+G03 đã thực hiện xong phép kiểm kê/đo trong phạm vi quyền và tự kiểm trong phạm vi báo cáo; chưa commit, chưa push, chưa deploy. Dừng chờ GPT Work nghiệm thu độc lập. Chưa chuyển G04. *(Đoạn này là trạng thái lịch sử 12/09/2026 — xem cập nhật hiện hành ở đầu trang và phụ lục 9.)*
+
+## 9. Phụ lục rà soát và đính chính E3 (17/10/2026)
+
+Rà soát theo câu lệnh E3 (TXN-20261017-70, danh mục DHC-HOAN-THIEN-20261011):
+
+- **Trạng thái phát hành:** tám tệp của gói — biên bản này và 7 tệp `output/g03-audience-search-baseline/` — **đã được Git theo dõi và phát hành trong commit `234fa2644faa3e2b6ab3b2721a3409b3c4d90123`** ("docs(analytics): record audience and search baseline"). Bảy tệp bằng chứng giữ nguyên byte — không phát hành lại.
+- **Phân biệt nền đo và commit lưu hồ sơ:** mọi phép đo trong báo cáo này chạy trên **nền `02309e6`** (main 12/09/2026); commit `234fa26` chỉ là nơi **lưu hồ sơ** — không phải nền đo, hai mốc không trùng nhau.
+- **Đính chính phương pháp Analytics:** phép kiểm ngày 12/09 chỉ tìm một số chuỗi tên đường dẫn nên có thể bỏ sót tài nguyên/request Analytics. Quan sát được ghi trong tài liệu 19/09 (`docs/huong-dan-bat-do-luong-2026-09-19.md`, đính chính H01) cho thấy hạn chế của phương pháp này; không đủ để kết luận Analytics ngày 12/09 có hoặc không hoạt động, cũng không xác lập nguyên nhân của kết quả 0. Kết quả cũ "0 request / không có script insights" đọc đúng mức là "0 request trong tập lọc" / "không phát hiện theo phép tìm chuỗi" — không phải kiểm kê đầy đủ; không suy nguyên nhân cấu hình từ phép lọc. Endpoint HTTP 200 không thay thế bằng chứng dashboard; dữ liệu Speed Insights không thay thế Web Analytics.
+- **Nhãn lịch sử:** các câu "chưa commit / chờ nghiệm thu / chưa chuyển G04" và số đo tìm kiếm 452/326 ms là dữ liệu ngày 12/09/2026 — phép đo preview lịch sử, không phải hiệu năng production hiện tại; blocker đăng nhập là tình trạng phiên GLM ngày 12/09, không suy quyền hiện nay.
+- **Kết luận khép (đề nghị theo câu lệnh E3):** *"Khép hồ sơ kiểm kê/đo lịch sử G03 sau đính chính E3; chưa xác lập bộ KPI người xem đầy đủ hay chứng minh hiệu quả 28 ngày."* Việc đo Search Console khoảng 29/10 vẫn thuộc gói A1; E3 không cài event, không đọc dashboard mới, không yêu cầu lập chỉ mục, không mở lại A1.

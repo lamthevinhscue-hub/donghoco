@@ -292,6 +292,8 @@ Các đợt này **chạy xen với giai đoạn 3**, không chờ giai đoạn 
 | **Q9** | Có đầu tư mô hình 3D chuyên nghiệp (V4) không, ngân sách bao nhiêu | Quyết sau khi xem V1 và V3 | Sau đợt 2 |
 | **Q10** | Tên và vị trí chuyên mục "Ghi chép nhà sưu tầm" | Mục riêng, ghi rõ là trải nghiệm cá nhân, không trộn với phần kiến thức có dẫn nguồn | Trước G1 |
 
+> **Trạng thái hiện hành V4 và Q9 (E3, 17/10/2026):** V4 — Hoãn theo kế hoạch hoàn thiện 11/10/2026; chưa duyệt ngân sách, nhà cung cấp hay quyền sử dụng; chỉ mở lại bằng quyết định riêng của anh Vinh. Pha khảo sát 08/10/2026 (theo báo cáo điều phối TXN-20261017-70, chưa đối chiếu được hồ sơ khảo sát trong kho) là khảo sát lịch sử — con số "thuê freelance, trần 3.000 USD, 4-6 tuần" là đề xuất, không phải báo giá hay ngân sách đã được xác minh/duyệt. V3 đã hoàn tác bằng commit `77ae889` — điều đó không đồng nghĩa V4 được triển khai. Q9 — chưa mở.
+
 ---
 
 # GHI CHÚ VỀ GIỚI HẠN

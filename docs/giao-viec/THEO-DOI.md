@@ -37,7 +37,7 @@ Trạng thái dùng: Chưa mở / Đang chuẩn bị / Đang thi công / Chờ n
 | B3 (đợt 1–2) | Kiến thức video vào bài | Chưa mở | |
 | B4 | Vòng đóng kiểm chứng hằng tuần | Chưa mở | |
 | D10 | Nhật ký sai số dễ tìm | Chưa mở | |
-| E3 | Khép việc treo (G03, V4, trang 374 KB) | Chưa mở | |
+| E3 | Khép việc treo (G03, V4, trang 374 KB) | **Chờ duyệt phạm vi phát hành** (vòng thi công) | [Biên bản E3](../nghiem-thu/E3-khep-viec-treo-2026-10-17.md) | **TXN-20261017-70 câu lệnh khép hồ sơ** | — | — | G03: 8 tệp xác minh đã phát hành trong `234fa26` (nền đo `02309e6` — hai mốc khác nhau); đính chính Analytics: "Phép tìm chuỗi có thể bỏ sót; không đủ kết luận Analytics ngày 12/09 có hoặc không hoạt động, cũng không xác lập nguyên nhân kết quả 0" (đối chiếu H01 huong-dan-bat-do-luong-2026-09-19); số 452/326 ms ghi nhãn preview lịch sử; blocker là phiên GLM 12/09. V4: ghi hoãn trong ke-hoach 26/09 + chú giải Q9 chưa mở; khảo sát 08/10 là lịch sử, Khảo sát theo báo cáo điều phối TXN-20261017-70, chưa đối chiếu được hồ sơ; không coi con số đề xuất là báo giá hay ngân sách đã xác minh/duyệt. 374 KB: nhãn số lịch sử (ra-soat 25/09 ~370KB); đo mới 17/10 lich-su/index.html 385,3 kB thô nặng nhất — không suy trang chậm; đề nghị khép: "Khép hồ sơ kiểm kê/đo lịch sử G03; chưa xác lập bộ KPI người xem đầy đủ hay chứng minh hiệu quả 28 ngày". Kiểm nội bộ S1-S12 (them S10 van ban Analytics, S11 cau truc bang qua parser, S12 nguon V4; thu am tinh tren ban sao); 7 tệp G03 nguyên SHA; chỉ 5 tệp docs |
 | D4 (đợt 1) | Dịch 8–10 thương hiệu đầu | Chưa mở | Sau B1 |
 
 ## Đợt 3 — 2/11 đến 22/11/2026

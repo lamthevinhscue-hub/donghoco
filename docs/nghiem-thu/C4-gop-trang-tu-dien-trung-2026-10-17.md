@@ -152,3 +152,21 @@ GPT Work duyệt lại diff vòng 3 (`apply-c4-diff.mjs`; đối chứng mục 3
 - Trình GPT Work xác nhận kết quả áp (TXN-20261017-66) → chờ phép phát hành.
 
 **Đồng bộ số đo theo phán TXN-66 (GPT Work):** astro check trên candidate `0 lỗi / 0 cảnh báo / 7 hints` — hint tăng thêm so với lượt sandbox là biến `legacyHtml` không còn dùng trong R7 regulating-cluster; theo phán GPT Work **không phải lỗi chức năng, không cần sửa mã ở lượt này**.
+
+## A7. Phát hành — khuôn E (theo phép TXN-66 của GPT Work)
+
+- Đồng bộ biên bản trước stage: astro check 0 lỗi / 0 cảnh báo / **7 hints** (hint thêm = biến `legacyHtml` không dùng trong R7 — phán GPT Work: không phải lỗi chức năng, không sửa mã lượt này).
+- THEO-DOI stage **blob riêng trên nền HEAD + chỉ hàng C4** (các hàng khác của các vòng khác giữ trong working tree, không stage).
+- Staged **đúng 14 đường dẫn** theo phạm vi được phép; remote còn `0702978` trước commit.
+- **Commit `0397f12e625b77cf814884ce40fcd4beeb78d93c`** — "feat(glossary): redirect duplicate escapement page to escape-wheel" — push main thành công (`0702978..0397f12`), ls-remote xác nhận.
+
+## A8. Kiểm production sau triển khai — ĐẠT
+
+| Kiểm | Kết quả |
+|---|---|
+| `GET /en/glossary/escapement` | **308** → `/en/glossary/escape-wheel/?kt=1` |
+| `GET /en/glossary/escapement/` | **308** → `/en/glossary/escape-wheel/?kt=1` |
+| `GET /en/glossary/escape-wheel/` | **200** |
+| sitemap-0.xml production | 0 alias; có `glossary/escape-wheel/` |
+| hub `/en/glossary/` production (cache-bust) | 0 href alias; **2 href escape-wheel** |
+| Pagefind + trình duyệt production (Chromium, `log-cli/kiem-trinh-duyet-san-xuat.mjs` → `kiem-trinh-duyet-production.json`) | **ĐẠT** — tìm kiếm không trả alias, hub/đích/canonical đúng, 0 console lỗi |

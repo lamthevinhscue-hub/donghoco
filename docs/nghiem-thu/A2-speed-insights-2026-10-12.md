@@ -83,3 +83,17 @@ M1 bỏ dependency → KHÔNG ĐẠT A2-N1; M2 bỏ component → A2-N4; M3 nhâ
 - Bộ thử hiện hành: `output/a2-speed-insights-audit/test-a2-speed-insights.mjs`, sandbox riêng, **11 ca mutation (M1–M10 + M11 một-ca-thống-nhất: bundle tồn tại chỉ chứa chú thích khởi tạo, gỡ script inline, nối bundle vào HTML — cả ba điều kiện xác minh trước khi chạy; kèm lượt đối chứng bundle CÓ init hợp lệ phải exit 0)** + lượt sạch trước/sau trên sandbox — 11/11 ĐẠT + hoàn nguyên SHA từng ca; bộ thử tự-thất-bại khi thay checker bằng bản bỏ bóc-chú-thích-bundle (đã thử theo yêu cầu GPT Work).
 - Hints: 5 (đo thật sau khi bộ thử chuyển ra output/).
 - Vercel: donghoco1, team Hobby, Production "No events collected" (theo GPT Work đọc 12/10); dashboard nhận dữ liệu là kiểm sau phát hành.
+
+## 12. Phụ lục 13/10 — kiểm trang production tải script (phần GLM của tiêu chí khép, mục 6)
+
+A2 đã phát hành trong `a6e5b8c` và production hiện hành là `a837e66`. Kiểm bằng curl (-L -m 20) ngày 13/10/2026, nhật ký thô `output/a2-speed-insights-audit/kiem-production-13-10.txt`. Chú ý mẫu đối chiếu: bản minify dùng **backtick** cho tên custom element (như checker dist đã ghi), mẫu nháy đơn sẽ đếm sai 0.
+
+| Trang | `<vercel-speed-insights>` | Script khởi tạo inline (`customElements.define(`vercel-speed-insights`)`) |
+|---|---|---|
+| `/` | 1 | 1 |
+| `/co-che` | 1 | 1 |
+| `/en/mechanisms/escapement/` | 1 | 1 |
+
+- Element mang `data-pathname` đúng từng trang (`/` trên trang chủ); script `type="module"` inline ngay sau element, chứa `endpoint: …/vitals` và `scriptSrc`.
+- `/_vercel/speed-insights/script.js` trên production: HTTP 200, `application/javascript; charset=utf-8`, 12.567 byte (chỉ GET kiểm endpoint phục vụ — **không gửi beacon thử** để không làm bẩn dữ liệu đo thật).
+- **Chưa xác minh:** request đo thật từ trình duyệt người xem và dashboard nhận dữ liệu — phần GPT Work theo mục 6 (đọc dashboard khi có lượt).

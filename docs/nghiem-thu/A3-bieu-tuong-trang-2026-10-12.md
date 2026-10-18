@@ -99,3 +99,18 @@ Mỗi ca: sao lưu + SHA-256 → mutate → chạy checker → tự xác minh ex
 - **Bộ thử: 13/13 mutation ĐẠT** (M1-M13) + hoàn nguyên SHA từng ca + 2/2 lượt sạch (trước/sau trên sandbox).
 - **Build:** exit 0, 361 trang, 0 lỗi/0 cảnh báo/**6 hints** (5 trước A3 + 1 hint biến `info` không dùng trong checker A3 — không sửa mã để bỏ hint).
 - **Vercel:** donghoco1, team Hobby, Production "No events collected" (GPT Work đọc 12/10) — dashboard nhận dữ liệu là kiểm sau phát hành.
+
+## 12. Phụ lục 13/10 — kiểm production đối chiếu hash (A3 đã phát hành trong `a837e66`)
+
+Kiểm bằng curl ngày 13/10/2026 trên production hiện hành `a837e66`; nhật ký thô và bản tải về tại `output/a3-icons-audit/kiem-production-13-10.txt`, `prod-*`.
+
+| Tài sản | HTTP / Content-Type | SHA-256 production vs `public/` |
+|---|---|---|
+| `/favicon.ico` | 200 · image/vnd.microsoft.icon (3.685 B) | khớp `5b8a6a5b…` |
+| `/favicon-32x32.png` | 200 · image/png (1.132 B) | khớp `754288d3…` |
+| `/apple-touch-icon.png` | 200 · image/png (6.236 B) | khớp `42f7da92…` |
+| `/favicon.svg` | 200 · image/svg+xml (887 B) | khớp `be34cebf…` (đúng hash khóa N0) |
+
+Head trang chủ trên production đủ 4 thẻ, đúng thứ tự attribute rel→type→sizes→href như BaseLayout: `<link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico">`, `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">`, `<link rel="icon" type="image/svg+xml" href="/favicon.svg">`, `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`.
+
+Bốn tài sản trên production byte-match repo — phần GLM của kiểm trang thật đã có; nghiệm thu chốt và khép A3 thuộc GPT Work.

@@ -66,3 +66,12 @@ Chưa cần sửa mã/checker cho Linux, chưa thêm dependency/secret, chưa đ
 ## 6. Đề xuất
 
 GPT Work nghiệm thu cấu hình (biên bản + audit `output/c5-github-actions-audit/`) → duyệt phạm vi phát hành (ci.yml + biên bản + THEO-DOI hàng C5) theo khuôn E → sau push, GPT Work đối chiếu **run thật xanh trên GitHub** (workflow_dispatch hoặc push sau phát hành) → mới đánh dấu C5 hoàn tất. Nếu run đỏ: dừng báo, không tự đẩy bản sửa khi chưa có phép.
+
+## 7. Phát hành + run thật trên GitHub (khuôn E sau phép TXN-68)
+
+- THEO-DOI stage **blob riêng = HEAD + chỉ hàng C5**; staged đúng **3 tệp** (ci.yml, biên bản C5, THEO-DOI); remote còn `0397f12` trước commit; output/ không phát hành.
+- **Commit `0e28e79742e69f937414b138b2eaa29ed39b0bf5`** — "feat(ci): add check and build workflow for push and PR" — push main (`0397f12..0e28e79`). Push chạm ci.yml (ngoài paths-ignore) → **run CI tự tạo ngay**.
+- **Run thật trên GitHub: `CI` | head `0e28e79` | completed | success** — https://github.com/lamthevinhscue-hub/donghoco/actions/runs/39017564739
+- Job "Check and build" — **toàn bộ bước success trên Linux (ubuntu-24.04)**: Set up job, Checkout, Setup Node, Tool versions, Install dependencies, **Check**, **Build**, Post Setup Node, Post Checkout, Complete job.
+- Linux chạy xanh đã được chứng minh bởi run thật — không còn là giới hạn của mục 3c.
+- Trạng thái gói: "Đã phát hành workflow — chờ xác nhận CI" → run xanh đạt, trình GPT Work xác nhận khép.

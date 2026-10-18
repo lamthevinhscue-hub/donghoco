@@ -98,3 +98,10 @@ GPT Work phát hiện tệp `run-kiem-a4.cjs` trên đĩa vẫn là bản v1 (l�
 4. **Hồ sơ đồng bộ:** mục 3 bảng kiểm trình duyệt gắn nhãn LỊCH SỬ v1 (mục này); mục 6 ghi kết quả chạy mới từ tệp thật; mục 1 sửa đúng thứ tự build C1 → A4 → A3; mục 4 liệt kê đúng 8 tệp phát hành. Nhãn bộ thử đúng **9 mutation + 2 lượt sạch + 2 lượt đối chứng + 1 lượt xác minh toàn bộ = 14/14**, các lượt đối chứng hoàn nguyên **trước** lượt sạch cuối.
 
 Không build lại (mã phát hành không đổi; build độc lập TXN-38 của GPT Work exit 0 vẫn áp dụng).
+
+## 8. Phát hành và kiểm production (khép gói)
+
+- **Commit `1aaf8e99124351e1ee1d68191843e98b7d5f9403`** "feat(home): add vi/en meta description for homepages" — push main `f526a61..1aaf8e9`, đối chiếu ls-remote khớp. Đúng 8 tệp theo phép; THEO-DOI stage dạng blob riêng chỉ THAY hàng A4 trên nền HEAD (dòng "Hoàn tất", ghi "commit A4 này" thay self-hash).
+- **Kiểm production sau deploy (15/10/2026):** `/` meta description = câu VI nguyên văn 137 ký tự; `/en/` = câu EN nguyên văn 146 ký tự — đúng hai câu đã duyệt.
+- **Sổ điều phối:** record-acceptance A4 = `1aaf8e9` pushed=true; mark-package A4 da_hoan_tat (đi đủ chuỗi qua chờ nghiệm thu). Giao dịch báo cáo sau phát hành không phát sinh (pre-flight chặn đúng quy tắc gói hoàn tất).
+- Google có hiển thị nguyên văn hai câu hay không do Google quyết — không cam kết (theo câu lệnh).

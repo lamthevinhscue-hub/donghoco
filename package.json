@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/markdown-remark": "^7.3.2",
     "autoprefixer": "^10.4.20",
     "tailwindcss": "^3.4.17"
   },

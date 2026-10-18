@@ -108,3 +108,11 @@ Ghi chú kế thừa: `npm run check` và `npm run build` đã chạy ngày 17/1
 - Vòng 2 (17/10/2026): sửa tối hẹp theo phán tái nghiệm TXN-20261017-88 (mục 3b) — trình lần 2 (TXN-89). Kết quả kiểm vòng 2 về trình duyệt chỉ còn giá trị lịch sử: 176/176 với cơ chế miễn abort theo tên endpoint + chuỗi lỗi — bị bác ở tái nghiệm lần 2; số "abortNenTangDaMien 24+24" trong biên bản vòng 2 sai so với JSON thực (48 mỗi endpoint).
 - Vòng 3 (17/10/2026): tái thiết bằng chứng trình duyệt theo phán TXN-20261017-89 (mục 3c) — trình lần 3 (TXN-90). Phán: nguyên tắc bằng chứng 404 được chấp nhận; còn 3 điểm siết (nhận endpoint bằng URL API, console so status === 404, await Promise) + 2 thiếu sót cũ (tự kiểm switcher gán sẵn, cắt thông báo/URL); số 183/183–288 sự kiện của vòng 3 chỉ còn giá trị lịch sử.
 - Vòng 4 (17/10/2026): siết phân loại theo URL/trạng thái thật (mục 3d) — trình lần 4, dừng chờ tái nghiệm; chưa phát hành.
+
+## 7. Khép phát hành (bổ sung theo mục 8 câu lệnh đợt 3, TXN-20261017-92)
+
+- **Tái nghiệm lần 5 — TXN-20261017-91 (17/10/2026): ĐẠT.** GPT Work cho phép GLM commit và push main đúng 8 tệp (4 bài gmt/lume VI/EN + checker đợt 2 + CAN-KIEM phần 68–71 + biên bản này + THEO-DOI hàng B3), kèm 2 chỉnh hồ sơ trước stage (tiêu đề cột "Kết quả hiện hành (vòng 4)"; đồng bộ trạng thái đợt 2 ĐẠT — đợt 3 chưa làm).
+- **Phát hành (18/10/2026):** commit `b8785cd5fd63ce46c5dbbf9838b2ba3eb148e8c6` — "feat(content): add sourced video knowledge to gmt and lume articles" (GPT Work không kèm message trong phán → GLM tự đặt, báo minh bạch); push main `621600d..b8785cd` không force; staged đúng 8 đường dẫn, nền HEAD 621600d.
+- **Production sau deploy:** 4 route (`/co-che/gmt/`, `/co-che/da-quang/`, `/en/mechanisms/gmt/`, `/en/mechanisms/lume/`) HTTP 200; nội dung mới có mặt; các cụm đã bỏ không còn; video đúng ngôn ngữ và switcher đúng cặp.
+- **GPT Work xác nhận khép** (TXN-20261017-92, kèm câu lệnh đợt 3): "Commit đúng 8 tệp, đúng nền 621600d; remote khớp. Tôi đã kiểm bốn trang production… Message commit phù hợp phạm vi."
+- Ghi chú thời gian: việc commit/push/kiểm production thực hiện 18/10/2026; các số liệu kiểm trong mục 4 là chạy ngày 17/10/2026 (không ghi thành chạy mới).

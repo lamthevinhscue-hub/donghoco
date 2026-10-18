@@ -141,9 +141,12 @@ console.log('— Lớp nguồn (src/) —');
     /interactive: false/.test(en) &&
     /^principle_video:[ \t]*"\/videos\/day-toc-banh-lac-nguyen-ly-en\.mp4"$/m.test(en);
   const enSources = (en.match(/hautehorlogerie\.org\/en\/watches-and-culture\/watchmaking-knowledge\/encyclopedia\//g) ?? []).length === 3;
-  const enUpdated = /updated: "2026-09-12"/.test(en);
+  // B3 đợt 3 (TXN-20261017-92): bài được bổ sung kiến thức video kèm nguồn →
+  // updated EN chuyển sang ngày thi công 18/10/2026. Chỉ điều kiện ngày này
+  // được đổi theo phép của GPT Work; các kiểm còn lại của G4-3 giữ nguyên.
+  const enUpdated = /updated: "2026-10-18"/.test(en);
   if (viNoIntro && viFlags && viSources && enFlags && enSources && enUpdated) {
-    ok('G4-3 Markdown: VI bỏ intro lặp + giữ 3 nguồn FHH; hai bài hai cờ false + principle_video (video thay infographic 02/10), EN đủ 3 nguồn, cập nhật 12/09');
+    ok('G4-3 Markdown: VI bỏ intro lặp + giữ 3 nguồn FHH; hai bài hai cờ false + principle_video (video thay infographic 02/10), EN đủ 3 nguồn, cập nhật 18/10');
   } else {
     fail(`G4-3 Markdown lệch (viNoIntro=${viNoIntro}, viFlags=${viFlags}, viSources=${viSources}, enFlags=${enFlags}, enSources=${enSources}, enUpdated=${enUpdated})`);
   }

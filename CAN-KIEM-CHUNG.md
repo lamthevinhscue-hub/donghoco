@@ -1359,3 +1359,11 @@ Cả 23 bài dưới đây đã được điền nguồn qua Gói D (17 bài ngu
 - **Nội dung vấn đề:** mục từ FHH "Swiss T 25" mô tả các ký hiệu T trong khung ISO 3157. Chưa kiểm tra trực tiếp tình trạng hiện hành hay thu hồi của ISO 3157 trên trang iso.org — bài chỉ ghi "FHH ghi khung quy chiếu là ISO 3157", không khẳng định chuẩn còn hiệu lực.
 - **Nguồn còn thiếu:** trang chuẩn ISO 3157 còn hiệu lực trên iso.org.
 - **Trạng thái:** CHỜ NGUỒN (17/10/2026).
+
+## 72. Pha cấp xung của bộ thoát "mỗi lần bánh lắc qua đúng điểm cân bằng" — HOÃN
+
+- **Vị trí:** dự định đưa vào `src/content/coChe/vi/day-toc-banh-lac.md` và `src/content/coChe/en/balance-and-hairspring.md` (gói B3 đợt 3, TXN-20261017-92).
+- **Nội dung vấn đề:** video nguyên lý (khảo sát `output/video-day-toc/GHI-CHU.md`) nói bộ thoát "cấp xung lực mỗi lần qua điểm cân bằng". Đây là mệnh đề về PHA cấp xung (nơi cấp so với vị trí bánh lắc) — chưa tra được nguồn trực tiếp nói về đồng hồ; nguồn OpenStax 15.5 chỉ dùng để nói dao động tắt dần và cấp năng lượng nói chung, không nói pha cấp xung.
+- **Quyết định đợt 3:** HOÃN theo câu lệnh — bài chỉ viết "bộ thoát cấp năng lượng để duy trì dao động" (FHH Escapement), không viết mệnh đề pha. Checker đợt 3 cấm cụm "điểm cân bằng"/"equilibrium position" trong 2 bài.
+- **Nguồn còn thiếu:** tài liệu kỹ thuật nói trực tiếp về pha cấp xung của bộ thoát so với vị trí cân bằng bánh lắc (ví dụ tài liệu đào tạo chế tác hoặc sách cơ học đồng hồ có trích nguồn).
+- **Trạng thái:** CHỜ NGUỒN (18/10/2026).
